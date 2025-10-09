@@ -68,6 +68,23 @@ type ServiceItem = {
   tagline: string
 }
 
+type ProjectItem = {
+  id: string
+  title: string
+  icon: ReactNode
+  image: string
+}
+
+type AboutTileConfig = {
+  id: string
+  image: string
+  alt: string
+  drift: number
+  overlay: ReactNode
+  overlayDelay?: number
+  colSpan?: number
+}
+
 const servicesData: ServiceItem[] = [
   {
     id: 'prototypy',
@@ -124,21 +141,6 @@ const projectsData: ProjectItem[] = [
 
 const aboutTilesData: AboutTileConfig[] = [
   {
-    id: 'tile-gear',
-    image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=400&h=400&fit=crop&crop=center',
-    alt: 'Operator nadzorujący linię metalizacyjną',
-    drift: -4,
-    overlay: <Gear className="w-12 h-12 text-white/80" />
-  },
-  {
-    id: 'tile-robot',
-    image: 'https://images.unsplash.com/photo-1611289033534-37a7d2ad029f?w=400&h=400&fit=crop&crop=center',
-    alt: 'Zrobotyzowane ramię w procesie produkcyjnym',
-    drift: 2,
-    overlay: <Robot className="w-12 h-12 text-white/80" />,
-    overlayDelay: 0.2
-  },
-  {
     id: 'tile-lab',
     image: 'https://images.unsplash.com/photo-1581092916376-0239b9349155?w=400&h=400&fit=crop&crop=center',
     alt: 'Naukowiec w laboratorium badawczym',
@@ -156,16 +158,16 @@ const aboutTilesData: AboutTileConfig[] = [
   },
   {
     id: 'tile-factory',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=400&fit=crop&crop=center',
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1000&h=600&fit=crop&crop=center',
     alt: 'Wnętrze hali produkcyjnej STANIAX',
     drift: 5,
     overlay: (
       <div className="text-center text-white">
-        <Factory className="w-12 h-12 mx-auto mb-2 opacity-90" />
-        <p className="text-xs font-bold uppercase tracking-widest">Nowoczesny Park Maszynowy</p>
+        <Factory className="w-16 h-16 mx-auto mb-3 opacity-90" />
+        <p className="text-sm font-bold uppercase tracking-widest">Nowoczesny Park Maszynowy</p>
       </div>
     ),
-    colSpan: 2,
+    colSpan: 3,
     overlayDelay: 0.25
   }
 ]
@@ -184,7 +186,7 @@ function AboutTileMotion({ config, scrollProgress, prefersReducedMotion }: About
       <IndustrialImage
         src={config.image}
         alt={config.alt}
-        className={config.colSpan === 2 ? 'aspect-[2/1] col-span-2' : 'aspect-square'}
+        className={config.colSpan === 3 ? 'aspect-[3/2] col-span-3' : config.colSpan === 2 ? 'aspect-[2/1] col-span-2' : 'aspect-square'}
       >
         {config.overlay}
       </IndustrialImage>
@@ -193,7 +195,7 @@ function AboutTileMotion({ config, scrollProgress, prefersReducedMotion }: About
 
   return (
     <motion.div
-      className={config.colSpan === 2 ? 'col-span-2 aspect-[2/1]' : 'aspect-square'}
+      className={config.colSpan === 3 ? 'col-span-3 aspect-[3/2]' : config.colSpan === 2 ? 'col-span-2 aspect-[2/1]' : 'aspect-square'}
       style={{ y: translateY, willChange: 'transform' }}
     >
       <IndustrialImage src={config.image} alt={config.alt} className="h-full w-full">
@@ -1042,7 +1044,7 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               <div className="lg:col-span-5">
-                <div ref={aboutMosaicRef} className="grid grid-cols-2 gap-4">
+                <div ref={aboutMosaicRef} className="grid grid-cols-3 gap-4">
                   {aboutTilesData.map((tile) => (
                     <AboutTileMotion
                       key={tile.id}
@@ -1146,21 +1148,21 @@ function HomePage() {
                       </div>
                     </div>
                   ) : null}
+                  
+                  <div className="absolute bottom-[30px] left-0 right-0 flex justify-center">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="px-8 py-6 font-semibold uppercase tracking-[0.25em] text-white border-white/60 bg-white/15 backdrop-blur-sm shadow-lg transition-colors hover:bg-white hover:text-slate-950"
+                      onClick={() => navigate('/news')}
+                    >
+                      <span className="flex items-center gap-3">
+                        Pobierz Biuletyn
+                        <ArrowRight className="h-5 w-5" />
+                      </span>
+                    </Button>
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex justify-center mt-[30px]">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="px-8 py-6 font-semibold uppercase tracking-[0.25em] text-white border-white/60 bg-white/15 backdrop-blur-sm shadow-lg transition-colors hover:bg-white hover:text-slate-950"
-                  onClick={() => navigate('/news')}
-                >
-                  <span className="flex items-center gap-3">
-                    Pobierz Biuletyn
-                    <ArrowRight className="h-5 w-5" />
-                  </span>
-                </Button>
               </div>
             </div>
           </div>
