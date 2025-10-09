@@ -38,7 +38,7 @@ const newsSplineUrl =
   import.meta.env.VITE_NEWS_SPLINE_SCENE_URL ?? 'https://prod.spline.design/iK5Y6hn8ReGNIQ1J/scene.splinecode'
 const virtualStudioFallbackSplineUrl =
   import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_URL ??
-  'https://prod.spline.design/liquidmetaltransition-C2l3g14pY8aE4J2XqxxkkGwZ/scene.splinecode'
+  'https://my.spline.design/liquidmetaltransition-C2l3g14pY8aE4J2XqxxkkGwZ/'
 const virtualStudioEmbedUrl =
   import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_EMBED_URL ?? 'undefined'
 
@@ -285,9 +285,9 @@ function HomePage() {
     offset: ['start 90%', 'end 15%']
   })
   const isSplineReady = splineStatus === 'ready'
-  const shouldRenderVirtualStudioSpline = !prefersReducedMotion && hasVirtualStudioSpline && isSplineReady
+  const shouldRenderVirtualStudioEmbed = !prefersReducedMotion && hasVirtualStudioSpline
   const shouldRenderVirtualStudioVideoFallback =
-    !prefersReducedMotion && (!isSplineReady || !hasVirtualStudioSpline)
+    !prefersReducedMotion && !hasVirtualStudioSpline
   const shouldRenderVirtualStudioReducedMotionNotice = prefersReducedMotion
   const shouldRenderNewsSpline = !prefersReducedMotion && hasNewsSpline && isSplineReady
   const shouldRenderNewsVideoFallback =
@@ -366,10 +366,10 @@ function HomePage() {
       }
     } else {
       setSplineStatus('loading')
-      script = document.createElement('script')
+  script = document.createElement('script')
       script.id = scriptId
       script.type = 'module'
-      script.src = 'https://unpkg.com/@splinetool/viewer@1.12.9/build/spline-viewer.js'
+  script.src = 'https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js'
       script.addEventListener('load', handleScriptLoad)
       script.addEventListener('error', handleScriptError)
       document.head.appendChild(script)
@@ -922,10 +922,13 @@ function HomePage() {
           data-theme="dark"
           className="relative isolate overflow-hidden min-h-[100svh]"
         >
-          {shouldRenderVirtualStudioSpline ? (
-            <spline-viewer
-              url={resolvedVirtualStudioUrl}
-              className="absolute inset-0 block h-full w-full"
+          {shouldRenderVirtualStudioEmbed ? (
+            <iframe
+              src={resolvedVirtualStudioUrl}
+              title="Animacja procesu metalizacji STANIAX"
+              className="absolute inset-0 h-full w-full"
+              allow="autoplay; fullscreen"
+              loading="lazy"
             />
           ) : shouldRenderVirtualStudioVideoFallback ? (
             <video
