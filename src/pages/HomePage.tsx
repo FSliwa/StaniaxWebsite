@@ -286,12 +286,10 @@ function HomePage() {
   })
   const isSplineReady = splineStatus === 'ready'
   const shouldRenderVirtualStudioEmbed = !prefersReducedMotion && hasVirtualStudioSpline
-  const shouldRenderVirtualStudioVideoFallback =
-    !prefersReducedMotion && !hasVirtualStudioSpline
+  const shouldRenderVirtualStudioVideoFallback = !prefersReducedMotion && !hasVirtualStudioSpline
   const shouldRenderVirtualStudioReducedMotionNotice = prefersReducedMotion
   const shouldRenderNewsSpline = !prefersReducedMotion && hasNewsSpline && isSplineReady
-  const shouldRenderNewsVideoFallback =
-    !prefersReducedMotion && (!hasNewsSpline || splineStatus !== 'ready')
+  const shouldRenderNewsVideoFallback = !prefersReducedMotion && (!hasNewsSpline || splineStatus !== 'ready')
   const shouldRenderNewsReducedMotionNotice = prefersReducedMotion
 
   useEffect(() => {
