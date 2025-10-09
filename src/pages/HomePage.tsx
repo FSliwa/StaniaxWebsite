@@ -19,7 +19,10 @@ import {
   EnvelopeSimple,
   ArrowUpRight,
   Robot,
-  Flask
+  Flask,
+  Gear,
+  Target,
+  Wrench
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/assets_task_01k73g8bvxfswbv3szr93sty21_task_01k73g8bvxfswbv3szr93sty21_genid_93f1b412-9e3a-4386-b6ae-10efb82263bb_25_10_09_03_29_179123_videos_00000_669473706_source.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
