@@ -184,7 +184,7 @@ function AboutTileMotion({ config, scrollProgress, prefersReducedMotion }: About
       <IndustrialImage
         src={config.image}
         alt={config.alt}
-        className={config.isWide ? 'aspect-square col-span-2' : 'aspect-square'}
+        className={config.colSpan === 2 ? 'aspect-[2/1] col-span-2' : 'aspect-square'}
       >
         {config.overlay}
       </IndustrialImage>
@@ -193,7 +193,7 @@ function AboutTileMotion({ config, scrollProgress, prefersReducedMotion }: About
 
   return (
     <motion.div
-      className={config.isWide ? 'col-span-2 aspect-square' : 'aspect-square'}
+      className={config.colSpan === 2 ? 'col-span-2 aspect-[2/1]' : 'aspect-square'}
       style={{ y: translateY, willChange: 'transform' }}
     >
       <IndustrialImage src={config.image} alt={config.alt} className="h-full w-full">
