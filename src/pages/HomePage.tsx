@@ -10,17 +10,16 @@ import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
 import {
   Factory,
+  ArrowRight,
+  Phone,
+  Trophy,
   Shield,
   Clock,
-  Trophy,
-  Phone,
-  EnvelopeSimple,
   MapPin,
-  ArrowRight,
-  Gear,
-  Wrench,
-  Target,
-  ArrowUpRight
+  EnvelopeSimple,
+  ArrowUpRight,
+  Bot,
+  FlaskConical
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/assets_task_01k73g8bvxfswbv3szr93sty21_task_01k73g8bvxfswbv3szr93sty21_genid_93f1b412-9e3a-4386-b6ae-10efb82263bb_25_10_09_03_29_179123_videos_00000_669473706_source.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
@@ -129,6 +128,22 @@ const aboutTilesData: AboutTileConfig[] = [
     overlay: <Gear className="w-12 h-12 text-white/80" />
   },
   {
+    id: 'tile-robot',
+    image: 'https://images.unsplash.com/photo-1611289033534-37a7d2ad029f?w=400&h=400&fit=crop&crop=center',
+    alt: 'Zrobotyzowane ramię w procesie produkcyjnym',
+    drift: 2,
+    overlay: <Bot className="w-12 h-12 text-white/80" />,
+    overlayDelay: 0.2
+  },
+  {
+    id: 'tile-lab',
+    image: 'https://images.unsplash.com/photo-1581092916376-0239b9349155?w=400&h=400&fit=crop&crop=center',
+    alt: 'Naukowiec w laboratorium badawczym',
+    drift: -3,
+    overlay: <FlaskConical className="w-12 h-12 text-white/80" />,
+    overlayDelay: 0.15
+  },
+  {
     id: 'tile-shield',
     image: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=400&h=400&fit=crop&crop=center',
     alt: 'Kontrola jakości metalowej powierzchni',
@@ -143,12 +158,12 @@ const aboutTilesData: AboutTileConfig[] = [
     drift: 5,
     overlay: (
       <div className="text-center text-white">
-        <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />
-        <p className="text-sm font-bold">Hala Produkcyjna</p>
+        <Factory className="w-12 h-12 mx-auto mb-2 opacity-90" />
+        <p className="text-xs font-bold uppercase tracking-widest">Nowoczesny Park Maszynowy</p>
       </div>
     ),
-    isWide: true,
-    overlayDelay: 0.2
+    colSpan: 2,
+    overlayDelay: 0.25
   }
 ]
 
