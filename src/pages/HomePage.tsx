@@ -274,7 +274,7 @@ function HomePage() {
   const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null)
   const aboutMosaicRef = useRef<HTMLDivElement | null>(null)
   const prefersReducedMotion = useReducedMotion() ?? false
-  const [isSplineViewerReady, setIsSplineViewerReady] = useState(false)
+  const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const resolvedVirtualStudioUrl =
     virtualStudioEmbedUrl && virtualStudioEmbedUrl !== 'undefined'
       ? virtualStudioEmbedUrl
@@ -284,10 +284,15 @@ function HomePage() {
     target: aboutMosaicRef,
     offset: ['start 90%', 'end 15%']
   })
-  const shouldRenderVirtualStudioSpline = !prefersReducedMotion && hasVirtualStudioSpline && isSplineViewerReady
+  const isSplineReady = splineStatus === 'ready'
+  const shouldRenderVirtualStudioSpline = !prefersReducedMotion && hasVirtualStudioSpline && isSplineReady
   const shouldRenderVirtualStudioVideoFallback =
-    !prefersReducedMotion && (!isSplineViewerReady || !hasVirtualStudioSpline)
+    !prefersReducedMotion && (!isSplineReady || !hasVirtualStudioSpline)
   const shouldRenderVirtualStudioReducedMotionNotice = prefersReducedMotion
+  const shouldRenderNewsSpline = !prefersReducedMotion && hasNewsSpline && isSplineReady
+  const shouldRenderNewsVideoFallback =
+    !prefersReducedMotion && (!hasNewsSpline || splineStatus !== 'ready')
+  const shouldRenderNewsReducedMotionNotice = prefersReducedMotion
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -310,63 +315,70 @@ function HomePage() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const markViewerReady = () => {
-      if (typeof window === 'undefined' || !('customElements' in window)) return
+    let isMounted = true
+    const scriptId = 'spline-viewer-script'
+    const markReady = () => {
+      if (!isMounted) return
+      setSplineStatus('ready')
+    }
+    const markError = () => {
+      if (!isMounted) return
+      setSplineStatus('error')
+      toast.error('Nie udało się wczytać animacji 3D')
+    }
+    const waitForDefinition = () => {
+      if (!('customElements' in window)) {
+        markError()
+        return
+      }
+      setSplineStatus((prev) => (prev === 'ready' ? prev : 'loading'))
       window.customElements
         .whenDefined('spline-viewer')
-        .then(() => setIsSplineViewerReady(true))
-        .catch(() => setIsSplineViewerReady(false))
+        .then(markReady)
+        .catch(markError)
     }
 
     if ('customElements' in window && window.customElements.get('spline-viewer')) {
-      setIsSplineViewerReady(true)
-      return
-    }
-
-    const scriptId = 'spline-viewer-script'
-    const existingScript = document.getElementById(scriptId) as HTMLScriptElement | null
-
-    const handleScriptLoad = () => {
-      if (existingScript) {
-        existingScript.dataset.loaded = 'true'
-      }
-      markViewerReady()
-    }
-
-    const handleScriptError = () => {
-      setIsSplineViewerReady(false)
-      toast.error('Nie udało się wczytać animacji 3D')
-    }
-
-    if (existingScript) {
-      if (existingScript.dataset.loaded === 'true') {
-        markViewerReady()
-        return
-      }
-
-      existingScript.addEventListener('load', handleScriptLoad)
-      existingScript.addEventListener('error', handleScriptError)
-
+      markReady()
       return () => {
-        existingScript.removeEventListener('load', handleScriptLoad)
-        existingScript.removeEventListener('error', handleScriptError)
+        isMounted = false
       }
     }
 
-    const script = document.createElement('script')
-    script.id = scriptId
-    script.type = 'module'
-    script.src = 'https://unpkg.com/@splinetool/viewer@1.12.9/build/spline-viewer.js'
-    script.addEventListener('load', () => {
-      script.dataset.loaded = 'true'
-      handleScriptLoad()
-    })
-    script.addEventListener('error', handleScriptError)
-    document.head.appendChild(script)
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null
+    const handleScriptLoad = () => {
+      if (!isMounted) return
+      script?.setAttribute('data-loaded', 'true')
+      waitForDefinition()
+    }
+    const handleScriptError = () => {
+      if (!isMounted) return
+      markError()
+    }
+
+    if (script) {
+      if (script.dataset.loaded === 'true') {
+        waitForDefinition()
+      } else {
+        setSplineStatus('loading')
+        script.addEventListener('load', handleScriptLoad)
+        script.addEventListener('error', handleScriptError)
+      }
+    } else {
+      setSplineStatus('loading')
+      script = document.createElement('script')
+      script.id = scriptId
+      script.type = 'module'
+      script.src = 'https://unpkg.com/@splinetool/viewer@1.12.9/build/spline-viewer.js'
+      script.addEventListener('load', handleScriptLoad)
+      script.addEventListener('error', handleScriptError)
+      document.head.appendChild(script)
+    }
 
     return () => {
-      script.removeEventListener('load', handleScriptLoad)
-      script.removeEventListener('error', handleScriptError)
+      isMounted = false
+      script?.removeEventListener('load', handleScriptLoad)
+      script?.removeEventListener('error', handleScriptError)
     }
   }, [])
 
@@ -1090,12 +1102,12 @@ function HomePage() {
                 </div>
 
                 <div className="w-full min-h-[65vh] lg:min-h-[78vh] relative" aria-hidden>
-                  {hasNewsSpline ? (
+                  {shouldRenderNewsSpline ? (
                     <spline-viewer
                       url={newsSplineUrl}
                       className="block h-full w-full"
                     />
-                  ) : (
+                  ) : shouldRenderNewsVideoFallback ? (
                     <video
                       className="block h-full w-full object-cover rounded-2xl"
                       autoPlay
@@ -1105,7 +1117,16 @@ function HomePage() {
                     >
                       <source src={fallbackAnimationSrc} type="video/mp4" />
                     </video>
-                  )}
+                  ) : shouldRenderNewsReducedMotionNotice ? (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="max-w-md rounded-3xl border border-white/10 bg-white/5 px-6 py-5 text-center text-white shadow-2xl backdrop-blur">
+                        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/60">Animacja wyłączona</p>
+                        <p className="mt-3 text-lg font-medium text-white/85">
+                          Efekty ruchu są obecnie wyłączone. Aby zobaczyć animację nowości STANIAX, włącz animacje w ustawieniach urządzenia.
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               </div>
 
