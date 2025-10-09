@@ -1104,7 +1104,7 @@ function HomePage() {
                   </div>
                 </div>
 
-                <div className="w-full min-h-[65vh] lg:min-h-[78vh] relative" aria-hidden>
+                <div className="w-full min-h-[calc(65vh+50px)] lg:min-h-[calc(78vh+50px)] relative" aria-hidden>
                   {shouldRenderNewsSpline ? (
                     <spline-viewer
                       url={newsSplineUrl}
@@ -1133,11 +1133,11 @@ function HomePage() {
                 </div>
               </div>
 
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-[30px]">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="px-8 py-6 font-semibold uppercase tracking-[0.25em] text-white border-white/60 bg-white/15 backdrop-blur-sm shadow-lg transition-colors hover:bg-white hover:text-slate-950 mt-4 sm:mt-6"
+                  className="px-8 py-6 font-semibold uppercase tracking-[0.25em] text-white border-white/60 bg-white/15 backdrop-blur-sm shadow-lg transition-colors hover:bg-white hover:text-slate-950"
                   onClick={() => navigate('/news')}
                 >
                   <span className="flex items-center gap-3">
