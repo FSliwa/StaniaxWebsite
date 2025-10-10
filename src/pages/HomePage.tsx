@@ -294,6 +294,7 @@ function HomePage() {
   const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null)
   const aboutMosaicRef = useRef<HTMLDivElement | null>(null)
   const newsAnimationRef = useRef<HTMLDivElement | null>(null)
+  const [newsSplineKey, setNewsSplineKey] = useState(0)
   const prefersReducedMotion = useReducedMotion() ?? false
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const resolvedVirtualStudioUrl =
@@ -485,6 +486,32 @@ function HomePage() {
       observer.disconnect()
     }
   }, [])
+
+  useEffect(() => {
+    if (!newsAnimationRef.current || prefersReducedMotion) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Restart animacji Spline poprzez zmianę klucza (wymusza przeładowanie)
+            setNewsSplineKey((prev) => prev + 1)
+          }
+        })
+      },
+      {
+        root: null,
+        threshold: 0.3,
+        rootMargin: '0px'
+      }
+    )
+
+    observer.observe(newsAnimationRef.current)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [prefersReducedMotion])
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id)
@@ -1142,6 +1169,7 @@ function HomePage() {
                 >
                   {shouldRenderNewsSpline ? (
                     <spline-viewer
+                      key={newsSplineKey}
                       url={newsSplineUrl}
                       className="block h-full w-full"
                       style={{ transform: `scale(${newsScaleValue})` }}
