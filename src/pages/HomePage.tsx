@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, type CSSProperties, type ReactNode } from 'react'
+import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
@@ -293,6 +293,7 @@ function HomePage() {
   const projectCardsRef = useRef<HTMLDivElement[]>([])
   const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null)
   const aboutMosaicRef = useRef<HTMLDivElement | null>(null)
+  const newsAnimationRef = useRef<HTMLDivElement | null>(null)
   const prefersReducedMotion = useReducedMotion() ?? false
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const resolvedVirtualStudioUrl =
@@ -514,6 +515,20 @@ function HomePage() {
   }
 
   const heroScaleValue = Math.min(1.05 + scrollY * 0.0006, 1.25)
+  
+  const newsScaleValue = useMemo(() => {
+    if (!newsAnimationRef.current) return 1
+    
+    const rect = newsAnimationRef.current.getBoundingClientRect()
+    const elementTop = scrollY + rect.top
+    const viewportHeight = window.innerHeight
+    
+    // Rozpocznij skalowanie gdy sekcja wchodzi w viewport
+    const scrollStart = elementTop - viewportHeight
+    const scrollProgress = Math.max(0, scrollY - scrollStart)
+    
+    return Math.min(1.0 + scrollProgress * 0.0003, 1.15)
+  }, [scrollY])
   const isDarkHeaderContext = headerTheme === 'dark'
   const menuBackgroundClass = isDarkHeaderContext ? 'bg-slate-950/95 text-white' : 'bg-background/95 text-foreground'
   const menuMutedClass = isDarkHeaderContext ? 'text-white/60' : 'text-muted-foreground'
@@ -1122,15 +1137,21 @@ function HomePage() {
                   </div>
                 </div>
 
-                <div className="w-full min-h-[calc(65vh-290px)] lg:min-h-[calc(78vh-290px)] relative" aria-hidden>
+                <div
+                  ref={newsAnimationRef}
+                  className="w-full min-h-[calc(65vh-290px)] lg:min-h-[calc(78vh-290px)] relative"
+                  aria-hidden
+                >
                   {shouldRenderNewsSpline ? (
                     <spline-viewer
                       url={newsSplineUrl}
                       className="block h-full w-full"
+                      style={{ transform: `scale(${newsScaleValue})` }}
                     />
                   ) : shouldRenderNewsVideoFallback ? (
                     <video
                       className="block h-full w-full object-cover rounded-2xl"
+                      style={{ transform: `scale(${newsScaleValue})` }}
                       autoPlay
                       loop
                       muted
