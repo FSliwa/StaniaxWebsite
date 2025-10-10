@@ -557,14 +557,14 @@ function HomePage() {
     return Math.min(1.0 + scrollProgress * 0.0003, 1.15)
   }, [scrollY])
   const isDarkHeaderContext = headerTheme === 'dark'
-  const menuBackgroundClass = isDarkHeaderContext ? 'bg-slate-950/95 text-white' : 'bg-background/95 text-foreground'
-  const menuMutedClass = isDarkHeaderContext ? 'text-white/60' : 'text-muted-foreground'
-  const menuBorderClass = isDarkHeaderContext ? 'border-white/20' : 'border-border/40'
-  const menuButtonClass = isDarkHeaderContext
-    ? 'border-white/30 text-white hover:bg-white hover:text-slate-950'
-    : 'border-foreground/20 text-foreground hover:bg-foreground hover:text-background'
-  const menuPrimaryTextClass = isDarkHeaderContext ? 'text-white' : 'text-foreground'
-  const menuIconClass = isDarkHeaderContext ? 'text-white/60' : 'text-muted-foreground'
+  
+  // Menu classes - ALWAYS use light theme when menu is open for consistency
+  const menuBackgroundClass = 'bg-background/95 text-foreground'
+  const menuMutedClass = 'text-muted-foreground'
+  const menuBorderClass = 'border-border/40'
+  const menuButtonClass = 'border-foreground/20 text-foreground hover:bg-foreground hover:text-background'
+  const menuPrimaryTextClass = 'text-foreground'
+  const menuIconClass = 'text-muted-foreground'
 
   const handleNavClick = (item: NavItem) => {
     if (item.type === 'section') {
