@@ -416,7 +416,7 @@ function HomePage() {
       return
     }
 
-    let ctx: import('gsap').GSAPContext | undefined
+    let ctx: gsap.Context | undefined
     let isMounted = true
 
     ;(async () => {
