@@ -558,13 +558,13 @@ function HomePage() {
   }, [scrollY])
   const isDarkHeaderContext = headerTheme === 'dark'
   
-  // Menu classes - ALWAYS use light theme when menu is open for consistency
-  const menuBackgroundClass = 'bg-background/95 text-foreground'
-  const menuMutedClass = 'text-muted-foreground'
-  const menuBorderClass = 'border-border/40'
-  const menuButtonClass = 'border-foreground/20 text-foreground hover:bg-foreground hover:text-background'
-  const menuPrimaryTextClass = 'text-foreground'
-  const menuIconClass = 'text-muted-foreground'
+  // Menu classes - ALWAYS use dark text on light background for maximum visibility
+  const menuBackgroundClass = 'bg-background/95 text-slate-900'
+  const menuMutedClass = 'text-slate-600'
+  const menuBorderClass = 'border-slate-200'
+  const menuButtonClass = 'border-slate-900/20 text-slate-900 hover:bg-slate-900 hover:text-white'
+  const menuPrimaryTextClass = 'text-slate-900'
+  const menuIconClass = 'text-slate-600'
 
   const handleNavClick = (item: NavItem) => {
     if (item.type === 'section') {
