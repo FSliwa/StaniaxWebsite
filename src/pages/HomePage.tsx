@@ -1122,7 +1122,7 @@ function HomePage() {
                   </div>
                 </div>
 
-                <div className="w-full min-h-[65vh] lg:min-h-[78vh] relative" aria-hidden>
+                <div className="w-full min-h-[calc(65vh-290px)] lg:min-h-[calc(78vh-290px)] relative" aria-hidden>
                   {shouldRenderNewsSpline ? (
                     <spline-viewer
                       url={newsSplineUrl}
@@ -1149,7 +1149,7 @@ function HomePage() {
                     </div>
                   ) : null}
                   
-                  <div className="absolute bottom-[190px] left-0 right-0 flex justify-center">
+                  <div className="absolute bottom-[310px] left-0 right-0 flex justify-center">
                     <Button
                       size="lg"
                       variant="outline"
