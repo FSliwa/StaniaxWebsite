@@ -1149,7 +1149,7 @@ function HomePage() {
                     </div>
                   ) : null}
                   
-                  <div className="absolute bottom-[70px] left-0 right-0 flex justify-center">
+                  <div className="absolute bottom-[190px] left-0 right-0 flex justify-center">
                     <Button
                       size="lg"
                       variant="outline"
