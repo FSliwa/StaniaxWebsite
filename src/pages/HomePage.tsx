@@ -591,7 +591,11 @@ function HomePage() {
         <div
           className={cn(
             'container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 sm:py-5 transition-colors duration-300',
-            isDarkHeaderContext && !isMenuOpen ? 'text-white' : 'text-foreground'
+            isMenuOpen 
+              ? 'text-foreground' 
+              : isDarkHeaderContext 
+                ? 'text-white' 
+                : 'text-foreground'
           )}
         >
           <button
@@ -606,7 +610,11 @@ function HomePage() {
               <span
                 className={cn(
                   'block text-xs uppercase tracking-[0.5em] transition-colors duration-300',
-                  isDarkHeaderContext && !isMenuOpen ? 'text-white/70' : 'text-muted-foreground'
+                  isMenuOpen 
+                    ? 'text-muted-foreground' 
+                    : isDarkHeaderContext 
+                      ? 'text-white/70' 
+                      : 'text-muted-foreground'
                 )}
               >
                 STANIAX
@@ -614,7 +622,11 @@ function HomePage() {
               <span
                 className={cn(
                   'block text-base sm:text-lg font-black transition-colors duration-300',
-                  isDarkHeaderContext && !isMenuOpen ? 'text-white' : 'text-foreground'
+                  isMenuOpen 
+                    ? 'text-foreground' 
+                    : isDarkHeaderContext 
+                      ? 'text-white' 
+                      : 'text-foreground'
                 )}
               >
                 Metal Coating Studio
@@ -626,9 +638,11 @@ function HomePage() {
               onClick={() => scrollToSection('contact')}
               className={cn(
                 'hidden sm:inline-flex border bg-transparent transition-all duration-300',
-                isDarkHeaderContext && !isMenuOpen
-                  ? 'border-white/40 text-white hover:bg-white hover:text-foreground'
-                  : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
+                isMenuOpen
+                  ? 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
+                  : isDarkHeaderContext
+                    ? 'border-white/40 text-white hover:bg-white hover:text-foreground'
+                    : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
               )}
             >
               Wyceń Projekt
