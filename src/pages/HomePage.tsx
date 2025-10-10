@@ -582,7 +582,8 @@ function HomePage() {
 
       <header
         className={cn(
-          'fixed top-0 z-50 w-full transition-all duration-500',
+          'fixed top-0 w-full transition-all duration-500',
+          isMenuOpen ? 'z-[60]' : 'z-50',
           scrollY > 32
             ? 'bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
             : 'bg-transparent border-transparent'
