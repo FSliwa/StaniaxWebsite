@@ -463,7 +463,7 @@ function HomePage() {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
-          .filter((entry) => entry.isIntersecting)
+          .filter((entry) => entry.isIntersecting && entry.intersectionRatio > 0.1)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
 
         if (visible && visible.target instanceof HTMLElement) {
@@ -473,8 +473,8 @@ function HomePage() {
       },
       {
         root: null,
-        threshold: [0.3, 0.6, 0.9],
-        rootMargin: '-20% 0px -20% 0px'
+        threshold: [0.1, 0.2, 0.3, 0.5, 0.7],
+        rootMargin: '-80px 0px -60% 0px'
       }
     )
 
@@ -563,19 +563,19 @@ function HomePage() {
       >
         <div
           className={cn(
-            'container mx-auto flex items-center justify-between px-6 lg:px-12 py-5 transition-colors duration-300',
+            'container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 sm:py-5 transition-colors duration-300',
             isDarkHeaderContext && !isMenuOpen ? 'text-white' : 'text-foreground'
           )}
         >
           <button
             onClick={() => scrollToSection('top')}
-            className="group flex items-center gap-3 text-left"
+            className="group flex items-center gap-2 sm:gap-3 text-left"
             aria-label="Przewiń na górę"
           >
-            <div className="h-10 w-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
-              <Factory className="w-5 h-5" />
+            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
+              <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div className="leading-tight">
+            <div className="leading-tight hidden sm:block">
               <span
                 className={cn(
                   'block text-xs uppercase tracking-[0.5em] transition-colors duration-300',
@@ -586,7 +586,7 @@ function HomePage() {
               </span>
               <span
                 className={cn(
-                  'block text-lg font-black transition-colors duration-300',
+                  'block text-base sm:text-lg font-black transition-colors duration-300',
                   isDarkHeaderContext && !isMenuOpen ? 'text-white' : 'text-foreground'
                 )}
               >
@@ -608,7 +608,7 @@ function HomePage() {
             </Button>
             <button
               className={cn(
-                'relative h-12 w-12 rounded-full border backdrop-blur-md flex items-center justify-center transition-colors duration-300',
+                'relative h-10 w-10 sm:h-12 sm:w-12 rounded-full border backdrop-blur-md flex items-center justify-center transition-all duration-300',
                 isMenuOpen
                   ? 'border-foreground/30 bg-background text-foreground'
                   : isDarkHeaderContext
@@ -621,16 +621,14 @@ function HomePage() {
             >
               <span
                 className={cn(
-                  'absolute h-0.5 w-6 -translate-y-1.5 rounded-full bg-foreground transition-all duration-300',
-                  isDarkHeaderContext && !isMenuOpen && 'bg-white',
-                  isMenuOpen && 'translate-y-0 rotate-45'
+                  'absolute h-0.5 w-5 sm:w-6 rounded-full bg-current transition-all duration-300',
+                  isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-1.5'
                 )}
               />
               <span
                 className={cn(
-                  'absolute h-0.5 w-4 translate-y-1.5 rounded-full bg-foreground transition-all duration-300',
-                  isDarkHeaderContext && !isMenuOpen && 'bg-white',
-                  isMenuOpen && 'w-6 translate-y-0 -rotate-45'
+                  'absolute h-0.5 w-3 sm:w-4 rounded-full bg-current transition-all duration-300',
+                  isMenuOpen ? 'w-5 sm:w-6 translate-y-0 -rotate-45' : 'translate-y-1.5'
                 )}
               />
             </button>
@@ -639,9 +637,9 @@ function HomePage() {
 
         <div
           className={cn(
-            'fixed inset-0 z-40 flex flex-col justify-between px-6 lg:px-12 py-12 transition-all duration-500 ease-out backdrop-blur-xl',
+            'fixed inset-0 z-40 flex flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12 transition-all duration-500 ease-out',
             menuBackgroundClass,
-            isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+            isMenuOpen ? 'pointer-events-auto opacity-100 backdrop-blur-2xl' : 'pointer-events-none opacity-0 backdrop-blur-0'
           )}
           aria-hidden={!isMenuOpen}
         >
@@ -661,24 +659,24 @@ function HomePage() {
             </Button>
           </div>
 
-          <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
-            <div className="flex-1 space-y-8">
+          <div className="flex flex-col gap-8 sm:gap-12 lg:flex-row lg:gap-16 overflow-y-auto max-h-[70vh] lg:max-h-none lg:overflow-visible">
+            <div className="flex-1 space-y-4 sm:space-y-8">
               {navItems.map((item, index) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item)}
                   className={cn(
-                    'group w-full border-b pb-6 text-left transition-colors duration-300 hover:border-accent/60',
+                    'group w-full border-b pb-4 sm:pb-6 text-left transition-colors duration-300 hover:border-accent/60',
                     menuBorderClass
                   )}
                 >
-                  <div className="flex items-center gap-6">
-                    <span className={cn('text-sm font-semibold uppercase tracking-[0.4em]', menuMutedClass)}>
+                  <div className="flex items-center gap-3 sm:gap-6">
+                    <span className={cn('text-xs sm:text-sm font-semibold uppercase tracking-[0.4em]', menuMutedClass)}>
                       {String(index + 1).padStart(2, '0')}
                     </span>
                     <span
                       className={cn(
-                        'flex-1 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight transition-colors duration-300',
+                        'flex-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight transition-colors duration-300',
                         menuPrimaryTextClass,
                         'group-hover:text-accent'
                       )}
@@ -1115,11 +1113,11 @@ function HomePage() {
           <div className="relative z-10 container mx-auto px-6 lg:px-12">
             <div className="mx-auto max-w-5xl text-white">
               <div className="space-y-10">
-                <div className="w-full space-y-8 mb-5">
+                <div className="w-full space-y-8">
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.5em]">
                     Nowości STANIAX
                   </span>
-                  <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-end md:justify-between md:text-left">
+                  <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-end md:justify-between md:text-left pb-5">
                     <div className="flex flex-col items-center gap-4 md:items-start">
                       <span className="text-[3.5rem] font-black uppercase leading-[0.85] tracking-[-0.03em] sm:text-[4.5rem] lg:text-[6rem]">
                         ZOBACZ
