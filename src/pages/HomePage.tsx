@@ -1114,8 +1114,8 @@ function HomePage() {
 
           <div className="relative z-10 container mx-auto px-6 lg:px-12">
             <div className="mx-auto max-w-5xl text-white">
-              <div className="space-y-5">
-                <div className="w-full space-y-8">
+              <div className="space-y-10">
+                <div className="w-full space-y-8 mb-5">
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.5em]">
                     Nowości STANIAX
                   </span>
