@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+import colors from "tailwindcss/colors"
 
 const config: Config = {
   darkMode: ["class"],
@@ -6,6 +7,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Import Tailwind's default slate colors
+        slate: colors.slate,
+        // Custom CSS variable colors
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         card: 'var(--card)',
