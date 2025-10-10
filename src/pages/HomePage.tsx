@@ -1098,7 +1098,7 @@ function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-950/80 to-slate-950/95" aria-hidden />
 
           <div className="relative z-10 container mx-auto px-6 lg:px-12">
-            <div className="text-white">
+            <div className="mx-auto max-w-5xl text-white">
               <div className="space-y-10">
                 <div className="w-full space-y-8">
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.5em]">
@@ -1122,7 +1122,7 @@ function HomePage() {
                   </div>
                 </div>
 
-                <div className="w-full min-h-[calc(65vh+100px)] lg:min-h-[calc(78vh+100px)] relative" aria-hidden>
+                <div className="w-full min-h-[65vh] lg:min-h-[78vh] relative" aria-hidden>
                   {shouldRenderNewsSpline ? (
                     <spline-viewer
                       url={newsSplineUrl}
@@ -1149,7 +1149,7 @@ function HomePage() {
                     </div>
                   ) : null}
                   
-                  <div className="absolute bottom-[30px] left-0 right-0 flex justify-center">
+                  <div className="absolute bottom-[20px] left-0 right-0 flex justify-center">
                     <Button
                       size="lg"
                       variant="outline"
