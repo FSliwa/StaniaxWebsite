@@ -966,7 +966,7 @@ function HomePage() {
 
         <section data-theme="light" className="py-32 lg:py-40 bg-muted/30">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-orange-500" aria-hidden />
+            <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-blue-500" aria-hidden />
             <div className="grid grid-cols-2 gap-10 text-slate-900 lg:grid-cols-4 lg:gap-16">
               {[
                 { label: 'Lat', sublabel: 'Doświadczenia', value: 38, suffix: '+' },
