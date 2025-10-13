@@ -558,13 +558,13 @@ function HomePage() {
   }, [scrollY])
   const isDarkHeaderContext = headerTheme === 'dark'
   
-  // Menu classes - ALWAYS use dark text on light background for maximum visibility
-  const menuBackgroundClass = 'bg-background/95 text-slate-900'
-  const menuMutedClass = 'text-slate-600'
-  const menuBorderClass = 'border-slate-200'
-  const menuButtonClass = 'border-slate-900/20 text-slate-900 hover:bg-slate-900 hover:text-white'
-  const menuPrimaryTextClass = 'text-slate-900'
-  const menuIconClass = 'text-slate-600'
+  // Menu classes - White text on dark background for better visibility
+  const menuBackgroundClass = 'bg-slate-950/95 text-white'
+  const menuMutedClass = 'text-white/70'
+  const menuBorderClass = 'border-white/20'
+  const menuButtonClass = 'border-white/20 text-white hover:bg-white hover:text-slate-950'
+  const menuPrimaryTextClass = 'text-white'
+  const menuIconClass = 'text-white/70'
 
   const handleNavClick = (item: NavItem) => {
     if (item.type === 'section') {
