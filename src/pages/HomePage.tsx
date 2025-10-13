@@ -1031,6 +1031,56 @@ function HomePage() {
           </div>
         </section>
 
+        <section id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <div className="lg:col-span-5">
+                <div ref={aboutMosaicRef} className="grid grid-cols-3 gap-4">
+                  {aboutTilesData.map((tile) => (
+                    <AboutTileMotion
+                      key={tile.id}
+                      config={tile}
+                      scrollProgress={aboutScrollProgress}
+                      prefersReducedMotion={prefersReducedMotion}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="lg:col-span-7">
+                <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                  Tworzymy Doskonałość w
+                  <span className="block text-accent">Metalizacji</span>
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8 font-medium">
+                  STANIAX Sp. z o.o. to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A. Łączymy ekspertów z wieloletnim doświadczeniem w inżynierii powierzchni, aby projektować i wdrażać powłoki metaliczne zgodne z wymaganiami branż przemysłowych i high-tech.
+                </p>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-3">
+                    <Trophy className="w-5 h-5 text-accent" />
+                    <span className="text-foreground font-medium">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Shield className="w-5 h-5 text-accent" />
+                    <span className="text-foreground font-medium">Zaawansowane Kontrole Środowiskowe</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Clock className="w-5 h-5 text-accent" />
+                    <span className="text-foreground font-medium">Szybkie Terminy Realizacji</span>
+                  </div>
+                </div>
+                <Button
+                  size="lg"
+                  className="bg-accent hover:bg-accent/90 font-semibold"
+                  onClick={() => scrollToSection('contact')}
+                >
+                  Dowiedz Się Więcej O Nas
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-16 lg:py-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
@@ -1091,56 +1141,6 @@ function HomePage() {
                 Zobacz Wszystkie Projekty
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </div>
-          </div>
-        </section>
-
-        <section id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              <div className="lg:col-span-5">
-                <div ref={aboutMosaicRef} className="grid grid-cols-3 gap-4">
-                  {aboutTilesData.map((tile) => (
-                    <AboutTileMotion
-                      key={tile.id}
-                      config={tile}
-                      scrollProgress={aboutScrollProgress}
-                      prefersReducedMotion={prefersReducedMotion}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className="lg:col-span-7">
-                <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                  Tworzymy Doskonałość w
-                  <span className="block text-accent">Metalizacji</span>
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8 font-medium">
-                  STANIAX Sp. z o.o. to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A. Łączymy ekspertów z wieloletnim doświadczeniem w inżynierii powierzchni, aby projektować i wdrażać powłoki metaliczne zgodne z wymaganiami branż przemysłowych i high-tech.
-                </p>
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center gap-3">
-                    <Trophy className="w-5 h-5 text-accent" />
-                    <span className="text-foreground font-medium">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Shield className="w-5 h-5 text-accent" />
-                    <span className="text-foreground font-medium">Zaawansowane Kontrole Środowiskowe</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-accent" />
-                    <span className="text-foreground font-medium">Szybkie Terminy Realizacji</span>
-                  </div>
-                </div>
-                <Button
-                  size="lg"
-                  className="bg-accent hover:bg-accent/90 font-semibold"
-                  onClick={() => scrollToSection('contact')}
-                >
-                  Dowiedz Się Więcej O Nas
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </div>
             </div>
           </div>
         </section>
