@@ -73,6 +73,10 @@ type ProjectItem = {
   title: string
   icon: ReactNode
   image: string
+  description: string
+  details: string
+  category: string
+  year: string
 }
 
 type AboutTileConfig = {
@@ -130,13 +134,62 @@ const projectsData: ProjectItem[] = [
     id: 'automotive',
     title: 'Komponenty Motoryzacyjne',
     icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90" />,
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=800&fit=crop&crop=center'
+    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=800&fit=crop&crop=center',
+    description: 'Zaawansowane powłoki ochronne dla przemysłu motoryzacyjnego',
+    details: 'Specjalistyczne metalizacja części silnikowych, układów hamulcowych i elementów karoserii. Powłoki odporne na korozję i wysokie temperatury.',
+    category: 'Motoryzacja',
+    year: '2024'
   },
-  { id: 'aerospace', title: 'Części Lotnicze', icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: projectImgAerospace },
-  { id: 'precision-tools', title: 'Narzędzia Precyzyjne', icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: projectImgAutomotive },
-  { id: 'industrial', title: 'Urządzenia Przemysłowe', icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: projectImgIndustrial },
-  { id: 'production-tools', title: 'Narzędzia Produkcyjne', icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: serviceImg2 },
-  { id: 'prototypes', title: 'Projekty Prototypów', icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: projectImgPrototype }
+  { 
+    id: 'aerospace', 
+    title: 'Części Lotnicze', 
+    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    image: projectImgAerospace,
+    description: 'Precyzyjne powłoki dla krytycznych komponentów lotniczych',
+    details: 'Metalizacja elementów silników odrzutowych, struktur nośnych i systemów hydraulicznych zgodnie z normami aerospace.',
+    category: 'Lotnictwo',
+    year: '2024'
+  },
+  { 
+    id: 'precision-tools', 
+    title: 'Narzędzia Precyzyjne', 
+    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    image: projectImgAutomotive,
+    description: 'Powłoki zwiększające trwałość narzędzi precyzyjnych',
+    details: 'Specjalne powłoki twardościowe dla narzędzi skrawających, matryc i form wtryskowych. Zwiększenie żywotności o 300%.',
+    category: 'Narzędzia',
+    year: '2024'
+  },
+  { 
+    id: 'industrial', 
+    title: 'Urządzenia Przemysłowe', 
+    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    image: projectImgIndustrial,
+    description: 'Ochrona przed korozją dla maszyn przemysłowych',
+    details: 'Kompleksowa metalizacja linii produkcyjnych, robotów przemysłowych i urządzeń technologicznych.',
+    category: 'Przemysł',
+    year: '2024'
+  },
+  { 
+    id: 'production-tools', 
+    title: 'Narzędzia Produkcyjne', 
+    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    image: serviceImg2,
+    description: 'Powłoki funkcjonalne dla narzędzi produkcyjnych',
+    details: 'Metalizacja narzędzi do obróbki plastycznej, urządzeń formujących i elementów automatyki przemysłowej.',
+    category: 'Produkcja',
+    year: '2024'
+  },
+  { 
+    id: 'prototypes', 
+    title: 'Projekty Prototypów', 
+    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    image: projectImgPrototype,
+    description: 'Szybkie prototypowanie z zaawansowanymi powłokami',
+    details: 'Ekspresowa metalizacja prototypów dla R&D, testowanie nowych rozwiązań powłokowych i weryfikacja parametrów.',
+    category: 'R&D',
+    year: '2024'
+  }
 ]
 
 const aboutTilesData: AboutTileConfig[] = [
@@ -292,6 +345,8 @@ function HomePage() {
   const projectsSectionRef = useRef<HTMLDivElement | null>(null)
   const projectCardsRef = useRef<HTMLDivElement[]>([])
   const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null)
+  const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null)
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
   const aboutMosaicRef = useRef<HTMLDivElement | null>(null)
   const newsAnimationRef = useRef<HTMLDivElement | null>(null)
   const [newsSplineKey, setNewsSplineKey] = useState(0)
@@ -1093,9 +1148,10 @@ function HomePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
               {projectsData.map((project, index) => {
                 const isFocused = focusedProjectId === project.id
+                const isHovered = hoveredProjectId === project.id
                 return (
                   <div
                     key={project.id}
@@ -1109,6 +1165,24 @@ function HomePage() {
                     tabIndex={0}
                     onFocus={() => setFocusedProjectId(project.id)}
                     onBlur={() => setFocusedProjectId((prev) => (prev === project.id ? null : prev))}
+                    onMouseEnter={(e) => {
+                      setHoveredProjectId(project.id)
+                      const rect = e.currentTarget.getBoundingClientRect()
+                      setTooltipPosition({
+                        x: rect.left + rect.width / 2,
+                        y: rect.top - 10
+                      })
+                    }}
+                    onMouseLeave={() => setHoveredProjectId(null)}
+                    onMouseMove={(e) => {
+                      if (isHovered) {
+                        const rect = e.currentTarget.getBoundingClientRect()
+                        setTooltipPosition({
+                          x: rect.left + rect.width / 2,
+                          y: rect.top - 10
+                        })
+                      }
+                    }}
                     className={cn(
                       'group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-slate-950/90 transition-all duration-300',
                       'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/70 focus-visible:border-accent',
@@ -1129,6 +1203,41 @@ function HomePage() {
                   </div>
                 )
               })}
+              
+              {/* Tooltip */}
+              {hoveredProjectId && (
+                <div
+                  className="fixed z-50 pointer-events-none transition-all duration-200"
+                  style={{
+                    left: tooltipPosition.x,
+                    top: tooltipPosition.y,
+                    transform: 'translateX(-50%) translateY(-100%)'
+                  }}
+                >
+                  <div className="bg-slate-950/95 backdrop-blur-xl border border-white/20 rounded-xl p-4 shadow-2xl max-w-sm">
+                    {(() => {
+                      const project = projectsData.find(p => p.id === hoveredProjectId)
+                      if (!project) return null
+                      
+                      return (
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center">
+                              <div className="scale-50">{project.icon}</div>
+                            </div>
+                            <div>
+                              <h3 className="font-bold text-white text-sm">{project.title}</h3>
+                              <p className="text-xs text-white/60 uppercase tracking-wider">{project.category} • {project.year}</p>
+                            </div>
+                          </div>
+                          <p className="text-sm text-white/80 leading-relaxed">{project.description}</p>
+                          <p className="text-xs text-white/60 leading-relaxed">{project.details}</p>
+                        </div>
+                      )
+                    })()}
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="text-center mt-12">
