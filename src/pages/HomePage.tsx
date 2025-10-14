@@ -95,7 +95,7 @@ const servicesData: ServiceItem[] = [
     title: 'Rozwój Prototypów',
     description:
       'Szybkie prototypowanie z zaawansowanymi rozwiązaniami powłokowymi dla faz rozwoju i testowania produktu.',
-    icon: <Gear className="w-16 h-16 text-white/80" />,
+    icon: <Gear className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
     alt: 'Technik przygotowuje prototyp do napylania metalu',
     tagline: 'Szybkie wdrożenia R&D'
@@ -104,7 +104,7 @@ const servicesData: ServiceItem[] = [
     id: 'powloki',
     title: 'Powłoki Przemysłowe',
     description: 'Trwałe powłoki metaliczne dla komponentów wymagających najwyższej ochrony i wydajności.',
-    icon: <Shield className="w-16 h-16 text-white/80" />,
+    icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg2,
     alt: 'Operator kontroluje proces nanoszenia powłoki na stalowy element',
     tagline: 'Ochrona krytycznych części'
@@ -113,7 +113,7 @@ const servicesData: ServiceItem[] = [
     id: 'precyzja',
     title: 'Wykończenia Precyzyjne',
     description: 'Wysoko precyzyjne obróbki powierzchni dla komponentów z dokładnymi specyfikacjami.',
-    icon: <Target className="w-16 h-16 text-white/80" />,
+    icon: <Target className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg3,
     alt: 'Precyzyjna obróbka elementu metalowego na stanowisku CNC',
     tagline: 'Dokładność do mikrona'
@@ -122,7 +122,7 @@ const servicesData: ServiceItem[] = [
     id: 'dedykowane',
     title: 'Rozwiązania Na Miarę',
     description: 'Usługi metalizacyjne dostosowane do specyficznych wymagań branżowych.',
-    icon: <Wrench className="w-16 h-16 text-white/80" />,
+    icon: <Wrench className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
     alt: 'Inżynier dopasowuje parametry napylania do wymagań klienta',
     tagline: 'Zespoły projektowe 360°'
@@ -133,7 +133,7 @@ const projectsData: ProjectItem[] = [
   {
     id: 'automotive',
     title: 'Komponenty Motoryzacyjne',
-    icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90" />,
+    icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />,
     image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=800&fit=crop&crop=center',
     description: 'Zaawansowane powłoki ochronne dla przemysłu motoryzacyjnego',
     details: 'Specjalistyczne metalizacja części silnikowych, układów hamulcowych i elementów karoserii. Powłoki odporne na korozję i wysokie temperatury.',
@@ -143,7 +143,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'aerospace', 
     title: 'Części Lotnicze', 
-    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
     image: projectImgAerospace,
     description: 'Precyzyjne powłoki dla krytycznych komponentów lotniczych',
     details: 'Metalizacja elementów silników odrzutowych, struktur nośnych i systemów hydraulicznych zgodnie z normami aerospace.',
@@ -153,7 +153,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'precision-tools', 
     title: 'Narzędzia Precyzyjne', 
-    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
     image: projectImgAutomotive,
     description: 'Powłoki zwiększające trwałość narzędzi precyzyjnych',
     details: 'Specjalne powłoki twardościowe dla narzędzi skrawających, matryc i form wtryskowych. Zwiększenie żywotności o 300%.',
@@ -163,7 +163,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'industrial', 
     title: 'Urządzenia Przemysłowe', 
-    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
     image: projectImgIndustrial,
     description: 'Ochrona przed korozją dla maszyn przemysłowych',
     details: 'Kompleksowa metalizacja linii produkcyjnych, robotów przemysłowych i urządzeń technologicznych.',
@@ -173,7 +173,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'production-tools', 
     title: 'Narzędzia Produkcyjne', 
-    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
     image: serviceImg2,
     description: 'Powłoki funkcjonalne dla narzędzi produkcyjnych',
     details: 'Metalizacja narzędzi do obróbki plastycznej, urządzeń formujących i elementów automatyki przemysłowej.',
@@ -183,7 +183,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'prototypes', 
     title: 'Projekty Prototypów', 
-    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
     image: projectImgPrototype,
     description: 'Szybkie prototypowanie z zaawansowanymi powłokami',
     details: 'Ekspresowa metalizacja prototypów dla R&D, testowanie nowych rozwiązań powłokowych i weryfikacja parametrów.',
@@ -887,7 +887,7 @@ function HomePage() {
                 <Button
                   size="lg"
                   onClick={() => scrollToSection('projects')}
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                  className="liquid-metal-button text-white font-semibold border-0"
                 >
                   Zobacz Nasze Prace
                   <ArrowRight className="w-5 h-5 ml-2" />
@@ -895,7 +895,7 @@ function HomePage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="font-semibold"
+                  className="font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
                   onClick={() => scrollToSection('contact')}
                 >
                   <Phone className="w-5 h-5 mr-2" />
@@ -1029,16 +1029,25 @@ function HomePage() {
                 { label: 'Klientów', sublabel: 'Zadowolonych', value: 150, suffix: '+' },
                 { label: 'Jakości', sublabel: 'Standardy', value: 99, suffix: '%' }
               ].map((stat) => (
-                <div key={stat.label} className="text-center lg:text-left">
-                  <div className="mb-3 text-4xl font-black text-slate-900 sm:text-5xl lg:text-6xl">
-                    <CountUp end={stat.value} suffix={stat.suffix} />
+                <div key={stat.label} className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-blue-600/20 
+                                  blur-xl group-hover:blur-2xl transition-all duration-500" />
+                  <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 
+                                  rounded-2xl p-8 border border-blue-500/30 
+                                  shadow-[0_0_30px_rgba(55,101,255,0.3)]
+                                  hover:shadow-[0_0_50px_rgba(55,101,255,0.5)]
+                                  transition-all duration-300">
+                    <div className="text-5xl font-black bg-gradient-to-r from-blue-300 to-blue-500 
+                                    bg-clip-text text-transparent lg:text-6xl">
+                      <CountUp end={stat.value} suffix={stat.suffix} duration={3000} />
+                    </div>
+                    <h3 className="mt-2 text-white/90 text-lg font-bold uppercase tracking-wider">
+                      {stat.label}
+                    </h3>
+                    <p className="text-white/60 text-sm font-medium uppercase tracking-[0.35em]">
+                      {stat.sublabel}
+                    </p>
                   </div>
-                  <h3 className="mb-1 text-lg font-bold uppercase tracking-wider text-slate-800">
-                    {stat.label}
-                  </h3>
-                  <p className="text-sm font-medium uppercase tracking-[0.35em] text-slate-500">
-                    {stat.sublabel}
-                  </p>
                 </div>
               ))}
             </div>
@@ -1106,21 +1115,21 @@ function HomePage() {
                 </p>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
-                    <Trophy className="w-5 h-5 text-accent" />
+                    <Trophy className="w-5 h-5 text-accent icon-welding-effect" />
                     <span className="text-foreground font-medium">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Shield className="w-5 h-5 text-accent" />
+                    <Shield className="w-5 h-5 text-accent icon-welding-effect" />
                     <span className="text-foreground font-medium">Zaawansowane Kontrole Środowiskowe</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-accent" />
+                    <Clock className="w-5 h-5 text-accent icon-welding-effect" />
                     <span className="text-foreground font-medium">Szybkie Terminy Realizacji</span>
                   </div>
                 </div>
                 <Button
                   size="lg"
-                  className="bg-accent hover:bg-accent/90 font-semibold"
+                  className="liquid-metal-button text-white font-semibold border-0"
                   onClick={() => scrollToSection('contact')}
                 >
                   Dowiedz Się Więcej O Nas
