@@ -24,8 +24,7 @@ import {
   Target,
   Wrench
 } from '@phosphor-icons/react'
-import heroVideo from '@/assets/Generowanie_Wideo_Metalizacja_Dźwigara_Mostowego.mp4'
-import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
+import serviceImg1 from '@/assets/482dc07a-e7ec-4a_67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
 import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
 import projectImgAutomotive from '@/assets/IMG_0990-2575648632.jpeg'
@@ -850,7 +849,7 @@ function HomePage() {
               muted
               playsInline
             >
-              <source src={heroVideo} type="video/mp4" />
+              <source src="/hero-video.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-br from-background/92 via-background/75 to-background/88" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
