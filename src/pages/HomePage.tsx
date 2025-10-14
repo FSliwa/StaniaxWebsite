@@ -1079,9 +1079,6 @@ function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-950/60 to-slate-950/85" aria-hidden />
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950 via-transparent to-transparent" aria-hidden />
 
-          <div className="relative z-10 flex min-h-[100svh] items-center justify-center px-6 py-20 lg:px-12 lg:py-28">
-            <span className="sr-only">Nowa animacja procesu metalizacji STANIAX</span>
-          </div>
         </section>
 
         <section id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
