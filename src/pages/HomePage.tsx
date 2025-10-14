@@ -40,7 +40,7 @@ const newsSplineUrl =
   import.meta.env.VITE_NEWS_SPLINE_SCENE_URL ?? 'https://prod.spline.design/iK5Y6hn8ReGNIQ1J/scene.splinecode'
 const virtualStudioFallbackSplineUrl =
   import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_URL ??
-  'https://my.spline.design/liquidmetaltransition-C2l3g14pY8aE4J2XqxxkkGwZ/'
+  'https://prod.spline.design/xk-PvTQqtoScZ5Zq/scene.splinecode'
 const virtualStudioEmbedUrl =
   import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_EMBED_URL ?? 'undefined'
 
@@ -1050,12 +1050,10 @@ function HomePage() {
           data-theme="dark"
           className="relative isolate overflow-hidden min-h-[100svh]"
         >
-          {shouldRenderVirtualStudioEmbed ? (
-            <iframe
-              src={resolvedVirtualStudioUrl}
-              title="Animacja procesu metalizacji STANIAX"
+          {!prefersReducedMotion ? (
+            <spline-viewer
+              url="https://prod.spline.design/xk-PvTQqtoScZ5Zq/scene.splinecode"
               className="absolute inset-0 h-full w-full"
-              allow="autoplay; fullscreen"
               loading="lazy"
             />
           ) : shouldRenderVirtualStudioVideoFallback ? (
@@ -1073,7 +1071,7 @@ function HomePage() {
               <div className="max-w-lg rounded-3xl border border-white/10 bg-white/5 px-6 py-5 text-center text-white shadow-2xl backdrop-blur">
                 <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/60">Animacja wyłączona</p>
                 <p className="mt-3 text-lg font-medium text-white/85">
-                  Aby zobaczyć symulację Virtual Studio STANIAX, włącz efekty ruchu w ustawieniach systemowych lub przeglądarki.
+                  Aby zobaczyć nową animację procesu metalizacji STANIAX, włącz efekty ruchu w ustawieniach systemowych lub przeglądarki.
                 </p>
               </div>
             </div>
@@ -1082,7 +1080,7 @@ function HomePage() {
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950 via-transparent to-transparent" aria-hidden />
 
           <div className="relative z-10 flex min-h-[100svh] items-center justify-center px-6 py-20 lg:px-12 lg:py-28">
-            <span className="sr-only">Dynamiczna animacja procesu metalizacji STANIAX</span>
+            <span className="sr-only">Nowa animacja procesu metalizacji STANIAX</span>
           </div>
         </section>
 
