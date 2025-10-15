@@ -942,14 +942,9 @@ function HomePage() {
           />
         )}
       </header>
-
-      <div ref={mainContainerRef} className="h-screen w-screen overflow-x-hidden relative">
-        <motion.div
-          className="relative w-full h-full"
-          animate={{ y: activeSection === 0 ? '0%' : '-100%' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <section id="top" data-theme="dark" className="h-screen w-full flex flex-col justify-center absolute top-0 left-0">
+      
+      <div className="scroll-container" onScroll={handleMainScroll}>
+        <section id="top" data-theme="dark" className="h-screen w-full flex flex-col justify-center relative">
             <div className="absolute inset-0" aria-hidden>
               <video
                 className="absolute inset-0 w-full h-full object-cover"
@@ -1014,7 +1009,7 @@ function HomePage() {
               </div>
             </section>
 
-            <section ref={servicesSectionRef} id="services" data-theme="light" className="h-screen w-full relative py-16 lg:py-24 bg-white overflow-hidden absolute top-[100%] left-0">
+            <section ref={servicesSectionRef} id="services" data-theme="light" className="relative py-16 lg:py-24 bg-white overflow-hidden">
               <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
               <div className="container mx-auto px-6 lg:px-12 relative z-10 h-full flex flex-col justify-center">
                 <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -1120,36 +1115,6 @@ function HomePage() {
                 </div>
               </div>
             </section>
-          </div>
-        </motion.div>
-      </div>
-
-      <main className={activeSection === 1 ? 'block' : 'hidden'}>
-        <section data-theme="light" className="py-32 lg:py-40 bg-white">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
-            <div className="grid grid-cols-2 gap-10 text-slate-900 lg:grid-cols-4 lg:gap-16">
-              {[
-                { label: 'Lat', sublabel: 'Doświadczenia', value: 38, suffix: '+' },
-                { label: 'Projektów', sublabel: 'Zakończonych', value: 2500, suffix: '+' },
-                { label: 'Klientów', sublabel: 'Zadowolonych', value: 150, suffix: '+' },
-                { label: 'Jakości', sublabel: 'Standardy', value: 99, suffix: '%' }
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="mb-3 text-5xl font-black text-slate-900 lg:text-6xl">
-                    <CountUp end={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <h3 className="mb-1 text-lg font-bold uppercase tracking-wider text-slate-800">
-                    {stat.label}
-                  </h3>
-                  <p className="text-sm font-medium uppercase tracking-[0.35em] text-slate-500">
-                    {stat.sublabel}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section
           id="virtual-studio"
@@ -1555,6 +1520,11 @@ function HomePage() {
           </div>
         </section>
       </main>
+    </div>
+
+      <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50">
+        {/* Tu można dodać wskaźnik scrollowania lub inne elementy UI */}
+      </div>
     </>
   )
 }
