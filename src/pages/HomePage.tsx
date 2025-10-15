@@ -51,7 +51,7 @@ type NavItem =
 const navItems: NavItem[] = [
   { id: 'about', label: 'O STANIAX', type: 'section' },
   { id: 'services', label: 'Oferta', type: 'section' },
-  { id: 'virtual-studio', label: 'Proces Metalizacji', type: 'section' },
+  { id: 'custom-section', label: 'Specjalnie dla Ciebie', type: 'section' },
   { id: 'projects', label: 'Realizacje', type: 'section' },
   { id: 'news-showcase', label: 'Nowości', type: 'section' },
   { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
@@ -907,7 +907,7 @@ function HomePage() {
               <div>
                 <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Śledź nas</p>
                 <div className={cn('mt-3 flex gap-4 text-sm font-semibold uppercase tracking-[0.3em]', menuMutedClass)}>
-                  <a href="#virtual-studio" className="transition-colors duration-200 hover:text-accent">Studio</a>
+                  <a href="#custom-section" className="transition-colors duration-200 hover:text-accent">Studio</a>
                   <a href="#projects" className="transition-colors duration-200 hover:text-accent">Projects</a>
                   <a href="#about" className="transition-colors duration-200 hover:text-accent">About</a>
                   <a href="#contact" className="transition-colors duration-200 hover:text-accent">Kontakt</a>
