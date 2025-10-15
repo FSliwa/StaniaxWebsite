@@ -32,7 +32,6 @@ import projectImgAutomotive from '@/assets/IMG_0990-2575648632.jpeg'
 import projectImgAerospace from '@/assets/airplane-04-1600x900.jpg'
 import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
 import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
-import customSectionImage from '@/assets/Tekst akapitu-2.jpg'
 
 const fallbackAnimationSrc = heroVideo
 const statsSplineUrl =
@@ -1127,56 +1126,38 @@ function HomePage() {
           className="py-16 lg:py-24 bg-muted/30"
         >
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Lewa strona - Obraz */}
-              <div className="order-2 lg:order-1">
-                <div className="relative">
-                  <img 
-                    src={customSectionImage} 
-                    alt="Specjalne rozwiązania metalizacyjne STANIAX" 
-                    className="w-full h-auto rounded-2xl shadow-2xl"
-                  />
-                  <div className="absolute -bottom-4 -right-4 bg-accent text-accent-foreground px-6 py-3 rounded-xl shadow-lg">
-                    <p className="font-bold text-sm">Specjalizacja</p>
-                    <p className="text-xs opacity-90">Na Miarę</p>
-                  </div>
-                </div>
+            <div className="max-w-4xl mx-auto text-center">
+              {/* Główny tytuł */}
+              <h2 className="text-5xl lg:text-7xl font-black mb-8 leading-tight">
+                Specjalnie 
+                <span className="block text-accent">dla Ciebie</span>
+              </h2>
+              
+              {/* Główny tekst */}
+              <div className="space-y-8 text-left max-w-3xl mx-auto">
+                <p className="text-xl lg:text-2xl text-muted-foreground font-medium leading-relaxed">
+                  W STANIAX rozumiemy, że każdy projekt ma unikalne wymagania. Dlatego oferujemy kompleksowe rozwiązania metalizacyjne dostosowane do Twoich specyficznych potrzeb.
+                </p>
+                
+                <p className="text-lg lg:text-xl text-muted-foreground font-medium leading-relaxed">
+                  Od pojedynczych prototypów po produkcję seryjną - nasz zespół ekspertów pracuje z Tobą na każdym etapie procesu, zapewniając najwyższą jakość powłok metalicznych, które spełnią wszystkie Twoje oczekiwania techniczne i estetyczne.
+                </p>
+                
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Każdy projekt traktujemy indywidualnie, dostosowując nasze rozwiązania do specyficznych wymagań branży i charakteru zastosowania. Dzięki wieloletniemu doświadczeniu i nowoczesnym technologiom, gwarantujemy terminową realizację przy zachowaniu najwyższych standardów jakości.
+                </p>
               </div>
               
-              {/* Prawa strona - Tekst */}
-              <div className="order-1 lg:order-2">
-                <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                  Specjalnie 
-                  <span className="block text-accent">dla Ciebie</span>
-                </h2>
-                <div className="space-y-6">
-                  <p className="text-lg text-muted-foreground font-medium leading-relaxed">
-                    W STANIAX rozumiemy, że każdy projekt ma unikalne wymagania. Dlatego oferujemy kompleksowe rozwiązania metalizacyjne dostosowane do Twoich specyficznych potrzeb - od pojedynczych prototypów po produkcję seryjną.
-                  </p>
-                  <p className="text-lg text-muted-foreground font-medium leading-relaxed">
-                    Nasz zespół ekspertów pracuje z Tobą na każdym etapie procesu, zapewniając najwyższą jakość powłok metalicznych, które spełnią wszystkie Twoje oczekiwania techniczne i estetyczne.
-                  </p>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <Trophy className="w-5 h-5 text-accent" />
-                      <span className="text-foreground font-medium">Indywidualne Podejście do Każdego Projektu</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Shield className="w-5 h-5 text-accent" />
-                      <span className="text-foreground font-medium">Najwyższa Jakość Wykonania</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Clock className="w-5 h-5 text-accent" />
-                      <span className="text-foreground font-medium">Terminowa Realizacja</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-8">
-                  <Button size="lg" className="liquid-metal-button text-white font-semibold border-0" onClick={() => scrollToSection('contact')}>
-                    Wyceń Projekt
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </div>
+              {/* Przyciski akcji */}
+              <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="liquid-metal-button text-white font-semibold border-0" onClick={() => scrollToSection('contact')}>
+                  Wyceń Projekt
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+                <Button size="lg" variant="outline" className="font-semibold" onClick={() => scrollToSection('projects')}>
+                  Zobacz Realizacje
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
               </div>
             </div>
           </div>
