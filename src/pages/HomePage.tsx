@@ -1127,7 +1127,7 @@ function HomePage() {
               fugiat veniam occaecat fugiat aliqua.
             </p>
             <div className="mt-10">
-              <Button size="lg" className="liquid-metal-button text-white font-semibold border-0">
+              <Button size="lg" className="liquid-metal-button text-white font-semibold border-0" onClick={() => scrollToSection('contact')}>
                 Wyceń Projekt
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
