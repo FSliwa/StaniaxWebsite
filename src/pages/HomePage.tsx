@@ -1018,34 +1018,26 @@ function HomePage() {
           </div>
         </section>
 
-        <section data-theme="dark" className="py-32 lg:py-40 bg-slate-950">
+        <section data-theme="light" className="py-32 lg:py-40 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-accent" aria-hidden />
-            <div className="grid grid-cols-2 gap-10 lg:grid-cols-4 lg:gap-16">
+            <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
+            <div className="grid grid-cols-2 gap-10 text-slate-900 lg:grid-cols-4 lg:gap-16">
               {[
                 { label: 'Lat', sublabel: 'Doświadczenia', value: 38, suffix: '+' },
                 { label: 'Projektów', sublabel: 'Zakończonych', value: 2500, suffix: '+' },
                 { label: 'Klientów', sublabel: 'Zadowolonych', value: 150, suffix: '+' },
                 { label: 'Jakości', sublabel: 'Standardy', value: 99, suffix: '%' }
               ].map((stat) => (
-                <div key={stat.label} className="relative group text-center">
-                  <div className="absolute -inset-0.5 bg-gradient-to-br from-accent to-blue-700 rounded-2xl 
-                                  blur-lg group-hover:blur-xl transition-all duration-500 opacity-70 group-hover:opacity-100" />
-                  <div className="relative bg-gradient-to-br from-blue-800 to-blue-950 
-                                  rounded-2xl p-8 border border-blue-500/30 
-                                  shadow-[0_0_30px_rgba(55,101,255,0.3)]
-                                  hover:shadow-[0_0_50px_rgba(55,101,255,0.5)]
-                                  transition-all duration-300">
-                    <div className="text-5xl font-black text-white lg:text-6xl">
-                      <CountUp end={stat.value} suffix={stat.suffix} duration={3000} />
-                    </div>
-                    <h3 className="mt-2 text-white text-lg font-bold uppercase tracking-wider">
-                      {stat.label}
-                    </h3>
-                    <p className="text-white/80 text-sm font-medium uppercase tracking-[0.35em]">
-                      {stat.sublabel}
-                    </p>
+                <div key={stat.label} className="text-center">
+                  <div className="mb-3 text-5xl font-black text-slate-900 lg:text-6xl">
+                    <CountUp end={stat.value} suffix={stat.suffix} />
                   </div>
+                  <h3 className="mb-1 text-lg font-bold uppercase tracking-wider text-slate-800">
+                    {stat.label}
+                  </h3>
+                  <p className="text-sm font-medium uppercase tracking-[0.35em] text-slate-500">
+                    {stat.sublabel}
+                  </p>
                 </div>
               ))}
             </div>
