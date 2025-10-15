@@ -25,6 +25,7 @@ import {
   Wrench
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/Generowanie_Wideo_Powłoki_Metalicznej.mp4'
+import servicesBackgroundVideo from '@/assets/services-background-video.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
 import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
@@ -906,16 +907,28 @@ function HomePage() {
           </div>
         </section>
 
-        <section id="services" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
-          <div className="container mx-auto px-6 lg:px-12">
+        <section id="services" data-theme="dark" className="relative py-16 lg:py-24 overflow-hidden">
+          <div className="absolute inset-0 z-0" aria-hidden>
+            <video
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src={servicesBackgroundVideo} type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-slate-950/80" />
+          </div>
+          <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
               <div className="lg:col-span-4 space-y-10">
                 <div>
-                  <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                  <h2 className="text-4xl lg:text-6xl font-black mb-6 text-white">
                     Nasze
                     <span className="block text-accent">Usługi</span>
                   </h2>
-                  <p className="text-lg text-muted-foreground font-medium">
+                  <p className="text-lg text-white/80 font-medium">
                     Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych.
                   </p>
                 </div>
@@ -933,8 +946,8 @@ function HomePage() {
                             className={cn(
                               'group relative flex w-full items-center gap-4 rounded-3xl border px-6 py-5 text-left transition-all duration-300',
                               isActive
-                                ? 'border-accent bg-background shadow-2xl shadow-accent/20'
-                                : 'border-transparent bg-white/40 backdrop-blur-sm hover:border-accent/50 hover:bg-white/60'
+                                ? 'border-accent bg-slate-900/70 shadow-2xl shadow-accent/20'
+                                : 'border-white/20 bg-white/10 backdrop-blur-sm hover:border-accent/50 hover:bg-white/20'
                             )}
                           >
                             <span
@@ -948,13 +961,13 @@ function HomePage() {
                               {String(index + 1).padStart(2, '0')}
                             </span>
                             <div className="flex-1 space-y-1">
-                              <p className="text-lg font-bold leading-tight">
+                              <p className="text-lg font-bold leading-tight text-white">
                                 {service.title}
                               </p>
                               <p
                                 className={cn(
                                   'text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300',
-                                  isActive ? 'text-accent' : 'text-muted-foreground'
+                                  isActive ? 'text-accent' : 'text-white/70'
                                 )}
                               >
                                 {service.tagline}
@@ -967,6 +980,9 @@ function HomePage() {
                               )}
                               aria-hidden
                             />
+                            {isActive && (
+                              <div className="absolute inset-x-4 -bottom-px h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
+                            )}
                           </button>
                         </li>
                       )
@@ -974,46 +990,39 @@ function HomePage() {
                   </ul>
                 </nav>
               </div>
-              <div className="lg:col-span-8">
-                <div className="grid md:grid-cols-2 gap-6">
-                  {servicesData.map((service) => {
-                    const isActive = activeService === service.id
-                    return (
-                      <Card
-                        key={service.id}
-                        className={cn(
-                          'group overflow-hidden border bg-card transition-all duration-300',
-                          isActive
-                            ? 'border-accent shadow-2xl shadow-accent/30'
-                            : 'border-transparent hover:border-accent/40 hover:shadow-xl'
-                        )}
-                        onMouseEnter={() => setActiveService(service.id)}
-                        onFocus={() => setActiveService(service.id)}
-                        tabIndex={0}
-                        aria-pressed={isActive}
-                      >
-                        <div className="aspect-[16/10] relative">
+
+              <div className="lg:col-span-8 relative min-h-[500px]">
+                {servicesData.map((service) => {
+                  const isActive = activeService === service.id
+                  return (
+                    <div
+                      key={service.id}
+                      className={cn(
+                        'absolute top-0 left-0 w-full h-full transition-opacity duration-500',
+                        isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                      )}
+                      aria-hidden={!isActive}
+                    >
+                      <Card className="h-full border-2 border-white/10 bg-white/5 backdrop-blur-md text-white">
+                        <div className="h-2/3">
                           <IndustrialImage
                             src={service.image}
                             alt={service.alt ?? service.title}
-                            className={cn(
-                              'w-full h-full rounded-t-[inherit] transition-transform duration-500',
-                              isActive ? 'scale-[1.03]' : 'scale-100'
-                            )}
+                            className="w-full h-full rounded-t-2xl"
                           >
                             {service.icon}
                           </IndustrialImage>
                         </div>
-                        <CardHeader className="pb-4">
-                          <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
+                        <CardHeader>
+                          <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-muted-foreground">{service.description}</p>
+                          <p className="text-white/80">{service.description}</p>
                         </CardContent>
                       </Card>
-                    )
-                  })}
-                </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
           </div>
