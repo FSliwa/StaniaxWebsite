@@ -32,6 +32,7 @@ import projectImgAutomotive from '@/assets/IMG_0990-2575648632.jpeg'
 import projectImgAerospace from '@/assets/airplane-04-1600x900.jpg'
 import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
 import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
+import customSectionImage from '@/assets/Tekst akapitu-2.jpg'
 
 const fallbackAnimationSrc = heroVideo
 const statsSplineUrl =
@@ -1092,7 +1093,7 @@ function HomePage() {
       </div>
 
       <main className={activeSection === 1 ? 'block' : 'hidden'}>
-        <section data-theme="light" className="py-32 lg:py-40 bg-white">
+        <section data-theme="light" className="py-16 lg:py-24 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
             <div className="grid grid-cols-2 gap-10 text-slate-900 lg:grid-cols-4 lg:gap-16">
@@ -1120,39 +1121,60 @@ function HomePage() {
 
         <section
           id="custom-section"
-          data-theme="dark"
-          className="relative isolate overflow-hidden min-h-[100svh] bg-slate-950"
+          data-theme="light"
+          className="py-16 lg:py-24 bg-muted/30"
         >
-          {!prefersReducedMotion ? (
-            <spline-viewer
-              url="https://prod.spline.design/xk-PvTQqtoScZ5Zq/scene.splinecode"
-              className="absolute inset-0 h-full w-full"
-              loading="lazy"
-            />
-          ) : (
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black" />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-950/60 to-slate-950/85" aria-hidden />
-          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950 via-transparent to-transparent" aria-hidden />
-          
-          <div className="relative flex min-h-[100svh] items-center justify-center px-6 lg:px-8">
-            <div className="mx-auto max-w-4xl text-center">
-              <h2 className="text-5xl font-black tracking-tight text-white sm:text-7xl mb-8">
-                Specjalnie <span className="text-accent">dla Ciebie</span>
-              </h2>
-              <div className="space-y-6 text-left max-w-3xl mx-auto">
-                <p className="text-xl leading-relaxed text-gray-200 font-medium">
-                  W STANIAX rozumiemy, że każdy projekt ma unikalne wymagania. Dlatego oferujemy kompleksowe rozwiązania metalizacyjne dostosowane do Twoich specyficznych potrzeb - od pojedynczych prototypów po produkcję seryjną.
-                </p>
-                <p className="text-xl leading-relaxed text-gray-200 font-medium">
-                  Nasz zespół ekspertów pracuje z Tobą na każdym etapie procesu, zapewniając najwyższą jakość powłok metalicznych, które spełnią wszystkie Twoje oczekiwania techniczne i estetyczne.
-                </p>
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Lewa strona - Obraz */}
+              <div className="order-2 lg:order-1">
+                <div className="relative">
+                  <img 
+                    src={customSectionImage} 
+                    alt="Specjalne rozwiązania metalizacyjne STANIAX" 
+                    className="w-full h-auto rounded-2xl shadow-2xl"
+                  />
+                  <div className="absolute -bottom-4 -right-4 bg-accent text-accent-foreground px-6 py-3 rounded-xl shadow-lg">
+                    <p className="font-bold text-sm">Specjalizacja</p>
+                    <p className="text-xs opacity-90">Na Miarę</p>
+                  </div>
+                </div>
               </div>
-              <div className="mt-12">
-                <Button size="lg" className="liquid-metal-button text-white font-semibold border-0 px-8 py-4" onClick={() => scrollToSection('contact')}>
-                  Wyceń Projekt
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+              
+              {/* Prawa strona - Tekst */}
+              <div className="order-1 lg:order-2">
+                <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                  Specjalnie 
+                  <span className="block text-accent">dla Ciebie</span>
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-lg text-muted-foreground font-medium leading-relaxed">
+                    W STANIAX rozumiemy, że każdy projekt ma unikalne wymagania. Dlatego oferujemy kompleksowe rozwiązania metalizacyjne dostosowane do Twoich specyficznych potrzeb - od pojedynczych prototypów po produkcję seryjną.
+                  </p>
+                  <p className="text-lg text-muted-foreground font-medium leading-relaxed">
+                    Nasz zespół ekspertów pracuje z Tobą na każdym etapie procesu, zapewniając najwyższą jakość powłok metalicznych, które spełnią wszystkie Twoje oczekiwania techniczne i estetyczne.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <Trophy className="w-5 h-5 text-accent" />
+                      <span className="text-foreground font-medium">Indywidualne Podejście do Każdego Projektu</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Shield className="w-5 h-5 text-accent" />
+                      <span className="text-foreground font-medium">Najwyższa Jakość Wykonania</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock className="w-5 h-5 text-accent" />
+                      <span className="text-foreground font-medium">Terminowa Realizacja</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-8">
+                  <Button size="lg" className="liquid-metal-button text-white font-semibold border-0" onClick={() => scrollToSection('contact')}>
+                    Wyceń Projekt
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
