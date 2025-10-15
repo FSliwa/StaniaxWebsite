@@ -816,101 +816,88 @@ function HomePage() {
           </div>
         </div>
 
+        {/* Backdrop */}
         <div
           className={cn(
-            'fixed inset-0 z-40 flex flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12 transition-all duration-500 ease-out',
+            'fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300',
+            isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+          )}
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden={!isMenuOpen}
+        />
+        
+        {/* Side Menu */}
+        <div
+          className={cn(
+            'fixed inset-y-0 right-0 z-50 w-full max-w-md transform transition-transform duration-500 ease-in-out',
             menuBackgroundClass,
-            isMenuOpen ? 'pointer-events-auto opacity-100 backdrop-blur-2xl' : 'pointer-events-none opacity-0 backdrop-blur-0'
+            'backdrop-blur-2xl border-l border-white/10',
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           )}
           aria-hidden={!isMenuOpen}
         >
-          <div className="flex items-start justify-between gap-6">
-            <div>
-              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
+          <div className="flex h-full flex-col justify-between px-6 py-8">
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="text-white/70 hover:text-white transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-            <Button
-              onClick={() => {
-                scrollToSection('contact')
-                setIsMenuOpen(false)
-              }}
-              className={cn('border bg-transparent transition-all duration-300', menuButtonClass)}
-            >
-              Porozmawiajmy
-              <ArrowUpRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
 
-          <div className="flex flex-col gap-8 sm:gap-12 lg:flex-row lg:gap-16 overflow-y-auto max-h-[70vh] lg:max-h-none lg:overflow-visible">
-            <div className="flex-1 space-y-4 sm:space-y-8">
-              {navItems.map((item, index) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item)}
-                  className={cn(
-                    'group w-full border-b pb-4 sm:pb-6 text-left transition-colors duration-300 hover:border-accent/60',
-                    menuBorderClass
-                  )}
-                >
-                  <div className="flex items-center gap-3 sm:gap-6">
-                    <span className={cn('text-xs sm:text-sm font-semibold uppercase tracking-[0.4em]', menuMutedClass)}>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span
-                      className={cn(
-                        'flex-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight transition-colors duration-300',
-                        menuPrimaryTextClass,
-                        'group-hover:text-accent'
-                      )}
-                    >
+            <div className="flex flex-col gap-8">
+              <nav className="space-y-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item)}
+                    className={cn(
+                      'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
+                      menuPrimaryTextClass
+                    )}
+                  >
+                    <span className="text-lg font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
                       {item.label}
                     </span>
-                    <ArrowRight
-                      className={cn(
-                        'h-6 w-6 transition-transform duration-300 group-hover:translate-x-2 group-hover:text-accent',
-                        menuIconClass
-                      )}
-                    />
-                  </div>
-                </button>
-              ))}
+                    <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                ))}
+              </nav>
+              
+              <div className="pt-6 border-t border-white/10">
+                <Button
+                  onClick={() => {
+                    scrollToSection('contact')
+                    setIsMenuOpen(false)
+                  }}
+                  className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
+                >
+                  Porozmawiajmy
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </div>
 
-            <div className="w-full max-w-sm space-y-6 lg:self-end">
-              <div className="space-y-3">
+            <div className="space-y-6">
+              <div>
                 <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
-                <div className={cn('space-y-2 text-lg font-semibold', menuPrimaryTextClass)}>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection('contact')}
-                    className="block w-full text-left transition-colors duration-200 hover:text-accent"
-                  >
-                    Formularz kontaktowy
-                  </button>
-                  <a
-                    href="https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block transition-colors duration-200 hover:text-accent"
-                  >
-                    Biuro w Warszawie
-                  </a>
+                <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
+                  <p>Grzybowska 5A</p>
+                  <p>00-132 Warszawa</p>
                 </div>
               </div>
-              <div className="space-y-3">
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Siedziba</p>
-                <p className={cn('text-sm font-medium leading-relaxed', menuMutedClass)}>
-                  Grzybowska 5A<br />
-                  00-132 Warszawa<br />
-                  Polska
-                </p>
-              </div>
               <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Śledź nas</p>
-                <div className={cn('mt-3 flex gap-4 text-sm font-semibold uppercase tracking-[0.3em]', menuMutedClass)}>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
+                <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
                   <a href="#custom-section" className="transition-colors duration-200 hover:text-accent">Studio</a>
-                  <a href="#projects" className="transition-colors duration-200 hover:text-accent">Projects</a>
-                  <a href="#about" className="transition-colors duration-200 hover:text-accent">About</a>
-                  <a href="#contact" className="transition-colors duration-200 hover:text-accent">Kontakt</a>
+                  <a href="#projects" className="transition-colors duration-200 hover:text-accent">Projekty</a>
+                  <a href="#about" className="transition-colors duration-200 hover:text-accent">O nas</a>
                 </div>
               </div>
             </div>
@@ -995,7 +982,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section ref={servicesSectionRef} id="services" data-theme="light" className="h-screen w-full relative py-16 lg:py-24 bg-white overflow-hidden flex flex-col justify-center absolute top-[100vh] left-0">
+        <section ref={servicesSectionRef} id="services" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
           <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -1134,26 +1121,39 @@ function HomePage() {
         <section
           id="custom-section"
           data-theme="dark"
-          className="relative bg-slate-950 py-24 sm:py-32 overflow-hidden"
+          className="relative isolate overflow-hidden min-h-[100svh] bg-slate-950"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black" />
-          <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
-            <h2 className="text-5xl font-black tracking-tight text-white sm:text-7xl mb-8">
-              Specjalnie <span className="text-accent">dla Ciebie</span>
-            </h2>
-            <div className="space-y-6 text-left max-w-3xl mx-auto">
-              <p className="text-xl leading-relaxed text-gray-200 font-medium">
-                W STANIAX rozumiemy, że każdy projekt ma unikalne wymagania. Dlatego oferujemy kompleksowe rozwiązania metalizacyjne dostosowane do Twoich specyficznych potrzeb - od pojedynczych prototypów po produkcję seryjną.
-              </p>
-              <p className="text-xl leading-relaxed text-gray-200 font-medium">
-                Nasz zespół ekspertów pracuje z Tobą na każdym etapie procesu, zapewniając najwyższą jakość powłok metalicznych, które spełnią wszystkie Twoje oczekiwania techniczne i estetyczne.
-              </p>
-            </div>
-            <div className="mt-12">
-              <Button size="lg" className="liquid-metal-button text-white font-semibold border-0 px-8 py-4" onClick={() => scrollToSection('contact')}>
-                Wyceń Projekt
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+          {!prefersReducedMotion ? (
+            <spline-viewer
+              url="https://prod.spline.design/xk-PvTQqtoScZ5Zq/scene.splinecode"
+              className="absolute inset-0 h-full w-full"
+              loading="lazy"
+            />
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black" />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-950/60 to-slate-950/85" aria-hidden />
+          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950 via-transparent to-transparent" aria-hidden />
+          
+          <div className="relative flex min-h-[100svh] items-center justify-center px-6 lg:px-8">
+            <div className="mx-auto max-w-4xl text-center">
+              <h2 className="text-5xl font-black tracking-tight text-white sm:text-7xl mb-8">
+                Specjalnie <span className="text-accent">dla Ciebie</span>
+              </h2>
+              <div className="space-y-6 text-left max-w-3xl mx-auto">
+                <p className="text-xl leading-relaxed text-gray-200 font-medium">
+                  W STANIAX rozumiemy, że każdy projekt ma unikalne wymagania. Dlatego oferujemy kompleksowe rozwiązania metalizacyjne dostosowane do Twoich specyficznych potrzeb - od pojedynczych prototypów po produkcję seryjną.
+                </p>
+                <p className="text-xl leading-relaxed text-gray-200 font-medium">
+                  Nasz zespół ekspertów pracuje z Tobą na każdym etapie procesu, zapewniając najwyższą jakość powłok metalicznych, które spełnią wszystkie Twoje oczekiwania techniczne i estetyczne.
+                </p>
+              </div>
+              <div className="mt-12">
+                <Button size="lg" className="liquid-metal-button text-white font-semibold border-0 px-8 py-4" onClick={() => scrollToSection('contact')}>
+                  Wyceń Projekt
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </div>
             </div>
           </div>
         </section>
