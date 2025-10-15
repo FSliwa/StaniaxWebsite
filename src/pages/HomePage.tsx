@@ -1136,41 +1136,106 @@ function HomePage() {
         <section
           id="custom-section"
           data-theme="light"
-          className="py-16 lg:py-24 bg-muted/30"
+          className="py-16 lg:py-24 bg-muted/50"
         >
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto text-center">
-              {/* Główny tytuł */}
-              <h2 className="text-5xl lg:text-7xl font-black mb-8 leading-tight">
-                Specjalnie 
-                <span className="block text-accent">dla Ciebie</span>
-              </h2>
-              
-              {/* Główny tekst */}
-              <div className="space-y-8 text-left max-w-3xl mx-auto">
-                <p className="text-xl lg:text-2xl text-muted-foreground font-medium leading-relaxed">
-                  W STANIAX rozumiemy, że każdy projekt ma unikalne wymagania. Dlatego oferujemy kompleksowe rozwiązania metalizacyjne dostosowane do Twoich specyficznych potrzeb.
-                </p>
-                
-                <p className="text-lg lg:text-xl text-muted-foreground font-medium leading-relaxed">
-                  Od pojedynczych prototypów po produkcję seryjną - nasz zespół ekspertów pracuje z Tobą na każdym etapie procesu, zapewniając najwyższą jakość powłok metalicznych, które spełnią wszystkie Twoje oczekiwania techniczne i estetyczne.
-                </p>
-                
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Każdy projekt traktujemy indywidualnie, dostosowując nasze rozwiązania do specyficznych wymagań branży i charakteru zastosowania. Dzięki wieloletniemu doświadczeniu i nowoczesnym technologiom, gwarantujemy terminową realizację przy zachowaniu najwyższych standardów jakości.
+            {/* Biały kontener */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 max-w-6xl mx-auto">
+              {/* Tytuł sekcji */}
+              <div className="text-center mb-12">
+                <h2 className="text-4xl lg:text-5xl font-black mb-4">
+                  Specjalnie 
+                  <span className="block text-accent">dla Ciebie</span>
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Poznaj nasze specjalistyczne rozwiązania dostosowane do różnych branż i zastosowań
                 </p>
               </div>
-              
+
+              {/* Trzy elementy w układzie naprzemiennym */}
+              <div className="space-y-16">
+                {/* Element 1: Obrazek po lewej, tekst po prawej */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                  <div className="order-1">
+                    <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center">
+                      <Factory className="w-16 h-16 text-accent/60" />
+                    </div>
+                  </div>
+                  <div className="order-2">
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
+                      Prototypowanie Przemysłowe
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Szybkie i precyzyjne tworzenie prototypów z zastosowaniem zaawansowanych technik metalizacji. 
+                      Idealne rozwiązanie dla firm rozwijających nowe produkty i technologie, wymagających 
+                      wysokiej jakości powłok już na etapie testów.
+                    </p>
+                    <div className="flex items-center gap-3 text-accent">
+                      <Shield className="w-5 h-5" />
+                      <span className="font-medium">Gwarancja jakości na każdym etapie</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Element 2: Tekst po lewej, obrazek po prawej */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                  <div className="order-2 lg:order-1">
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
+                      Produkcja Seryjna
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Skalowalne rozwiązania dla dużych wolumenów produkcyjnych. Nasze procesy są zoptymalizowane 
+                      pod kątem efektywności i powtarzalności, zapewniając identyczną jakość dla każdej sztuki 
+                      w całej serii produkcyjnej.
+                    </p>
+                    <div className="flex items-center gap-3 text-accent">
+                      <Clock className="w-5 h-5" />
+                      <span className="font-medium">Terminowa realizacja dużych zamówień</span>
+                    </div>
+                  </div>
+                  <div className="order-1 lg:order-2">
+                    <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center">
+                      <Gear className="w-16 h-16 text-accent/60" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Element 3: Obrazek po lewej, tekst po prawej */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                  <div className="order-1">
+                    <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center">
+                      <Trophy className="w-16 h-16 text-accent/60" />
+                    </div>
+                  </div>
+                  <div className="order-2">
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
+                      Rozwiązania Specjalistyczne
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6">
+                      Unikalne procesy metalizacji dla nietypowych zastosowań i wymagających branż. 
+                      Współpracujemy z klientami nad opracowaniem dedykowanych rozwiązań, które spełnią 
+                      nawet najbardziej specyficzne wymagania techniczne.
+                    </p>
+                    <div className="flex items-center gap-3 text-accent">
+                      <Target className="w-5 h-5" />
+                      <span className="font-medium">Indywidualne podejście do każdego projektu</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Przyciski akcji */}
-              <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="liquid-metal-button text-white font-semibold border-0" onClick={() => scrollToSection('contact')}>
-                  Wyceń Projekt
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-                <Button size="lg" variant="outline" className="font-semibold" onClick={() => scrollToSection('projects')}>
-                  Zobacz Realizacje
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+              <div className="mt-16 text-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" className="liquid-metal-button text-white font-semibold border-0" onClick={() => scrollToSection('contact')}>
+                    Wyceń Projekt
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                  <Button size="lg" variant="outline" className="font-semibold" onClick={() => scrollToSection('projects')}>
+                    Zobacz Realizacje
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
