@@ -353,6 +353,7 @@ function HomePage() {
   const [newsSplineKey, setNewsSplineKey] = useState(0)
   const prefersReducedMotion = useReducedMotion() ?? false
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
+  const servicesSectionRef = useRef<HTMLDivElement | null>(null)
   const resolvedVirtualStudioUrl =
     virtualStudioEmbedUrl && virtualStudioEmbedUrl !== 'undefined'
       ? virtualStudioEmbedUrl
@@ -568,6 +569,48 @@ function HomePage() {
       observer.disconnect()
     }
   }, [prefersReducedMotion])
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !servicesSectionRef.current) return
+
+    const section = servicesSectionRef.current
+    const sparkleContainer = section.querySelector('#sparkle-container') as HTMLElement
+
+    if (!sparkleContainer) return
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (Math.random() > 0.5) return // Ogranicza gęstość iskier
+
+      const sparkle = document.createElement('div')
+      sparkle.className = 'sparkle'
+
+      const size = Math.random() * 5 + 2 // Subtelny rozmiar: od 2px do 7px
+      sparkle.style.width = `${size}px`
+      sparkle.style.height = `${size}px`
+
+      // Pozycja względem sekcji, a nie całego okna
+      const rect = section.getBoundingClientRect()
+      sparkle.style.left = `${e.clientX - rect.left}px`
+      sparkle.style.top = `${e.clientY - rect.top}px`
+
+      const dx = (Math.random() - 0.5) * 80 // Zwiększony, ale subtelny ruch
+      const dy = (Math.random() - 0.5) * 80
+      sparkle.style.setProperty('--dx', `${dx}px`)
+      sparkle.style.setProperty('--dy', `${dy}px`)
+
+      sparkleContainer.appendChild(sparkle)
+
+      sparkle.addEventListener('animationend', () => {
+        sparkle.remove()
+      })
+    }
+
+    section.addEventListener('mousemove', handleMouseMove)
+
+    return () => {
+      section.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id)
@@ -907,7 +950,8 @@ function HomePage() {
           </div>
         </section>
 
-        <section id="services" data-theme="dark" className="relative py-16 lg:py-24 overflow-hidden">
+        <section ref={servicesSectionRef} id="services" data-theme="light" className="relative py-16 lg:py-24 bg-muted/30 overflow-hidden">
+          <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
           <div className="absolute inset-0 z-0" aria-hidden>
             <video
               className="w-full h-full object-cover"
