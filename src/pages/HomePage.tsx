@@ -25,7 +25,6 @@ import {
   Wrench
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/Generowanie_Wideo_Powłoki_Metalicznej.mp4'
-import servicesBackgroundVideo from '@/assets/services-background-video.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
 import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
@@ -579,30 +578,41 @@ function HomePage() {
     if (!sparkleContainer) return
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (Math.random() > 0.5) return // Ogranicza gęstość iskier
+      // Generuj kilka iskier jednocześnie dla efektu spawania
+      const sparkCount = Math.floor(Math.random() * 3) + 1
+      
+      for (let i = 0; i < sparkCount; i++) {
+        if (Math.random() > 0.7) continue // Ogranicza gęstość
 
-      const sparkle = document.createElement('div')
-      sparkle.className = 'sparkle'
+        const sparkle = document.createElement('div')
+        
+        // Losowy kolor iskry
+        const colors = ['sparkle-white', 'sparkle-yellow', 'sparkle-orange']
+        const colorClass = colors[Math.floor(Math.random() * colors.length)]
+        sparkle.className = `sparkle ${colorClass}`
 
-      const size = Math.random() * 5 + 2 // Subtelny rozmiar: od 2px do 7px
-      sparkle.style.width = `${size}px`
-      sparkle.style.height = `${size}px`
+        // Większe iskry na początku
+        const size = Math.random() * 4 + 1 // od 1px do 5px
+        sparkle.style.width = `${size}px`
+        sparkle.style.height = `${size}px`
 
-      // Pozycja względem sekcji, a nie całego okna
-      const rect = section.getBoundingClientRect()
-      sparkle.style.left = `${e.clientX - rect.left}px`
-      sparkle.style.top = `${e.clientY - rect.top}px`
+        // Pozycja względem sekcji
+        const rect = section.getBoundingClientRect()
+        sparkle.style.left = `${e.clientX - rect.left + (Math.random() - 0.5) * 10}px`
+        sparkle.style.top = `${e.clientY - rect.top + (Math.random() - 0.5) * 10}px`
 
-      const dx = (Math.random() - 0.5) * 80 // Zwiększony, ale subtelny ruch
-      const dy = (Math.random() - 0.5) * 80
-      sparkle.style.setProperty('--dx', `${dx}px`)
-      sparkle.style.setProperty('--dy', `${dy}px`)
+        // Iskry lecą głównie w dół z lekkim rozrzutem na boki
+        const dx = (Math.random() - 0.5) * 60 // Ruch na boki
+        const dy = Math.random() * 80 + 40 // Głównie w dół (40-120px)
+        sparkle.style.setProperty('--dx', `${dx}px`)
+        sparkle.style.setProperty('--dy', `${dy}px`)
 
-      sparkleContainer.appendChild(sparkle)
+        sparkleContainer.appendChild(sparkle)
 
-      sparkle.addEventListener('animationend', () => {
-        sparkle.remove()
-      })
+        sparkle.addEventListener('animationend', () => {
+          sparkle.remove()
+        })
+      }
     }
 
     section.addEventListener('mousemove', handleMouseMove)
@@ -950,29 +960,17 @@ function HomePage() {
           </div>
         </section>
 
-        <section ref={servicesSectionRef} id="services" data-theme="light" className="relative py-16 lg:py-24 bg-muted/30 overflow-hidden">
+        <section ref={servicesSectionRef} id="services" data-theme="light" className="relative py-16 lg:py-24 bg-white overflow-hidden">
           <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
-          <div className="absolute inset-0 z-0" aria-hidden>
-            <video
-              className="w-full h-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src={servicesBackgroundVideo} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-slate-950/80" />
-          </div>
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
               <div className="lg:col-span-4 space-y-10">
                 <div>
-                  <h2 className="text-4xl lg:text-6xl font-black mb-6 text-white">
+                  <h2 className="text-4xl lg:text-6xl font-black mb-6">
                     Nasze
                     <span className="block text-accent">Usługi</span>
                   </h2>
-                  <p className="text-lg text-white/80 font-medium">
+                  <p className="text-lg text-muted-foreground font-medium">
                     Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych.
                   </p>
                 </div>
@@ -990,8 +988,8 @@ function HomePage() {
                             className={cn(
                               'group relative flex w-full items-center gap-4 rounded-3xl border px-6 py-5 text-left transition-all duration-300',
                               isActive
-                                ? 'border-accent bg-slate-900/70 shadow-2xl shadow-accent/20'
-                                : 'border-white/20 bg-white/10 backdrop-blur-sm hover:border-accent/50 hover:bg-white/20'
+                                ? 'border-accent bg-background shadow-2xl shadow-accent/20'
+                                : 'border-transparent bg-white/40 backdrop-blur-sm hover:border-accent/50 hover:bg-white/60'
                             )}
                           >
                             <span
@@ -1005,13 +1003,13 @@ function HomePage() {
                               {String(index + 1).padStart(2, '0')}
                             </span>
                             <div className="flex-1 space-y-1">
-                              <p className="text-lg font-bold leading-tight text-white">
+                              <p className="text-lg font-bold leading-tight">
                                 {service.title}
                               </p>
                               <p
                                 className={cn(
                                   'text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300',
-                                  isActive ? 'text-accent' : 'text-white/70'
+                                  isActive ? 'text-accent' : 'text-muted-foreground'
                                 )}
                               >
                                 {service.tagline}
@@ -1024,9 +1022,6 @@ function HomePage() {
                               )}
                               aria-hidden
                             />
-                            {isActive && (
-                              <div className="absolute inset-x-4 -bottom-px h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-                            )}
                           </button>
                         </li>
                       )
@@ -1047,7 +1042,7 @@ function HomePage() {
                       )}
                       aria-hidden={!isActive}
                     >
-                      <Card className="h-full border-2 border-white/10 bg-white/5 backdrop-blur-md text-white">
+                      <Card className="h-full border bg-card">
                         <div className="h-2/3">
                           <IndustrialImage
                             src={service.image}
@@ -1061,7 +1056,7 @@ function HomePage() {
                           <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-white/80">{service.description}</p>
+                          <p className="text-muted-foreground">{service.description}</p>
                         </CardContent>
                       </Card>
                     </div>
