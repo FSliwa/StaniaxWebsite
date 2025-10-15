@@ -355,11 +355,8 @@ function HomePage() {
   const prefersReducedMotion = useReducedMotion() ?? false
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const servicesSectionRef = useRef<HTMLDivElement | null>(null)
-  const resolvedVirtualStudioUrl =
-    virtualStudioEmbedUrl && virtualStudioEmbedUrl !== 'undefined'
-      ? virtualStudioEmbedUrl
-      : virtualStudioFallbackSplineUrl
-  const hasVirtualStudioSpline = Boolean(resolvedVirtualStudioUrl && resolvedVirtualStudioUrl !== 'undefined')
+  
+  const hasVirtualStudioSpline = false // Usunięta sekcja
   const { scrollYProgress: aboutScrollProgress } = useScroll({
     target: aboutMosaicRef,
     offset: ['start 90%', 'end 15%']
@@ -1116,40 +1113,26 @@ function HomePage() {
               </div>
             </section>
 
-        <section
-          id="virtual-studio"
-          data-theme="dark"
-          className="relative isolate overflow-hidden min-h-[100svh]"
-        >
-          {!prefersReducedMotion ? (
-            <spline-viewer
-              url="https://prod.spline.design/xk-PvTQqtoScZ5Zq/scene.splinecode"
-              className="absolute inset-0 h-full w-full"
-              loading="lazy"
-            />
-          ) : shouldRenderVirtualStudioVideoFallback ? (
-            <video
-              className="absolute inset-0 block h-full w-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src={fallbackAnimationSrc} type="video/mp4" />
-            </video>
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center px-6">
-              <div className="max-w-lg rounded-3xl border border-white/10 bg-white/5 px-6 py-5 text-center text-white shadow-2xl backdrop-blur">
-                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/60">Animacja wyłączona</p>
-                <p className="mt-3 text-lg font-medium text-white/85">
-                  Aby zobaczyć nową animację procesu metalizacji STANIAX, włącz efekty ruchu w ustawieniach systemowych lub przeglądarki.
-                </p>
-              </div>
+        <section id="custom-section" data-theme="dark" className="relative bg-slate-950 py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+            <h2 className="text-4xl font-black tracking-tight text-white sm:text-6xl">
+              Specjalnie <span className="text-accent">dla Ciebie</span>
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-gray-300">
+              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
+              fugiat veniam occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
+            </p>
+            <p className="mt-4 text-lg leading-8 text-gray-300">
+              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
+              fugiat veniam occaecat fugiat aliqua.
+            </p>
+            <div className="mt-10">
+              <Button size="lg" className="liquid-metal-button text-white font-semibold border-0">
+                Wyceń Projekt
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
             </div>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-950/60 to-slate-950/85" aria-hidden />
-          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950 via-transparent to-transparent" aria-hidden />
-
+          </div>
         </section>
 
         <section id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
