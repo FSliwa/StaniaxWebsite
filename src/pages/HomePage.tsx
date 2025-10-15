@@ -818,12 +818,12 @@ function HomePage() {
 
         <div
           className={cn(
-            'fixed inset-y-0 left-0 z-40 w-full max-w-md transform bg-slate-950/95 text-white backdrop-blur-2xl transition-transform duration-500 ease-in-out',
-            isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+            'fixed inset-0 z-40 flex flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12 transition-all duration-500 ease-out',
+            menuBackgroundClass,
+            isMenuOpen ? 'pointer-events-auto opacity-100 backdrop-blur-2xl' : 'pointer-events-none opacity-0 backdrop-blur-0'
           )}
           aria-hidden={!isMenuOpen}
         >
-          <div className="flex h-full flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12">
           <div className="flex items-start justify-between gap-6">
             <div>
               <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
@@ -918,18 +918,9 @@ function HomePage() {
 
           <div className={cn('flex items-center justify-between text-xs uppercase tracking-[0.5em]', menuMutedClass)}>
             <span>STANIAX — metalizacja premium</span>
-            <span>2025 ©</span>
-          </div>
+            <span>Scrolluj, aby odkryć</span>
           </div>
         </div>
-
-        {isMenuOpen && (
-          <div
-            className="fixed inset-0 z-30 bg-black/50"
-            onClick={() => setIsMenuOpen(false)}
-            aria-hidden="true"
-          />
-        )}
       </header>
 
       <div className="h-screen w-screen overflow-hidden relative">
