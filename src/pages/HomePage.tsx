@@ -332,6 +332,8 @@ function HomePage() {
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
+  const [activeSection, setActiveSection] = useState(0) // 0 for hero, 1 for services
+  const isTransitioning = useRef(false)
   const [headerTheme, setHeaderTheme] = useState<'light' | 'dark'>('dark')
   const hasNewsSpline = Boolean(newsSplineUrl && newsSplineUrl !== 'undefined')
   const [formData, setFormData] = useState({
@@ -615,10 +617,45 @@ function HomePage() {
     }
   }, [])
 
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (isTransitioning.current) {
+        e.preventDefault()
+        return
+      }
+
+      const scrollDown = e.deltaY > 0
+      const scrollUp = e.deltaY < 0
+
+      if (activeSection === 0 && scrollDown) {
+        e.preventDefault()
+        isTransitioning.current = true
+        setActiveSection(1)
+        setTimeout(() => { isTransitioning.current = false }, 1000)
+      } else if (activeSection === 1 && scrollUp && window.scrollY === 0) {
+        e.preventDefault()
+        isTransitioning.current = true
+        setActiveSection(0)
+        setTimeout(() => { isTransitioning.current = false }, 1000)
+      }
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+    }
+  }, [activeSection])
+
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id)
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (id === 'top') {
+      setActiveSection(0)
+    } else if (id === 'services') {
+      setActiveSection(1)
+    } else {
+      const section = document.getElementById(id)
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
     }
   }
 
@@ -781,12 +818,12 @@ function HomePage() {
 
         <div
           className={cn(
-            'fixed inset-0 z-40 flex flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12 transition-all duration-500 ease-out',
-            menuBackgroundClass,
-            isMenuOpen ? 'pointer-events-auto opacity-100 backdrop-blur-2xl' : 'pointer-events-none opacity-0 backdrop-blur-0'
+            'fixed inset-y-0 left-0 z-40 w-full max-w-md transform bg-slate-950/95 text-white backdrop-blur-2xl transition-transform duration-500 ease-in-out',
+            isMenuOpen ? 'translate-x-0' : '-translate-x-full'
           )}
           aria-hidden={!isMenuOpen}
         >
+          <div className="flex h-full flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12">
           <div className="flex items-start justify-between gap-6">
             <div>
               <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
@@ -881,13 +918,27 @@ function HomePage() {
 
           <div className={cn('flex items-center justify-between text-xs uppercase tracking-[0.5em]', menuMutedClass)}>
             <span>STANIAX — metalizacja premium</span>
-            <span>Scrolluj, aby odkryć</span>
+            <span>2025 ©</span>
+          </div>
           </div>
         </div>
+
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 z-30 bg-black/50"
+            onClick={() => setIsMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
       </header>
 
-      <main>
-        <section id="top" data-theme="dark" className="pt-24 pb-16 lg:pt-36 lg:pb-32 relative overflow-hidden">
+      <div className="h-screen w-screen overflow-hidden relative">
+        <motion.div
+          className="relative w-full"
+          animate={{ y: activeSection === 0 ? '0%' : '-100vh' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <section id="top" data-theme="dark" className="h-screen w-full flex flex-col justify-center relative overflow-hidden">
           <div className="absolute inset-0" aria-hidden>
             <video
               className="absolute inset-0 w-full h-full object-cover"
@@ -953,7 +1004,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section ref={servicesSectionRef} id="services" data-theme="light" className="relative py-16 lg:py-24 bg-white overflow-hidden">
+        <section ref={servicesSectionRef} id="services" data-theme="light" className="h-screen w-full relative py-16 lg:py-24 bg-white overflow-hidden flex flex-col justify-center absolute top-[100vh] left-0">
           <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -1059,7 +1110,10 @@ function HomePage() {
             </div>
           </div>
         </section>
+        </motion.div>
+      </div>
 
+      <main className={activeSection === 1 ? 'block' : 'hidden'}>
         <section data-theme="light" className="py-32 lg:py-40 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
@@ -1089,22 +1143,23 @@ function HomePage() {
         <section
           id="custom-section"
           data-theme="dark"
-          className="relative bg-slate-950 py-24 sm:py-32"
+          className="relative bg-slate-950 py-24 sm:py-32 overflow-hidden"
         >
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-black tracking-tight text-white sm:text-6xl">
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black" />
+          <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
+            <h2 className="text-5xl font-black tracking-tight text-white sm:text-7xl mb-8">
               Specjalnie <span className="text-accent">dla Ciebie</span>
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-              fugiat veniam occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
-            </p>
-            <p className="mt-4 text-lg leading-8 text-gray-300">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-              fugiat veniam occaecat fugiat aliqua.
-            </p>
-            <div className="mt-10">
-              <Button size="lg" className="liquid-metal-button text-white font-semibold border-0" onClick={() => scrollToSection('contact')}>
+            <div className="space-y-6 text-left max-w-3xl mx-auto">
+              <p className="text-xl leading-relaxed text-gray-200 font-medium">
+                W STANIAX rozumiemy, że każdy projekt ma unikalne wymagania. Dlatego oferujemy kompleksowe rozwiązania metalizacyjne dostosowane do Twoich specyficznych potrzeb - od pojedynczych prototypów po produkcję seryjną.
+              </p>
+              <p className="text-xl leading-relaxed text-gray-200 font-medium">
+                Nasz zespół ekspertów pracuje z Tobą na każdym etapie procesu, zapewniając najwyższą jakość powłok metalicznych, które spełnią wszystkie Twoje oczekiwania techniczne i estetyczne.
+              </p>
+            </div>
+            <div className="mt-12">
+              <Button size="lg" className="liquid-metal-button text-white font-semibold border-0 px-8 py-4" onClick={() => scrollToSection('contact')}>
                 Wyceń Projekt
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
@@ -1480,6 +1535,9 @@ function HomePage() {
           </div>
         </section>
       </main>
+
+      <Toaster position="top-right" richColors />
+      <CookieBanner />
 
       <footer className="bg-slate-950 text-white">
         <div className="container mx-auto px-6 lg:px-12 py-16">
