@@ -331,7 +331,9 @@ function CountUp({ end, duration = 2000, suffix = '' }: CountUpProps) {
 function HomePage() {
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrollY, setScrollY] = useState(0)
+  const [activeSection, setActiveSection] = useState(0) // 0 for hero, 1 for services
+  const isTransitioning = useRef(false)
+  const mainContainerRef = useRef<HTMLDivElement>(null)
   const [headerTheme, setHeaderTheme] = useState<'light' | 'dark'>('dark')
   const hasNewsSpline = Boolean(newsSplineUrl && newsSplineUrl !== 'undefined')
   const [formData, setFormData] = useState({
@@ -371,7 +373,10 @@ function HomePage() {
   const shouldRenderNewsReducedMotionNotice = prefersReducedMotion
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
+    const handleScroll = () => {
+      // This effect is now primarily for scroll hijacking, not direct state updates
+      // The activeSection state is managed by the wheel event listener
+    }
     handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -622,10 +627,48 @@ function HomePage() {
     }
   }, [])
 
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (isTransitioning.current) {
+        e.preventDefault()
+        return
+      }
+
+      const scrollDown = e.deltaY > 0
+      const scrollUp = e.deltaY < 0
+
+      if (activeSection === 0 && scrollDown) {
+        e.preventDefault()
+        isTransitioning.current = true
+        setActiveSection(1)
+        setTimeout(() => { isTransitioning.current = false }, 1000) // Czas trwania animacji
+      } else if (activeSection === 1 && scrollUp) {
+        // Sprawdź, czy użytkownik jest na samej górze strony (lub sekcji usług)
+        if (mainContainerRef.current && mainContainerRef.current.scrollTop === 0) {
+          e.preventDefault()
+          isTransitioning.current = true
+          setActiveSection(0)
+          setTimeout(() => { isTransitioning.current = false }, 1000) // Czas trwania animacji
+        }
+      }
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+    }
+  }, [activeSection])
+
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id)
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const sectionIndex = navItems.findIndex(item => item.id === id)
+    if (sectionIndex >= 0 && sectionIndex < 2) { // Dotyczy tylko hero i usług
+      setActiveSection(sectionIndex)
+    } else {
+      // Dla pozostałych sekcji, przewiń normalnie
+      const section = document.getElementById(id)
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
     }
   }
 
@@ -686,9 +729,7 @@ function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <Toaster position="top-right" richColors />
-
+    <>
       <header
         className={cn(
           'fixed top-0 w-full transition-all duration-500',
@@ -788,285 +829,302 @@ function HomePage() {
 
         <div
           className={cn(
-            'fixed inset-0 z-40 flex flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12 transition-all duration-500 ease-out',
-            menuBackgroundClass,
-            isMenuOpen ? 'pointer-events-auto opacity-100 backdrop-blur-2xl' : 'pointer-events-none opacity-0 backdrop-blur-0'
+            'fixed inset-y-0 left-0 z-40 w-full max-w-md transform bg-slate-950/95 text-white backdrop-blur-2xl transition-transform duration-500 ease-in-out',
+            isMenuOpen ? 'translate-x-0' : '-translate-x-full'
           )}
           aria-hidden={!isMenuOpen}
         >
-          <div className="flex items-start justify-between gap-6">
-            <div>
-              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
-            </div>
-            <Button
-              onClick={() => {
-                scrollToSection('contact')
-                setIsMenuOpen(false)
-              }}
-              className={cn('border bg-transparent transition-all duration-300', menuButtonClass)}
-            >
-              Porozmawiajmy
-              <ArrowUpRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="flex flex-col gap-8 sm:gap-12 lg:flex-row lg:gap-16 overflow-y-auto max-h-[70vh] lg:max-h-none lg:overflow-visible">
-            <div className="flex-1 space-y-4 sm:space-y-8">
-              {navItems.map((item, index) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item)}
-                  className={cn(
-                    'group w-full border-b pb-4 sm:pb-6 text-left transition-colors duration-300 hover:border-accent/60',
-                    menuBorderClass
-                  )}
-                >
-                  <div className="flex items-center gap-3 sm:gap-6">
-                    <span className={cn('text-xs sm:text-sm font-semibold uppercase tracking-[0.4em]', menuMutedClass)}>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span
-                      className={cn(
-                        'flex-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight transition-colors duration-300',
-                        menuPrimaryTextClass,
-                        'group-hover:text-accent'
-                      )}
-                    >
-                      {item.label}
-                    </span>
-                    <ArrowRight
-                      className={cn(
-                        'h-6 w-6 transition-transform duration-300 group-hover:translate-x-2 group-hover:text-accent',
-                        menuIconClass
-                      )}
-                    />
-                  </div>
-                </button>
-              ))}
-            </div>
-
-            <div className="w-full max-w-sm space-y-6 lg:self-end">
-              <div className="space-y-3">
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
-                <div className={cn('space-y-2 text-lg font-semibold', menuPrimaryTextClass)}>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection('contact')}
-                    className="block w-full text-left transition-colors duration-200 hover:text-accent"
-                  >
-                    Formularz kontaktowy
-                  </button>
-                  <a
-                    href="https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block transition-colors duration-200 hover:text-accent"
-                  >
-                    Biuro w Warszawie
-                  </a>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Siedziba</p>
-                <p className={cn('text-sm font-medium leading-relaxed', menuMutedClass)}>
-                  Grzybowska 5A<br />
-                  00-132 Warszawa<br />
-                  Polska
-                </p>
-              </div>
+          <div className="flex h-full flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12">
+            <div className="flex items-start justify-between gap-6">
               <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Śledź nas</p>
-                <div className={cn('mt-3 flex gap-4 text-sm font-semibold uppercase tracking-[0.3em]', menuMutedClass)}>
-                  <a href="#virtual-studio" className="transition-colors duration-200 hover:text-accent">Studio</a>
-                  <a href="#projects" className="transition-colors duration-200 hover:text-accent">Projects</a>
-                  <a href="#about" className="transition-colors duration-200 hover:text-accent">About</a>
-                  <a href="#contact" className="transition-colors duration-200 hover:text-accent">Kontakt</a>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
+              </div>
+              <Button
+                onClick={() => {
+                  scrollToSection('contact')
+                  setIsMenuOpen(false)
+                }}
+                className={cn('border bg-transparent transition-all duration-300', menuButtonClass)}
+              >
+                Porozmawiajmy
+                <ArrowUpRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+
+            <div className="flex flex-col gap-8 sm:gap-12 lg:gap-16 overflow-y-auto max-h-[70vh] lg:max-h-none lg:overflow-visible">
+              <div className="flex-1 space-y-4 sm:space-y-8">
+                {navItems.map((item, index) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item)}
+                    className={cn(
+                      'group w-full border-b pb-4 sm:pb-6 text-left transition-colors duration-300 hover:border-accent/60',
+                      menuBorderClass
+                    )}
+                  >
+                    <div className="flex items-center gap-3 sm:gap-6">
+                      <span className={cn('text-xs sm:text-sm font-semibold uppercase tracking-[0.4em]', menuMutedClass)}>
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <span
+                        className={cn(
+                          'flex-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight transition-colors duration-300',
+                          menuPrimaryTextClass,
+                          'group-hover:text-accent'
+                        )}
+                      >
+                        {item.label}
+                      </span>
+                      <ArrowRight
+                        className={cn(
+                          'h-6 w-6 transition-transform duration-300 group-hover:translate-x-2 group-hover:text-accent',
+                          menuIconClass
+                        )}
+                      />
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              <div className="w-full max-w-sm space-y-6 lg:self-end">
+                <div className="space-y-3">
+                  <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
+                  <div className={cn('space-y-2 text-lg font-semibold', menuPrimaryTextClass)}>
+                    <button
+                      type="button"
+                      onClick={() => scrollToSection('contact')}
+                      className="block w-full text-left transition-colors duration-200 hover:text-accent"
+                    >
+                      Formularz kontaktowy
+                    </button>
+                    <a
+                      href="https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block transition-colors duration-200 hover:text-accent"
+                    >
+                      Biuro w Warszawie
+                    </a>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Siedziba</p>
+                  <p className={cn('text-sm font-medium leading-relaxed', menuMutedClass)}>
+                    Grzybowska 5A<br />
+                    00-132 Warszawa<br />
+                    Polska
+                  </p>
+                </div>
+                <div>
+                  <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Śledź nas</p>
+                  <div className={cn('mt-3 flex gap-4 text-sm font-semibold uppercase tracking-[0.3em]', menuMutedClass)}>
+                    <a href="#virtual-studio" className="transition-colors duration-200 hover:text-accent">Studio</a>
+                    <a href="#projects" className="transition-colors duration-200 hover:text-accent">Projects</a>
+                    <a href="#about" className="transition-colors duration-200 hover:text-accent">About</a>
+                    <a href="#contact" className="transition-colors duration-200 hover:text-accent">Kontakt</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className={cn('flex items-center justify-between text-xs uppercase tracking-[0.5em]', menuMutedClass)}>
-            <span>STANIAX — metalizacja premium</span>
-            <span>Scrolluj, aby odkryć</span>
+            <div className={cn('flex items-center justify-between text-xs uppercase tracking-[0.5em]', menuMutedClass)}>
+              <span>STANIAX — metalizacja premium</span>
+              <span>2025 ©</span>
+            </div>
           </div>
         </div>
+
+        {isMenuOpen && (
+          <div
+            className="fixed inset-0 z-30 bg-black/50"
+            onClick={() => setIsMenuOpen(false)}
+            aria-hidden="true"
+          />
+        )}
       </header>
 
-      <main>
-        <section id="top" data-theme="dark" className="pt-24 pb-16 lg:pt-36 lg:pb-32 relative overflow-hidden">
-          <div className="absolute inset-0" aria-hidden>
-            <video
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ transform: `scale(${heroScaleValue})` }}
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src={heroVideo} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-br from-background/92 via-background/75 to-background/88" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
-          </div>
-
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            <div className="flex flex-col gap-8 lg:gap-12">
-              <div className="flex items-center gap-4 text-xs uppercase tracking-[0.6em] text-white/70">
-                <span className="flex items-center gap-2">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30">
-                    <Factory className="h-5 w-5" />
-                  </span>
-                  Eksperci metalizacji w Polsce
-                </span>
-                <span className="hidden sm:block h-px flex-1 bg-white/20" />
-                <span className="hidden sm:block">Od 2025</span>
-              </div>
-
-              <div className="max-w-5xl space-y-6">
-                <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
-                  <span className="block">Przemysłowe</span>
-                  <span className="block">Powłoki</span>
-                  <span className="block text-accent">Na Miarę Przyszłości</span>
-                </h1>
-                <div className="max-w-2xl">
-                  <p className="text-lg lg:text-xl text-white/80 font-medium">
-                    Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
-                    i podkreślają Twoją technologiczną przewagę konkurencyjną.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  onClick={() => scrollToSection('projects')}
-                  className="liquid-metal-button text-white font-semibold border-0"
-                >
-                  Zobacz Nasze Prace
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
-                  onClick={() => scrollToSection('contact')}
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Skontaktuj się z nami
-                </Button>
-              </div>
+      <div ref={mainContainerRef} className="h-screen w-screen overflow-x-hidden relative">
+        <motion.div
+          className="relative w-full h-full"
+          animate={{ y: activeSection === 0 ? '0%' : '-100%' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <section id="top" data-theme="dark" className="h-screen w-full flex flex-col justify-center absolute top-0 left-0">
+            <div className="absolute inset-0" aria-hidden>
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ transform: `scale(${heroScaleValue})` }}
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={heroVideo} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-br from-background/92 via-background/75 to-background/88" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
             </div>
-          </div>
-        </section>
 
-        <section ref={servicesSectionRef} id="services" data-theme="light" className="relative py-16 lg:py-24 bg-white overflow-hidden">
-          <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-              <div className="lg:col-span-4 space-y-10">
-                <div>
-                  <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                    Nasze
-                    <span className="block text-accent">Usługi</span>
-                  </h2>
-                  <p className="text-lg text-muted-foreground font-medium">
-                    Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych.
-                  </p>
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+              <div className="flex flex-col gap-8 lg:gap-12">
+                <div className="flex items-center gap-4 text-xs uppercase tracking-[0.6em] text-white/70">
+                  <span className="flex items-center gap-2">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30">
+                      <Factory className="h-5 w-5" />
+                    </span>
+                    Eksperci metalizacji w Polsce
+                  </span>
+                  <span className="hidden sm:block h-px flex-1 bg-white/20" />
+                  <span className="hidden sm:block">Od 2025</span>
                 </div>
-                <nav aria-label="Nawigacja po usługach" className="hidden lg:block">
-                  <ul className="space-y-4">
-                    {servicesData.map((service, index) => {
-                      const isActive = activeService === service.id
-                      return (
-                        <li key={service.id}>
-                          <button
-                            type="button"
-                            onClick={() => setActiveService(service.id)}
-                            onMouseEnter={() => setActiveService(service.id)}
-                            onFocus={() => setActiveService(service.id)}
-                            className={cn(
-                              'group relative flex w-full items-center gap-4 rounded-3xl border px-6 py-5 text-left transition-all duration-300',
-                              isActive
-                                ? 'border-accent bg-background shadow-2xl shadow-accent/20'
-                                : 'border-transparent bg-white/40 backdrop-blur-sm hover:border-accent/50 hover:bg-white/60'
-                            )}
-                          >
-                            <span
-                              className={cn(
-                                'flex h-12 w-12 items-center justify-center rounded-full border text-sm font-semibold uppercase tracking-[0.3em] transition-colors duration-300',
-                                isActive
-                                  ? 'border-accent bg-accent text-accent-foreground'
-                                  : 'border-foreground/20 text-foreground/60'
-                              )}
-                            >
-                              {String(index + 1).padStart(2, '0')}
-                            </span>
-                            <div className="flex-1 space-y-1">
-                              <p className="text-lg font-bold leading-tight">
-                                {service.title}
-                              </p>
-                              <p
+
+                <div className="max-w-5xl space-y-6">
+                  <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
+                    <span className="block">Przemysłowe</span>
+                    <span className="block">Powłoki</span>
+                    <span className="block text-accent">Na Miarę Przyszłości</span>
+                  </h1>
+                  <div className="max-w-2xl">
+                    <p className="text-lg lg:text-xl text-white/80 font-medium">
+                      Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
+                      i podkreślają Twoją technologiczną przewagę konkurencyjną.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    size="lg"
+                    onClick={() => scrollToSection('projects')}
+                    className="liquid-metal-button text-white font-semibold border-0"
+                  >
+                    Zobacz Nasze Prace
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
+                    onClick={() => scrollToSection('contact')}
+                  >
+                    <Phone className="w-5 h-5 mr-2" />
+                    Skontaktuj się z nami
+                  </Button>
+                </div>
+              </div>
+            </section>
+
+            <section ref={servicesSectionRef} id="services" data-theme="light" className="h-screen w-full relative py-16 lg:py-24 bg-white overflow-hidden absolute top-[100%] left-0">
+              <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
+              <div className="container mx-auto px-6 lg:px-12 relative z-10 h-full flex flex-col justify-center">
+                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+                  <div className="lg:col-span-4 space-y-10">
+                    <div>
+                      <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                        Nasze
+                        <span className="block text-accent">Usługi</span>
+                      </h2>
+                      <p className="text-lg text-muted-foreground font-medium">
+                        Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych.
+                      </p>
+                    </div>
+                    <nav aria-label="Nawigacja po usługach" className="hidden lg:block">
+                      <ul className="space-y-4">
+                        {servicesData.map((service, index) => {
+                          const isActive = activeService === service.id
+                          return (
+                            <li key={service.id}>
+                              <button
+                                type="button"
+                                onClick={() => setActiveService(service.id)}
+                                onMouseEnter={() => setActiveService(service.id)}
+                                onFocus={() => setActiveService(service.id)}
                                 className={cn(
-                                  'text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300',
-                                  isActive ? 'text-accent' : 'text-muted-foreground'
+                                  'group relative flex w-full items-center gap-4 rounded-3xl border px-6 py-5 text-left transition-all duration-300',
+                                  isActive
+                                    ? 'border-accent bg-background shadow-2xl shadow-accent/20'
+                                    : 'border-transparent bg-white/40 backdrop-blur-sm hover:border-accent/50 hover:bg-white/60'
                                 )}
                               >
-                                {service.tagline}
-                              </p>
+                                <span
+                                  className={cn(
+                                    'flex h-12 w-12 items-center justify-center rounded-full border text-sm font-semibold uppercase tracking-[0.3em] transition-colors duration-300',
+                                    isActive
+                                      ? 'border-accent bg-accent text-accent-foreground'
+                                      : 'border-foreground/20 text-foreground/60'
+                                  )}
+                                >
+                                  {String(index + 1).padStart(2, '0')}
+                                </span>
+                                <div className="flex-1 space-y-1">
+                                  <p className="text-lg font-bold leading-tight">
+                                    {service.title}
+                                  </p>
+                                  <p
+                                    className={cn(
+                                      'text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300',
+                                      isActive ? 'text-accent' : 'text-muted-foreground'
+                                    )}
+                                  >
+                                    {service.tagline}
+                                  </p>
+                                </div>
+                                <ArrowRight
+                                  className={cn(
+                                    'h-5 w-5 transition-transform duration-300',
+                                    isActive ? 'translate-x-1 text-accent' : 'text-muted-foreground'
+                                  )}
+                                  aria-hidden
+                                />
+                              </button>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </nav>
+                  </div>
+
+                  <div className="lg:col-span-8 relative min-h-[500px]">
+                    {servicesData.map((service) => {
+                      const isActive = activeService === service.id
+                      return (
+                        <div
+                          key={service.id}
+                          className={cn(
+                            'absolute top-0 left-0 w-full h-full transition-opacity duration-500',
+                            isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                          )}
+                          aria-hidden={!isActive}
+                        >
+                          <Card className="h-full border bg-card">
+                            <div className="h-2/3">
+                              <IndustrialImage
+                                src={service.image}
+                                alt={service.alt ?? service.title}
+                                className="w-full h-full rounded-t-2xl"
+                              >
+                                {service.icon}
+                              </IndustrialImage>
                             </div>
-                            <ArrowRight
-                              className={cn(
-                                'h-5 w-5 transition-transform duration-300',
-                                isActive ? 'translate-x-1 text-accent' : 'text-muted-foreground'
-                              )}
-                              aria-hidden
-                            />
-                          </button>
-                        </li>
+                            <CardHeader>
+                              <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                              <p className="text-muted-foreground">{service.description}</p>
+                            </CardContent>
+                          </Card>
+                        </div>
                       )
                     })}
-                  </ul>
-                </nav>
+                  </div>
+                </div>
               </div>
-
-              <div className="lg:col-span-8 relative min-h-[500px]">
-                {servicesData.map((service) => {
-                  const isActive = activeService === service.id
-                  return (
-                    <div
-                      key={service.id}
-                      className={cn(
-                        'absolute top-0 left-0 w-full h-full transition-opacity duration-500',
-                        isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                      )}
-                      aria-hidden={!isActive}
-                    >
-                      <Card className="h-full border bg-card">
-                        <div className="h-2/3">
-                          <IndustrialImage
-                            src={service.image}
-                            alt={service.alt ?? service.title}
-                            className="w-full h-full rounded-t-2xl"
-                          >
-                            {service.icon}
-                          </IndustrialImage>
-                        </div>
-                        <CardHeader>
-                          <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-muted-foreground">{service.description}</p>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
+            </section>
           </div>
-        </section>
+        </motion.div>
+      </div>
 
+      <main className={activeSection === 1 ? 'block' : 'hidden'}>
         <section data-theme="light" className="py-32 lg:py-40 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
@@ -1497,101 +1555,7 @@ function HomePage() {
           </div>
         </section>
       </main>
-
-      <footer className="bg-slate-950 text-white">
-        <div className="container mx-auto px-6 lg:px-12 py-16">
-          <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-4">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg">
-                  <Factory className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.6em] text-white/60">STANIAX</p>
-                  <p className="text-2xl font-black">Metal Coating Studio</p>
-                </div>
-              </div>
-              <p className="text-sm text-white/70 font-medium max-w-xs">
-                Specjalizujemy się w zaawansowanych powłokach metalicznych dla branż lotniczej, motoryzacyjnej i high-tech, obsługując klientów w Polsce i na rynkach europejskich.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-white/60">Nawigacja</p>
-              <ul className="space-y-3 text-white/80">
-                <li>
-                  <button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">
-                    Oferta
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors">
-                    Realizacje
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('news-showcase')} className="hover:text-white transition-colors">
-                    Nowości
-                  </button>
-                </li>
-                <li>
-                  <Link to="/news" className="hover:text-white transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    Aktualności
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-white/60">Kontakt</p>
-              <div className="space-y-3 text-white/80 text-sm">
-                <p className="font-semibold text-white">STANIAX Sp. z o.o.</p>
-                <p className="leading-relaxed">
-                  Grzybowska 5A<br />
-                  00-132 Warszawa<br />
-                  Polska
-                </p>
-                <div className="leading-relaxed space-y-1">
-                  <p>KRS: 0001182026</p>
-                  <p>NIP: 5253052509</p>
-                  <p>REGON: 542156053</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-white/60">Dołącz do nas</p>
-              <p className="text-sm text-white/70">
-                Zapisz się, aby otrzymywać kwartalny raport z nowości STANIAX oraz zaproszenia na wydarzenia branżowe.
-              </p>
-              <form className="space-y-3" onSubmit={(event) => event.preventDefault()}>
-                <Input
-                  type="email"
-                  placeholder="Adres e-mail"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-                  required
-                />
-                <Button type="submit" className="w-full bg-white text-slate-950 font-semibold hover:bg-white/90">
-                  Zapisz się
-                </Button>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div className="border-t border-white/10 py-6">
-          <div className="container mx-auto px-6 lg:px-12 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-xs uppercase tracking-[0.4em] text-white/50">
-            <span>© {new Date().getFullYear()} STANIAX Sp. z o.o. Wszystkie prawa zastrzeżone.</span>
-            <div className="flex gap-4">
-              <button onClick={() => scrollToSection('top')} className="hover:text-white transition-colors">Do góry</button>
-              <Link to="/news" className="hover:text-white transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                Aktualności
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
-      <CookieBanner />
-    </div>
+    </>
   )
 }
 
