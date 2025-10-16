@@ -928,22 +928,22 @@ function HomePage() {
               </div>
 
               <div className="relative z-10 mx-auto max-w-7xl">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-end">
-                  <div className="space-y-6">
-                    <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
-                      <span className="block">Przemysłowe</span>
-                      <span className="block">Powłoki</span>
-                      <span className="block text-accent">Na Miarę Przyszłości</span>
-                    </h1>
-                    <div className="max-w-2xl">
-                      <p className="text-lg lg:text-xl text-white/80 font-medium">
-                        Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
-                        i podkreślają Twoją technologiczną przewagę konkurencyjną.
-                      </p>
-                    </div>
+                <div className="max-w-5xl space-y-6">
+                  <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
+                    <span className="block">Przemysłowe</span>
+                    <span className="block">Powłoki</span>
+                    <span className="block text-accent">Na Miarę Przyszłości</span>
+                  </h1>
+                  <div className="max-w-2xl">
+                    <p className="text-lg lg:text-xl text-white/80 font-medium">
+                      Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
+                      i podkreślają Twoją technologiczną przewagę konkurencyjną.
+                    </p>
                   </div>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
                 <Button
                   size="lg"
                   onClick={() => scrollToSection('projects')}
@@ -961,8 +961,6 @@ function HomePage() {
                   <Phone className="w-5 h-5 mr-2" />
                   Skontaktuj się z nami
                 </Button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
