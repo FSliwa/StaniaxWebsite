@@ -1140,69 +1140,77 @@ function HomePage() {
         <section
           id="custom-section"
           data-theme="light"
-          className="py-16 lg:py-24 bg-background"
+          className="py-16 lg:py-24 bg-muted/50"
         >
           <div className="container mx-auto px-6 lg:px-12">
-            {/* Tytuł sekcji */}
-            <div className="text-center mb-12 lg:mb-16">
-              <h2 className="text-4xl lg:text-5xl font-black mb-4 text-foreground">
-                Dlaczego Staniax?
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Nasze zaangażowanie w innowacje, jakość i precyzję sprawia, że jesteśmy liderem w dziedzinie metalizacji. 
-                Oto trzy kluczowe powody, dla których warto nam zaufać.
-              </p>
-            </div>
+            {/* Biały kontener */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 max-w-6xl mx-auto">
+              {/* Tytuł sekcji */}
+              <div className="text-center mb-12">
+                <h2 className="text-4xl lg:text-5xl font-black mb-4">
+                  Dlaczego Staniax?
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Nasze zaangażowanie w innowacje, jakość i precyzję sprawia, że jesteśmy liderem w dziedzinie metalizacji.
+                </p>
+              </div>
 
-            {/* Trzy karty w siatce */}
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Karta 1 */}
-              <Card className="group overflow-hidden rounded-2xl border-border/50 hover:border-accent transition-all duration-300">
-                <div className="aspect-video overflow-hidden">
-                  <img src={whyChooseImg1} alt="Transformacja dźwigara HEB" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              {/* Trzy elementy w układzie naprzemiennym */}
+              <div className="space-y-16">
+                {/* Element 1: Obrazek po lewej, tekst po prawej */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                  <div className="order-1 group">
+                    <div className="aspect-video overflow-hidden rounded-xl">
+                      <img src={whyChooseImg1} alt="Transformacja dźwigara HEB" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                  </div>
+                  <div className="order-2">
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
+                      Innowacyjne Technologie
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, 
+                      co widać na przykładzie transformacji dźwigara HEB.
+                    </p>
+                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Innowacyjne Technologie</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, 
-                    co widać na przykładzie transformacji dźwigara HEB.
-                  </p>
-                </CardContent>
-              </Card>
 
-              {/* Karta 2 */}
-              <Card className="group overflow-hidden rounded-2xl border-border/50 hover:border-accent transition-all duration-300">
-                <div className="aspect-video overflow-hidden">
-                  <img src={whyChooseImg2} alt="Transformacja śluzy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                {/* Element 2: Tekst po lewej, obrazek po prawej */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                  <div className="order-2 lg:order-1">
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
+                      Wszechstronność Zastosowań
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże 
+                      konstrukcje, takie jak śluzy przemysłowe.
+                    </p>
+                  </div>
+                  <div className="order-1 lg:order-2 group">
+                    <div className="aspect-video overflow-hidden rounded-xl">
+                      <img src={whyChooseImg2} alt="Transformacja śluzy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Wszechstronność Zastosowań</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże 
-                    konstrukcje, takie jak śluzy przemysłowe.
-                  </p>
-                </CardContent>
-              </Card>
 
-              {/* Karta 3 */}
-              <Card className="group overflow-hidden rounded-2xl border-border/50 hover:border-accent transition-all duration-300">
-                <div className="aspect-video overflow-hidden">
-                  <img src={whyChooseImg3} alt="Transformacja wirnika przemysłowego" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                {/* Element 3: Obrazek po lewej, tekst po prawej */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                  <div className="order-1 group">
+                    <div className="aspect-video overflow-hidden rounded-xl">
+                      <img src={whyChooseImg3} alt="Transformacja wirnika przemysłowego" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                  </div>
+                  <div className="order-2">
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
+                      Precyzja i Trwałość
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, 
+                      co gwarantuje trwałość i niezawodność naszych powłok.
+                    </p>
+                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">Precyzja i Trwałość</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">
-                    Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, 
-                    co gwarantuje trwałość i niezawodność naszych powłok.
-                  </p>
-                </CardContent>
-              </Card>
+              </div>
             </div>
           </div>
         </section>
