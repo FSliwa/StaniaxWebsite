@@ -1140,34 +1140,28 @@ function HomePage() {
         <section
           id="custom-section"
           data-theme="light"
-          className="py-16 lg:py-24 bg-muted/50"
+          className="py-16 lg:py-24 bg-background"
         >
           <div className="container mx-auto px-6 lg:px-12">
-            {/* Biały kontener */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 max-w-6xl mx-auto">
-              {/* Tytuł sekcji */}
-              <div className="text-center mb-12">
-                <h2 className="text-4xl lg:text-5xl font-black mb-4">
+            <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
+              {/* Lewa kolumna - Tytuł */}
+              <div className="lg:col-span-1">
+                <h2 className="text-4xl lg:text-5xl font-black text-foreground sticky top-24">
                   Dlaczego Staniax?
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Nasze zaangażowanie w innowacje, jakość i precyzję sprawia, że jesteśmy liderem w dziedzinie metalizacji.
-                </p>
               </div>
 
-              {/* Trzy elementy w układzie naprzemiennym */}
-              <div className="space-y-16">
-                {/* Element 1: Obrazek po lewej, tekst po prawej */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div className="order-1 group">
+              {/* Prawa kolumna - Trzy elementy */}
+              <div className="lg:col-span-2 space-y-12">
+                {/* Element 1 */}
+                <div className="flex flex-col sm:flex-row gap-8">
+                  <div className="sm:w-1/3 flex-shrink-0">
                     <div className="aspect-video overflow-hidden rounded-xl">
-                      <img src={whyChooseImg1} alt="Transformacja dźwigara HEB" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src={whyChooseImg1} alt="Transformacja dźwigara HEB" className="w-full h-full object-cover" />
                     </div>
                   </div>
-                  <div className="order-2">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-                      Innowacyjne Technologie
-                    </h3>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Innowacyjne Technologie</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, 
                       co widać na przykładzie transformacji dźwigara HEB.
@@ -1175,35 +1169,31 @@ function HomePage() {
                   </div>
                 </div>
 
-                {/* Element 2: Tekst po lewej, obrazek po prawej */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div className="order-2 lg:order-1">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-                      Wszechstronność Zastosowań
-                    </h3>
+                {/* Element 2 */}
+                <div className="flex flex-col sm:flex-row gap-8">
+                  <div className="sm:w-1/3 flex-shrink-0">
+                    <div className="aspect-video overflow-hidden rounded-xl">
+                      <img src={whyChooseImg2} alt="Transformacja śluzy" className="w-full h-full object-cover" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Wszechstronność Zastosowań</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże 
                       konstrukcje, takie jak śluzy przemysłowe.
                     </p>
                   </div>
-                  <div className="order-1 lg:order-2 group">
-                    <div className="aspect-video overflow-hidden rounded-xl">
-                      <img src={whyChooseImg2} alt="Transformacja śluzy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                    </div>
-                  </div>
                 </div>
 
-                {/* Element 3: Obrazek po lewej, tekst po prawej */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div className="order-1 group">
+                {/* Element 3 */}
+                <div className="flex flex-col sm:flex-row gap-8">
+                  <div className="sm:w-1/3 flex-shrink-0">
                     <div className="aspect-video overflow-hidden rounded-xl">
-                      <img src={whyChooseImg3} alt="Transformacja wirnika przemysłowego" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      <img src={whyChooseImg3} alt="Transformacja wirnika przemysłowego" className="w-full h-full object-cover" />
                     </div>
                   </div>
-                  <div className="order-2">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-                      Precyzja i Trwałość
-                    </h3>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Precyzja i Trwałość</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, 
                       co gwarantuje trwałość i niezawodność naszych powłok.
