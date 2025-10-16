@@ -1139,8 +1139,8 @@ function HomePage() {
           className="py-16 lg:py-24 bg-muted/50"
         >
           <div className="container mx-auto px-6 lg:px-12">
-            {/* Biały kontener */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 max-w-6xl mx-auto">
+            {/* Szary kontener */}
+            <div className="bg-muted rounded-2xl shadow-lg p-8 lg:p-12 max-w-6xl mx-auto">
               {/* Tytuł sekcji */}
               <div className="text-center mb-12">
                 <h2 className="text-4xl lg:text-5xl font-black mb-4">
