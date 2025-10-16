@@ -898,179 +898,179 @@ function HomePage() {
           animate={{ y: activeSection === 0 ? '0%' : '-100vh' }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <section id="top" data-theme="dark" className="h-screen w-full flex flex-col justify-center relative overflow-hidden">
-          <div className="absolute inset-0" aria-hidden>
-            <video
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ transform: `scale(${heroScaleValue})` }}
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src={heroVideo} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-br from-background/92 via-background/75 to-background/88" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
-          </div>
+          <section id="top" data-theme="dark" className="relative h-screen w-full flex flex-col justify-end overflow-hidden">
+            <div className="absolute inset-0" aria-hidden>
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ transform: `scale(${heroScaleValue})` }}
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={heroVideo} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-br from-background/92 via-background/75 to-background/88" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
+            </div>
 
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            <div className="flex flex-col gap-8 lg:gap-12">
-              <div className="flex items-center gap-4 text-xs uppercase tracking-[0.6em] text-white/70">
-                <span className="flex items-center gap-2">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30">
-                    <Factory className="h-5 w-5" />
+            <div className="container mx-auto px-6 lg:px-12 relative z-10 pb-16 lg:pb-24">
+              <div className="flex flex-col gap-8 lg:gap-12">
+                <div className="flex items-center gap-4 text-xs uppercase tracking-[0.6em] text-white/70">
+                  <span className="flex items-center gap-2">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30">
+                      <Factory className="h-5 w-5" />
+                    </span>
+                    Eksperci metalizacji w Polsce
                   </span>
-                  Eksperci metalizacji w Polsce
-                </span>
-                <span className="hidden sm:block h-px flex-1 bg-white/20" />
-                <span className="hidden sm:block">Od 2025</span>
-              </div>
+                  <span className="hidden sm:block h-px flex-1 bg-white/20" />
+                  <span className="hidden sm:block">Od 2025</span>
+                </div>
 
-              <div className="relative z-10 mx-auto max-w-7xl">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-end">
-                  <div className="space-y-6">
-                    <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
-                      <span className="block">Przemysłowe</span>
-                      <span className="block">Powłoki</span>
-                      <span className="block text-accent">Na Miarę Przyszłości</span>
-                    </h1>
-                    <p className="text-lg lg:text-xl text-white/80 font-medium max-w-2xl">
-                      Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty i podkreślają Twoją technologiczną przewagę konkurencyjną.
+                <div className="relative z-10 mx-auto max-w-7xl w-full">
+                  <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-end">
+                    <div className="space-y-6">
+                      <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
+                        <span className="block">Przemysłowe</span>
+                        <span className="block">Powłoki</span>
+                        <span className="block text-accent">Na Miarę Przyszłości</span>
+                      </h1>
+                      <p className="text-lg lg:text-xl text-white/80 font-medium max-w-2xl">
+                        Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty i podkreślają Twoją technologiczną przewagę konkurencyjną.
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
+                      <Button
+                        size="lg"
+                        onClick={() => scrollToSection('projects')}
+                        className="liquid-metal-button text-white font-semibold border-0"
+                      >
+                        Zobacz Nasze Prace
+                        <ArrowRight className="w-5 h-5 ml-2" />
+                      </Button>
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
+                        onClick={() => scrollToSection('contact')}
+                      >
+                        <Phone className="w-5 h-5 mr-2" />
+                        Skontaktuj się z nami
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section ref={servicesSectionRef} id="services" data-theme="light" className="py-12 lg:py-16 bg-muted/30">
+            <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+              <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+                <div className="lg:col-span-4 space-y-10">
+                  <div>
+                    <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                      Nasze
+                      <span className="block text-accent">Usługi</span>
+                    </h2>
+                    <p className="text-lg text-muted-foreground font-medium">
+                      Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych.
                     </p>
                   </div>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
-                    <Button
-                      size="lg"
-                      onClick={() => scrollToSection('projects')}
-                      className="liquid-metal-button text-white font-semibold border-0"
-                    >
-                      Zobacz Nasze Prace
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
-                      onClick={() => scrollToSection('contact')}
-                    >
-                      <Phone className="w-5 h-5 mr-2" />
-                      Skontaktuj się z nami
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section ref={servicesSectionRef} id="services" data-theme="light" className="py-12 lg:py-16 bg-muted/30">
-          <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-              <div className="lg:col-span-4 space-y-10">
-                <div>
-                  <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                    Nasze
-                    <span className="block text-accent">Usługi</span>
-                  </h2>
-                  <p className="text-lg text-muted-foreground font-medium">
-                    Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych.
-                  </p>
-                </div>
-                <nav aria-label="Nawigacja po usługach" className="hidden lg:block">
-                  <ul className="space-y-4">
-                    {servicesData.map((service, index) => {
-                      const isActive = activeService === service.id
-                      return (
-                        <li key={service.id}>
-                          <button
-                            type="button"
-                            onClick={() => setActiveService(service.id)}
-                            onMouseEnter={() => setActiveService(service.id)}
-                            onFocus={() => setActiveService(service.id)}
-                            className={cn(
-                              'group relative flex w-full items-center gap-4 rounded-3xl border px-6 py-5 text-left transition-all duration-300',
-                              isActive
-                                ? 'border-accent bg-background shadow-2xl shadow-accent/20'
-                                : 'border-transparent bg-muted/40 backdrop-blur-sm hover:border-accent/50 hover:bg-muted/60'
-                            )}
-                          >
-                            <span
+                  <nav aria-label="Nawigacja po usługach" className="hidden lg:block">
+                    <ul className="space-y-4">
+                      {servicesData.map((service, index) => {
+                        const isActive = activeService === service.id
+                        return (
+                          <li key={service.id}>
+                            <button
+                              type="button"
+                              onClick={() => setActiveService(service.id)}
+                              onMouseEnter={() => setActiveService(service.id)}
+                              onFocus={() => setActiveService(service.id)}
                               className={cn(
-                                'flex h-12 w-12 items-center justify-center rounded-full border text-sm font-semibold uppercase tracking-[0.3em] transition-colors duration-300',
+                                'group relative flex w-full items-center gap-4 rounded-3xl border px-6 py-5 text-left transition-all duration-300',
                                 isActive
-                                  ? 'border-accent bg-accent text-accent-foreground'
-                                  : 'border-foreground/20 text-foreground/60'
+                                  ? 'border-accent bg-background shadow-2xl shadow-accent/20'
+                                  : 'border-transparent bg-muted/40 backdrop-blur-sm hover:border-accent/50 hover:bg-muted/60'
                               )}
                             >
-                              {String(index + 1).padStart(2, '0')}
-                            </span>
-                            <div className="flex-1 space-y-1">
-                              <p className="text-lg font-bold leading-tight">
-                                {service.title}
-                              </p>
-                              <p
+                              <span
                                 className={cn(
-                                  'text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300',
-                                  isActive ? 'text-accent' : 'text-muted-foreground'
+                                  'flex h-12 w-12 items-center justify-center rounded-full border text-sm font-semibold uppercase tracking-[0.3em] transition-colors duration-300',
+                                  isActive
+                                    ? 'border-accent bg-accent text-accent-foreground'
+                                    : 'border-foreground/20 text-foreground/60'
                                 )}
                               >
-                                {service.tagline}
-                              </p>
-                            </div>
-                            <ArrowRight
-                              className={cn(
-                                'h-5 w-5 transition-transform duration-300',
-                                isActive ? 'translate-x-1 text-accent' : 'text-muted-foreground'
-                              )}
-                              aria-hidden
-                            />
-                          </button>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </nav>
-              </div>
+                                {String(index + 1).padStart(2, '0')}
+                              </span>
+                              <div className="flex-1 space-y-1">
+                                <p className="text-lg font-bold leading-tight">
+                                  {service.title}
+                                </p>
+                                <p
+                                  className={cn(
+                                    'text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300',
+                                    isActive ? 'text-accent' : 'text-muted-foreground'
+                                  )}
+                                >
+                                  {service.tagline}
+                                </p>
+                              </div>
+                              <ArrowRight
+                                className={cn(
+                                  'h-5 w-5 transition-transform duration-300',
+                                  isActive ? 'translate-x-1 text-accent' : 'text-muted-foreground'
+                                )}
+                                aria-hidden
+                              />
+                            </button>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </nav>
+                </div>
 
-              <div className="lg:col-span-8 relative">
-                {servicesData.map((service) => {
-                  const isActive = activeService === service.id
-                  return (
-                    <div
-                      key={service.id}
-                      className={cn(
-                        'absolute top-0 left-0 w-full h-full transition-opacity duration-500',
-                        isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                      )}
-                      aria-hidden={!isActive}
-                    >
-                      <Card className="h-full border-0 bg-transparent">
-                        <div className="h-2/3">
-                          <IndustrialImage
-                            src={service.image}
-                            alt={service.alt ?? service.title}
-                            className="w-full h-full rounded-t-2xl"
-                          >
-                            {service.icon}
-                          </IndustrialImage>
-                        </div>
-                        <CardHeader>
-                          <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-muted-foreground">{service.description}</p>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  )
-                })}
+                <div className="lg:col-span-8 relative">
+                  {servicesData.map((service) => {
+                    const isActive = activeService === service.id
+                    return (
+                      <div
+                        key={service.id}
+                        className={cn(
+                          'absolute top-0 left-0 w-full h-full transition-opacity duration-500',
+                          isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        )}
+                        aria-hidden={!isActive}
+                      >
+                        <Card className="h-full border-0 bg-transparent">
+                          <div className="h-2/3">
+                            <IndustrialImage
+                              src={service.image}
+                              alt={service.alt ?? service.title}
+                              className="w-full h-full rounded-t-2xl"
+                            >
+                              {service.icon}
+                            </IndustrialImage>
+                          </div>
+                          <CardHeader>
+                            <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-muted-foreground">{service.description}</p>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
         </motion.div>
       </div>
 
@@ -1106,7 +1106,7 @@ function HomePage() {
         <AnimatedSection
           id="custom-section"
           data-theme="light"
-          className="py-16 lg:py-24 bg-muted/50"
+          className="py-16 lg:py-24 bg-background"
         >
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
@@ -1120,8 +1120,8 @@ function HomePage() {
                 </div>
               </div>
 
-              {/* Prawa kolumna - Treść */}
-              <div className="lg:col-span-2">
+              {/* Prawa kolumna z tłem */}
+              <div className="lg:col-span-2 bg-muted/50 rounded-2xl p-8 lg:p-12">
                 {/* Trzy elementy */}
                 <div className="space-y-12">
                   {/* Element 1 */}
