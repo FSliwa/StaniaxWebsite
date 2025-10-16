@@ -909,7 +909,7 @@ function HomePage() {
             </div>
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10 pb-16 lg:pb-24">
-              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-end">
+              <div className="max-w-4xl space-y-8">
                 <div className="space-y-6">
                   <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
                     <span className="block">Przemysłowe</span>
@@ -921,7 +921,7 @@ function HomePage() {
                   </p>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <Button
                     size="lg"
                     onClick={() => scrollToSection('projects')}
@@ -944,7 +944,7 @@ function HomePage() {
             </div>
           </section>
 
-          <section ref={servicesSectionRef} id="services" data-theme="light" className="py-12 lg:py-16 bg-muted/30">
+          <section ref={servicesSectionRef} id="services" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
             <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -1085,31 +1085,37 @@ function HomePage() {
         <AnimatedSection
           id="custom-section"
           data-theme="light"
-          className="py-16 lg:py-24 bg-background"
+          className="relative py-16 lg:py-24 bg-background overflow-hidden"
         >
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
-              {/* Lewa kolumna - Tytuł */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-28">
-                  <h2 className="text-4xl lg:text-5xl font-black text-foreground leading-none">
+          <div className="container mx-auto px-0">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Lewa kolumna - Tytuł z szarym tłem */}
+              <div className="bg-muted/50 px-6 lg:px-12 py-16 lg:py-24 flex items-center">
+                <div>
+                  <h2 className="text-5xl lg:text-7xl font-black text-foreground leading-none mb-8">
                     DLACZEGO
-                    <span className="block text-accent">STANIAX</span>
+                    <span className="block text-accent mt-2">STANIAX</span>
                   </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+                    Innowacyjne technologie, wszechstronność zastosowań i niezawodna precyzja – to nasza odpowiedź na wyzwania współczesnego przemysłu.
+                  </p>
                 </div>
               </div>
 
-              {/* Prawa kolumna z tłem */}
-              <div className="lg:col-span-2 bg-muted/50 rounded-2xl p-8 lg:p-12">
-                {/* Trzy elementy */}
-                <div className="space-y-12">
+              {/* Prawa kolumna - Treść z białym tłem */}
+              <div className="bg-background px-6 lg:px-12 py-16 lg:py-24">
+                <div className="space-y-12 max-w-2xl">
                   {/* Element 1 */}
-                  <div className="grid sm:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div className="sm:col-span-1">
-                      <img src={whyChooseImg1} alt="Innowacyjne Technologie" className="rounded-xl w-full h-full object-cover" />
+                      <img 
+                        src={whyChooseImg1} 
+                        alt="Innowacyjne Technologie" 
+                        className="rounded-xl w-full h-48 sm:h-full object-cover shadow-lg"
+                      />
                     </div>
-                    <div className="sm:col-span-2">
-                      <h3 className="text-xl font-bold mb-2 text-foreground">Innowacyjne Technologie</h3>
+                    <div className="sm:col-span-2 flex flex-col justify-center">
+                      <h3 className="text-2xl font-bold mb-3 text-foreground">Innowacyjne Technologie</h3>
                       <p className="text-muted-foreground leading-relaxed">
                         Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, co widać na przykładzie transformacji dźwigara HEB.
                       </p>
@@ -1117,12 +1123,16 @@ function HomePage() {
                   </div>
 
                   {/* Element 2 */}
-                  <div className="grid sm:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div className="sm:col-span-1">
-                      <img src={whyChooseImg2} alt="Wszechstronność Zastosowań" className="rounded-xl w-full h-full object-cover" />
+                      <img 
+                        src={whyChooseImg2} 
+                        alt="Wszechstronność Zastosowań" 
+                        className="rounded-xl w-full h-48 sm:h-full object-cover shadow-lg"
+                      />
                     </div>
-                    <div className="sm:col-span-2">
-                      <h3 className="text-xl font-bold mb-2 text-foreground">Wszechstronność Zastosowań</h3>
+                    <div className="sm:col-span-2 flex flex-col justify-center">
+                      <h3 className="text-2xl font-bold mb-3 text-foreground">Wszechstronność Zastosowań</h3>
                       <p className="text-muted-foreground leading-relaxed">
                         Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże konstrukcje, takie jak śluzy przemysłowe.
                       </p>
@@ -1130,32 +1140,39 @@ function HomePage() {
                   </div>
 
                   {/* Element 3 */}
-                  <div className="grid sm:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div className="sm:col-span-1">
-                      <img src={whyChooseImg3} alt="Precyzja i Trwałość" className="rounded-xl w-full h-full object-cover" />
+                      <img 
+                        src={whyChooseImg3} 
+                        alt="Precyzja i Trwałość" 
+                        className="rounded-xl w-full h-48 sm:h-full object-cover shadow-lg"
+                      />
                     </div>
-                    <div className="sm:col-span-2">
-                      <h3 className="text-xl font-bold mb-2 text-foreground">Precyzja i Trwałość</h3>
+                    <div className="sm:col-span-2 flex flex-col justify-center">
+                      <h3 className="text-2xl font-bold mb-3 text-foreground">Precyzja i Trwałość</h3>
                       <p className="text-muted-foreground leading-relaxed">
                         Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, co gwarantuje trwałość i niezawodność naszych powłok.
                       </p>
                     </div>
                   </div>
-                </div>
 
-                {/* Paragraf ISO */}
-                <div className="mt-12 border-t border-border pt-8">
-                  <p className="text-muted-foreground">
-                    STANIAX posiada system zarządzania jakością certyfikowany zgodnie z normą <span className="font-bold text-foreground">ISO 9001:2015</span>. Wszystkie nasze produkty i procesy są projektowane zgodnie z europejskimi regulacjami technicznymi, aby zapewnić najwyższe standardy.
-                  </p>
-                </div>
+                  {/* Paragraf ISO */}
+                  <div className="border-t border-border pt-8">
+                    <p className="text-muted-foreground leading-relaxed">
+                      STANIAX posiada system zarządzania jakością certyfikowany zgodnie z normą <span className="font-bold text-foreground">ISO 9001:2015</span>. Wszystkie nasze produkty i procesy są projektowane zgodnie z europejskimi regulacjami technicznymi, aby zapewnić najwyższe standardy.
+                    </p>
+                  </div>
 
-                {/* Micro-CTA */}
-                <div className="mt-8 text-sm">
-                  <span className="text-muted-foreground">POTRZEBUJESZ POMOCY? </span>
-                  <button onClick={() => scrollToSection('contact')} className="font-bold text-accent hover:underline">
-                    SKONTAKTUJ SIĘ Z NAMI
-                  </button>
+                  {/* Micro-CTA */}
+                  <div className="text-sm">
+                    <span className="text-muted-foreground">POTRZEBUJESZ POMOCY? </span>
+                    <button 
+                      onClick={() => scrollToSection('contact')} 
+                      className="font-bold text-accent hover:underline transition-all"
+                    >
+                      SKONTAKTUJ SIĘ Z NAMI
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
