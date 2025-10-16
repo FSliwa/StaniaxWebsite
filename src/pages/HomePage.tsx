@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
+import { AnimatedSection } from '@/components/AnimatedSection'
 import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
 import {
@@ -732,76 +733,6 @@ function HomePage() {
             : 'bg-transparent border-transparent'
         )}
       >
-        {/* Backdrop */}
-        <div
-          className={cn(
-            'fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300',
-            isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
-          )}
-          onClick={() => setIsMenuOpen(false)}
-          aria-hidden={!isMenuOpen}
-        />
-        
-        {/* Side Menu */}
-        <div
-          className={cn(
-            'fixed inset-y-0 right-0 z-50 w-full max-w-md transform transition-transform duration-500 ease-in-out',
-            menuBackgroundClass,
-            'backdrop-blur-2xl border-l border-white/10',
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          )}
-          aria-hidden={!isMenuOpen}
-        >
-          <div className="flex h-full flex-col justify-between p-8">
-            <div className="flex items-start justify-between gap-6">
-              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="Zamknij menu"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            <nav className="flex-1 flex flex-col justify-center">
-              <ul className="space-y-4">
-                {navItems.map((item) => (
-                  <li key={item.id}>
-                    <button
-                      onClick={() => handleNavClick(item)}
-                      className="group flex w-full items-center justify-between rounded-lg p-4 text-left transition-colors duration-300 hover:bg-white/10"
-                    >
-                      <span className="text-2xl font-bold tracking-tight transition-colors duration-300 group-hover:text-accent">
-                        {item.label}
-                      </span>
-                      <ArrowRight className="h-5 w-5 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            
-            <div className="space-y-6">
-              <Button
-                onClick={() => {
-                  scrollToSection('contact')
-                  setIsMenuOpen(false)
-                }}
-                className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
-              >
-                Porozmawiajmy
-                <ArrowUpRight className="ml-2 h-4 w-4" />
-              </Button>
-              <div className="text-center text-xs text-white/50">
-                © {new Date().getFullYear()} STANIAX Sp. z o.o.
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div
           className={cn(
             'container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 sm:py-5 transition-colors duration-300',
@@ -889,6 +820,76 @@ function HomePage() {
             </button>
           </div>
         </div>
+
+        {/* Backdrop */}
+        <div
+          className={cn(
+            'fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300',
+            isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+          )}
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden={!isMenuOpen}
+        />
+        
+        {/* Side Menu */}
+        <div
+          className={cn(
+            'fixed inset-y-0 right-0 z-50 w-full max-w-md transform transition-transform duration-500 ease-in-out',
+            menuBackgroundClass,
+            'backdrop-blur-2xl border-l border-white/10',
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          )}
+          aria-hidden={!isMenuOpen}
+        >
+          <div className="flex h-full flex-col justify-between p-8">
+            <div className="flex items-start justify-between gap-6">
+              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Zamknij menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <nav className="flex-1 flex flex-col justify-center">
+              <ul className="space-y-4">
+                {navItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => handleNavClick(item)}
+                      className="group flex w-full items-center justify-between rounded-lg p-4 text-left transition-colors duration-300 hover:bg-white/10"
+                    >
+                      <span className="text-2xl font-bold tracking-tight transition-colors duration-300 group-hover:text-accent">
+                        {item.label}
+                      </span>
+                      <ArrowRight className="h-5 w-5 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            
+            <div className="space-y-6">
+              <Button
+                onClick={() => {
+                  scrollToSection('contact')
+                  setIsMenuOpen(false)
+                }}
+                className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
+              >
+                Porozmawiajmy
+                <ArrowUpRight className="ml-2 h-4 w-4" />
+              </Button>
+              <div className="text-center text-xs text-white/50">
+                © {new Date().getFullYear()} STANIAX Sp. z o.o.
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
 
       <div className="h-screen w-screen overflow-hidden relative">
@@ -926,16 +927,19 @@ function HomePage() {
                 <span className="hidden sm:block">Od 2025</span>
               </div>
 
-              <div className="max-w-5xl space-y-6">
-                <h1 className="text-6xl lg:text-8xl font-black leading-none tracking-tight">
-                  <span className="block text-white">Najwyższej Jakości</span>
-                  <span className="block text-accent">Metalizacja</span>
-                </h1>
-                <div className="max-w-xl">
-                  <p className="text-lg lg:text-xl text-white/80 font-medium">
-                    Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
-                    i podkreślają Twoją technologiczną przewagę konkurencyjną.
-                  </p>
+              <div className="relative z-10 mx-auto max-w-7xl">
+                <div className="max-w-5xl space-y-6">
+                  <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
+                    <span className="block">Przemysłowe</span>
+                    <span className="block">Powłoki</span>
+                    <span className="block text-accent">Na Miarę Przyszłości</span>
+                  </h1>
+                  <div className="max-w-2xl">
+                    <p className="text-lg lg:text-xl text-white/80 font-medium">
+                      Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
+                      i podkreślają Twoją technologiczną przewagę konkurencyjną.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -968,7 +972,7 @@ function HomePage() {
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
               <div className="lg:col-span-4 space-y-10">
                 <div>
-                  <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-none">
+                  <h2 className="text-4xl lg:text-6xl font-black mb-6">
                     Nasze
                     <span className="block text-accent">Usługi</span>
                   </h2>
@@ -1072,7 +1076,7 @@ function HomePage() {
       </div>
 
       {/* Sekcja statystyk - zawsze widoczna */}
-      <section data-theme="light" className="py-16 lg:py-24 bg-muted/30">
+      <AnimatedSection data-theme="light" className="py-16 lg:py-24 bg-muted/30">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
           <div className="grid grid-cols-2 gap-10 text-slate-900 lg:grid-cols-4 lg:gap-16">
@@ -1096,14 +1100,14 @@ function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       <main className={activeSection === 1 ? 'block' : 'hidden'}>
 
-        <section
+        <AnimatedSection
           id="custom-section"
           data-theme="light"
-          className="py-16 lg:py-24 bg-background"
+          className="py-16 lg:py-24 bg-muted/50"
         >
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
@@ -1178,9 +1182,9 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
+        <AnimatedSection id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               <div className="lg:col-span-5">
@@ -1196,7 +1200,7 @@ function HomePage() {
                 </div>
               </div>
               <div className="lg:col-span-7">
-                <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-none">
+                <h2 className="text-4xl lg:text-6xl font-black mb-6">
                   Tworzymy Doskonałość w
                   <span className="block text-accent">Metalizacji</span>
                 </h2>
@@ -1228,12 +1232,12 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-16 lg:py-24">
+        <AnimatedSection ref={projectsSectionRef} id="projects" data-theme="light" className="py-16 lg:py-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
-              <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-none">
+              <h2 className="text-4xl lg:text-6xl font-black mb-6">
                 Najnowsze
                 <span className="block text-accent">Projekty</span>
               </h2>
@@ -1346,9 +1350,9 @@ function HomePage() {
               </Button>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section
+        <AnimatedSection
           id="news-showcase"
           data-theme="dark"
           className="relative isolate overflow-hidden py-24 lg:py-32"
@@ -1431,13 +1435,13 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section id="contact" data-theme="light" className="py-16 lg:py-24">
+        <AnimatedSection id="contact" data-theme="light" className="py-16 lg:py-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
               <div className="lg:col-span-5">
-                <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-none">
+                <h2 className="text-4xl lg:text-6xl font-black mb-6">
                   Gotowy Na Rozpoczęcie
                   <span className="block text-accent">Projektu?</span>
                 </h2>
@@ -1546,7 +1550,7 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
       </main>
 
       <Toaster position="top-right" richColors />
@@ -1555,47 +1559,33 @@ function HomePage() {
       <footer className="bg-slate-950 text-white">
         <div className="container mx-auto px-6 lg:px-12 py-16">
           <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-4">
+            {/* Kolumna 1: Logo i opis */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="h-12 w-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg">
                   <Factory className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.6em] text-white/60">STANIAX</p>
-                  <p className="text-2xl font-black">Metal Coating Studio</p>
+                  <p className="text-2xl font-black">STANIAX</p>
                 </div>
               </div>
               <p className="text-sm text-white/70 font-medium max-w-xs">
-                Specjalizujemy się w zaawansowanych powłokach metalicznych dla branż lotniczej, motoryzacyjnej i high-tech, obsługując klientów w Polsce i na rynkach europejskich.
+                Specjalizujemy się w zaawansowanych powłokach metalicznych dla branż przemysłowych i high-tech.
               </p>
             </div>
 
+            {/* Kolumna 2: Szybka nawigacja */}
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-white/60">Nawigacja</p>
               <ul className="space-y-3 text-white/80">
-                <li>
-                  <button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">
-                    Oferta
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors">
-                    Realizacje
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('news-showcase')} className="hover:text-white transition-colors">
-                    Nowości
-                  </button>
-                </li>
-                <li>
-                  <Link to="/news" className="hover:text-white transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    Aktualności
-                  </Link>
-                </li>
+                <li><button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">Oferta</button></li>
+                <li><button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors">Realizacje</button></li>
+                <li><button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">O nas</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors">Kontakt</button></li>
               </ul>
             </div>
 
+            {/* Kolumna 3: Dane kontaktowe */}
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-white/60">Kontakt</p>
               <div className="space-y-3 text-white/80 text-sm">
@@ -1606,19 +1596,18 @@ function HomePage() {
                   Polska
                 </p>
                 <div className="leading-relaxed space-y-1">
-                  <p>KRS: 0001182026</p>
                   <p>NIP: 5253052509</p>
-                  <p>REGON: 542156053</p>
                 </div>
               </div>
             </div>
 
+            {/* Kolumna 4: Newsletter */}
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-white/60">Dołącz do nas</p>
               <p className="text-sm text-white/70">
-                Zapisz się, aby otrzymywać kwartalny raport z nowości STANIAX oraz zaproszenia na wydarzenia branżowe.
+                Zapisz się, aby otrzymywać kwartalny raport z nowościami i zaproszenia na wydarzenia branżowe.
               </p>
-              <form className="space-y-3" onSubmit={(event) => event.preventDefault()}>
+              <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); toast.success('Dziękujemy za zapisanie się do newslettera!') }}>
                 <Input
                   type="email"
                   placeholder="Adres e-mail"
@@ -1634,17 +1623,10 @@ function HomePage() {
         </div>
         <div className="border-t border-white/10 py-6">
           <div className="container mx-auto px-6 lg:px-12 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-xs uppercase tracking-[0.4em] text-white/50">
-            <span>© {new Date().getFullYear()} STANIAX Sp. z o.o. Wszystkie prawa zastrzeżone.</span>
-            <div className="flex gap-4">
-              <button onClick={() => scrollToSection('top')} className="hover:text-white transition-colors">Do góry</button>
-              <Link to="/news" className="hover:text-white transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                Aktualności
-              </Link>
-            </div>
+            <span>© {new Date().getFullYear()} STANIAX Sp. z o.o. Wszelkie prawa zastrzeżone.</span>
           </div>
         </div>
       </footer>
-      <CookieBanner />
     </div>
   )
 }
