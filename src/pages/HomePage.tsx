@@ -928,22 +928,22 @@ function HomePage() {
               </div>
 
               <div className="relative z-10 mx-auto max-w-7xl">
-                <div className="max-w-5xl space-y-6">
-                  <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
-                    <span className="block">Przemysłowe</span>
-                    <span className="block">Powłoki</span>
-                    <span className="block text-accent">Na Miarę Przyszłości</span>
-                  </h1>
-                  <div className="max-w-2xl">
-                    <p className="text-lg lg:text-xl text-white/80 font-medium">
-                      Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
-                      i podkreślają Twoją technologiczną przewagę konkurencyjną.
-                    </p>
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-end">
+                  <div className="space-y-6">
+                    <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
+                      <span className="block">Przemysłowe</span>
+                      <span className="block">Powłoki</span>
+                      <span className="block text-accent">Na Miarę Przyszłości</span>
+                    </h1>
+                    <div className="max-w-2xl">
+                      <p className="text-lg lg:text-xl text-white/80 font-medium">
+                        Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
+                        i podkreślają Twoją technologiczną przewagę konkurencyjną.
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
+                  
+                  <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
                 <Button
                   size="lg"
                   onClick={() => scrollToSection('projects')}
@@ -961,6 +961,8 @@ function HomePage() {
                   <Phone className="w-5 h-5 mr-2" />
                   Skontaktuj się z nami
                 </Button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1102,87 +1104,87 @@ function HomePage() {
         </div>
       </AnimatedSection>
 
-      <main className={activeSection === 1 ? 'block' : 'hidden'}>
+      <AnimatedSection
+        id="custom-section"
+        data-theme="light"
+        className="py-16 lg:py-24 bg-muted/50"
+      >
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
+            {/* Lewa kolumna - Tytuł */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-28">
+                <h2 className="text-4xl lg:text-5xl font-black text-foreground leading-none">
+                  DLACZEGO
+                  <span className="block text-accent">STANIAX</span>
+                </h2>
+              </div>
+            </div>
 
-        <AnimatedSection
-          id="custom-section"
-          data-theme="light"
-          className="py-16 lg:py-24 bg-muted/50"
-        >
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
-              {/* Lewa kolumna - Tytuł */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-28">
-                  <h2 className="text-4xl lg:text-5xl font-black text-foreground leading-none">
-                    DLACZEGO
-                    <span className="block text-accent">STANIAX</span>
-                  </h2>
+            {/* Prawa kolumna - Treść */}
+            <div className="lg:col-span-2">
+              {/* Trzy elementy */}
+              <div className="space-y-12">
+                {/* Element 1 */}
+                <div className="grid sm:grid-cols-3 gap-6">
+                  <div className="sm:col-span-1">
+                    <img src={whyChooseImg1} alt="Innowacyjne Technologie" className="rounded-xl w-full h-full object-cover" />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Innowacyjne Technologie</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, co widać na przykładzie transformacji dźwigara HEB.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Element 2 */}
+                <div className="grid sm:grid-cols-3 gap-6">
+                  <div className="sm:col-span-1">
+                    <img src={whyChooseImg2} alt="Wszechstronność Zastosowań" className="rounded-xl w-full h-full object-cover" />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Wszechstronność Zastosowań</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże konstrukcje, takie jak śluzy przemysłowe.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Element 3 */}
+                <div className="grid sm:grid-cols-3 gap-6">
+                  <div className="sm:col-span-1">
+                    <img src={whyChooseImg3} alt="Precyzja i Trwałość" className="rounded-xl w-full h-full object-cover" />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <h3 className="text-xl font-bold mb-2 text-foreground">Precyzja i Trwałość</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, co gwarantuje trwałość i niezawodność naszych powłok.
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* Prawa kolumna - Treść */}
-              <div className="lg:col-span-2">
-                {/* Trzy elementy */}
-                <div className="space-y-12">
-                  {/* Element 1 */}
-                  <div className="grid sm:grid-cols-3 gap-6">
-                    <div className="sm:col-span-1">
-                      <img src={whyChooseImg1} alt="Innowacyjne Technologie" className="rounded-xl w-full h-full object-cover" />
-                    </div>
-                    <div className="sm:col-span-2">
-                      <h3 className="text-xl font-bold mb-2 text-foreground">Innowacyjne Technologie</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, co widać na przykładzie transformacji dźwigara HEB.
-                      </p>
-                    </div>
-                  </div>
+              {/* Paragraf ISO */}
+              <div className="mt-12 border-t border-border pt-8">
+                <p className="text-muted-foreground">
+                  STANIAX posiada system zarządzania jakością certyfikowany zgodnie z normą <span className="font-bold text-foreground">ISO 9001:2015</span>. Wszystkie nasze produkty i procesy są projektowane zgodnie z europejskimi regulacjami technicznymi, aby zapewnić najwyższe standardy.
+                </p>
+              </div>
 
-                  {/* Element 2 */}
-                  <div className="grid sm:grid-cols-3 gap-6">
-                    <div className="sm:col-span-1">
-                      <img src={whyChooseImg2} alt="Wszechstronność Zastosowań" className="rounded-xl w-full h-full object-cover" />
-                    </div>
-                    <div className="sm:col-span-2">
-                      <h3 className="text-xl font-bold mb-2 text-foreground">Wszechstronność Zastosowań</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże konstrukcje, takie jak śluzy przemysłowe.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Element 3 */}
-                  <div className="grid sm:grid-cols-3 gap-6">
-                    <div className="sm:col-span-1">
-                      <img src={whyChooseImg3} alt="Precyzja i Trwałość" className="rounded-xl w-full h-full object-cover" />
-                    </div>
-                    <div className="sm:col-span-2">
-                      <h3 className="text-xl font-bold mb-2 text-foreground">Precyzja i Trwałość</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, co gwarantuje trwałość i niezawodność naszych powłok.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Paragraf ISO */}
-                <div className="mt-12 border-t border-border pt-8">
-                  <p className="text-muted-foreground">
-                    STANIAX posiada system zarządzania jakością certyfikowany zgodnie z normą <span className="font-bold text-foreground">ISO 9001:2015</span>. Wszystkie nasze produkty i procesy są projektowane zgodnie z europejskimi regulacjami technicznymi, aby zapewnić najwyższe standardy.
-                  </p>
-                </div>
-
-                {/* Micro-CTA */}
-                <div className="mt-8 text-sm">
-                  <span className="text-muted-foreground">POTRZEBUJESZ POMOCY? </span>
-                  <button onClick={() => scrollToSection('contact')} className="font-bold text-accent hover:underline">
-                    SKONTAKTUJ SIĘ Z NAMI
-                  </button>
-                </div>
+              {/* Micro-CTA */}
+              <div className="mt-8 text-sm">
+                <span className="text-muted-foreground">POTRZEBUJESZ POMOCY? </span>
+                <button onClick={() => scrollToSection('contact')} className="font-bold text-accent hover:underline">
+                  SKONTAKTUJ SIĘ Z NAMI
+                </button>
               </div>
             </div>
           </div>
-        </AnimatedSection>
+        </div>
+      </AnimatedSection>
+
+      <main className={activeSection === 1 ? 'block' : 'hidden'}>
 
         <AnimatedSection id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
           <div className="container mx-auto px-6 lg:px-12">
