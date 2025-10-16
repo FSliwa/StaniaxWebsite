@@ -981,7 +981,7 @@ function HomePage() {
                                   'flex h-12 w-12 items-center justify-center rounded-full border text-sm font-semibold uppercase tracking-[0.3em] transition-colors duration-300',
                                   isActive
                                     ? 'border-accent bg-accent text-accent-foreground'
-                                    : 'border-foreground/20 text-foreground/60'
+                                    : 'border-gray-400/40 text-gray-600'
                                 )}
                               >
                                 {String(index + 1).padStart(2, '0')}
@@ -1057,7 +1057,7 @@ function HomePage() {
       <AnimatedSection data-theme="light" className="py-16 lg:py-24 bg-muted/30">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
-          <div className="grid grid-cols-2 gap-10 text-foreground lg:grid-cols-4 lg:gap-16">
+          <div className="grid grid-cols-2 gap-10 text-gray-700 lg:grid-cols-4 lg:gap-16">
             {[
               { label: 'Lat', sublabel: 'Doświadczenia', value: 38, suffix: '+' },
               { label: 'Projektów', sublabel: 'Zakończonych', value: 2500, suffix: '+' },
@@ -1065,7 +1065,7 @@ function HomePage() {
               { label: 'Jakości', sublabel: 'Standardy', value: 99, suffix: '%' }
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="mb-3 text-5xl font-black text-foreground lg:text-6xl">
+                <div className="mb-3 text-5xl font-black text-gray-700 lg:text-6xl">
                   <CountUp end={stat.value} suffix={stat.suffix} />
                 </div>
                 <h3 className="mb-1 text-lg font-bold uppercase tracking-wider text-muted-foreground">
@@ -1092,7 +1092,7 @@ function HomePage() {
               {/* Lewa kolumna - Tytuł z szarym tłem */}
               <div className="bg-muted/50 px-6 lg:px-12 py-16 lg:py-24 flex items-center">
                 <div>
-                  <h2 className="text-5xl lg:text-7xl font-black text-foreground leading-none mb-8">
+                  <h2 className="text-5xl lg:text-7xl font-black text-gray-700 leading-none mb-8">
                     DLACZEGO
                     <span className="block text-accent mt-2">STANIAX</span>
                   </h2>
@@ -1115,7 +1115,7 @@ function HomePage() {
                       />
                     </div>
                     <div className="sm:col-span-2 flex flex-col justify-center">
-                      <h3 className="text-2xl font-bold mb-3 text-foreground">Innowacyjne Technologie</h3>
+                      <h3 className="text-2xl font-bold mb-3 text-gray-700">Innowacyjne Technologie</h3>
                       <p className="text-muted-foreground leading-relaxed">
                         Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, co widać na przykładzie transformacji dźwigara HEB.
                       </p>
@@ -1132,7 +1132,7 @@ function HomePage() {
                       />
                     </div>
                     <div className="sm:col-span-2 flex flex-col justify-center">
-                      <h3 className="text-2xl font-bold mb-3 text-foreground">Wszechstronność Zastosowań</h3>
+                      <h3 className="text-2xl font-bold mb-3 text-gray-700">Wszechstronność Zastosowań</h3>
                       <p className="text-muted-foreground leading-relaxed">
                         Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże konstrukcje, takie jak śluzy przemysłowe.
                       </p>
@@ -1149,7 +1149,7 @@ function HomePage() {
                       />
                     </div>
                     <div className="sm:col-span-2 flex flex-col justify-center">
-                      <h3 className="text-2xl font-bold mb-3 text-foreground">Precyzja i Trwałość</h3>
+                      <h3 className="text-2xl font-bold mb-3 text-gray-700">Precyzja i Trwałość</h3>
                       <p className="text-muted-foreground leading-relaxed">
                         Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, co gwarantuje trwałość i niezawodność naszych powłok.
                       </p>
@@ -1159,7 +1159,7 @@ function HomePage() {
                   {/* Paragraf ISO */}
                   <div className="border-t border-border pt-8">
                     <p className="text-muted-foreground leading-relaxed">
-                      STANIAX posiada system zarządzania jakością certyfikowany zgodnie z normą <span className="font-bold text-foreground">ISO 9001:2015</span>. Wszystkie nasze produkty i procesy są projektowane zgodnie z europejskimi regulacjami technicznymi, aby zapewnić najwyższe standardy.
+                      STANIAX posiada system zarządzania jakością certyfikowany zgodnie z normą <span className="font-bold text-gray-700">ISO 9001:2015</span>. Wszystkie nasze produkty i procesy są projektowane zgodnie z europejskimi regulacjami technicznymi, aby zapewnić najwyższe standardy.
                     </p>
                   </div>
 
@@ -1205,15 +1205,15 @@ function HomePage() {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
                     <Trophy className="w-5 h-5 text-accent icon-welding-effect" />
-                    <span className="text-foreground font-medium">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
+                    <span className="text-gray-700 font-medium">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Shield className="w-5 h-5 text-accent icon-welding-effect" />
-                    <span className="text-foreground font-medium">Zaawansowane Kontrole Środowiskowe</span>
+                    <span className="text-gray-700 font-medium">Zaawansowane Kontrole Środowiskowe</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-accent icon-welding-effect" />
-                    <span className="text-foreground font-medium">Szybkie Terminy Realizacji</span>
+                    <span className="text-gray-700 font-medium">Szybkie Terminy Realizacji</span>
                   </div>
                 </div>
                 <Button
