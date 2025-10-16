@@ -652,15 +652,9 @@ function HomePage() {
   }, [activeSection])
 
   const scrollToSection = (id: string) => {
-    if (id === 'top') {
-      setActiveSection(0)
-    } else if (id === 'services') {
-      setActiveSection(1)
-    } else {
-      const section = document.getElementById(id)
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
+    const section = document.getElementById(id)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
 
@@ -915,51 +909,36 @@ function HomePage() {
             </div>
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10 pb-16 lg:pb-24">
-              <div className="flex flex-col gap-8 lg:gap-12">
-                <div className="flex items-center gap-4 text-xs uppercase tracking-[0.6em] text-white/70">
-                  <span className="flex items-center gap-2">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30">
-                      <Factory className="h-5 w-5" />
-                    </span>
-                    Eksperci metalizacji w Polsce
-                  </span>
-                  <span className="hidden sm:block h-px flex-1 bg-white/20" />
-                  <span className="hidden sm:block">Od 2025</span>
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-end">
+                <div className="space-y-6">
+                  <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
+                    <span className="block">Przemysłowe</span>
+                    <span className="block">Powłoki</span>
+                    <span className="block text-accent">Na Miarę Przyszłości</span>
+                  </h1>
+                  <p className="text-lg lg:text-xl text-white/80 font-medium max-w-2xl">
+                    Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty i podkreślają Twoją technologiczną przewagę konkurencyjną.
+                  </p>
                 </div>
-
-                <div className="relative z-10 mx-auto max-w-7xl w-full">
-                  <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-end">
-                    <div className="space-y-6">
-                      <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
-                        <span className="block">Przemysłowe</span>
-                        <span className="block">Powłoki</span>
-                        <span className="block text-accent">Na Miarę Przyszłości</span>
-                      </h1>
-                      <p className="text-lg lg:text-xl text-white/80 font-medium max-w-2xl">
-                        Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty i podkreślają Twoją technologiczną przewagę konkurencyjną.
-                      </p>
-                    </div>
-                    
-                    <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
-                      <Button
-                        size="lg"
-                        onClick={() => scrollToSection('projects')}
-                        className="liquid-metal-button text-white font-semibold border-0"
-                      >
-                        Zobacz Nasze Prace
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </Button>
-                      <Button
-                        size="lg"
-                        variant="outline"
-                        className="font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
-                        onClick={() => scrollToSection('contact')}
-                      >
-                        <Phone className="w-5 h-5 mr-2" />
-                        Skontaktuj się z nami
-                      </Button>
-                    </div>
-                  </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
+                  <Button
+                    size="lg"
+                    onClick={() => scrollToSection('projects')}
+                    className="liquid-metal-button text-white font-semibold border-0"
+                  >
+                    Zobacz Nasze Prace
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
+                    onClick={() => scrollToSection('contact')}
+                  >
+                    <Phone className="w-5 h-5 mr-2" />
+                    Skontaktuj się z nami
+                  </Button>
                 </div>
               </div>
             </div>
