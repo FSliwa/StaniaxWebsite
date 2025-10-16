@@ -1105,7 +1105,7 @@ function HomePage() {
       </div>
 
       {/* Sekcja statystyk - zawsze widoczna */}
-      <section data-theme="light" className="py-16 lg:py-24 bg-white">
+      <section data-theme="light" className="py-16 lg:py-24 bg-muted/30">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
           <div className="grid grid-cols-2 gap-10 text-slate-900 lg:grid-cols-4 lg:gap-16">
