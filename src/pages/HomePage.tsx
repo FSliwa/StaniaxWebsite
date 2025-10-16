@@ -995,7 +995,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section ref={servicesSectionRef} id="services" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
+        <section ref={servicesSectionRef} id="services" data-theme="light" className="py-12 lg:py-16 bg-muted/30">
           <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -1065,7 +1065,7 @@ function HomePage() {
                 </nav>
               </div>
 
-              <div className="lg:col-span-8 relative min-h-[500px]">
+              <div className="lg:col-span-8 relative">
                 {servicesData.map((service) => {
                   const isActive = activeService === service.id
                   return (
@@ -1077,7 +1077,7 @@ function HomePage() {
                       )}
                       aria-hidden={!isActive}
                     >
-                      <Card className="h-full border bg-card">
+                      <Card className="h-full border-0 bg-transparent">
                         <div className="h-2/3">
                           <IndustrialImage
                             src={service.image}
