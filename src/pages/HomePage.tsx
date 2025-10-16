@@ -927,12 +927,11 @@ function HomePage() {
               </div>
 
               <div className="max-w-5xl space-y-6">
-                <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
-                  <span className="block">Przemysłowe</span>
-                  <span className="block">Powłoki</span>
-                  <span className="block text-accent">Na Miarę Przyszłości</span>
+                <h1 className="text-6xl lg:text-8xl font-black leading-none tracking-tight">
+                  <span className="block text-white">Najwyższej Jakości</span>
+                  <span className="block text-accent">Metalizacja</span>
                 </h1>
-                <div className="max-w-2xl">
+                <div className="max-w-xl">
                   <p className="text-lg lg:text-xl text-white/80 font-medium">
                     Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
                     i podkreślają Twoją technologiczną przewagę konkurencyjną.
@@ -969,7 +968,7 @@ function HomePage() {
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
               <div className="lg:col-span-4 space-y-10">
                 <div>
-                  <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                  <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-none">
                     Nasze
                     <span className="block text-accent">Usługi</span>
                   </h2>
@@ -1104,75 +1103,77 @@ function HomePage() {
         <section
           id="custom-section"
           data-theme="light"
-          className="py-16 lg:py-24 bg-muted/50"
+          className="py-16 lg:py-24 bg-background"
         >
           <div className="container mx-auto px-6 lg:px-12">
-            {/* Biały kontener */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 max-w-6xl mx-auto">
-              {/* Tytuł sekcji */}
-              <div className="text-center mb-12">
-                <h2 className="text-4xl lg:text-5xl font-black mb-4">
-                  Dlaczego Staniax?
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Nasze zaangażowanie w innowacje, jakość i precyzję sprawia, że jesteśmy liderem w dziedzinie metalizacji.
-                </p>
+            <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
+              {/* Lewa kolumna - Tytuł */}
+              <div className="lg:col-span-1">
+                <div className="sticky top-28">
+                  <h2 className="text-4xl lg:text-5xl font-black text-foreground leading-none">
+                    DLACZEGO
+                    <span className="block text-accent">STANIAX</span>
+                  </h2>
+                </div>
               </div>
 
-              {/* Trzy elementy w układzie naprzemiennym */}
-              <div className="space-y-16">
-                {/* Element 1: Obrazek po lewej, tekst po prawej */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div className="order-1 group">
-                    <div className="aspect-video overflow-hidden rounded-xl">
-                      <img src={whyChooseImg1} alt="Transformacja dźwigara HEB" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              {/* Prawa kolumna - Treść */}
+              <div className="lg:col-span-2">
+                {/* Trzy elementy */}
+                <div className="space-y-12">
+                  {/* Element 1 */}
+                  <div className="grid sm:grid-cols-3 gap-6">
+                    <div className="sm:col-span-1">
+                      <img src={whyChooseImg1} alt="Innowacyjne Technologie" className="rounded-xl w-full h-full object-cover" />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <h3 className="text-xl font-bold mb-2 text-foreground">Innowacyjne Technologie</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, co widać na przykładzie transformacji dźwigara HEB.
+                      </p>
                     </div>
                   </div>
-                  <div className="order-2">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-                      Innowacyjne Technologie
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, 
-                      co widać na przykładzie transformacji dźwigara HEB.
-                    </p>
+
+                  {/* Element 2 */}
+                  <div className="grid sm:grid-cols-3 gap-6">
+                    <div className="sm:col-span-1">
+                      <img src={whyChooseImg2} alt="Wszechstronność Zastosowań" className="rounded-xl w-full h-full object-cover" />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <h3 className="text-xl font-bold mb-2 text-foreground">Wszechstronność Zastosowań</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże konstrukcje, takie jak śluzy przemysłowe.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Element 3 */}
+                  <div className="grid sm:grid-cols-3 gap-6">
+                    <div className="sm:col-span-1">
+                      <img src={whyChooseImg3} alt="Precyzja i Trwałość" className="rounded-xl w-full h-full object-cover" />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <h3 className="text-xl font-bold mb-2 text-foreground">Precyzja i Trwałość</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, co gwarantuje trwałość i niezawodność naszych powłok.
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Element 2: Tekst po lewej, obrazek po prawej */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div className="order-2 lg:order-1">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-                      Wszechstronność Zastosowań
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże 
-                      konstrukcje, takie jak śluzy przemysłowe.
-                    </p>
-                  </div>
-                  <div className="order-1 lg:order-2 group">
-                    <div className="aspect-video overflow-hidden rounded-xl">
-                      <img src={whyChooseImg2} alt="Transformacja śluzy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                    </div>
-                  </div>
+                {/* Paragraf ISO */}
+                <div className="mt-12 border-t border-border pt-8">
+                  <p className="text-muted-foreground">
+                    STANIAX posiada system zarządzania jakością certyfikowany zgodnie z normą <span className="font-bold text-foreground">ISO 9001:2015</span>. Wszystkie nasze produkty i procesy są projektowane zgodnie z europejskimi regulacjami technicznymi, aby zapewnić najwyższe standardy.
+                  </p>
                 </div>
 
-                {/* Element 3: Obrazek po lewej, tekst po prawej */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div className="order-1 group">
-                    <div className="aspect-video overflow-hidden rounded-xl">
-                      <img src={whyChooseImg3} alt="Transformacja wirnika przemysłowego" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                    </div>
-                  </div>
-                  <div className="order-2">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-                      Precyzja i Trwałość
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, 
-                      co gwarantuje trwałość i niezawodność naszych powłok.
-                    </p>
-                  </div>
+                {/* Micro-CTA */}
+                <div className="mt-8 text-sm">
+                  <span className="text-muted-foreground">POTRZEBUJESZ POMOCY? </span>
+                  <button onClick={() => scrollToSection('contact')} className="font-bold text-accent hover:underline">
+                    SKONTAKTUJ SIĘ Z NAMI
+                  </button>
                 </div>
               </div>
             </div>
@@ -1195,7 +1196,7 @@ function HomePage() {
                 </div>
               </div>
               <div className="lg:col-span-7">
-                <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-none">
                   Tworzymy Doskonałość w
                   <span className="block text-accent">Metalizacji</span>
                 </h2>
@@ -1232,7 +1233,7 @@ function HomePage() {
         <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-16 lg:py-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-6xl font-black mb-6">
+              <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-none">
                 Najnowsze
                 <span className="block text-accent">Projekty</span>
               </h2>
@@ -1436,7 +1437,7 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
               <div className="lg:col-span-5">
-                <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                <h2 className="text-5xl lg:text-7xl font-black mb-6 leading-none">
                   Gotowy Na Rozpoczęcie
                   <span className="block text-accent">Projektu?</span>
                 </h2>
