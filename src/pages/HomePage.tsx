@@ -33,9 +33,9 @@ import projectImgAerospace from '@/assets/airplane-04-1600x900.jpg'
 import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
 import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
 
-import whyChooseImg1 from '@/assets/20251016_0405_Przemiana Dźwigara HEB_simple_compose_01k7nc58ddefx9c0nj9n97j17t.png'
-import whyChooseImg2 from '@/assets/20251016_0434_Przemiana Śluzy_simple_compose_01k7ndtkvaf95bvw2233ve8nav.png'
-import whyChooseImg3 from '@/assets/20251016_0439_Przemiana Wirnika Przemysłowego_simple_compose_01k7ne36qzeg9rhbvzaer98gw5.png'
+import whyChooseImg1 from '@/assets/Dlaczego Staniax V1.png'
+import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
+import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
 
 const fallbackAnimationSrc = heroVideo
 const statsSplineUrl =
@@ -732,6 +732,76 @@ function HomePage() {
             : 'bg-transparent border-transparent'
         )}
       >
+        {/* Backdrop */}
+        <div
+          className={cn(
+            'fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300',
+            isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+          )}
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden={!isMenuOpen}
+        />
+        
+        {/* Side Menu */}
+        <div
+          className={cn(
+            'fixed inset-y-0 right-0 z-50 w-full max-w-md transform transition-transform duration-500 ease-in-out',
+            menuBackgroundClass,
+            'backdrop-blur-2xl border-l border-white/10',
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          )}
+          aria-hidden={!isMenuOpen}
+        >
+          <div className="flex h-full flex-col justify-between p-8">
+            <div className="flex items-start justify-between gap-6">
+              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Zamknij menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <nav className="flex-1 flex flex-col justify-center">
+              <ul className="space-y-4">
+                {navItems.map((item) => (
+                  <li key={item.id}>
+                    <button
+                      onClick={() => handleNavClick(item)}
+                      className="group flex w-full items-center justify-between rounded-lg p-4 text-left transition-colors duration-300 hover:bg-white/10"
+                    >
+                      <span className="text-2xl font-bold tracking-tight transition-colors duration-300 group-hover:text-accent">
+                        {item.label}
+                      </span>
+                      <ArrowRight className="h-5 w-5 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            
+            <div className="space-y-6">
+              <Button
+                onClick={() => {
+                  scrollToSection('contact')
+                  setIsMenuOpen(false)
+                }}
+                className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
+              >
+                Porozmawiajmy
+                <ArrowUpRight className="ml-2 h-4 w-4" />
+              </Button>
+              <div className="text-center text-xs text-white/50">
+                © {new Date().getFullYear()} STANIAX Sp. z o.o.
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div
           className={cn(
             'container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 sm:py-5 transition-colors duration-300',
@@ -817,112 +887,6 @@ function HomePage() {
                 )}
               />
             </button>
-          </div>
-        </div>
-
-        <div
-          className={cn(
-            'fixed inset-0 z-40 flex flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12 transition-all duration-500 ease-out',
-            menuBackgroundClass,
-            isMenuOpen ? 'pointer-events-auto opacity-100 backdrop-blur-2xl' : 'pointer-events-none opacity-0 backdrop-blur-0'
-          )}
-          aria-hidden={!isMenuOpen}
-        >
-          <div className="flex items-start justify-between gap-6">
-            <div>
-              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
-            </div>
-            <Button
-              onClick={() => {
-                scrollToSection('contact')
-                setIsMenuOpen(false)
-              }}
-              className={cn('border bg-transparent transition-all duration-300', menuButtonClass)}
-            >
-              Porozmawiajmy
-              <ArrowUpRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="flex flex-col gap-8 sm:gap-12 lg:flex-row lg:gap-16 overflow-y-auto max-h-[70vh] lg:max-h-none lg:overflow-visible">
-            <div className="flex-1 space-y-4 sm:space-y-8">
-              {navItems.map((item, index) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item)}
-                  className={cn(
-                    'group w-full border-b pb-4 sm:pb-6 text-left transition-colors duration-300 hover:border-accent/60',
-                    menuBorderClass
-                  )}
-                >
-                  <div className="flex items-center gap-3 sm:gap-6">
-                    <span className={cn('text-xs sm:text-sm font-semibold uppercase tracking-[0.4em]', menuMutedClass)}>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span
-                      className={cn(
-                        'flex-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight transition-colors duration-300',
-                        menuPrimaryTextClass,
-                        'group-hover:text-accent'
-                      )}
-                    >
-                      {item.label}
-                    </span>
-                    <ArrowRight
-                      className={cn(
-                        'h-6 w-6 transition-transform duration-300 group-hover:translate-x-2 group-hover:text-accent',
-                        menuIconClass
-                      )}
-                    />
-                  </div>
-                </button>
-              ))}
-            </div>
-
-            <div className="w-full max-w-sm space-y-6 lg:self-end">
-              <div className="space-y-3">
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
-                <div className={cn('space-y-2 text-lg font-semibold', menuPrimaryTextClass)}>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection('contact')}
-                    className="block w-full text-left transition-colors duration-200 hover:text-accent"
-                  >
-                    Formularz kontaktowy
-                  </button>
-                  <a
-                    href="https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block transition-colors duration-200 hover:text-accent"
-                  >
-                    Biuro w Warszawie
-                  </a>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Siedziba</p>
-                <p className={cn('text-sm font-medium leading-relaxed', menuMutedClass)}>
-                  Grzybowska 5A<br />
-                  00-132 Warszawa<br />
-                  Polska
-                </p>
-              </div>
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Śledź nas</p>
-                <div className={cn('mt-3 flex gap-4 text-sm font-semibold uppercase tracking-[0.3em]', menuMutedClass)}>
-                  <a href="#custom-section" className="transition-colors duration-200 hover:text-accent">Studio</a>
-                  <a href="#projects" className="transition-colors duration-200 hover:text-accent">Projects</a>
-                  <a href="#about" className="transition-colors duration-200 hover:text-accent">About</a>
-                  <a href="#contact" className="transition-colors duration-200 hover:text-accent">Kontakt</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className={cn('flex items-center justify-between text-xs uppercase tracking-[0.5em]', menuMutedClass)}>
-            <span>STANIAX — metalizacja premium</span>
-            <span>Scrolluj, aby odkryć</span>
           </div>
         </div>
       </header>
