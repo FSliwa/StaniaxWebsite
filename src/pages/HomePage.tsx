@@ -33,6 +33,10 @@ import projectImgAerospace from '@/assets/airplane-04-1600x900.jpg'
 import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
 import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
 
+import whyChooseImg1 from '@/assets/20251016_0405_Przemiana Dźwigara HEB_simple_compose_01k7nc58ddefx9c0nj9n97j17t.png'
+import whyChooseImg2 from '@/assets/20251016_0434_Przemiana Śluzy_simple_compose_01k7ndtkvaf95bvw2233ve8nav.png'
+import whyChooseImg3 from '@/assets/20251016_0439_Przemiana Wirnika Przemysłowego_simple_compose_01k7ne36qzeg9rhbvzaer98gw5.png'
+
 const fallbackAnimationSrc = heroVideo
 const statsSplineUrl =
   import.meta.env.VITE_STATS_SPLINE_URL ?? 'https://prod.spline.design/f8rjqRArLakUTPCP/scene.splinecode'
@@ -1136,107 +1140,69 @@ function HomePage() {
         <section
           id="custom-section"
           data-theme="light"
-          className="py-16 lg:py-24 bg-muted/50"
+          className="py-16 lg:py-24 bg-background"
         >
           <div className="container mx-auto px-6 lg:px-12">
-            {/* Szary kontener */}
-            <div className="bg-muted rounded-2xl shadow-lg p-8 lg:p-12 max-w-6xl mx-auto">
-              {/* Tytuł sekcji */}
-              <div className="text-center mb-12">
-                <h2 className="text-4xl lg:text-5xl font-black mb-4">
-                  Specjalnie 
-                  <span className="block text-accent">dla Ciebie</span>
-                </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Poznaj nasze specjalistyczne rozwiązania dostosowane do różnych branż i zastosowań
-                </p>
-              </div>
+            {/* Tytuł sekcji */}
+            <div className="text-center mb-12 lg:mb-16">
+              <h2 className="text-4xl lg:text-5xl font-black mb-4 text-foreground">
+                Dlaczego Staniax?
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Nasze zaangażowanie w innowacje, jakość i precyzję sprawia, że jesteśmy liderem w dziedzinie metalizacji. 
+                Oto trzy kluczowe powody, dla których warto nam zaufać.
+              </p>
+            </div>
 
-              {/* Trzy elementy w układzie naprzemiennym */}
-              <div className="space-y-16">
-                {/* Element 1: Obrazek po lewej, tekst po prawej */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div className="order-1">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center">
-                      <Factory className="w-16 h-16 text-accent/60" />
-                    </div>
-                  </div>
-                  <div className="order-2">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-                      Prototypowanie Przemysłowe
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      Szybkie i precyzyjne tworzenie prototypów z zastosowaniem zaawansowanych technik metalizacji. 
-                      Idealne rozwiązanie dla firm rozwijających nowe produkty i technologie, wymagających 
-                      wysokiej jakości powłok już na etapie testów.
-                    </p>
-                    <div className="flex items-center gap-3 text-accent">
-                      <Shield className="w-5 h-5" />
-                      <span className="font-medium">Gwarancja jakości na każdym etapie</span>
-                    </div>
-                  </div>
+            {/* Trzy karty w siatce */}
+            <div className="grid lg:grid-cols-3 gap-8">
+              {/* Karta 1 */}
+              <Card className="group overflow-hidden rounded-2xl border-border/50 hover:border-accent transition-all duration-300">
+                <div className="aspect-video overflow-hidden">
+                  <img src={whyChooseImg1} alt="Transformacja dźwigara HEB" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">Innowacyjne Technologie</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, 
+                    co widać na przykładzie transformacji dźwigara HEB.
+                  </p>
+                </CardContent>
+              </Card>
 
-                {/* Element 2: Tekst po lewej, obrazek po prawej */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div className="order-2 lg:order-1">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-                      Produkcja Seryjna
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      Skalowalne rozwiązania dla dużych wolumenów produkcyjnych. Nasze procesy są zoptymalizowane 
-                      pod kątem efektywności i powtarzalności, zapewniając identyczną jakość dla każdej sztuki 
-                      w całej serii produkcyjnej.
-                    </p>
-                    <div className="flex items-center gap-3 text-accent">
-                      <Clock className="w-5 h-5" />
-                      <span className="font-medium">Terminowa realizacja dużych zamówień</span>
-                    </div>
-                  </div>
-                  <div className="order-1 lg:order-2">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center">
-                      <Gear className="w-16 h-16 text-accent/60" />
-                    </div>
-                  </div>
+              {/* Karta 2 */}
+              <Card className="group overflow-hidden rounded-2xl border-border/50 hover:border-accent transition-all duration-300">
+                <div className="aspect-video overflow-hidden">
+                  <img src={whyChooseImg2} alt="Transformacja śluzy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">Wszechstronność Zastosowań</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże 
+                    konstrukcje, takie jak śluzy przemysłowe.
+                  </p>
+                </CardContent>
+              </Card>
 
-                {/* Element 3: Obrazek po lewej, tekst po prawej */}
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                  <div className="order-1">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center">
-                      <Trophy className="w-16 h-16 text-accent/60" />
-                    </div>
-                  </div>
-                  <div className="order-2">
-                    <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground">
-                      Rozwiązania Specjalistyczne
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      Unikalne procesy metalizacji dla nietypowych zastosowań i wymagających branż. 
-                      Współpracujemy z klientami nad opracowaniem dedykowanych rozwiązań, które spełnią 
-                      nawet najbardziej specyficzne wymagania techniczne.
-                    </p>
-                    <div className="flex items-center gap-3 text-accent">
-                      <Target className="w-5 h-5" />
-                      <span className="font-medium">Indywidualne podejście do każdego projektu</span>
-                    </div>
-                  </div>
+              {/* Karta 3 */}
+              <Card className="group overflow-hidden rounded-2xl border-border/50 hover:border-accent transition-all duration-300">
+                <div className="aspect-video overflow-hidden">
+                  <img src={whyChooseImg3} alt="Transformacja wirnika przemysłowego" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
-              </div>
-
-              {/* Przyciski akcji */}
-              <div className="mt-16 text-center">
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="liquid-metal-button text-white font-semibold border-0" onClick={() => scrollToSection('contact')}>
-                    Wyceń Projekt
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                  <Button size="lg" variant="outline" className="font-semibold" onClick={() => scrollToSection('projects')}>
-                    Zobacz Realizacje
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </div>
-              </div>
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">Precyzja i Trwałość</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, 
+                    co gwarantuje trwałość i niezawodność naszych powłok.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
