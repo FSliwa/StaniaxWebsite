@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
+import { AnimatedSection } from '@/components/AnimatedSection'
 import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
 import {
@@ -25,7 +26,7 @@ import {
   Wrench,
   Users
 } from '@phosphor-icons/react'
-import heroVideo from '@/assets/assets_task_01k73g8bvxfswbv3szr93sty21_task_01k73g8bvxfswbv3szr93sty21_genid_93f1b412-9e3a-4386-b6ae-10efb82263bb_25_10_09_03_29_179123_videos_00000_669473706_source.mp4'
+import heroVideo from '@/assets/Generowanie_Wideo_Powłoki_Metalicznej.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
 import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
@@ -34,6 +35,10 @@ import projectImgAerospace from '@/assets/airplane-04-1600x900.jpg'
 import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
 import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
 
+import whyChooseImg1 from '@/assets/Dlaczego Staniax V1.png'
+import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
+import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
+
 const fallbackAnimationSrc = heroVideo
 const statsSplineUrl =
   import.meta.env.VITE_STATS_SPLINE_URL ?? 'https://prod.spline.design/f8rjqRArLakUTPCP/scene.splinecode'
@@ -41,7 +46,7 @@ const newsSplineUrl =
   import.meta.env.VITE_NEWS_SPLINE_SCENE_URL ?? 'https://prod.spline.design/iK5Y6hn8ReGNIQ1J/scene.splinecode'
 const virtualStudioFallbackSplineUrl =
   import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_URL ??
-  'https://my.spline.design/liquidmetaltransition-C2l3g14pY8aE4J2XqxxkkGwZ/'
+  'https://prod.spline.design/xk-PvTQqtoScZ5Zq/scene.splinecode'
 const virtualStudioEmbedUrl =
   import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_EMBED_URL ?? 'undefined'
 
@@ -52,7 +57,7 @@ type NavItem =
 const navItems: NavItem[] = [
   { id: 'about', label: 'O STANIAX', type: 'section' },
   { id: 'services', label: 'Oferta', type: 'section' },
-  { id: 'virtual-studio', label: 'Proces Metalizacji', type: 'section' },
+  { id: 'custom-section', label: 'Specjalnie dla Ciebie', type: 'section' },
   { id: 'projects', label: 'Realizacje', type: 'section' },
   { id: 'news-showcase', label: 'Nowości', type: 'section' },
   { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
@@ -74,6 +79,10 @@ type ProjectItem = {
   title: string
   icon: ReactNode
   image: string
+  description: string
+  details: string
+  category: string
+  year: string
 }
 
 type AboutTileConfig = {
@@ -92,7 +101,7 @@ const servicesData: ServiceItem[] = [
     title: 'Rozwój Prototypów',
     description:
       'Szybkie prototypowanie z zaawansowanymi rozwiązaniami powłokowymi dla faz rozwoju i testowania produktu.',
-    icon: <Gear className="w-16 h-16 text-white/80" />,
+    icon: <Gear className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
     alt: 'Technik przygotowuje prototyp do napylania metalu',
     tagline: 'Szybkie wdrożenia R&D'
@@ -101,7 +110,7 @@ const servicesData: ServiceItem[] = [
     id: 'powloki',
     title: 'Powłoki Przemysłowe',
     description: 'Trwałe powłoki metaliczne dla komponentów wymagających najwyższej ochrony i wydajności.',
-    icon: <Shield className="w-16 h-16 text-white/80" />,
+    icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg2,
     alt: 'Operator kontroluje proces nanoszenia powłoki na stalowy element',
     tagline: 'Ochrona krytycznych części'
@@ -110,7 +119,7 @@ const servicesData: ServiceItem[] = [
     id: 'precyzja',
     title: 'Wykończenia Precyzyjne',
     description: 'Wysoko precyzyjne obróbki powierzchni dla komponentów z dokładnymi specyfikacjami.',
-    icon: <Target className="w-16 h-16 text-white/80" />,
+    icon: <Target className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg3,
     alt: 'Precyzyjna obróbka elementu metalowego na stanowisku CNC',
     tagline: 'Dokładność do mikrona'
@@ -119,7 +128,7 @@ const servicesData: ServiceItem[] = [
     id: 'dedykowane',
     title: 'Rozwiązania Na Miarę',
     description: 'Usługi metalizacyjne dostosowane do specyficznych wymagań branżowych.',
-    icon: <Wrench className="w-16 h-16 text-white/80" />,
+    icon: <Wrench className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
     alt: 'Inżynier dopasowuje parametry napylania do wymagań klienta',
     tagline: 'Zespoły projektowe 360°'
@@ -130,14 +139,63 @@ const projectsData: ProjectItem[] = [
   {
     id: 'automotive',
     title: 'Komponenty Motoryzacyjne',
-    icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90" />,
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=800&fit=crop&crop=center'
+    icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />,
+    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=800&fit=crop&crop=center',
+    description: 'Zaawansowane powłoki ochronne dla przemysłu motoryzacyjnego',
+    details: 'Specjalistyczne metalizacja części silnikowych, układów hamulcowych i elementów karoserii. Powłoki odporne na korozję i wysokie temperatury.',
+    category: 'Motoryzacja',
+    year: '2024'
   },
-  { id: 'aerospace', title: 'Części Lotnicze', icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: projectImgAerospace },
-  { id: 'precision-tools', title: 'Narzędzia Precyzyjne', icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: projectImgAutomotive },
-  { id: 'industrial', title: 'Urządzenia Przemysłowe', icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: projectImgIndustrial },
-  { id: 'production-tools', title: 'Narzędzia Produkcyjne', icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: serviceImg2 },
-  { id: 'prototypes', title: 'Projekty Prototypów', icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />, image: projectImgPrototype }
+  { 
+    id: 'aerospace', 
+    title: 'Części Lotnicze', 
+    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    image: projectImgAerospace,
+    description: 'Precyzyjne powłoki dla krytycznych komponentów lotniczych',
+    details: 'Metalizacja elementów silników odrzutowych, struktur nośnych i systemów hydraulicznych zgodnie z normami aerospace.',
+    category: 'Lotnictwo',
+    year: '2024'
+  },
+  { 
+    id: 'precision-tools', 
+    title: 'Narzędzia Precyzyjne', 
+    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    image: projectImgAutomotive,
+    description: 'Powłoki zwiększające trwałość narzędzi precyzyjnych',
+    details: 'Specjalne powłoki twardościowe dla narzędzi skrawających, matryc i form wtryskowych. Zwiększenie żywotności o 300%.',
+    category: 'Narzędzia',
+    year: '2024'
+  },
+  { 
+    id: 'industrial', 
+    title: 'Urządzenia Przemysłowe', 
+    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    image: projectImgIndustrial,
+    description: 'Ochrona przed korozją dla maszyn przemysłowych',
+    details: 'Kompleksowa metalizacja linii produkcyjnych, robotów przemysłowych i urządzeń technologicznych.',
+    category: 'Przemysł',
+    year: '2024'
+  },
+  { 
+    id: 'production-tools', 
+    title: 'Narzędzia Produkcyjne', 
+    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    image: serviceImg2,
+    description: 'Powłoki funkcjonalne dla narzędzi produkcyjnych',
+    details: 'Metalizacja narzędzi do obróbki plastycznej, urządzeń formujących i elementów automatyki przemysłowej.',
+    category: 'Produkcja',
+    year: '2024'
+  },
+  { 
+    id: 'prototypes', 
+    title: 'Projekty Prototypów', 
+    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    image: projectImgPrototype,
+    description: 'Szybkie prototypowanie z zaawansowanymi powłokami',
+    details: 'Ekspresowa metalizacja prototypów dla R&D, testowanie nowych rozwiązań powłokowych i weryfikacja parametrów.',
+    category: 'R&D',
+    year: '2024'
+  }
 ]
 
 const aboutTilesData: AboutTileConfig[] = [
@@ -280,6 +338,8 @@ function HomePage() {
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
+  const [activeSection, setActiveSection] = useState(0) // 0 for hero, 1 for services
+  const isTransitioning = useRef(false)
   const [headerTheme, setHeaderTheme] = useState<'light' | 'dark'>('dark')
   const hasNewsSpline = Boolean(newsSplineUrl && newsSplineUrl !== 'undefined')
   const [formData, setFormData] = useState({
@@ -293,24 +353,20 @@ function HomePage() {
   const projectsSectionRef = useRef<HTMLDivElement | null>(null)
   const projectCardsRef = useRef<HTMLDivElement[]>([])
   const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null)
+  const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null)
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
   const aboutMosaicRef = useRef<HTMLDivElement | null>(null)
   const newsAnimationRef = useRef<HTMLDivElement | null>(null)
   const [newsSplineKey, setNewsSplineKey] = useState(0)
   const prefersReducedMotion = useReducedMotion() ?? false
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
-  const resolvedVirtualStudioUrl =
-    virtualStudioEmbedUrl && virtualStudioEmbedUrl !== 'undefined'
-      ? virtualStudioEmbedUrl
-      : virtualStudioFallbackSplineUrl
-  const hasVirtualStudioSpline = Boolean(resolvedVirtualStudioUrl && resolvedVirtualStudioUrl !== 'undefined')
+  const servicesSectionRef = useRef<HTMLDivElement | null>(null)
+  
   const { scrollYProgress: aboutScrollProgress } = useScroll({
     target: aboutMosaicRef,
     offset: ['start 90%', 'end 15%']
   })
   const isSplineReady = splineStatus === 'ready'
-  const shouldRenderVirtualStudioEmbed = !prefersReducedMotion && hasVirtualStudioSpline
-  const shouldRenderVirtualStudioVideoFallback = !prefersReducedMotion && !hasVirtualStudioSpline
-  const shouldRenderVirtualStudioReducedMotionNotice = prefersReducedMotion
   const shouldRenderNewsSpline = !prefersReducedMotion && hasNewsSpline && isSplineReady
   const shouldRenderNewsVideoFallback = !prefersReducedMotion && (!hasNewsSpline || splineStatus !== 'ready')
   const shouldRenderNewsReducedMotionNotice = prefersReducedMotion
@@ -514,6 +570,88 @@ function HomePage() {
     }
   }, [prefersReducedMotion])
 
+  useEffect(() => {
+    if (typeof window === 'undefined' || !servicesSectionRef.current) return
+
+    const section = servicesSectionRef.current
+    const sparkleContainer = section.querySelector('#sparkle-container') as HTMLElement
+
+    if (!sparkleContainer) return
+
+    const handleMouseMove = (e: MouseEvent) => {
+      // Generuj kilka iskier jednocześnie dla efektu spawania
+      const sparkCount = Math.floor(Math.random() * 3) + 1
+      
+      for (let i = 0; i < sparkCount; i++) {
+        if (Math.random() > 0.7) continue // Ogranicza gęstość
+
+        const sparkle = document.createElement('div')
+        
+        // Losowy kolor iskry
+        const colors = ['sparkle-white', 'sparkle-yellow', 'sparkle-orange']
+        const colorClass = colors[Math.floor(Math.random() * colors.length)]
+        sparkle.className = `sparkle ${colorClass}`
+
+        // Większe iskry na początku
+        const size = Math.random() * 4 + 1 // od 1px do 5px
+        sparkle.style.width = `${size}px`
+        sparkle.style.height = `${size}px`
+
+        // Pozycja względem sekcji
+        const rect = section.getBoundingClientRect()
+        sparkle.style.left = `${e.clientX - rect.left + (Math.random() - 0.5) * 10}px`
+        sparkle.style.top = `${e.clientY - rect.top + (Math.random() - 0.5) * 10}px`
+
+        // Iskry lecą głównie w dół z lekkim rozrzutem na boki
+        const dx = (Math.random() - 0.5) * 60 // Ruch na boki
+        const dy = Math.random() * 80 + 40 // Głównie w dół (40-120px)
+        sparkle.style.setProperty('--dx', `${dx}px`)
+        sparkle.style.setProperty('--dy', `${dy}px`)
+
+        sparkleContainer.appendChild(sparkle)
+
+        sparkle.addEventListener('animationend', () => {
+          sparkle.remove()
+        })
+      }
+    }
+
+    section.addEventListener('mousemove', handleMouseMove)
+
+    return () => {
+      section.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (isTransitioning.current) {
+        e.preventDefault()
+        return
+      }
+
+      const scrollDown = e.deltaY > 0
+      const scrollUp = e.deltaY < 0
+
+      if (activeSection === 0 && scrollDown) {
+        e.preventDefault()
+        isTransitioning.current = true
+        setActiveSection(1)
+        setTimeout(() => { isTransitioning.current = false }, 1000)
+      } else if (activeSection === 1 && scrollUp && window.scrollY === 0) {
+        e.preventDefault()
+        isTransitioning.current = true
+        setActiveSection(0)
+        setTimeout(() => { isTransitioning.current = false }, 1000)
+      }
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+    }
+  }, [activeSection])
+
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id)
     if (section) {
@@ -559,13 +697,13 @@ function HomePage() {
   }, [scrollY])
   const isDarkHeaderContext = headerTheme === 'dark'
   
-  // Menu classes - ALWAYS use dark text on light background for maximum visibility
-  const menuBackgroundClass = 'bg-background/95 text-slate-900'
-  const menuMutedClass = 'text-slate-600'
-  const menuBorderClass = 'border-slate-200'
-  const menuButtonClass = 'border-slate-900/20 text-slate-900 hover:bg-slate-900 hover:text-white'
-  const menuPrimaryTextClass = 'text-slate-900'
-  const menuIconClass = 'text-slate-600'
+  // Menu classes - White text on dark background for better visibility
+  const menuBackgroundClass = 'bg-slate-950/95 text-white'
+  const menuMutedClass = 'text-white/70'
+  const menuBorderClass = 'border-white/20'
+  const menuButtonClass = 'border-white/20 text-white hover:bg-white hover:text-slate-950'
+  const menuPrimaryTextClass = 'text-white'
+  const menuIconClass = 'text-white/70'
 
   const handleNavClick = (item: NavItem) => {
     if (item.type === 'section') {
@@ -678,483 +816,402 @@ function HomePage() {
           </div>
         </div>
 
+        {/* Backdrop */}
         <div
           className={cn(
-            'fixed inset-0 z-40 flex flex-col justify-between px-4 sm:px-6 lg:px-12 py-8 sm:py-12 transition-all duration-500 ease-out',
+            'fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300',
+            isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+          )}
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden={!isMenuOpen}
+        />
+        
+        {/* Side Menu */}
+        <div
+          className={cn(
+            'fixed inset-y-0 right-0 z-50 w-full max-w-md transform transition-transform duration-500 ease-in-out',
             menuBackgroundClass,
-            isMenuOpen ? 'pointer-events-auto opacity-100 backdrop-blur-2xl' : 'pointer-events-none opacity-0 backdrop-blur-0'
+            'backdrop-blur-2xl border-l border-white/10',
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           )}
           aria-hidden={!isMenuOpen}
         >
-          <div className="flex items-start justify-between gap-6">
-            <div>
-              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
+          <div className="flex h-full flex-col justify-between px-6 py-8">
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Zamknij menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-            <Button
-              onClick={() => {
-                scrollToSection('contact')
-                setIsMenuOpen(false)
-              }}
-              className={cn('border bg-transparent transition-all duration-300', menuButtonClass)}
-            >
-              Porozmawiajmy
-              <ArrowUpRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
 
-          <div className="flex flex-col gap-8 sm:gap-12 lg:flex-row lg:gap-16 overflow-y-auto max-h-[70vh] lg:max-h-none lg:overflow-visible">
-            <div className="flex-1 space-y-4 sm:space-y-8">
-              {navItems.map((item, index) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item)}
-                  className={cn(
-                    'group w-full border-b pb-4 sm:pb-6 text-left transition-colors duration-300 hover:border-accent/60',
-                    menuBorderClass
-                  )}
-                >
-                  <div className="flex items-center gap-3 sm:gap-6">
-                    <span className={cn('text-xs sm:text-sm font-semibold uppercase tracking-[0.4em]', menuMutedClass)}>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span
-                      className={cn(
-                        'flex-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight transition-colors duration-300',
-                        menuPrimaryTextClass,
-                        'group-hover:text-accent'
-                      )}
-                    >
+            <div className="flex flex-col gap-8">
+              <nav className="space-y-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item)}
+                    className={cn(
+                      'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
+                      menuPrimaryTextClass
+                    )}
+                  >
+                    <span className="text-lg font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
                       {item.label}
                     </span>
-                    <ArrowRight
-                      className={cn(
-                        'h-6 w-6 transition-transform duration-300 group-hover:translate-x-2 group-hover:text-accent',
-                        menuIconClass
-                      )}
-                    />
-                  </div>
-                </button>
-              ))}
+                    <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                ))}
+              </nav>
+              
+              <div className="pt-6 border-t border-white/10">
+                <Button
+                  onClick={() => {
+                    scrollToSection('contact')
+                    setIsMenuOpen(false)
+                  }}
+                  className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
+                >
+                  Porozmawiajmy
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </div>
 
-            <div className="w-full max-w-sm space-y-6 lg:self-end">
-              <div className="space-y-3">
+            <div className="space-y-6">
+              <div>
                 <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
-                <div className={cn('space-y-2 text-lg font-semibold', menuPrimaryTextClass)}>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection('contact')}
-                    className="block w-full text-left transition-colors duration-200 hover:text-accent"
-                  >
-                    Formularz kontaktowy
-                  </button>
-                  <a
-                    href="https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block transition-colors duration-200 hover:text-accent"
-                  >
-                    Biuro w Warszawie
-                  </a>
+                <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
+                  <p>Grzybowska 5A</p>
+                  <p>00-132 Warszawa</p>
                 </div>
-              </div>
-              <div className="space-y-3">
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Siedziba</p>
-                <p className={cn('text-sm font-medium leading-relaxed', menuMutedClass)}>
-                  Grzybowska 5A<br />
-                  00-132 Warszawa<br />
-                  Polska
-                </p>
               </div>
               <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Śledź nas</p>
-                <div className={cn('mt-3 flex gap-4 text-sm font-semibold uppercase tracking-[0.3em]', menuMutedClass)}>
-                  <a href="#virtual-studio" className="transition-colors duration-200 hover:text-accent">Studio</a>
-                  <a href="#projects" className="transition-colors duration-200 hover:text-accent">Projects</a>
-                  <a href="#about" className="transition-colors duration-200 hover:text-accent">About</a>
-                  <a href="#contact" className="transition-colors duration-200 hover:text-accent">Kontakt</a>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
+                <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
+                  <button onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
+                  <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
+                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className={cn('flex items-center justify-between text-xs uppercase tracking-[0.5em]', menuMutedClass)}>
-            <span>STANIAX — metalizacja premium</span>
-            <span>Scrolluj, aby odkryć</span>
           </div>
         </div>
       </header>
 
-      <main>
-        <section id="top" data-theme="dark" className="pt-24 pb-16 lg:pt-36 lg:pb-32 relative overflow-hidden">
-          <div className="absolute inset-0" aria-hidden>
-            <video
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ transform: `scale(${heroScaleValue})` }}
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src={heroVideo} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-br from-background/92 via-background/75 to-background/88" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
-          </div>
+      <div className="h-screen w-screen overflow-hidden relative">
+        <motion.div
+          className="relative w-full"
+          animate={{ y: activeSection === 0 ? '0%' : '-100vh' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <section id="top" data-theme="dark" className="relative h-screen w-full flex flex-col justify-end overflow-hidden">
+            <div className="absolute inset-0" aria-hidden>
+              <video
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ transform: `scale(${heroScaleValue})` }}
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={heroVideo} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-br from-background/92 via-background/75 to-background/88" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
+            </div>
 
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            <div className="flex flex-col gap-8 lg:gap-12">
-              <div className="flex items-center gap-4 text-xs uppercase tracking-[0.6em] text-white/70">
-                <span className="flex items-center gap-2">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30">
-                    <Factory className="h-5 w-5" />
+            <div className="container mx-auto px-6 lg:px-12 relative z-10 pb-16 lg:pb-24">
+              <div className="max-w-4xl space-y-8">
+                {/* Element nad hero - kreska i napisy */}
+                <div className="flex items-center gap-4 text-xs uppercase tracking-[0.6em] text-white/70">
+                  <span className="flex items-center gap-2">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30">
+                      <Factory className="h-5 w-5" />
+                    </span>
+                    Eksperci metalizacji w Polsce
                   </span>
-                  Eksperci metalizacji w Polsce
-                </span>
-                <span className="hidden sm:block h-px flex-1 bg-white/20" />
-                <span className="hidden sm:block">Od 2025</span>
-              </div>
+                  <span className="hidden sm:block h-px flex-1 bg-white/20" />
+                  <span className="hidden sm:block">Od 2025</span>
+                </div>
 
-              <div className="max-w-5xl space-y-6">
-                <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
-                  <span className="block">Przemysłowe</span>
-                  <span className="block">Powłoki</span>
-                  <span className="block text-accent">Na Miarę Przyszłości</span>
-                </h1>
-                <div className="max-w-2xl">
-                  <p className="text-lg lg:text-xl text-white/80 font-medium">
-                    Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty
-                    i podkreślają Twoją technologiczną przewagę konkurencyjną.
+                <div className="space-y-6">
+                  <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
+                    <span className="block">Przemysłowe</span>
+                    <span className="block">Powłoki</span>
+                    <span className="block text-accent">Na Miarę Przyszłości</span>
+                  </h1>
+                  <p className="text-lg lg:text-xl text-white/80 font-medium max-w-2xl">
+                    Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty i podkreślają Twoją technologiczną przewagę konkurencyjną.
                   </p>
                 </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  onClick={() => scrollToSection('projects')}
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-                >
-                  Zobacz Nasze Prace
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="font-semibold"
-                  onClick={() => scrollToSection('contact')}
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Skontaktuj się z nami
-                </Button>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    size="lg"
+                    onClick={() => scrollToSection('projects')}
+                    className="liquid-metal-button text-white font-semibold border-0"
+                  >
+                    Zobacz Nasze Prace
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
+                    onClick={() => scrollToSection('contact')}
+                  >
+                    <Phone className="w-5 h-5 mr-2" />
+                    Skontaktuj się z nami
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section id="services" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-              <div className="lg:col-span-4 space-y-10">
-                <div>
-                  <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                    Nasze
-                    <span className="block text-accent">Usługi</span>
-                  </h2>
-                  <p className="text-lg text-muted-foreground font-medium">
-                    Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych.
-                  </p>
-                </div>
-                <nav aria-label="Nawigacja po usługach" className="hidden lg:block">
-                  <ul className="space-y-4">
-                    {servicesData.map((service, index) => {
-                      const isActive = activeService === service.id
-                      return (
-                        <li key={service.id}>
-                          <button
-                            type="button"
-                            onClick={() => setActiveService(service.id)}
-                            onMouseEnter={() => setActiveService(service.id)}
-                            onFocus={() => setActiveService(service.id)}
-                            className={cn(
-                              'group relative flex w-full items-center gap-4 rounded-3xl border px-6 py-5 text-left transition-all duration-300',
-                              isActive
-                                ? 'border-accent bg-background shadow-2xl shadow-accent/20'
-                                : 'border-transparent bg-white/40 backdrop-blur-sm hover:border-accent/50 hover:bg-white/60'
-                            )}
-                          >
-                            <span
+          <section ref={servicesSectionRef} id="services" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
+            <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+              <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+                <div className="lg:col-span-4 space-y-10">
+                  <div>
+                    <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                      Nasze
+                      <span className="block text-accent">Usługi</span>
+                    </h2>
+                    <p className="text-lg text-muted-foreground font-medium">
+                      Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych.
+                    </p>
+                  </div>
+                  <nav aria-label="Nawigacja po usługach" className="hidden lg:block">
+                    <ul className="space-y-4">
+                      {servicesData.map((service, index) => {
+                        const isActive = activeService === service.id
+                        return (
+                          <li key={service.id}>
+                            <button
+                              type="button"
+                              onClick={() => setActiveService(service.id)}
+                              onMouseEnter={() => setActiveService(service.id)}
+                              onFocus={() => setActiveService(service.id)}
                               className={cn(
-                                'flex h-12 w-12 items-center justify-center rounded-full border text-sm font-semibold uppercase tracking-[0.3em] transition-colors duration-300',
+                                'group relative flex w-full items-center gap-4 rounded-3xl border px-6 py-5 text-left transition-all duration-300',
                                 isActive
-                                  ? 'border-accent bg-accent text-accent-foreground'
-                                  : 'border-foreground/20 text-foreground/60'
+                                  ? 'border-accent bg-background shadow-2xl shadow-accent/20'
+                                  : 'border-transparent bg-muted/40 backdrop-blur-sm hover:border-accent/50 hover:bg-muted/60'
                               )}
                             >
-                              {String(index + 1).padStart(2, '0')}
-                            </span>
-                            <div className="flex-1 space-y-1">
-                              <p className="text-lg font-bold leading-tight">
-                                {service.title}
-                              </p>
-                              <p
+                              <span
                                 className={cn(
-                                  'text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300',
-                                  isActive ? 'text-accent' : 'text-muted-foreground'
+                                  'flex h-12 w-12 items-center justify-center rounded-full border text-sm font-semibold uppercase tracking-[0.3em] transition-colors duration-300',
+                                  isActive
+                                    ? 'border-accent bg-accent text-accent-foreground'
+                                    : 'border-gray-400/40 text-gray-600'
                                 )}
                               >
-                                {service.tagline}
-                              </p>
-                            </div>
-                            <ArrowRight
-                              className={cn(
-                                'h-5 w-5 transition-transform duration-300',
-                                isActive ? 'translate-x-1 text-accent' : 'text-muted-foreground'
-                              )}
-                              aria-hidden
-                            />
-                          </button>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </nav>
-              </div>
-              <div className="lg:col-span-8">
-                <div className="grid md:grid-cols-2 gap-6">
+                                {String(index + 1).padStart(2, '0')}
+                              </span>
+                              <div className="flex-1 space-y-1">
+                                <p className="text-lg font-bold leading-tight">
+                                  {service.title}
+                                </p>
+                                <p
+                                  className={cn(
+                                    'text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300',
+                                    isActive ? 'text-accent' : 'text-muted-foreground'
+                                  )}
+                                >
+                                  {service.tagline}
+                                </p>
+                              </div>
+                              <ArrowRight
+                                className={cn(
+                                  'h-5 w-5 transition-transform duration-300',
+                                  isActive ? 'translate-x-1 text-accent' : 'text-muted-foreground'
+                                )}
+                                aria-hidden
+                              />
+                            </button>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  </nav>
+                </div>
+
+                <div className="lg:col-span-8 relative">
                   {servicesData.map((service) => {
                     const isActive = activeService === service.id
                     return (
-                      <Card
+                      <div
                         key={service.id}
                         className={cn(
-                          'group overflow-hidden border bg-card transition-all duration-300',
-                          isActive
-                            ? 'border-accent shadow-2xl shadow-accent/30'
-                            : 'border-transparent hover:border-accent/40 hover:shadow-xl'
+                          'absolute top-0 left-0 w-full h-full transition-opacity duration-500',
+                          isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         )}
-                        onMouseEnter={() => setActiveService(service.id)}
-                        onFocus={() => setActiveService(service.id)}
-                        tabIndex={0}
-                        aria-pressed={isActive}
+                        aria-hidden={!isActive}
                       >
-                        <div className="aspect-[16/10] relative">
-                          <IndustrialImage
-                            src={service.image}
-                            alt={service.alt ?? service.title}
-                            className={cn(
-                              'w-full h-full rounded-t-[inherit] transition-transform duration-500',
-                              isActive ? 'scale-[1.03]' : 'scale-100'
-                            )}
-                          >
-                            {service.icon}
-                          </IndustrialImage>
-                        </div>
-                        <CardHeader className="pb-4">
-                          <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-muted-foreground">{service.description}</p>
-                        </CardContent>
-                      </Card>
+                        <Card className="h-full border-0 bg-transparent">
+                          <div className="h-2/3">
+                            <IndustrialImage
+                              src={service.image}
+                              alt={service.alt ?? service.title}
+                              className="w-full h-full rounded-t-2xl"
+                            >
+                              {service.icon}
+                            </IndustrialImage>
+                          </div>
+                          <CardHeader>
+                            <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-muted-foreground">{service.description}</p>
+                          </CardContent>
+                        </Card>
+                      </div>
                     )
                   })}
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </motion.div>
+      </div>
 
-        <section data-theme="light" className="py-16 lg:py-24 bg-muted/30">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-orange-500" aria-hidden />
-            <div className="grid grid-cols-2 gap-10 text-slate-900 lg:grid-cols-4 lg:gap-16">
-              {[
-                { label: 'Lat', sublabel: 'Doświadczenia', value: 38, suffix: '+' },
-                { label: 'Projektów', sublabel: 'Zakończonych', value: 2500, suffix: '+' },
-                { label: 'Klientów', sublabel: 'Zadowolonych', value: 150, suffix: '+' },
-                { label: 'Jakości', sublabel: 'Standardy', value: 99, suffix: '%' }
-              ].map((stat) => (
-                <div key={stat.label} className="text-center lg:text-left">
-                  <div className="mb-3 text-4xl font-black text-slate-900 sm:text-5xl lg:text-6xl">
-                    <CountUp end={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <h3 className="mb-1 text-lg font-bold uppercase tracking-wider text-slate-800">
-                    {stat.label}
-                  </h3>
-                  <p className="text-sm font-medium uppercase tracking-[0.35em] text-slate-500">
-                    {stat.sublabel}
+      {/* Sekcja statystyk - zawsze widoczna */}
+      <AnimatedSection data-theme="light" className="py-16 lg:py-24 bg-muted/30">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
+          <div className="grid grid-cols-2 gap-10 text-gray-700 lg:grid-cols-4 lg:gap-16">
+            {[
+              { label: 'Lat', sublabel: 'Doświadczenia', value: 38, suffix: '+' },
+              { label: 'Projektów', sublabel: 'Zakończonych', value: 2500, suffix: '+' },
+              { label: 'Klientów', sublabel: 'Zadowolonych', value: 150, suffix: '+' },
+              { label: 'Jakości', sublabel: 'Standardy', value: 99, suffix: '%' }
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="mb-3 text-5xl font-black text-gray-700 lg:text-6xl">
+                  <CountUp end={stat.value} suffix={stat.suffix} />
+                </div>
+                <h3 className="mb-1 text-lg font-bold uppercase tracking-wider text-muted-foreground">
+                  {stat.label}
+                </h3>
+                <p className="text-sm font-medium uppercase tracking-[0.35em] text-muted-foreground">
+                  {stat.sublabel}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
+
+      <main className={activeSection === 1 ? 'block' : 'hidden'}>
+
+        <AnimatedSection
+          id="custom-section"
+          data-theme="light"
+          className="relative py-16 lg:py-24 bg-background overflow-hidden"
+        >
+          <div className="container mx-auto px-0">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Lewa kolumna - Tytuł z szarym tłem */}
+              <div className="bg-muted/50 px-6 lg:px-12 py-16 lg:py-24 flex items-center">
+                <div>
+                  <h2 className="text-5xl lg:text-7xl font-black text-gray-700 leading-none mb-8">
+                    DLACZEGO
+                    <span className="block text-accent mt-2">STANIAX</span>
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
+                    Innowacyjne technologie, wszechstronność zastosowań i niezawodna precyzja – to nasza odpowiedź na wyzwania współczesnego przemysłu.
                   </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+              </div>
 
-        <section data-theme="light" className="py-16 lg:py-24 bg-background">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="text-center mb-16">
-              <p className="text-xs uppercase tracking-[0.6em] text-muted-foreground mb-4">Dlaczego wybrać</p>
-              <h2 className="text-4xl lg:text-6xl font-black">
-                <span className="text-accent">STANIAX</span>
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-              <div className="text-center space-y-4">
-                <div className="flex justify-center mb-6">
-                  <div className="h-20 w-20 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Users className="w-10 h-10 text-accent" />
+              {/* Prawa kolumna - Treść z białym tłem */}
+              <div className="bg-background px-6 lg:px-12 py-16 lg:py-24">
+                <div className="space-y-12 max-w-2xl">
+                  {/* Element 1 */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="sm:col-span-1">
+                      <img 
+                        src={whyChooseImg1} 
+                        alt="Innowacyjne Technologie" 
+                        className="rounded-xl w-full h-48 sm:h-full object-cover shadow-lg"
+                      />
+                    </div>
+                    <div className="sm:col-span-2 flex flex-col justify-center">
+                      <h3 className="text-2xl font-bold mb-3 text-gray-700">Innowacyjne Technologie</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, co widać na przykładzie transformacji dźwigara HEB.
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <h3 className="text-xl font-black uppercase tracking-wide">
-                  Wsparcie Techniczne
-                </h3>
-                <p className="text-muted-foreground font-medium leading-relaxed">
-                  Doradzamy w wyborze odpowiedniego rozwiązania powłokowego dla konkretnych potrzeb, 
-                  oferując kompleksowe wsparcie techniczne również po realizacji projektu.
-                </p>
-              </div>
 
-              <div className="text-center space-y-4">
-                <div className="flex justify-center mb-6">
-                  <div className="h-20 w-20 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Trophy className="w-10 h-10 text-accent" />
+                  {/* Element 2 */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="sm:col-span-1">
+                      <img 
+                        src={whyChooseImg2} 
+                        alt="Wszechstronność Zastosowań" 
+                        className="rounded-xl w-full h-48 sm:h-full object-cover shadow-lg"
+                      />
+                    </div>
+                    <div className="sm:col-span-2 flex flex-col justify-center">
+                      <h3 className="text-2xl font-bold mb-3 text-gray-700">Wszechstronność Zastosowań</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże konstrukcje, takie jak śluzy przemysłowe.
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <h3 className="text-xl font-black uppercase tracking-wide">
-                  Jakość Produktów
-                </h3>
-                <p className="text-muted-foreground font-medium leading-relaxed">
-                  Innowacyjne pomysły i szczególna dbałość o wpływ na środowisko w procesie produkcji przemysłowej 
-                  to misja STANIAX.
-                </p>
-              </div>
 
-              <div className="text-center space-y-4">
-                <div className="flex justify-center mb-6">
-                  <div className="h-20 w-20 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Wrench className="w-10 h-10 text-accent" />
+                  {/* Element 3 */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="sm:col-span-1">
+                      <img 
+                        src={whyChooseImg3} 
+                        alt="Precyzja i Trwałość" 
+                        className="rounded-xl w-full h-48 sm:h-full object-cover shadow-lg"
+                      />
+                    </div>
+                    <div className="sm:col-span-2 flex flex-col justify-center">
+                      <h3 className="text-2xl font-bold mb-3 text-gray-700">Precyzja i Trwałość</h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, co gwarantuje trwałość i niezawodność naszych powłok.
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <h3 className="text-xl font-black uppercase tracking-wide">
-                  Personalizacja
-                </h3>
-                <p className="text-muted-foreground font-medium leading-relaxed">
-                  Współpracujemy z klientem podczas konfiguracji produktu, aby zidentyfikować 
-                  najlepsze ustawienia wydajności i parametry powłoki.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section
-          id="virtual-studio"
-          data-theme="dark"
-          className="relative isolate overflow-hidden min-h-[100svh]"
-        >
-          {shouldRenderVirtualStudioEmbed ? (
-            <iframe
-              src={resolvedVirtualStudioUrl}
-              title="Animacja procesu metalizacji STANIAX"
-              className="absolute inset-0 h-full w-full"
-              allow="autoplay; fullscreen"
-              loading="lazy"
-            />
-          ) : shouldRenderVirtualStudioVideoFallback ? (
-            <video
-              className="absolute inset-0 block h-full w-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src={fallbackAnimationSrc} type="video/mp4" />
-            </video>
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center px-6">
-              <div className="max-w-lg rounded-3xl border border-white/10 bg-white/5 px-6 py-5 text-center text-white shadow-2xl backdrop-blur">
-                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/60">Animacja wyłączona</p>
-                <p className="mt-3 text-lg font-medium text-white/85">
-                  Aby zobaczyć symulację Virtual Studio STANIAX, włącz efekty ruchu w ustawieniach systemowych lub przeglądarki.
-                </p>
-              </div>
-            </div>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/80 via-slate-950/60 to-slate-950/85" aria-hidden />
-          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950 via-transparent to-transparent" aria-hidden />
+                  {/* Paragraf ISO */}
+                  <div className="border-t border-border pt-8">
+                    <p className="text-muted-foreground leading-relaxed">
+                      STANIAX posiada system zarządzania jakością certyfikowany zgodnie z normą <span className="font-bold text-gray-700">ISO 9001:2015</span>. Wszystkie nasze produkty i procesy są projektowane zgodnie z europejskimi regulacjami technicznymi, aby zapewnić najwyższe standardy.
+                    </p>
+                  </div>
 
-          <div className="relative z-10 flex min-h-[100svh] items-center justify-center px-6 py-20 lg:px-12 lg:py-28">
-            <span className="sr-only">Dynamiczna animacja procesu metalizacji STANIAX</span>
-          </div>
-        </section>
-
-        <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-16 lg:py-24">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                Najnowsze
-                <span className="block text-accent">Projekty</span>
-              </h2>
-              <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto">
-                Odkryj nasze najnowsze projekty metalizacyjne w różnych branżach, prezentujące precyzję i jakość.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projectsData.map((project, index) => {
-                const isFocused = focusedProjectId === project.id
-                return (
-                  <div
-                    key={project.id}
-                    ref={(el) => {
-                      if (el) {
-                        projectCardsRef.current[index] = el
-                      } else {
-                        delete projectCardsRef.current[index]
-                      }
-                    }}
-                    tabIndex={0}
-                    onFocus={() => setFocusedProjectId(project.id)}
-                    onBlur={() => setFocusedProjectId((prev) => (prev === project.id ? null : prev))}
-                    className={cn(
-                      'group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-slate-950/90 transition-all duration-300',
-                      'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/70 focus-visible:border-accent',
-                      isFocused ? 'animate-border-pulse' : 'hover:border-accent/50'
-                    )}
-                    aria-label={project.title}
-                  >
-                    <IndustrialImage
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                  {/* Micro-CTA */}
+                  <div className="text-sm">
+                    <span className="text-muted-foreground">POTRZEBUJESZ POMOCY? </span>
+                    <button 
+                      onClick={() => scrollToSection('contact')} 
+                      className="font-bold text-accent hover:underline transition-all"
                     >
-                      <div className="relative z-10 text-center text-white">
-                        {project.icon}
-                        <p className="font-bold text-lg tracking-wide uppercase">{project.title}</p>
-                      </div>
-                    </IndustrialImage>
+                      SKONTAKTUJ SIĘ Z NAMI
+                    </button>
                   </div>
-                )
-              })}
-            </div>
-
-            <div className="text-center mt-12">
-              <Button
-                size="lg"
-                variant="outline"
-                className="font-semibold"
-                onClick={() => navigate('/news')}
-              >
-                Zobacz Wszystkie Projekty
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
+        <AnimatedSection id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               <div className="lg:col-span-5">
@@ -1179,21 +1236,21 @@ function HomePage() {
                 </p>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
-                    <Trophy className="w-5 h-5 text-accent" />
-                    <span className="text-foreground font-medium">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
+                    <Trophy className="w-5 h-5 text-accent icon-welding-effect" />
+                    <span className="text-gray-700 font-medium">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Shield className="w-5 h-5 text-accent" />
-                    <span className="text-foreground font-medium">Zaawansowane Kontrole Środowiskowe</span>
+                    <Shield className="w-5 h-5 text-accent icon-welding-effect" />
+                    <span className="text-gray-700 font-medium">Zaawansowane Kontrole Środowiskowe</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-accent" />
-                    <span className="text-foreground font-medium">Szybkie Terminy Realizacji</span>
+                    <Clock className="w-5 h-5 text-accent icon-welding-effect" />
+                    <span className="text-gray-700 font-medium">Szybkie Terminy Realizacji</span>
                   </div>
                 </div>
                 <Button
                   size="lg"
-                  className="bg-accent hover:bg-accent/90 font-semibold"
+                  className="liquid-metal-button text-white font-semibold border-0"
                   onClick={() => scrollToSection('contact')}
                 >
                   Dowiedz Się Więcej O Nas
@@ -1202,9 +1259,127 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section
+        <AnimatedSection ref={projectsSectionRef} id="projects" data-theme="light" className="py-16 lg:py-24">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl lg:text-6xl font-black mb-6">
+                Najnowsze
+                <span className="block text-accent">Projekty</span>
+              </h2>
+              <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto">
+                Odkryj nasze najnowsze projekty metalizacyjne w różnych branżach, prezentujące precyzję i jakość.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+              {projectsData.map((project, index) => {
+                const isFocused = focusedProjectId === project.id
+                const isHovered = hoveredProjectId === project.id
+                return (
+                  <div
+                    key={project.id}
+                    ref={(el) => {
+                      if (el) {
+                        projectCardsRef.current[index] = el
+                      } else {
+                        delete projectCardsRef.current[index]
+                      }
+                    }}
+                    tabIndex={0}
+                    onFocus={() => setFocusedProjectId(project.id)}
+                    onBlur={() => setFocusedProjectId((prev) => (prev === project.id ? null : prev))}
+                    onMouseEnter={(e) => {
+                      setHoveredProjectId(project.id)
+                      const rect = e.currentTarget.getBoundingClientRect()
+                      setTooltipPosition({
+                        x: rect.left + rect.width / 2,
+                        y: rect.top - 10
+                      })
+                    }}
+                    onMouseLeave={() => setHoveredProjectId(null)}
+                    onMouseMove={(e) => {
+                      if (isHovered) {
+                        const rect = e.currentTarget.getBoundingClientRect()
+                        setTooltipPosition({
+                          x: rect.left + rect.width / 2,
+                          y: rect.top - 10
+                        })
+                      }
+                    }}
+                    className={cn(
+                      'group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-slate-950/90 transition-all duration-300',
+                      'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/70 focus-visible:border-accent',
+                      isFocused ? 'animate-border-pulse' : 'hover:border-accent/50'
+                    )}
+                    aria-label={project.title}
+                  >
+                    <IndustrialImage
+                      src={project.image}
+                      alt={project.title}
+                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                    >
+                      <div className="relative z-10 text-center text-white">
+                        {project.icon}
+                        <p className="font-bold text-lg tracking-wide uppercase">{project.title}</p>
+                      </div>
+                    </IndustrialImage>
+                  </div>
+                )
+              })}
+              
+              {/* Tooltip */}
+              {hoveredProjectId && (
+                <div
+                  className="fixed z-50 pointer-events-none transition-all duration-200"
+                  style={{
+                    left: tooltipPosition.x,
+                    top: tooltipPosition.y,
+                    transform: 'translateX(-50%) translateY(-100%)'
+                  }}
+                >
+                  <div className="bg-slate-950/95 backdrop-blur-xl border border-white/20 rounded-xl p-4 shadow-2xl max-w-sm">
+                    {(() => {
+                      const project = projectsData.find(p => p.id === hoveredProjectId)
+                      if (!project) return null
+                      
+                      return (
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center">
+                              <div className="scale-50">{project.icon}</div>
+                            </div>
+                            <div>
+                              <h3 className="font-bold text-white text-sm">{project.title}</h3>
+                              <p className="text-xs text-white/60 uppercase tracking-wider">{project.category} • {project.year}</p>
+                            </div>
+                          </div>
+                          <p className="text-sm text-white/80 leading-relaxed">{project.description}</p>
+                          <p className="text-xs text-white/60 leading-relaxed">{project.details}</p>
+                        </div>
+                      )
+                    })()}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="text-center mt-12">
+              <Button
+                size="lg"
+                variant="outline"
+                className="font-semibold"
+                onClick={() => navigate('/news')}
+              >
+                Zobacz Wszystkie Projekty
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection
           id="news-showcase"
           data-theme="dark"
           className="relative isolate overflow-hidden py-24 lg:py-32"
@@ -1287,9 +1462,9 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
-        <section id="contact" data-theme="light" className="py-16 lg:py-24">
+        <AnimatedSection id="contact" data-theme="light" className="py-16 lg:py-24">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
               <div className="lg:col-span-5">
@@ -1402,53 +1577,42 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
       </main>
+
+      <Toaster position="top-right" richColors />
+      <CookieBanner />
 
       <footer className="bg-slate-950 text-white">
         <div className="container mx-auto px-6 lg:px-12 py-16">
           <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-4">
+            {/* Kolumna 1: Logo i opis */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="h-12 w-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg">
                   <Factory className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.6em] text-white/60">STANIAX</p>
-                  <p className="text-2xl font-black">Metal Coating Studio</p>
+                  <p className="text-2xl font-black">STANIAX</p>
                 </div>
               </div>
               <p className="text-sm text-white/70 font-medium max-w-xs">
-                Specjalizujemy się w zaawansowanych powłokach metalicznych dla branż lotniczej, motoryzacyjnej i high-tech, obsługując klientów w Polsce i na rynkach europejskich.
+                Specjalizujemy się w zaawansowanych powłokach metalicznych dla branż przemysłowych i high-tech.
               </p>
             </div>
 
+            {/* Kolumna 2: Szybka nawigacja */}
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-white/60">Nawigacja</p>
               <ul className="space-y-3 text-white/80">
-                <li>
-                  <button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">
-                    Oferta
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors">
-                    Realizacje
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('news-showcase')} className="hover:text-white transition-colors">
-                    Nowości
-                  </button>
-                </li>
-                <li>
-                  <Link to="/news" className="hover:text-white transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    Aktualności
-                  </Link>
-                </li>
+                <li><button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">Oferta</button></li>
+                <li><button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors">Realizacje</button></li>
+                <li><button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">O nas</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors">Kontakt</button></li>
               </ul>
             </div>
 
+            {/* Kolumna 3: Dane kontaktowe */}
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-white/60">Kontakt</p>
               <div className="space-y-3 text-white/80 text-sm">
@@ -1459,19 +1623,18 @@ function HomePage() {
                   Polska
                 </p>
                 <div className="leading-relaxed space-y-1">
-                  <p>KRS: 0001182026</p>
                   <p>NIP: 5253052509</p>
-                  <p>REGON: 542156053</p>
                 </div>
               </div>
             </div>
 
+            {/* Kolumna 4: Newsletter */}
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-white/60">Dołącz do nas</p>
               <p className="text-sm text-white/70">
-                Zapisz się, aby otrzymywać kwartalny raport z nowości STANIAX oraz zaproszenia na wydarzenia branżowe.
+                Zapisz się, aby otrzymywać kwartalny raport z nowościami i zaproszenia na wydarzenia branżowe.
               </p>
-              <form className="space-y-3" onSubmit={(event) => event.preventDefault()}>
+              <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); toast.success('Dziękujemy za zapisanie się do newslettera!') }}>
                 <Input
                   type="email"
                   placeholder="Adres e-mail"
@@ -1487,17 +1650,10 @@ function HomePage() {
         </div>
         <div className="border-t border-white/10 py-6">
           <div className="container mx-auto px-6 lg:px-12 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-xs uppercase tracking-[0.4em] text-white/50">
-            <span>© {new Date().getFullYear()} STANIAX Sp. z o.o. Wszystkie prawa zastrzeżone.</span>
-            <div className="flex gap-4">
-              <button onClick={() => scrollToSection('top')} className="hover:text-white transition-colors">Do góry</button>
-              <Link to="/news" className="hover:text-white transition-colors" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                Aktualności
-              </Link>
-            </div>
+            <span>© {new Date().getFullYear()} STANIAX Sp. z o.o. Wszelkie prawa zastrzeżone.</span>
           </div>
         </div>
       </footer>
-      <CookieBanner />
     </div>
   )
 }
