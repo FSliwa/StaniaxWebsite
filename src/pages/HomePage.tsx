@@ -1079,103 +1079,90 @@ function HomePage() {
           </section>
       </div>
 
-      {/* Sekcja Dlaczego STANIAX - bezpośrednio pod Services */}
+      {/* Sekcja Dlaczego STANIAX - wzorowana na Vibor.it */}
       <AnimatedSection
         id="custom-section"
         data-theme="light"
-        className="relative py-16 lg:py-24 bg-background overflow-hidden"
+        className="relative py-16 lg:py-24 bg-muted/30"
       >
-          <div className="container mx-auto px-0">
-            <div className="grid lg:grid-cols-2 gap-0">
-              {/* Lewa kolumna - Tytuł z szarym tłem */}
-              <div className="bg-muted/50 px-6 lg:px-12 py-16 lg:py-24 flex items-center">
-                <div>
-                  <h2 className="text-5xl lg:text-7xl font-black text-gray-700 leading-none mb-8">
-                    DLACZEGO
-                    <span className="block text-accent mt-2">STANIAX</span>
-                  </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
-                    Innowacyjne technologie, wszechstronność zastosowań i niezawodna precyzja – to nasza odpowiedź na wyzwania współczesnego przemysłu.
-                  </p>
+        <div className="container mx-auto px-6 lg:px-12">
+          {/* Nagłówek sekcji */}
+          <div className="text-center mb-16">
+            <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground mb-4">WHY CHOOSE</p>
+            <h2 className="text-4xl lg:text-6xl font-black text-gray-700">
+              STANIAX
+            </h2>
+          </div>
+
+          {/* Trzy kolumny z ikonami - wzór Vibor.it */}
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
+            {/* Kolumna 1: Wsparcie Techniczne */}
+            <div className="text-center space-y-4">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Users className="w-8 h-8 text-accent" />
                 </div>
               </div>
+              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-700">
+                WSPARCIE TECHNICZNE
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                TOWARZYSZYMY KLIENTOWI W WYBORZE ODPOWIEDNIEGO ROZWIĄZANIA DLA JEGO POTRZEB, OFERUJĄC RÓWNIEŻ TECHNICZNY SERWIS POSPRZEDAŻNY.
+              </p>
+            </div>
 
-              {/* Prawa kolumna - Treść z białym tłem */}
-              <div className="bg-background px-6 lg:px-12 py-16 lg:py-24">
-                <div className="space-y-12 max-w-2xl">
-                  {/* Element 1 */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div className="sm:col-span-1">
-                      <img 
-                        src={whyChooseImg1} 
-                        alt="Innowacyjne Technologie" 
-                        className="rounded-xl w-full h-48 sm:h-full object-cover shadow-lg"
-                      />
-                    </div>
-                    <div className="sm:col-span-2 flex flex-col justify-center">
-                      <h3 className="text-2xl font-bold mb-3 text-gray-700">Innowacyjne Technologie</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Stale inwestujemy w najnowsze technologie, aby zapewnić najwyższą jakość i precyzję powłok, co widać na przykładzie transformacji dźwigara HEB.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Element 2 */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div className="sm:col-span-1">
-                      <img 
-                        src={whyChooseImg2} 
-                        alt="Wszechstronność Zastosowań" 
-                        className="rounded-xl w-full h-48 sm:h-full object-cover shadow-lg"
-                      />
-                    </div>
-                    <div className="sm:col-span-2 flex flex-col justify-center">
-                      <h3 className="text-2xl font-bold mb-3 text-gray-700">Wszechstronność Zastosowań</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Nasze rozwiązania znajdują zastosowanie w różnorodnych projektach – od małych komponentów po duże konstrukcje, takie jak śluzy przemysłowe.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Element 3 */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div className="sm:col-span-1">
-                      <img 
-                        src={whyChooseImg3} 
-                        alt="Precyzja i Trwałość" 
-                        className="rounded-xl w-full h-48 sm:h-full object-cover shadow-lg"
-                      />
-                    </div>
-                    <div className="sm:col-span-2 flex flex-col justify-center">
-                      <h3 className="text-2xl font-bold mb-3 text-gray-700">Precyzja i Trwałość</h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        Każdy projekt, jak transformacja wirnika, jest realizowany z najwyższą dbałością o detale, co gwarantuje trwałość i niezawodność naszych powłok.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Paragraf ISO */}
-                  <div className="border-t border-border pt-8">
-                    <p className="text-muted-foreground leading-relaxed">
-                      STANIAX posiada system zarządzania jakością certyfikowany zgodnie z normą <span className="font-bold text-gray-700">ISO 9001:2015</span>. Wszystkie nasze produkty i procesy są projektowane zgodnie z europejskimi regulacjami technicznymi, aby zapewnić najwyższe standardy.
-                    </p>
-                  </div>
-
-                  {/* Micro-CTA */}
-                  <div className="text-sm">
-                    <span className="text-muted-foreground">POTRZEBUJESZ POMOCY? </span>
-                    <button 
-                      onClick={() => scrollToSection('contact')} 
-                      className="font-bold text-accent hover:underline transition-all"
-                    >
-                      SKONTAKTUJ SIĘ Z NAMI
-                    </button>
-                  </div>
+            {/* Kolumna 2: Jakość Produktów */}
+            <div className="text-center space-y-4">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Shield className="w-8 h-8 text-accent" />
                 </div>
               </div>
+              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-700">
+                JAKOŚĆ PRODUKTÓW
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                INNOWACYJNE POMYSŁY I SZCZEGÓLNA UWAGA NA WPŁYW ŚRODOWISKOWY PRODUKCJI PRZEMYSŁOWEJ TO MISJA STANIAX.
+              </p>
+            </div>
+
+            {/* Kolumna 3: Personalizacja */}
+            <div className="text-center space-y-4">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Wrench className="w-8 h-8 text-accent" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-700">
+                PERSONALIZACJA
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                TOWARZYSZYMY KLIENTOWI PODCZAS KONFIGURACJI PRODUKTU, ABY ZIDENTYFIKOWAĆ NAJLEPSZE USTAWIENIA WYDAJNOŚCI.
+              </p>
             </div>
           </div>
-        </AnimatedSection>
+
+          {/* Paragraf ISO - na dole */}
+          <div className="mt-16 text-center max-w-3xl mx-auto">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              STANIAX POSIADA SYSTEM ZARZĄDZANIA JAKOŚCIĄ <span className="font-bold text-gray-700">CERTYFIKOWANY ISO 9001:2015</span> I WSZYSTKIE PRODUKTY SĄ PROJEKTOWANE ZGODNIE Z EUROPEJSKIMI REGULACJAMI TECHNICZNYMI, ABY ZAPEWNIĆ NAJWYŻSZE STANDARDY JAKOŚCI.
+            </p>
+          </div>
+
+          {/* Micro-CTA */}
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              POTRZEBUJESZ POMOCY? {' '}
+              <button 
+                onClick={() => scrollToSection('contact')} 
+                className="font-bold text-accent hover:underline transition-all"
+              >
+                SKONTAKTUJ SIĘ Z NAMI
+              </button>
+            </p>
+          </div>
+        </div>
+      </AnimatedSection>
 
         <AnimatedSection id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
           <div className="container mx-auto px-6 lg:px-12">
