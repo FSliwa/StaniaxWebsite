@@ -1112,7 +1112,7 @@ function HomePage() {
         </div>
       </AnimatedSection>
 
-      <main className={activeSection === 1 ? 'block' : 'hidden'}>
+      <main className="block">{/* TYMCZASOWO ZAWSZE WIDOCZNE - TEST */}
 
         <AnimatedSection
           id="custom-section"
