@@ -1179,12 +1179,15 @@ function HomePage() {
         className="relative py-24 bg-gray-50"
       >
         <div className="container mx-auto px-6 lg:px-12">
-          {/* Nagłówek sekcji */}
-          <div className="text-center mb-16">
+          {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
+          <div className="text-left mb-16 max-w-7xl mr-auto">
             <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">WHY CHOOSE</p>
-            <h2 className="text-5xl lg:text-6xl font-black text-gray-900 uppercase">
+            <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
               STANIAX
             </h2>
+            <p className="text-base text-gray-600 max-w-2xl mr-auto font-normal">
+              Dlaczego warto wybrać nas jako partnera do metalizacji przemysłowej
+            </p>
           </div>
 
           {/* Trzy kolumny z ikonami - wzór Vibor.it */}
