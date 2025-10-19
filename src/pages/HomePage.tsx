@@ -313,23 +313,32 @@ type CountUpProps = {
   end: number
   duration?: number
   suffix?: string
+  shouldStart: boolean
 }
 
-function CountUp({ end, duration = 2000, suffix = '' }: CountUpProps) {
+function CountUp({ end, duration = 2000, suffix = '', shouldStart }: CountUpProps) {
   const [count, setCount] = useState(0)
+  const [hasStarted, setHasStarted] = useState(false)
 
   useEffect(() => {
+    if (!shouldStart || hasStarted) return
+    
+    setHasStarted(true)
     let startTime: number
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime
       const progress = Math.min((currentTime - startTime) / duration, 1)
-      setCount(Math.floor(progress * end))
+      
+      // Easing function (easeOutCubic)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.floor(eased * end))
+      
       if (progress < 1) {
         requestAnimationFrame(animate)
       }
     }
     requestAnimationFrame(animate)
-  }, [end, duration])
+  }, [shouldStart, end, duration, hasStarted])
 
   return <span>{count}{suffix}</span>
 }
@@ -338,7 +347,7 @@ function HomePage() {
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
-  const [activeSection, setActiveSection] = useState(0) // 0 for hero, 1 for services
+  const [activeSection, setActiveSection] = useState(0)
   const isTransitioning = useRef(false)
   const [headerTheme, setHeaderTheme] = useState<'light' | 'dark'>('dark')
   const hasNewsSpline = Boolean(newsSplineUrl && newsSplineUrl !== 'undefined')
@@ -362,6 +371,13 @@ function HomePage() {
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const servicesSectionRef = useRef<HTMLDivElement | null>(null)
   
+  // NEW: Animation states
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
+  const [isDesktop, setIsDesktop] = useState(false)
+  const metricsRef = useRef<HTMLDivElement | null>(null)
+  const [metricsVisible, setMetricsVisible] = useState(false)
+  
   const { scrollYProgress: aboutScrollProgress } = useScroll({
     target: aboutMosaicRef,
     offset: ['start 90%', 'end 15%']
@@ -372,7 +388,18 @@ function HomePage() {
   const shouldRenderNewsReducedMotionNotice = prefersReducedMotion
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      setScrollY(currentScrollY)
+      
+      // Calculate scroll progress for progress bar
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      const scrollableDistance = documentHeight - windowHeight
+      const progress = (currentScrollY / scrollableDistance) * 100
+      setScrollProgress(progress)
+    }
+    
     handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -388,6 +415,57 @@ function HomePage() {
     }
     return () => body.classList.remove('overflow-hidden')
   }, [isMenuOpen])
+
+  // Custom cursor effect (desktop only)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024)
+    checkDesktop()
+    window.addEventListener('resize', checkDesktop)
+    
+    if (!isDesktop || prefersReducedMotion) {
+      window.removeEventListener('resize', checkDesktop)
+      return
+    }
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY })
+    }
+    
+    window.addEventListener('mousemove', handleMouseMove)
+    
+    return () => {
+      window.removeEventListener('resize', checkDesktop)
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [isDesktop, prefersReducedMotion])
+
+  // Intersection Observer for Metrics Section (Counter Animation)
+  useEffect(() => {
+    if (!metricsRef.current || prefersReducedMotion) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !metricsVisible) {
+            setMetricsVisible(true)
+          }
+        })
+      },
+      {
+        root: null,
+        threshold: 0.3,
+        rootMargin: '0px'
+      }
+    )
+
+    observer.observe(metricsRef.current)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [metricsVisible, prefersReducedMotion])
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -717,6 +795,37 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Scroll Progress Bar */}
+      <div 
+        className="scroll-progress" 
+        style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
+
+      {/* Custom Cursor (Desktop only) */}
+      {isDesktop && !prefersReducedMotion && (
+        <>
+          <div 
+            className="cursor-dot" 
+            style={{ 
+              left: `${cursorPosition.x}px`, 
+              top: `${cursorPosition.y}px`,
+              transform: 'translate(-50%, -50%)'
+            }}
+            aria-hidden="true"
+          />
+          <div 
+            className="cursor-outline" 
+            style={{ 
+              left: `${cursorPosition.x}px`, 
+              top: `${cursorPosition.y}px`,
+              transform: 'translate(-50%, -50%)'
+            }}
+            aria-hidden="true"
+          />
+        </>
+      )}
+
       <Toaster position="top-right" richColors />
 
       <header
@@ -928,7 +1037,7 @@ function HomePage() {
                 {/* Element nad hero - kreska i napisy - POWIĘKSZONY x1.5 */}
                 <div className="flex items-center gap-6 text-base uppercase tracking-[0.6em] text-white/70">
                   <span className="flex items-center gap-3">
-                    <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/30">
+                    <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/30 icon-pulse">
                       <Factory className="h-7 w-7" />
                     </span>
                     Eksperci metalizacji w Polsce
@@ -952,18 +1061,18 @@ function HomePage() {
                   <Button
                     size="lg"
                     onClick={() => scrollToSection('projects')}
-                    className="liquid-metal-button text-white font-semibold border-0"
+                    className="ripple-effect liquid-metal-button text-white font-semibold border-0 transition-all duration-300 hover:scale-105"
                   >
                     Zobacz Nasze Prace
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
                   <Button
                     size="lg"
                     variant="outline"
-                    className="font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
+                    className="ripple-effect font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300 hover:scale-105"
                     onClick={() => scrollToSection('contact')}
                   >
-                    <Phone className="w-5 h-5 mr-2" />
+                    <Phone className="w-5 h-5 mr-2 icon-pulse" />
                     Skontaktuj się z nami
                   </Button>
                 </div>
@@ -972,24 +1081,28 @@ function HomePage() {
           </section>
 
           {/* Sekcja Liczb/Metryk - Trust Indicators */}
-          <section id="metrics" data-theme="light" className="py-16 bg-gray-50 border-y border-gray-200">
+          <section ref={metricsRef} id="metrics" data-theme="light" className="py-16 bg-gray-50 border-y border-gray-200">
             <div className="container mx-auto px-6 lg:px-12">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                <div className="text-center">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2">15+</div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">Lat Doświadczenia</p>
+                <div className="text-center group cursor-pointer">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600">
+                    <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold transition-colors duration-300 group-hover:text-gray-900">Lat Doświadczenia</p>
                 </div>
-                <div className="text-center">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2">500+</div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">Zrealizowanych Projektów</p>
+                <div className="text-center group cursor-pointer">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600">
+                    <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold transition-colors duration-300 group-hover:text-gray-900">Zrealizowanych Projektów</p>
                 </div>
-                <div className="text-center">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2">24H</div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">Czas Reakcji</p>
+                <div className="text-center group cursor-pointer">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600">24H</div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold transition-colors duration-300 group-hover:text-gray-900">Czas Reakcji</p>
                 </div>
-                <div className="text-center">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2">ISO</div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">9001:2015 Certyfikat</p>
+                <div className="text-center group cursor-pointer">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600">ISO</div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold transition-colors duration-300 group-hover:text-gray-900">9001:2015 Certyfikat</p>
                 </div>
               </div>
             </div>
@@ -1013,7 +1126,7 @@ function HomePage() {
                 {servicesData.map((service, index) => (
                   <div
                     key={service.id}
-                    className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                    className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1"
                     style={{
                       // Karty 0,2 (lewa kolumna): 0px, 120px
                       // Karty 1,3 (prawa kolumna): 60px, 180px
@@ -1027,10 +1140,10 @@ function HomePage() {
                       <img 
                         src={service.image} 
                         alt={service.alt}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute bottom-4 left-4 text-7xl font-black text-white/30">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 group-hover:from-black/70" />
+                      <div className="absolute bottom-4 left-4 text-7xl font-black text-white/30 transition-all duration-300 group-hover:text-white/40 group-hover:scale-105">
                         {String(index + 1).padStart(2, '0')}
                       </div>
                     </div>
@@ -1038,12 +1151,12 @@ function HomePage() {
                     {/* Treść */}
                     <div className="p-8">
                       {/* Tytuł */}
-                      <h3 className="text-2xl font-bold uppercase mb-3 text-gray-900">
+                      <h3 className="text-2xl font-bold uppercase mb-3 text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
                         {service.title}
                       </h3>
                       
                       {/* Tagline */}
-                      <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold mb-4">
+                      <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold mb-4 transition-all duration-300 group-hover:tracking-[0.3em]">
                         {service.tagline}
                       </p>
                       
@@ -1077,13 +1190,13 @@ function HomePage() {
           {/* Trzy kolumny z ikonami - wzór Vibor.it */}
           <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             {/* Kolumna 1: Wsparcie Techniczne */}
-            <div className="text-center space-y-4">
+            <div className="text-center space-y-4 group">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-                  <Users className="w-8 h-8 text-blue-700" />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animated-gradient">
+                  <Users className="w-8 h-8 text-blue-700 icon-pulse" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
+              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
                 WSPARCIE TECHNICZNE
               </h3>
               <p className="text-gray-600 leading-relaxed font-normal">
@@ -1092,13 +1205,13 @@ function HomePage() {
             </div>
 
             {/* Kolumna 2: Jakość Produktów */}
-            <div className="text-center space-y-4">
+            <div className="text-center space-y-4 group">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-                  <Shield className="w-8 h-8 text-blue-700" />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animated-gradient">
+                  <Shield className="w-8 h-8 text-blue-700 icon-pulse" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
+              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
                 JAKOŚĆ PRODUKTÓW
               </h3>
               <p className="text-gray-600 leading-relaxed font-normal">
@@ -1107,13 +1220,13 @@ function HomePage() {
             </div>
 
             {/* Kolumna 3: Personalizacja */}
-            <div className="text-center space-y-4">
+            <div className="text-center space-y-4 group">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-                  <Wrench className="w-8 h-8 text-blue-700" />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animated-gradient">
+                  <Wrench className="w-8 h-8 text-blue-700 icon-pulse" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
+              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
                 PERSONALIZACJA
               </h3>
               <p className="text-gray-600 leading-relaxed font-normal">
@@ -1222,17 +1335,17 @@ function HomePage() {
               {projectsData.map((project) => (
                 <div
                   key={project.id}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-100 hover:shadow-xl transition-all duration-300"
+                  className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 cursor-pointer"
                 >
                   <IndustrialImage
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full transition-transform duration-700 group-hover:scale-110"
                   >
-                    <div className="relative z-10 text-center text-white">
-                      {project.icon}
+                    <div className="relative z-10 text-center text-white transition-all duration-300 group-hover:scale-105">
+                      <div className="icon-pulse">{project.icon}</div>
                       <p className="font-bold text-lg tracking-wide uppercase mt-2">{project.title}</p>
-                      <p className="text-xs uppercase tracking-wider opacity-80 mt-1">{project.category} • {project.year}</p>
+                      <p className="text-xs uppercase tracking-wider opacity-80 mt-1 transition-opacity duration-300 group-hover:opacity-100">{project.category} • {project.year}</p>
                     </div>
                   </IndustrialImage>
                 </div>
@@ -1396,14 +1509,14 @@ function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() => window.open('mailto:kontakt@staniax.pl', '_blank')}
-                  className="px-10 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider transition-colors rounded-md text-lg"
+                  className="ripple-effect px-10 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 rounded-md text-lg"
                 >
                   Napisz Do Nas
-                  <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+                  <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 hover:translate-x-1" />
                 </button>
                 <button
                   onClick={() => window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank')}
-                  className="px-10 py-4 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-colors rounded-md text-lg"
+                  className="ripple-effect px-10 py-4 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 rounded-md text-lg"
                 >
                   Odwiedź Nas
                 </button>
@@ -1442,10 +1555,10 @@ function HomePage() {
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold">Nawigacja</p>
               <ul className="space-y-3 text-white/80 text-sm font-normal">
-                <li><button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">Oferta</button></li>
-                <li><button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors">Realizacje</button></li>
-                <li><button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">O nas</button></li>
-                <li><button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors">Kontakt</button></li>
+                <li><button onClick={() => scrollToSection('services')} className="link-underline hover:text-white transition-colors">Oferta</button></li>
+                <li><button onClick={() => scrollToSection('projects')} className="link-underline hover:text-white transition-colors">Realizacje</button></li>
+                <li><button onClick={() => scrollToSection('about')} className="link-underline hover:text-white transition-colors">O nas</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="link-underline hover:text-white transition-colors">Kontakt</button></li>
               </ul>
               
               <div className="pt-4">
