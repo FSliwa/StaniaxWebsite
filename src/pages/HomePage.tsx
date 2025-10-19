@@ -1034,18 +1034,6 @@ function HomePage() {
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10 pb-16 lg:pb-24">
               <div className="max-w-5xl space-y-10">
-                {/* Element nad hero - kreska i napisy - POWIĘKSZONY x1.5 */}
-                <div className="flex items-center gap-6 text-base uppercase tracking-[0.6em] text-white/70">
-                  <span className="flex items-center gap-3">
-                    <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/30 icon-pulse">
-                      <Factory className="h-7 w-7" />
-                    </span>
-                    Eksperci metalizacji w Polsce
-                  </span>
-                  <span className="hidden sm:block h-px flex-1 bg-white/20" />
-                  <span className="hidden sm:block">Od 2025</span>
-                </div>
-
                 <div className="space-y-8">
                   <h1 className="text-7xl lg:text-9xl xl:text-[10rem] font-black leading-none tracking-tight text-white">
                     <span className="block">Przemysłowe</span>
