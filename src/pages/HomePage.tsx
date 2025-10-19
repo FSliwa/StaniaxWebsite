@@ -924,12 +924,12 @@ function HomePage() {
             </div>
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10 pb-16 lg:pb-24">
-              <div className="max-w-4xl space-y-8">
-                {/* Element nad hero - kreska i napisy */}
-                <div className="flex items-center gap-4 text-xs uppercase tracking-[0.6em] text-white/70">
-                  <span className="flex items-center gap-2">
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30">
-                      <Factory className="h-5 w-5" />
+              <div className="max-w-5xl space-y-10">
+                {/* Element nad hero - kreska i napisy - POWIĘKSZONY x1.5 */}
+                <div className="flex items-center gap-6 text-base uppercase tracking-[0.6em] text-white/70">
+                  <span className="flex items-center gap-3">
+                    <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/30">
+                      <Factory className="h-7 w-7" />
                     </span>
                     Eksperci metalizacji w Polsce
                   </span>
@@ -937,25 +937,26 @@ function HomePage() {
                   <span className="hidden sm:block">Od 2025</span>
                 </div>
 
-                <div className="space-y-6">
-                  <h1 className="text-5xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tight text-white">
+                <div className="space-y-8">
+                  <h1 className="text-7xl lg:text-9xl xl:text-[10rem] font-black leading-none tracking-tight text-white">
                     <span className="block">Przemysłowe</span>
                     <span className="block">Powłoki</span>
                     <span className="block text-accent">Na Miarę Przyszłości</span>
                   </h1>
-                  <p className="text-lg lg:text-xl text-white/80 font-medium max-w-2xl">
+                  <p className="text-xl lg:text-2xl text-white/80 font-medium max-w-3xl leading-relaxed">
                     Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty i podkreślają Twoją technologiczną przewagę konkurencyjną.
                   </p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button
+                  <Button
+                    size="lg"
                     onClick={() => scrollToSection('projects')}
-                    className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider transition-colors rounded-md"
+                    className="liquid-metal-button text-white font-semibold border-0"
                   >
                     Zobacz Nasze Prace
-                    <ArrowRight className="w-5 h-5 ml-2 inline-block" />
-                  </button>
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
                   <Button
                     size="lg"
                     variant="outline"
