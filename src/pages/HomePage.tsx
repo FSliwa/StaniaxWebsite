@@ -1109,18 +1109,15 @@ function HomePage() {
                 </p>
               </div>
 
-              {/* Grid 2x2 usług - układ zygzakowaty (1,3 lewa; 2,4 prawa z offsetem) */}
+              {/* Grid 2x2 usług - układ po przekątnej */}
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 {servicesData.map((service, index) => (
                   <div
                     key={service.id}
                     className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1"
                     style={{
-                      // Karty 0,2 (lewa kolumna): 0px, 120px
-                      // Karty 1,3 (prawa kolumna): 60px, 180px
-                      transform: index % 2 === 0 
-                        ? `translateY(${Math.floor(index / 2) * 120}px)` 
-                        : `translateY(${(Math.floor(index / 2) * 120) + 60}px)`
+                      // Kafelki po przekątnej: 1(0px), 2(40px), 3(80px), 4(120px)
+                      transform: `translateY(${index * 40}px)`
                     }}
                   >
                     {/* Obrazek */}
