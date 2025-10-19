@@ -907,7 +907,7 @@ function HomePage() {
       </header>
 
       <div className="relative w-full">
-          <section id="top" data-theme="dark" className="relative h-screen w-full flex flex-col justify-end overflow-hidden">
+          <section id="top" data-theme="dark" className="relative min-h-[600px] max-h-[85vh] lg:h-screen w-full flex flex-col justify-end overflow-hidden">
             <div className="absolute inset-0" aria-hidden>
               <video
                 className="absolute inset-0 w-full h-full object-cover"
@@ -949,14 +949,13 @@ function HomePage() {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    size="lg"
+                  <button
                     onClick={() => scrollToSection('projects')}
-                    className="liquid-metal-button text-white font-semibold border-0"
+                    className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider transition-colors rounded-md"
                   >
                     Zobacz Nasze Prace
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
+                    <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+                  </button>
                   <Button
                     size="lg"
                     variant="outline"
@@ -971,44 +970,80 @@ function HomePage() {
             </div>
           </section>
 
+          {/* Sekcja Liczb/Metryk - Trust Indicators */}
+          <section id="metrics" data-theme="light" className="py-16 bg-gray-50 border-y border-gray-200">
+            <div className="container mx-auto px-6 lg:px-12">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <div className="text-center">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2">15+</div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">Lat Doświadczenia</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2">500+</div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">Zrealizowanych Projektów</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2">24H</div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">Czas Reakcji</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2">ISO</div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">9001:2015 Certyfikat</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section id="services" data-theme="light" className="py-24 bg-white">
             <div className="container mx-auto px-6 lg:px-12">
               {/* Nagłówek sekcji */}
               <div className="text-center mb-16">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">OUR SERVICES</p>
                 <h2 className="text-5xl lg:text-6xl font-black uppercase mb-4 text-gray-900">
                   NASZE USŁUGI
                 </h2>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-base text-gray-600 max-w-2xl mx-auto font-normal">
                   Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych
                 </p>
               </div>
 
-              {/* Grid 2x2 usług - wzór Vibor.it */}
+              {/* Grid 2x2 usług - z obrazkami */}
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 {servicesData.map((service, index) => (
                   <div
                     key={service.id}
-                    className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-xl transition-shadow duration-300 group"
+                    className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
                   >
-                    {/* Numer */}
-                    <div className="text-7xl font-black text-gray-100 mb-4 group-hover:text-blue-50 transition-colors">
-                      {String(index + 1).padStart(2, '0')}
+                    {/* Obrazek */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={service.image} 
+                        alt={service.alt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-4 left-4 text-7xl font-black text-white/30">
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
                     </div>
                     
-                    {/* Tytuł */}
-                    <h3 className="text-2xl font-bold uppercase mb-3 text-gray-900">
-                      {service.title}
-                    </h3>
-                    
-                    {/* Tagline */}
-                    <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold mb-4">
-                      {service.tagline}
-                    </p>
-                    
-                    {/* Opis */}
-                    <p className="text-gray-600 leading-relaxed">
-                      {service.description}
-                    </p>
+                    {/* Treść */}
+                    <div className="p-8">
+                      {/* Tytuł */}
+                      <h3 className="text-2xl font-bold uppercase mb-3 text-gray-900">
+                        {service.title}
+                      </h3>
+                      
+                      {/* Tagline */}
+                      <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold mb-4">
+                        {service.tagline}
+                      </p>
+                      
+                      {/* Opis */}
+                      <p className="text-gray-600 leading-relaxed font-normal">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1017,7 +1052,7 @@ function HomePage() {
       </div>
 
       {/* Sekcja Dlaczego STANIAX - wzorowana na Vibor.it */}
-      <AnimatedSection
+      <section
         id="custom-section"
         data-theme="light"
         className="relative py-24 bg-gray-50"
@@ -1025,7 +1060,7 @@ function HomePage() {
         <div className="container mx-auto px-6 lg:px-12">
           {/* Nagłówek sekcji */}
           <div className="text-center mb-16">
-            <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4">WHY CHOOSE</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">WHY CHOOSE</p>
             <h2 className="text-5xl lg:text-6xl font-black text-gray-900 uppercase">
               STANIAX
             </h2>
@@ -1043,7 +1078,7 @@ function HomePage() {
               <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
                 WSPARCIE TECHNICZNE
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed font-normal">
                 Towarzyszymy klientowi w wyborze odpowiedniego rozwiązania dla jego potrzeb, oferując również techniczny serwis posprzedażny.
               </p>
             </div>
@@ -1058,7 +1093,7 @@ function HomePage() {
               <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
                 JAKOŚĆ PRODUKTÓW
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed font-normal">
                 Innowacyjne pomysły i szczególna uwaga na wpływ środowiskowy produkcji przemysłowej to misja STANIAX.
               </p>
             </div>
@@ -1073,7 +1108,7 @@ function HomePage() {
               <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
                 PERSONALIZACJA
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed font-normal">
                 Towarzyszymy klientowi podczas konfiguracji produktu, aby zidentyfikować najlepsze ustawienia wydajności.
               </p>
             </div>
@@ -1081,14 +1116,14 @@ function HomePage() {
 
           {/* Paragraf ISO - na dole */}
           <div className="mt-16 text-center max-w-3xl mx-auto">
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-sm text-gray-600 leading-relaxed font-normal">
               STANIAX POSIADA SYSTEM ZARZĄDZANIA JAKOŚCIĄ <span className="font-bold text-gray-900">CERTYFIKOWANY ISO 9001:2015</span> I WSZYSTKIE PRODUKTY SĄ PROJEKTOWANE ZGODNIE Z EUROPEJSKIMI REGULACJAMI TECHNICZNYMI, ABY ZAPEWNIĆ NAJWYŻSZE STANDARDY JAKOŚCI.
             </p>
           </div>
 
           {/* Micro-CTA */}
           <div className="mt-8 text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-600 font-normal">
               POTRZEBUJESZ POMOCY? {' '}
               <button 
                 onClick={() => scrollToSection('contact')} 
@@ -1099,29 +1134,41 @@ function HomePage() {
             </p>
           </div>
         </div>
-      </AnimatedSection>
+      </section>
 
-        <AnimatedSection id="about" data-theme="light" className="py-24 bg-white">
+        <section id="about" data-theme="light" className="py-24 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               <div className="lg:col-span-5">
-                <div ref={aboutMosaicRef} className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-4">
                   {aboutTilesData.map((tile) => (
-                    <AboutTileMotion
+                    <div
                       key={tile.id}
-                      config={tile}
-                      scrollProgress={aboutScrollProgress}
-                      prefersReducedMotion={prefersReducedMotion}
-                    />
+                      className={cn(
+                        'relative overflow-hidden rounded-lg',
+                        tile.colSpan === 3 ? 'col-span-3' : 'col-span-1'
+                      )}
+                      style={{ aspectRatio: tile.colSpan === 3 ? '16/9' : '1' }}
+                    >
+                      <img
+                        src={tile.image}
+                        alt={tile.alt}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        {tile.overlay}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
               <div className="lg:col-span-7">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4">ABOUT US</p>
-                <h2 className="text-5xl lg:text-6xl font-black text-gray-900 uppercase mb-6 leading-tight">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ABOUT US</p>
+                <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase mb-6 leading-tight">
                   TWORZYMY DOSKONAŁOŚĆ W METALIZACJI
                 </h2>
-                <p className="text-gray-600 mb-8 leading-relaxed">
+                <p className="text-base text-gray-600 mb-8 leading-relaxed font-normal">
                   STANIAX Sp. z o.o. to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A. Łączymy ekspertów z wieloletnim doświadczeniem w inżynierii powierzchni, aby projektować i wdrażać powłoki metaliczne zgodne z wymaganiami branż przemysłowych i high-tech.
                 </p>
                 <div className="space-y-4 mb-8">
@@ -1140,16 +1187,16 @@ function HomePage() {
                 </div>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="px-8 py-3 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-colors"
+                  className="px-8 py-3 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-colors rounded-md"
                 >
                   Dowiedz Się Więcej O Nas
                 </button>
               </div>
             </div>
           </div>
-        </AnimatedSection>
+        </section>
 
-        <AnimatedSection ref={projectsSectionRef} id="projects" data-theme="light" className="py-24 bg-white">
+        <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-24 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             {/* Header */}
             <div className="text-center mb-16">
@@ -1193,9 +1240,9 @@ function HomePage() {
               </button>
             </div>
           </div>
-        </AnimatedSection>
+        </section>
 
-        <AnimatedSection
+        <section
           id="news-showcase"
           data-theme="dark"
           className="relative isolate overflow-hidden py-24 lg:py-32"
@@ -1278,122 +1325,89 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </AnimatedSection>
+        </section>
 
-        <AnimatedSection id="contact" data-theme="light" className="py-16 lg:py-24">
+        <section id="contact" data-theme="light" className="py-24 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-              <div className="lg:col-span-5">
-                <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                  Gotowy Na Rozpoczęcie
-                  <span className="block text-accent">Projektu?</span>
-                </h2>
-                <p className="text-lg text-muted-foreground mb-8 font-medium">
-                  Skontaktuj się z naszym zespołem w celu konsultacji i wyceny.
-                </p>
+            {/* Uproszony layout */}
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">GET IN TOUCH</p>
+              <h2 className="text-5xl lg:text-6xl font-black text-gray-900 uppercase mb-6">
+                GOTOWY NA ROZPOCZĘCIE PROJEKTU?
+              </h2>
+              <p className="text-lg text-gray-600 mb-12 font-normal max-w-2xl mx-auto">
+                Skontaktuj się z naszym zespołem w celu konsultacji i wyceny.
+              </p>
 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-accent mt-1" />
-                    <div>
-                      <h3 className="font-bold mb-1">Siedziba i korespondencja</h3>
-                      <p className="text-muted-foreground font-medium">
-                        Grzybowska 5A<br />
-                        00-132 Warszawa<br />
-                        Polska
-                      </p>
-                      <a
-                        href="https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-sm font-semibold text-accent hover:text-accent/90 transition-colors"
-                      >
-                        Zobacz dojazd na mapie
-                      </a>
-                    </div>
+              {/* Informacje kontaktowe w prostym układzie */}
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="w-6 h-6 text-blue-700" />
                   </div>
-                  <div className="flex items-start gap-4">
-                    <EnvelopeSimple className="w-6 h-6 text-accent mt-1" />
-                    <div>
-                      <h3 className="font-bold mb-1">Dane rejestrowe</h3>
-                      <div className="text-muted-foreground font-medium space-y-1">
-                        <p>KRS: 0001182026</p>
-                        <p>NIP: 5253052509</p>
-                        <p>REGON: 542156053</p>
-                        <p>Kapitał zakładowy: 150 000 PLN (nieopłacony)</p>
-                        <p>Główne PKD: 25.11.Z</p>
-                      </div>
-                    </div>
+                  <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">Adres</h3>
+                  <p className="text-sm text-gray-600 font-normal">
+                    Grzybowska 5A<br />
+                    00-132 Warszawa<br />
+                    Polska
+                  </p>
+                  <a
+                    href="https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs font-semibold text-blue-700 hover:text-blue-800 hover:underline mt-2 inline-block"
+                  >
+                    Zobacz na mapie
+                  </a>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                    <EnvelopeSimple className="w-6 h-6 text-blue-700" />
                   </div>
-                  <div className="flex items-start gap-4">
-                    <Phone className="w-6 h-6 text-accent mt-1" />
-                    <div>
-                      <h3 className="font-bold mb-1">Preferowany kontakt</h3>
-                      <p className="text-muted-foreground font-medium">
-                        Numer telefonu zostanie udostępniony po uruchomieniu centrali. Do tego czasu prosimy o kontakt
-                        za pośrednictwem formularza lub wizytę w naszej siedzibie.
-                      </p>
-                    </div>
+                  <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">Dane Rejestrowe</h3>
+                  <div className="text-sm text-gray-600 font-normal space-y-1">
+                    <p>KRS: 0001182026</p>
+                    <p>NIP: 5253052509</p>
+                    <p>REGON: 542156053</p>
                   </div>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
+                    <Phone className="w-6 h-6 text-blue-700" />
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">Kontakt</h3>
+                  <p className="text-sm text-gray-600 font-normal">
+                    Formularz kontaktowy dostępny wkrótce
+                  </p>
                 </div>
               </div>
 
-              <div className="lg:col-span-7">
-                <Card className="border-0 shadow-xl">
-                  <CardHeader>
-                    <CardTitle className="text-2xl font-bold">Wyślij nam wiadomość</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <form onSubmit={handleFormSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <Input
-                          placeholder="Imię"
-                          className="font-medium"
-                          value={formData.firstName}
-                          onChange={(e) => handleInputChange('firstName', e.target.value)}
-                          required
-                        />
-                        <Input
-                          placeholder="Nazwisko"
-                          className="font-medium"
-                          value={formData.lastName}
-                          onChange={(e) => handleInputChange('lastName', e.target.value)}
-                          required
-                        />
-                      </div>
-                      <Input
-                        placeholder="Adres E-mail"
-                        type="email"
-                        className="font-medium"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        required
-                      />
-                      <Input
-                        placeholder="Numer Telefonu"
-                        type="tel"
-                        className="font-medium"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                      />
-                      <Textarea
-                        placeholder="Opowiedz nam o wymaganiach swojego projektu..."
-                        className="min-h-[120px] font-medium"
-                        value={formData.message}
-                        onChange={(e) => handleInputChange('message', e.target.value)}
-                        required
-                      />
-                      <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent/90 font-semibold">
-                        Wyślij Wiadomość
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </Button>
-                    </form>
-                  </CardContent>
-                </Card>
+              {/* Duży CTA */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => window.open('mailto:kontakt@staniax.pl', '_blank')}
+                  className="px-10 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider transition-colors rounded-md text-lg"
+                >
+                  Napisz Do Nas
+                  <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+                </button>
+                <button
+                  onClick={() => window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank')}
+                  className="px-10 py-4 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-colors rounded-md text-lg"
+                >
+                  Odwiedź Nas
+                </button>
               </div>
+
+              {/* Dodatkowe info */}
+              <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mt-12 font-semibold">
+                Potrzebujesz pomocy? Skontaktuj się z nami już dziś
+              </p>
             </div>
           </div>
-        </AnimatedSection>
+        </section>
 
       <Toaster position="top-right" richColors />
       <CookieBanner />
@@ -1411,26 +1425,38 @@ function HomePage() {
                   <p className="text-2xl font-black uppercase">STANIAX</p>
                 </div>
               </div>
-              <p className="text-sm text-white/70 font-medium max-w-xs">
+              <p className="text-sm text-white/70 font-normal max-w-xs">
                 Specjalizujemy się w zaawansowanych powłokach metalicznych dla branż przemysłowych i high-tech.
               </p>
             </div>
 
-            {/* Kolumna 2: Szybka nawigacja */}
+            {/* Kolumna 2: Szybka nawigacja + Certifications */}
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold">Nawigacja</p>
-              <ul className="space-y-3 text-white/80 text-sm">
+              <ul className="space-y-3 text-white/80 text-sm font-normal">
                 <li><button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">Oferta</button></li>
                 <li><button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors">Realizacje</button></li>
                 <li><button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">O nas</button></li>
                 <li><button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors">Kontakt</button></li>
               </ul>
+              
+              <div className="pt-4">
+                <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold mb-3">Certyfikaty</p>
+                <ul className="space-y-2 text-white/80 text-sm font-normal">
+                  <li className="flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-blue-400" />
+                    ISO 9001:2015
+                  </li>
+                  <li className="text-white/60 text-xs">Polityka Prywatności (wkrótce)</li>
+                  <li className="text-white/60 text-xs">Regulamin (wkrótce)</li>
+                </ul>
+              </div>
             </div>
 
             {/* Kolumna 3: Dane kontaktowe */}
             <div className="space-y-4">
               <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold">Kontakt</p>
-              <div className="space-y-3 text-white/80 text-sm">
+              <div className="space-y-3 text-white/80 text-sm font-normal">
                 <p className="font-bold text-white">STANIAX Sp. z o.o.</p>
                 <p className="leading-relaxed">
                   Grzybowska 5A<br />
@@ -1439,6 +1465,7 @@ function HomePage() {
                 </p>
                 <div className="leading-relaxed space-y-1">
                   <p>NIP: 5253052509</p>
+                  <p>KRS: 0001182026</p>
                 </div>
               </div>
             </div>
