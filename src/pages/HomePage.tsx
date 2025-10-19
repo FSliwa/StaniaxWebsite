@@ -971,109 +971,46 @@ function HomePage() {
             </div>
           </section>
 
-          <section ref={servicesSectionRef} id="services" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
-            <div id="sparkle-container" className="absolute inset-0 pointer-events-none z-20" />
-            <div className="container mx-auto px-6 lg:px-12 relative z-10">
-              <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-                <div className="lg:col-span-4 space-y-10">
-                  <div>
-                    <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                      Nasze
-                      <span className="block text-accent">Usługi</span>
-                    </h2>
-                    <p className="text-lg text-muted-foreground font-medium">
-                      Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych.
+          <section id="services" data-theme="light" className="py-24 bg-white">
+            <div className="container mx-auto px-6 lg:px-12">
+              {/* Nagłówek sekcji */}
+              <div className="text-center mb-16">
+                <h2 className="text-5xl lg:text-6xl font-black uppercase mb-4 text-gray-900">
+                  NASZE USŁUGI
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych
+                </p>
+              </div>
+
+              {/* Grid 2x2 usług - wzór Vibor.it */}
+              <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                {servicesData.map((service, index) => (
+                  <div
+                    key={service.id}
+                    className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-xl transition-shadow duration-300 group"
+                  >
+                    {/* Numer */}
+                    <div className="text-7xl font-black text-gray-100 mb-4 group-hover:text-blue-50 transition-colors">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
+                    
+                    {/* Tytuł */}
+                    <h3 className="text-2xl font-bold uppercase mb-3 text-gray-900">
+                      {service.title}
+                    </h3>
+                    
+                    {/* Tagline */}
+                    <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold mb-4">
+                      {service.tagline}
+                    </p>
+                    
+                    {/* Opis */}
+                    <p className="text-gray-600 leading-relaxed">
+                      {service.description}
                     </p>
                   </div>
-                  <nav aria-label="Nawigacja po usługach" className="hidden lg:block">
-                    <ul className="space-y-4">
-                      {servicesData.map((service, index) => {
-                        const isActive = activeService === service.id
-                        return (
-                          <li key={service.id}>
-                            <button
-                              type="button"
-                              onClick={() => setActiveService(service.id)}
-                              onMouseEnter={() => setActiveService(service.id)}
-                              onFocus={() => setActiveService(service.id)}
-                              className={cn(
-                                'group relative flex w-full items-center gap-4 rounded-3xl border px-6 py-5 text-left transition-all duration-300',
-                                isActive
-                                  ? 'border-accent bg-background shadow-2xl shadow-accent/20'
-                                  : 'border-transparent bg-muted/40 backdrop-blur-sm hover:border-accent/50 hover:bg-muted/60'
-                              )}
-                            >
-                              <span
-                                className={cn(
-                                  'flex h-12 w-12 items-center justify-center rounded-full border text-sm font-semibold uppercase tracking-[0.3em] transition-colors duration-300',
-                                  isActive
-                                    ? 'border-accent bg-accent text-accent-foreground'
-                                    : 'border-gray-400/40 text-gray-600'
-                                )}
-                              >
-                                {String(index + 1).padStart(2, '0')}
-                              </span>
-                              <div className="flex-1 space-y-1">
-                                <p className="text-lg font-bold leading-tight">
-                                  {service.title}
-                                </p>
-                                <p
-                                  className={cn(
-                                    'text-xs font-semibold uppercase tracking-[0.4em] transition-colors duration-300',
-                                    isActive ? 'text-accent' : 'text-muted-foreground'
-                                  )}
-                                >
-                                  {service.tagline}
-                                </p>
-                              </div>
-                              <ArrowRight
-                                className={cn(
-                                  'h-5 w-5 transition-transform duration-300',
-                                  isActive ? 'translate-x-1 text-accent' : 'text-muted-foreground'
-                                )}
-                                aria-hidden
-                              />
-                            </button>
-                          </li>
-                        )
-                      })}
-                    </ul>
-                  </nav>
-                </div>
-
-                <div className="lg:col-span-8 relative">
-                  {servicesData.map((service) => {
-                    const isActive = activeService === service.id
-                    return (
-                      <div
-                        key={service.id}
-                        className={cn(
-                          'absolute top-0 left-0 w-full h-full transition-opacity duration-500',
-                          isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                        )}
-                        aria-hidden={!isActive}
-                      >
-                        <Card className="h-full border-0 bg-transparent">
-                          <div className="h-2/3">
-                            <IndustrialImage
-                              src={service.image}
-                              alt={service.alt ?? service.title}
-                              className="w-full h-full rounded-t-2xl"
-                            >
-                              {service.icon}
-                            </IndustrialImage>
-                          </div>
-                          <CardHeader>
-                            <CardTitle className="text-2xl font-bold">{service.title}</CardTitle>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="text-muted-foreground">{service.description}</p>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    )
-                  })}
-                </div>
+                ))}
               </div>
             </div>
           </section>
@@ -1083,13 +1020,13 @@ function HomePage() {
       <AnimatedSection
         id="custom-section"
         data-theme="light"
-        className="relative py-16 lg:py-24 bg-muted/30"
+        className="relative py-24 bg-gray-50"
       >
         <div className="container mx-auto px-6 lg:px-12">
           {/* Nagłówek sekcji */}
           <div className="text-center mb-16">
-            <p className="text-xs uppercase tracking-[0.5em] text-muted-foreground mb-4">WHY CHOOSE</p>
-            <h2 className="text-4xl lg:text-6xl font-black text-gray-700">
+            <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4">WHY CHOOSE</p>
+            <h2 className="text-5xl lg:text-6xl font-black text-gray-900 uppercase">
               STANIAX
             </h2>
           </div>
@@ -1099,63 +1036,63 @@ function HomePage() {
             {/* Kolumna 1: Wsparcie Techniczne */}
             <div className="text-center space-y-4">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Users className="w-8 h-8 text-accent" />
+                <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                  <Users className="w-8 h-8 text-blue-700" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-700">
+              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
                 WSPARCIE TECHNICZNE
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                TOWARZYSZYMY KLIENTOWI W WYBORZE ODPOWIEDNIEGO ROZWIĄZANIA DLA JEGO POTRZEB, OFERUJĄC RÓWNIEŻ TECHNICZNY SERWIS POSPRZEDAŻNY.
+              <p className="text-gray-600 leading-relaxed">
+                Towarzyszymy klientowi w wyborze odpowiedniego rozwiązania dla jego potrzeb, oferując również techniczny serwis posprzedażny.
               </p>
             </div>
 
             {/* Kolumna 2: Jakość Produktów */}
             <div className="text-center space-y-4">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Shield className="w-8 h-8 text-accent" />
+                <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                  <Shield className="w-8 h-8 text-blue-700" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-700">
+              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
                 JAKOŚĆ PRODUKTÓW
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                INNOWACYJNE POMYSŁY I SZCZEGÓLNA UWAGA NA WPŁYW ŚRODOWISKOWY PRODUKCJI PRZEMYSŁOWEJ TO MISJA STANIAX.
+              <p className="text-gray-600 leading-relaxed">
+                Innowacyjne pomysły i szczególna uwaga na wpływ środowiskowy produkcji przemysłowej to misja STANIAX.
               </p>
             </div>
 
             {/* Kolumna 3: Personalizacja */}
             <div className="text-center space-y-4">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Wrench className="w-8 h-8 text-accent" />
+                <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
+                  <Wrench className="w-8 h-8 text-blue-700" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-700">
+              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
                 PERSONALIZACJA
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                TOWARZYSZYMY KLIENTOWI PODCZAS KONFIGURACJI PRODUKTU, ABY ZIDENTYFIKOWAĆ NAJLEPSZE USTAWIENIA WYDAJNOŚCI.
+              <p className="text-gray-600 leading-relaxed">
+                Towarzyszymy klientowi podczas konfiguracji produktu, aby zidentyfikować najlepsze ustawienia wydajności.
               </p>
             </div>
           </div>
 
           {/* Paragraf ISO - na dole */}
           <div className="mt-16 text-center max-w-3xl mx-auto">
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              STANIAX POSIADA SYSTEM ZARZĄDZANIA JAKOŚCIĄ <span className="font-bold text-gray-700">CERTYFIKOWANY ISO 9001:2015</span> I WSZYSTKIE PRODUKTY SĄ PROJEKTOWANE ZGODNIE Z EUROPEJSKIMI REGULACJAMI TECHNICZNYMI, ABY ZAPEWNIĆ NAJWYŻSZE STANDARDY JAKOŚCI.
+            <p className="text-sm text-gray-600 leading-relaxed">
+              STANIAX POSIADA SYSTEM ZARZĄDZANIA JAKOŚCIĄ <span className="font-bold text-gray-900">CERTYFIKOWANY ISO 9001:2015</span> I WSZYSTKIE PRODUKTY SĄ PROJEKTOWANE ZGODNIE Z EUROPEJSKIMI REGULACJAMI TECHNICZNYMI, ABY ZAPEWNIĆ NAJWYŻSZE STANDARDY JAKOŚCI.
             </p>
           </div>
 
           {/* Micro-CTA */}
           <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-gray-600">
               POTRZEBUJESZ POMOCY? {' '}
               <button 
                 onClick={() => scrollToSection('contact')} 
-                className="font-bold text-accent hover:underline transition-all"
+                className="font-bold text-blue-700 hover:text-blue-800 hover:underline transition-all"
               >
                 SKONTAKTUJ SIĘ Z NAMI
               </button>
@@ -1164,7 +1101,7 @@ function HomePage() {
         </div>
       </AnimatedSection>
 
-        <AnimatedSection id="about" data-theme="light" className="py-16 lg:py-24 bg-muted/30">
+        <AnimatedSection id="about" data-theme="light" className="py-24 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               <div className="lg:col-span-5">
@@ -1180,154 +1117,80 @@ function HomePage() {
                 </div>
               </div>
               <div className="lg:col-span-7">
-                <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                  Tworzymy Doskonałość w
-                  <span className="block text-accent">Metalizacji</span>
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4">ABOUT US</p>
+                <h2 className="text-5xl lg:text-6xl font-black text-gray-900 uppercase mb-6 leading-tight">
+                  TWORZYMY DOSKONAŁOŚĆ W METALIZACJI
                 </h2>
-                <p className="text-lg text-muted-foreground mb-8 font-medium">
+                <p className="text-gray-600 mb-8 leading-relaxed">
                   STANIAX Sp. z o.o. to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A. Łączymy ekspertów z wieloletnim doświadczeniem w inżynierii powierzchni, aby projektować i wdrażać powłoki metaliczne zgodne z wymaganiami branż przemysłowych i high-tech.
                 </p>
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
-                    <Trophy className="w-5 h-5 text-accent icon-welding-effect" />
-                    <span className="text-gray-700 font-medium">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
+                    <Trophy className="w-5 h-5 text-blue-700" />
+                    <span className="text-gray-900 font-medium">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Shield className="w-5 h-5 text-accent icon-welding-effect" />
-                    <span className="text-gray-700 font-medium">Zaawansowane Kontrole Środowiskowe</span>
+                    <Shield className="w-5 h-5 text-blue-700" />
+                    <span className="text-gray-900 font-medium">Zaawansowane Kontrole Środowiskowe</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-accent icon-welding-effect" />
-                    <span className="text-gray-700 font-medium">Szybkie Terminy Realizacji</span>
+                    <Clock className="w-5 h-5 text-blue-700" />
+                    <span className="text-gray-900 font-medium">Szybkie Terminy Realizacji</span>
                   </div>
                 </div>
-                <Button
-                  size="lg"
-                  className="liquid-metal-button text-white font-semibold border-0"
+                <button
                   onClick={() => scrollToSection('contact')}
+                  className="px-8 py-3 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-colors"
                 >
                   Dowiedz Się Więcej O Nas
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
+                </button>
               </div>
             </div>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection ref={projectsSectionRef} id="projects" data-theme="light" className="py-16 lg:py-24">
+        <AnimatedSection ref={projectsSectionRef} id="projects" data-theme="light" className="py-24 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
+            {/* Header */}
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-6xl font-black mb-6">
-                Najnowsze
-                <span className="block text-accent">Projekty</span>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4">OUR WORK</p>
+              <h2 className="text-5xl lg:text-6xl font-black text-gray-900 uppercase mb-6">
+                NAJNOWSZE PROJEKTY
               </h2>
-              <p className="text-lg text-muted-foreground font-medium max-w-2xl mx-auto">
+              <p className="text-gray-600 font-medium max-w-2xl mx-auto">
                 Odkryj nasze najnowsze projekty metalizacyjne w różnych branżach, prezentujące precyzję i jakość.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
-              {projectsData.map((project, index) => {
-                const isFocused = focusedProjectId === project.id
-                const isHovered = hoveredProjectId === project.id
-                return (
-                  <div
-                    key={project.id}
-                    ref={(el) => {
-                      if (el) {
-                        projectCardsRef.current[index] = el
-                      } else {
-                        delete projectCardsRef.current[index]
-                      }
-                    }}
-                    tabIndex={0}
-                    onFocus={() => setFocusedProjectId(project.id)}
-                    onBlur={() => setFocusedProjectId((prev) => (prev === project.id ? null : prev))}
-                    onMouseEnter={(e) => {
-                      setHoveredProjectId(project.id)
-                      const rect = e.currentTarget.getBoundingClientRect()
-                      setTooltipPosition({
-                        x: rect.left + rect.width / 2,
-                        y: rect.top - 10
-                      })
-                    }}
-                    onMouseLeave={() => setHoveredProjectId(null)}
-                    onMouseMove={(e) => {
-                      if (isHovered) {
-                        const rect = e.currentTarget.getBoundingClientRect()
-                        setTooltipPosition({
-                          x: rect.left + rect.width / 2,
-                          y: rect.top - 10
-                        })
-                      }
-                    }}
-                    className={cn(
-                      'group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-slate-950/90 transition-all duration-300',
-                      'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/70 focus-visible:border-accent',
-                      isFocused ? 'animate-border-pulse' : 'hover:border-accent/50'
-                    )}
-                    aria-label={project.title}
-                  >
-                    <IndustrialImage
-                      src={project.image}
-                      alt={project.title}
-                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
-                    >
-                      <div className="relative z-10 text-center text-white">
-                        {project.icon}
-                        <p className="font-bold text-lg tracking-wide uppercase">{project.title}</p>
-                      </div>
-                    </IndustrialImage>
-                  </div>
-                )
-              })}
-              
-              {/* Tooltip */}
-              {hoveredProjectId && (
+            {/* Simple Grid - No tooltips, no complex hover */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projectsData.map((project) => (
                 <div
-                  className="fixed z-50 pointer-events-none transition-all duration-200"
-                  style={{
-                    left: tooltipPosition.x,
-                    top: tooltipPosition.y,
-                    transform: 'translateX(-50%) translateY(-100%)'
-                  }}
+                  key={project.id}
+                  className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-100 hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="bg-slate-950/95 backdrop-blur-xl border border-white/20 rounded-xl p-4 shadow-2xl max-w-sm">
-                    {(() => {
-                      const project = projectsData.find(p => p.id === hoveredProjectId)
-                      if (!project) return null
-                      
-                      return (
-                        <div className="space-y-3">
-                          <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center">
-                              <div className="scale-50">{project.icon}</div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-white text-sm">{project.title}</h3>
-                              <p className="text-xs text-white/60 uppercase tracking-wider">{project.category} • {project.year}</p>
-                            </div>
-                          </div>
-                          <p className="text-sm text-white/80 leading-relaxed">{project.description}</p>
-                          <p className="text-xs text-white/60 leading-relaxed">{project.details}</p>
-                        </div>
-                      )
-                    })()}
-                  </div>
+                  <IndustrialImage
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                  >
+                    <div className="relative z-10 text-center text-white">
+                      {project.icon}
+                      <p className="font-bold text-lg tracking-wide uppercase mt-2">{project.title}</p>
+                      <p className="text-xs uppercase tracking-wider opacity-80 mt-1">{project.category} • {project.year}</p>
+                    </div>
+                  </IndustrialImage>
                 </div>
-              )}
+              ))}
             </div>
 
             <div className="text-center mt-12">
-              <Button
-                size="lg"
-                variant="outline"
-                className="font-semibold"
+              <button
                 onClick={() => navigate('/news')}
+                className="px-8 py-3 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-colors"
               >
                 Zobacz Wszystkie Projekty
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              </button>
             </div>
           </div>
         </AnimatedSection>
@@ -1536,16 +1399,16 @@ function HomePage() {
       <CookieBanner />
 
       <footer className="bg-slate-950 text-white">
-        <div className="container mx-auto px-6 lg:px-12 py-16">
-          <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-4">
+        <div className="container mx-auto px-6 lg:px-12 py-12">
+          <div className="grid gap-12 md:grid-cols-3">
             {/* Kolumna 1: Logo i opis */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg">
+                <div className="h-12 w-12 rounded-full bg-blue-700 text-white flex items-center justify-center shadow-lg">
                   <Factory className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-2xl font-black">STANIAX</p>
+                  <p className="text-2xl font-black uppercase">STANIAX</p>
                 </div>
               </div>
               <p className="text-sm text-white/70 font-medium max-w-xs">
@@ -1555,8 +1418,8 @@ function HomePage() {
 
             {/* Kolumna 2: Szybka nawigacja */}
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-white/60">Nawigacja</p>
-              <ul className="space-y-3 text-white/80">
+              <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold">Nawigacja</p>
+              <ul className="space-y-3 text-white/80 text-sm">
                 <li><button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors">Oferta</button></li>
                 <li><button onClick={() => scrollToSection('projects')} className="hover:text-white transition-colors">Realizacje</button></li>
                 <li><button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">O nas</button></li>
@@ -1566,9 +1429,9 @@ function HomePage() {
 
             {/* Kolumna 3: Dane kontaktowe */}
             <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-white/60">Kontakt</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold">Kontakt</p>
               <div className="space-y-3 text-white/80 text-sm">
-                <p className="font-semibold text-white">STANIAX Sp. z o.o.</p>
+                <p className="font-bold text-white">STANIAX Sp. z o.o.</p>
                 <p className="leading-relaxed">
                   Grzybowska 5A<br />
                   00-132 Warszawa<br />
@@ -1578,25 +1441,6 @@ function HomePage() {
                   <p>NIP: 5253052509</p>
                 </div>
               </div>
-            </div>
-
-            {/* Kolumna 4: Newsletter */}
-            <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-white/60">Dołącz do nas</p>
-              <p className="text-sm text-white/70">
-                Zapisz się, aby otrzymywać kwartalny raport z nowościami i zaproszenia na wydarzenia branżowe.
-              </p>
-              <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); toast.success('Dziękujemy za zapisanie się do newslettera!') }}>
-                <Input
-                  type="email"
-                  placeholder="Adres e-mail"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-                  required
-                />
-                <Button type="submit" className="w-full bg-white text-slate-950 font-semibold hover:bg-white/90">
-                  Zapisz się
-                </Button>
-              </form>
             </div>
           </div>
         </div>
