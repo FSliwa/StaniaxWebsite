@@ -1085,33 +1085,6 @@ function HomePage() {
         </motion.div>
       </div>
 
-      {/* Sekcja statystyk - zawsze widoczna */}
-      <AnimatedSection data-theme="light" className="py-8 lg:py-12 bg-muted/30">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="mx-auto mb-6 h-1 w-3/4 max-w-4xl rounded-full bg-slate-200" aria-hidden />
-          <div className="grid grid-cols-2 gap-10 text-gray-700 lg:grid-cols-4 lg:gap-16">
-            {[
-              { label: 'Lat', sublabel: 'Doświadczenia', value: 38, suffix: '+' },
-              { label: 'Projektów', sublabel: 'Zakończonych', value: 2500, suffix: '+' },
-              { label: 'Klientów', sublabel: 'Zadowolonych', value: 150, suffix: '+' },
-              { label: 'Jakości', sublabel: 'Standardy', value: 99, suffix: '%' }
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="mb-3 text-5xl font-black text-gray-700 lg:text-6xl">
-                  <CountUp end={stat.value} suffix={stat.suffix} />
-                </div>
-                <h3 className="mb-1 text-lg font-bold uppercase tracking-wider text-muted-foreground">
-                  {stat.label}
-                </h3>
-                <p className="text-sm font-medium uppercase tracking-[0.35em] text-muted-foreground">
-                  {stat.sublabel}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </AnimatedSection>
-
       <main className="block">{/* TYMCZASOWO ZAWSZE WIDOCZNE - TEST */}
 
         <AnimatedSection
