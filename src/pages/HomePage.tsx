@@ -22,7 +22,8 @@ import {
   Flask,
   Gear,
   Target,
-  Wrench
+  Wrench,
+  Users
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/assets_task_01k73g8bvxfswbv3szr93sty21_task_01k73g8bvxfswbv3szr93sty21_genid_93f1b412-9e3a-4386-b6ae-10efb82263bb_25_10_09_03_29_179123_videos_00000_669473706_source.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
@@ -964,7 +965,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section data-theme="light" className="py-32 lg:py-40 bg-muted/30">
+        <section data-theme="light" className="py-16 lg:py-24 bg-muted/30">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="mx-auto mb-12 h-1 w-3/4 max-w-4xl rounded-full bg-orange-500" aria-hidden />
             <div className="grid grid-cols-2 gap-10 text-slate-900 lg:grid-cols-4 lg:gap-16">
@@ -986,6 +987,64 @@ function HomePage() {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section data-theme="light" className="py-16 lg:py-24 bg-background">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="text-center mb-16">
+              <p className="text-xs uppercase tracking-[0.6em] text-muted-foreground mb-4">Dlaczego wybrać</p>
+              <h2 className="text-4xl lg:text-6xl font-black">
+                <span className="text-accent">STANIAX</span>
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+              <div className="text-center space-y-4">
+                <div className="flex justify-center mb-6">
+                  <div className="h-20 w-20 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Users className="w-10 h-10 text-accent" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-black uppercase tracking-wide">
+                  Wsparcie Techniczne
+                </h3>
+                <p className="text-muted-foreground font-medium leading-relaxed">
+                  Doradzamy w wyborze odpowiedniego rozwiązania powłokowego dla konkretnych potrzeb, 
+                  oferując kompleksowe wsparcie techniczne również po realizacji projektu.
+                </p>
+              </div>
+
+              <div className="text-center space-y-4">
+                <div className="flex justify-center mb-6">
+                  <div className="h-20 w-20 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Trophy className="w-10 h-10 text-accent" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-black uppercase tracking-wide">
+                  Jakość Produktów
+                </h3>
+                <p className="text-muted-foreground font-medium leading-relaxed">
+                  Innowacyjne pomysły i szczególna dbałość o wpływ na środowisko w procesie produkcji przemysłowej 
+                  to misja STANIAX.
+                </p>
+              </div>
+
+              <div className="text-center space-y-4">
+                <div className="flex justify-center mb-6">
+                  <div className="h-20 w-20 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Wrench className="w-10 h-10 text-accent" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-black uppercase tracking-wide">
+                  Personalizacja
+                </h3>
+                <p className="text-muted-foreground font-medium leading-relaxed">
+                  Współpracujemy z klientem podczas konfiguracji produktu, aby zidentyfikować 
+                  najlepsze ustawienia wydajności i parametry powłoki.
+                </p>
+              </div>
             </div>
           </div>
         </section>
