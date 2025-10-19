@@ -997,23 +997,30 @@ function HomePage() {
 
           <section id="services" data-theme="light" className="py-24 bg-white">
             <div className="container mx-auto px-6 lg:px-12">
-              {/* Nagłówek sekcji */}
-              <div className="text-center mb-16">
+              {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
+              <div className="text-right mb-16 max-w-7xl ml-auto">
                 <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">OUR SERVICES</p>
-                <h2 className="text-5xl lg:text-6xl font-black uppercase mb-4 text-gray-900">
+                <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
                   NASZE USŁUGI
                 </h2>
-                <p className="text-base text-gray-600 max-w-2xl mx-auto font-normal">
+                <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal">
                   Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych
                 </p>
               </div>
 
-              {/* Grid 2x2 usług - z obrazkami */}
+              {/* Grid 2x2 usług - układ zygzakowaty (1,3 lewa; 2,4 prawa z offsetem) */}
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 {servicesData.map((service, index) => (
                   <div
                     key={service.id}
                     className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                    style={{
+                      // Karty 0,2 (lewa kolumna): 0px, 120px
+                      // Karty 1,3 (prawa kolumna): 60px, 180px
+                      transform: index % 2 === 0 
+                        ? `translateY(${Math.floor(index / 2) * 120}px)` 
+                        : `translateY(${(Math.floor(index / 2) * 120) + 60}px)`
+                    }}
                   >
                     {/* Obrazek */}
                     <div className="relative h-48 overflow-hidden">
