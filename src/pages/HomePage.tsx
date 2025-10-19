@@ -378,6 +378,11 @@ function HomePage() {
   const metricsRef = useRef<HTMLDivElement | null>(null)
   const [metricsVisible, setMetricsVisible] = useState(false)
   
+  // Vibor.it Style: Wavy Line
+  const [wavyLineVisible, setWavyLineVisible] = useState(false)
+  const [wavyLinePath, setWavyLinePath] = useState('')
+  const wavyLineContainerRef = useRef<HTMLDivElement | null>(null)
+  
   const { scrollYProgress: aboutScrollProgress } = useScroll({
     target: aboutMosaicRef,
     offset: ['start 90%', 'end 15%']
@@ -398,6 +403,13 @@ function HomePage() {
       const scrollableDistance = documentHeight - windowHeight
       const progress = (currentScrollY / scrollableDistance) * 100
       setScrollProgress(progress)
+      
+      // Wavy Line Visibility (shows from metrics section onwards)
+      const metricsSection = document.getElementById('metrics')
+      if (metricsSection) {
+        const metricsSectionTop = metricsSection.getBoundingClientRect().top
+        setWavyLineVisible(metricsSectionTop <= windowHeight * 0.5)
+      }
     }
     
     handleScroll()
@@ -466,6 +478,37 @@ function HomePage() {
       observer.disconnect()
     }
   }, [metricsVisible, prefersReducedMotion])
+
+  // Wavy Line Path Generation
+  useEffect(() => {
+    if (!wavyLineContainerRef.current || prefersReducedMotion) return
+    
+    const generateWavyPath = () => {
+      const container = wavyLineContainerRef.current
+      if (!container) return ''
+      
+      const height = container.offsetHeight
+      const amplitude = 15 // Wave amplitude
+      const frequency = 0.01 // Wave frequency
+      
+      let path = 'M 0 0'
+      for (let y = 0; y <= height; y += 5) {
+        const x = Math.sin(y * frequency) * amplitude
+        path += ` L ${x} ${y}`
+      }
+      
+      return path
+    }
+    
+    const updatePath = () => {
+      setWavyLinePath(generateWavyPath())
+    }
+    
+    updatePath()
+    window.addEventListener('resize', updatePath)
+    
+    return () => window.removeEventListener('resize', updatePath)
+  }, [prefersReducedMotion])
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -802,6 +845,46 @@ function HomePage() {
         aria-hidden="true"
       />
 
+      {/* Wavy Line - Vibor.it Style Signature Element */}
+      {isDesktop && !prefersReducedMotion && (
+        <div 
+          ref={wavyLineContainerRef}
+          className={`wavy-line-container ${wavyLineVisible ? 'visible' : ''}`}
+          aria-hidden="true"
+        >
+          <svg width="100%" height="100%">
+            <path 
+              d={wavyLinePath}
+              className="wavy-line-path"
+            />
+            {/* Animated dots on the line */}
+            <circle r="4" className="wavy-dot">
+              <animateMotion
+                dur="8s"
+                repeatCount="indefinite"
+                path={wavyLinePath}
+              />
+            </circle>
+            <circle r="3" className="wavy-dot">
+              <animateMotion
+                dur="8s"
+                repeatCount="indefinite"
+                begin="2.6s"
+                path={wavyLinePath}
+              />
+            </circle>
+            <circle r="3" className="wavy-dot">
+              <animateMotion
+                dur="8s"
+                repeatCount="indefinite"
+                begin="5.2s"
+                path={wavyLinePath}
+              />
+            </circle>
+          </svg>
+        </div>
+      )}
+
       {/* Custom Cursor (Desktop only) */}
       {isDesktop && !prefersReducedMotion && (
         <>
@@ -1049,7 +1132,7 @@ function HomePage() {
                   <Button
                     size="lg"
                     onClick={() => scrollToSection('projects')}
-                    className="ripple-effect liquid-metal-button text-white font-semibold border-0 transition-all duration-300 hover:scale-105"
+                    className="ripple-effect liquid-metal-button magnetic-button text-white font-semibold border-0 transition-all duration-300"
                   >
                     Zobacz Nasze Prace
                     <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
@@ -1057,7 +1140,7 @@ function HomePage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="ripple-effect font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300 hover:scale-105"
+                    className="ripple-effect magnetic-button font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
                     onClick={() => scrollToSection('contact')}
                   >
                     <Phone className="w-5 h-5 mr-2 icon-pulse" />
@@ -1069,39 +1152,47 @@ function HomePage() {
           </section>
 
           {/* Sekcja Liczb/Metryk - Trust Indicators */}
-          <section ref={metricsRef} id="metrics" data-theme="light" className="py-16 bg-gray-50 border-y border-gray-200">
-            <div className="container mx-auto px-6 lg:px-12">
+          <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-16 bg-gray-50 border-y border-gray-200 overflow-hidden">
+            {/* Background Decorations */}
+            <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
+            <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
+            
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                <div className="text-center group cursor-pointer">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600">
+                <div className="text-center group cursor-pointer stagger-item">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
                     <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold transition-colors duration-300 group-hover:text-gray-900">Lat Doświadczenia</p>
                 </div>
-                <div className="text-center group cursor-pointer">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600">
+                <div className="text-center group cursor-pointer stagger-item">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
                     <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold transition-colors duration-300 group-hover:text-gray-900">Zrealizowanych Projektów</p>
                 </div>
-                <div className="text-center group cursor-pointer">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600">24H</div>
+                <div className="text-center group cursor-pointer stagger-item">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">24H</div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold transition-colors duration-300 group-hover:text-gray-900">Czas Reakcji</p>
                 </div>
-                <div className="text-center group cursor-pointer">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600">ISO</div>
+                <div className="text-center group cursor-pointer stagger-item">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">ISO</div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold transition-colors duration-300 group-hover:text-gray-900">9001:2015 Certyfikat</p>
                 </div>
               </div>
             </div>
           </section>
 
-          <section id="services" data-theme="light" className="py-24 bg-white">
-            <div className="container mx-auto px-6 lg:px-12">
+          <section id="services" data-theme="light" className="relative py-24 bg-white overflow-hidden">
+            {/* Background Decorations */}
+            <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '400px', height: '400px', top: '5%', right: '0%' }} />
+            <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '350px', height: '350px', bottom: '10%', left: '0%', animationDelay: '3s' }} />
+            
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
               {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
-              <div className="text-right mb-16 max-w-7xl ml-auto">
+              <div className="text-right mb-16 max-w-7xl ml-auto section-reveal">
                 <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">OUR SERVICES</p>
-                <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
+                <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none text-gradient-animate">
                   NASZE USŁUGI
                 </h2>
                 <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal">
@@ -1114,7 +1205,7 @@ function HomePage() {
                 {servicesData.map((service, index) => (
                   <div
                     key={service.id}
-                    className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl hover:-translate-y-1"
+                    className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group card-tilt hover-lift stagger-item"
                     style={{
                       // Kafelki po przekątnej: 1(0px), 2(40px), 3(80px), 4(120px)
                       transform: `translateY(${index * 40}px)`
@@ -1161,11 +1252,15 @@ function HomePage() {
       <section
         id="custom-section"
         data-theme="light"
-        className="relative py-24 bg-gray-50"
+        className="relative py-24 bg-gray-50 overflow-hidden"
       >
-        <div className="container mx-auto px-6 lg:px-12">
+        {/* Floating Background Elements */}
+        <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '500px', height: '500px', top: '0%', left: '-10%' }} />
+        <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '400px', height: '400px', bottom: '0%', right: '-5%', animationDelay: '4s' }} />
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
           {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
-          <div className="text-left mb-16 max-w-7xl mr-auto">
+          <div className="text-left mb-16 max-w-7xl mr-auto section-reveal">
             <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">WHY CHOOSE</p>
             <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
               STANIAX
@@ -1178,7 +1273,7 @@ function HomePage() {
           {/* Trzy kolumny z ikonami - wzór Vibor.it */}
           <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             {/* Kolumna 1: Wsparcie Techniczne */}
-            <div className="text-center space-y-4 group">
+            <div className="text-center space-y-4 group stagger-item hover-lift">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animated-gradient">
                   <Users className="w-8 h-8 text-blue-700 icon-pulse" />
@@ -1193,7 +1288,7 @@ function HomePage() {
             </div>
 
             {/* Kolumna 2: Jakość Produktów */}
-            <div className="text-center space-y-4 group">
+            <div className="text-center space-y-4 group stagger-item hover-lift">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animated-gradient">
                   <Shield className="w-8 h-8 text-blue-700 icon-pulse" />
@@ -1208,7 +1303,7 @@ function HomePage() {
             </div>
 
             {/* Kolumna 3: Personalizacja */}
-            <div className="text-center space-y-4 group">
+            <div className="text-center space-y-4 group stagger-item hover-lift">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animated-gradient">
                   <Wrench className="w-8 h-8 text-blue-700 icon-pulse" />
@@ -1320,10 +1415,11 @@ function HomePage() {
 
             {/* Simple Grid - No tooltips, no complex hover */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projectsData.map((project) => (
+              {projectsData.map((project, index) => (
                 <div
                   key={project.id}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-100 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 cursor-pointer"
+                  className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-100 card-tilt hover-lift cursor-pointer stagger-item"
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <IndustrialImage
                     src={project.image}
@@ -1343,7 +1439,7 @@ function HomePage() {
             <div className="text-center mt-12">
               <button
                 onClick={() => navigate('/news')}
-                className="px-8 py-3 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-colors"
+                className="ripple-effect magnetic-button px-8 py-3 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-colors"
               >
                 Zobacz Wszystkie Projekty
               </button>
@@ -1497,14 +1593,14 @@ function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() => window.open('mailto:kontakt@staniax.pl', '_blank')}
-                  className="ripple-effect px-10 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 rounded-md text-lg"
+                  className="ripple-effect magnetic-button hover-lift px-10 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider transition-all duration-300 rounded-md text-lg"
                 >
                   Napisz Do Nas
                   <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 hover:translate-x-1" />
                 </button>
                 <button
                   onClick={() => window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank')}
-                  className="ripple-effect px-10 py-4 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 rounded-md text-lg"
+                  className="ripple-effect magnetic-button hover-lift px-10 py-4 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 rounded-md text-lg"
                 >
                   Odwiedź Nas
                 </button>
