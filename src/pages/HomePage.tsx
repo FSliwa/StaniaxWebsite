@@ -906,12 +906,7 @@ function HomePage() {
         </div>
       </header>
 
-      <div className="h-screen w-screen overflow-hidden relative">
-        <motion.div
-          className="relative w-full"
-          animate={{ y: activeSection === 0 ? '0%' : '-100vh' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
+      <div className="relative w-full">
           <section id="top" data-theme="dark" className="relative h-screen w-full flex flex-col justify-end overflow-hidden">
             <div className="absolute inset-0" aria-hidden>
               <video
@@ -1082,16 +1077,14 @@ function HomePage() {
               </div>
             </div>
           </section>
-        </motion.div>
       </div>
 
-      <main className="block">{/* TYMCZASOWO ZAWSZE WIDOCZNE - TEST */}
-
-        <AnimatedSection
-          id="custom-section"
-          data-theme="light"
-          className="relative py-16 lg:py-24 bg-background overflow-hidden"
-        >
+      {/* Sekcja Dlaczego STANIAX - bezpośrednio pod Services */}
+      <AnimatedSection
+        id="custom-section"
+        data-theme="light"
+        className="relative py-16 lg:py-24 bg-background overflow-hidden"
+      >
           <div className="container mx-auto px-0">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Lewa kolumna - Tytuł z szarym tłem */}
@@ -1551,7 +1544,6 @@ function HomePage() {
             </div>
           </div>
         </AnimatedSection>
-      </main>
 
       <Toaster position="top-right" richColors />
       <CookieBanner />
