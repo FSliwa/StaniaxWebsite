@@ -1192,7 +1192,7 @@ function HomePage() {
               {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
               <div className="text-right mb-16 max-w-7xl ml-auto section-reveal">
                 <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">OUR SERVICES</p>
-                <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none text-gradient-animate">
+                <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
                   NASZE USŁUGI
                 </h2>
                 <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal">
@@ -1205,10 +1205,20 @@ function HomePage() {
                 {servicesData.map((service, index) => (
                   <div
                     key={service.id}
-                    className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group card-tilt hover-lift stagger-item"
+                    className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl stagger-item"
                     style={{
                       // Kafelki po przekątnej: 1(0px), 2(40px), 3(80px), 4(120px)
-                      transform: `translateY(${index * 40}px)`
+                      transform: `translateY(${index * 40}px)`,
+                      transitionProperty: 'box-shadow, transform',
+                      transitionDuration: '0.3s'
+                    }}
+                    onMouseEnter={(e) => {
+                      const current = e.currentTarget as HTMLElement
+                      current.style.transform = `translateY(${index * 40}px) perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-8px)`
+                    }}
+                    onMouseLeave={(e) => {
+                      const current = e.currentTarget as HTMLElement
+                      current.style.transform = `translateY(${index * 40}px)`
                     }}
                   >
                     {/* Obrazek */}
@@ -1534,15 +1544,21 @@ function HomePage() {
 
         <section id="contact" data-theme="light" className="py-24 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
-            {/* Uproszony layout */}
-            <div className="max-w-4xl mx-auto text-center">
+            {/* Vibor.it style layout - left aligned giant text */}
+            <div className="max-w-7xl mx-auto">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">GET IN TOUCH</p>
-              <h2 className="text-5xl lg:text-6xl font-black text-gray-900 uppercase mb-6">
-                GOTOWY NA ROZPOCZĘCIE PROJEKTU?
-              </h2>
-              <p className="text-lg text-gray-600 mb-12 font-normal max-w-2xl mx-auto">
-                Skontaktuj się z naszym zespołem w celu konsultacji i wyceny.
-              </p>
+              
+              {/* Giant headline like Vibor.it */}
+              <div className="mb-16">
+                <h2 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-gray-900 uppercase leading-[0.9] tracking-tighter mb-8">
+                  GOTOWY NA<br />
+                  ROZPOCZĘCIE<br />
+                  PROJEKTU?
+                </h2>
+                <p className="text-lg lg:text-xl text-gray-600 font-normal max-w-2xl">
+                  Skontaktuj się z naszym zespołem w celu konsultacji i wyceny.
+                </p>
+              </div>
 
               {/* Informacje kontaktowe w prostym układzie */}
               <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -1590,7 +1606,7 @@ function HomePage() {
               </div>
 
               {/* Duży CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => window.open('mailto:kontakt@staniax.pl', '_blank')}
                   className="ripple-effect magnetic-button hover-lift px-10 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider transition-all duration-300 rounded-md text-lg"
