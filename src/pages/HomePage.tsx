@@ -1200,27 +1200,36 @@ function HomePage() {
                 </p>
               </div>
 
-              {/* Grid 2x2 usług - układ po przekątnej */}
+              {/* Grid 2x2 usług - układ ZYGZAK */}
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                {servicesData.map((service, index) => (
-                  <div
-                    key={service.id}
-                    className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl stagger-item"
-                    style={{
-                      // Kafelki po przekątnej: 1(0px), 2(40px), 3(80px), 4(120px)
-                      transform: `translateY(${index * 40}px)`,
-                      transitionProperty: 'box-shadow, transform',
-                      transitionDuration: '0.3s'
-                    }}
-                    onMouseEnter={(e) => {
-                      const current = e.currentTarget as HTMLElement
-                      current.style.transform = `translateY(${index * 40}px) perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-8px)`
-                    }}
-                    onMouseLeave={(e) => {
-                      const current = e.currentTarget as HTMLElement
-                      current.style.transform = `translateY(${index * 40}px)`
-                    }}
-                  >
+                {servicesData.map((service, index) => {
+                  // Zygzak: kafelki lewe (0,2) idą w dół, prawe (1,3) idą w górę
+                  // Lewy kafelek: index 0 (0px), index 2 (+200px)
+                  // Prawy kafelek: index 1 (+100px), index 3 (+300px)
+                  const isLeftColumn = index % 2 === 0
+                  const rowNumber = Math.floor(index / 2)
+                  const translateY = isLeftColumn 
+                    ? rowNumber * 200  // Lewe: 0px, 200px
+                    : rowNumber * 200 + 100  // Prawe: 100px, 300px
+                  
+                  return (
+                    <div
+                      key={service.id}
+                      className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl stagger-item"
+                      style={{
+                        transform: `translateY(${translateY}px)`,
+                        transitionProperty: 'box-shadow, transform',
+                        transitionDuration: '0.3s'
+                      }}
+                      onMouseEnter={(e) => {
+                        const current = e.currentTarget as HTMLElement
+                        current.style.transform = `translateY(${translateY}px) perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-8px)`
+                      }}
+                      onMouseLeave={(e) => {
+                        const current = e.currentTarget as HTMLElement
+                        current.style.transform = `translateY(${translateY}px)`
+                      }}
+                    >
                     {/* Obrazek */}
                     <div className="relative h-48 overflow-hidden">
                       <img 
@@ -1252,7 +1261,8 @@ function HomePage() {
                       </p>
                     </div>
                   </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           </section>
