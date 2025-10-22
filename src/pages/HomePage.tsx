@@ -27,6 +27,7 @@ import {
   Users
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/Generowanie_Wideo_Powłoki_Metalicznej.mp4'
+import whyChooseVideo from '@/assets/services-background-video.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
 import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
@@ -1268,24 +1269,41 @@ function HomePage() {
           </section>
       </div>
 
-      {/* Sekcja Dlaczego STANIAX - wzorowana na Vibor.it */}
+      {/* Sekcja Dlaczego STANIAX - Premium Video Background (Vibor.it Style) */}
       <section
         id="custom-section"
-        data-theme="light"
-        className="relative py-24 bg-gray-50 overflow-hidden"
+        data-theme="dark"
+        className="relative py-24 overflow-hidden"
       >
-        {/* Floating Background Elements */}
-        <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '500px', height: '500px', top: '0%', left: '-10%' }} />
-        <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '400px', height: '400px', bottom: '0%', right: '-5%', animationDelay: '4s' }} />
+        {/* Video Background with Overlay */}
+        <div className="absolute inset-0" aria-hidden="true">
+          {!prefersReducedMotion ? (
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ transform: `scale(${Math.min(1.0 + scrollY * 0.0002, 1.1)})` }}
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src={whyChooseVideo} type="video/mp4" />
+            </video>
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+          )}
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-950/85 to-slate-950/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent" />
+        </div>
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
           <div className="text-left mb-16 max-w-7xl mr-auto section-reveal">
-            <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">WHY CHOOSE</p>
-            <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
+            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-4 font-semibold">WHY CHOOSE</p>
+            <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-white tracking-tighter leading-none">
               STANIAX
             </h2>
-            <p className="text-base text-gray-600 max-w-2xl mr-auto font-normal">
+            <p className="text-base text-white/80 max-w-2xl mr-auto font-normal">
               Dlaczego warto wybrać nas jako partnera do metalizacji przemysłowej
             </p>
           </div>
@@ -1295,14 +1313,14 @@ function HomePage() {
             {/* Kolumna 1: Wsparcie Techniczne */}
             <div className="text-center space-y-4 group stagger-item hover-lift">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animated-gradient">
-                  <Users className="w-8 h-8 text-blue-700 icon-pulse" />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-white/30">
+                  <Users className="w-8 h-8 text-blue-400 icon-pulse" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
+              <h3 className="text-xl font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:text-blue-400">
                 WSPARCIE TECHNICZNE
               </h3>
-              <p className="text-gray-600 leading-relaxed font-normal">
+              <p className="text-white/70 leading-relaxed font-normal">
                 Towarzyszymy klientowi w wyborze odpowiedniego rozwiązania dla jego potrzeb, oferując również techniczny serwis posprzedażny.
               </p>
             </div>
@@ -1310,14 +1328,14 @@ function HomePage() {
             {/* Kolumna 2: Jakość Produktów */}
             <div className="text-center space-y-4 group stagger-item hover-lift">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animated-gradient">
-                  <Shield className="w-8 h-8 text-blue-700 icon-pulse" />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-white/30">
+                  <Shield className="w-8 h-8 text-blue-400 icon-pulse" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
+              <h3 className="text-xl font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:text-blue-400">
                 JAKOŚĆ PRODUKTÓW
               </h3>
-              <p className="text-gray-600 leading-relaxed font-normal">
+              <p className="text-white/70 leading-relaxed font-normal">
                 Innowacyjne pomysły i szczególna uwaga na wpływ środowiskowy produkcji przemysłowej to misja STANIAX.
               </p>
             </div>
@@ -1325,14 +1343,14 @@ function HomePage() {
             {/* Kolumna 3: Personalizacja */}
             <div className="text-center space-y-4 group stagger-item hover-lift">
               <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 animated-gradient">
-                  <Wrench className="w-8 h-8 text-blue-700 icon-pulse" />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-white/30">
+                  <Wrench className="w-8 h-8 text-blue-400 icon-pulse" />
                 </div>
               </div>
-              <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
+              <h3 className="text-xl font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:text-blue-400">
                 PERSONALIZACJA
               </h3>
-              <p className="text-gray-600 leading-relaxed font-normal">
+              <p className="text-white/70 leading-relaxed font-normal">
                 Towarzyszymy klientowi podczas konfiguracji produktu, aby zidentyfikować najlepsze ustawienia wydajności.
               </p>
             </div>
@@ -1340,18 +1358,18 @@ function HomePage() {
 
           {/* Paragraf ISO - na dole */}
           <div className="mt-16 text-center max-w-3xl mx-auto">
-            <p className="text-sm text-gray-600 leading-relaxed font-normal">
-              STANIAX POSIADA SYSTEM ZARZĄDZANIA JAKOŚCIĄ <span className="font-bold text-gray-900">CERTYFIKOWANY ISO 9001:2015</span> I WSZYSTKIE PRODUKTY SĄ PROJEKTOWANE ZGODNIE Z EUROPEJSKIMI REGULACJAMI TECHNICZNYMI, ABY ZAPEWNIĆ NAJWYŻSZE STANDARDY JAKOŚCI.
+            <p className="text-sm text-white/70 leading-relaxed font-normal">
+              STANIAX POSIADA SYSTEM ZARZĄDZANIA JAKOŚCIĄ <span className="font-bold text-white">CERTYFIKOWANY ISO 9001:2015</span> I WSZYSTKIE PRODUKTY SĄ PROJEKTOWANE ZGODNIE Z EUROPEJSKIMI REGULACJAMI TECHNICZNYMI, ABY ZAPEWNIĆ NAJWYŻSZE STANDARDY JAKOŚCI.
             </p>
           </div>
 
           {/* Micro-CTA */}
           <div className="mt-8 text-center">
-            <p className="text-sm text-gray-600 font-normal">
+            <p className="text-sm text-white/70 font-normal">
               POTRZEBUJESZ POMOCY? {' '}
               <button 
                 onClick={() => scrollToSection('contact')} 
-                className="font-bold text-blue-700 hover:text-blue-800 hover:underline transition-all"
+                className="font-bold text-blue-400 hover:text-blue-300 hover:underline transition-all"
               >
                 SKONTAKTUJ SIĘ Z NAMI
               </button>
