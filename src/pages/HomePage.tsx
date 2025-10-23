@@ -1401,12 +1401,14 @@ function HomePage() {
           
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
-            <div className="text-right mb-16 max-w-7xl ml-auto section-reveal">
+            <div className="text-right mb-16 section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ABOUT US</p>
-              <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
-                TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
-              </h2>
-              <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal">
+              <div className="bg-gray-100 py-8 px-6 lg:px-12 mx-6 lg:mx-12">
+                <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
+                  TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
+                </h2>
+              </div>
+              <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal mt-4">
                 15 lat doświadczenia w zaawansowanych technologiach metalizacyjnych
               </p>
             </div>
