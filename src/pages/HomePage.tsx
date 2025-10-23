@@ -1119,7 +1119,7 @@ function HomePage() {
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className="max-w-7xl space-y-10">
                 <div className="space-y-8">
-                  <h1 className="text-[6rem] sm:text-[10rem] lg:text-[14rem] xl:text-[18rem] font-black leading-[0.8] tracking-tighter text-white group cursor-default">
+                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default animate-[fadeIn_1.2s_ease-out]">
                     <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(255,255,255,0.6)] group-hover:scale-105">
                       POWŁOKI
                     </span>
@@ -1403,7 +1403,7 @@ function HomePage() {
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-16 section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ABOUT US</p>
-              <div className="bg-gray-100 py-8 px-6 lg:px-12 mx-6 lg:mx-12 pb-24">
+              <div className="bg-gray-100 py-8 px-6 lg:px-12 mx-6 lg:mx-12 pb-32">
                 <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
                   TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
                 </h2>
@@ -1534,13 +1534,14 @@ function HomePage() {
             </div>
 
             {/* CTA - wyśrodkowany */}
-            <div className="text-center mt-12 -mb-24">
-              <button
+            <div className="text-center mt-12 -mb-32">
+              <Button
                 onClick={() => scrollToSection('contact')}
-                className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
+                variant="outline"
+                className="border-gray-400/60 bg-gray-900/15 backdrop-blur-sm hover:bg-gray-900/30 text-gray-900 font-bold uppercase tracking-[0.25em] transition-all duration-300 px-10 py-4"
               >
                 Skontaktuj się z nami
-              </button>
+              </Button>
             </div>
           </div>
         </section>
