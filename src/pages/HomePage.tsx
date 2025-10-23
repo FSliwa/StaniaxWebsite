@@ -1120,13 +1120,9 @@ function HomePage() {
               <div className="max-w-5xl space-y-10">
                 <div className="space-y-8">
                   <h1 className="text-7xl lg:text-9xl xl:text-[10rem] font-black leading-none tracking-tight text-white">
-                    <span className="block">Przemysłowe</span>
-                    <span className="block">Powłoki</span>
-                    <span className="block text-accent">Na Miarę Przyszłości</span>
+                    <span className="block">POWŁOKI</span>
+                    <span className="block text-accent">PRZYSZŁOŚCI</span>
                   </h1>
-                  <p className="text-xl lg:text-2xl text-white/80 font-medium max-w-3xl leading-relaxed">
-                    Projektujemy i nanosimy powłoki metaliczne, które zwiększają wydajność, chronią komponenty i podkreślają Twoją technologiczną przewagę konkurencyjną.
-                  </p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
