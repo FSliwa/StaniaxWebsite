@@ -1582,12 +1582,12 @@ function HomePage() {
             </div>
 
             <div className="text-center mt-12">
-              <button
+              <Button
                 onClick={() => navigate('/news')}
-                className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
+                className="ripple-effect magnetic-button px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300"
               >
                 Zobacz Wszystkie Projekty
-              </button>
+              </Button>
             </div>
           </div>
         </section>
@@ -1659,13 +1659,14 @@ function HomePage() {
                   ) : null}
                   
                   <div className="absolute bottom-[20px] left-0 right-0 flex justify-center">
-                    <button
+                    <Button
                       onClick={() => navigate('/news')}
-                      className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
+                      variant="outline"
+                      className="border-white/60 bg-white/15 backdrop-blur-sm hover:bg-white/30 text-white font-bold uppercase tracking-[0.25em] transition-all duration-300"
                     >
                       Pobierz Biuletyn
                       <ArrowRight className="h-5 w-5 ml-2 inline-block" />
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
