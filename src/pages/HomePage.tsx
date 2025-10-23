@@ -1117,11 +1117,15 @@ function HomePage() {
             </div>
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10 pb-16 lg:pb-24">
-              <div className="max-w-5xl space-y-10">
+              <div className="max-w-7xl space-y-10">
                 <div className="space-y-8">
-                  <h1 className="text-7xl lg:text-9xl xl:text-[10rem] font-black leading-none tracking-tight text-white">
-                    <span className="block">POWŁOKI</span>
-                    <span className="block text-accent">PRZYSZŁOŚCI</span>
+                  <h1 className="text-[5rem] sm:text-[8rem] lg:text-[12rem] xl:text-[15rem] font-black leading-[0.85] tracking-tighter text-white">
+                    <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)]">
+                      POWŁOKI
+                    </span>
+                    <span className="block bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(59,130,246,0.5)]">
+                      PRZYSZŁOŚCI
+                    </span>
                   </h1>
                 </div>
                 
