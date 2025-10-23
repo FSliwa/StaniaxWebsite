@@ -1159,17 +1159,6 @@ function HomePage() {
             <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
             
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
-              {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
-              <div className="text-left mb-16 max-w-7xl mr-auto section-reveal">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">OUR ACHIEVEMENTS</p>
-                <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
-                  W LICZBACH
-                </h2>
-                <p className="text-base text-gray-600 max-w-2xl mr-auto font-normal">
-                  Sprawdzone doświadczenie i dziesiątki zadowolonych klientów w branży przemysłowej
-                </p>
-              </div>
-
               {/* Grid 1x4 metryk - prosty układ poziomy */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 {/* Metryka 1 */}
