@@ -1130,23 +1130,20 @@ function HomePage() {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button
-                    size="lg"
+                  <button
                     onClick={() => scrollToSection('projects')}
-                    className="ripple-effect liquid-metal-button magnetic-button text-white font-semibold border-0 transition-all duration-300"
+                    className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
                   >
                     Zobacz Nasze Prace
-                    <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="ripple-effect magnetic-button font-semibold backdrop-blur-sm bg-white/10 hover:bg-white/20 border-white/30 hover:border-white/50 text-white transition-all duration-300"
+                    <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 hover:translate-x-1" />
+                  </button>
+                  <button
                     onClick={() => scrollToSection('contact')}
+                    className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
                   >
-                    <Phone className="w-5 h-5 mr-2 icon-pulse" />
+                    <Phone className="w-5 h-5 mr-2 inline-block" />
                     Skontaktuj się z nami
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1585,7 +1582,7 @@ function HomePage() {
             <div className="text-center mt-12">
               <button
                 onClick={() => navigate('/news')}
-                className="ripple-effect magnetic-button px-8 py-3 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-colors"
+                className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
               >
                 Zobacz Wszystkie Projekty
               </button>
@@ -1660,17 +1657,13 @@ function HomePage() {
                   ) : null}
                   
                   <div className="absolute bottom-[20px] left-0 right-0 flex justify-center">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="px-8 py-6 font-semibold uppercase tracking-[0.25em] text-white border-white/60 bg-white/15 backdrop-blur-sm shadow-lg transition-colors hover:bg-white hover:text-slate-950"
+                    <button
                       onClick={() => navigate('/news')}
+                      className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
                     >
-                      <span className="flex items-center gap-3">
-                        Pobierz Biuletyn
-                        <ArrowRight className="h-5 w-5" />
-                      </span>
-                    </Button>
+                      Pobierz Biuletyn
+                      <ArrowRight className="h-5 w-5 ml-2 inline-block" />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1745,14 +1738,14 @@ function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => window.open('mailto:kontakt@staniax.pl', '_blank')}
-                  className="ripple-effect magnetic-button hover-lift px-10 py-4 bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-wider transition-all duration-300 rounded-md text-lg"
+                  className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
                 >
                   Napisz Do Nas
                   <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 hover:translate-x-1" />
                 </button>
                 <button
                   onClick={() => window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank')}
-                  className="ripple-effect magnetic-button hover-lift px-10 py-4 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 rounded-md text-lg"
+                  className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
                 >
                   Odwiedź Nas
                 </button>
