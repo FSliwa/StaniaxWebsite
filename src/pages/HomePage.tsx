@@ -1201,15 +1201,33 @@ function HomePage() {
                 </p>
               </div>
 
-              {/* Grid 2x2 usług - elegancki układ */}
+              {/* Grid 2x2 usług - układ po skosie */}
               <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 {servicesData.map((service, index) => {
+                  // Układ po skosie: lewe kafelki niżej, prawe wyżej
+                  // Lewy: index 0 (+80px), index 2 (+160px)
+                  // Prawy: index 1 (0px), index 3 (+80px)
+                  const isLeftColumn = index % 2 === 0
+                  const rowNumber = Math.floor(index / 2)
+                  const translateY = isLeftColumn 
+                    ? (rowNumber + 1) * 80  // Lewe: 80px, 160px
+                    : rowNumber * 80  // Prawe: 0px, 80px
+                  
                   return (
                     <div
                       key={service.id}
                       className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl stagger-item"
                       style={{
+                        transform: `translateY(${translateY}px)`,
                         animationDelay: `${index * 0.1}s`
+                      }}
+                      onMouseEnter={(e) => {
+                        const current = e.currentTarget as HTMLElement
+                        current.style.transform = `translateY(${translateY}px) perspective(1000px) rotateX(3deg) rotateY(-3deg) scale(1.02)`
+                      }}
+                      onMouseLeave={(e) => {
+                        const current = e.currentTarget as HTMLElement
+                        current.style.transform = `translateY(${translateY}px)`
                       }}
                     >
                     {/* Obrazek */}
