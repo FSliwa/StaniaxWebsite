@@ -1100,7 +1100,7 @@ function HomePage() {
       </header>
 
       <div className="relative w-full">
-          <section id="top" data-theme="dark" className="relative min-h-[600px] max-h-[85vh] lg:h-screen w-full flex flex-col justify-end overflow-hidden">
+          <section id="top" data-theme="dark" className="relative min-h-[600px] max-h-[85vh] lg:h-screen w-full flex flex-col justify-center overflow-hidden">
             <div className="absolute inset-0" aria-hidden>
               <video
                 className="absolute inset-0 w-full h-full object-cover"
@@ -1116,14 +1116,14 @@ function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
             </div>
 
-            <div className="container mx-auto px-6 lg:px-12 relative z-10 pb-16 lg:pb-24">
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className="max-w-7xl space-y-10">
                 <div className="space-y-8">
-                  <h1 className="text-[5rem] sm:text-[8rem] lg:text-[12rem] xl:text-[15rem] font-black leading-[0.85] tracking-tighter text-white">
-                    <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)]">
+                  <h1 className="text-[6rem] sm:text-[10rem] lg:text-[14rem] xl:text-[18rem] font-black leading-[0.8] tracking-tighter text-white group cursor-default">
+                    <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(255,255,255,0.6)] group-hover:scale-105">
                       POWŁOKI
                     </span>
-                    <span className="block bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(59,130,246,0.5)]">
+                    <span className="block bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(59,130,246,0.5)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(59,130,246,0.8)] group-hover:scale-105">
                       PRZYSZŁOŚCI
                     </span>
                   </h1>
@@ -1403,14 +1403,14 @@ function HomePage() {
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-16 section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ABOUT US</p>
-              <div className="bg-gray-100 py-8 px-6 lg:px-12 mx-6 lg:mx-12">
+              <div className="bg-gray-100 py-8 px-6 lg:px-12 mx-6 lg:mx-12 pb-24">
                 <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
                   TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
                 </h2>
+                <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal mt-4">
+                  15 lat doświadczenia w zaawansowanych technologiach metalizacyjnych
+                </p>
               </div>
-              <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal mt-4">
-                15 lat doświadczenia w zaawansowanych technologiach metalizacyjnych
-              </p>
             </div>
 
             {/* Grid 2x2 kart - układ po skosie */}
@@ -1534,7 +1534,7 @@ function HomePage() {
             </div>
 
             {/* CTA - wyśrodkowany */}
-            <div className="text-center mt-12">
+            <div className="text-center mt-12 -mb-24">
               <button
                 onClick={() => scrollToSection('contact')}
                 className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
