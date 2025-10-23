@@ -26,7 +26,7 @@ import {
   Wrench,
   Users
 } from '@phosphor-icons/react'
-import heroVideo from '@/assets/Generowanie_Wideo_Powłoki_Metalicznej.mp4'
+import heroVideo from '@/assets/Generowanie_Wideo_Smukła_Dłoń_Peace.mp4'
 import whyChooseVideo from '@/assets/Generowanie_Wideo_Produktowego_Dłoń_i_Mikrofon.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
@@ -1153,7 +1153,7 @@ function HomePage() {
           </section>
 
           {/* Sekcja Liczb/Metryk - Trust Indicators */}
-          <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-24 bg-white overflow-hidden">
+          <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
             {/* Background Decorations */}
             <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
             <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
@@ -1170,62 +1170,46 @@ function HomePage() {
                 </p>
               </div>
 
-              {/* Grid 2x2 metryk - układ po skosie jak w sekcji services */}
-              <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                <div 
-                  className="bg-white border border-gray-200 rounded-lg p-12 transition-all duration-300 group hover:shadow-2xl stagger-item"
-                  style={{
-                    transform: 'translateY(0px)',
-                    animationDelay: '0s'
-                  }}
-                >
-                  <div className="text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:text-blue-600">
+              {/* Grid 1x4 metryk - prosty układ poziomy */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                {/* Metryka 1 */}
+                <div className="text-center group">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
                     <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
                   </div>
-                  <div className="h-1 w-16 bg-blue-700 mb-4 transition-all duration-300 group-hover:w-24"></div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">Lat Doświadczenia</p>
-                  <p className="text-sm text-gray-500 mt-2 font-normal">Wieloletnie doświadczenie w inżynierii powierzchni</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    LAT DOŚWIADCZENIA
+                  </p>
                 </div>
 
-                <div 
-                  className="bg-white border border-gray-200 rounded-lg p-12 transition-all duration-300 group hover:shadow-2xl stagger-item"
-                  style={{
-                    transform: 'translateY(80px)',
-                    animationDelay: '0.1s'
-                  }}
-                >
-                  <div className="text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:text-blue-600">
+                {/* Metryka 2 */}
+                <div className="text-center group">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
                     <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
                   </div>
-                  <div className="h-1 w-16 bg-blue-700 mb-4 transition-all duration-300 group-hover:w-24"></div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">Zrealizowanych Projektów</p>
-                  <p className="text-sm text-gray-500 mt-2 font-normal">Setki udanych wdrożeń dla różnych branż</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    ZREALIZOWANYCH PROJEKTÓW
+                  </p>
                 </div>
 
-                <div 
-                  className="bg-white border border-gray-200 rounded-lg p-12 transition-all duration-300 group hover:shadow-2xl stagger-item"
-                  style={{
-                    transform: 'translateY(80px)',
-                    animationDelay: '0.2s'
-                  }}
-                >
-                  <div className="text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:text-blue-600">24H</div>
-                  <div className="h-1 w-16 bg-blue-700 mb-4 transition-all duration-300 group-hover:w-24"></div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">Czas Reakcji</p>
-                  <p className="text-sm text-gray-500 mt-2 font-normal">Szybka odpowiedź na zapytania klientów</p>
+                {/* Metryka 3 */}
+                <div className="text-center group">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    24H
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    CZAS REAKCJI
+                  </p>
                 </div>
 
-                <div 
-                  className="bg-white border border-gray-200 rounded-lg p-12 transition-all duration-300 group hover:shadow-2xl stagger-item"
-                  style={{
-                    transform: 'translateY(160px)',
-                    animationDelay: '0.3s'
-                  }}
-                >
-                  <div className="text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:text-blue-600">ISO</div>
-                  <div className="h-1 w-16 bg-blue-700 mb-4 transition-all duration-300 group-hover:w-24"></div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">9001:2015 Certyfikat</p>
-                  <p className="text-sm text-gray-500 mt-2 font-normal">Certyfikowane zarządzanie jakością</p>
+                {/* Metryka 4 */}
+                <div className="text-center group">
+                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    ISO
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    9001:2015 CERTYFIKAT
+                  </p>
                 </div>
               </div>
             </div>
@@ -1424,91 +1408,151 @@ function HomePage() {
         </div>
       </section>
 
-        <section id="about" data-theme="light" className="py-24 bg-white">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              <div className="lg:col-span-5">
-                <div className="grid grid-cols-3 gap-4">
-                  {aboutTilesData.map((tile) => (
-                    <div
-                      key={tile.id}
-                      className={cn(
-                        'relative overflow-hidden rounded-lg',
-                        tile.colSpan === 3 ? 'col-span-3' : 'col-span-1'
-                      )}
-                      style={{ aspectRatio: tile.colSpan === 3 ? '16/9' : '1' }}
-                    >
-                      <img
-                        src={tile.image}
-                        alt={tile.alt}
-                        className="absolute inset-0 w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        {tile.overlay}
-                      </div>
-                    </div>
-                  ))}
+        <section id="about" data-theme="light" className="relative py-24 bg-white overflow-hidden">
+          {/* Background Decorations */}
+          <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '350px', height: '350px', top: '8%', right: '5%' }} />
+          <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '300px', height: '300px', bottom: '12%', left: '3%', animationDelay: '2.5s' }} />
+          
+          <div className="container mx-auto px-6 lg:px-12 relative z-10">
+            {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
+            <div className="text-right mb-16 max-w-7xl ml-auto section-reveal">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ABOUT US</p>
+              <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
+                TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
+              </h2>
+              <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal">
+                15 lat doświadczenia w zaawansowanych technologiach metalizacyjnych
+              </p>
+            </div>
+
+            {/* Grid 2x2 kart - układ po skosie */}
+            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {/* Karta 1: Kim Jesteśmy - Prawy górny (0px) */}
+              <div 
+                className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
+                style={{
+                  transform: 'translateY(0px)',
+                  animationDelay: '0s'
+                }}
+                onMouseEnter={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(0px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                }}
+                onMouseLeave={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(0px)`
+                }}
+              >
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-700">
+                  <Factory className="w-6 h-6 text-blue-700 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold uppercase mb-4 text-gray-900 tracking-wide">
+                  KIM JESTEŚMY
+                </h3>
+                <p className="text-gray-600 leading-relaxed font-normal">
+                  <span className="font-bold text-gray-900">STANIAX Sp. z o.o.</span> to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A, specjalizująca się w zaawansowanych rozwiązaniach metalizacyjnych dla przemysłu. Łączymy ponad 15-letnie doświadczenie w inżynierii powierzchni z nowoczesnymi technologiami.
+                </p>
+              </div>
+
+              {/* Karta 2: Technologie - Lewy górny (80px) */}
+              <div 
+                className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
+                style={{
+                  transform: 'translateY(80px)',
+                  animationDelay: '0.1s'
+                }}
+                onMouseEnter={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(80px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                }}
+                onMouseLeave={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(80px)`
+                }}
+              >
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-700">
+                  <Wrench className="w-6 h-6 text-blue-700 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold uppercase mb-4 text-gray-900 tracking-wide">
+                  TECHNOLOGIE
+                </h3>
+                <p className="text-gray-600 leading-relaxed font-normal">
+                  Oferujemy szeroki zakres metod: <span className="font-semibold text-gray-800">PVD, CVD, natrysk plazmowy</span> oraz <span className="font-semibold text-gray-800">galwanizację przemysłową</span>. Pracujemy z materiałami takimi jak tytan, chrom, nikiel, wolfram oraz ceramika techniczna.
+                </p>
+              </div>
+
+              {/* Karta 3: Branże - Prawy dolny (80px) */}
+              <div 
+                className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
+                style={{
+                  transform: 'translateY(80px)',
+                  animationDelay: '0.2s'
+                }}
+                onMouseEnter={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(80px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                }}
+                onMouseLeave={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(80px)`
+                }}
+              >
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-700">
+                  <Users className="w-6 h-6 text-blue-700 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold uppercase mb-4 text-gray-900 tracking-wide">
+                  BRANŻE
+                </h3>
+                <p className="text-gray-600 leading-relaxed font-normal">
+                  Realizujemy projekty dla <span className="font-semibold text-gray-800">przemysłu lotniczego, motoryzacyjnego, medycznego, energetycznego</span> oraz <span className="font-semibold text-gray-800">sektora narzędziowego</span>. Nasze powłoki zwiększają odporność na zużycie, korozję i wysokie temperatury.
+                </p>
+              </div>
+
+              {/* Karta 4: Jakość - Lewy dolny (160px) */}
+              <div 
+                className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
+                style={{
+                  transform: 'translateY(160px)',
+                  animationDelay: '0.3s'
+                }}
+                onMouseEnter={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(160px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                }}
+                onMouseLeave={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(160px)`
+                }}
+              >
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-700">
+                  <Trophy className="w-6 h-6 text-blue-700 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold uppercase mb-4 text-gray-900 tracking-wide">
+                  JAKOŚĆ
+                </h3>
+                <div className="space-y-3 text-sm text-gray-600 leading-relaxed font-normal">
+                  <p><span className="font-bold text-gray-900">✓ ISO 9001:2015</span> - Certyfikowane zarządzanie jakością</p>
+                  <p><span className="font-bold text-gray-900">✓ Kontrole środowiskowe</span> - Nowoczesne technologie oczyszczania</p>
+                  <p><span className="font-bold text-gray-900">✓ Wsparcie 24/7</span> - Elastyczne planowanie i dostępność</p>
                 </div>
               </div>
-              <div className="lg:col-span-7">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ABOUT US</p>
-                <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase mb-6 leading-tight">
-                  TWORZYMY DOSKONAŁOŚĆ W METALIZACJI
-                </h2>
-                
-                {/* Pierwszy paragraf - Wprowadzenie */}
-                <p className="text-base text-gray-600 mb-6 leading-relaxed font-normal">
-                  <span className="font-bold text-gray-900">STANIAX Sp. z o.o.</span> to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A, specjalizująca się w zaawansowanych rozwiązaniach metalizacyjnych dla przemysłu. Łączymy ponad 15-letnie doświadczenie w inżynierii powierzchni z nowoczesnymi technologiami, oferując kompleksowe usługi metalizacji próżniowej i cieplnej.
-                </p>
+            </div>
 
-                {/* Drugi paragraf - Technologie */}
-                <p className="text-base text-gray-600 mb-6 leading-relaxed font-normal">
-                  Nasza oferta obejmuje szeroki zakres metod metalizacji: <span className="font-semibold text-gray-800">PVD (Physical Vapor Deposition)</span>, <span className="font-semibold text-gray-800">CVD (Chemical Vapor Deposition)</span>, <span className="font-semibold text-gray-800">natrysk plazmowy</span> oraz <span className="font-semibold text-gray-800">galwanizację przemysłową</span>. Pracujemy z materiałami takimi jak tytan, chrom, nikiel, wolfram oraz ceramika techniczna, dostosowując rozwiązania do specyficznych wymagań każdego projektu.
-                </p>
+            {/* Cytat misji - poniżej siatki */}
+            <div className="max-w-4xl mx-auto mt-20">
+              <p className="text-base text-gray-600 italic border-l-4 border-blue-700 pl-6 leading-relaxed font-normal">
+                "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
+              </p>
+            </div>
 
-                {/* Trzeci paragraf - Branże */}
-                <p className="text-base text-gray-600 mb-8 leading-relaxed font-normal">
-                  Realizujemy projekty dla <span className="font-semibold text-gray-800">przemysłu lotniczego, motoryzacyjnego, medycznego, energetycznego</span> oraz <span className="font-semibold text-gray-800">sektora narzędziowego</span>. Nasze powłoki zwiększają odporność na zużycie, korozję i wysokie temperatury, przedłużając żywotność komponentów i poprawiając ich wydajność operacyjną.
-                </p>
-
-                {/* Certyfikaty i standardy */}
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-start gap-3">
-                    <Trophy className="w-5 h-5 text-blue-700 mt-1 flex-shrink-0" />
-                    <div>
-                      <span className="text-gray-900 font-bold block">Certyfikowane Zarządzanie Jakością ISO 9001:2015</span>
-                      <span className="text-sm text-gray-600">Gwarancja najwyższych standardów w każdym etapie procesu produkcyjnego</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Shield className="w-5 h-5 text-blue-700 mt-1 flex-shrink-0" />
-                    <div>
-                      <span className="text-gray-900 font-bold block">Zaawansowane Kontrole Środowiskowe</span>
-                      <span className="text-sm text-gray-600">Minimalizacja wpływu na środowisko poprzez nowoczesne technologie oczyszczania</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-blue-700 mt-1 flex-shrink-0" />
-                    <div>
-                      <span className="text-gray-900 font-bold block">Szybkie Terminy Realizacji 24/7</span>
-                      <span className="text-sm text-gray-600">Elastyczne planowanie produkcji i wsparcie techniczne dostępne całą dobę</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Ostatni paragraf - Wartości */}
-                <p className="text-sm text-gray-600 mb-8 leading-relaxed font-normal italic border-l-4 border-blue-700 pl-4">
-                  "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
-                </p>
-
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="px-8 py-3 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-colors rounded-md"
-                >
-                  Skontaktuj się z nami
-                </button>
-              </div>
+            {/* CTA - wyśrodkowany */}
+            <div className="text-center mt-12">
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
+              >
+                Skontaktuj się z nami
+              </button>
             </div>
           </div>
         </section>
