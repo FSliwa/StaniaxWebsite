@@ -1101,38 +1101,10 @@ function HomePage() {
 
       <div className="relative w-full">
           <section id="top" data-theme="light" className="relative w-full bg-white">
-            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" */}
+            {/* Pusta sekcja hero - usunięte title i video */}
             <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-20">
               <div className="max-w-7xl mx-auto">
-                <div className="space-y-6">
-                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter group cursor-default">
-                    <span className="block bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
-                      POWŁOKI
-                    </span>
-                    <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
-                      PRZYSZŁOŚCI
-                    </span>
-                  </h1>
-                </div>
-              </div>
-            </div>
-
-            {/* Dolna część - Wideo w kontenerze jak na Vibor.it */}
-            <div className="container mx-auto px-6 lg:px-12 pb-20 lg:pb-32 relative z-10">
-              <div className="max-w-7xl mx-auto">
-                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                  <video
-                    className="absolute inset-0 w-full h-full object-cover"
-                    style={{ transform: `scale(${heroScaleValue})` }}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  >
-                    <source src={heroVideo} type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
+                {/* Placeholder - może być użyty do innych treści */}
               </div>
             </div>
           </section>
@@ -1397,6 +1369,35 @@ function HomePage() {
                 <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal mt-6 leading-relaxed">
                   15 lat doświadczenia w zaawansowanych technologiach metalizacyjnych
                 </p>
+
+                {/* POWŁOKI PRZYSZŁOŚCI - Hero Title przeniesiony tutaj */}
+                <div className="mt-20 mb-12">
+                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter group cursor-default text-center">
+                    <span className="block bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
+                      POWŁOKI
+                    </span>
+                    <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
+                      PRZYSZŁOŚCI
+                    </span>
+                  </h1>
+                </div>
+
+                {/* Wideo przeniesione tutaj z większą wysokością */}
+                <div className="max-w-7xl mx-auto">
+                  <div className="relative rounded-2xl overflow-hidden border border-gray-300 shadow-2xl" style={{ height: '70vh', minHeight: '500px' }}>
+                    <video
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ transform: `scale(${heroScaleValue})` }}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    >
+                      <source src={heroVideo} type="video/mp4" />
+                    </video>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                  </div>
+                </div>
               </div>
             </div>
 
