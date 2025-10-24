@@ -276,6 +276,88 @@ const caseStudiesData: CaseStudy[] = [
   }
 ]
 
+// BRAND SHOWCASE DATA - Trusted Companies & Certifications
+const brandShowcaseData = [
+  { name: 'ISO 9001:2015', logo: 'ISO' },
+  { name: 'Automotive', logo: 'AUTO' },
+  { name: 'Aerospace', logo: 'AERO' },
+  { name: 'Medical', logo: 'MED' },
+  { name: 'CE Certified', logo: 'CE' },
+  { name: 'Industry 4.0', logo: 'IND' },
+  { name: 'Green Tech', logo: 'ECO' },
+  { name: 'Quality First', logo: 'QA' }
+]
+
+// TECH SPECS DATA - Interactive Comparison Table
+type TechSpec = {
+  id: string
+  method: string
+  temperature: string
+  thickness: string
+  applications: string
+  advantages: string[]
+  materials: string
+}
+
+const techSpecsData: TechSpec[] = [
+  {
+    id: 'pvd',
+    method: 'PVD Coating',
+    temperature: '200-500°C',
+    thickness: '0.1-10 μm',
+    applications: 'Narzędzia skrawające, komponenty precyzyjne',
+    advantages: [
+      'Bardzo twarde powłoki',
+      'Doskonała przyczepność',
+      'Niska temperatura procesu',
+      'Przyjazne środowisku'
+    ],
+    materials: 'TiN, TiAlN, CrN, DLC'
+  },
+  {
+    id: 'cvd',
+    method: 'CVD Technology',
+    temperature: '800-1050°C',
+    thickness: '5-20 μm',
+    applications: 'Narzędzia do obróbki metali, części silników',
+    advantages: [
+      'Grubsze powłoki',
+      'Równomierna grubość',
+      'Wysoka twardość',
+      'Dobra adhezja'
+    ],
+    materials: 'TiC, TiN, Al₂O₃'
+  },
+  {
+    id: 'plasma',
+    method: 'Natrysk Plazmowy',
+    temperature: '100-300°C',
+    thickness: '50-500 μm',
+    applications: 'Komponenty lotnicze, turbiny, maszyny',
+    advantages: [
+      'Grube warstwy ochronne',
+      'Odporność termiczna',
+      'Naprawa elementów',
+      'Szeroki zakres materiałów'
+    ],
+    materials: 'Ceramika, metale, węgliki'
+  },
+  {
+    id: 'galwanizacja',
+    method: 'Galwanizacja',
+    temperature: '20-80°C',
+    thickness: '5-100 μm',
+    applications: 'Elektronika, automotive, dekoracje',
+    advantages: [
+      'Ochrona przed korozją',
+      'Walory estetyczne',
+      'Niski koszt',
+      'Łatwa kontrola grubości'
+    ],
+    materials: 'Ni, Cr, Zn, Cu, Au'
+  }
+]
+
 const aboutTilesData: AboutTileConfig[] = [
   {
     id: 'tile-lab',
@@ -469,6 +551,29 @@ function HomePage() {
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
   
+  // TECH SPECS TABLE STATE
+  const [selectedFilter, setSelectedFilter] = useState<string>('all')
+  const [compareMode, setCompareMode] = useState(false)
+  const [selectedForCompare, setSelectedForCompare] = useState<string[]>([])
+  const [expandedRow, setExpandedRow] = useState<string | null>(null)
+  
+  // SMART CONTACT FORM STATE
+  const [formStep, setFormStep] = useState(1)
+  const [smartFormData, setSmartFormData] = useState({
+    projectType: '',
+    technology: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+    file: null as File | null
+  })
+  
+  // STICKY SIDE NAVIGATION STATE
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0)
+  const sectionIds = ['top', 'metrics', 'services', 'custom-section', 'about', 'projects', 'contact']
+  
   const { scrollYProgress: aboutScrollProgress } = useScroll({
     target: aboutMosaicRef,
     offset: ['start 90%', 'end 15%']
@@ -570,6 +675,35 @@ function HomePage() {
     
     return () => clearInterval(interval)
   }, [isAutoPlaying])
+
+  // Sticky Side Navigation - Track active section
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      threshold: 0.4,
+      rootMargin: '-20% 0px -20% 0px'
+    }
+    
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = sectionIds.indexOf(entry.target.id)
+          if (index !== -1) {
+            setActiveSectionIndex(index)
+          }
+        }
+      })
+    }
+    
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+    
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id)
+      if (element) observer.observe(element)
+    })
+    
+    return () => observer.disconnect()
+  }, [])
 
   // Intersection Observer for Metrics Section (Counter Animation)
   useEffect(() => {
@@ -1002,44 +1136,43 @@ function HomePage() {
         aria-hidden="true"
       />
 
-      {/* Wavy Line - Vibor.it Style Signature Element */}
+      {/* STICKY SIDE NAVIGATION - Minimalist Dots */}
       {isDesktop && !prefersReducedMotion && (
-        <div 
-          ref={wavyLineContainerRef}
-          className={`wavy-line-container ${wavyLineVisible ? 'visible' : ''}`}
-          aria-hidden="true"
-        >
-          <svg width="100%" height="100%">
-            <path 
-              d={wavyLinePath}
-              className="wavy-line-path"
-            />
-            {/* Animated dots on the line */}
-            <circle r="4" className="wavy-dot">
-              <animateMotion
-                dur="8s"
-                repeatCount="indefinite"
-                path={wavyLinePath}
-              />
-            </circle>
-            <circle r="3" className="wavy-dot">
-              <animateMotion
-                dur="8s"
-                repeatCount="indefinite"
-                begin="2.6s"
-                path={wavyLinePath}
-              />
-            </circle>
-            <circle r="3" className="wavy-dot">
-              <animateMotion
-                dur="8s"
-                repeatCount="indefinite"
-                begin="5.2s"
-                path={wavyLinePath}
-              />
-            </circle>
-          </svg>
-        </div>
+        <nav className="fixed right-8 top-1/2 -translate-y-1/2 z-40" aria-label="Section Navigation">
+          <div className="flex flex-col gap-4">
+            {sectionIds.map((sectionId, index) => {
+              const labels = ['Hero', 'Metryki', 'Usługi', 'O Nas', 'O Firmie', 'Projekty', 'Kontakt']
+              const isActive = activeSectionIndex === index
+              
+              return (
+                <div key={sectionId} className="group relative">
+                  <button
+                    onClick={() => scrollToSection(sectionId)}
+                    className={cn(
+                      'w-3 h-3 rounded-full transition-all duration-300',
+                      isActive
+                        ? 'bg-blue-700 scale-150 animate-pulse'
+                        : 'bg-gray-400 hover:bg-blue-500 hover:scale-125'
+                    )}
+                    aria-label={`Go to ${labels[index]}`}
+                  />
+                  
+                  {/* Label on hover */}
+                  <span className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-slate-900 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider pointer-events-none">
+                    {labels[index]}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+          
+          {/* Section Counter */}
+          <div className="mt-6 text-center">
+            <span className="text-xs font-bold text-gray-500">
+              {String(activeSectionIndex + 1).padStart(2, '0')} / {String(sectionIds.length).padStart(2, '0')}
+            </span>
+          </div>
+        </nav>
       )}
 
       {/* Custom Cursor (Desktop only) */}
@@ -1411,6 +1544,48 @@ function HomePage() {
             </div>
           </section>
 
+          {/* BRAND SHOWCASE MARQUEE - Trusted Companies */}
+          <section data-theme="light" className="py-16 bg-gradient-to-r from-gray-50 via-white to-gray-50 overflow-hidden border-y border-gray-200">
+            <div className="container mx-auto px-6 lg:px-12">
+              <p className="text-center text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold">
+                Zaufali Nam
+              </p>
+            </div>
+            
+            {/* Marquee Container */}
+            <div className="relative">
+              {/* Gradient Overlays */}
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+              
+              {/* Scrolling Content */}
+              <div className="flex gap-16 brand-marquee">
+                {/* First set */}
+                {brandShowcaseData.map((brand, index) => (
+                  <div
+                    key={`brand-1-${index}`}
+                    className="flex-shrink-0 w-40 h-24 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-blue-700 hover:shadow-lg transition-all duration-300 group"
+                  >
+                    <span className="text-2xl font-black text-gray-400 group-hover:text-blue-700 transition-colors uppercase tracking-tight">
+                      {brand.logo}
+                    </span>
+                  </div>
+                ))}
+                {/* Duplicate for seamless loop */}
+                {brandShowcaseData.map((brand, index) => (
+                  <div
+                    key={`brand-2-${index}`}
+                    className="flex-shrink-0 w-40 h-24 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-blue-700 hover:shadow-lg transition-all duration-300 group"
+                  >
+                    <span className="text-2xl font-black text-gray-400 group-hover:text-blue-700 transition-colors uppercase tracking-tight">
+                      {brand.logo}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           <section id="services" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
             {/* Background Decorations */}
             <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '400px', height: '400px', top: '5%', right: '0%' }} />
@@ -1493,6 +1668,173 @@ function HomePage() {
               </div>
             </div>
           </section>
+
+      {/* INTERACTIVE TECH SPECS TABLE */}
+      <section data-theme="light" className="py-20 lg:py-32 bg-white">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">TECHNOLOGY COMPARISON</p>
+              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 uppercase mb-8 tracking-tighter">
+                PORÓWNAJ<br />TECHNOLOGIE
+              </h2>
+            </div>
+
+            {/* Filters & Compare Toggle */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setSelectedFilter('all')}
+                  className={cn(
+                    'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
+                    selectedFilter === 'all'
+                      ? 'bg-blue-700 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  )}
+                >
+                  Wszystkie
+                </button>
+                {techSpecsData.map((spec) => (
+                  <button
+                    key={spec.id}
+                    onClick={() => setSelectedFilter(spec.id)}
+                    className={cn(
+                      'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
+                      selectedFilter === spec.id
+                        ? 'bg-blue-700 text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    )}
+                  >
+                    {spec.method.split(' ')[0]}
+                  </button>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => {
+                  setCompareMode(!compareMode)
+                  setSelectedForCompare([])
+                }}
+                className={cn(
+                  'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
+                  compareMode
+                    ? 'bg-orange-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                )}
+              >
+                {compareMode ? '✓ Compare Mode' : 'Compare Mode'}
+              </button>
+            </div>
+
+            {/* Table */}
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
+              <table className="w-full">
+                <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
+                  <tr>
+                    {compareMode && <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Select</th>}
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Metoda</th>
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Temperatura</th>
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Grubość</th>
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Zastosowanie</th>
+                    <th className="p-4 text-center text-xs uppercase tracking-wider text-gray-600 font-bold">Szczegóły</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {techSpecsData
+                    .filter((spec) => selectedFilter === 'all' || selectedFilter === spec.id)
+                    .map((spec) => (
+                      <>
+                        <tr
+                          key={spec.id}
+                          className={cn(
+                            'border-t border-gray-200 hover:bg-blue-50 transition-colors cursor-pointer',
+                            selectedForCompare.includes(spec.id) && 'bg-blue-100'
+                          )}
+                          onClick={() => setExpandedRow(expandedRow === spec.id ? null : spec.id)}
+                        >
+                          {compareMode && (
+                            <td className="p-4">
+                              <input
+                                type="checkbox"
+                                checked={selectedForCompare.includes(spec.id)}
+                                onChange={(e) => {
+                                  e.stopPropagation()
+                                  if (selectedForCompare.includes(spec.id)) {
+                                    setSelectedForCompare(selectedForCompare.filter((id) => id !== spec.id))
+                                  } else if (selectedForCompare.length < 2) {
+                                    setSelectedForCompare([...selectedForCompare, spec.id])
+                                  }
+                                }}
+                                className="w-5 h-5"
+                                disabled={!selectedForCompare.includes(spec.id) && selectedForCompare.length >= 2}
+                              />
+                            </td>
+                          )}
+                          <td className="p-4 font-bold text-gray-900">{spec.method}</td>
+                          <td className="p-4 text-gray-700">{spec.temperature}</td>
+                          <td className="p-4 text-gray-700">{spec.thickness}</td>
+                          <td className="p-4 text-gray-700 text-sm">{spec.applications}</td>
+                          <td className="p-4 text-center">
+                            <button className="text-blue-700 hover:text-blue-900 font-bold">
+                              {expandedRow === spec.id ? '▲' : '▼'}
+                            </button>
+                          </td>
+                        </tr>
+                        {expandedRow === spec.id && (
+                          <tr className="bg-gray-50 border-t border-gray-200">
+                            <td colSpan={compareMode ? 6 : 5} className="p-6">
+                              <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Zalety:</h4>
+                                  <ul className="space-y-2">
+                                    {spec.advantages.map((advantage, idx) => (
+                                      <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                                        <span className="text-blue-700 font-bold">✓</span>
+                                        {advantage}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                                <div>
+                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Materiały:</h4>
+                                  <p className="text-sm text-gray-700">{spec.materials}</p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Compare Results */}
+            {compareMode && selectedForCompare.length === 2 && (
+              <div className="mt-8 p-8 bg-gradient-to-br from-blue-50 to-white border-2 border-blue-700 rounded-2xl">
+                <h3 className="text-2xl font-black uppercase mb-6 text-blue-900">Porównanie</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {selectedForCompare.map((id) => {
+                    const spec = techSpecsData.find((s) => s.id === id)
+                    if (!spec) return null
+                    return (
+                      <div key={id} className="space-y-4">
+                        <h4 className="text-xl font-bold text-gray-900">{spec.method}</h4>
+                        <div className="space-y-2 text-sm">
+                          <p><strong>Temperatura:</strong> {spec.temperature}</p>
+                          <p><strong>Grubość:</strong> {spec.thickness}</p>
+                          <p><strong>Materiały:</strong> {spec.materials}</p>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
 
       {/* Sekcja Dlaczego STANIAX - Premium Video Background (Vibor.it Style) */}
       <section
@@ -2053,43 +2395,201 @@ function HomePage() {
 
         <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
-            {/* Vibor.it style layout - left aligned giant text */}
-            <div className="max-w-7xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold">GET IN TOUCH</p>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">GET IN TOUCH</p>
               
-              {/* Giant headline like Vibor.it */}
-              <div className="mb-20">
-                <h2 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-gray-900 uppercase leading-[0.85] tracking-tighter mb-10">
-                  GOTOWY NA<br />
-                  ROZPOCZĘCIE<br />
-                  PROJEKTU?
+              <div className="mb-12 text-center">
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 uppercase leading-[0.85] tracking-tighter mb-6">
+                  SMART<br />CONTACT FORM
                 </h2>
-                <p className="text-xl lg:text-2xl text-gray-600 font-normal max-w-2xl leading-relaxed">
-                  Skontaktuj się z naszym zespołem w celu konsultacji i wyceny.
+                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
+                  Multi-step wizard z walidacją
                 </p>
               </div>
 
-              {/* Duży CTA */}
-              <div className="flex flex-col sm:flex-row gap-6">
+              {/* Progress Bar */}
+              <div className="mb-12">
+                <div className="flex justify-between mb-4">
+                  {[1, 2, 3].map((step) => (
+                    <div
+                      key={step}
+                      className={cn(
+                        'flex items-center gap-2',
+                        formStep >= step ? 'text-blue-700' : 'text-gray-400'
+                      )}
+                    >
+                      <div className={cn(
+                        'w-10 h-10 rounded-full flex items-center justify-center font-bold',
+                        formStep >= step ? 'bg-blue-700 text-white' : 'bg-gray-200'
+                      )}>
+                        {step}
+                      </div>
+                      <span className="hidden sm:inline text-sm font-semibold">
+                        {step === 1 && 'Projekt'}
+                        {step === 2 && 'Technologia'}
+                        {step === 3 && 'Kontakt'}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-blue-700 transition-all duration-500"
+                    style={{ width: `${(formStep / 3) * 100}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* Form Steps */}
+              <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
+                {formStep === 1 && (
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-bold text-gray-900">Wybierz typ projektu</h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {['Prototypy', 'Produkcja', 'Naprawa', 'Konsultacja'].map((type) => (
+                        <button
+                          key={type}
+                          onClick={() => setSmartFormData({ ...smartFormData, projectType: type })}
+                          className={cn(
+                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105',
+                            smartFormData.projectType === type
+                              ? 'border-blue-700 bg-blue-50 text-blue-900'
+                              : 'border-gray-200 hover:border-blue-300'
+                          )}
+                        >
+                          {type}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {formStep === 2 && (
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-bold text-gray-900">Wybierz technologię</h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {['PVD', 'CVD', 'Natrysk Plazmowy', 'Galwanizacja'].map((tech) => (
+                        <button
+                          key={tech}
+                          onClick={() => setSmartFormData({ ...smartFormData, technology: tech })}
+                          className={cn(
+                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105',
+                            smartFormData.technology === tech
+                              ? 'border-blue-700 bg-blue-50 text-blue-900'
+                              : 'border-gray-200 hover:border-blue-300'
+                          )}
+                        >
+                          {tech}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {formStep === 3 && (
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-bold text-gray-900">Twoje dane kontaktowe</h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <Input
+                        placeholder="Imię *"
+                        value={smartFormData.firstName}
+                        onChange={(e) => setSmartFormData({ ...smartFormData, firstName: e.target.value })}
+                        className="border-2"
+                      />
+                      <Input
+                        placeholder="Nazwisko *"
+                        value={smartFormData.lastName}
+                        onChange={(e) => setSmartFormData({ ...smartFormData, lastName: e.target.value })}
+                        className="border-2"
+                      />
+                    </div>
+                    <Input
+                      type="email"
+                      placeholder="Email *"
+                      value={smartFormData.email}
+                      onChange={(e) => setSmartFormData({ ...smartFormData, email: e.target.value })}
+                      className="border-2"
+                    />
+                    <Input
+                      placeholder="Telefon"
+                      value={smartFormData.phone}
+                      onChange={(e) => setSmartFormData({ ...smartFormData, phone: e.target.value })}
+                      className="border-2"
+                    />
+                    <Textarea
+                      placeholder="Wiadomość *"
+                      value={smartFormData.message}
+                      onChange={(e) => setSmartFormData({ ...smartFormData, message: e.target.value })}
+                      className="border-2 min-h-32"
+                    />
+                  </div>
+                )}
+
+                {/* Navigation Buttons */}
+                <div className="flex justify-between mt-8">
+                  {formStep > 1 && (
+                    <Button
+                      onClick={() => setFormStep(formStep - 1)}
+                      variant="outline"
+                      className="font-bold"
+                    >
+                      ← Wstecz
+                    </Button>
+                  )}
+                  <div className="ml-auto">
+                    {formStep < 3 ? (
+                      <Button
+                        onClick={() => setFormStep(formStep + 1)}
+                        className="bg-blue-700 hover:bg-blue-800 font-bold"
+                        disabled={
+                          (formStep === 1 && !smartFormData.projectType) ||
+                          (formStep === 2 && !smartFormData.technology)
+                        }
+                      >
+                        Dalej →
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={() => {
+                          triggerConfetti()
+                          toast.success('Wiadomość wysłana!')
+                          setFormStep(1)
+                          setSmartFormData({
+                            projectType: '',
+                            technology: '',
+                            firstName: '',
+                            lastName: '',
+                            email: '',
+                            phone: '',
+                            message: '',
+                            file: null
+                          })
+                        }}
+                        className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button"
+                        disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message}
+                      >
+                        Wyślij 🚀
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Contact */}
+              <div className="flex flex-col sm:flex-row gap-6 mt-12">
                 <button
                   onClick={() => window.open('mailto:kontakt@staniax.pl', '_blank')}
-                  className="group px-12 py-5 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
+                  className="group px-8 py-4 bg-gray-900 text-white font-bold uppercase tracking-wider hover:bg-gray-800 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02] magnetic-button"
                 >
-                  Napisz Do Nas
-                  <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1" />
+                  kontakt@staniax.pl
                 </button>
                 <button
                   onClick={() => window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank')}
-                  className="group px-12 py-5 border-2 border-gray-300 text-gray-900 font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
+                  className="group px-8 py-4 border-2 border-gray-300 text-gray-900 font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02] magnetic-button"
                 >
-                  Odwiedź Nas
+                  Grzybowska 5A, Warszawa
                 </button>
               </div>
-
-              {/* Dodatkowe info */}
-              <p className="text-xs uppercase tracking-[0.3em] text-gray-500 mt-12 font-semibold">
-                Potrzebujesz pomocy? Skontaktuj się z nami już dziś
-              </p>
             </div>
           </div>
         </section>

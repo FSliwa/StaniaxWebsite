@@ -781,6 +781,24 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* BRAND SHOWCASE MARQUEE */
+.brand-marquee {
+  animation: marqueeScroll 40s linear infinite;
+}
+
+.brand-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 :root {
   --background: oklch(0.99 0.005 0);
   --foreground: oklch(0.25 0.02 270);
