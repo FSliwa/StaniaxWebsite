@@ -1429,7 +1429,7 @@ function HomePage() {
 
             {/* Dolna część - Wideo z Parallax Effect + Floating Badge */}
             <div className="container mx-auto px-6 lg:px-12 pb-20 lg:pb-32 relative z-10">
-              <div className="max-w-7xl mx-auto relative">
+              <div className="max-w-[90rem] mx-auto relative">
                 {/* Floating Badge - Darmowa Konsultacja */}
                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 floating-badge">
                   <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
@@ -1469,76 +1469,42 @@ function HomePage() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 {/* Metryka 1 */}
                 <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                  <div className="relative">
-                    {/* Pulsing Circle */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-32 h-32 rounded-full bg-blue-700/10 animate-pulse"></div>
-                    </div>
-                    <div className="relative text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                      <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
-                    </div>
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
                   </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold mb-3">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
                     LAT DOŚWIADCZENIA
                   </p>
-                  {/* Progress Bar */}
-                  <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
-                    <div className={`h-full bg-blue-700 rounded-full ${metricsVisible ? 'progress-bar' : ''}`} style={{ width: '95%' }}></div>
-                  </div>
                 </div>
 
                 {/* Metryka 2 */}
                 <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                  <div className="relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-32 h-32 rounded-full bg-blue-700/10 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                    </div>
-                    <div className="relative text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                      <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
-                    </div>
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
                   </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold mb-3">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
                     ZREALIZOWANYCH PROJEKTÓW
                   </p>
-                  <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
-                    <div className={`h-full bg-blue-700 rounded-full ${metricsVisible ? 'progress-bar' : ''}`} style={{ width: '100%', animationDelay: '0.2s' }}></div>
-                  </div>
                 </div>
 
                 {/* Metryka 3 */}
                 <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                  <div className="relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-32 h-32 rounded-full bg-blue-700/10 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-                    </div>
-                    <div className="relative text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                      24H
-                    </div>
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    24H
                   </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold mb-3">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
                     CZAS REAKCJI
                   </p>
-                  <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
-                    <div className={`h-full bg-blue-700 rounded-full ${metricsVisible ? 'progress-bar' : ''}`} style={{ width: '100%', animationDelay: '0.4s' }}></div>
-                  </div>
                 </div>
 
                 {/* Metryka 4 */}
                 <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                  <div className="relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-32 h-32 rounded-full bg-blue-700/10 animate-pulse" style={{ animationDelay: '0.6s' }}></div>
-                    </div>
-                    <div className="relative text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                      ISO
-                    </div>
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    ISO
                   </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold mb-3">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
                     9001:2015 CERTYFIKAT
                   </p>
-                  <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
-                    <div className={`h-full bg-blue-700 rounded-full ${metricsVisible ? 'progress-bar' : ''}`} style={{ width: '100%', animationDelay: '0.6s' }}></div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -2104,12 +2070,12 @@ function HomePage() {
         <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-white to-gray-50 overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
             {/* Header */}
-            <div className="text-center mb-20">
+            <div className="text-left mb-20 max-w-7xl section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">CASE STUDIES</p>
-              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 uppercase mb-8 tracking-tighter">
+              <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black text-gray-900 uppercase mb-8 tracking-tighter leading-none">
                 NASZE<br />REALIZACJE
               </h2>
-              <p className="text-lg text-gray-600 font-normal max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg text-gray-600 font-normal max-w-2xl leading-relaxed">
                 Odkryj historie sukcesów naszych klientów z branż motoryzacyjnej, lotniczej i przemysłowej
               </p>
             </div>
@@ -2396,14 +2362,14 @@ function HomePage() {
         <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">GET IN TOUCH</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT</p>
               
               <div className="mb-12 text-center">
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 uppercase leading-[0.85] tracking-tighter mb-6">
-                  SMART<br />CONTACT FORM
+                  SKONTAKTUJ SIĘ<br />Z NAMI
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Multi-step wizard z walidacją
+                  Wypełnij formularz, a my skontaktujemy się z Tobą w ciągu 24 godzin
                 </p>
               </div>
 
