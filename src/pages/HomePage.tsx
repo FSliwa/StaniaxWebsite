@@ -1100,7 +1100,7 @@ function HomePage() {
       </header>
 
       <div className="relative w-full">
-          <section id="top" data-theme="dark" className="relative min-h-[600px] max-h-[85vh] lg:h-screen w-full flex flex-col justify-center overflow-hidden">
+          <section id="top" data-theme="dark" className="relative min-h-[700px] lg:min-h-screen w-full flex flex-col justify-center overflow-hidden">
             <div className="absolute inset-0" aria-hidden>
               <video
                 className="absolute inset-0 w-full h-full object-cover"
@@ -1116,10 +1116,10 @@ function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
             </div>
 
-            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+            <div className="container mx-auto px-6 lg:px-12 relative z-10 py-12 lg:py-0">
               <div className="max-w-7xl space-y-12">
                 <div className="space-y-6">
-                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default">
+                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default overflow-visible">
                     <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(255,255,255,0.6)] group-hover:scale-105 animate-[slideInReveal_1.2s_ease-out]" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
                       POWŁOKI
                     </span>
