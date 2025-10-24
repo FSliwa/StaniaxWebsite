@@ -1283,7 +1283,6 @@ function HomePage() {
               </div>
             </div>
           </section>
-      </div>
 
       {/* Sekcja Dlaczego STANIAX - Premium Video Background (Vibor.it Style) */}
       <section
@@ -1525,6 +1524,7 @@ function HomePage() {
                   <p><span className="font-bold text-gray-900">✓ Wsparcie 24/7</span> - Elastyczne planowanie i dostępność</p>
                 </div>
               </div>
+            </div>
             </div>
 
             {/* Cytat misji - poniżej siatki - w szarym tle */}
