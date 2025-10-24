@@ -1117,9 +1117,9 @@ function HomePage() {
             </div>
 
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
-              <div className="max-w-7xl space-y-10">
-                <div className="space-y-8">
-                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default animate-[fadeIn_1.2s_ease-out]">
+              <div className="max-w-7xl space-y-12">
+                <div className="space-y-6">
+                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[16rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default animate-[fadeIn_1.2s_ease-out]">
                     <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(255,255,255,0.6)] group-hover:scale-105">
                       POWŁOKI
                     </span>
@@ -1129,17 +1129,17 @@ function HomePage() {
                   </h1>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-5">
                   <button
                     onClick={() => scrollToSection('projects')}
-                    className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
+                    className="group px-12 py-5 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
                   >
                     Zobacz Nasze Prace
-                    <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 hover:translate-x-1" />
+                    <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
                   <button
                     onClick={() => scrollToSection('contact')}
-                    className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
+                    className="group px-12 py-5 border-2 border-white/40 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-lg backdrop-blur-sm hover:shadow-2xl hover:scale-[1.02]"
                   >
                     <Phone className="w-5 h-5 mr-2 inline-block" />
                     Skontaktuj się z nami
@@ -1150,7 +1150,7 @@ function HomePage() {
           </section>
 
           {/* Sekcja Liczb/Metryk - Trust Indicators */}
-          <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-24 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+          <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
             {/* Background Decorations */}
             <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
             <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
@@ -1201,25 +1201,25 @@ function HomePage() {
             </div>
           </section>
 
-          <section id="services" data-theme="light" className="relative py-24 bg-white overflow-hidden">
+          <section id="services" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
             {/* Background Decorations */}
             <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '400px', height: '400px', top: '5%', right: '0%' }} />
             <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '350px', height: '350px', bottom: '10%', left: '0%', animationDelay: '3s' }} />
             
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
               {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
-              <div className="text-right mb-16 max-w-7xl ml-auto section-reveal">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">OUR SERVICES</p>
-                <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
+              <div className="text-right mb-20 max-w-7xl ml-auto section-reveal">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OUR SERVICES</p>
+                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 text-gray-900 tracking-tighter leading-none">
                   NASZE USŁUGI
                 </h2>
-                <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal">
+                <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal leading-relaxed">
                   Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych
                 </p>
               </div>
 
               {/* Grid 2x2 usług - układ po skosie */}
-              <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
                 {servicesData.map((service, index) => {
                   // Układ po skosie: lewe kafelki niżej, prawe wyżej
                   // Lewy: index 0 (+80px), index 2 (+160px)
@@ -1289,7 +1289,7 @@ function HomePage() {
       <section
         id="custom-section"
         data-theme="dark"
-        className="relative py-24 overflow-hidden"
+        className="relative py-20 lg:py-32 overflow-hidden"
       >
         {/* Video Background with Overlay */}
         <div className="absolute inset-0" aria-hidden="true">
@@ -1314,12 +1314,12 @@ function HomePage() {
         
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
-          <div className="text-left mb-16 max-w-7xl mr-auto section-reveal">
-            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-4 font-semibold">WHY CHOOSE</p>
-            <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-white tracking-tighter leading-none">
+          <div className="text-left mb-20 max-w-7xl mr-auto section-reveal">
+            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-6 font-semibold">WHY CHOOSE</p>
+            <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 text-white tracking-tighter leading-none">
               STANIAX
             </h2>
-            <p className="text-base text-white/80 max-w-2xl mr-auto font-normal">
+            <p className="text-lg text-white/80 max-w-2xl mr-auto font-normal leading-relaxed">
               Dlaczego warto wybrać nas jako partnera do metalizacji przemysłowej
             </p>
           </div>
@@ -1394,27 +1394,27 @@ function HomePage() {
         </div>
       </section>
 
-        <section id="about" data-theme="light" className="relative py-24 bg-white overflow-hidden">
+        <section id="about" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
           {/* Background Decorations */}
           <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '350px', height: '350px', top: '8%', right: '5%' }} />
           <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '300px', height: '300px', bottom: '12%', left: '3%', animationDelay: '2.5s' }} />
           
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
-            <div className="text-right mb-16 section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ABOUT US</p>
-              <div className="bg-gray-100 py-12 px-12 lg:px-20 -mx-6 lg:-mx-12">
-                <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
+            <div className="text-right mb-20 section-reveal">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">ABOUT US</p>
+              <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-2xl">
+                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 text-gray-900 tracking-tighter leading-none">
                   TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
                 </h2>
-                <p className="text-base text-gray-600 max-w-2xl ml-auto font-normal mt-4">
+                <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal mt-6 leading-relaxed">
                   15 lat doświadczenia w zaawansowanych technologiach metalizacyjnych
                 </p>
               </div>
             </div>
 
             {/* Grid 2x2 kart - układ po skosie */}
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
               {/* Karta 1: Kim Jesteśmy - Prawy górny (0px) */}
               <div 
                 className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
@@ -1431,20 +1431,20 @@ function HomePage() {
                   current.style.transform = `translateY(0px)`
                 }}
               >
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-700">
-                  <Factory className="w-6 h-6 text-blue-700 group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                  <Factory className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-2xl font-bold uppercase mb-4 text-gray-900 tracking-wide">
+                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
                   KIM JESTEŚMY
                 </h3>
-                <p className="text-gray-600 leading-relaxed font-normal">
+                <p className="text-gray-600 leading-relaxed font-normal text-base">
                   <span className="font-bold text-gray-900">STANIAX Sp. z o.o.</span> to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A, specjalizująca się w zaawansowanych rozwiązaniach metalizacyjnych dla przemysłu. Łączymy ponad 15-letnie doświadczenie w inżynierii powierzchni z nowoczesnymi technologiami.
                 </p>
               </div>
 
               {/* Karta 2: Technologie - Lewy górny (80px) */}
               <div 
-                className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
+                className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
                 style={{
                   transform: 'translateY(80px)',
                   animationDelay: '0.1s'
@@ -1458,20 +1458,20 @@ function HomePage() {
                   current.style.transform = `translateY(80px)`
                 }}
               >
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-700">
-                  <Wrench className="w-6 h-6 text-blue-700 group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                  <Wrench className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-2xl font-bold uppercase mb-4 text-gray-900 tracking-wide">
+                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
                   TECHNOLOGIE
                 </h3>
-                <p className="text-gray-600 leading-relaxed font-normal">
+                <p className="text-gray-600 leading-relaxed font-normal text-base">
                   Oferujemy szeroki zakres metod: <span className="font-semibold text-gray-800">PVD, CVD, natrysk plazmowy</span> oraz <span className="font-semibold text-gray-800">galwanizację przemysłową</span>. Pracujemy z materiałami takimi jak tytan, chrom, nikiel, wolfram oraz ceramika techniczna.
                 </p>
               </div>
 
               {/* Karta 3: Branże - Prawy dolny (80px) */}
               <div 
-                className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
+                className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
                 style={{
                   transform: 'translateY(80px)',
                   animationDelay: '0.2s'
@@ -1485,20 +1485,20 @@ function HomePage() {
                   current.style.transform = `translateY(80px)`
                 }}
               >
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-700">
-                  <Users className="w-6 h-6 text-blue-700 group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                  <Users className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-2xl font-bold uppercase mb-4 text-gray-900 tracking-wide">
+                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
                   BRANŻE
                 </h3>
-                <p className="text-gray-600 leading-relaxed font-normal">
+                <p className="text-gray-600 leading-relaxed font-normal text-base">
                   Realizujemy projekty dla <span className="font-semibold text-gray-800">przemysłu lotniczego, motoryzacyjnego, medycznego, energetycznego</span> oraz <span className="font-semibold text-gray-800">sektora narzędziowego</span>. Nasze powłoki zwiększają odporność na zużycie, korozję i wysokie temperatury.
                 </p>
               </div>
 
               {/* Karta 4: Jakość - Lewy dolny (160px) */}
               <div 
-                className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
+                className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
                 style={{
                   transform: 'translateY(160px)',
                   animationDelay: '0.3s'
@@ -1512,13 +1512,13 @@ function HomePage() {
                   current.style.transform = `translateY(160px)`
                 }}
               >
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 group-hover:bg-blue-700">
-                  <Trophy className="w-6 h-6 text-blue-700 group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                  <Trophy className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-2xl font-bold uppercase mb-4 text-gray-900 tracking-wide">
+                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
                   JAKOŚĆ
                 </h3>
-                <div className="space-y-3 text-sm text-gray-600 leading-relaxed font-normal">
+                <div className="space-y-4 text-base text-gray-600 leading-relaxed font-normal">
                   <p><span className="font-bold text-gray-900">✓ ISO 9001:2015</span> - Certyfikowane zarządzanie jakością</p>
                   <p><span className="font-bold text-gray-900">✓ Kontrole środowiskowe</span> - Nowoczesne technologie oczyszczania</p>
                   <p><span className="font-bold text-gray-900">✓ Wsparcie 24/7</span> - Elastyczne planowanie i dostępność</p>
@@ -1527,17 +1527,17 @@ function HomePage() {
             </div>
 
             {/* Cytat misji - poniżej siatki */}
-            <div className="max-w-4xl mx-auto mt-20">
-              <p className="text-base text-gray-600 italic border-l-4 border-blue-700 pl-6 leading-relaxed font-normal">
+            <div className="max-w-4xl mx-auto mt-24">
+              <p className="text-lg text-gray-600 italic border-l-4 border-blue-700 pl-8 leading-relaxed font-normal">
                 "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
               </p>
             </div>
 
             {/* CTA - wyśrodkowany */}
-            <div className="text-center mt-12">
+            <div className="text-center mt-16">
               <Button
                 onClick={() => scrollToSection('contact')}
-                className="bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 px-10 py-4"
+                className="bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 px-12 py-5 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
               >
                 Skontaktuj się z nami
               </Button>
@@ -1545,15 +1545,15 @@ function HomePage() {
           </div>
         </section>
 
-        <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-24 bg-white">
+        <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-20 lg:py-32 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             {/* Header */}
-            <div className="text-center mb-16">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4">OUR WORK</p>
-              <h2 className="text-5xl lg:text-6xl font-black text-gray-900 uppercase mb-6">
+            <div className="text-center mb-20">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OUR WORK</p>
+              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 uppercase mb-8 tracking-tighter">
                 NAJNOWSZE PROJEKTY
               </h2>
-              <p className="text-gray-600 font-medium max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 font-normal max-w-2xl mx-auto leading-relaxed">
                 Odkryj nasze najnowsze projekty metalizacyjne w różnych branżach, prezentujące precyzję i jakość.
               </p>
             </div>
@@ -1674,31 +1674,31 @@ function HomePage() {
           </div>
         </section>
 
-        <section id="contact" data-theme="light" className="py-24 bg-gray-50">
+        <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             {/* Vibor.it style layout - left aligned giant text */}
             <div className="max-w-7xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">GET IN TOUCH</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold">GET IN TOUCH</p>
               
               {/* Giant headline like Vibor.it */}
-              <div className="mb-16">
-                <h2 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-gray-900 uppercase leading-[0.9] tracking-tighter mb-8">
+              <div className="mb-20">
+                <h2 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-gray-900 uppercase leading-[0.85] tracking-tighter mb-10">
                   GOTOWY NA<br />
                   ROZPOCZĘCIE<br />
                   PROJEKTU?
                 </h2>
-                <p className="text-lg lg:text-xl text-gray-600 font-normal max-w-2xl">
+                <p className="text-xl lg:text-2xl text-gray-600 font-normal max-w-2xl leading-relaxed">
                   Skontaktuj się z naszym zespołem w celu konsultacji i wyceny.
                 </p>
               </div>
 
               {/* Informacje kontaktowe w prostym układzie */}
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-6 h-6 text-blue-700" />
+              <div className="grid md:grid-cols-3 gap-12 mb-16">
+                <div className="text-center group transition-all duration-300 hover:scale-105">
+                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-blue-700 group-hover:scale-110">
+                    <MapPin className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">Adres</h3>
+                  <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Adres</h3>
                   <p className="text-sm text-gray-600 font-normal">
                     Grzybowska 5A<br />
                     00-132 Warszawa<br />
@@ -1714,11 +1714,11 @@ function HomePage() {
                   </a>
                 </div>
 
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                    <EnvelopeSimple className="w-6 h-6 text-blue-700" />
+                <div className="text-center group transition-all duration-300 hover:scale-105">
+                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-blue-700 group-hover:scale-110">
+                    <EnvelopeSimple className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">Dane Rejestrowe</h3>
+                  <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Dane Rejestrowe</h3>
                   <div className="text-sm text-gray-600 font-normal space-y-1">
                     <p>KRS: 0001182026</p>
                     <p>NIP: 5253052509</p>
@@ -1726,11 +1726,11 @@ function HomePage() {
                   </div>
                 </div>
 
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                    <Phone className="w-6 h-6 text-blue-700" />
+                <div className="text-center group transition-all duration-300 hover:scale-105">
+                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-blue-700 group-hover:scale-110">
+                    <Phone className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">Kontakt</h3>
+                  <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Kontakt</h3>
                   <p className="text-sm text-gray-600 font-normal">
                     Formularz kontaktowy dostępny wkrótce
                   </p>
@@ -1738,17 +1738,17 @@ function HomePage() {
               </div>
 
               {/* Duży CTA */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-6">
                 <button
                   onClick={() => window.open('mailto:kontakt@staniax.pl', '_blank')}
-                  className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
+                  className="group px-12 py-5 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
                 >
                   Napisz Do Nas
-                  <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 hover:translate-x-1" />
+                  <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
                 <button
                   onClick={() => window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank')}
-                  className="px-10 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-md hover:shadow-lg"
+                  className="group px-12 py-5 border-2 border-gray-300 text-gray-900 font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
                 >
                   Odwiedź Nas
                 </button>
