@@ -1719,6 +1719,7 @@ function HomePage() {
             </div>
           </div>
         </section>
+      </div>
 
       <Toaster position="top-right" richColors />
       <CookieBanner />
