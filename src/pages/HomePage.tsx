@@ -148,7 +148,7 @@ const projectsData: ProjectItem[] = [
     year: '2024'
   },
   { 
-    id: 'aerospace', 
+    id: 'aerospace',
     title: 'Części Lotnicze', 
     icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
     image: projectImgAerospace,
@@ -196,6 +196,83 @@ const projectsData: ProjectItem[] = [
     details: 'Ekspresowa metalizacja prototypów dla R&D, testowanie nowych rozwiązań powłokowych i weryfikacja parametrów.',
     category: 'R&D',
     year: '2024'
+  }
+]
+
+// CASE STUDIES DATA for Carousel
+type CaseStudy = {
+  id: string
+  title: string
+  subtitle: string
+  imageBefore: string
+  imageAfter: string
+  metrics: Array<{ value: string; label: string }>
+  testimonial: {
+    quote: string
+    author: string
+    role: string
+    avatar: string
+  }
+  badge: string
+}
+
+const caseStudiesData: CaseStudy[] = [
+  {
+    id: 'automotive-excellence',
+    title: 'Automotive Excellence',
+    subtitle: 'Przełomowa metalizacja komponentów silnikowych',
+    imageBefore: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop',
+    imageAfter: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop',
+    metrics: [
+      { value: '3 msc', label: 'Realizacja' },
+      { value: '50K+', label: 'Elementy' },
+      { value: 'ISO 9001', label: 'Certyfikat' }
+    ],
+    testimonial: {
+      quote: 'Współpraca z STANIAX przyniosła rewolucyjne rezultaty. Trwałość naszych komponentów wzrosła o 250%, a koszty produkcji spadły o 30%.',
+      author: 'Jan Kowalski',
+      role: 'CEO, TechMotors',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+    },
+    badge: '+250% Trwałość'
+  },
+  {
+    id: 'aerospace-innovation',
+    title: 'Aerospace Innovation',
+    subtitle: 'Precyzyjne powłoki dla komponentów lotniczych',
+    imageBefore: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop',
+    imageAfter: projectImgAerospace,
+    metrics: [
+      { value: '6 msc', label: 'Projekt' },
+      { value: '99.9%', label: 'Precyzja' },
+      { value: 'AS9100', label: 'Standard' }
+    ],
+    testimonial: {
+      quote: 'STANIAX spełnił najwyższe standardy aerospace. Ich metalizacja zwiększyła żywotność elementów turbinowych o 180% przy zachowaniu norm AS9100.',
+      author: 'Anna Nowak',
+      role: 'Lead Engineer, AeroTech',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+    },
+    badge: '+180% Żywotność'
+  },
+  {
+    id: 'industrial-revolution',
+    title: 'Industrial Revolution',
+    subtitle: 'Kompleksowa ochrona linii produkcyjnej',
+    imageBefore: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop',
+    imageAfter: projectImgIndustrial,
+    metrics: [
+      { value: '12 msc', label: 'Wdrożenie' },
+      { value: '200+', label: 'Maszyny' },
+      { value: '0', label: 'Awarie' }
+    ],
+    testimonial: {
+      quote: 'Dzięki metalizacji całej linii produkcyjnej przez STANIAX, eliminujemy 95% awarii związanych z korozją i zużyciem. ROI osiągnęliśmy w 8 miesięcy.',
+      author: 'Piotr Wiśniewski',
+      role: 'Operations Director, IndustryPro',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
+    },
+    badge: '95% Redukcja Awarii'
   }
 ]
 
@@ -384,6 +461,14 @@ function HomePage() {
   const [wavyLinePath, setWavyLinePath] = useState('')
   const wavyLineContainerRef = useRef<HTMLDivElement | null>(null)
   
+  // CASE STUDIES CAROUSEL STATE
+  const [activeSlide, setActiveSlide] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [beforeAfterSlider, setBeforeAfterSlider] = useState(50) // percentage for before/after slider
+  
+  // MICRO-INTERACTIONS STATE
+  const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
+  
   const { scrollYProgress: aboutScrollProgress } = useScroll({
     target: aboutMosaicRef,
     offset: ['start 90%', 'end 15%']
@@ -453,6 +538,38 @@ function HomePage() {
       window.removeEventListener('mousemove', handleMouseMove)
     }
   }, [isDesktop, prefersReducedMotion])
+
+  // Cursor Trail Effect (Vibor.it micro-interaction)
+  useEffect(() => {
+    if (!isDesktop || prefersReducedMotion) return
+    
+    let trailId = 0
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      setCursorTrail((prev) => {
+        const newTrail = [...prev, { x: e.clientX, y: e.clientY, id: trailId++ }]
+        // Keep only last 8 trail positions
+        return newTrail.slice(-8)
+      })
+    }
+    
+    window.addEventListener('mousemove', handleMouseMove)
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [isDesktop, prefersReducedMotion])
+
+  // Auto-play carousel for case studies
+  useEffect(() => {
+    if (!isAutoPlaying) return
+    
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
+    }, 5000) // Change slide every 5 seconds
+    
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
 
   // Intersection Observer for Metrics Section (Counter Animation)
   useEffect(() => {
@@ -946,6 +1063,21 @@ function HomePage() {
             }}
             aria-hidden="true"
           />
+          
+          {/* Cursor Trail - Vibor.it micro-interaction */}
+          {cursorTrail.map((pos, index) => (
+            <div
+              key={pos.id}
+              className="cursor-trail"
+              style={{
+                left: `${pos.x}px`,
+                top: `${pos.y}px`,
+                opacity: (index + 1) / cursorTrail.length * 0.6,
+                transform: `translate(-50%, -50%) scale(${(index + 1) / cursorTrail.length})`,
+              }}
+              aria-hidden="true"
+            />
+          ))}
         </>
       )}
 
@@ -1626,48 +1758,212 @@ function HomePage() {
           </div>
         </section>
 
-        <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-20 lg:py-32 bg-white">
+        {/* CASE STUDIES CAROUSEL - Vibor.it Style */}
+        <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-white to-gray-50 overflow-hidden">
           <div className="container mx-auto px-6 lg:px-12">
             {/* Header */}
             <div className="text-center mb-20">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OUR WORK</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">CASE STUDIES</p>
               <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 uppercase mb-8 tracking-tighter">
-                NAJNOWSZE PROJEKTY
+                NASZE<br />REALIZACJE
               </h2>
               <p className="text-lg text-gray-600 font-normal max-w-2xl mx-auto leading-relaxed">
-                Odkryj nasze najnowsze projekty metalizacyjne w różnych branżach, prezentujące precyzję i jakość.
+                Odkryj historie sukcesów naszych klientów z branż motoryzacyjnej, lotniczej i przemysłowej
               </p>
             </div>
 
-            {/* Simple Grid - No tooltips, no complex hover */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projectsData.map((project, index) => (
-                <div
-                  key={project.id}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-100 card-tilt hover-lift cursor-pointer stagger-item"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <IndustrialImage
-                    src={project.image}
-                    alt={project.title}
-                    className="h-full w-full transition-transform duration-700 group-hover:scale-110"
+            {/* Carousel Container */}
+            <div className="relative max-w-7xl mx-auto">
+              {/* Carousel Slides */}
+              <div className="relative overflow-hidden">
+                {caseStudiesData.map((caseStudy, index) => (
+                  <div
+                    key={caseStudy.id}
+                    className={cn(
+                      'transition-all duration-700 ease-in-out',
+                      activeSlide === index ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 pointer-events-none'
+                    )}
                   >
-                    <div className="relative z-10 text-center text-white transition-all duration-300 group-hover:scale-105">
-                      <div className="icon-pulse">{project.icon}</div>
-                      <p className="font-bold text-lg tracking-wide uppercase mt-2">{project.title}</p>
-                      <p className="text-xs uppercase tracking-wider opacity-80 mt-1 transition-opacity duration-300 group-hover:opacity-100">{project.category} • {project.year}</p>
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                      {/* Left: Before/After Image Comparison */}
+                      <div className="relative group">
+                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-gray-200 shadow-2xl">
+                          {/* Before Image */}
+                          <img
+                            src={caseStudy.imageBefore}
+                            alt={`${caseStudy.title} - Before`}
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                          
+                          {/* After Image with Slider */}
+                          <div 
+                            className="absolute inset-0 overflow-hidden"
+                            style={{ clipPath: `inset(0 ${100 - beforeAfterSlider}% 0 0)` }}
+                          >
+                            <img
+                              src={caseStudy.imageAfter}
+                              alt={`${caseStudy.title} - After`}
+                              className="absolute inset-0 w-full h-full object-cover"
+                            />
+                          </div>
+
+                          {/* Slider Handle */}
+                          <div 
+                            className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
+                            style={{ left: `${beforeAfterSlider}%` }}
+                            onMouseDown={(e) => {
+                              const startX = e.clientX
+                              const startSlider = beforeAfterSlider
+                              
+                              const handleMouseMove = (moveEvent: MouseEvent) => {
+                                const rect = e.currentTarget.parentElement?.getBoundingClientRect()
+                                if (!rect) return
+                                const newX = ((moveEvent.clientX - rect.left) / rect.width) * 100
+                                setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
+                              }
+                              
+                              const handleMouseUp = () => {
+                                document.removeEventListener('mousemove', handleMouseMove)
+                                document.removeEventListener('mouseup', handleMouseUp)
+                              }
+                              
+                              document.addEventListener('mousemove', handleMouseMove)
+                              document.addEventListener('mouseup', handleMouseUp)
+                            }}
+                          >
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
+                              <div className="flex gap-1">
+                                <div className="w-0.5 h-4 bg-gray-700"></div>
+                                <div className="w-0.5 h-4 bg-gray-700"></div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Before/After Labels */}
+                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                            BEFORE
+                          </div>
+                          <div className="absolute top-4 right-4 bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                            AFTER
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right: Content */}
+                      <div className="space-y-8">
+                        <div>
+                          <h3 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase mb-3 tracking-tight">
+                            {caseStudy.title}
+                          </h3>
+                          <p className="text-lg text-gray-600 font-normal leading-relaxed">
+                            {caseStudy.subtitle}
+                          </p>
+                        </div>
+
+                        {/* Metrics */}
+                        <div className="grid grid-cols-3 gap-6">
+                          {caseStudy.metrics.map((metric, idx) => (
+                            <div key={idx} className="text-center">
+                              <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2">
+                                {metric.value}
+                              </div>
+                              <p className="text-xs uppercase tracking-wider text-gray-600 font-semibold">
+                                {metric.label}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Testimonial */}
+                        <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-8">
+                          <blockquote className="space-y-4">
+                            <p className="text-gray-700 leading-relaxed italic">
+                              "{caseStudy.testimonial.quote}"
+                            </p>
+                            <div className="flex items-center gap-4">
+                              <img
+                                src={caseStudy.testimonial.avatar}
+                                alt={caseStudy.testimonial.author}
+                                className="w-12 h-12 rounded-full object-cover border-2 border-blue-700"
+                              />
+                              <div>
+                                <cite className="not-italic font-bold text-gray-900 block">
+                                  — {caseStudy.testimonial.author}
+                                </cite>
+                                <span className="text-sm text-gray-600">
+                                  {caseStudy.testimonial.role}
+                                </span>
+                              </div>
+                            </div>
+                          </blockquote>
+                        </div>
+
+                        {/* Performance Badge */}
+                        <div className="inline-flex items-center gap-3 bg-blue-700 text-white px-6 py-3 rounded-full font-bold uppercase tracking-wider text-sm">
+                          <Trophy className="w-5 h-5" />
+                          {caseStudy.badge}
+                        </div>
+                      </div>
                     </div>
-                  </IndustrialImage>
+                  </div>
+                ))}
+              </div>
+
+              {/* Carousel Controls */}
+              <div className="flex items-center justify-center gap-8 mt-12">
+                <button
+                  onClick={() => {
+                    setActiveSlide((prev) => (prev - 1 + caseStudiesData.length) % caseStudiesData.length)
+                    setIsAutoPlaying(false)
+                  }}
+                  className="w-12 h-12 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold"
+                  aria-label="Previous slide"
+                >
+                  ←
+                </button>
+
+                {/* Dots */}
+                <div className="flex gap-3">
+                  {caseStudiesData.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setActiveSlide(index)
+                        setIsAutoPlaying(false)
+                      }}
+                      className={cn(
+                        'w-3 h-3 rounded-full transition-all duration-300',
+                        activeSlide === index
+                          ? 'bg-blue-700 w-8'
+                          : 'bg-gray-300 hover:bg-gray-400'
+                      )}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
                 </div>
-              ))}
+
+                <button
+                  onClick={() => {
+                    setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
+                    setIsAutoPlaying(false)
+                  }}
+                  className="w-12 h-12 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold"
+                  aria-label="Next slide"
+                >
+                  →
+                </button>
+              </div>
             </div>
 
-            <div className="text-center mt-12">
+            {/* CTA - Traditional Grid Below Carousel */}
+            <div className="text-center mt-20">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">Zobacz więcej</p>
               <Button
                 onClick={() => navigate('/news')}
-                className="ripple-effect magnetic-button px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300"
+                className="magnetic-button px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
               >
-                Zobacz Wszystkie Projekty
+                Wszystkie Projekty
+                <ArrowRight className="w-5 h-5 ml-2 inline-block" />
               </Button>
             </div>
           </div>
