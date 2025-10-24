@@ -1403,7 +1403,7 @@ function HomePage() {
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-16 section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ABOUT US</p>
-              <div className="bg-gray-100 py-8 px-6 lg:px-12 mx-6 lg:mx-12 pb-32">
+              <div className="bg-gray-100 py-12 px-12 lg:px-20 -mx-6 lg:-mx-12">
                 <h2 className="text-8xl lg:text-9xl font-black uppercase mb-4 text-gray-900 tracking-tighter leading-none">
                   TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
                 </h2>
@@ -1534,11 +1534,10 @@ function HomePage() {
             </div>
 
             {/* CTA - wyśrodkowany */}
-            <div className="text-center mt-12 -mb-32">
+            <div className="text-center mt-12">
               <Button
                 onClick={() => scrollToSection('contact')}
-                variant="outline"
-                className="border-gray-400/60 bg-gray-900/15 backdrop-blur-sm hover:bg-gray-900/30 text-gray-900 font-bold uppercase tracking-[0.25em] transition-all duration-300 px-10 py-4"
+                className="bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 px-10 py-4"
               >
                 Skontaktuj się z nami
               </Button>
