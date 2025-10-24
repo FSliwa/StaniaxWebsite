@@ -1140,9 +1140,9 @@ function HomePage() {
 
       <div className="relative w-full">
           <section id="top" data-theme="light" className="relative w-full bg-white overflow-hidden">
-            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" z Mouse Follow Effect */}
-            <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-20">
-              <div className="max-w-7xl mx-auto">
+            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" z Mouse Follow Effect - FULL WIDTH */}
+            <div className="relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-20">
+              <div className="w-full px-6 lg:px-12">
                 <div className="space-y-6">
                   <h1 
                     className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter group cursor-default"
@@ -1162,16 +1162,9 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Dolna część - Wideo z Parallax Effect + Floating Badge */}
-            <div className="container mx-auto px-6 lg:px-12 pb-20 lg:pb-32 relative z-10">
-              <div className="max-w-7xl mx-auto relative">
-                {/* Floating Badge - Darmowa Konsultacja */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 floating-badge">
-                  <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
-                    <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
-                  </div>
-                </div>
-                
+            {/* Dolna część - Wideo z Parallax Effect - FULL WIDTH */}
+            <div className="relative z-10 pb-20 lg:pb-32">
+              <div className="w-full px-6 lg:px-12">
                 <div 
                   className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
                   style={{
