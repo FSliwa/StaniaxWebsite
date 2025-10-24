@@ -1210,7 +1210,7 @@ function HomePage() {
               {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
               <div className="text-right mb-20 max-w-7xl ml-auto section-reveal">
                 <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OUR SERVICES</p>
-                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 text-gray-900 tracking-tighter leading-none">
+                <h2 className="text-8xl lg:text-9xl xl:text-[10rem] font-black uppercase mb-6 text-gray-900 tracking-tighter leading-none">
                   NASZE USŁUGI
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal leading-relaxed">
@@ -1693,51 +1693,6 @@ function HomePage() {
                 <p className="text-xl lg:text-2xl text-gray-600 font-normal max-w-2xl leading-relaxed">
                   Skontaktuj się z naszym zespołem w celu konsultacji i wyceny.
                 </p>
-              </div>
-
-              {/* Informacje kontaktowe w prostym układzie */}
-              <div className="grid md:grid-cols-3 gap-12 mb-16">
-                <div className="text-center group transition-all duration-300 hover:scale-105">
-                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-blue-700 group-hover:scale-110">
-                    <MapPin className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Adres</h3>
-                  <p className="text-sm text-gray-600 font-normal">
-                    Grzybowska 5A<br />
-                    00-132 Warszawa<br />
-                    Polska
-                  </p>
-                  <a
-                    href="https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-xs font-semibold text-blue-700 hover:text-blue-800 hover:underline mt-2 inline-block"
-                  >
-                    Zobacz na mapie
-                  </a>
-                </div>
-
-                <div className="text-center group transition-all duration-300 hover:scale-105">
-                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-blue-700 group-hover:scale-110">
-                    <EnvelopeSimple className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Dane Rejestrowe</h3>
-                  <div className="text-sm text-gray-600 font-normal space-y-1">
-                    <p>KRS: 0001182026</p>
-                    <p>NIP: 5253052509</p>
-                    <p>REGON: 542156053</p>
-                  </div>
-                </div>
-
-                <div className="text-center group transition-all duration-300 hover:scale-105">
-                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-blue-700 group-hover:scale-110">
-                    <Phone className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">Kontakt</h3>
-                  <p className="text-sm text-gray-600 font-normal">
-                    Formularz kontaktowy dostępny wkrótce
-                  </p>
-                </div>
               </div>
 
               {/* Duży CTA */}
