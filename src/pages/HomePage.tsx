@@ -781,6 +781,24 @@ function HomePage() {
     }
   }
 
+  // Confetti animation
+  const triggerConfetti = () => {
+    const colors = ['#1d4ed8', '#3b82f6', '#60a5fa', '#93c5fd']
+    const confettiCount = 50
+    
+    for (let i = 0; i < confettiCount; i++) {
+      const confetti = document.createElement('div')
+      confetti.className = 'confetti'
+      confetti.style.left = Math.random() * 100 + 'vw'
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+      confetti.style.animationDelay = Math.random() * 0.5 + 's'
+      confetti.style.animationDuration = 2 + Math.random() * 2 + 's'
+      document.body.appendChild(confetti)
+      
+      setTimeout(() => confetti.remove(), 4000)
+    }
+  }
+
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
@@ -788,6 +806,7 @@ function HomePage() {
       return
     }
 
+    triggerConfetti()
     toast.success('Dziękujemy za wiadomość! Skontaktujemy się z Państwem wkrótce.')
     setFormData({
       firstName: '',
@@ -802,7 +821,27 @@ function HomePage() {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
+  // Hero effects
   const heroScaleValue = Math.min(1.05 + scrollY * 0.0006, 1.25)
+  const heroParallaxY = scrollY * 0.3 // Subtle parallax movement
+  
+  // Mouse follow effect for hero title  
+  const [heroMousePosition, setHeroMousePosition] = useState({ x: 0, y: 0 })
+  
+  useEffect(() => {
+    const heroSection = document.getElementById('top')
+    if (!heroSection) return
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = heroSection.getBoundingClientRect()
+      const x = (e.clientX - rect.left - rect.width / 2) / rect.width
+      const y = (e.clientY - rect.top - rect.height / 2) / rect.height
+      setHeroMousePosition({ x: x * 20, y: y * 20 })
+    }
+    
+    heroSection.addEventListener('mousemove', handleMouseMove)
+    return () => heroSection.removeEventListener('mousemove', handleMouseMove)
+  }, [])
   
   const newsScaleValue = useMemo(() => {
     if (!newsAnimationRef.current) return 1
@@ -1100,16 +1139,22 @@ function HomePage() {
       </header>
 
       <div className="relative w-full">
-          <section id="top" data-theme="light" className="relative w-full bg-white">
-            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" */}
+          <section id="top" data-theme="light" className="relative w-full bg-white overflow-hidden">
+            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" z Mouse Follow Effect */}
             <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-20">
               <div className="max-w-7xl mx-auto">
                 <div className="space-y-6">
-                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter group cursor-default">
-                    <span className="block bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
+                  <h1 
+                    className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter group cursor-default"
+                    style={{
+                      transform: `perspective(1000px) rotateX(${heroMousePosition.y * 0.05}deg) rotateY(${heroMousePosition.x * 0.05}deg)`,
+                      transition: 'transform 0.3s ease-out'
+                    }}
+                  >
+                    <span className="block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
                       POWŁOKI
                     </span>
-                    <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
+                    <span className="block bg-gradient-to-r from-blue-600 via-blue-400 to-blue-800 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
                       PRZYSZŁOŚCI
                     </span>
                   </h1>
@@ -1117,13 +1162,24 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Dolna część - Wideo w kontenerze jak na Vibor.it */}
+            {/* Dolna część - Wideo z Parallax Effect + Floating Badge */}
             <div className="container mx-auto px-6 lg:px-12 pb-20 lg:pb-32 relative z-10">
-              <div className="max-w-7xl mx-auto">
-                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <div className="max-w-7xl mx-auto relative">
+                {/* Floating Badge - Darmowa Konsultacja */}
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 floating-badge">
+                  <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
+                    <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
+                  </div>
+                </div>
+                
+                <div 
+                  className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+                  style={{
+                    transform: `translateY(${heroParallaxY}px) scale(${heroScaleValue})`
+                  }}
+                >
                   <video
                     className="absolute inset-0 w-full h-full object-cover"
-                    style={{ transform: `scale(${heroScaleValue})` }}
                     autoPlay
                     loop
                     muted
@@ -1137,53 +1193,87 @@ function HomePage() {
             </div>
           </section>
 
-          {/* Sekcja Liczb/Metryk - Trust Indicators */}
+          {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
           <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
             {/* Background Decorations */}
             <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
             <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
             
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
-              {/* Grid 1x4 metryk - prosty układ poziomy */}
+              {/* Grid 1x4 metryk z Stagger Animation */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 {/* Metryka 1 */}
-                <div className="text-center group">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
+                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                  <div className="relative">
+                    {/* Pulsing Circle */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-32 h-32 rounded-full bg-blue-700/10 animate-pulse"></div>
+                    </div>
+                    <div className="relative text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                      <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
+                    </div>
                   </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold mb-3">
                     LAT DOŚWIADCZENIA
                   </p>
+                  {/* Progress Bar */}
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+                    <div className={`h-full bg-blue-700 rounded-full ${metricsVisible ? 'progress-bar' : ''}`} style={{ width: '95%' }}></div>
+                  </div>
                 </div>
 
                 {/* Metryka 2 */}
-                <div className="text-center group">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
+                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-32 h-32 rounded-full bg-blue-700/10 animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                    <div className="relative text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                      <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
+                    </div>
                   </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold mb-3">
                     ZREALIZOWANYCH PROJEKTÓW
                   </p>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+                    <div className={`h-full bg-blue-700 rounded-full ${metricsVisible ? 'progress-bar' : ''}`} style={{ width: '100%', animationDelay: '0.2s' }}></div>
+                  </div>
                 </div>
 
                 {/* Metryka 3 */}
-                <div className="text-center group">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    24H
+                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-32 h-32 rounded-full bg-blue-700/10 animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                    </div>
+                    <div className="relative text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                      24H
+                    </div>
                   </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold mb-3">
                     CZAS REAKCJI
                   </p>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+                    <div className={`h-full bg-blue-700 rounded-full ${metricsVisible ? 'progress-bar' : ''}`} style={{ width: '100%', animationDelay: '0.4s' }}></div>
+                  </div>
                 </div>
 
                 {/* Metryka 4 */}
-                <div className="text-center group">
-                  <div className="text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    ISO
+                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-32 h-32 rounded-full bg-blue-700/10 animate-pulse" style={{ animationDelay: '0.6s' }}></div>
+                    </div>
+                    <div className="relative text-5xl lg:text-6xl font-black text-blue-700 mb-2 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                      ISO
+                    </div>
                   </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold mb-3">
                     9001:2015 CERTYFIKAT
                   </p>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+                    <div className={`h-full bg-blue-700 rounded-full ${metricsVisible ? 'progress-bar' : ''}`} style={{ width: '100%', animationDelay: '0.6s' }}></div>
+                  </div>
                 </div>
               </div>
             </div>
