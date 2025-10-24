@@ -1100,36 +1100,19 @@ function HomePage() {
       </header>
 
       <div className="relative w-full">
-          <section id="top" data-theme="dark" className="relative w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" + Przyciski */}
+          <section id="top" data-theme="light" className="relative w-full bg-white">
+            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" */}
             <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-20">
-              <div className="max-w-7xl mx-auto space-y-12">
+              <div className="max-w-7xl mx-auto">
                 <div className="space-y-6">
-                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default">
-                    <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(255,255,255,0.6)] group-hover:scale-105 animate-[slideInReveal_1.2s_ease-out]" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter group cursor-default">
+                    <span className="block bg-gradient-to-r from-gray-900 via-gray-900 to-gray-800 bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
                       POWŁOKI
                     </span>
-                    <span className="block bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(59,130,246,0.5)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(59,130,246,0.8)] group-hover:scale-105 animate-[slideInReveal_1.2s_ease-out]" style={{ animationDelay: '0.6s', opacity: 0, animationFillMode: 'forwards' }}>
+                    <span className="block bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
                       PRZYSZŁOŚCI
                     </span>
                   </h1>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-5">
-                  <button
-                    onClick={() => scrollToSection('projects')}
-                    className="group px-12 py-5 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
-                  >
-                    Zobacz Nasze Prace
-                    <ArrowRight className="w-5 h-5 ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1" />
-                  </button>
-                  <button
-                    onClick={() => scrollToSection('contact')}
-                    className="group px-12 py-5 border-2 border-white/40 text-white font-bold uppercase tracking-wider hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-lg backdrop-blur-sm hover:shadow-2xl hover:scale-[1.02]"
-                  >
-                    <Phone className="w-5 h-5 mr-2 inline-block" />
-                    Skontaktuj się z nami
-                  </button>
                 </div>
               </div>
             </div>
