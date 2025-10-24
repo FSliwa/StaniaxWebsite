@@ -1100,26 +1100,12 @@ function HomePage() {
       </header>
 
       <div className="relative w-full">
-          <section id="top" data-theme="dark" className="relative min-h-[700px] lg:min-h-screen w-full flex flex-col justify-center overflow-hidden">
-            <div className="absolute inset-0" aria-hidden>
-              <video
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ transform: `scale(${heroScaleValue})` }}
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src={heroVideo} type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-br from-background/92 via-background/75 to-background/88" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/45 to-transparent" />
-            </div>
-
-            <div className="container mx-auto px-6 lg:px-12 relative z-10 py-12 lg:py-0">
-              <div className="max-w-7xl space-y-12">
+          <section id="top" data-theme="dark" className="relative w-full bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" + Przyciski */}
+            <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-20">
+              <div className="max-w-7xl mx-auto space-y-12">
                 <div className="space-y-6">
-                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default overflow-visible">
+                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default">
                     <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(255,255,255,0.6)] group-hover:scale-105 animate-[slideInReveal_1.2s_ease-out]" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
                       POWŁOKI
                     </span>
@@ -1144,6 +1130,25 @@ function HomePage() {
                     <Phone className="w-5 h-5 mr-2 inline-block" />
                     Skontaktuj się z nami
                   </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Dolna część - Wideo w kontenerze jak na Vibor.it */}
+            <div className="container mx-auto px-6 lg:px-12 pb-20 lg:pb-32 relative z-10">
+              <div className="max-w-7xl mx-auto">
+                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                  <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ transform: `scale(${heroScaleValue})` }}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    <source src={heroVideo} type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
               </div>
             </div>
