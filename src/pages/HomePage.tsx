@@ -1119,11 +1119,11 @@ function HomePage() {
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
               <div className="max-w-7xl space-y-12">
                 <div className="space-y-6">
-                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[16rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default animate-[fadeIn_1.2s_ease-out]">
-                    <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(255,255,255,0.6)] group-hover:scale-105">
+                  <h1 className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter text-white group cursor-default">
+                    <span className="block bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(255,255,255,0.3)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(255,255,255,0.6)] group-hover:scale-105 animate-[slideInReveal_1.2s_ease-out]" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
                       POWŁOKI
                     </span>
-                    <span className="block bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(59,130,246,0.5)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(59,130,246,0.8)] group-hover:scale-105">
+                    <span className="block bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_80px_rgba(59,130,246,0.5)] transition-all duration-700 group-hover:drop-shadow-[0_0_120px_rgba(59,130,246,0.8)] group-hover:scale-105 animate-[slideInReveal_1.2s_ease-out]" style={{ animationDelay: '0.6s', opacity: 0, animationFillMode: 'forwards' }}>
                       PRZYSZŁOŚCI
                     </span>
                   </h1>
@@ -1403,7 +1403,7 @@ function HomePage() {
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-20 section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">ABOUT US</p>
-              <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-2xl">
+              <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
                 <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 text-gray-900 tracking-tighter leading-none">
                   TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
                 </h2>
@@ -1413,8 +1413,9 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Grid 2x2 kart - układ po skosie */}
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+            {/* Grid 2x2 kart - układ po skosie - w szarym tle */}
+            <div className="bg-gray-100 -mx-6 lg:-mx-12 px-6 lg:px-12 pt-8 pb-20 -mt-32">
+              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
               {/* Karta 1: Kim Jesteśmy - Prawy górny (0px) */}
               <div 
                 className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
@@ -1526,21 +1527,23 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Cytat misji - poniżej siatki */}
-            <div className="max-w-4xl mx-auto mt-24">
-              <p className="text-lg text-gray-600 italic border-l-4 border-blue-700 pl-8 leading-relaxed font-normal">
-                "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
-              </p>
-            </div>
+            {/* Cytat misji - poniżej siatki - w szarym tle */}
+            <div className="bg-gray-100 -mx-6 lg:-mx-12 px-6 lg:px-12 pt-8 pb-12 -mt-8">
+              <div className="max-w-4xl mx-auto">
+                <p className="text-lg text-gray-600 italic border-l-4 border-blue-700 pl-8 leading-relaxed font-normal">
+                  "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
+                </p>
+              </div>
 
-            {/* CTA - wyśrodkowany */}
-            <div className="text-center mt-16">
-              <Button
-                onClick={() => scrollToSection('contact')}
-                className="bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 px-12 py-5 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
-              >
-                Skontaktuj się z nami
-              </Button>
+              {/* CTA - wyśrodkowany - w szarym tle */}
+              <div className="text-center mt-12">
+                <Button
+                  onClick={() => scrollToSection('contact')}
+                  className="bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 px-12 py-5 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
+                >
+                  Skontaktuj się z nami
+                </Button>
+              </div>
             </div>
           </div>
         </section>
