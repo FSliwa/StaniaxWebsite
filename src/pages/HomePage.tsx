@@ -1547,7 +1547,7 @@ function HomePage() {
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
               {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
               <div className="text-right mb-20 max-w-7xl ml-auto section-reveal">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OUR SERVICES</p>
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">NASZE USŁUGI</p>
                 <h2 className="text-8xl lg:text-9xl xl:text-[10rem] font-black uppercase mb-6 text-gray-400 tracking-tighter leading-none" style={{ textShadow: '3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 3px 3px 6px rgba(0,0,0,0.5)' }}>
                   NASZE USŁUGI
                 </h2>
@@ -1628,7 +1628,7 @@ function HomePage() {
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">TECHNOLOGY COMPARISON</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">PORÓWNANIE TECHNOLOGII</p>
               <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black uppercase mb-8 tracking-tighter text-gray-400" style={{ textShadow: '3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 3px 3px 6px rgba(0,0,0,0.5)' }}>
                 PORÓWNAJ<br />TECHNOLOGIE
               </h2>
@@ -1819,7 +1819,7 @@ function HomePage() {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
           <div className="text-left mb-20 max-w-7xl mr-auto section-reveal">
-            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-6 font-semibold">WHY CHOOSE</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-6 font-semibold">DLACZEGO MY</p>
             <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400" style={{ textShadow: '3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 3px 3px 6px rgba(0,0,0,0.5)' }}>
               STANIAX
             </h2>
@@ -1906,7 +1906,7 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-20 section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">ABOUT US</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">O NAS</p>
               <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
                 <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400" style={{ textShadow: '3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 3px 3px 6px rgba(0,0,0,0.5)' }}>
                   TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
@@ -2058,7 +2058,7 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             {/* Header */}
             <div className="text-left mb-20 max-w-7xl section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">CASE STUDIES</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">STUDIA PRZYPADKÓW</p>
               <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-gray-400" style={{ textShadow: '3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 3px 3px 6px rgba(0,0,0,0.5)' }}>
                 NASZE<br />REALIZACJE
               </h2>
@@ -2082,49 +2082,50 @@ function HomePage() {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                       {/* Left: Before/After Image Comparison */}
                       <div className="relative group">
-                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-gray-200 shadow-2xl">
+                        <div 
+                          className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-gray-200 shadow-2xl cursor-ew-resize"
+                          onClick={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect()
+                            const newX = ((e.clientX - rect.left) / rect.width) * 100
+                            setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
+                          }}
+                          onMouseMove={(e) => {
+                            if (e.buttons === 1) { // Left mouse button is pressed
+                              const rect = e.currentTarget.getBoundingClientRect()
+                              const newX = ((e.clientX - rect.left) / rect.width) * 100
+                              setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
+                            }
+                          }}
+                          onTouchMove={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect()
+                            const touch = e.touches[0]
+                            const newX = ((touch.clientX - rect.left) / rect.width) * 100
+                            setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
+                          }}
+                        >
                           {/* Before Image */}
                           <img
                             src={caseStudy.imageBefore}
-                            alt={`${caseStudy.title} - Before`}
-                            className="absolute inset-0 w-full h-full object-cover"
+                            alt={`${caseStudy.title} - Przed`}
+                            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                           />
                           
                           {/* After Image with Slider */}
                           <div 
-                            className="absolute inset-0 overflow-hidden"
+                            className="absolute inset-0 overflow-hidden pointer-events-none"
                             style={{ clipPath: `inset(0 ${100 - beforeAfterSlider}% 0 0)` }}
                           >
                             <img
                               src={caseStudy.imageAfter}
-                              alt={`${caseStudy.title} - After`}
+                              alt={`${caseStudy.title} - Po`}
                               className="absolute inset-0 w-full h-full object-cover"
                             />
                           </div>
 
                           {/* Slider Handle */}
                           <div 
-                            className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
+                            className="absolute top-0 bottom-0 w-1 bg-white pointer-events-none"
                             style={{ left: `${beforeAfterSlider}%` }}
-                            onMouseDown={(e) => {
-                              const startX = e.clientX
-                              const startSlider = beforeAfterSlider
-                              
-                              const handleMouseMove = (moveEvent: MouseEvent) => {
-                                const rect = e.currentTarget.parentElement?.getBoundingClientRect()
-                                if (!rect) return
-                                const newX = ((moveEvent.clientX - rect.left) / rect.width) * 100
-                                setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
-                              }
-                              
-                              const handleMouseUp = () => {
-                                document.removeEventListener('mousemove', handleMouseMove)
-                                document.removeEventListener('mouseup', handleMouseUp)
-                              }
-                              
-                              document.addEventListener('mousemove', handleMouseMove)
-                              document.addEventListener('mouseup', handleMouseUp)
-                            }}
                           >
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
                               <div className="flex gap-1">
@@ -2135,11 +2136,11 @@ function HomePage() {
                           </div>
 
                           {/* Before/After Labels */}
-                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
-                            BEFORE
+                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
+                            PRZED
                           </div>
-                          <div className="absolute top-4 right-4 bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
-                            AFTER
+                          <div className="absolute top-4 right-4 bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
+                            PO
                           </div>
                         </div>
                       </div>
