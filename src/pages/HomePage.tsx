@@ -219,7 +219,7 @@ type CaseStudy = {
 const caseStudiesData: CaseStudy[] = [
   {
     id: 'automotive-excellence',
-    title: 'Automotive Excellence',
+    title: 'Doskonałość Motoryzacyjna',
     subtitle: 'Przełomowa metalizacja komponentów silnikowych',
     imageBefore: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop',
     imageAfter: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop',
@@ -1141,7 +1141,7 @@ function HomePage() {
         <nav className="fixed right-8 top-1/2 -translate-y-1/2 z-40" aria-label="Section Navigation">
           <div className="flex flex-col gap-4">
             {sectionIds.map((sectionId, index) => {
-              const labels = ['Hero', 'Metryki', 'Usługi', 'O Nas', 'O Firmie', 'Projekty', 'Kontakt']
+              const labels = ['Start', 'Metryki', 'Usługi', 'O Nas', 'O Firmie', 'Projekty', 'Kontakt']
               const isActive = activeSectionIndex === index
               
               return (
@@ -1266,7 +1266,7 @@ function HomePage() {
                       : 'text-foreground'
                 )}
               >
-                Metal Coating Studio
+                Studio Metalizacji
               </span>
             </div>
           </button>
