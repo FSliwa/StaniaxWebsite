@@ -1238,7 +1238,7 @@ function HomePage() {
           <button
             onClick={() => scrollToSection('top')}
             className="group flex items-center gap-2 sm:gap-3 text-left"
-            aria-label="Przewiń na górę"
+            aria-label="Scroll to top"
           >
             <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
               <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -1282,7 +1282,7 @@ function HomePage() {
                     : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
               )}
             >
-              Wyceń Projekt
+              Get a Quote
             </Button>
             <button
               className={cn(
@@ -1429,10 +1429,10 @@ function HomePage() {
                 }}
               >
                 <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                  POWŁOKI
+                  COATINGS
                 </span>
                 <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                  PRZYSZŁOŚCI
+                  OF THE FUTURE
                 </span>
               </h1>
             </div>
@@ -1440,7 +1440,7 @@ function HomePage() {
             {/* Floating Badge - Bottom Center */}
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 floating-badge">
               <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
-                <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
+                <span className="text-sm font-bold uppercase tracking-wider">✨ Free Consultation</span>
               </div>
             </div>
           </section>
@@ -1460,7 +1460,7 @@ function HomePage() {
                     <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    LAT DOŚWIADCZENIA
+                    YEARS OF EXPERIENCE
                   </p>
                 </div>
 
@@ -1470,7 +1470,7 @@ function HomePage() {
                     <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    ZREALIZOWANYCH PROJEKTÓW
+                    COMPLETED PROJECTS
                   </p>
                 </div>
 
@@ -1480,7 +1480,7 @@ function HomePage() {
                     24H
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    CZAS REAKCJI
+                    RESPONSE TIME
                   </p>
                 </div>
 
@@ -1490,51 +1490,9 @@ function HomePage() {
                     ISO
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    9001:2015 CERTYFIKAT
+                    9001:2015 CERTIFICATE
                   </p>
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* BRAND SHOWCASE MARQUEE - Trusted Companies */}
-          <section data-theme="light" className="py-16 bg-gradient-to-r from-gray-50 via-white to-gray-50 overflow-hidden border-y border-gray-200">
-            <div className="container mx-auto px-6 lg:px-12">
-              <p className="text-center text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold">
-                Zaufali Nam
-              </p>
-            </div>
-            
-            {/* Marquee Container */}
-            <div className="relative">
-              {/* Gradient Overlays */}
-              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
-              
-              {/* Scrolling Content */}
-              <div className="flex gap-16 brand-marquee">
-                {/* First set */}
-                {brandShowcaseData.map((brand, index) => (
-                  <div
-                    key={`brand-1-${index}`}
-                    className="flex-shrink-0 w-40 h-24 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-blue-700 hover:shadow-lg transition-all duration-300 group"
-                  >
-                    <span className="text-2xl font-black text-gray-400 group-hover:text-blue-700 transition-colors uppercase tracking-tight">
-                      {brand.logo}
-                    </span>
-                  </div>
-                ))}
-                {/* Duplicate for seamless loop */}
-                {brandShowcaseData.map((brand, index) => (
-                  <div
-                    key={`brand-2-${index}`}
-                    className="flex-shrink-0 w-40 h-24 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-blue-700 hover:shadow-lg transition-all duration-300 group"
-                  >
-                    <span className="text-2xl font-black text-gray-400 group-hover:text-blue-700 transition-colors uppercase tracking-tight">
-                      {brand.logo}
-                    </span>
-                  </div>
-                ))}
               </div>
             </div>
           </section>
@@ -1547,12 +1505,12 @@ function HomePage() {
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
               {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
               <div className="text-right mb-20 max-w-7xl ml-auto section-reveal">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">NASZE USŁUGI</p>
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OUR SERVICES</p>
                 <h2 className="text-8xl lg:text-9xl xl:text-[10rem] font-black uppercase mb-6 text-gray-400 tracking-tighter leading-none" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                  NASZE USŁUGI
+                  OUR SERVICES
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal leading-relaxed">
-                  Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych
+                  Comprehensive metallization solutions for diverse industrial applications
                 </p>
               </div>
 
@@ -1628,9 +1586,9 @@ function HomePage() {
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">PORÓWNANIE TECHNOLOGII</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">TECHNOLOGY COMPARISON</p>
               <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black uppercase mb-8 tracking-tighter text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                PORÓWNAJ<br />TECHNOLOGIE
+                COMPARE<br />TECHNOLOGIES
               </h2>
             </div>
 
@@ -1819,12 +1777,12 @@ function HomePage() {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
           <div className="text-left mb-20 max-w-7xl mr-auto section-reveal">
-            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-6 font-semibold">DLACZEGO MY</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-6 font-semibold">WHY CHOOSE</p>
             <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
               STANIAX
             </h2>
             <p className="text-lg text-white/80 max-w-2xl mr-auto font-normal leading-relaxed">
-              Dlaczego warto wybrać nas jako partnera do metalizacji przemysłowej
+              Why choose us as your industrial metallization partner
             </p>
           </div>
 
@@ -1906,13 +1864,13 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-20 section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">O NAS</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">ABOUT US</p>
               <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
                 <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                  TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
+                  CREATING EXCELLENCE<br />IN METALLIZATION
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal mt-6 leading-relaxed">
-                  15 lat doświadczenia w zaawansowanych technologiach metalizacyjnych
+                  15 years of experience in advanced metallization technologies
                 </p>
               </div>
             </div>
@@ -2058,12 +2016,12 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             {/* Header */}
             <div className="text-left mb-20 max-w-7xl section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">STUDIA PRZYPADKÓW</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">CASE STUDIES</p>
               <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                NASZE<br />REALIZACJE
+                OUR<br />PROJECTS
               </h2>
               <p className="text-lg text-gray-600 font-normal max-w-2xl leading-relaxed">
-                Odkryj historie sukcesów naszych klientów z branż motoryzacyjnej, lotniczej i przemysłowej
+                Discover success stories of our clients from automotive, aerospace, and industrial sectors
               </p>
             </div>
 
@@ -2137,10 +2095,10 @@ function HomePage() {
 
                           {/* Before/After Labels */}
                           <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            PRZED
+                            BEFORE
                           </div>
                           <div className="absolute top-4 right-4 bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            PO
+                            AFTER
                           </div>
                         </div>
                       </div>
@@ -2282,16 +2240,16 @@ function HomePage() {
                   <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-end md:justify-between md:text-left pb-5">
                     <div className="flex flex-col items-center gap-4 md:items-start">
                       <span className="text-[3.5rem] font-black uppercase leading-[0.85] tracking-[-0.03em] sm:text-[4.5rem] lg:text-[6rem] text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                        ZOBACZ
+                        CHECK OUT
                       </span>
                     </div>
                     <span className="hidden h-24 w-px bg-white/25 md:block" aria-hidden />
                     <div className="flex flex-col items-center gap-3 md:items-start">
                       <span className="text-[0.7rem] font-semibold uppercase tracking-[0.85em] text-white/60">
-                        NASZE
+                        OUR
                       </span>
                       <span className="text-[2.75rem] font-black uppercase leading-[0.9] tracking-[-0.01em] sm:text-[3.25rem] lg:text-[4rem] text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                        NOWOŚCI
+                        NEWS
                       </span>
                     </div>
                   </div>
@@ -2350,14 +2308,14 @@ function HomePage() {
         <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">CONTACT</p>
               
               <div className="mb-12 text-center">
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                  SKONTAKTUJ SIĘ<br />Z NAMI
+                  GET IN TOUCH<br />WITH US
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Wypełnij formularz, a my skontaktujemy się z Tobą w ciągu 24 godzin
+                  Fill out the form and we'll contact you within 24 hours
                 </p>
               </div>
 
