@@ -1404,56 +1404,43 @@ function HomePage() {
       </header>
 
       <div className="relative w-full">
-          <section id="top" data-theme="light" className="relative w-full bg-white overflow-hidden">
-            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" z Mouse Follow Effect */}
-            <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-20">
-              <div className="max-w-7xl mx-auto">
-                <div className="space-y-6">
-                  <h1 
-                    className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter group cursor-default"
-                    style={{
-                      transform: `perspective(1000px) rotateX(${heroMousePosition.y * 0.05}deg) rotateY(${heroMousePosition.x * 0.05}deg)`,
-                      transition: 'transform 0.3s ease-out'
-                    }}
-                  >
-                    <span className="block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
-                      POWŁOKI
-                    </span>
-                    <span className="block bg-gradient-to-r from-blue-600 via-blue-400 to-blue-800 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
-                      PRZYSZŁOŚCI
-                    </span>
-                  </h1>
-                </div>
-              </div>
+          <section id="top" data-theme="light" className="relative w-full bg-white overflow-hidden min-h-screen">
+            {/* Video Background - Full Width */}
+            <div className="absolute inset-0 w-full h-full">
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src={heroVideo} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
             </div>
 
-            {/* Dolna część - Wideo z Parallax Effect + Floating Badge */}
-            <div className="container mx-auto px-6 lg:px-12 pb-20 lg:pb-32 relative z-10">
-              <div className="max-w-[90rem] mx-auto relative">
-                {/* Floating Badge - Darmowa Konsultacja */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 floating-badge">
-                  <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
-                    <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
-                  </div>
-                </div>
-                
-                <div 
-                  className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
-                  style={{
-                    transform: `translateY(${heroParallaxY}px) scale(${heroScaleValue})`
-                  }}
-                >
-                  <video
-                    className="absolute inset-0 w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  >
-                    <source src={heroVideo} type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
+            {/* Heading - Top Right Corner */}
+            <div className="absolute top-24 right-6 lg:top-32 lg:right-12 z-10 max-w-2xl">
+              <h1 
+                className="text-[3rem] sm:text-[4.5rem] lg:text-[6rem] xl:text-[8rem] font-black leading-[0.85] tracking-tighter group cursor-default text-right"
+                style={{
+                  transform: `perspective(1000px) rotateX(${heroMousePosition.y * 0.05}deg) rotateY(${heroMousePosition.x * 0.05}deg)`,
+                  transition: 'transform 0.3s ease-out'
+                }}
+              >
+                <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                  POWŁOKI
+                </span>
+                <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                  PRZYSZŁOŚCI
+                </span>
+              </h1>
+            </div>
+
+            {/* Floating Badge - Bottom Center */}
+            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 floating-badge">
+              <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
+                <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
               </div>
             </div>
           </section>
