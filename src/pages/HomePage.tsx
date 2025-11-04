@@ -1420,7 +1420,7 @@ function HomePage() {
             </div>
 
             {/* Heading - Top Right Corner */}
-            <div className="absolute top-24 right-6 lg:top-32 lg:right-12 z-10 max-w-2xl">
+            <div className="absolute top-24 right-6 lg:top-32 lg:right-16 xl:right-24 z-10 max-w-xl lg:max-w-2xl pr-4 lg:pr-8">
               <h1 
                 className="text-[3rem] sm:text-[4.5rem] lg:text-[6rem] xl:text-[8rem] font-black leading-[0.85] tracking-tighter group cursor-default text-right"
                 style={{
