@@ -551,7 +551,7 @@ function HomePage() {
   
   // HERO VIDEO CAROUSEL STATE
   const [activeHeroVideo, setActiveHeroVideo] = useState(0)
-  const heroVideos = [heroVideo, liquidMetalVideo]
+  const heroVideos = useMemo(() => [heroVideo, liquidMetalVideo], [])
   
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
