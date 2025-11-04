@@ -231,14 +231,14 @@ const caseStudiesData: CaseStudy[] = [
     testimonial: {
       quote: 'Współpraca z STANIAX przyniosła rewolucyjne rezultaty. Trwałość naszych komponentów wzrosła o 250%, a koszty produkcji spadły o 30%.',
       author: 'Jan Kowalski',
-      role: 'CEO, TechMotors',
+      role: 'Prezes, TechMotors',
       avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
     },
     badge: '+250% Trwałość'
   },
   {
     id: 'aerospace-innovation',
-    title: 'Aerospace Innovation',
+    title: 'Innowacje Lotnicze',
     subtitle: 'Precyzyjne powłoki dla komponentów lotniczych',
     imageBefore: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop',
     imageAfter: projectImgAerospace,
@@ -250,14 +250,14 @@ const caseStudiesData: CaseStudy[] = [
     testimonial: {
       quote: 'STANIAX spełnił najwyższe standardy aerospace. Ich metalizacja zwiększyła żywotność elementów turbinowych o 180% przy zachowaniu norm AS9100.',
       author: 'Anna Nowak',
-      role: 'Lead Engineer, AeroTech',
+      role: 'Główny Inżynier, AeroTech',
       avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
     },
     badge: '+180% Żywotność'
   },
   {
     id: 'industrial-revolution',
-    title: 'Industrial Revolution',
+    title: 'Rewolucja Przemysłowa',
     subtitle: 'Kompleksowa ochrona linii produkcyjnej',
     imageBefore: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop',
     imageAfter: projectImgIndustrial,
@@ -269,7 +269,7 @@ const caseStudiesData: CaseStudy[] = [
     testimonial: {
       quote: 'Dzięki metalizacji całej linii produkcyjnej przez STANIAX, eliminujemy 95% awarii związanych z korozją i zużyciem. ROI osiągnęliśmy w 8 miesięcy.',
       author: 'Piotr Wiśniewski',
-      role: 'Operations Director, IndustryPro',
+      role: 'Dyrektor Operacyjny, IndustryPro',
       avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
     },
     badge: '95% Redukcja Awarii'
@@ -279,13 +279,13 @@ const caseStudiesData: CaseStudy[] = [
 // BRAND SHOWCASE DATA - Trusted Companies & Certifications
 const brandShowcaseData = [
   { name: 'ISO 9001:2015', logo: 'ISO' },
-  { name: 'Automotive', logo: 'AUTO' },
-  { name: 'Aerospace', logo: 'AERO' },
-  { name: 'Medical', logo: 'MED' },
-  { name: 'CE Certified', logo: 'CE' },
-  { name: 'Industry 4.0', logo: 'IND' },
-  { name: 'Green Tech', logo: 'ECO' },
-  { name: 'Quality First', logo: 'QA' }
+  { name: 'Motoryzacja', logo: 'AUTO' },
+  { name: 'Lotnictwo', logo: 'AERO' },
+  { name: 'Medycyna', logo: 'MED' },
+  { name: 'Certyfikat CE', logo: 'CE' },
+  { name: 'Przemysł 4.0', logo: 'IND' },
+  { name: 'Eko Technologie', logo: 'ECO' },
+  { name: 'Jakość Przede Wszystkim', logo: 'QA' }
 ]
 
 // TECH SPECS DATA - Interactive Comparison Table
@@ -302,7 +302,7 @@ type TechSpec = {
 const techSpecsData: TechSpec[] = [
   {
     id: 'pvd',
-    method: 'PVD Coating',
+    method: 'Powłoki PVD',
     temperature: '200-500°C',
     thickness: '0.1-10 μm',
     applications: 'Narzędzia skrawające, komponenty precyzyjne',
@@ -316,7 +316,7 @@ const techSpecsData: TechSpec[] = [
   },
   {
     id: 'cvd',
-    method: 'CVD Technology',
+    method: 'Technologia CVD',
     temperature: '800-1050°C',
     thickness: '5-20 μm',
     applications: 'Narzędzia do obróbki metali, części silników',
