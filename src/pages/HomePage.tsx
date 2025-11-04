@@ -27,6 +27,7 @@ import {
   Users
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/Prompt_Generowania_Wideo_z_Efektami.mp4'
+import liquidMetalVideo from '@/assets/liquid-metal-transition.mp4'
 import whyChooseVideo from '@/assets/Generowanie_Wideo_Produktowego_Dłoń_i_Mikrofon.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
@@ -548,6 +549,10 @@ function HomePage() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [beforeAfterSlider, setBeforeAfterSlider] = useState(50) // percentage for before/after slider
   
+  // HERO VIDEO CAROUSEL STATE
+  const [activeHeroVideo, setActiveHeroVideo] = useState(0)
+  const heroVideos = [heroVideo, liquidMetalVideo]
+  
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
   
@@ -675,6 +680,15 @@ function HomePage() {
     
     return () => clearInterval(interval)
   }, [isAutoPlaying])
+
+  // Auto-play carousel for hero videos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveHeroVideo((prev) => (prev + 1) % heroVideos.length)
+    }, 8000) // Change video every 8 seconds
+    
+    return () => clearInterval(interval)
+  }, [heroVideos.length])
 
   // Sticky Side Navigation - Track active section
   useEffect(() => {
@@ -1405,18 +1419,41 @@ function HomePage() {
 
       <div className="relative w-full">
           <section id="top" data-theme="light" className="relative w-full bg-white overflow-hidden min-h-screen">
-            {/* Video Background - Full Width */}
+            {/* Video Background Carousel - Full Width */}
             <div className="absolute inset-0 w-full h-full">
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src={heroVideo} type="video/mp4" />
-              </video>
+              {heroVideos.map((video, index) => (
+                <video
+                  key={index}
+                  className={cn(
+                    "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
+                    activeHeroVideo === index ? "opacity-100" : "opacity-0"
+                  )}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={video} type="video/mp4" />
+                </video>
+              ))}
               <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+            </div>
+
+            {/* Video Carousel Indicators */}
+            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+              {heroVideos.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveHeroVideo(index)}
+                  className={cn(
+                    "w-2 h-2 rounded-full transition-all duration-300",
+                    activeHeroVideo === index
+                      ? "bg-white w-8"
+                      : "bg-white/50 hover:bg-white/75"
+                  )}
+                  aria-label={`Przejdź do wideo ${index + 1}`}
+                />
+              ))}
             </div>
 
             {/* Heading - Top Right Corner */}
