@@ -307,60 +307,60 @@ type TechSpec = {
 
 const techSpecsData: TechSpec[] = [
   {
-    id: 'pvd',
-    method: 'Powłoki PVD',
+    id: 'metalizacja',
+    method: 'Metalizacja',
     temperature: '200-500°C',
-    thickness: '0.1-10 μm',
-    applications: 'Narzędzia skrawające, komponenty precyzyjne',
+    thickness: '0.1-20 μm',
+    applications: 'Automotive, lotnictwo, przemysł, prototypy',
     advantages: [
-      'Bardzo twarde powłoki',
-      'Doskonała przyczepność',
-      'Niska temperatura procesu',
-      'Przyjazne środowisku'
+      'Najwyższa trwałość',
+      'Prawdziwy metaliczny efekt',
+      'Odporność na ścieranie',
+      'Wysoka jakość premium'
     ],
-    materials: 'TiN, TiAlN, CrN, DLC'
+    materials: 'Al, Cr, Ti, Cu, Au'
   },
   {
-    id: 'cvd',
-    method: 'Technologia CVD',
-    temperature: '800-1050°C',
-    thickness: '5-20 μm',
-    applications: 'Narzędzia do obróbki metali, części silników',
+    id: 'malowanie',
+    method: 'Malowanie Proszkowe',
+    temperature: '150-200°C',
+    thickness: '50-150 μm',
+    applications: 'Części ogólnego przeznaczenia, meble metalowe',
     advantages: [
-      'Grubsze powłoki',
-      'Równomierna grubość',
-      'Wysoka twardość',
-      'Dobra adhezja'
-    ],
-    materials: 'TiC, TiN, Al₂O₃'
-  },
-  {
-    id: 'plasma',
-    method: 'Natrysk Plazmowy',
-    temperature: '100-300°C',
-    thickness: '50-500 μm',
-    applications: 'Komponenty lotnicze, turbiny, maszyny',
-    advantages: [
-      'Grube warstwy ochronne',
-      'Odporność termiczna',
-      'Naprawa elementów',
-      'Szeroki zakres materiałów'
-    ],
-    materials: 'Ceramika, metale, węgliki'
-  },
-  {
-    id: 'galwanizacja',
-    method: 'Galwanizacja',
-    temperature: '20-80°C',
-    thickness: '5-100 μm',
-    applications: 'Elektronika, automotive, dekoracje',
-    advantages: [
-      'Ochrona przed korozją',
-      'Walory estetyczne',
       'Niski koszt',
-      'Łatwa kontrola grubości'
+      'Szeroka paleta kolorów',
+      'Dobra odporność na UV',
+      'Łatwa aplikacja'
     ],
-    materials: 'Ni, Cr, Zn, Cu, Au'
+    materials: 'Farby proszkowe'
+  },
+  {
+    id: 'lakierowanie',
+    method: 'Lakierowanie',
+    temperature: '20-80°C',
+    thickness: '20-100 μm',
+    applications: 'Detale dekoracyjne, elementy wizualne',
+    advantages: [
+      'Uniwersalne zastosowanie',
+      'Elastyczność kolorystyczna',
+      'Przystępna cena',
+      'Szybki proces'
+    ],
+    materials: 'Lakiery, emalie'
+  },
+  {
+    id: 'folia',
+    method: 'Oklejanie Folią',
+    temperature: '20-60°C',
+    thickness: '50-200 μm',
+    applications: 'Branding, reklama, wizualizacje tymczasowe',
+    advantages: [
+      'Odwracalny proces',
+      'Nieinwazyjne',
+      'Zmiana wyglądu bez malowania',
+      'Grafika cyfrowa'
+    ],
+    materials: 'Folie PVC, winylowe'
   }
 ]
 
@@ -1671,9 +1671,9 @@ function HomePage() {
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">PORÓWNANIE TECHNOLOGII</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">PORÓWNANIE METOD</p>
               <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black uppercase mb-8 tracking-tighter text-gray-400">
-                PORÓWNAJ<br />TECHNOLOGIE
+                METALIZACJA<br />VS INNE METODY
               </h2>
             </div>
 
