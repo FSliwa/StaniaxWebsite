@@ -28,6 +28,7 @@ import {
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/Prompt_Generowania_Wideo_z_Efektami.mp4'
 import liquidMetalVideo from '@/assets/metallic-transformation-video.mp4'
+import vinylTransformationVideo from '@/assets/vinyl-transformation.mp4'
 import whyChooseVideo from '@/assets/Generowanie_Wideo_Produktowego_Dłoń_i_Mikrofon.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
@@ -553,7 +554,7 @@ function HomePage() {
   
   // HERO VIDEO CAROUSEL STATE
   const [activeHeroVideo, setActiveHeroVideo] = useState(0)
-  const heroVideos = useMemo(() => [heroVideo, liquidMetalVideo], [])
+  const heroVideos = useMemo(() => [heroVideo, liquidMetalVideo, vinylTransformationVideo], [])
   
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
