@@ -27,6 +27,7 @@ import {
   Users
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/Prompt_Generowania_Wideo_z_Efektami.mp4'
+import liquidMetalVideo from '@/assets/liquid-metal-transition.mp4'
 import whyChooseVideo from '@/assets/Generowanie_Wideo_Produktowego_Dłoń_i_Mikrofon.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
@@ -219,7 +220,7 @@ type CaseStudy = {
 const caseStudiesData: CaseStudy[] = [
   {
     id: 'automotive-excellence',
-    title: 'Automotive Excellence',
+    title: 'Doskonałość Motoryzacyjna',
     subtitle: 'Przełomowa metalizacja komponentów silnikowych',
     imageBefore: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop',
     imageAfter: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop',
@@ -231,14 +232,14 @@ const caseStudiesData: CaseStudy[] = [
     testimonial: {
       quote: 'Współpraca z STANIAX przyniosła rewolucyjne rezultaty. Trwałość naszych komponentów wzrosła o 250%, a koszty produkcji spadły o 30%.',
       author: 'Jan Kowalski',
-      role: 'CEO, TechMotors',
+      role: 'Prezes, TechMotors',
       avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
     },
     badge: '+250% Trwałość'
   },
   {
     id: 'aerospace-innovation',
-    title: 'Aerospace Innovation',
+    title: 'Innowacje Lotnicze',
     subtitle: 'Precyzyjne powłoki dla komponentów lotniczych',
     imageBefore: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop',
     imageAfter: projectImgAerospace,
@@ -250,14 +251,14 @@ const caseStudiesData: CaseStudy[] = [
     testimonial: {
       quote: 'STANIAX spełnił najwyższe standardy aerospace. Ich metalizacja zwiększyła żywotność elementów turbinowych o 180% przy zachowaniu norm AS9100.',
       author: 'Anna Nowak',
-      role: 'Lead Engineer, AeroTech',
+      role: 'Główny Inżynier, AeroTech',
       avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
     },
     badge: '+180% Żywotność'
   },
   {
     id: 'industrial-revolution',
-    title: 'Industrial Revolution',
+    title: 'Rewolucja Przemysłowa',
     subtitle: 'Kompleksowa ochrona linii produkcyjnej',
     imageBefore: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop',
     imageAfter: projectImgIndustrial,
@@ -269,7 +270,7 @@ const caseStudiesData: CaseStudy[] = [
     testimonial: {
       quote: 'Dzięki metalizacji całej linii produkcyjnej przez STANIAX, eliminujemy 95% awarii związanych z korozją i zużyciem. ROI osiągnęliśmy w 8 miesięcy.',
       author: 'Piotr Wiśniewski',
-      role: 'Operations Director, IndustryPro',
+      role: 'Dyrektor Operacyjny, IndustryPro',
       avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
     },
     badge: '95% Redukcja Awarii'
@@ -279,13 +280,13 @@ const caseStudiesData: CaseStudy[] = [
 // BRAND SHOWCASE DATA - Trusted Companies & Certifications
 const brandShowcaseData = [
   { name: 'ISO 9001:2015', logo: 'ISO' },
-  { name: 'Automotive', logo: 'AUTO' },
-  { name: 'Aerospace', logo: 'AERO' },
-  { name: 'Medical', logo: 'MED' },
-  { name: 'CE Certified', logo: 'CE' },
-  { name: 'Industry 4.0', logo: 'IND' },
-  { name: 'Green Tech', logo: 'ECO' },
-  { name: 'Quality First', logo: 'QA' }
+  { name: 'Motoryzacja', logo: 'AUTO' },
+  { name: 'Lotnictwo', logo: 'AERO' },
+  { name: 'Medycyna', logo: 'MED' },
+  { name: 'Certyfikat CE', logo: 'CE' },
+  { name: 'Przemysł 4.0', logo: 'IND' },
+  { name: 'Eko Technologie', logo: 'ECO' },
+  { name: 'Jakość Przede Wszystkim', logo: 'QA' }
 ]
 
 // TECH SPECS DATA - Interactive Comparison Table
@@ -302,7 +303,7 @@ type TechSpec = {
 const techSpecsData: TechSpec[] = [
   {
     id: 'pvd',
-    method: 'PVD Coating',
+    method: 'Powłoki PVD',
     temperature: '200-500°C',
     thickness: '0.1-10 μm',
     applications: 'Narzędzia skrawające, komponenty precyzyjne',
@@ -316,7 +317,7 @@ const techSpecsData: TechSpec[] = [
   },
   {
     id: 'cvd',
-    method: 'CVD Technology',
+    method: 'Technologia CVD',
     temperature: '800-1050°C',
     thickness: '5-20 μm',
     applications: 'Narzędzia do obróbki metali, części silników',
@@ -548,6 +549,10 @@ function HomePage() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [beforeAfterSlider, setBeforeAfterSlider] = useState(50) // percentage for before/after slider
   
+  // HERO VIDEO CAROUSEL STATE
+  const [activeHeroVideo, setActiveHeroVideo] = useState(0)
+  const heroVideos = useMemo(() => [heroVideo, liquidMetalVideo], [])
+  
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
   
@@ -675,6 +680,15 @@ function HomePage() {
     
     return () => clearInterval(interval)
   }, [isAutoPlaying])
+
+  // Auto-play carousel for hero videos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveHeroVideo((prev) => (prev + 1) % heroVideos.length)
+    }, 8000) // Change video every 8 seconds
+    
+    return () => clearInterval(interval)
+  }, [heroVideos.length])
 
   // Sticky Side Navigation - Track active section
   useEffect(() => {
@@ -1141,7 +1155,7 @@ function HomePage() {
         <nav className="fixed right-8 top-1/2 -translate-y-1/2 z-40" aria-label="Section Navigation">
           <div className="flex flex-col gap-4">
             {sectionIds.map((sectionId, index) => {
-              const labels = ['Hero', 'Metryki', 'Usługi', 'O Nas', 'O Firmie', 'Projekty', 'Kontakt']
+              const labels = ['Start', 'Metryki', 'Usługi', 'O Nas', 'O Firmie', 'Projekty', 'Kontakt']
               const isActive = activeSectionIndex === index
               
               return (
@@ -1238,7 +1252,7 @@ function HomePage() {
           <button
             onClick={() => scrollToSection('top')}
             className="group flex items-center gap-2 sm:gap-3 text-left"
-            aria-label="Scroll to top"
+            aria-label="Przewiń na górę"
           >
             <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
               <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -1266,7 +1280,7 @@ function HomePage() {
                       : 'text-foreground'
                 )}
               >
-                Metal Coating Studio
+                Studio Metalizacji
               </span>
             </div>
           </button>
@@ -1282,7 +1296,7 @@ function HomePage() {
                     : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
               )}
             >
-              Get a Quote
+              Wyceń Projekt
             </Button>
             <button
               className={cn(
@@ -1405,18 +1419,41 @@ function HomePage() {
 
       <div className="relative w-full">
           <section id="top" data-theme="light" className="relative w-full bg-white overflow-hidden min-h-screen">
-            {/* Video Background - Full Width */}
+            {/* Video Background Carousel - Full Width */}
             <div className="absolute inset-0 w-full h-full">
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src={heroVideo} type="video/mp4" />
-              </video>
+              {heroVideos.map((video, index) => (
+                <video
+                  key={index}
+                  className={cn(
+                    "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
+                    activeHeroVideo === index ? "opacity-100" : "opacity-0"
+                  )}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={video} type="video/mp4" />
+                </video>
+              ))}
               <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+            </div>
+
+            {/* Video Carousel Indicators */}
+            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+              {heroVideos.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveHeroVideo(index)}
+                  className={cn(
+                    "w-2 h-2 rounded-full transition-all duration-300",
+                    activeHeroVideo === index
+                      ? "bg-white w-8"
+                      : "bg-white/50 hover:bg-white/75"
+                  )}
+                  aria-label={`Przejdź do wideo ${index + 1}`}
+                />
+              ))}
             </div>
 
             {/* Heading - Top Right Corner */}
@@ -1429,10 +1466,10 @@ function HomePage() {
                 }}
               >
                 <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                  COATINGS
+                  POWŁOKI
                 </span>
                 <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                  OF THE FUTURE
+                  PRZYSZŁOŚCI
                 </span>
               </h1>
             </div>
@@ -1440,7 +1477,7 @@ function HomePage() {
             {/* Floating Badge - Bottom Center */}
             <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 floating-badge">
               <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
-                <span className="text-sm font-bold uppercase tracking-wider">✨ Free Consultation</span>
+                <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
               </div>
             </div>
           </section>
@@ -1460,7 +1497,7 @@ function HomePage() {
                     <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    YEARS OF EXPERIENCE
+                    LAT DOŚWIADCZENIA
                   </p>
                 </div>
 
@@ -1470,7 +1507,7 @@ function HomePage() {
                     <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    COMPLETED PROJECTS
+                    ZREALIZOWANYCH PROJEKTÓW
                   </p>
                 </div>
 
@@ -1480,7 +1517,7 @@ function HomePage() {
                     24H
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    RESPONSE TIME
+                    CZAS REAKCJI
                   </p>
                 </div>
 
@@ -1490,7 +1527,7 @@ function HomePage() {
                     ISO
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    9001:2015 CERTIFICATE
+                    9001:2015 CERTYFIKAT
                   </p>
                 </div>
               </div>
@@ -1505,12 +1542,12 @@ function HomePage() {
             <div className="container mx-auto px-6 lg:px-12 relative z-10">
               {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
               <div className="text-right mb-20 max-w-7xl ml-auto section-reveal">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OUR SERVICES</p>
-                <h2 className="text-8xl lg:text-9xl xl:text-[10rem] font-black uppercase mb-6 text-gray-400 tracking-tighter leading-none" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                  OUR SERVICES
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">NASZE USŁUGI</p>
+                <h2 className="text-8xl lg:text-9xl xl:text-[10rem] font-black uppercase mb-6 text-gray-400 tracking-tighter leading-none">
+                  NASZE USŁUGI
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal leading-relaxed">
-                  Comprehensive metallization solutions for diverse industrial applications
+                  Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych
                 </p>
               </div>
 
@@ -1586,9 +1623,9 @@ function HomePage() {
           <div className="max-w-7xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">TECHNOLOGY COMPARISON</p>
-              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black uppercase mb-8 tracking-tighter text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                COMPARE<br />TECHNOLOGIES
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">PORÓWNANIE TECHNOLOGII</p>
+              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black uppercase mb-8 tracking-tighter text-gray-400">
+                PORÓWNAJ<br />TECHNOLOGIE
               </h2>
             </div>
 
@@ -1777,12 +1814,12 @@ function HomePage() {
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
           <div className="text-left mb-20 max-w-7xl mr-auto section-reveal">
-            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-6 font-semibold">WHY CHOOSE</p>
-            <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
+            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-6 font-semibold">DLACZEGO MY</p>
+            <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400">
               STANIAX
             </h2>
             <p className="text-lg text-white/80 max-w-2xl mr-auto font-normal leading-relaxed">
-              Why choose us as your industrial metallization partner
+              Dlaczego warto wybrać nas jako partnera do metalizacji przemysłowej
             </p>
           </div>
 
@@ -1864,13 +1901,13 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-20 section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">ABOUT US</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">O NAS</p>
               <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
-                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                  CREATING EXCELLENCE<br />IN METALLIZATION
+                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400">
+                  TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal mt-6 leading-relaxed">
-                  15 years of experience in advanced metallization technologies
+                  15 lat doświadczenia w zaawansowanych technologiach metalizacyjnych
                 </p>
               </div>
             </div>
@@ -2016,12 +2053,12 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             {/* Header */}
             <div className="text-left mb-20 max-w-7xl section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">CASE STUDIES</p>
-              <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                OUR<br />PROJECTS
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">STUDIA PRZYPADKÓW</p>
+              <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-gray-400">
+                NASZE<br />REALIZACJE
               </h2>
               <p className="text-lg text-gray-600 font-normal max-w-2xl leading-relaxed">
-                Discover success stories of our clients from automotive, aerospace, and industrial sectors
+                Odkryj historie sukcesów naszych klientów z branż motoryzacyjnej, lotniczej i przemysłowej
               </p>
             </div>
 
@@ -2095,10 +2132,10 @@ function HomePage() {
 
                           {/* Before/After Labels */}
                           <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            BEFORE
+                            PRZED
                           </div>
                           <div className="absolute top-4 right-4 bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            AFTER
+                            PO
                           </div>
                         </div>
                       </div>
@@ -2239,17 +2276,17 @@ function HomePage() {
                   </span>
                   <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-end md:justify-between md:text-left pb-5">
                     <div className="flex flex-col items-center gap-4 md:items-start">
-                      <span className="text-[3.5rem] font-black uppercase leading-[0.85] tracking-[-0.03em] sm:text-[4.5rem] lg:text-[6rem] text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                        CHECK OUT
+                      <span className="text-[3.5rem] font-black uppercase leading-[0.85] tracking-[-0.03em] sm:text-[4.5rem] lg:text-[6rem] text-gray-400">
+                        ZOBACZ
                       </span>
                     </div>
                     <span className="hidden h-24 w-px bg-white/25 md:block" aria-hidden />
                     <div className="flex flex-col items-center gap-3 md:items-start">
                       <span className="text-[0.7rem] font-semibold uppercase tracking-[0.85em] text-white/60">
-                        OUR
+                        NASZE
                       </span>
-                      <span className="text-[2.75rem] font-black uppercase leading-[0.9] tracking-[-0.01em] sm:text-[3.25rem] lg:text-[4rem] text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                        NEWS
+                      <span className="text-[2.75rem] font-black uppercase leading-[0.9] tracking-[-0.01em] sm:text-[3.25rem] lg:text-[4rem] text-gray-400">
+                        NOWOŚCI
                       </span>
                     </div>
                   </div>
@@ -2308,14 +2345,14 @@ function HomePage() {
         <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">CONTACT</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT</p>
               
               <div className="mb-12 text-center">
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-gray-400" style={{ textShadow: '4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000' }}>
-                  GET IN TOUCH<br />WITH US
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-gray-400">
+                  SKONTAKTUJ SIĘ<br />Z NAMI
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Fill out the form and we'll contact you within 24 hours
+                  Wypełnij formularz, a my skontaktujemy się z Tobą w ciągu 24 godzin
                 </p>
               </div>
 
@@ -2580,3 +2617,4 @@ function HomePage() {
 }
 
 export default HomePage
+// Force reload wto, 4 lis 2025, 23:36:53 CET
