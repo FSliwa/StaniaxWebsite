@@ -1488,6 +1488,9 @@ function HomePage() {
 
             {/* Heading - Top Right Corner */}
             <div className="absolute top-24 right-6 lg:top-32 lg:right-16 xl:right-24 z-10 max-w-xl lg:max-w-2xl pr-4 lg:pr-8">
+              {/* Background overlay for better contrast */}
+              <div className="absolute inset-0 -inset-x-4 -inset-y-4 bg-black/40 backdrop-blur-sm rounded-2xl -z-10" />
+              
               <h1 
                 className="text-[3rem] sm:text-[4.5rem] lg:text-[6rem] xl:text-[8rem] font-black leading-[0.85] tracking-tighter group cursor-default text-right"
                 style={{
@@ -1495,16 +1498,16 @@ function HomePage() {
                   transition: 'transform 0.3s ease-out'
                 }}
               >
-                <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
                   POWŁOKI
                 </span>
-                <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
                   PRZYSZŁOŚCI
                 </span>
               </h1>
               
               {/* Subtitle */}
-              <p className="mt-6 text-right text-white/90 text-sm sm:text-base lg:text-lg font-medium leading-relaxed drop-shadow-lg">
+              <p className="mt-6 text-right text-white text-sm sm:text-base lg:text-lg font-semibold leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                 Specjalistyczne powłoki metaliczne<br className="hidden sm:block" />
                 dla przemysłu i prototypowania
               </p>
@@ -1825,6 +1828,22 @@ function HomePage() {
                 </div>
               </div>
             )}
+
+            {/* CTA after table */}
+            <div className="mt-12 text-center">
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-105"
+              >
+                <span className="text-base font-bold uppercase tracking-wider">
+                  ✨ Bezpłatna Konsultacja
+                </span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </button>
+              <p className="mt-4 text-sm text-gray-600">Skontaktuj się z nami i dobierzemy najlepszą technologię</p>
+            </div>
           </div>
         </div>
       </section>
@@ -2089,6 +2108,22 @@ function HomePage() {
                   Skontaktuj się z nami
                 </Button>
               </div>
+            </div>
+
+            {/* CTA after About section */}
+            <div className="mt-16 text-center">
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-105"
+              >
+                <span className="text-base font-bold uppercase tracking-wider">
+                  ✨ Bezpłatna Konsultacja
+                </span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </button>
+              <p className="mt-4 text-sm text-gray-600">Porozmawiaj z naszymi ekspertami o Twoim projekcie</p>
             </div>
           </div>
         </section>
@@ -2445,11 +2480,12 @@ function HomePage() {
                           key={type}
                           onClick={() => setSmartFormData({ ...smartFormData, projectType: type })}
                           className={cn(
-                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105',
+                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px]',
                             smartFormData.projectType === type
                               ? 'border-blue-700 bg-blue-50 text-blue-900'
                               : 'border-gray-200 hover:border-blue-300'
                           )}
+                          aria-label={`Wybierz ${type}`}
                         >
                           {type}
                         </button>
@@ -2467,11 +2503,12 @@ function HomePage() {
                           key={tech}
                           onClick={() => setSmartFormData({ ...smartFormData, technology: tech })}
                           className={cn(
-                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105',
+                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px]',
                             smartFormData.technology === tech
                               ? 'border-blue-700 bg-blue-50 text-blue-900'
                               : 'border-gray-200 hover:border-blue-300'
                           )}
+                          aria-label={`Wybierz technologię ${tech}`}
                         >
                           {tech}
                         </button>
@@ -2485,36 +2522,44 @@ function HomePage() {
                     <h3 className="text-2xl font-bold text-gray-900">Twoje dane kontaktowe</h3>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <Input
-                        placeholder="Imię *"
+                        placeholder="Imię (np. Jan) *"
                         value={smartFormData.firstName}
                         onChange={(e) => setSmartFormData({ ...smartFormData, firstName: e.target.value })}
-                        className="border-2"
+                        className="border-2 min-h-[44px]"
+                        aria-label="Imię"
+                        required
                       />
                       <Input
-                        placeholder="Nazwisko *"
+                        placeholder="Nazwisko (np. Kowalski) *"
                         value={smartFormData.lastName}
                         onChange={(e) => setSmartFormData({ ...smartFormData, lastName: e.target.value })}
-                        className="border-2"
+                        className="border-2 min-h-[44px]"
+                        aria-label="Nazwisko"
                       />
                     </div>
                     <Input
                       type="email"
-                      placeholder="Email *"
+                      placeholder="E-mail (np. jan.kowalski@firma.pl) *"
                       value={smartFormData.email}
                       onChange={(e) => setSmartFormData({ ...smartFormData, email: e.target.value })}
-                      className="border-2"
+                      className="border-2 min-h-[44px]"
+                      aria-label="Adres e-mail"
+                      required
                     />
                     <Input
-                      placeholder="Telefon"
+                      placeholder="Telefon (opcjonalnie, np. +48 123 456 789)"
                       value={smartFormData.phone}
                       onChange={(e) => setSmartFormData({ ...smartFormData, phone: e.target.value })}
-                      className="border-2"
+                      className="border-2 min-h-[44px]"
+                      aria-label="Numer telefonu"
                     />
                     <Textarea
-                      placeholder="Wiadomość *"
+                      placeholder="Opisz swój projekt - im więcej szczegółów, tym lepiej pomożemy *"
                       value={smartFormData.message}
                       onChange={(e) => setSmartFormData({ ...smartFormData, message: e.target.value })}
                       className="border-2 min-h-32"
+                      aria-label="Opis projektu"
+                      required
                     />
                   </div>
                 )}
