@@ -559,6 +559,9 @@ function HomePage() {
   const heroVideos = useMemo(() => [heroVideo, liquidMetalVideo, vinylTransformationVideo], [])
   const heroVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
   
+  // MOBILE FLOATING CTA STATE
+  const [showFloatingCTA, setShowFloatingCTA] = useState(false)
+  
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
   
@@ -605,6 +608,15 @@ function HomePage() {
       const scrollableDistance = documentHeight - windowHeight
       const progress = (currentScrollY / scrollableDistance) * 100
       setScrollProgress(progress)
+      
+      // Show floating CTA on mobile after scrolling past hero section
+      const heroSection = document.getElementById('top')
+      if (heroSection && window.innerWidth < 640) { // sm breakpoint
+        const heroBottom = heroSection.getBoundingClientRect().bottom
+        setShowFloatingCTA(heroBottom < 100)
+      } else {
+        setShowFloatingCTA(false)
+      }
       
       // Wavy Line Visibility (shows from metrics section onwards)
       const metricsSection = document.getElementById('metrics')
@@ -1490,16 +1502,27 @@ function HomePage() {
                   PRZYSZŁOŚCI
                 </span>
               </h1>
+              
+              {/* Subtitle */}
+              <p className="mt-6 text-right text-white/90 text-sm sm:text-base lg:text-lg font-medium leading-relaxed drop-shadow-lg">
+                Specjalistyczne powłoki metaliczne<br className="hidden sm:block" />
+                dla przemysłu i prototypowania
+              </p>
             </div>
 
-            {/* Floating Badge - Bottom Center */}
+            {/* Primary CTA - Bottom Center */}
             <button
               onClick={() => scrollToSection('contact')}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 floating-badge cursor-pointer transition-transform hover:scale-105"
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 group cursor-pointer transition-all duration-300 hover:scale-105"
               aria-label="Przejdź do formularza kontaktowego"
             >
-              <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
-                <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 backdrop-blur-sm transition-all duration-300">
+                <span className="text-base font-bold uppercase tracking-wider flex items-center gap-2">
+                  ✨ Bezpłatna Konsultacja
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
               </div>
             </button>
           </section>
@@ -2517,13 +2540,13 @@ function HomePage() {
                           (formStep === 2 && !smartFormData.technology)
                         }
                       >
-                        Dalej →
+                        {formStep === 1 ? 'Kontynuuj →' : 'Zrób wycenę →'}
                       </Button>
                     ) : (
                       <Button
                         onClick={() => {
                           triggerConfetti()
-                          toast.success('Wiadomość wysłana!')
+                          toast.success('Dziękujemy! Odpowiemy w ciągu 24h')
                           setFormStep(1)
                           setSmartFormData({
                             projectType: '',
@@ -2539,7 +2562,7 @@ function HomePage() {
                         className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button"
                         disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message}
                       >
-                        Wyślij 🚀
+                        Wyślij zapytanie 🚀
                       </Button>
                     )}
                   </div>
@@ -2634,6 +2657,24 @@ function HomePage() {
           </div>
         </div>
       </footer>
+
+      {/* Mobile Floating CTA Button */}
+      <button
+        onClick={() => scrollToSection('contact')}
+        className={cn(
+          'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500',
+          showFloatingCTA
+            ? 'translate-y-0 opacity-100 pointer-events-auto'
+            : 'translate-y-20 opacity-0 pointer-events-none'
+        )}
+        aria-label="Wyceń projekt"
+      >
+        <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl border-2 border-blue-400/30">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          </svg>
+        </div>
+      </button>
     </div>
   )
 }
