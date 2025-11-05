@@ -1466,7 +1466,7 @@ function HomePage() {
                   <source src={video} type="video/mp4" />
                 </video>
               ))}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
             </div>
 
             {/* Video Carousel Indicators */}
@@ -1685,9 +1685,11 @@ function HomePage() {
                   className={cn(
                     'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
                     selectedFilter === 'all'
-                      ? 'bg-blue-700 text-white'
+                      ? 'bg-blue-700 text-white shadow-lg scale-105'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   )}
+                  aria-label="Pokaż wszystkie technologie"
+                  aria-pressed={selectedFilter === 'all'}
                 >
                   Wszystkie
                 </button>
@@ -1698,9 +1700,11 @@ function HomePage() {
                     className={cn(
                       'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
                       selectedFilter === spec.id
-                        ? 'bg-blue-700 text-white'
+                        ? 'bg-blue-700 text-white shadow-lg scale-105'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     )}
+                    aria-label={`Filtruj po ${spec.method}`}
+                    aria-pressed={selectedFilter === spec.id}
                   >
                     {spec.method.split(' ')[0]}
                   </button>
@@ -2287,14 +2291,17 @@ function HomePage() {
                     setActiveSlide((prev) => (prev - 1 + caseStudiesData.length) % caseStudiesData.length)
                     setIsAutoPlaying(false)
                   }}
-                  className="w-12 h-12 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold"
-                  aria-label="Previous slide"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
+                  aria-label="Poprzedni projekt"
                 >
                   ←
                 </button>
 
-                {/* Dots */}
-                <div className="flex gap-3">
+                {/* Dots with numbers */}
+                <div className="flex gap-3 items-center">
+                  <span className="text-sm font-semibold text-gray-600 mr-2">
+                    {activeSlide + 1} / {caseStudiesData.length}
+                  </span>
                   {caseStudiesData.map((_, index) => (
                     <button
                       key={index}
@@ -2308,7 +2315,7 @@ function HomePage() {
                           ? 'bg-blue-700 w-8'
                           : 'bg-gray-300 hover:bg-gray-400'
                       )}
-                      aria-label={`Go to slide ${index + 1}`}
+                      aria-label={`Przejdź do projektu ${index + 1}`}
                     />
                   ))}
                 </div>
@@ -2318,8 +2325,8 @@ function HomePage() {
                     setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
                     setIsAutoPlaying(false)
                   }}
-                  className="w-12 h-12 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold"
-                  aria-label="Next slide"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
+                  aria-label="Następny projekt"
                 >
                   →
                 </button>
@@ -2438,6 +2445,13 @@ function HomePage() {
 
               {/* Progress Bar */}
               <div className="mb-12">
+                {/* Step indicator text */}
+                <div className="text-center mb-4">
+                  <p className="text-sm font-semibold text-gray-600">
+                    Krok <span className="text-blue-700 text-lg">{formStep}</span> z 3
+                  </p>
+                </div>
+                
                 <div className="flex justify-between mb-4">
                   {[1, 2, 3].map((step) => (
                     <div
@@ -2448,8 +2462,8 @@ function HomePage() {
                       )}
                     >
                       <div className={cn(
-                        'w-10 h-10 rounded-full flex items-center justify-center font-bold',
-                        formStep >= step ? 'bg-blue-700 text-white' : 'bg-gray-200'
+                        'w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300',
+                        formStep >= step ? 'bg-blue-700 text-white scale-110' : 'bg-gray-200'
                       )}>
                         {step}
                       </div>
