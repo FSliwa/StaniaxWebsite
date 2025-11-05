@@ -1250,7 +1250,7 @@ function HomePage() {
       <header
         className={cn(
           'fixed top-0 w-full transition-all duration-500',
-          isMenuOpen ? 'z-[60]' : 'z-50',
+          isMenuOpen ? 'z-[100]' : 'z-50',
           scrollY > 32
             ? 'bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
             : 'bg-transparent border-transparent'
@@ -1348,7 +1348,7 @@ function HomePage() {
         <div
           className={cn(
             'fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300',
-            isMenuOpen ? 'pointer-events-auto opacity-100 z-[55]' : 'pointer-events-none opacity-0 z-[-1]'
+            isMenuOpen ? 'pointer-events-auto opacity-100 z-[90]' : 'pointer-events-none opacity-0 z-[-1]'
           )}
           onClick={() => setIsMenuOpen(false)}
           aria-hidden={!isMenuOpen}
@@ -1357,7 +1357,7 @@ function HomePage() {
         {/* Side Menu */}
         <div
           className={cn(
-            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[60]',
+            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[95] overflow-y-auto',
             menuBackgroundClass,
             'backdrop-blur-2xl border-l border-white/10',
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -1493,11 +1493,15 @@ function HomePage() {
             </div>
 
             {/* Floating Badge - Bottom Center */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 floating-badge">
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 floating-badge cursor-pointer transition-transform hover:scale-105"
+              aria-label="Przejdź do formularza kontaktowego"
+            >
               <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
                 <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
               </div>
-            </div>
+            </button>
           </section>
 
           {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
