@@ -225,8 +225,8 @@ const caseStudiesData: CaseStudy[] = [
     id: 'automotive-excellence',
     title: 'Doskonałość Motoryzacyjna',
     subtitle: 'Przełomowa metalizacja komponentów silnikowych',
-    imageBefore: automotiveBefore,
-    imageAfter: automotiveAfter,
+    imageBefore: automotiveAfter,
+    imageAfter: automotiveBefore,
     metrics: [
       { value: '3 msc', label: 'Realizacja' },
       { value: '50K+', label: 'Elementy' },
