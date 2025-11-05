@@ -39,6 +39,8 @@ import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
 import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
 import automotiveBefore from '@/assets/automotive-before.jpeg'
 import automotiveAfter from '@/assets/automotive-after.jpeg'
+import industrialBefore from '@/assets/industrial-before.jpeg'
+import industrialAfter from '@/assets/industrial-after.jpeg'
 
 import whyChooseImg1 from '@/assets/Dlaczego Staniax V1.png'
 import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
@@ -223,7 +225,7 @@ type CaseStudy = {
 const caseStudiesData: CaseStudy[] = [
   {
     id: 'automotive-excellence',
-    title: 'Doskonałość Motoryzacyjna',
+    title: 'Rewolucja Przemysłowa',
     subtitle: 'Przełomowa metalizacja komponentów silnikowych',
     imageBefore: automotiveAfter,
     imageAfter: automotiveBefore,
@@ -261,10 +263,10 @@ const caseStudiesData: CaseStudy[] = [
   },
   {
     id: 'industrial-revolution',
-    title: 'Rewolucja Przemysłowa',
+    title: 'Doskonałość Motoryzacyjna',
     subtitle: 'Kompleksowa ochrona linii produkcyjnej',
-    imageBefore: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop',
-    imageAfter: projectImgIndustrial,
+    imageBefore: industrialBefore,
+    imageAfter: industrialAfter,
     metrics: [
       { value: '12 msc', label: 'Wdrożenie' },
       { value: '200+', label: 'Maszyny' },
@@ -1443,7 +1445,7 @@ function HomePage() {
             </div>
 
             {/* Video Carousel Indicators */}
-            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+            <div className="absolute bottom-40 left-1/2 -translate-x-1/2 z-10 flex gap-2">
               {heroVideos.map((_, index) => (
                 <button
                   key={index}
