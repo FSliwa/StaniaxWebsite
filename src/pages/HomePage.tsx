@@ -690,7 +690,7 @@ function HomePage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveHeroVideo((prev) => (prev + 1) % heroVideos.length)
-    }, 8000) // Change video every 8 seconds
+    }, 7000) // Change video every 7 seconds
     
     return () => clearInterval(interval)
   }, [heroVideos.length])
@@ -1423,7 +1423,7 @@ function HomePage() {
       </header>
 
       <div className="relative w-full">
-          <section id="top" data-theme="light" className="relative w-full bg-white overflow-hidden min-h-screen">
+          <section id="top" data-theme="dark" className="relative w-full bg-white overflow-hidden min-h-screen">
             {/* Video Background Carousel - Full Width */}
             <div className="absolute inset-0 w-full h-full">
               {heroVideos.map((video, index) => (
@@ -1480,7 +1480,7 @@ function HomePage() {
             </div>
 
             {/* Floating Badge - Bottom Center */}
-            <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-10 floating-badge">
+            <div className="absolute bottom-44 left-1/2 -translate-x-1/2 z-10 floating-badge">
               <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
                 <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
               </div>
