@@ -557,6 +557,7 @@ function HomePage() {
   // HERO VIDEO CAROUSEL STATE
   const [activeHeroVideo, setActiveHeroVideo] = useState(0)
   const heroVideos = useMemo(() => [heroVideo, liquidMetalVideo, vinylTransformationVideo], [])
+  const heroVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
   
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
@@ -694,6 +695,17 @@ function HomePage() {
     
     return () => clearInterval(interval)
   }, [heroVideos.length])
+
+  // Restart video from beginning when it becomes active
+  useEffect(() => {
+    const currentVideo = heroVideoRefs.current[activeHeroVideo]
+    if (currentVideo) {
+      currentVideo.currentTime = 0
+      currentVideo.play().catch(() => {
+        // Ignore autoplay errors
+      })
+    }
+  }, [activeHeroVideo])
 
   // Sticky Side Navigation - Track active section
   useEffect(() => {
@@ -1335,8 +1347,8 @@ function HomePage() {
         {/* Backdrop */}
         <div
           className={cn(
-            'fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300',
-            isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+            'fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300',
+            isMenuOpen ? 'pointer-events-auto opacity-100 z-[55]' : 'pointer-events-none opacity-0 z-[-1]'
           )}
           onClick={() => setIsMenuOpen(false)}
           aria-hidden={!isMenuOpen}
@@ -1345,7 +1357,7 @@ function HomePage() {
         {/* Side Menu */}
         <div
           className={cn(
-            'fixed inset-y-0 right-0 z-50 w-full max-w-md transform transition-transform duration-500 ease-in-out',
+            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[60]',
             menuBackgroundClass,
             'backdrop-blur-2xl border-l border-white/10',
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -1429,6 +1441,7 @@ function HomePage() {
               {heroVideos.map((video, index) => (
                 <video
                   key={index}
+                  ref={(el) => (heroVideoRefs.current[index] = el)}
                   className={cn(
                     "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
                     activeHeroVideo === index ? "opacity-100" : "opacity-0"
@@ -1445,7 +1458,7 @@ function HomePage() {
             </div>
 
             {/* Video Carousel Indicators */}
-            <div className="absolute bottom-40 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-2">
               {heroVideos.map((_, index) => (
                 <button
                   key={index}
@@ -1480,7 +1493,7 @@ function HomePage() {
             </div>
 
             {/* Floating Badge - Bottom Center */}
-            <div className="absolute bottom-44 left-1/2 -translate-x-1/2 z-10 floating-badge">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 floating-badge">
               <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
                 <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
               </div>
