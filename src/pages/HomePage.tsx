@@ -36,6 +36,8 @@ import projectImgAutomotive from '@/assets/IMG_0990-2575648632.jpeg'
 import projectImgAerospace from '@/assets/airplane-04-1600x900.jpg'
 import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
 import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
+import automotiveBefore from '@/assets/automotive-before.jpeg'
+import automotiveAfter from '@/assets/automotive-after.jpeg'
 
 import whyChooseImg1 from '@/assets/Dlaczego Staniax V1.png'
 import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
@@ -222,8 +224,8 @@ const caseStudiesData: CaseStudy[] = [
     id: 'automotive-excellence',
     title: 'Doskonałość Motoryzacyjna',
     subtitle: 'Przełomowa metalizacja komponentów silnikowych',
-    imageBefore: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop',
-    imageAfter: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop',
+    imageBefore: automotiveBefore,
+    imageAfter: automotiveAfter,
     metrics: [
       { value: '3 msc', label: 'Realizacja' },
       { value: '50K+', label: 'Elementy' },
@@ -1475,7 +1477,7 @@ function HomePage() {
             </div>
 
             {/* Floating Badge - Bottom Center */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 floating-badge">
+            <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-10 floating-badge">
               <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
                 <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
               </div>
