@@ -562,6 +562,9 @@ function HomePage() {
   // MOBILE FLOATING CTA STATE
   const [showFloatingCTA, setShowFloatingCTA] = useState(false)
   
+  // SCROLL TO TOP BUTTON STATE
+  const [showScrollTop, setShowScrollTop] = useState(false)
+  
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
   
@@ -617,6 +620,9 @@ function HomePage() {
       } else {
         setShowFloatingCTA(false)
       }
+      
+      // Show scroll-to-top button after scrolling 300px
+      setShowScrollTop(currentScrollY > 300)
       
       // Wavy Line Visibility (shows from metrics section onwards)
       const metricsSection = document.getElementById('metrics')
@@ -1462,11 +1468,12 @@ function HomePage() {
                   loop
                   muted
                   playsInline
+                  aria-label="Tło wideo prezentujące proces metalizacji przemysłowej"
                 >
                   <source src={video} type="video/mp4" />
                 </video>
               ))}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" aria-hidden="true" />
             </div>
 
             {/* Video Carousel Indicators */}
@@ -1488,6 +1495,8 @@ function HomePage() {
 
             {/* Heading - Top Right Corner */}
             <div className="absolute top-24 right-6 lg:top-32 lg:right-16 xl:right-24 z-10 max-w-xl lg:max-w-2xl pr-4 lg:pr-8">
+              {/* Subtle backdrop for better readability */}
+              <div className="absolute inset-0 -inset-x-6 -inset-y-6 bg-gradient-to-br from-black/30 via-black/20 to-transparent backdrop-blur-[2px] rounded-3xl -z-10" />
               
               <h1 
                 className="text-[4rem] sm:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-black leading-[0.85] tracking-tighter group cursor-default text-right"
@@ -1496,16 +1505,16 @@ function HomePage() {
                   transition: 'transform 0.3s ease-out'
                 }}
               >
-                <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+                <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_6px_20px_rgba(0,0,0,1)]">
                   POWŁOKI
                 </span>
-                <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+                <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_6px_20px_rgba(0,0,0,1)]">
                   PRZYSZŁOŚCI
                 </span>
               </h1>
               
               {/* Subtitle */}
-              <p className="mt-6 text-right text-white text-sm sm:text-base lg:text-lg font-semibold leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+              <p className="mt-6 text-right text-white text-sm sm:text-base lg:text-lg font-semibold leading-relaxed drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">
                 Specjalistyczne powłoki metaliczne<br className="hidden sm:block" />
                 dla przemysłu i prototypowania
               </p>
@@ -1612,30 +1621,39 @@ function HomePage() {
                   return (
                     <div
                       key={service.id}
-                      className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl stagger-item"
+                      className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl hover:border-blue-400 stagger-item cursor-pointer focus-within:ring-4 focus-within:ring-blue-400"
                       style={{
                         transform: `translateY(${translateY}px)`,
                         animationDelay: `${index * 0.1}s`
                       }}
                       onMouseEnter={(e) => {
                         const current = e.currentTarget as HTMLElement
-                        current.style.transform = `translateY(${translateY}px) perspective(1000px) rotateX(3deg) rotateY(-3deg) scale(1.02)`
+                        current.style.transform = `translateY(${translateY}px) perspective(1000px) rotateX(3deg) rotateY(-3deg) scale(1.03)`
                       }}
                       onMouseLeave={(e) => {
                         const current = e.currentTarget as HTMLElement
                         current.style.transform = `translateY(${translateY}px)`
                       }}
+                      tabIndex={0}
+                      role="article"
+                      aria-label={`${service.title} - ${service.tagline}`}
                     >
                     {/* Obrazek */}
                     <div className="relative h-48 overflow-hidden">
                       <img 
                         src={service.image} 
                         alt={service.alt}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-115"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 group-hover:from-black/70" />
-                      <div className="absolute bottom-4 left-4 text-7xl font-black text-white/30 transition-all duration-300 group-hover:text-white/40 group-hover:scale-105">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 group-hover:from-black/75" />
+                      <div className="absolute bottom-4 left-4 text-7xl font-black text-white/30 transition-all duration-300 group-hover:text-white/50 group-hover:scale-110">
                         {String(index + 1).padStart(2, '0')}
+                      </div>
+                      {/* Hover indicator */}
+                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                          Zobacz więcej
+                        </div>
                       </div>
                     </div>
                     
@@ -1647,12 +1665,12 @@ function HomePage() {
                       </h3>
                       
                       {/* Tagline */}
-                      <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold mb-4 transition-all duration-300 group-hover:tracking-[0.3em]">
+                      <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold mb-4 transition-all duration-300 group-hover:tracking-[0.3em] group-hover:text-blue-800">
                         {service.tagline}
                       </p>
                       
                       {/* Opis */}
-                      <p className="text-gray-600 leading-relaxed font-normal">
+                      <p className="text-gray-600 leading-relaxed font-normal group-hover:text-gray-900 transition-colors">
                         {service.description}
                       </p>
                     </div>
@@ -1741,13 +1759,14 @@ function HomePage() {
                 <tbody>
                   {techSpecsData
                     .filter((spec) => selectedFilter === 'all' || selectedFilter === spec.id)
-                    .map((spec) => (
+                    .map((spec, index) => (
                       <>
                         <tr
                           key={spec.id}
                           className={cn(
                             'border-t border-gray-200 hover:bg-blue-50 transition-colors cursor-pointer',
-                            selectedForCompare.includes(spec.id) && 'bg-blue-100'
+                            selectedForCompare.includes(spec.id) && 'bg-blue-100',
+                            index > 0 && 'border-t-2'
                           )}
                           onClick={() => setExpandedRow(expandedRow === spec.id ? null : spec.id)}
                         >
@@ -1764,8 +1783,9 @@ function HomePage() {
                                     setSelectedForCompare([...selectedForCompare, spec.id])
                                   }
                                 }}
-                                className="w-5 h-5"
+                                className="w-5 h-5 focus-visible:ring-2 focus-visible:ring-blue-400"
                                 disabled={!selectedForCompare.includes(spec.id) && selectedForCompare.length >= 2}
+                                aria-label={`Wybierz ${spec.method} do porównania`}
                               />
                             </td>
                           )}
@@ -1774,15 +1794,18 @@ function HomePage() {
                           <td className="p-4 text-gray-700">{spec.thickness}</td>
                           <td className="p-4 text-gray-700 text-sm">{spec.applications}</td>
                           <td className="p-4 text-center">
-                            <button className="text-blue-700 hover:text-blue-900 font-bold">
+                            <button 
+                              className="text-blue-700 hover:text-blue-900 font-bold focus-visible:ring-2 focus-visible:ring-blue-400 rounded p-2"
+                              aria-label={expandedRow === spec.id ? 'Zwiń szczegóły' : 'Rozwiń szczegóły'}
+                            >
                               {expandedRow === spec.id ? '▲' : '▼'}
                             </button>
                           </td>
                         </tr>
                         {expandedRow === spec.id && (
-                          <tr className="bg-gray-50 border-t border-gray-200">
-                            <td colSpan={compareMode ? 6 : 5} className="p-6">
-                              <div className="grid md:grid-cols-2 gap-6">
+                          <tr className="bg-gray-50 border-t border-gray-200 shadow-inner">
+                            <td colSpan={compareMode ? 6 : 5} className="p-8">
+                              <div className="grid md:grid-cols-2 gap-8">
                                 <div>
                                   <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Zalety:</h4>
                                   <ul className="space-y-2">
@@ -2461,9 +2484,9 @@ function HomePage() {
                     >
                       <div className={cn(
                         'w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300',
-                        formStep >= step ? 'bg-blue-700 text-white scale-110' : 'bg-gray-200'
+                        formStep >= step ? 'bg-blue-700 text-white scale-110 shadow-lg' : 'bg-gray-200'
                       )}>
-                        {step}
+                        {formStep > step ? '✓' : step}
                       </div>
                       <span className="hidden sm:inline text-sm font-semibold">
                         {step === 1 && 'Projekt'}
@@ -2473,9 +2496,9 @@ function HomePage() {
                     </div>
                   ))}
                 </div>
-                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div className="h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
                   <div
-                    className="h-full bg-blue-700 transition-all duration-500"
+                    className="h-full bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-500 shadow-md"
                     style={{ width: `${(formStep / 3) * 100}%` }}
                   />
                 </div>
@@ -2719,7 +2742,7 @@ function HomePage() {
       <button
         onClick={() => scrollToSection('contact')}
         className={cn(
-          'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500',
+          'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
           showFloatingCTA
             ? 'translate-y-0 opacity-100 pointer-events-auto'
             : 'translate-y-20 opacity-0 pointer-events-none'
@@ -2732,6 +2755,40 @@ function HomePage() {
           </svg>
         </div>
       </button>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className={cn(
+          'fixed bottom-6 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+          showScrollTop
+            ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
+            : 'translate-y-20 opacity-0 pointer-events-none scale-75'
+        )}
+        aria-label="Powrót do góry strony"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </button>
+
+      {/* Global Focus Styles */}
+      <style>{`
+        *:focus-visible {
+          outline: 3px solid rgb(96 165 250) !important;
+          outline-offset: 2px !important;
+          border-radius: 4px !important;
+        }
+        
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        select:focus-visible {
+          outline: 3px solid rgb(96 165 250) !important;
+          outline-offset: 2px !important;
+        }
+      `}</style>
     </div>
   )
 }
