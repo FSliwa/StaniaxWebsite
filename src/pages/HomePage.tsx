@@ -1591,7 +1591,7 @@ function HomePage() {
               {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
               <div className="text-right mb-20 max-w-7xl ml-auto section-reveal">
                 <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">NASZE USŁUGI</p>
-                <h2 className="text-8xl lg:text-9xl xl:text-[10rem] font-black uppercase mb-6 text-gray-400 tracking-tighter leading-none">
+                <h2 className="text-8xl lg:text-9xl xl:text-[10rem] font-black uppercase mb-6 text-blue-400 tracking-tighter leading-none">
                   NASZE USŁUGI
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal leading-relaxed">
@@ -1672,7 +1672,7 @@ function HomePage() {
             {/* Header */}
             <div className="text-center mb-12">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">PORÓWNANIE METOD</p>
-              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black uppercase mb-8 tracking-tighter text-gray-400">
+              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black uppercase mb-8 tracking-tighter text-blue-400">
                 METALIZACJA<br />VS INNE METODY
               </h2>
             </div>
@@ -1883,7 +1883,7 @@ function HomePage() {
           {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
           <div className="text-left mb-20 max-w-7xl mr-auto section-reveal">
             <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-6 font-semibold">DLACZEGO MY</p>
-            <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400">
+            <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-blue-300">
               STANIAX
             </h2>
             <p className="text-lg text-white/80 max-w-2xl mr-auto font-normal leading-relaxed">
@@ -1971,7 +1971,7 @@ function HomePage() {
             <div className="text-right mb-20 section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">O NAS</p>
               <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
-                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-gray-400">
+                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-blue-400">
                   TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
                 </h2>
                 <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal mt-6 leading-relaxed">
@@ -2138,7 +2138,7 @@ function HomePage() {
             {/* Header */}
             <div className="text-left mb-20 max-w-7xl section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">STUDIA PRZYPADKÓW</p>
-              <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-gray-400">
+              <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-blue-400">
                 NASZE<br />REALIZACJE
               </h2>
               <p className="text-lg text-gray-600 font-normal max-w-2xl leading-relaxed">
@@ -2363,7 +2363,7 @@ function HomePage() {
                   </span>
                   <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-end md:justify-between md:text-left pb-5">
                     <div className="flex flex-col items-center gap-4 md:items-start">
-                      <span className="text-[3.5rem] font-black uppercase leading-[0.85] tracking-[-0.03em] sm:text-[4.5rem] lg:text-[6rem] text-gray-400">
+                      <span className="text-[3.5rem] font-black uppercase leading-[0.85] tracking-[-0.03em] sm:text-[4.5rem] lg:text-[6rem] text-blue-300">
                         ZOBACZ
                       </span>
                     </div>
@@ -2372,7 +2372,7 @@ function HomePage() {
                       <span className="text-[0.7rem] font-semibold uppercase tracking-[0.85em] text-white/60">
                         NASZE
                       </span>
-                      <span className="text-[2.75rem] font-black uppercase leading-[0.9] tracking-[-0.01em] sm:text-[3.25rem] lg:text-[4rem] text-gray-400">
+                      <span className="text-[2.75rem] font-black uppercase leading-[0.9] tracking-[-0.01em] sm:text-[3.25rem] lg:text-[4rem] text-blue-300">
                         NOWOŚCI
                       </span>
                     </div>
@@ -2435,7 +2435,7 @@ function HomePage() {
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT</p>
               
               <div className="mb-12 text-center">
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-gray-400">
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
                   SKONTAKTUJ SIĘ<br />Z NAMI
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
