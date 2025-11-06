@@ -1494,10 +1494,10 @@ function HomePage() {
             </div>
 
             {/* Heading - Top Right Corner */}
-            <div className="absolute top-24 right-6 lg:top-32 lg:right-16 xl:right-24 z-10 max-w-2xl lg:max-w-4xl pr-4 lg:pr-8">
+            <div className="absolute top-12 sm:top-16 lg:top-20 right-6 lg:right-16 xl:right-24 z-10 max-w-xl lg:max-w-3xl pr-4 lg:pr-8">
               
               <h1 
-                className="text-[8rem] sm:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-black leading-[0.85] tracking-tighter group cursor-default text-right"
+                className="text-[5rem] sm:text-[7rem] lg:text-[10rem] xl:text-[12rem] font-black leading-[0.85] tracking-tighter group cursor-default text-right"
                 style={{
                   transform: `perspective(1000px) rotateX(${heroMousePosition.y * 0.05}deg) rotateY(${heroMousePosition.x * 0.05}deg)`,
                   transition: 'transform 0.3s ease-out'
@@ -1512,7 +1512,7 @@ function HomePage() {
               </h1>
               
               {/* Subtitle */}
-              <p className="mt-6 text-right text-white text-base sm:text-lg lg:text-xl font-semibold leading-relaxed drop-shadow-[0_6px_20px_rgba(0,0,0,1)]">
+              <p className="mt-4 lg:mt-6 text-right text-white text-sm sm:text-base lg:text-lg font-semibold leading-relaxed drop-shadow-[0_6px_20px_rgba(0,0,0,1)]">
                 Specjalistyczne powłoki metaliczne<br className="hidden sm:block" />
                 dla przemysłu i prototypowania
               </p>
