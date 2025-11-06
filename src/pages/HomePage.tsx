@@ -1494,27 +1494,25 @@ function HomePage() {
             </div>
 
             {/* Heading - Top Right Corner */}
-            <div className="absolute top-24 right-6 lg:top-32 lg:right-16 xl:right-24 z-10 max-w-xl lg:max-w-2xl pr-4 lg:pr-8">
-              {/* Subtle backdrop for better readability */}
-              <div className="absolute inset-0 -inset-x-6 -inset-y-6 bg-gradient-to-br from-black/30 via-black/20 to-transparent backdrop-blur-[2px] rounded-3xl -z-10" />
+            <div className="absolute top-24 right-6 lg:top-32 lg:right-16 xl:right-24 z-10 max-w-2xl lg:max-w-4xl pr-4 lg:pr-8">
               
               <h1 
-                className="text-[4rem] sm:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-black leading-[0.85] tracking-tighter group cursor-default text-right"
+                className="text-[8rem] sm:text-[12rem] lg:text-[16rem] xl:text-[20rem] font-black leading-[0.85] tracking-tighter group cursor-default text-right"
                 style={{
                   transform: `perspective(1000px) rotateX(${heroMousePosition.y * 0.05}deg) rotateY(${heroMousePosition.x * 0.05}deg)`,
                   transition: 'transform 0.3s ease-out'
                 }}
               >
-                <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_6px_20px_rgba(0,0,0,1)]">
+                <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_8px_30px_rgba(0,0,0,1)]">
                   POWŁOKI
                 </span>
-                <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_6px_20px_rgba(0,0,0,1)]">
+                <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_8px_30px_rgba(0,0,0,1)]">
                   PRZYSZŁOŚCI
                 </span>
               </h1>
               
               {/* Subtitle */}
-              <p className="mt-6 text-right text-white text-sm sm:text-base lg:text-lg font-semibold leading-relaxed drop-shadow-[0_4px_16px_rgba(0,0,0,1)]">
+              <p className="mt-6 text-right text-white text-base sm:text-lg lg:text-xl font-semibold leading-relaxed drop-shadow-[0_6px_20px_rgba(0,0,0,1)]">
                 Specjalistyczne powłoki metaliczne<br className="hidden sm:block" />
                 dla przemysłu i prototypowania
               </p>
