@@ -24,7 +24,11 @@ import {
   Gear,
   Target,
   Wrench,
-  Users
+  Users,
+  Question,
+  CaretDown,
+  CaretUp,
+  ChatCircle
 } from '@phosphor-icons/react'
 import heroVideo from '@/assets/Prompt_Generowania_Wideo_z_Efektami.mp4'
 import liquidMetalVideo from '@/assets/metallic-transformation-video.mp4'
@@ -397,6 +401,53 @@ const aboutTilesData: AboutTileConfig[] = [
   }
 ]
 
+// FAQ DATA
+type FAQItem = {
+  id: string
+  question: string
+  answer: string
+  category: 'process' | 'technology' | 'business'
+}
+
+const faqData: FAQItem[] = [
+  {
+    id: 'faq-1',
+    question: 'Jak przygotować projekt do metalizacji?',
+    answer: 'Przygotowanie projektu wymaga: 1) Dostarczenia rysunków technicznych lub modeli 3D, 2) Określenia wymagań dotyczących grubości powłoki i właściwości, 3) Wskazania obszarów krytycznych wymagających szczególnej ochrony, 4) Informacji o warunkach eksploatacji elementu.',
+    category: 'process'
+  },
+  {
+    id: 'faq-2',
+    question: 'Jaką technologię metalizacji wybrać dla mojego projektu?',
+    answer: 'Wybór zależy od zastosowania: dla narzędzi skrawających polecamy powłoki PVD/CVD zapewniające wysoką twardość, dla elementów narażonych na korozję - metalizację chromem lub cynkiem, dla prototypów - powłoki dekoracyjne aluminium lub miedzi. Nasz zespół pomoże dobrać optymalne rozwiązanie.',
+    category: 'technology'
+  },
+  {
+    id: 'faq-3',
+    question: 'Jaki jest minimalny czas realizacji zamówienia?',
+    answer: 'Standardowy czas realizacji to 5-10 dni roboczych dla projektów produkcyjnych. Dla prototypów oferujemy tryb ekspresowy 2-3 dni. Dokładny czas zależy od złożoności projektu, ilości elementów i wybranej technologii.',
+    category: 'business'
+  },
+  {
+    id: 'faq-4',
+    question: 'Czy metalizacja zwiększa trwałość elementów?',
+    answer: 'Tak, metalizacja znacząco zwiększa trwałość - powłoki metaliczne podnoszą odporność na ścieranie o 200-400%, zabezpieczają przed korozją, zwiększają twardość powierzchni i mogą przedłużyć żywotność elementów nawet o 300%.',
+    category: 'technology'
+  },
+  {
+    id: 'faq-5',
+    question: 'Jakie materiały mogą być metalizowane?',
+    answer: 'Metalizować możemy większość materiałów inżynieryjnych: stale narzędziowe, stale nierdzewne, aluminium, miedź, tytan, ceramikę techniczną, a także wybrane tworzywa sztuczne po odpowiednim przygotowaniu powierzchni.',
+    category: 'process'
+  },
+  {
+    id: 'faq-6',
+    question: 'Czy oferujecie certyfikaty jakości?',
+    answer: 'Tak, posiadamy certyfikat ISO 9001:2015. Do każdego zamówienia dołączamy protokół kontroli jakości z pomiarami grubości powłoki, adhezji i innych parametrów. Dla branży lotniczej i medycznej oferujemy dodatkową dokumentację zgodną z wymaganiami sektorowymi.',
+    category: 'business'
+  }
+]
+
 type AboutTileMotionProps = {
   config: AboutTileConfig
   scrollProgress: MotionValue<number>
@@ -564,6 +615,12 @@ function HomePage() {
   
   // SCROLL TO TOP BUTTON STATE
   const [showScrollTop, setShowScrollTop] = useState(false)
+  
+  // FAQ ACCORDION STATE
+  const [expandedFAQs, setExpandedFAQs] = useState<Set<string>>(new Set())
+  
+  // CHAT SUPPORT BUBBLE STATE
+  const [isChatOpen, setIsChatOpen] = useState(false)
   
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
@@ -1474,6 +1531,9 @@ function HomePage() {
                 </video>
               ))}
               <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" aria-hidden="true" />
+              {/* Subtle Radial Gradients for Depth */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08),transparent_40%)] pointer-events-none" aria-hidden="true" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(147,51,234,0.06),transparent_40%)] pointer-events-none" aria-hidden="true" />
             </div>
 
             {/* Video Carousel Indicators */}
@@ -1587,7 +1647,10 @@ function HomePage() {
             </div>
           </section>
 
-          <section id="services" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
+          <section id="services" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
+            {/* Subtle Pattern Overlay */}
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #3b82f6 1px, transparent 0)', backgroundSize: '40px 40px' }} aria-hidden="true" />
+            
             {/* Background Decorations */}
             <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '400px', height: '400px', top: '5%', right: '0%' }} />
             <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '350px', height: '350px', bottom: '10%', left: '0%', animationDelay: '3s' }} />
@@ -1980,7 +2043,10 @@ function HomePage() {
         </div>
       </section>
 
-        <section id="about" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
+        <section id="about" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-tl from-white via-gray-50/50 to-white overflow-hidden">
+          {/* Subtle Metallic Texture Overlay */}
+          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8), linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8)', backgroundSize: '60px 60px', backgroundPosition: '0 0, 30px 30px' }} aria-hidden="true" />
+          
           {/* Background Decorations */}
           <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '350px', height: '350px', top: '8%', right: '5%' }} />
           <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '300px', height: '300px', bottom: '12%', left: '3%', animationDelay: '2.5s' }} />
@@ -2448,6 +2514,130 @@ function HomePage() {
           </div>
         </section>
 
+        {/* FAQ SECTION */}
+        <section id="faq" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-white via-blue-50/30 to-white">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">FAQ</p>
+              
+              <div className="mb-12 text-center">
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
+                  NAJCZĘŚCIEJ<br />ZADAWANE PYTANIA
+                </h2>
+                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
+                  Odpowiedzi na pytania dotyczące technologii metalizacji
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {faqData.map((faq, index) => {
+                  const isExpanded = expandedFAQs.has(faq.id)
+                  
+                  return (
+                    <motion.div
+                      key={faq.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      className="group"
+                    >
+                      <button
+                        onClick={() => {
+                          setExpandedFAQs((prev) => {
+                            const next = new Set(prev)
+                            if (next.has(faq.id)) {
+                              next.delete(faq.id)
+                            } else {
+                              next.add(faq.id)
+                            }
+                            return next
+                          })
+                        }}
+                        className={cn(
+                          'w-full text-left p-6 rounded-2xl transition-all duration-300',
+                          'border-2 bg-white shadow-md hover:shadow-xl',
+                          'focus-visible:ring-4 focus-visible:ring-blue-400/50',
+                          isExpanded
+                            ? 'border-blue-400 bg-blue-50/50'
+                            : 'border-gray-200 hover:border-blue-300'
+                        )}
+                        aria-expanded={isExpanded}
+                        aria-controls={`faq-answer-${faq.id}`}
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className={cn(
+                            'flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300',
+                            isExpanded
+                              ? 'bg-blue-600 text-white scale-110 shadow-lg'
+                              : 'bg-blue-100 text-blue-600 group-hover:bg-blue-200'
+                          )}>
+                            <Question className="w-5 h-5" weight="bold" />
+                          </div>
+                          
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors">
+                              {faq.question}
+                            </h3>
+                            {!isExpanded && (
+                              <p className="text-sm text-gray-500 line-clamp-1">
+                                Kliknij, aby rozwinąć
+                              </p>
+                            )}
+                          </div>
+                          
+                          <div className={cn(
+                            'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300',
+                            isExpanded ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
+                          )}>
+                            {isExpanded ? (
+                              <CaretUp className="w-5 h-5" weight="bold" />
+                            ) : (
+                              <CaretDown className="w-5 h-5" weight="bold" />
+                            )}
+                          </div>
+                        </div>
+                        
+                        {isExpanded && (
+                          <motion.div
+                            id={`faq-answer-${faq.id}`}
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-4 pl-14"
+                          >
+                            <p className="text-gray-700 leading-relaxed">
+                              {faq.answer}
+                            </p>
+                          </motion.div>
+                        )}
+                      </button>
+                    </motion.div>
+                  )
+                })}
+              </div>
+
+              {/* CTA to Contact */}
+              <div className="text-center mt-16">
+                <p className="text-gray-600 mb-6 text-lg font-medium">
+                  Nie znalazłeś odpowiedzi na swoje pytanie?
+                </p>
+                <Button
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact')
+                    contactSection?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                >
+                  Skontaktuj się z nami
+                  <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
@@ -2665,6 +2855,140 @@ function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* EXTENDED CONTACT WITH MAP */}
+        <section id="location" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-7xl mx-auto">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">ODWIEDŹ NAS</p>
+              
+              <div className="mb-12 text-center">
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
+                  NASZ<br />ZAKŁAD
+                </h2>
+                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
+                  Zapraszamy do bezpośredniego kontaktu lub wizyty w naszym zakładzie
+                </p>
+              </div>
+
+              <div className="grid lg:grid-cols-2 gap-12 items-start">
+                {/* Map */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.1234567890123!2d20.9876543!3d52.2297700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDEzJzQ3LjIiTiAyMMKwNTknMTUuNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Lokalizacja zakładu STANIAX"
+                    aria-label="Mapa Google pokazująca lokalizację zakładu STANIAX"
+                  />
+                </motion.div>
+
+                {/* Contact Details */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="space-y-8"
+                >
+                  {/* Address */}
+                  <div className="group">
+                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <MapPin className="w-6 h-6 text-white" weight="bold" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Adres</h3>
+                        <p className="text-xl font-bold text-gray-900 leading-relaxed">
+                          ul. Grzybowska 5A<br />
+                          00-132 Warszawa
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="group">
+                    <a
+                      href="tel:+48123456789"
+                      className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Phone className="w-6 h-6 text-white" weight="bold" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Telefon</h3>
+                        <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
+                          +48 123 456 789
+                        </p>
+                        <p className="text-sm text-gray-600 mt-1">
+                          Pon-Pt: 8:00 - 18:00
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+
+                  {/* Email */}
+                  <div className="group">
+                    <a
+                      href="mailto:kontakt@staniax.pl"
+                      className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <EnvelopeSimple className="w-6 h-6 text-white" weight="bold" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Email</h3>
+                        <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors break-all">
+                          kontakt@staniax.pl
+                        </p>
+                        <p className="text-sm text-gray-600 mt-1">
+                          Odpowiadamy w ciągu 24h
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+
+                  {/* Business Hours */}
+                  <div className="group">
+                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Clock className="w-6 h-6 text-white" weight="bold" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Godziny otwarcia</h3>
+                        <div className="space-y-1 text-gray-900">
+                          <p className="flex justify-between font-semibold">
+                            <span>Poniedziałek - Piątek:</span>
+                            <span className="text-blue-700">8:00 - 18:00</span>
+                          </p>
+                          <p className="flex justify-between font-semibold">
+                            <span>Sobota:</span>
+                            <span className="text-blue-700">8:00 - 14:00</span>
+                          </p>
+                          <p className="flex justify-between font-semibold text-gray-500">
+                            <span>Niedziela:</span>
+                            <span>Zamknięte</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <Toaster position="top-right" richColors />
@@ -2754,11 +3078,33 @@ function HomePage() {
         </div>
       </button>
 
+      {/* Support Chat Bubble */}
+      <button
+        onClick={() => {
+          setIsChatOpen(!isChatOpen)
+          if (!isChatOpen) {
+            toast.info('Czat support będzie dostępny wkrótce! Na razie skontaktuj się z nami przez formularz.')
+          }
+        }}
+        className="fixed bottom-6 right-6 z-[85] flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-110 focus-visible:ring-4 focus-visible:ring-blue-400 group"
+        aria-label="Otwórz czat support"
+      >
+        <ChatCircle className="w-8 h-8" weight="bold" />
+        
+        {/* Pulsing indicator */}
+        <span className="absolute top-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full animate-pulse" />
+        
+        {/* Tooltip on hover */}
+        <span className="absolute right-20 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+          Porozmawiaj z nami 💬
+        </span>
+      </button>
+
       {/* Scroll to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         className={cn(
-          'fixed bottom-6 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+          'fixed bottom-24 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
           showScrollTop
             ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
             : 'translate-y-20 opacity-0 pointer-events-none scale-75'
