@@ -1334,7 +1334,7 @@ function HomePage() {
       >
         <div
           className={cn(
-            'container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 sm:py-5 transition-colors duration-300',
+            'container mx-auto flex items-center justify-between px-6 sm:px-6 lg:px-16 xl:px-24 py-4 sm:py-5 transition-colors duration-300',
             isMenuOpen 
               ? 'text-foreground' 
               : isDarkHeaderContext 
