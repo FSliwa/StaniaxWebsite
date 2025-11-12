@@ -2838,38 +2838,15 @@ function HomePage() {
                 </div>
               </div>
 
-              {/* Quick Contact */}
-              <div className="flex flex-col sm:flex-row gap-6 mt-12">
-                <button
-                  onClick={() => window.open('mailto:kontakt@staniax.pl', '_blank')}
-                  className="group px-8 py-4 bg-gray-900 text-white font-bold uppercase tracking-wider hover:bg-gray-800 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02] magnetic-button"
-                >
-                  kontakt@staniax.pl
-                </button>
-                <button
-                  onClick={() => window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank')}
-                  className="group px-8 py-4 border-2 border-gray-300 text-gray-900 font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02] magnetic-button"
-                >
-                  Grzybowska 5A, Warszawa
-                </button>
-              </div>
             </div>
-          </div>
-        </section>
 
-        {/* EXTENDED CONTACT WITH MAP */}
-        <section id="location" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-7xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">ODWIEDŹ NAS</p>
-              
+            {/* Map and Contact Details Section */}
+            <div className="max-w-7xl mx-auto mt-20">
               <div className="mb-12 text-center">
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  NASZ<br />ZAKŁAD
-                </h2>
-                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Zapraszamy do bezpośredniego kontaktu lub wizyty w naszym zakładzie
-                </p>
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ODWIEDŹ NAS</p>
+                <h3 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter text-blue-400">
+                  NASZ ZAKŁAD
+                </h3>
               </div>
 
               <div className="grid lg:grid-cols-2 gap-12 items-start">
