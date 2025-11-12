@@ -1334,11 +1334,11 @@ function HomePage() {
       >
         <div
           className={cn(
-            'container mx-auto flex items-center justify-between py-4 sm:py-5 transition-colors duration-300',
-            // Symetryczne wyrównanie do prawej krawędzi headingu "POWŁOKI PRZYSZŁOŚCI"
-            // Heading ma: right-0 lg:right-8 xl:right-12 + pr-6 lg:pr-16 xl:pr-24
-            // Suma: 6px, 96px (lg), 144px (xl) od prawej krawędzi
-            'px-[24px] lg:px-[96px] xl:px-[144px]',
+            'w-full flex items-center justify-between py-4 sm:py-5 transition-colors duration-300',
+            // Wyrównanie symetryczne do headingu "POWŁOKI PRZYSZŁOŚCI"
+            // Heading: right-0 lg:right-8 xl:right-12 + pr-6 lg:pr-16 xl:pr-24
+            // Razem od prawej: 24px (mobile), 96px (lg), 144px (xl)
+            'px-6 lg:px-24 xl:px-36',
             isMenuOpen 
               ? 'text-foreground' 
               : isDarkHeaderContext 
@@ -1423,96 +1423,96 @@ function HomePage() {
             </button>
           </div>
         </div>
+      </header>
 
-        {/* Backdrop */}
-        <div
-          className={cn(
-            'fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300',
-            isMenuOpen ? 'pointer-events-auto opacity-100 z-[110]' : 'pointer-events-none opacity-0 z-[-1]'
-          )}
-          onClick={() => setIsMenuOpen(false)}
-          aria-hidden={!isMenuOpen}
-        />
-        
-        {/* Side Menu - Slide-in from Right */}
-        <div
-          className={cn(
-            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[120] overflow-y-auto',
-            menuBackgroundClass,
-            'backdrop-blur-2xl border-l border-white/10',
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          )}
-          aria-hidden={!isMenuOpen}
-        >
-          <div className="flex h-full flex-col justify-between px-6 py-8">
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
-              </div>
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="Zamknij menu"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+      {/* Backdrop - OUTSIDE header */}
+      <div
+        className={cn(
+          'fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300',
+          isMenuOpen ? 'pointer-events-auto opacity-100 z-[110]' : 'pointer-events-none opacity-0 z-[-1]'
+        )}
+        onClick={() => setIsMenuOpen(false)}
+        aria-hidden={!isMenuOpen}
+      />
+      
+      {/* Side Menu - Slide-in from Right - OUTSIDE header */}
+      <div
+        className={cn(
+          'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[120] overflow-y-auto',
+          menuBackgroundClass,
+          'backdrop-blur-2xl border-l border-white/10',
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        )}
+        aria-hidden={!isMenuOpen}
+      >
+        <div className="flex h-full flex-col justify-between px-6 py-8">
+          <div className="flex items-start justify-between gap-6">
+            <div>
+              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
             </div>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label="Zamknij menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
-            <div className="flex flex-col gap-8">
-              <nav className="space-y-4">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => handleNavClick(item)}
-                    className={cn(
-                      'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
-                      menuPrimaryTextClass
-                    )}
-                  >
-                    <span className="text-lg font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
-                      {item.label}
-                    </span>
-                    <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </button>
-                ))}
-              </nav>
-              
-              <div className="pt-6 border-t border-white/10">
-                <Button
-                  onClick={() => {
-                    scrollToSection('contact')
-                    setIsMenuOpen(false)
-                  }}
-                  className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
+          <div className="flex flex-col gap-8">
+            <nav className="space-y-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item)}
+                  className={cn(
+                    'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
+                    menuPrimaryTextClass
+                  )}
                 >
-                  Porozmawiajmy
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Button>
+                  <span className="text-lg font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
+                    {item.label}
+                  </span>
+                  <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </button>
+              ))}
+            </nav>
+            
+            <div className="pt-6 border-t border-white/10">
+              <Button
+                onClick={() => {
+                  scrollToSection('contact')
+                  setIsMenuOpen(false)
+                }}
+                className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
+              >
+                Porozmawiajmy
+                <ArrowUpRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
+              <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
+                <p>Grzybowska 5A</p>
+                <p>00-132 Warszawa</p>
               </div>
             </div>
-
-            <div className="space-y-6">
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
-                <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
-                  <p>Grzybowska 5A</p>
-                  <p>00-132 Warszawa</p>
-                </div>
-              </div>
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
-                <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
-                  <button onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
-                  <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
-                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
-                </div>
+            <div>
+              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
+              <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
+                <button onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
+                <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
+                <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
       <div className="relative w-full">
           <section id="top" data-theme="dark" className="relative w-full bg-white overflow-hidden min-h-screen">
