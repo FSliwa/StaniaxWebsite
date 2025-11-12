@@ -30,7 +30,8 @@ import {
   CaretUp,
   ChatCircle
 } from '@phosphor-icons/react'
-import heroVideo from '@/assets/Prompt_Generowania_Wideo_z_Efektami.mp4'
+import liquidGoldHandVideo from '@/assets/liquid-gold-hand.mp4'
+import toroidAnimationVideo from '@/assets/toroid-animation.mp4'
 import liquidMetalVideo from '@/assets/metallic-transformation-video.mp4'
 import vinylTransformationVideo from '@/assets/vinyl-transformation.mp4'
 import whyChooseVideo from '@/assets/Generowanie_Wideo_Produktowego_Dłoń_i_Mikrofon.mp4'
@@ -50,7 +51,7 @@ import whyChooseImg1 from '@/assets/Dlaczego Staniax V1.png'
 import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
 import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
 
-const fallbackAnimationSrc = heroVideo
+const fallbackAnimationSrc = liquidGoldHandVideo
 const statsSplineUrl =
   import.meta.env.VITE_STATS_SPLINE_URL ?? 'https://prod.spline.design/f8rjqRArLakUTPCP/scene.splinecode'
 const newsSplineUrl =
@@ -607,7 +608,7 @@ function HomePage() {
   
   // HERO VIDEO CAROUSEL STATE
   const [activeHeroVideo, setActiveHeroVideo] = useState(0)
-  const heroVideos = useMemo(() => [heroVideo, liquidMetalVideo, vinylTransformationVideo], [])
+  const heroVideos = useMemo(() => [liquidGoldHandVideo, toroidAnimationVideo, liquidMetalVideo, vinylTransformationVideo], [])
   const heroVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
   
   // MOBILE FLOATING CTA STATE
@@ -3086,16 +3087,16 @@ function HomePage() {
             toast.info('Czat support będzie dostępny wkrótce! Na razie skontaktuj się z nami przez formularz.')
           }
         }}
-        className="fixed bottom-6 right-6 z-[85] flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-110 focus-visible:ring-4 focus-visible:ring-blue-400 group"
+        className="fixed bottom-6 left-6 z-[85] flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-110 focus-visible:ring-4 focus-visible:ring-blue-400 group"
         aria-label="Otwórz czat support"
       >
         <ChatCircle className="w-8 h-8" weight="bold" />
         
         {/* Pulsing indicator */}
-        <span className="absolute top-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full animate-pulse" />
+        <span className="absolute top-0 left-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full animate-pulse" />
         
         {/* Tooltip on hover */}
-        <span className="absolute right-20 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+        <span className="absolute left-20 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
           Porozmawiaj z nami 💬
         </span>
       </button>
