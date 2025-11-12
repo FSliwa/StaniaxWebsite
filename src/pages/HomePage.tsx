@@ -1430,80 +1430,93 @@ function HomePage() {
           aria-hidden={!isMenuOpen}
         />
         
-        {/* Side Menu */}
+        {/* Dropdown Menu */}
         <div
           className={cn(
-            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[95] overflow-y-auto',
-            menuBackgroundClass,
-            'backdrop-blur-2xl border-l border-white/10',
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            'fixed left-0 right-0 transform transition-all duration-300 ease-in-out overflow-hidden',
+            'z-[95]',
+            isMenuOpen 
+              ? 'top-[72px] sm:top-[80px] max-h-[calc(100vh-72px)] sm:max-h-[calc(100vh-80px)] opacity-100' 
+              : 'top-0 max-h-0 opacity-0'
           )}
           aria-hidden={!isMenuOpen}
         >
-          <div className="flex h-full flex-col justify-between px-6 py-8">
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
-              </div>
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="Zamknij menu"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            <div className="flex flex-col gap-8">
-              <nav className="space-y-4">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => handleNavClick(item)}
-                    className={cn(
-                      'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
-                      menuPrimaryTextClass
-                    )}
-                  >
-                    <span className="text-lg font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
-                      {item.label}
-                    </span>
-                    <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </button>
-                ))}
-              </nav>
-              
-              <div className="pt-6 border-t border-white/10">
-                <Button
-                  onClick={() => {
-                    scrollToSection('contact')
-                    setIsMenuOpen(false)
-                  }}
-                  className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
-                >
-                  Porozmawiajmy
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
-                <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
-                  <p>Grzybowska 5A</p>
-                  <p>00-132 Warszawa</p>
+          <div className={cn(
+            'w-full backdrop-blur-2xl border-b border-white/10',
+            menuBackgroundClass
+          )}>
+            <div className="container mx-auto px-6 sm:px-6 lg:px-16 xl:px-24 py-8 max-h-[calc(100vh-150px)] overflow-y-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                
+                {/* Navigation Column */}
+                <div>
+                  <p className={cn('text-xs uppercase tracking-[0.6em] mb-6', menuMutedClass)}>Nawigacja</p>
+                  <nav className="space-y-3">
+                    {navItems.map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => handleNavClick(item)}
+                        className={cn(
+                          'group flex items-center w-full text-left py-2 px-3 rounded-lg transition-all duration-300 hover:bg-white/10',
+                          menuPrimaryTextClass
+                        )}
+                      >
+                        <span className="text-base font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
+                          {item.label}
+                        </span>
+                        <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </button>
+                    ))}
+                  </nav>
                 </div>
-              </div>
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
-                <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
-                  <button onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
-                  <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
-                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
+
+                {/* Contact Column */}
+                <div>
+                  <p className={cn('text-xs uppercase tracking-[0.6em] mb-6', menuMutedClass)}>Kontakt</p>
+                  <div className={cn('space-y-4 text-sm font-medium', menuPrimaryTextClass)}>
+                    <div>
+                      <p className="text-xs text-muted-foreground mb-1">Adres</p>
+                      <p>Grzybowska 5A</p>
+                      <p>00-132 Warszawa</p>
+                    </div>
+                    <Button
+                      onClick={() => {
+                        scrollToSection('contact')
+                        setIsMenuOpen(false)
+                      }}
+                      className={cn('w-full border bg-transparent transition-all duration-300 mt-4', menuButtonClass)}
+                    >
+                      Porozmawiajmy
+                      <ArrowUpRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
+
+                {/* Quick Links Column */}
+                <div>
+                  <p className={cn('text-xs uppercase tracking-[0.6em] mb-6', menuMutedClass)}>Szybkie linki</p>
+                  <div className={cn('space-y-3 text-sm font-medium', menuMutedClass)}>
+                    <button 
+                      onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} 
+                      className="block w-full text-left py-2 px-3 rounded-lg transition-all duration-200 hover:text-accent hover:bg-white/10"
+                    >
+                      Studio
+                    </button>
+                    <button 
+                      onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} 
+                      className="block w-full text-left py-2 px-3 rounded-lg transition-all duration-200 hover:text-accent hover:bg-white/10"
+                    >
+                      Projekty
+                    </button>
+                    <button 
+                      onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} 
+                      className="block w-full text-left py-2 px-3 rounded-lg transition-all duration-200 hover:text-accent hover:bg-white/10"
+                    >
+                      O nas
+                    </button>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -1742,198 +1755,6 @@ function HomePage() {
               </div>
             </div>
           </section>
-
-      {/* INTERACTIVE TECH SPECS TABLE */}
-      <section data-theme="light" className="py-20 lg:py-32 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-12">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">PORÓWNANIE METOD</p>
-              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black uppercase mb-8 tracking-tighter text-blue-400">
-                METALIZACJA<br />VS INNE METODY
-              </h2>
-            </div>
-
-            {/* Filters & Compare Toggle */}
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setSelectedFilter('all')}
-                  className={cn(
-                    'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
-                    selectedFilter === 'all'
-                      ? 'bg-blue-700 text-white shadow-lg scale-105'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  )}
-                  aria-label="Pokaż wszystkie technologie"
-                  aria-pressed={selectedFilter === 'all'}
-                >
-                  Wszystkie
-                </button>
-                {techSpecsData.map((spec) => (
-                  <button
-                    key={spec.id}
-                    onClick={() => setSelectedFilter(spec.id)}
-                    className={cn(
-                      'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
-                      selectedFilter === spec.id
-                        ? 'bg-blue-700 text-white shadow-lg scale-105'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    )}
-                    aria-label={`Filtruj po ${spec.method}`}
-                    aria-pressed={selectedFilter === spec.id}
-                  >
-                    {spec.method.split(' ')[0]}
-                  </button>
-                ))}
-              </div>
-              
-              <button
-                onClick={() => {
-                  setCompareMode(!compareMode)
-                  setSelectedForCompare([])
-                }}
-                className={cn(
-                  'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
-                  compareMode
-                    ? 'bg-orange-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                )}
-              >
-                {compareMode ? '✓ Compare Mode' : 'Compare Mode'}
-              </button>
-            </div>
-
-            {/* Table */}
-            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
-              <table className="w-full">
-                <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
-                  <tr>
-                    {compareMode && <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Select</th>}
-                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Metoda</th>
-                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Temperatura</th>
-                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Grubość</th>
-                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Zastosowanie</th>
-                    <th className="p-4 text-center text-xs uppercase tracking-wider text-gray-600 font-bold">Szczegóły</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {techSpecsData
-                    .filter((spec) => selectedFilter === 'all' || selectedFilter === spec.id)
-                    .map((spec, index) => (
-                      <>
-                        <tr
-                          key={spec.id}
-                          className={cn(
-                            'border-t border-gray-200 hover:bg-blue-50 transition-colors cursor-pointer',
-                            selectedForCompare.includes(spec.id) && 'bg-blue-100',
-                            index > 0 && 'border-t-2'
-                          )}
-                          onClick={() => setExpandedRow(expandedRow === spec.id ? null : spec.id)}
-                        >
-                          {compareMode && (
-                            <td className="p-4">
-                              <input
-                                type="checkbox"
-                                checked={selectedForCompare.includes(spec.id)}
-                                onChange={(e) => {
-                                  e.stopPropagation()
-                                  if (selectedForCompare.includes(spec.id)) {
-                                    setSelectedForCompare(selectedForCompare.filter((id) => id !== spec.id))
-                                  } else if (selectedForCompare.length < 2) {
-                                    setSelectedForCompare([...selectedForCompare, spec.id])
-                                  }
-                                }}
-                                className="w-5 h-5 focus-visible:ring-2 focus-visible:ring-blue-400"
-                                disabled={!selectedForCompare.includes(spec.id) && selectedForCompare.length >= 2}
-                                aria-label={`Wybierz ${spec.method} do porównania`}
-                              />
-                            </td>
-                          )}
-                          <td className="p-4 font-bold text-gray-900">{spec.method}</td>
-                          <td className="p-4 text-gray-700">{spec.temperature}</td>
-                          <td className="p-4 text-gray-700">{spec.thickness}</td>
-                          <td className="p-4 text-gray-700 text-sm">{spec.applications}</td>
-                          <td className="p-4 text-center">
-                            <button 
-                              className="text-blue-700 hover:text-blue-900 font-bold focus-visible:ring-2 focus-visible:ring-blue-400 rounded p-2"
-                              aria-label={expandedRow === spec.id ? 'Zwiń szczegóły' : 'Rozwiń szczegóły'}
-                            >
-                              {expandedRow === spec.id ? '▲' : '▼'}
-                            </button>
-                          </td>
-                        </tr>
-                        {expandedRow === spec.id && (
-                          <tr className="bg-gray-50 border-t border-gray-200 shadow-inner">
-                            <td colSpan={compareMode ? 6 : 5} className="p-8">
-                              <div className="grid md:grid-cols-2 gap-8">
-                                <div>
-                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Zalety:</h4>
-                                  <ul className="space-y-2">
-                                    {spec.advantages.map((advantage, idx) => (
-                                      <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                                        <span className="text-blue-700 font-bold">✓</span>
-                                        {advantage}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                <div>
-                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Materiały:</h4>
-                                  <p className="text-sm text-gray-700">{spec.materials}</p>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                        )}
-                      </>
-                    ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Compare Results */}
-            {compareMode && selectedForCompare.length === 2 && (
-              <div className="mt-8 p-8 bg-gradient-to-br from-blue-50 to-white border-2 border-blue-700 rounded-2xl">
-                <h3 className="text-2xl font-black uppercase mb-6 text-blue-900">Porównanie</h3>
-                <div className="grid md:grid-cols-2 gap-8">
-                  {selectedForCompare.map((id) => {
-                    const spec = techSpecsData.find((s) => s.id === id)
-                    if (!spec) return null
-                    return (
-                      <div key={id} className="space-y-4">
-                        <h4 className="text-xl font-bold text-gray-900">{spec.method}</h4>
-                        <div className="space-y-2 text-sm">
-                          <p><strong>Temperatura:</strong> {spec.temperature}</p>
-                          <p><strong>Grubość:</strong> {spec.thickness}</p>
-                          <p><strong>Materiały:</strong> {spec.materials}</p>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* CTA after table */}
-            <div className="mt-12 text-center">
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-105"
-              >
-                <span className="text-base font-bold uppercase tracking-wider">
-                  ✨ Bezpłatna Konsultacja
-                </span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </button>
-              <p className="mt-4 text-sm text-gray-600">Skontaktuj się z nami i dobierzemy najlepszą technologię</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Sekcja Dlaczego STANIAX - Premium Video Background (Vibor.it Style) */}
       <section
