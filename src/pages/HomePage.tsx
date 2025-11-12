@@ -1335,8 +1335,10 @@ function HomePage() {
         <div
           className={cn(
             'container mx-auto flex items-center justify-between py-4 sm:py-5 transition-colors duration-300',
-            // Symetryczne wyrównanie do lewego końca headingu "POWŁOKI PRZYSZŁOŚCI"
-            'px-6 lg:px-16 xl:px-24',
+            // Symetryczne wyrównanie do prawej krawędzi headingu "POWŁOKI PRZYSZŁOŚCI"
+            // Heading ma: right-0 lg:right-8 xl:right-12 + pr-6 lg:pr-16 xl:pr-24
+            // Suma: 6px, 96px (lg), 144px (xl) od prawej krawędzi
+            'px-[24px] lg:px-[96px] xl:px-[144px]',
             isMenuOpen 
               ? 'text-foreground' 
               : isDarkHeaderContext 
