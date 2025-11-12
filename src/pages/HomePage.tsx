@@ -270,8 +270,8 @@ const caseStudiesData: CaseStudy[] = [
     id: 'industrial-revolution',
     title: 'Doskonałość Motoryzacyjna',
     subtitle: 'Kompleksowa ochrona linii produkcyjnej',
-    imageBefore: industrialBefore,
-    imageAfter: industrialAfter,
+    imageBefore: industrialAfter,
+    imageAfter: industrialBefore,
     metrics: [
       { value: '12 msc', label: 'Wdrożenie' },
       { value: '200+', label: 'Maszyny' },
@@ -2470,12 +2470,12 @@ function HomePage() {
                 {/* Step indicator text */}
                 <div className="text-center mb-4">
                   <p className="text-sm font-semibold text-gray-600">
-                    Krok <span className="text-blue-700 text-lg">{formStep}</span> z 3
+                    Krok <span className="text-blue-700 text-lg">{formStep}</span> z 2
                   </p>
                 </div>
                 
-                <div className="flex justify-between mb-4">
-                  {[1, 2, 3].map((step) => (
+                <div className="flex justify-center gap-8 mb-4">
+                  {[1, 2].map((step) => (
                     <div
                       key={step}
                       className={cn(
@@ -2491,8 +2491,7 @@ function HomePage() {
                       </div>
                       <span className="hidden sm:inline text-sm font-semibold">
                         {step === 1 && 'Projekt'}
-                        {step === 2 && 'Technologia'}
-                        {step === 3 && 'Kontakt'}
+                        {step === 2 && 'Kontakt'}
                       </span>
                     </div>
                   ))}
@@ -2500,7 +2499,7 @@ function HomePage() {
                 <div className="h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
                   <div
                     className="h-full bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-500 shadow-md"
-                    style={{ width: `${(formStep / 3) * 100}%` }}
+                    style={{ width: `${(formStep / 2) * 100}%` }}
                   />
                 </div>
               </div>
@@ -2531,29 +2530,6 @@ function HomePage() {
                 )}
 
                 {formStep === 2 && (
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-900">Wybierz technologię</h3>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      {['PVD', 'CVD', 'Natrysk Plazmowy', 'Galwanizacja'].map((tech) => (
-                        <button
-                          key={tech}
-                          onClick={() => setSmartFormData({ ...smartFormData, technology: tech })}
-                          className={cn(
-                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px]',
-                            smartFormData.technology === tech
-                              ? 'border-blue-700 bg-blue-50 text-blue-900'
-                              : 'border-gray-200 hover:border-blue-300'
-                          )}
-                          aria-label={`Wybierz technologię ${tech}`}
-                        >
-                          {tech}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {formStep === 3 && (
                   <div className="space-y-6">
                     <h3 className="text-2xl font-bold text-gray-900">Twoje dane kontaktowe</h3>
                     <div className="grid sm:grid-cols-2 gap-4">
@@ -2612,16 +2588,13 @@ function HomePage() {
                     </Button>
                   )}
                   <div className="ml-auto">
-                    {formStep < 3 ? (
+                    {formStep < 2 ? (
                       <Button
                         onClick={() => setFormStep(formStep + 1)}
                         className="bg-blue-700 hover:bg-blue-800 font-bold"
-                        disabled={
-                          (formStep === 1 && !smartFormData.projectType) ||
-                          (formStep === 2 && !smartFormData.technology)
-                        }
+                        disabled={formStep === 1 && !smartFormData.projectType}
                       >
-                        {formStep === 1 ? 'Kontynuuj →' : 'Zrób wycenę →'}
+                        Kontynuuj →
                       </Button>
                     ) : (
                       <Button
