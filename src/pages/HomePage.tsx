@@ -1426,7 +1426,7 @@ function HomePage() {
         <div
           className={cn(
             'fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300',
-            isMenuOpen ? 'pointer-events-auto opacity-100 z-[90]' : 'pointer-events-none opacity-0 z-[-1]'
+            isMenuOpen ? 'pointer-events-auto opacity-100 z-[110]' : 'pointer-events-none opacity-0 z-[-1]'
           )}
           onClick={() => setIsMenuOpen(false)}
           aria-hidden={!isMenuOpen}
@@ -1435,7 +1435,7 @@ function HomePage() {
         {/* Side Menu - Slide-in from Right */}
         <div
           className={cn(
-            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[95] overflow-y-auto',
+            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[120] overflow-y-auto',
             menuBackgroundClass,
             'backdrop-blur-2xl border-l border-white/10',
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
