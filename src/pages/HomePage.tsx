@@ -1334,7 +1334,9 @@ function HomePage() {
       >
         <div
           className={cn(
-            'container mx-auto flex items-center justify-between px-6 sm:px-6 lg:px-16 xl:px-24 py-4 sm:py-5 transition-colors duration-300',
+            'container mx-auto flex items-center justify-between py-4 sm:py-5 transition-colors duration-300',
+            // Symetryczne wyrównanie do lewego końca headingu "POWŁOKI PRZYSZŁOŚCI"
+            'px-6 lg:px-16 xl:px-24',
             isMenuOpen 
               ? 'text-foreground' 
               : isDarkHeaderContext 
@@ -1430,93 +1432,80 @@ function HomePage() {
           aria-hidden={!isMenuOpen}
         />
         
-        {/* Dropdown Menu */}
+        {/* Side Menu - Slide-in from Right */}
         <div
           className={cn(
-            'fixed left-0 right-0 transform transition-all duration-300 ease-in-out overflow-hidden',
-            'z-[95]',
-            isMenuOpen 
-              ? 'top-[72px] sm:top-[80px] max-h-[calc(100vh-72px)] sm:max-h-[calc(100vh-80px)] opacity-100' 
-              : 'top-0 max-h-0 opacity-0'
+            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[95] overflow-y-auto',
+            menuBackgroundClass,
+            'backdrop-blur-2xl border-l border-white/10',
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           )}
           aria-hidden={!isMenuOpen}
         >
-          <div className={cn(
-            'w-full backdrop-blur-2xl border-b border-white/10',
-            menuBackgroundClass
-          )}>
-            <div className="container mx-auto px-6 sm:px-6 lg:px-16 xl:px-24 py-8 max-h-[calc(100vh-150px)] overflow-y-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-                
-                {/* Navigation Column */}
-                <div>
-                  <p className={cn('text-xs uppercase tracking-[0.6em] mb-6', menuMutedClass)}>Nawigacja</p>
-                  <nav className="space-y-3">
-                    {navItems.map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => handleNavClick(item)}
-                        className={cn(
-                          'group flex items-center w-full text-left py-2 px-3 rounded-lg transition-all duration-300 hover:bg-white/10',
-                          menuPrimaryTextClass
-                        )}
-                      >
-                        <span className="text-base font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
-                          {item.label}
-                        </span>
-                        <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </button>
-                    ))}
-                  </nav>
-                </div>
+          <div className="flex h-full flex-col justify-between px-6 py-8">
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Zamknij menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
 
-                {/* Contact Column */}
-                <div>
-                  <p className={cn('text-xs uppercase tracking-[0.6em] mb-6', menuMutedClass)}>Kontakt</p>
-                  <div className={cn('space-y-4 text-sm font-medium', menuPrimaryTextClass)}>
-                    <div>
-                      <p className="text-xs text-muted-foreground mb-1">Adres</p>
-                      <p>Grzybowska 5A</p>
-                      <p>00-132 Warszawa</p>
-                    </div>
-                    <Button
-                      onClick={() => {
-                        scrollToSection('contact')
-                        setIsMenuOpen(false)
-                      }}
-                      className={cn('w-full border bg-transparent transition-all duration-300 mt-4', menuButtonClass)}
-                    >
-                      Porozmawiajmy
-                      <ArrowUpRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
+            <div className="flex flex-col gap-8">
+              <nav className="space-y-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item)}
+                    className={cn(
+                      'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
+                      menuPrimaryTextClass
+                    )}
+                  >
+                    <span className="text-lg font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
+                      {item.label}
+                    </span>
+                    <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                ))}
+              </nav>
+              
+              <div className="pt-6 border-t border-white/10">
+                <Button
+                  onClick={() => {
+                    scrollToSection('contact')
+                    setIsMenuOpen(false)
+                  }}
+                  className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
+                >
+                  Porozmawiajmy
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
 
-                {/* Quick Links Column */}
-                <div>
-                  <p className={cn('text-xs uppercase tracking-[0.6em] mb-6', menuMutedClass)}>Szybkie linki</p>
-                  <div className={cn('space-y-3 text-sm font-medium', menuMutedClass)}>
-                    <button 
-                      onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} 
-                      className="block w-full text-left py-2 px-3 rounded-lg transition-all duration-200 hover:text-accent hover:bg-white/10"
-                    >
-                      Studio
-                    </button>
-                    <button 
-                      onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} 
-                      className="block w-full text-left py-2 px-3 rounded-lg transition-all duration-200 hover:text-accent hover:bg-white/10"
-                    >
-                      Projekty
-                    </button>
-                    <button 
-                      onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} 
-                      className="block w-full text-left py-2 px-3 rounded-lg transition-all duration-200 hover:text-accent hover:bg-white/10"
-                    >
-                      O nas
-                    </button>
-                  </div>
+            <div className="space-y-6">
+              <div>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
+                <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
+                  <p>Grzybowska 5A</p>
+                  <p>00-132 Warszawa</p>
                 </div>
-
+              </div>
+              <div>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
+                <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
+                  <button onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
+                  <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
+                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
+                </div>
               </div>
             </div>
           </div>
