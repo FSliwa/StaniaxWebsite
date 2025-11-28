@@ -7,7 +7,9 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
 import { AnimatedSection } from '@/components/AnimatedSection'
-import { GallerySection } from '@/components/GallerySection'
+import { BentoGallery } from '@/components/BentoGallery'
+import { MagneticButton } from '@/components/ui/MagneticButton'
+import { SpotlightCard } from '@/components/ui/SpotlightCard'
 import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
 import {
@@ -1592,14 +1594,12 @@ function HomePage() {
               className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 group cursor-pointer transition-all duration-300 hover:scale-105"
               aria-label="Przejdź do formularza kontaktowego"
             >
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 backdrop-blur-sm transition-all duration-300">
-                <span className="text-base font-bold uppercase tracking-wider flex items-center gap-2">
+              <MagneticButton className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-blue-500/50 flex items-center gap-2 group">
                   ✨ Bezpłatna Konsultacja
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
-                </span>
-              </div>
+                </MagneticButton>
             </button>
           </section>
 
@@ -1705,7 +1705,7 @@ function HomePage() {
                       }}
                       tabIndex={0}
                       role="article"
-                      aria-label={`${service.title} - ${service.tagline}`}
+                      aria-label={`${service.title}`}
                     >
                     {/* Obrazek */}
                     <div className="relative h-48 overflow-hidden">
@@ -1751,174 +1751,9 @@ function HomePage() {
           </section>
 
       {/* GALLERY SECTION */}
-      <GallerySection />
+      <BentoGallery />
 
-      {/* INTERACTIVE TECH SPECS TABLE */}
-      <section data-theme="light" className="py-20 lg:py-32 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="max-w-7xl mx-auto">
-            {/* Header */}
-            <div className="text-center mb-12">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">TECHNOLOGY COMPARISON</p>
-              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 uppercase mb-8 tracking-tighter">
-                PORÓWNAJ<br />TECHNOLOGIE
-              </h2>
-            </div>
 
-            {/* Filters & Compare Toggle */}
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setSelectedFilter('all')}
-                  className={cn(
-                    'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
-                    selectedFilter === 'all'
-                      ? 'bg-blue-700 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  )}
-                >
-                  Wszystkie
-                </button>
-                {techSpecsData.map((spec) => (
-                  <button
-                    key={spec.id}
-                    onClick={() => setSelectedFilter(spec.id)}
-                    className={cn(
-                      'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
-                      selectedFilter === spec.id
-                        ? 'bg-blue-700 text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    )}
-                  >
-                    {spec.method.split(' ')[0]}
-                  </button>
-                ))}
-              </div>
-              
-              <button
-                onClick={() => {
-                  setCompareMode(!compareMode)
-                  setSelectedForCompare([])
-                }}
-                className={cn(
-                  'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
-                  compareMode
-                    ? 'bg-orange-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                )}
-              >
-                {compareMode ? '✓ Compare Mode' : 'Compare Mode'}
-              </button>
-            </div>
-
-            {/* Table */}
-            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
-              <table className="w-full">
-                <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
-                  <tr>
-                    {compareMode && <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Select</th>}
-                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Metoda</th>
-                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Temperatura</th>
-                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Grubość</th>
-                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Zastosowanie</th>
-                    <th className="p-4 text-center text-xs uppercase tracking-wider text-gray-600 font-bold">Szczegóły</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {techSpecsData
-                    .filter((spec) => selectedFilter === 'all' || selectedFilter === spec.id)
-                    .map((spec) => (
-                      <>
-                        <tr
-                          key={spec.id}
-                          className={cn(
-                            'border-t border-gray-200 hover:bg-blue-50 transition-colors cursor-pointer',
-                            selectedForCompare.includes(spec.id) && 'bg-blue-100'
-                          )}
-                          onClick={() => setExpandedRow(expandedRow === spec.id ? null : spec.id)}
-                        >
-                          {compareMode && (
-                            <td className="p-4">
-                              <input
-                                type="checkbox"
-                                checked={selectedForCompare.includes(spec.id)}
-                                onChange={(e) => {
-                                  e.stopPropagation()
-                                  if (selectedForCompare.includes(spec.id)) {
-                                    setSelectedForCompare(selectedForCompare.filter((id) => id !== spec.id))
-                                  } else if (selectedForCompare.length < 2) {
-                                    setSelectedForCompare([...selectedForCompare, spec.id])
-                                  }
-                                }}
-                                className="w-5 h-5"
-                                disabled={!selectedForCompare.includes(spec.id) && selectedForCompare.length >= 2}
-                              />
-                            </td>
-                          )}
-                          <td className="p-4 font-bold text-gray-900">{spec.method}</td>
-                          <td className="p-4 text-gray-700 font-mono">{spec.temperature}</td>
-                          <td className="p-4 text-gray-700 font-mono">{spec.thickness}</td>
-                          <td className="p-4 text-gray-700 text-sm">{spec.applications}</td>
-                          <td className="p-4 text-center">
-                            <button className="text-blue-700 hover:text-blue-900 font-bold">
-                              {expandedRow === spec.id ? '▲' : '▼'}
-                            </button>
-                          </td>
-                        </tr>
-                        {expandedRow === spec.id && (
-                          <tr className="bg-gray-50 border-t border-gray-200">
-                            <td colSpan={compareMode ? 6 : 5} className="p-6">
-                              <div className="grid md:grid-cols-2 gap-6">
-                                <div>
-                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Zalety:</h4>
-                                  <ul className="space-y-2">
-                                    {spec.advantages.map((advantage, idx) => (
-                                      <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                                        <span className="text-blue-700 font-bold">✓</span>
-                                        {advantage}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </div>
-                                <div>
-                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Materiały:</h4>
-                                  <p className="text-sm text-gray-700">{spec.materials}</p>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                        )}
-                      </>
-                    ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Compare Results */}
-            {compareMode && selectedForCompare.length === 2 && (
-              <div className="mt-8 p-8 bg-gradient-to-br from-blue-50 to-white border-2 border-blue-700 rounded-2xl">
-                <h3 className="text-2xl font-black uppercase mb-6 text-blue-900">Porównanie</h3>
-                <div className="grid md:grid-cols-2 gap-8">
-                  {selectedForCompare.map((id) => {
-                    const spec = techSpecsData.find((s) => s.id === id)
-                    if (!spec) return null
-                    return (
-                      <div key={id} className="space-y-4">
-                        <h4 className="text-xl font-bold text-gray-900">{spec.method}</h4>
-                        <div className="space-y-2 text-sm">
-                          <p><strong>Temperatura:</strong> <span className="font-mono">{spec.temperature}</span></p>
-                          <p><strong>Grubość:</strong> <span className="font-mono">{spec.thickness}</span></p>
-                          <p><strong>Materiały:</strong> <span className="font-mono">{spec.materials}</span></p>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
       {/* Sekcja Dlaczego STANIAX - Premium Video Background (Vibor.it Style) */}
       <section
         id="custom-section"
