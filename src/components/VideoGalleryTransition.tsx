@@ -22,11 +22,9 @@ export function VideoGalleryTransition() {
   const height = useTransform(scrollYProgress, [0, 0.4], ["100%", "80%"])
   const borderRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "32px"])
   
-  // 2. Images Slide In
-  // Left images come from left (-100%), Right from right (100%)
-  const leftX = useTransform(scrollYProgress, [0.2, 0.6], ["-100%", "0%"])
-  const rightX = useTransform(scrollYProgress, [0.2, 0.6], ["100%", "0%"])
-  const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1])
+  // 2. Images Reveal (Fade & Scale instead of Slide)
+  const imageOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1])
+  const imageScale = useTransform(scrollYProgress, [0.3, 0.6], [0.9, 1])
 
   return (
     <section ref={containerRef} className="relative h-[300vh] bg-white">
@@ -47,37 +45,39 @@ export function VideoGalleryTransition() {
             />
             <div className="absolute inset-0 bg-black/20" />
             
-            {/* Overlay Text on Video (Hero Content) */}
-            <div className="absolute inset-0 flex flex-col items-center justify-end text-center px-4 pb-20 sm:pb-32 lg:pb-40">
-                
-                {/* Label */}
-                <motion.p 
-                    style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }}
-                    className="text-white/80 text-xs sm:text-sm font-bold uppercase tracking-[0.5em] mb-4 sm:mb-6 drop-shadow-md"
-                >
+            {/* Hero Content - Distributed Layout */}
+            
+            {/* Label - Top Left */}
+            <motion.div 
+                style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }}
+                className="absolute top-8 left-8 z-30"
+            >
+                <p className="text-white/80 text-xs sm:text-sm font-bold uppercase tracking-[0.5em] drop-shadow-md">
                     PRZYSZŁOŚĆ METALIZACJI
-                </motion.p>
+                </p>
+            </motion.div>
 
-                {/* Massive Headline */}
+            {/* Massive Headline - Center */}
+            <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
                 <motion.h1 
                     style={{ 
                         opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]),
                         scale: useTransform(scrollYProgress, [0, 0.2], [1, 0.9])
                     }}
-                    className="text-[15vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-overlay opacity-90 select-none pointer-events-none"
+                    className="text-[15vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-overlay opacity-90 select-none"
                 >
                     STANIAX
                 </motion.h1>
+            </div>
 
-                {/* Description & CTA Container */}
+            {/* Description & CTA - Bottom */}
+            <div className="absolute bottom-12 left-0 right-0 flex flex-col items-center z-30 px-4">
                 <motion.div 
                     style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }}
-                    className="mt-8 sm:mt-12 flex flex-col items-center gap-6 sm:gap-8"
+                    className="flex flex-col items-center gap-6 sm:gap-8 text-center"
                 >
-                    <p className="text-white/90 text-base sm:text-lg lg:text-xl font-medium max-w-xl leading-relaxed drop-shadow-md">
+                    <p className="text-white/90 text-base sm:text-lg lg:text-xl font-medium max-w-xl leading-relaxed drop-shadow-md hidden sm:block">
                         Specjalistyczne powłoki metaliczne dla przemysłu i prototypowania.
-                        <br className="hidden sm:block" />
-                        Precyzja, której możesz zaufać.
                     </p>
 
                     <button
@@ -91,42 +91,41 @@ export function VideoGalleryTransition() {
                         </MagneticButton>
                     </button>
                 </motion.div>
-
             </div>
+
         </motion.div>
 
         {/* Gallery Grid (Behind/Around Video) */}
-        {/* We position them absolutely relative to the center */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 p-12">
-            <div className="grid grid-cols-2 w-full h-full gap-8 max-w-7xl mx-auto">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 p-4 sm:p-12">
+            <div className="grid grid-cols-2 w-full h-full gap-4 sm:gap-8 max-w-7xl mx-auto">
                 
                 {/* Left Column */}
-                <div className="flex flex-col justify-between h-full py-12">
+                <div className="flex flex-col justify-between h-full py-4 sm:py-12">
                     <motion.div 
-                        style={{ x: leftX, opacity }}
-                        className="w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
+                        style={{ opacity: imageOpacity, scale: imageScale }}
+                        className="w-full aspect-[9/16] bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
                     >
                         <img src={images[0]} alt="Gallery 1" className="w-full h-full object-cover" />
                     </motion.div>
                     <motion.div 
-                        style={{ x: leftX, opacity }}
-                        className="w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
+                        style={{ opacity: imageOpacity, scale: imageScale }}
+                        className="w-full aspect-[9/16] bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
                     >
                         <img src={images[1]} alt="Gallery 2" className="w-full h-full object-cover" />
                     </motion.div>
                 </div>
 
                 {/* Right Column */}
-                <div className="flex flex-col justify-between h-full py-12">
+                <div className="flex flex-col justify-between h-full py-4 sm:py-12">
                     <motion.div 
-                        style={{ x: rightX, opacity }}
-                        className="w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
+                        style={{ opacity: imageOpacity, scale: imageScale }}
+                        className="w-full aspect-[9/16] bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
                     >
                         <img src={images[2]} alt="Gallery 3" className="w-full h-full object-cover" />
                     </motion.div>
                     <motion.div 
-                        style={{ x: rightX, opacity }}
-                        className="w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
+                        style={{ opacity: imageOpacity, scale: imageScale }}
+                        className="w-full aspect-[9/16] bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
                     >
                         <img src={images[3]} alt="Gallery 4" className="w-full h-full object-cover" />
                     </motion.div>
