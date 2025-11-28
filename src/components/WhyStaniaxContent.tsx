@@ -36,21 +36,21 @@ export function WhyStaniaxContent() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-[12vw] leading-[0.85] font-black tracking-tighter text-black z-10 relative pointer-events-none"
+            className="text-[12vw] leading-[0.85] font-black tracking-tighter text-black z-10 relative pointer-events-none text-center"
         >
             POZNAJ<br />STANIAX
         </motion.h2>
 
         {/* Content Grid */}
-        <div className="relative h-[120vh] -top-20">
+        <div className="relative h-[150vh] -top-20">
             
             {/* Overlapping Images - Parallax */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 
-                {/* Back Image (Larger) */}
+                {/* Back Image (Larger - Left Side) */}
                 <motion.div 
                     style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
-                    className="absolute top-0 left-[10%] w-[45vw] aspect-[4/3] bg-gray-300 rounded-lg overflow-hidden shadow-2xl z-10"
+                    className="absolute top-0 left-[2%] w-[55vw] aspect-[4/3] bg-gray-300 rounded-lg overflow-hidden shadow-2xl z-10"
                 >
                     <img src={serviceImg1} alt="Staniax Tech" className="w-full h-full object-cover" />
                     <div className="absolute bottom-8 left-8 text-white">
@@ -58,10 +58,10 @@ export function WhyStaniaxContent() {
                     </div>
                 </motion.div>
 
-                {/* Front Image (Overlapping) */}
+                {/* Front Image (Overlapping - Right Side) */}
                 <motion.div 
                     style={{ y: useTransform(scrollYProgress, [0, 1], [100, -200]) }}
-                    className="absolute top-[40%] left-[25%] w-[40vw] aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-2xl z-20 border-4 border-[#E5E5E5]"
+                    className="absolute top-[35%] right-[5%] w-[50vw] aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-2xl z-20 border-4 border-[#E5E5E5]"
                 >
                     <img src={serviceImg2} alt="Staniax Process" className="w-full h-full object-cover" />
                     <div className="absolute bottom-8 left-8 text-white">

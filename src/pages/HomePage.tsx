@@ -1339,100 +1339,56 @@ function HomePage() {
           'fixed top-0 w-full transition-all duration-500',
           isMenuOpen ? 'z-[100]' : 'z-50',
           scrollY > 32
-            ? 'bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
+            ? 'bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-sm'
             : 'bg-transparent border-transparent'
         )}
       >
-        <div
-          className={cn(
-            'w-full flex items-center justify-between py-4 sm:py-5 transition-colors duration-300',
-            // Wyrównanie symetryczne do headingu "POWŁOKI PRZYSZŁOŚCI"
-            // Heading: right-0 lg:right-8 xl:right-12 + pr-6 lg:pr-16 xl:pr-24
-            // Razem od prawej: 24px (mobile), 96px (lg), 144px (xl)
-            'px-6 lg:px-24 xl:px-36',
-            isMenuOpen 
-              ? 'text-foreground' 
-              : isDarkHeaderContext 
-                ? 'text-white' 
-                : 'text-foreground'
-          )}
-        >
-          <button
-            onClick={() => scrollToSection('top')}
-            className="group flex items-center gap-2 sm:gap-3 text-left"
-            aria-label="Przewiń na górę"
-          >
-            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
-              <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
-            <div className="leading-tight hidden sm:block">
-              <span
-                className={cn(
-                  'block text-xs uppercase tracking-[0.5em] transition-colors duration-300',
-                  isMenuOpen 
-                    ? 'text-muted-foreground' 
-                    : isDarkHeaderContext 
-                      ? 'text-white/70' 
-                      : 'text-muted-foreground'
-                )}
-              >
-                STANIAX
-              </span>
-              <span
-                className={cn(
-                  'block text-base sm:text-lg font-black transition-colors duration-300',
-                  isMenuOpen 
-                    ? 'text-foreground' 
-                    : isDarkHeaderContext 
-                      ? 'text-white' 
-                      : 'text-foreground'
-                )}
-              >
-                Studio Metalizacji
-              </span>
-            </div>
-          </button>
-          <div className="flex items-center gap-5">
-            <Button
-              onClick={() => scrollToSection('contact')}
-              className={cn(
-                'hidden sm:inline-flex border bg-transparent transition-all duration-300',
-                isMenuOpen
-                  ? 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
-                  : isDarkHeaderContext
-                    ? 'border-white/40 text-white hover:bg-white hover:text-foreground'
-                    : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
-              )}
-            >
-              Wyceń Projekt
-            </Button>
+        <div className="w-full flex items-center justify-between py-4 px-6 lg:px-12">
+          
+          {/* LEFT: Hamburger + Label */}
+          <div className="flex items-center gap-6">
+            
+            {/* Hamburger */}
             <button
-              className={cn(
-                'relative h-10 w-10 sm:h-12 sm:w-12 rounded-full border backdrop-blur-md flex items-center justify-center transition-all duration-300',
-                isMenuOpen
-                  ? 'border-foreground/30 bg-background text-foreground'
-                  : isDarkHeaderContext
-                    ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
-                    : 'border-foreground/20 bg-background/70 text-foreground hover:border-foreground/40'
-              )}
+              className="flex flex-col gap-1.5 p-2 hover:opacity-70 transition-opacity"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Przełącz nawigację"
-              aria-expanded={isMenuOpen}
+              aria-label="Menu"
             >
-              <span
-                className={cn(
-                  'absolute h-0.5 w-5 sm:w-6 rounded-full bg-current transition-all duration-300',
-                  isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-1.5'
-                )}
-              />
-              <span
-                className={cn(
-                  'absolute h-0.5 w-3 sm:w-4 rounded-full bg-current transition-all duration-300',
-                  isMenuOpen ? 'w-5 sm:w-6 translate-y-0 -rotate-45' : 'translate-y-1.5'
-                )}
-              />
+              <span className={cn("w-6 h-0.5 bg-current transition-all", isMenuOpen && "rotate-45 translate-y-2")} />
+              <span className={cn("w-6 h-0.5 bg-current transition-all", isMenuOpen && "opacity-0")} />
+              <span className={cn("w-6 h-0.5 bg-current transition-all", isMenuOpen && "-rotate-45 -translate-y-2")} />
+            </button>
+
+            {/* Separator */}
+            <div className="hidden sm:block w-px h-6 bg-current opacity-20" />
+
+            {/* Label */}
+            <div className="hidden sm:flex items-center gap-3 font-mono text-xs tracking-widest uppercase">
+              <span className="font-bold">STANIAX.1</span>
+              <div className="flex gap-1 opacity-50">
+                <div className="w-1.5 h-1.5 bg-current rotate-45" />
+                <div className="w-1.5 h-1.5 bg-current rotate-45" />
+              </div>
+            </div>
+
+          </div>
+
+          {/* RIGHT: Links */}
+          <div className="flex items-center gap-8 text-xs font-medium tracking-wide uppercase">
+            <button 
+                onClick={() => scrollToSection('production')}
+                className="hidden sm:block hover:opacity-60 transition-opacity"
+            >
+                Technologia
+            </button>
+            <button 
+                onClick={() => scrollToSection('contact')}
+                className="hover:opacity-60 transition-opacity"
+            >
+                Wyceń Projekt
             </button>
           </div>
+
         </div>
       </header>
 
