@@ -1568,44 +1568,55 @@ function HomePage() {
               ))}
             </div>
 
-            {/* Heading - Top Right Corner */}
-            <div className="absolute top-12 sm:top-16 lg:top-20 right-0 lg:right-8 xl:right-12 z-10 w-full max-w-full lg:max-w-[90%] xl:max-w-[85%] pr-6 lg:pr-16 xl:pr-24">
+            {/* Hero Content - Lightship Style (Centered/Bottom) */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-4">
               
-              <h1 
-                className="text-[5rem] sm:text-[7rem] lg:text-[10rem] xl:text-[12rem] font-black leading-[0.85] tracking-tighter group cursor-default text-right"
-                style={{
-                  transform: `perspective(1000px) rotateX(${heroMousePosition.y * 0.05}deg) rotateY(${heroMousePosition.x * 0.05}deg)`,
-                  transition: 'transform 0.3s ease-out'
-                }}
+              {/* Label */}
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-white/80 text-xs sm:text-sm font-bold uppercase tracking-[0.5em] mb-4 sm:mb-6 drop-shadow-md"
               >
-                <span className="block bg-gradient-to-r from-white via-gray-100 to-white animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_8px_30px_rgba(0,0,0,1)]">
-                  POWŁOKI
-                </span>
-                <span className="block bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105 drop-shadow-[0_8px_30px_rgba(0,0,0,1)]">
-                  PRZYSZŁOŚCI
-                </span>
-              </h1>
-              
-              {/* Subtitle */}
-              <p className="mt-4 lg:mt-6 text-right text-white text-sm sm:text-base lg:text-lg font-semibold leading-relaxed drop-shadow-[0_6px_20px_rgba(0,0,0,1)]">
-                Specjalistyczne powłoki metaliczne<br className="hidden sm:block" />
-                dla przemysłu i prototypowania
-              </p>
-            </div>
+                PRZYSZŁOŚĆ METALIZACJI
+              </motion.p>
 
-            {/* Primary CTA - Bottom Center */}
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 group cursor-pointer transition-all duration-300 hover:scale-105"
-              aria-label="Przejdź do formularza kontaktowego"
-            >
-              <MagneticButton className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-blue-500/50 flex items-center gap-2 group">
-                  ✨ Bezpłatna Konsultacja
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </MagneticButton>
-            </button>
+              {/* Massive Headline */}
+              <motion.h1 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[15vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-overlay opacity-90 select-none pointer-events-none"
+              >
+                STANIAX
+              </motion.h1>
+
+              {/* Description & CTA Container */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="mt-8 sm:mt-12 flex flex-col items-center gap-6 sm:gap-8"
+              >
+                <p className="text-white/90 text-base sm:text-lg lg:text-xl font-medium max-w-xl leading-relaxed drop-shadow-md">
+                  Specjalistyczne powłoki metaliczne dla przemysłu i prototypowania.
+                  <br className="hidden sm:block" />
+                  Precyzja, której możesz zaufać.
+                </p>
+
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="group cursor-pointer"
+                  aria-label="Przejdź do formularza kontaktowego"
+                >
+                  <MagneticButton className="bg-white text-black hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-2xl flex items-center gap-2 group">
+                      Rozpocznij Projekt
+                      <ArrowUpRight weight="bold" className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </MagneticButton>
+                </button>
+              </motion.div>
+
+            </div>
           </section>
 
           {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
