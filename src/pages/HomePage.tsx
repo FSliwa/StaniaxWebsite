@@ -52,6 +52,10 @@ import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
 import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
+
+import caseStudyImgHeb from '@/assets/20251016_0405_Przemiana Dźwigara HEB_simple_compose_01k7nc58ddefx9c0nj9n97j17t.png'
+import caseStudyImgSluza from '@/assets/20251016_0434_Przemiana Śluzy_simple_compose_01k7ndtkvaf95bvw2233ve8nav.png'
+import caseStudyImgWirnik from '@/assets/20251016_0439_Przemiana Wirnika Przemysłowego_simple_compose_01k7ne36qzeg9rhbvzaer98gw5.png'
 const statsSplineUrl =
   import.meta.env.VITE_STATS_SPLINE_URL ?? 'https://prod.spline.design/f8rjqRArLakUTPCP/scene.splinecode'
 const newsSplineUrl =
@@ -151,7 +155,7 @@ const projectsData: ProjectItem[] = [
   {
     id: 'automotive',
     title: 'Komponenty Motoryzacyjne',
-    icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />,
+    icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=800&fit=crop&crop=center',
     description: 'Zaawansowane powłoki ochronne dla przemysłu motoryzacyjnego',
     details: 'Specjalistyczne metalizacja części silnikowych, układów hamulcowych i elementów karoserii. Powłoki odporne na korozję i wysokie temperatury.',
@@ -161,7 +165,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'aerospace',
     title: 'Części Lotnicze', 
-    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
     image: projectImgAerospace,
     description: 'Precyzyjne powłoki dla krytycznych komponentów lotniczych',
     details: 'Metalizacja elementów silników odrzutowych, struktur nośnych i systemów hydraulicznych zgodnie z normami aerospace.',
@@ -171,7 +175,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'precision-tools', 
     title: 'Narzędzia Precyzyjne', 
-    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
     image: projectImgAutomotive,
     description: 'Powłoki zwiększające trwałość narzędzi precyzyjnych',
     details: 'Specjalne powłoki twardościowe dla narzędzi skrawających, matryc i form wtryskowych. Zwiększenie żywotności o 300%.',
@@ -181,7 +185,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'industrial', 
     title: 'Urządzenia Przemysłowe', 
-    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
     image: projectImgIndustrial,
     description: 'Ochrona przed korozją dla maszyn przemysłowych',
     details: 'Kompleksowa metalizacja linii produkcyjnych, robotów przemysłowych i urządzeń technologicznych.',
@@ -191,7 +195,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'production-tools', 
     title: 'Narzędzia Produkcyjne', 
-    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
     image: serviceImg2,
     description: 'Powłoki funkcjonalne dla narzędzi produkcyjnych',
     details: 'Metalizacja narzędzi do obróbki plastycznej, urządzeń formujących i elementów automatyki przemysłowej.',
@@ -201,7 +205,7 @@ const projectsData: ProjectItem[] = [
   { 
     id: 'prototypes', 
     title: 'Projekty Prototypów', 
-    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
     image: projectImgPrototype,
     description: 'Szybkie prototypowanie z zaawansowanymi powłokami',
     details: 'Ekspresowa metalizacja prototypów dla R&D, testowanie nowych rozwiązań powłokowych i weryfikacja parametrów.',
@@ -229,61 +233,61 @@ type CaseStudy = {
 
 const caseStudiesData: CaseStudy[] = [
   {
-    id: 'automotive-excellence',
-    title: 'Rewolucja Przemysłowa',
-    subtitle: 'Przełomowa metalizacja komponentów silnikowych',
-    imageBefore: automotiveAfter,
-    imageAfter: automotiveBefore,
+    id: 'heb-renovation',
+    title: 'Renowacja Dźwigara HEB',
+    subtitle: 'Kompleksowa odbudowa i zabezpieczenie antykorozyjne',
+    imageBefore: 'https://images.unsplash.com/photo-1535191030420-28537b19c4c6?w=800&h=600&fit=crop', // Rusty metal/construction
+    imageAfter: caseStudyImgHeb,
     metrics: [
-      { value: '3 msc', label: 'Realizacja' },
-      { value: '50K+', label: 'Elementy' },
-      { value: 'ISO 9001', label: 'Certyfikat' }
+      { value: '100%', label: 'Nośność' },
+      { value: 'C5-M', label: 'Klasa' },
+      { value: '15 lat', label: 'Gwarancja' }
     ],
     testimonial: {
-      quote: 'Współpraca z STANIAX przyniosła rewolucyjne rezultaty. Trwałość naszych komponentów wzrosła o 250%, a koszty produkcji spadły o 30%.',
-      author: 'Jan Kowalski',
-      role: 'Prezes, TechMotors',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+      quote: 'Przywrócenie pełnej sprawności dźwigara pozwoliło nam uniknąć kosztownej wymiany całej konstrukcji nośnej hali.',
+      author: 'Marek Inżynierski',
+      role: 'Kierownik Budowy, StalBud',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
     },
-    badge: '+250% Trwałość'
+    badge: 'Oszczędność 70%'
   },
   {
-    id: 'aerospace-innovation',
-    title: 'Innowacje Lotnicze',
-    subtitle: 'Precyzyjne powłoki dla komponentów lotniczych',
-    imageBefore: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop',
-    imageAfter: projectImgAerospace,
+    id: 'sluza-industrial',
+    title: 'Regeneracja Śluzy',
+    subtitle: 'Przywrócenie szczelności i odporności chemicznej',
+    imageBefore: 'https://images.unsplash.com/photo-1615811361269-669243c15853?w=800&h=600&fit=crop', // Corroded valve/pipe
+    imageAfter: caseStudyImgSluza,
     metrics: [
-      { value: '6 msc', label: 'Projekt' },
-      { value: '99.9%', label: 'Precyzja' },
-      { value: 'AS9100', label: 'Standard' }
+      { value: '0%', label: 'Przecieków' },
+      { value: 'pH 2-12', label: 'Odporność' },
+      { value: '48h', label: 'Czas' }
     ],
     testimonial: {
-      quote: 'STANIAX spełnił najwyższe standardy aerospace. Ich metalizacja zwiększyła żywotność elementów turbinowych o 180% przy zachowaniu norm AS9100.',
-      author: 'Anna Nowak',
-      role: 'Główny Inżynier, AeroTech',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
-    },
-    badge: '+180% Żywotność'
-  },
-  {
-    id: 'industrial-revolution',
-    title: 'Doskonałość Motoryzacyjna',
-    subtitle: 'Kompleksowa ochrona linii produkcyjnej',
-    imageBefore: industrialAfter,
-    imageAfter: industrialBefore,
-    metrics: [
-      { value: '12 msc', label: 'Wdrożenie' },
-      { value: '200+', label: 'Maszyny' },
-      { value: '0', label: 'Awarie' }
-    ],
-    testimonial: {
-      quote: 'Dzięki metalizacji całej linii produkcyjnej przez STANIAX, eliminujemy 95% awarii związanych z korozją i zużyciem. ROI osiągnęliśmy w 8 miesięcy.',
-      author: 'Piotr Wiśniewski',
-      role: 'Dyrektor Operacyjny, IndustryPro',
+      quote: 'Śluza po regeneracji w technologii STANIAX pracuje bezawaryjnie w środowisku agresywnym chemicznie już od 12 miesięcy.',
+      author: 'Tomasz Wodny',
+      role: 'Dyrektor Techniczny, AquaSystem',
       avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
     },
-    badge: '95% Redukcja Awarii'
+    badge: '+300% Żywotność'
+  },
+  {
+    id: 'wirnik-rebuild',
+    title: 'Odbudowa Wirnika',
+    subtitle: 'Precyzyjne napawanie i wyważanie dynamiczne',
+    imageBefore: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop', // Industrial machine part
+    imageAfter: caseStudyImgWirnik,
+    metrics: [
+      { value: 'G2.5', label: 'Wyważenie' },
+      { value: '60 HRC', label: 'Twardość' },
+      { value: '0.01mm', label: 'Bicie' }
+    ],
+    testimonial: {
+      quote: 'Precyzja regeneracji wirnika przeszła nasze oczekiwania. Maszyna pracuje ciszej i wydajniej niż nowa.',
+      author: 'Krzysztof Obrotowy',
+      role: 'Utrzymanie Ruchu, PowerPlant',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+    },
+    badge: 'Wzrost Wydajności'
   }
 ]
 
@@ -1747,6 +1751,172 @@ function HomePage() {
             </div>
           </section>
 
+      {/* INTERACTIVE TECH SPECS TABLE */}
+      <section data-theme="light" className="py-20 lg:py-32 bg-white">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">TECHNOLOGY COMPARISON</p>
+              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 uppercase mb-8 tracking-tighter">
+                PORÓWNAJ<br />TECHNOLOGIE
+              </h2>
+            </div>
+
+            {/* Filters & Compare Toggle */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setSelectedFilter('all')}
+                  className={cn(
+                    'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
+                    selectedFilter === 'all'
+                      ? 'bg-blue-700 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  )}
+                >
+                  Wszystkie
+                </button>
+                {techSpecsData.map((spec) => (
+                  <button
+                    key={spec.id}
+                    onClick={() => setSelectedFilter(spec.id)}
+                    className={cn(
+                      'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
+                      selectedFilter === spec.id
+                        ? 'bg-blue-700 text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    )}
+                  >
+                    {spec.method.split(' ')[0]}
+                  </button>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => {
+                  setCompareMode(!compareMode)
+                  setSelectedForCompare([])
+                }}
+                className={cn(
+                  'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
+                  compareMode
+                    ? 'bg-orange-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                )}
+              >
+                {compareMode ? '✓ Compare Mode' : 'Compare Mode'}
+              </button>
+            </div>
+
+            {/* Table */}
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
+              <table className="w-full">
+                <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
+                  <tr>
+                    {compareMode && <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Select</th>}
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Metoda</th>
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Temperatura</th>
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Grubość</th>
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Zastosowanie</th>
+                    <th className="p-4 text-center text-xs uppercase tracking-wider text-gray-600 font-bold">Szczegóły</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {techSpecsData
+                    .filter((spec) => selectedFilter === 'all' || selectedFilter === spec.id)
+                    .map((spec) => (
+                      <>
+                        <tr
+                          key={spec.id}
+                          className={cn(
+                            'border-t border-gray-200 hover:bg-blue-50 transition-colors cursor-pointer',
+                            selectedForCompare.includes(spec.id) && 'bg-blue-100'
+                          )}
+                          onClick={() => setExpandedRow(expandedRow === spec.id ? null : spec.id)}
+                        >
+                          {compareMode && (
+                            <td className="p-4">
+                              <input
+                                type="checkbox"
+                                checked={selectedForCompare.includes(spec.id)}
+                                onChange={(e) => {
+                                  e.stopPropagation()
+                                  if (selectedForCompare.includes(spec.id)) {
+                                    setSelectedForCompare(selectedForCompare.filter((id) => id !== spec.id))
+                                  } else if (selectedForCompare.length < 2) {
+                                    setSelectedForCompare([...selectedForCompare, spec.id])
+                                  }
+                                }}
+                                className="w-5 h-5"
+                                disabled={!selectedForCompare.includes(spec.id) && selectedForCompare.length >= 2}
+                              />
+                            </td>
+                          )}
+                          <td className="p-4 font-bold text-gray-900">{spec.method}</td>
+                          <td className="p-4 text-gray-700 font-mono">{spec.temperature}</td>
+                          <td className="p-4 text-gray-700 font-mono">{spec.thickness}</td>
+                          <td className="p-4 text-gray-700 text-sm">{spec.applications}</td>
+                          <td className="p-4 text-center">
+                            <button className="text-blue-700 hover:text-blue-900 font-bold">
+                              {expandedRow === spec.id ? '▲' : '▼'}
+                            </button>
+                          </td>
+                        </tr>
+                        {expandedRow === spec.id && (
+                          <tr className="bg-gray-50 border-t border-gray-200">
+                            <td colSpan={compareMode ? 6 : 5} className="p-6">
+                              <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Zalety:</h4>
+                                  <ul className="space-y-2">
+                                    {spec.advantages.map((advantage, idx) => (
+                                      <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                                        <span className="text-blue-700 font-bold">✓</span>
+                                        {advantage}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                                <div>
+                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Materiały:</h4>
+                                  <p className="text-sm text-gray-700">{spec.materials}</p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Compare Results */}
+            {compareMode && selectedForCompare.length === 2 && (
+              <div className="mt-8 p-8 bg-gradient-to-br from-blue-50 to-white border-2 border-blue-700 rounded-2xl">
+                <h3 className="text-2xl font-black uppercase mb-6 text-blue-900">Porównanie</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {selectedForCompare.map((id) => {
+                    const spec = techSpecsData.find((s) => s.id === id)
+                    if (!spec) return null
+                    return (
+                      <div key={id} className="space-y-4">
+                        <h4 className="text-xl font-bold text-gray-900">{spec.method}</h4>
+                        <div className="space-y-2 text-sm">
+                          <p><strong>Temperatura:</strong> <span className="font-mono">{spec.temperature}</span></p>
+                          <p><strong>Grubość:</strong> <span className="font-mono">{spec.thickness}</span></p>
+                          <p><strong>Materiały:</strong> <span className="font-mono">{spec.materials}</span></p>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
       {/* Sekcja Dlaczego STANIAX - Premium Video Background (Vibor.it Style) */}
       <section
         id="custom-section"
@@ -2137,7 +2307,7 @@ function HomePage() {
                         <div className="grid grid-cols-3 gap-6">
                           {caseStudy.metrics.map((metric, idx) => (
                             <div key={idx} className="text-center">
-                              <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2">
+                              <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2 font-mono">
                                 {metric.value}
                               </div>
                               <p className="text-xs uppercase tracking-wider text-gray-600 font-semibold">
