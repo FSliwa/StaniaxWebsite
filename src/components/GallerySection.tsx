@@ -89,26 +89,34 @@ export function GallerySection() {
           </motion.h2>
         </div>
 
-        {/* Masonry Grid */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+        {/* Compact Grid */}
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
           {images.map((src, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="break-inside-avoid relative group cursor-zoom-in overflow-hidden rounded-xl bg-gray-900"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.02 }}
+              viewport={{ once: true }}
+              className="relative group cursor-zoom-in overflow-hidden rounded-md bg-gray-900 aspect-square"
               onClick={() => openLightbox(index)}
             >
               <img 
                 src={src} 
                 alt={`Realizacja Staniax ${index + 1}`} 
-                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-50"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <ArrowsOutSimple className="w-8 h-8 text-white" />
+              
+              {/* Hover Pop-up Effect */}
+              <div className="absolute inset-0 pointer-events-none hidden group-hover:block z-50">
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-[250%] rounded-xl overflow-hidden shadow-2xl border-2 border-blue-500/50 bg-black">
+                  <img 
+                    src={src} 
+                    alt={`Realizacja Staniax ${index + 1}`} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </motion.div>
           ))}
