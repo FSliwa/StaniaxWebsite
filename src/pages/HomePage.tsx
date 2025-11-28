@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
 import { AnimatedSection } from '@/components/AnimatedSection'
-import { BentoGallery } from '@/components/BentoGallery'
+import { LightshipGallery } from '@/components/LightshipGallery'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { SpotlightCard } from '@/components/ui/SpotlightCard'
 import { toast, Toaster } from 'sonner'
@@ -1750,8 +1750,8 @@ function HomePage() {
             </div>
           </section>
 
-      {/* GALLERY SECTION */}
-      <BentoGallery />
+      {/* GALLERY SECTION (Lightship RV Style) */}
+      <LightshipGallery />
 
 
       {/* Sekcja Dlaczego STANIAX - Premium Video Background (Vibor.it Style) */}
