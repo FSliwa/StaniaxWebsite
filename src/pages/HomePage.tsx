@@ -10,6 +10,9 @@ import { AnimatedSection } from '@/components/AnimatedSection'
 import { LightshipGallery } from '@/components/LightshipGallery'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { SpotlightCard } from '@/components/ui/SpotlightCard'
+import { SmoothScroll } from '@/components/SmoothScroll'
+import { ProductionProcess } from '@/components/ProductionProcess'
+import { BigFooter } from '@/components/BigFooter'
 import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
 import {
@@ -1240,7 +1243,8 @@ function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <SmoothScroll>
+    <main className="min-h-screen bg-white selection:bg-blue-500/30">
       {/* Scroll Progress Bar */}
       <div 
         className="scroll-progress" 
@@ -1753,6 +1757,8 @@ function HomePage() {
       {/* GALLERY SECTION (Lightship RV Style) */}
       <LightshipGallery />
 
+      {/* PRODUCTION PROCESS (Sticky Features) */}
+      <ProductionProcess />
 
       {/* Sekcja Dlaczego STANIAX - Premium Video Background (Vibor.it Style) */}
       <section
@@ -2761,74 +2767,11 @@ function HomePage() {
         </section>
       </div>
 
-      <Toaster position="top-right" richColors />
+      {/* BIG TYPE FOOTER */}
+      <BigFooter />
+
       <CookieBanner />
 
-      <footer className="bg-slate-950 text-white">
-        <div className="container mx-auto px-6 lg:px-12 py-12">
-          <div className="grid gap-12 md:grid-cols-3">
-            {/* Kolumna 1: Logo i opis */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="h-12 w-12 rounded-full bg-blue-700 text-white flex items-center justify-center shadow-lg">
-                  <Factory className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-2xl font-black uppercase">STANIAX</p>
-                </div>
-              </div>
-              <p className="text-sm text-white/70 font-normal max-w-xs">
-                Specjalizujemy się w zaawansowanych powłokach metalicznych dla branż przemysłowych i high-tech.
-              </p>
-            </div>
-
-            {/* Kolumna 2: Szybka nawigacja + Certifications */}
-            <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold">Nawigacja</p>
-              <ul className="space-y-3 text-white/80 text-sm font-normal">
-                <li><button onClick={() => scrollToSection('services')} className="link-underline hover:text-white transition-colors">Oferta</button></li>
-                <li><button onClick={() => scrollToSection('projects')} className="link-underline hover:text-white transition-colors">Realizacje</button></li>
-                <li><button onClick={() => scrollToSection('about')} className="link-underline hover:text-white transition-colors">O nas</button></li>
-                <li><button onClick={() => scrollToSection('contact')} className="link-underline hover:text-white transition-colors">Kontakt</button></li>
-              </ul>
-              
-              <div className="pt-4">
-                <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold mb-3">Certyfikaty</p>
-                <ul className="space-y-2 text-white/80 text-sm font-normal">
-                  <li className="flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-blue-400" />
-                    ISO 9001:2015
-                  </li>
-                  <li className="text-white/60 text-xs">Polityka Prywatności (wkrótce)</li>
-                  <li className="text-white/60 text-xs">Regulamin (wkrótce)</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Kolumna 3: Dane kontaktowe */}
-            <div className="space-y-4">
-              <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold">Kontakt</p>
-              <div className="space-y-3 text-white/80 text-sm font-normal">
-                <p className="font-bold text-white">STANIAX Sp. z o.o.</p>
-                <p className="leading-relaxed">
-                  Grzybowska 5A<br />
-                  00-132 Warszawa<br />
-                  Polska
-                </p>
-                <div className="leading-relaxed space-y-1">
-                  <p>NIP: 5253052509</p>
-                  <p>KRS: 0001182026</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="border-t border-white/10 py-6">
-          <div className="container mx-auto px-6 lg:px-12 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-xs uppercase tracking-[0.4em] text-white/50">
-            <span>© {new Date().getFullYear()} STANIAX Sp. z o.o. Wszelkie prawa zastrzeżone.</span>
-          </div>
-        </div>
-      </footer>
 
       {/* Mobile Floating CTA Button */}
       <button
@@ -2903,7 +2846,8 @@ function HomePage() {
           outline-offset: 2px !important;
         }
       `}</style>
-    </div>
+    </main>
+    </SmoothScroll>
   )
 }
 
