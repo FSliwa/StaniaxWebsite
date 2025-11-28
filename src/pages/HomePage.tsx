@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { VideoGalleryTransition } from '@/components/VideoGalleryTransition'
-import { VideoScrubSection } from '@/components/VideoScrubSection'
+import { TechAnalysisSection } from '@/components/TechAnalysisSection'
 import { WhyStaniaxContent } from '@/components/WhyStaniaxContent'
 
 import { MagneticButton } from '@/components/ui/MagneticButton'
@@ -1526,7 +1526,7 @@ function HomePage() {
       {/* HERO & GALLERY SECTION (Seamless Transition) */}
       <VideoGalleryTransition />
       
-      <VideoScrubSection />
+      <TechAnalysisSection />
 
       {/* WHY STANIAX CONTENT (Redesigned - Meet the AE.1 Style) */}
       <WhyStaniaxContent />

@@ -1,98 +1,96 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Users, Shield, Wrench } from '@phosphor-icons/react'
+import { ArrowRight } from '@phosphor-icons/react'
 
-// Images from Services section (will be passed as props or imported)
-import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
-import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
-import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
+// Assets
+import bgImage from '@/assets/airplane-04-1600x900.jpg'
+import fgVideo from '@/assets/liquid-gold-hand.mp4'
 
 export function WhyStaniaxContent() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start end", "end start"]
   })
 
+  // Parallax Transforms
+  // Background moves slowly (creating depth)
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
+  
+  // Foreground moves faster (sliding up over the background)
+  const fgY = useTransform(scrollYProgress, [0.2, 0.8], ["20%", "-10%"])
+  
+  // Text Reveal (Fade in + Slide up)
+  const textOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1])
+  const textY = useTransform(scrollYProgress, [0.4, 0.6], [50, 0])
+
   return (
-    <section ref={containerRef} className="relative bg-white py-32 overflow-hidden">
-      <div className="container mx-auto px-6 relative">
+    <section ref={containerRef} className="relative h-[150vh] bg-white overflow-hidden">
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-center">
         
-        {/* Top Bar with Labels */}
-        <div className="flex justify-between items-center mb-20 text-xs font-medium tracking-widest uppercase text-gray-500 border-t border-gray-300 pt-6">
-            <span>STANIAX.1</span>
-            <div className="flex gap-2">
-                <div className="w-2 h-2 bg-black rotate-45" />
-                <div className="w-2 h-2 bg-black rotate-45" />
-            </div>
-            <div className="flex gap-8">
-                <span>Technologia</span>
-                <span>Twoja Przyszłość</span>
-            </div>
+        {/* 1. Massive Headline (Left) */}
+        <div className="absolute top-12 left-6 z-30 mix-blend-difference">
+             <h2 className="text-[10vw] leading-[0.8] font-black tracking-tighter text-white uppercase">
+                Poznaj<br />Staniax
+            </h2>
         </div>
 
-        {/* Massive Headline */}
-        <motion.h2 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-[12vw] leading-[0.85] font-black tracking-tighter text-black z-10 relative pointer-events-none text-center"
-        >
-            POZNAJ<br />STANIAX
-        </motion.h2>
-
-        {/* Content Grid */}
-        <div className="relative h-[150vh] -top-20">
+        {/* 2. Parallax Media Composition */}
+        <div className="relative w-full h-[80vh] flex items-center justify-center">
             
-            {/* Overlapping Images - Parallax */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-                
-                {/* Back Image (Larger - Left Side) */}
+            {/* Background Layer (Wide, Atmospheric) */}
+            <div className="absolute inset-0 w-full h-full overflow-hidden">
                 <motion.div 
-                    style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
-                    className="absolute top-0 left-[2%] w-[55vw] aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden shadow-2xl z-10"
+                    style={{ y: bgY, scale: 1.1 }}
+                    className="w-full h-full"
                 >
-                    <img src={serviceImg1} alt="Staniax Tech" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-8 left-8 text-white">
-                        <p className="text-4xl font-bold tracking-tighter drop-shadow-lg">Atmos<span className="text-sm align-top opacity-70">AE.1</span></p>
-                    </div>
+                    <img 
+                        src={bgImage} 
+                        alt="Atmospheric Background" 
+                        className="w-full h-full object-cover opacity-80"
+                    />
                 </motion.div>
-
-                {/* Front Image (Overlapping - Right Side) */}
-                <motion.div 
-                    style={{ y: useTransform(scrollYProgress, [0, 1], [100, -200]) }}
-                    className="absolute top-[35%] right-[5%] w-[50vw] aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-2xl z-20 border-4 border-white"
-                >
-                    <img src={serviceImg2} alt="Staniax Process" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-8 left-8 text-white">
-                        <p className="text-4xl font-bold tracking-tighter drop-shadow-lg">Panos<span className="text-sm align-top opacity-70">AE.1</span></p>
-                    </div>
-                </motion.div>
-
             </div>
 
-            {/* Right Text Column */}
-            <div className="absolute top-[5%] right-0 w-[30vw] z-30">
-                <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <h3 className="text-sm font-bold uppercase tracking-widest mb-8 text-gray-500">
-                        Dla podróży bliskich i dalekich.
-                    </h3>
-                    <p className="text-2xl font-medium leading-relaxed text-gray-800">
-                        Niezależnie od tego, dokąd zmierzasz, każda powłoka Staniax jest zaprojektowana tak, aby uczynić proces łatwiejszym, a cel jeszcze lepszym.
-                    </p>
-                    <p className="mt-8 text-gray-600 leading-relaxed">
-                        Łączymy inżynierię precyzyjną z estetyką, tworząc rozwiązania, które nie tylko chronią, ale i inspirują.
-                    </p>
-                </motion.div>
-            </div>
+            {/* Foreground Layer (Rounded Media, "Hero") */}
+            <motion.div 
+                style={{ y: fgY }}
+                className="relative z-20 w-[80vw] md:w-[50vw] aspect-[4/3] md:aspect-video bg-black rounded-[32px] overflow-hidden shadow-2xl"
+            >
+                <video 
+                    src={fgVideo} 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    className="w-full h-full object-cover"
+                />
+                {/* Inner Shadow/Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+            </motion.div>
 
         </div>
+
+        {/* 3. Text Column (Right) */}
+        <motion.div 
+            style={{ opacity: textOpacity, y: textY }}
+            className="absolute top-1/2 right-6 md:right-12 w-[280px] md:w-[320px] z-30"
+        >
+            <h3 className="text-2xl font-bold mb-4 text-black">
+                Technologia Przyszłości
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                Dla projektów wymagających najwyższej precyzji i estetyki. Nasze procesy metalizacji próżniowej przekształcają zwykłe powierzchnie w dzieła sztuki inżynieryjnej.
+            </p>
+            <p className="text-gray-600 text-sm leading-relaxed mb-8">
+                Zaprojektowane, by sprostać wyzwaniom nowoczesnego przemysłu i designu.
+            </p>
+            
+            <button className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-black hover:text-blue-600 transition-colors">
+                Dowiedz się więcej
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+        </motion.div>
 
       </div>
     </section>

@@ -6,8 +6,11 @@ import { ArrowUpRight } from '@phosphor-icons/react'
 
 // Import assets
 import videoSrc from '@/assets/metallic-transformation-video.mp4'
-const galleryImages = import.meta.glob('@/assets/gallery/*.jpg', { eager: true, as: 'url' })
-const images = Object.values(galleryImages).slice(0, 4) // Take first 4 images
+import liquidGold from '@/assets/liquid-gold-hand.mp4'
+import toroidAnim from '@/assets/toroid-animation.mp4'
+import vinylTrans from '@/assets/vinyl-transformation.mp4'
+// Using existing videos as placeholders for the 4th element if needed, or reusing one
+import galleryVideo from '@/assets/metallic-transformation-video.mp4' 
 
 export function VideoGalleryTransition() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -17,111 +20,93 @@ export function VideoGalleryTransition() {
   })
 
   // Animation Transforms
-  // 1. Video Scale: Starts full width -> shrinks to vertical strip
-  const width = useTransform(scrollYProgress, [0, 0.4], ["100%", "30%"])
-  const height = useTransform(scrollYProgress, [0, 0.4], ["100%", "80%"])
-  const borderRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "32px"])
   
-  // 2. Images Reveal (Fade & Scale instead of Slide)
-  const imageOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1])
-  const imageScale = useTransform(scrollYProgress, [0.3, 0.6], [0.9, 1])
+  // 1. Hero Video Transition: Full Screen -> Grid Center
+  // It starts at 100% width/height and shrinks to the grid cell size
+  // We'll simulate this by having the grid container be the target
+  
+  // Grid Parallax Effects
+  const centerY = useTransform(scrollYProgress, [0, 1], [0, 50])
+  const leftColY = useTransform(scrollYProgress, [0, 1], [-50, 100])
+  const rightColY = useTransform(scrollYProgress, [0, 1], [-100, 50])
 
-  // 3. Hero Text Animation (Fade Out & Scale Down)
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
-  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9])
+  // Entrance Animation (Scale & Blur)
+  const gridScale = useTransform(scrollYProgress, [0, 0.2], [0.95, 1])
+  const gridBlur = useTransform(scrollYProgress, [0, 0.2], [10, 0])
+  const gridOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1])
+
+  // Hero Text Animation (Fade Out)
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0])
+  const heroScale = useTransform(scrollYProgress, [0, 0.1], [1, 0.9])
 
   return (
-    <section ref={containerRef} className="relative h-[300vh] bg-white">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+    <section ref={containerRef} className="relative h-[200vh] bg-white py-20">
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 sm:px-10">
         
-        {/* Central Video */}
+        {/* Hero Text Overlay (Fades out quickly) */}
         <motion.div 
-            style={{ width, height, borderRadius }}
-            className="relative z-20 shadow-2xl overflow-hidden"
+            style={{ opacity: heroOpacity, scale: heroScale }}
+            className="absolute inset-0 flex flex-col items-center justify-center z-40 pointer-events-none"
         >
-            <video 
-                src={videoSrc} 
-                autoPlay 
-                muted 
-                loop 
-                playsInline 
-                className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/20" />
-            
-            {/* Hero Content - Distributed Layout */}
-            
-            {/* 2. Massive Headline - Lowered */}
-            <motion.h1 
-                style={{ opacity: heroOpacity, scale: heroScale }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] sm:text-[18vw] font-black tracking-tighter text-white z-20 pointer-events-none mt-20"
-            >
+             <h1 className="text-[12vw] sm:text-[15vw] font-black tracking-tighter text-white mix-blend-difference">
                 STANIAX
-            </motion.h1>
-
-            {/* Description & CTA - Bottom */}
-            <div className="absolute bottom-12 left-0 right-0 flex flex-col items-center z-30 px-4">
-                <motion.div 
-                    style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }}
-                    className="flex flex-col items-center gap-6 sm:gap-8 text-center"
-                >
-                    <p className="text-white/90 text-base sm:text-lg lg:text-xl font-medium max-w-xl leading-relaxed drop-shadow-md hidden sm:block">
-                        Specjalistyczne powłoki metaliczne dla przemysłu i prototypowania.
-                    </p>
-
-                    <button
-                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="group cursor-pointer pointer-events-auto"
-                        aria-label="Przejdź do formularza kontaktowego"
-                    >
-                        <MagneticButton className="bg-white text-black hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-2xl flex items-center gap-2 group">
-                            Rozpocznij Projekt
-                            <ArrowUpRight weight="bold" className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                        </MagneticButton>
-                    </button>
-                </motion.div>
-            </div>
-
+            </h1>
+            <p className="text-white/80 text-lg sm:text-xl font-medium tracking-widest uppercase mt-4 mix-blend-difference">
+                Lifestyle Gallery
+            </p>
         </motion.div>
 
-        {/* Gallery Grid (Behind/Around Video) - Absolute Positioning for Scattered Look */}
-        <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
-            <div className="relative w-full h-full max-w-[1920px] mx-auto">
-                
-                {/* Image 1 - Top Left */}
-                <motion.div 
-                    style={{ opacity: imageOpacity, scale: imageScale }}
-                    className="absolute top-[10%] left-[5%] w-[20vw] aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
-                >
-                    <img src={images[0]} alt="Gallery 1" className="w-full h-full object-cover" />
-                </motion.div>
 
-                {/* Image 2 - Bottom Left */}
-                <motion.div 
-                    style={{ opacity: imageOpacity, scale: imageScale }}
-                    className="absolute bottom-[15%] left-[8%] w-[25vw] aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
-                >
-                    <img src={images[1]} alt="Gallery 2" className="w-full h-full object-cover" />
-                </motion.div>
+        {/* Bento Grid Container */}
+        <motion.div 
+            style={{ scale: gridScale, filter: useTransform(gridBlur, (v) => `blur(${v}px)`), opacity: gridOpacity }}
+            className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] h-[85vh]"
+        >
+            
+            {/* Left Column */}
+            <motion.div style={{ y: leftColY }} className="flex flex-col gap-4 md:gap-8 h-full justify-end">
+                {/* Top Left */}
+                <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
+                    <video src={liquidGold} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
+                </div>
+                {/* Bottom Left */}
+                <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
+                    <video src={toroidAnim} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
+                </div>
+            </motion.div>
 
-                {/* Image 3 - Top Right */}
-                <motion.div 
-                    style={{ opacity: imageOpacity, scale: imageScale }}
-                    className="absolute top-[15%] right-[8%] w-[25vw] aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
-                >
-                    <img src={images[2]} alt="Gallery 3" className="w-full h-full object-cover" />
-                </motion.div>
+            {/* Center Column (Hero) */}
+            <motion.div style={{ y: centerY }} className="h-full">
+                <div className="relative w-full h-full rounded-[32px] overflow-hidden shadow-2xl group">
+                    <video src={videoSrc} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
+                    
+                    {/* Center CTA */}
+                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <MagneticButton className="bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold flex items-center gap-2">
+                            Zobacz Więcej <ArrowUpRight className="w-4 h-4" />
+                        </MagneticButton>
+                    </div>
+                </div>
+            </motion.div>
 
-                {/* Image 4 - Bottom Right */}
-                <motion.div 
-                    style={{ opacity: imageOpacity, scale: imageScale }}
-                    className="absolute bottom-[10%] right-[5%] w-[20vw] aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
-                >
-                    <img src={images[3]} alt="Gallery 4" className="w-full h-full object-cover" />
-                </motion.div>
+            {/* Right Column */}
+            <motion.div style={{ y: rightColY }} className="flex flex-col gap-4 md:gap-8 h-full justify-start">
+                {/* Top Right */}
+                <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
+                    <video src={vinylTrans} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
+                </div>
+                {/* Bottom Right */}
+                <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
+                    <video src={galleryVideo} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
+                </div>
+            </motion.div>
 
-            </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
