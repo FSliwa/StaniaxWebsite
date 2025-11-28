@@ -53,9 +53,7 @@ import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
-import caseStudyImgHeb from '@/assets/20251016_0405_Przemiana Dźwigara HEB_simple_compose_01k7nc58ddefx9c0nj9n97j17t.png'
-import caseStudyImgSluza from '@/assets/20251016_0434_Przemiana Śluzy_simple_compose_01k7ndtkvaf95bvw2233ve8nav.png'
-import caseStudyImgWirnik from '@/assets/20251016_0439_Przemiana Wirnika Przemysłowego_simple_compose_01k7ne36qzeg9rhbvzaer98gw5.png'
+
 const statsSplineUrl =
   import.meta.env.VITE_STATS_SPLINE_URL ?? 'https://prod.spline.design/f8rjqRArLakUTPCP/scene.splinecode'
 const newsSplineUrl =
@@ -233,61 +231,61 @@ type CaseStudy = {
 
 const caseStudiesData: CaseStudy[] = [
   {
-    id: 'heb-renovation',
-    title: 'Renowacja Dźwigara HEB',
-    subtitle: 'Kompleksowa odbudowa i zabezpieczenie antykorozyjne',
-    imageBefore: 'https://images.unsplash.com/photo-1535191030420-28537b19c4c6?w=800&h=600&fit=crop', // Rusty metal/construction
-    imageAfter: caseStudyImgHeb,
+    id: 'automotive-excellence',
+    title: 'Automotive Excellence',
+    subtitle: 'Przełomowa metalizacja komponentów silnikowych',
+    imageBefore: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop',
+    imageAfter: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop',
     metrics: [
-      { value: '100%', label: 'Nośność' },
-      { value: 'C5-M', label: 'Klasa' },
-      { value: '15 lat', label: 'Gwarancja' }
+      { value: '3 msc', label: 'Realizacja' },
+      { value: '50K+', label: 'Elementy' },
+      { value: 'ISO 9001', label: 'Certyfikat' }
     ],
     testimonial: {
-      quote: 'Przywrócenie pełnej sprawności dźwigara pozwoliło nam uniknąć kosztownej wymiany całej konstrukcji nośnej hali.',
-      author: 'Marek Inżynierski',
-      role: 'Kierownik Budowy, StalBud',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
-    },
-    badge: 'Oszczędność 70%'
-  },
-  {
-    id: 'sluza-industrial',
-    title: 'Regeneracja Śluzy',
-    subtitle: 'Przywrócenie szczelności i odporności chemicznej',
-    imageBefore: 'https://images.unsplash.com/photo-1615811361269-669243c15853?w=800&h=600&fit=crop', // Corroded valve/pipe
-    imageAfter: caseStudyImgSluza,
-    metrics: [
-      { value: '0%', label: 'Przecieków' },
-      { value: 'pH 2-12', label: 'Odporność' },
-      { value: '48h', label: 'Czas' }
-    ],
-    testimonial: {
-      quote: 'Śluza po regeneracji w technologii STANIAX pracuje bezawaryjnie w środowisku agresywnym chemicznie już od 12 miesięcy.',
-      author: 'Tomasz Wodny',
-      role: 'Dyrektor Techniczny, AquaSystem',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
-    },
-    badge: '+300% Żywotność'
-  },
-  {
-    id: 'wirnik-rebuild',
-    title: 'Odbudowa Wirnika',
-    subtitle: 'Precyzyjne napawanie i wyważanie dynamiczne',
-    imageBefore: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop', // Industrial machine part
-    imageAfter: caseStudyImgWirnik,
-    metrics: [
-      { value: 'G2.5', label: 'Wyważenie' },
-      { value: '60 HRC', label: 'Twardość' },
-      { value: '0.01mm', label: 'Bicie' }
-    ],
-    testimonial: {
-      quote: 'Precyzja regeneracji wirnika przeszła nasze oczekiwania. Maszyna pracuje ciszej i wydajniej niż nowa.',
-      author: 'Krzysztof Obrotowy',
-      role: 'Utrzymanie Ruchu, PowerPlant',
+      quote: 'Współpraca z STANIAX przyniosła rewolucyjne rezultaty. Trwałość naszych komponentów wzrosła o 250%, a koszty produkcji spadły o 30%.',
+      author: 'Jan Kowalski',
+      role: 'CEO, TechMotors',
       avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
     },
-    badge: 'Wzrost Wydajności'
+    badge: '+250% Trwałość'
+  },
+  {
+    id: 'aerospace-innovation',
+    title: 'Aerospace Innovation',
+    subtitle: 'Precyzyjne powłoki dla komponentów lotniczych',
+    imageBefore: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop',
+    imageAfter: projectImgAerospace,
+    metrics: [
+      { value: '6 msc', label: 'Projekt' },
+      { value: '99.9%', label: 'Precyzja' },
+      { value: 'AS9100', label: 'Standard' }
+    ],
+    testimonial: {
+      quote: 'STANIAX spełnił najwyższe standardy aerospace. Ich metalizacja zwiększyła żywotność elementów turbinowych o 180% przy zachowaniu norm AS9100.',
+      author: 'Anna Nowak',
+      role: 'Lead Engineer, AeroTech',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+    },
+    badge: '+180% Żywotność'
+  },
+  {
+    id: 'industrial-revolution',
+    title: 'Industrial Revolution',
+    subtitle: 'Kompleksowa ochrona linii produkcyjnej',
+    imageBefore: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop',
+    imageAfter: projectImgIndustrial,
+    metrics: [
+      { value: '12 msc', label: 'Wdrożenie' },
+      { value: '200+', label: 'Maszyny' },
+      { value: '0', label: 'Awarie' }
+    ],
+    testimonial: {
+      quote: 'Dzięki metalizacji całej linii produkcyjnej przez STANIAX, eliminujemy 95% awarii związanych z korozją i zużyciem. ROI osiągnęliśmy w 8 miesięcy.',
+      author: 'Piotr Wiśniewski',
+      role: 'Operations Director, IndustryPro',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
+    },
+    badge: '95% Redukcja Awarii'
   }
 ]
 
