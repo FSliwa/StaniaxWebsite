@@ -1524,107 +1524,17 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="relative w-full">
-          <section id="top" data-theme="dark" className="relative w-full bg-white overflow-hidden min-h-screen">
-            {/* Video Background Carousel - Full Width */}
-            <div className="absolute inset-0 w-full h-full">
-              {heroVideos.map((video, index) => (
-                <video
-                  key={index}
-                  ref={(el) => (heroVideoRefs.current[index] = el)}
-                  className={cn(
-                    "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
-                    activeHeroVideo === index ? "opacity-100" : "opacity-0"
-                  )}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  aria-label="Tło wideo prezentujące proces metalizacji przemysłowej"
-                >
-                  <source src={video} type="video/mp4" />
-                </video>
-              ))}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" aria-hidden="true" />
-              {/* Subtle Radial Gradients for Depth */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.08),transparent_40%)] pointer-events-none" aria-hidden="true" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(147,51,234,0.06),transparent_40%)] pointer-events-none" aria-hidden="true" />
-            </div>
+      {/* HERO & GALLERY SECTION (Seamless Transition) */}
+      <VideoGalleryTransition />
 
-            {/* Video Carousel Indicators */}
-            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-2">
-              {heroVideos.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveHeroVideo(index)}
-                  className={cn(
-                    "w-2 h-2 rounded-full transition-all duration-300",
-                    activeHeroVideo === index
-                      ? "bg-white w-8"
-                      : "bg-white/50 hover:bg-white/75"
-                  )}
-                  aria-label={`Przejdź do wideo ${index + 1}`}
-                />
-              ))}
-            </div>
+      {/* WHY STANIAX CONTENT (Sticky Scroll) */}
+      <WhyStaniaxContent />
 
-            {/* Hero Content - Lightship Style (Centered/Bottom) */}
-            <div className="absolute inset-0 flex flex-col items-center justify-end z-20 text-center px-4 pb-20 sm:pb-32 lg:pb-40">
-              
-              {/* Label */}
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-white/80 text-xs sm:text-sm font-bold uppercase tracking-[0.5em] mb-4 sm:mb-6 drop-shadow-md"
-              >
-                PRZYSZŁOŚĆ METALIZACJI
-              </motion.p>
+      {/* PRODUCTION PROCESS (Sticky Features) */}
+      <ProductionProcess />
 
-              {/* Massive Headline */}
-              <motion.h1 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[15vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-overlay opacity-90 select-none pointer-events-none"
-              >
-                STANIAX
-              </motion.h1>
-
-              {/* Description & CTA Container */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="mt-8 sm:mt-12 flex flex-col items-center gap-6 sm:gap-8"
-              >
-                <p className="text-white/90 text-base sm:text-lg lg:text-xl font-medium max-w-xl leading-relaxed drop-shadow-md">
-                  Specjalistyczne powłoki metaliczne dla przemysłu i prototypowania.
-                  <br className="hidden sm:block" />
-                  Precyzja, której możesz zaufać.
-                </p>
-
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="group cursor-pointer"
-                  aria-label="Przejdź do formularza kontaktowego"
-                >
-                  <MagneticButton className="bg-white text-black hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-2xl flex items-center gap-2 group">
-                      Rozpocznij Projekt
-                      <ArrowUpRight weight="bold" className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </MagneticButton>
-                </button>
-              </motion.div>
-
-            </div>
-          </section>
-
-
-          {/* GALLERY SECTION (Video -> Grid Transition) - 2nd Section */}
-          <VideoGalleryTransition />
-
-          {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
-          <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+      {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
+      <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
             {/* Background Decorations */}
             <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
             <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
@@ -1680,11 +1590,7 @@ function HomePage() {
       {/* GALLERY SECTION (Video -> Grid Transition) */}
 
 
-      {/* WHY STANIAX CONTENT */}
-      <WhyStaniaxContent />
 
-      {/* PRODUCTION PROCESS (Sticky Features) */}
-      <ProductionProcess />
 
 
 
@@ -1693,8 +1599,7 @@ function HomePage() {
           <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8), linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8)', backgroundSize: '60px 60px', backgroundPosition: '0 0, 30px 30px' }} aria-hidden="true" />
           
           {/* Background Decorations */}
-          <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '350px', height: '350px', top: '8%', right: '5%' }} />
-          <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '300px', height: '300px', bottom: '12%', left: '3%', animationDelay: '2.5s' }} />
+          {/* Removed images as per request */}
           
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
@@ -2584,7 +2489,7 @@ function HomePage() {
             </div>
           </div>
         </section>
-      </div>
+
 
       {/* BIG TYPE FOOTER */}
       <BigFooter />

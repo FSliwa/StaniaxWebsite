@@ -20,32 +20,32 @@ export function WhyStaniaxContent() {
         
         {/* Left: Sticky Image Container */}
         <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen sticky top-0 overflow-hidden">
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full bg-gray-100">
             {/* Image 1 */}
             <motion.div 
               style={{ opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]) }}
-              className="absolute inset-0"
+              className="absolute inset-0 z-10"
             >
               <img src={serviceImg1} alt="Wsparcie Techniczne" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute inset-0 bg-black/10" />
             </motion.div>
 
             {/* Image 2 */}
             <motion.div 
               style={{ opacity: useTransform(scrollYProgress, [0.3, 0.6], [0, 1]) }}
-              className="absolute inset-0"
+              className="absolute inset-0 z-20"
             >
               <img src={serviceImg2} alt="Jakość Produktów" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute inset-0 bg-black/10" />
             </motion.div>
 
             {/* Image 3 */}
             <motion.div 
               style={{ opacity: useTransform(scrollYProgress, [0.6, 0.9], [0, 1]) }}
-              className="absolute inset-0"
+              className="absolute inset-0 z-30"
             >
               <img src={serviceImg3} alt="Personalizacja" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/20" />
+              <div className="absolute inset-0 bg-black/10" />
             </motion.div>
           </div>
         </div>
@@ -54,7 +54,7 @@ export function WhyStaniaxContent() {
         <div className="w-full lg:w-1/2 bg-white">
           
           {/* Section 1 */}
-          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24">
+          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24 border-b border-gray-100">
             <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-8">
               <Users className="w-8 h-8 text-blue-600" />
             </div>
@@ -67,7 +67,7 @@ export function WhyStaniaxContent() {
           </div>
 
           {/* Section 2 */}
-          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24">
+          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24 border-b border-gray-100">
             <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-8">
               <Shield className="w-8 h-8 text-blue-600" />
             </div>
