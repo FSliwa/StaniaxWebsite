@@ -95,41 +95,41 @@ export function VideoGalleryTransition() {
 
         </motion.div>
 
-        {/* Gallery Grid (Behind/Around Video) */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 p-4 sm:p-12">
-            <div className="grid grid-cols-2 w-full h-full gap-4 sm:gap-8 max-w-7xl mx-auto">
+        {/* Gallery Grid (Behind/Around Video) - Absolute Positioning for Scattered Look */}
+        <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
+            <div className="relative w-full h-full max-w-[1920px] mx-auto">
                 
-                {/* Left Column */}
-                <div className="flex flex-col justify-between h-full py-4 sm:py-12">
-                    <motion.div 
-                        style={{ opacity: imageOpacity, scale: imageScale }}
-                        className="w-full aspect-[9/16] bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
-                    >
-                        <img src={images[0]} alt="Gallery 1" className="w-full h-full object-cover" />
-                    </motion.div>
-                    <motion.div 
-                        style={{ opacity: imageOpacity, scale: imageScale }}
-                        className="w-full aspect-[9/16] bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
-                    >
-                        <img src={images[1]} alt="Gallery 2" className="w-full h-full object-cover" />
-                    </motion.div>
-                </div>
+                {/* Image 1 - Top Left */}
+                <motion.div 
+                    style={{ opacity: imageOpacity, scale: imageScale }}
+                    className="absolute top-[10%] left-[5%] w-[20vw] aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
+                >
+                    <img src={images[0]} alt="Gallery 1" className="w-full h-full object-cover" />
+                </motion.div>
 
-                {/* Right Column */}
-                <div className="flex flex-col justify-between h-full py-4 sm:py-12">
-                    <motion.div 
-                        style={{ opacity: imageOpacity, scale: imageScale }}
-                        className="w-full aspect-[9/16] bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
-                    >
-                        <img src={images[2]} alt="Gallery 3" className="w-full h-full object-cover" />
-                    </motion.div>
-                    <motion.div 
-                        style={{ opacity: imageOpacity, scale: imageScale }}
-                        className="w-full aspect-[9/16] bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
-                    >
-                        <img src={images[3]} alt="Gallery 4" className="w-full h-full object-cover" />
-                    </motion.div>
-                </div>
+                {/* Image 2 - Bottom Left */}
+                <motion.div 
+                    style={{ opacity: imageOpacity, scale: imageScale }}
+                    className="absolute bottom-[15%] left-[8%] w-[25vw] aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
+                >
+                    <img src={images[1]} alt="Gallery 2" className="w-full h-full object-cover" />
+                </motion.div>
+
+                {/* Image 3 - Top Right */}
+                <motion.div 
+                    style={{ opacity: imageOpacity, scale: imageScale }}
+                    className="absolute top-[15%] right-[8%] w-[25vw] aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
+                >
+                    <img src={images[2]} alt="Gallery 3" className="w-full h-full object-cover" />
+                </motion.div>
+
+                {/* Image 4 - Bottom Right */}
+                <motion.div 
+                    style={{ opacity: imageOpacity, scale: imageScale }}
+                    className="absolute bottom-[10%] right-[5%] w-[20vw] aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-xl"
+                >
+                    <img src={images[3]} alt="Gallery 4" className="w-full h-full object-cover" />
+                </motion.div>
 
             </div>
         </div>

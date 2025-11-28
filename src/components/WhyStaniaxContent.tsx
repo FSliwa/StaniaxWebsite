@@ -15,82 +15,80 @@ export function WhyStaniaxContent() {
   })
 
   return (
-    <section ref={containerRef} className="relative bg-white">
-      <div className="flex flex-col lg:flex-row">
+    <section ref={containerRef} className="relative bg-[#E5E5E5] py-32 overflow-hidden">
+      <div className="container mx-auto px-6 relative">
         
-        {/* Left: Sticky Image Container */}
-        <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen sticky top-0 overflow-hidden">
-          <div className="relative w-full h-full bg-gray-100">
-            {/* Image 1 */}
-            <motion.div 
-              style={{ opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]) }}
-              className="absolute inset-0 z-10"
-            >
-              <img src={serviceImg1} alt="Wsparcie Techniczne" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/10" />
-            </motion.div>
-
-            {/* Image 2 */}
-            <motion.div 
-              style={{ opacity: useTransform(scrollYProgress, [0.3, 0.6], [0, 1]) }}
-              className="absolute inset-0 z-20"
-            >
-              <img src={serviceImg2} alt="Jakość Produktów" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/10" />
-            </motion.div>
-
-            {/* Image 3 */}
-            <motion.div 
-              style={{ opacity: useTransform(scrollYProgress, [0.6, 0.9], [0, 1]) }}
-              className="absolute inset-0 z-30"
-            >
-              <img src={serviceImg3} alt="Personalizacja" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-black/10" />
-            </motion.div>
-          </div>
+        {/* Top Bar with Labels */}
+        <div className="flex justify-between items-center mb-20 text-xs font-medium tracking-widest uppercase text-gray-500 border-t border-gray-300 pt-6">
+            <span>STANIAX.1</span>
+            <div className="flex gap-2">
+                <div className="w-2 h-2 bg-black rotate-45" />
+                <div className="w-2 h-2 bg-black rotate-45" />
+            </div>
+            <div className="flex gap-8">
+                <span>Technologia</span>
+                <span>Twoja Przyszłość</span>
+            </div>
         </div>
 
-        {/* Right: Scrolling Content */}
-        <div className="w-full lg:w-1/2 bg-white">
-          
-          {/* Section 1 */}
-          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24 border-b border-gray-100">
-            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-8">
-              <Users className="w-8 h-8 text-blue-600" />
-            </div>
-            <h3 className="text-4xl lg:text-5xl font-black uppercase mb-6 text-gray-900 tracking-tight">
-              WSPARCIE TECHNICZNE
-            </h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Towarzyszymy klientowi w wyborze odpowiedniego rozwiązania dla jego potrzeb, oferując również techniczny serwis posprzedażny. Nasz zespół inżynierów jest dostępny na każdym etapie projektu.
-            </p>
-          </div>
+        {/* Massive Headline */}
+        <motion.h2 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-[12vw] leading-[0.85] font-black tracking-tighter text-black z-10 relative pointer-events-none"
+        >
+            POZNAJ<br />STANIAX
+        </motion.h2>
 
-          {/* Section 2 */}
-          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24 border-b border-gray-100">
-            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-8">
-              <Shield className="w-8 h-8 text-blue-600" />
-            </div>
-            <h3 className="text-4xl lg:text-5xl font-black uppercase mb-6 text-gray-900 tracking-tight">
-              JAKOŚĆ PRODUKTÓW
-            </h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Innowacyjne pomysły i szczególna uwaga na wpływ środowiskowy produkcji przemysłowej to misja STANIAX. Gwarantujemy najwyższe standardy potwierdzone certyfikatem ISO 9001:2015.
-            </p>
-          </div>
+        {/* Content Grid */}
+        <div className="relative h-[120vh] -top-20">
+            
+            {/* Overlapping Images - Parallax */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                
+                {/* Back Image (Larger) */}
+                <motion.div 
+                    style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
+                    className="absolute top-0 left-[10%] w-[45vw] aspect-[4/3] bg-gray-300 rounded-lg overflow-hidden shadow-2xl z-10"
+                >
+                    <img src={serviceImg1} alt="Staniax Tech" className="w-full h-full object-cover" />
+                    <div className="absolute bottom-8 left-8 text-white">
+                        <p className="text-4xl font-bold tracking-tighter">Atmos<span className="text-sm align-top opacity-70">AE.1</span></p>
+                    </div>
+                </motion.div>
 
-          {/* Section 3 */}
-          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24">
-            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-8">
-              <Wrench className="w-8 h-8 text-blue-600" />
+                {/* Front Image (Overlapping) */}
+                <motion.div 
+                    style={{ y: useTransform(scrollYProgress, [0, 1], [100, -200]) }}
+                    className="absolute top-[40%] left-[25%] w-[40vw] aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-2xl z-20 border-4 border-[#E5E5E5]"
+                >
+                    <img src={serviceImg2} alt="Staniax Process" className="w-full h-full object-cover" />
+                    <div className="absolute bottom-8 left-8 text-white">
+                        <p className="text-4xl font-bold tracking-tighter">Panos<span className="text-sm align-top opacity-70">AE.1</span></p>
+                    </div>
+                </motion.div>
+
             </div>
-            <h3 className="text-4xl lg:text-5xl font-black uppercase mb-6 text-gray-900 tracking-tight">
-              PERSONALIZACJA
-            </h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Towarzyszymy klientowi podczas konfiguracji produktu, aby zidentyfikować najlepsze ustawienia wydajności. Każde rozwiązanie jest szyte na miarę specyficznych wymagań Twojej branży.
-            </p>
-          </div>
+
+            {/* Right Text Column */}
+            <div className="absolute top-[5%] right-0 w-[30vw] z-30">
+                <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    <h3 className="text-sm font-bold uppercase tracking-widest mb-8 text-gray-500">
+                        Dla podróży bliskich i dalekich.
+                    </h3>
+                    <p className="text-2xl font-medium leading-relaxed text-gray-800">
+                        Niezależnie od tego, dokąd zmierzasz, każda powłoka Staniax jest zaprojektowana tak, aby uczynić proces łatwiejszym, a cel jeszcze lepszym.
+                    </p>
+                    <p className="mt-8 text-gray-600 leading-relaxed">
+                        Łączymy inżynierię precyzyjną z estetyką, tworząc rozwiązania, które nie tylko chronią, ale i inspirują.
+                    </p>
+                </motion.div>
+            </div>
 
         </div>
 
