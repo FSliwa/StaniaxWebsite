@@ -26,6 +26,10 @@ export function VideoGalleryTransition() {
   const imageOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1])
   const imageScale = useTransform(scrollYProgress, [0.3, 0.6], [0.9, 1])
 
+  // 3. Hero Text Animation (Fade Out & Scale Down)
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9])
+
   return (
     <section ref={containerRef} className="relative h-[300vh] bg-white">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
@@ -47,28 +51,13 @@ export function VideoGalleryTransition() {
             
             {/* Hero Content - Distributed Layout */}
             
-            {/* Label - Top Left */}
-            <motion.div 
-                style={{ opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]) }}
-                className="absolute top-8 left-8 z-30"
+            {/* 2. Massive Headline - Lowered */}
+            <motion.h1 
+                style={{ opacity: heroOpacity, scale: heroScale }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] sm:text-[18vw] font-black tracking-tighter text-white z-20 pointer-events-none mt-20"
             >
-                <p className="text-white/80 text-xs sm:text-sm font-bold uppercase tracking-[0.5em] drop-shadow-md">
-                    PRZYSZŁOŚĆ METALIZACJI
-                </p>
-            </motion.div>
-
-            {/* Massive Headline - Center */}
-            <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
-                <motion.h1 
-                    style={{ 
-                        opacity: useTransform(scrollYProgress, [0, 0.2], [1, 0]),
-                        scale: useTransform(scrollYProgress, [0, 0.2], [1, 0.9])
-                    }}
-                    className="text-[15vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-overlay opacity-90 select-none"
-                >
-                    STANIAX
-                </motion.h1>
-            </div>
+                STANIAX
+            </motion.h1>
 
             {/* Description & CTA - Bottom */}
             <div className="absolute bottom-12 left-0 right-0 flex flex-col items-center z-30 px-4">

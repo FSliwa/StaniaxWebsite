@@ -15,7 +15,7 @@ export function WhyStaniaxContent() {
   })
 
   return (
-    <section ref={containerRef} className="relative bg-[#E5E5E5] py-32 overflow-hidden">
+    <section ref={containerRef} className="relative bg-white py-32 overflow-hidden">
       <div className="container mx-auto px-6 relative">
         
         {/* Top Bar with Labels */}
@@ -50,22 +50,24 @@ export function WhyStaniaxContent() {
                 {/* Back Image (Larger - Left Side) */}
                 <motion.div 
                     style={{ y: useTransform(scrollYProgress, [0, 1], [0, -100]) }}
-                    className="absolute top-0 left-[2%] w-[55vw] aspect-[4/3] bg-gray-300 rounded-lg overflow-hidden shadow-2xl z-10"
+                    className="absolute top-0 left-[2%] w-[55vw] aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden shadow-2xl z-10"
                 >
                     <img src={serviceImg1} alt="Staniax Tech" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute bottom-8 left-8 text-white">
-                        <p className="text-4xl font-bold tracking-tighter">Atmos<span className="text-sm align-top opacity-70">AE.1</span></p>
+                        <p className="text-4xl font-bold tracking-tighter drop-shadow-lg">Atmos<span className="text-sm align-top opacity-70">AE.1</span></p>
                     </div>
                 </motion.div>
 
                 {/* Front Image (Overlapping - Right Side) */}
                 <motion.div 
                     style={{ y: useTransform(scrollYProgress, [0, 1], [100, -200]) }}
-                    className="absolute top-[35%] right-[5%] w-[50vw] aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-2xl z-20 border-4 border-[#E5E5E5]"
+                    className="absolute top-[35%] right-[5%] w-[50vw] aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-2xl z-20 border-4 border-white"
                 >
                     <img src={serviceImg2} alt="Staniax Process" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute bottom-8 left-8 text-white">
-                        <p className="text-4xl font-bold tracking-tighter">Panos<span className="text-sm align-top opacity-70">AE.1</span></p>
+                        <p className="text-4xl font-bold tracking-tighter drop-shadow-lg">Panos<span className="text-sm align-top opacity-70">AE.1</span></p>
                     </div>
                 </motion.div>
 
