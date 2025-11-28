@@ -1569,7 +1569,7 @@ function HomePage() {
             </div>
 
             {/* Hero Content - Lightship Style (Centered/Bottom) */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-4">
+            <div className="absolute inset-0 flex flex-col items-center justify-end z-20 text-center px-4 pb-20 sm:pb-32 lg:pb-40">
               
               {/* Label */}
               <motion.p 
@@ -1618,6 +1618,10 @@ function HomePage() {
 
             </div>
           </section>
+
+
+          {/* GALLERY SECTION (Video -> Grid Transition) - 2nd Section */}
+          <VideoGalleryTransition />
 
           {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
           <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
@@ -1671,103 +1675,10 @@ function HomePage() {
             </div>
           </section>
 
-          <section id="services" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
-            {/* Subtle Pattern Overlay */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #3b82f6 1px, transparent 0)', backgroundSize: '40px 40px' }} aria-hidden="true" />
-            
-            {/* Background Decorations */}
-            <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '400px', height: '400px', top: '5%', right: '0%' }} />
-            <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '350px', height: '350px', bottom: '10%', left: '0%', animationDelay: '3s' }} />
-            
-            <div className="container mx-auto px-6 lg:px-12 relative z-10">
-              {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
-              <div className="text-right mb-20 max-w-7xl ml-auto section-reveal">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">NASZE USŁUGI</p>
-                <h2 className="text-8xl lg:text-9xl xl:text-[10rem] font-black uppercase mb-6 text-blue-400 tracking-tighter leading-none">
-                  NASZE USŁUGI
-                </h2>
-                <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal leading-relaxed">
-                  Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych
-                </p>
-              </div>
 
-              {/* Grid 2x2 usług - układ po skosie */}
-              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
-                {servicesData.map((service, index) => {
-                  // Układ po skosie: lewe kafelki niżej, prawe wyżej
-                  // Lewy: index 0 (+80px), index 2 (+160px)
-                  // Prawy: index 1 (0px), index 3 (+80px)
-                  const isLeftColumn = index % 2 === 0
-                  const rowNumber = Math.floor(index / 2)
-                  const translateY = isLeftColumn 
-                    ? (rowNumber + 1) * 80  // Lewe: 80px, 160px
-                    : rowNumber * 80  // Prawe: 0px, 80px
-                  
-                  return (
-                    <div
-                      key={service.id}
-                      className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl hover:border-blue-400 stagger-item cursor-pointer focus-within:ring-4 focus-within:ring-blue-400"
-                      style={{
-                        transform: `translateY(${translateY}px)`,
-                        animationDelay: `${index * 0.1}s`
-                      }}
-                      onMouseEnter={(e) => {
-                        const current = e.currentTarget as HTMLElement
-                        current.style.transform = `translateY(${translateY}px) perspective(1000px) rotateX(3deg) rotateY(-3deg) scale(1.03)`
-                      }}
-                      onMouseLeave={(e) => {
-                        const current = e.currentTarget as HTMLElement
-                        current.style.transform = `translateY(${translateY}px)`
-                      }}
-                      tabIndex={0}
-                      role="article"
-                      aria-label={`${service.title}`}
-                    >
-                    {/* Obrazek */}
-                    <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={service.image} 
-                        alt={service.alt}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-115"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 group-hover:from-black/75" />
-                      <div className="absolute bottom-4 left-4 text-7xl font-black text-white/30 transition-all duration-300 group-hover:text-white/50 group-hover:scale-110">
-                        {String(index + 1).padStart(2, '0')}
-                      </div>
-                      {/* Hover indicator */}
-                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                          Zobacz więcej
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Treść */}
-                    <div className="p-8">
-                      {/* Tytuł */}
-                      <h3 className="text-2xl font-bold uppercase mb-3 text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
-                        {service.title}
-                      </h3>
-                      
-                      {/* Tagline */}
-                      <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold mb-4 transition-all duration-300 group-hover:tracking-[0.3em] group-hover:text-blue-800">
-                        {service.tagline}
-                      </p>
-                      
-                      {/* Opis */}
-                      <p className="text-gray-600 leading-relaxed font-normal group-hover:text-gray-900 transition-colors">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                  )
-                })}
-              </div>
-            </div>
-          </section>
 
       {/* GALLERY SECTION (Video -> Grid Transition) */}
-      <VideoGalleryTransition />
+
 
       {/* WHY STANIAX CONTENT */}
       <WhyStaniaxContent />

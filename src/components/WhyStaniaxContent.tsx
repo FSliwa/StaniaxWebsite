@@ -1,65 +1,97 @@
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { Users, Shield, Wrench } from '@phosphor-icons/react'
 
+// Images from Services section (will be passed as props or imported)
+import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
+import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
+import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
+
 export function WhyStaniaxContent() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  })
+
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6 lg:px-12">
+    <section ref={containerRef} className="relative bg-white">
+      <div className="flex flex-col lg:flex-row">
         
-        <div className="text-center mb-20 max-w-4xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.5em] text-blue-600 mb-6 font-bold">DLACZEGO MY</p>
-          <h2 className="text-4xl md:text-6xl font-black uppercase mb-6 tracking-tighter text-gray-900">
-            Partner w Metalizacji
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Dlaczego warto wybrać nas jako partnera do metalizacji przemysłowej
-          </p>
+        {/* Left: Sticky Image Container */}
+        <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen sticky top-0 overflow-hidden">
+          <div className="relative w-full h-full">
+            {/* Image 1 */}
+            <motion.div 
+              style={{ opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]) }}
+              className="absolute inset-0"
+            >
+              <img src={serviceImg1} alt="Wsparcie Techniczne" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/20" />
+            </motion.div>
+
+            {/* Image 2 */}
+            <motion.div 
+              style={{ opacity: useTransform(scrollYProgress, [0.3, 0.6], [0, 1]) }}
+              className="absolute inset-0"
+            >
+              <img src={serviceImg2} alt="Jakość Produktów" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/20" />
+            </motion.div>
+
+            {/* Image 3 */}
+            <motion.div 
+              style={{ opacity: useTransform(scrollYProgress, [0.6, 0.9], [0, 1]) }}
+              className="absolute inset-0"
+            >
+              <img src={serviceImg3} alt="Personalizacja" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/20" />
+            </motion.div>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
-          {/* Kolumna 1: Wsparcie Techniczne */}
-          <div className="text-center space-y-6 group">
-            <div className="flex justify-center">
-              <div className="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-100">
-                <Users className="w-10 h-10 text-blue-600" />
-              </div>
+        {/* Right: Scrolling Content */}
+        <div className="w-full lg:w-1/2 bg-white">
+          
+          {/* Section 1 */}
+          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24">
+            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-8">
+              <Users className="w-8 h-8 text-blue-600" />
             </div>
-            <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
+            <h3 className="text-4xl lg:text-5xl font-black uppercase mb-6 text-gray-900 tracking-tight">
               WSPARCIE TECHNICZNE
             </h3>
-            <p className="text-gray-600 leading-relaxed">
-              Towarzyszymy klientowi w wyborze odpowiedniego rozwiązania dla jego potrzeb, oferując również techniczny serwis posprzedażny.
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Towarzyszymy klientowi w wyborze odpowiedniego rozwiązania dla jego potrzeb, oferując również techniczny serwis posprzedażny. Nasz zespół inżynierów jest dostępny na każdym etapie projektu.
             </p>
           </div>
 
-          {/* Kolumna 2: Jakość Produktów */}
-          <div className="text-center space-y-6 group">
-            <div className="flex justify-center">
-              <div className="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-100">
-                <Shield className="w-10 h-10 text-blue-600" />
-              </div>
+          {/* Section 2 */}
+          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24">
+            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-8">
+              <Shield className="w-8 h-8 text-blue-600" />
             </div>
-            <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
+            <h3 className="text-4xl lg:text-5xl font-black uppercase mb-6 text-gray-900 tracking-tight">
               JAKOŚĆ PRODUKTÓW
             </h3>
-            <p className="text-gray-600 leading-relaxed">
-              Innowacyjne pomysły i szczególna uwaga na wpływ środowiskowy produkcji przemysłowej to misja STANIAX.
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Innowacyjne pomysły i szczególna uwaga na wpływ środowiskowy produkcji przemysłowej to misja STANIAX. Gwarantujemy najwyższe standardy potwierdzone certyfikatem ISO 9001:2015.
             </p>
           </div>
 
-          {/* Kolumna 3: Personalizacja */}
-          <div className="text-center space-y-6 group">
-            <div className="flex justify-center">
-              <div className="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-100">
-                <Wrench className="w-10 h-10 text-blue-600" />
-              </div>
+          {/* Section 3 */}
+          <div className="min-h-screen flex flex-col justify-center px-12 lg:px-24 py-24">
+            <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-8">
+              <Wrench className="w-8 h-8 text-blue-600" />
             </div>
-            <h3 className="text-xl font-bold uppercase tracking-wider text-gray-900">
+            <h3 className="text-4xl lg:text-5xl font-black uppercase mb-6 text-gray-900 tracking-tight">
               PERSONALIZACJA
             </h3>
-            <p className="text-gray-600 leading-relaxed">
-              Towarzyszymy klientowi podczas konfiguracji produktu, aby zidentyfikować najlepsze ustawienia wydajności.
+            <p className="text-lg text-gray-600 leading-relaxed">
+              Towarzyszymy klientowi podczas konfiguracji produktu, aby zidentyfikować najlepsze ustawienia wydajności. Każde rozwiązanie jest szyte na miarę specyficznych wymagań Twojej branży.
             </p>
           </div>
+
         </div>
 
       </div>

@@ -15,9 +15,10 @@ export function VideoGalleryTransition() {
   })
 
   // Animation Transforms
-  // 1. Video Scale: Starts full (1) -> shrinks to center (0.6)
-  const videoScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.5])
-  const videoRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "24px"])
+  // 1. Video Scale: Starts full width -> shrinks to vertical strip
+  const width = useTransform(scrollYProgress, [0, 0.4], ["100%", "30%"])
+  const height = useTransform(scrollYProgress, [0, 0.4], ["100%", "80%"])
+  const borderRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "32px"])
   
   // 2. Images Slide In
   // Left images come from left (-100%), Right from right (100%)
@@ -31,8 +32,8 @@ export function VideoGalleryTransition() {
         
         {/* Central Video */}
         <motion.div 
-            style={{ scale: videoScale, borderRadius: videoRadius }}
-            className="relative z-20 w-full h-full shadow-2xl overflow-hidden"
+            style={{ width, height, borderRadius }}
+            className="relative z-20 shadow-2xl overflow-hidden"
         >
             <video 
                 src={videoSrc} 
