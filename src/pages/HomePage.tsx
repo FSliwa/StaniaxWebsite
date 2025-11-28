@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
 import { AnimatedSection } from '@/components/AnimatedSection'
+import { GallerySection } from '@/components/GallerySection'
 import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
 import {
@@ -35,9 +36,9 @@ import toroidAnimationVideo from '@/assets/toroid-animation.mp4'
 import liquidMetalVideo from '@/assets/metallic-transformation-video.mp4'
 import vinylTransformationVideo from '@/assets/vinyl-transformation.mp4'
 import whyChooseVideo from '@/assets/Generowanie_Wideo_Produktowego_Dłoń_i_Mikrofon.mp4'
-import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
-import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
-import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
+import serviceImg1 from '@/assets/gallery/gallery-01.jpg'
+import serviceImg2 from '@/assets/gallery/gallery-02.jpg'
+import serviceImg3 from '@/assets/gallery/gallery-03.jpg'
 import projectImgAutomotive from '@/assets/IMG_0990-2575648632.jpeg'
 import projectImgAerospace from '@/assets/airplane-04-1600x900.jpg'
 import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
@@ -374,7 +375,7 @@ const techSpecsData: TechSpec[] = [
 const aboutTilesData: AboutTileConfig[] = [
   {
     id: 'tile-lab',
-    image: 'https://images.unsplash.com/photo-1581092916376-0239b9349155?w=400&h=400&fit=crop&crop=center',
+    image: serviceImg1,
     alt: 'Naukowiec w laboratorium badawczym',
     drift: -3,
     overlay: <Flask className="w-12 h-12 text-white/80" />,
@@ -382,7 +383,7 @@ const aboutTilesData: AboutTileConfig[] = [
   },
   {
     id: 'tile-shield',
-    image: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=400&h=400&fit=crop&crop=center',
+    image: serviceImg2,
     alt: 'Kontrola jakości metalowej powierzchni',
     drift: 3,
     overlay: <Shield className="w-12 h-12 text-white/80" />,
@@ -390,7 +391,7 @@ const aboutTilesData: AboutTileConfig[] = [
   },
   {
     id: 'tile-factory',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1000&h=600&fit=crop&crop=center',
+    image: serviceImg3,
     alt: 'Wnętrze hali produkcyjnej STANIAX',
     drift: 5,
     overlay: (
@@ -1748,6 +1749,9 @@ function HomePage() {
               </div>
             </div>
           </section>
+
+      {/* GALLERY SECTION */}
+      <GallerySection />
 
       {/* INTERACTIVE TECH SPECS TABLE */}
       <section data-theme="light" className="py-20 lg:py-32 bg-white">
