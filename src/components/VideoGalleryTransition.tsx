@@ -32,7 +32,8 @@ export function VideoGalleryTransition() {
 
   // Center Video Scale (Starts huge, shrinks to 1)
   // We apply this to the center column wrapper
-  const centerScale = useTransform(scrollYProgress, [0, 0.3], [2.5, 1])
+  // Increased scale to ensure it covers full width even with padding/max-width
+  const centerScale = useTransform(scrollYProgress, [0, 0.3], [3.5, 1])
   
   // Surrounding Columns Opacity (Start invisible, fade in)
   const sideColumnsOpacity = useTransform(scrollYProgress, [0.15, 0.35], [0, 1])
@@ -43,24 +44,21 @@ export function VideoGalleryTransition() {
 
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-white">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 sm:px-10">
         
         {/* Hero Text Overlay (Fades out quickly) */}
         <motion.div 
             style={{ opacity: heroOpacity, scale: heroScale }}
-            className="absolute inset-0 flex flex-col items-center justify-end pb-[5vh] z-50 pointer-events-none"
+            className="absolute inset-0 flex flex-col items-center justify-end pb-20 z-50 pointer-events-none"
         >
-             <h1 className="text-[22vw] leading-[0.75] font-black tracking-tighter text-white mix-blend-difference">
+             <h1 className="text-[15vw] leading-none font-medium tracking-tighter text-[#E0E0E0] mix-blend-overlay">
                 STANIAX
             </h1>
-            <p className="text-white/80 text-xl font-medium tracking-widest uppercase mb-8 mix-blend-difference">
-                Lifestyle Gallery
-            </p>
         </motion.div>
 
 
         {/* Bento Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full h-[85vh] px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] h-[85vh]">
             
             {/* Left Column */}
             <motion.div 
