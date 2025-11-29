@@ -83,7 +83,6 @@ const navItems: NavItem[] = [
   { id: 'services', label: 'Oferta', type: 'section' },
   { id: 'custom-section', label: 'Specjalnie dla Ciebie', type: 'section' },
   { id: 'projects', label: 'Realizacje', type: 'section' },
-  { id: 'news-showcase', label: 'Nowości', type: 'section' },
   { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
   { id: 'contact', label: 'Kontakt', type: 'section' }
 ]
@@ -242,10 +241,10 @@ type CaseStudy = {
 const caseStudiesData: CaseStudy[] = [
   {
     id: 'automotive-excellence',
-    title: 'Automotive Excellence',
+    title: 'Rewolucja Przemysłowa',
     subtitle: 'Przełomowa metalizacja komponentów silnikowych',
-    imageBefore: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop',
-    imageAfter: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop',
+    imageBefore: automotiveAfter,
+    imageAfter: automotiveBefore,
     metrics: [
       { value: '3 msc', label: 'Realizacja' },
       { value: '50K+', label: 'Elementy' },
@@ -254,14 +253,14 @@ const caseStudiesData: CaseStudy[] = [
     testimonial: {
       quote: 'Współpraca z STANIAX przyniosła rewolucyjne rezultaty. Trwałość naszych komponentów wzrosła o 250%, a koszty produkcji spadły o 30%.',
       author: 'Jan Kowalski',
-      role: 'CEO, TechMotors',
+      role: 'Prezes, TechMotors',
       avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
     },
     badge: '+250% Trwałość'
   },
   {
     id: 'aerospace-innovation',
-    title: 'Aerospace Innovation',
+    title: 'Innowacje Lotnicze',
     subtitle: 'Precyzyjne powłoki dla komponentów lotniczych',
     imageBefore: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop',
     imageAfter: projectImgAerospace,
@@ -273,17 +272,17 @@ const caseStudiesData: CaseStudy[] = [
     testimonial: {
       quote: 'STANIAX spełnił najwyższe standardy aerospace. Ich metalizacja zwiększyła żywotność elementów turbinowych o 180% przy zachowaniu norm AS9100.',
       author: 'Anna Nowak',
-      role: 'Lead Engineer, AeroTech',
+      role: 'Główny Inżynier, AeroTech',
       avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
     },
     badge: '+180% Żywotność'
   },
   {
     id: 'industrial-revolution',
-    title: 'Industrial Revolution',
+    title: 'Doskonałość Motoryzacyjna',
     subtitle: 'Kompleksowa ochrona linii produkcyjnej',
-    imageBefore: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop',
-    imageAfter: projectImgIndustrial,
+    imageBefore: industrialAfter,
+    imageAfter: industrialBefore,
     metrics: [
       { value: '12 msc', label: 'Wdrożenie' },
       { value: '200+', label: 'Maszyny' },
@@ -292,7 +291,7 @@ const caseStudiesData: CaseStudy[] = [
     testimonial: {
       quote: 'Dzięki metalizacji całej linii produkcyjnej przez STANIAX, eliminujemy 95% awarii związanych z korozją i zużyciem. ROI osiągnęliśmy w 8 miesięcy.',
       author: 'Piotr Wiśniewski',
-      role: 'Operations Director, IndustryPro',
+      role: 'Dyrektor Operacyjny, IndustryPro',
       avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
     },
     badge: '95% Redukcja Awarii'
@@ -1501,7 +1500,8 @@ function HomePage() {
       <LightshipProduction />
 
       {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
-      <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+      {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
+      <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-b from-green-50 to-white overflow-hidden">
             {/* Background Decorations */}
             <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
             <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
@@ -1949,87 +1949,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section
-          id="news-showcase"
-          data-theme="dark"
-          className="relative isolate overflow-hidden py-24 lg:py-32"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-950/80 to-slate-950/95" aria-hidden />
 
-          <div className="relative z-10 container mx-auto px-6 lg:px-12">
-            <div className="mx-auto max-w-5xl text-white">
-              <div className="space-y-10">
-                <div className="w-full space-y-8">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.5em]">
-                    Nowości STANIAX
-                  </span>
-                  <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-end md:justify-between md:text-left pb-5">
-                    <div className="flex flex-col items-center gap-4 md:items-start">
-                      <span className="text-[3.5rem] font-black uppercase leading-[0.85] tracking-[-0.03em] sm:text-[4.5rem] lg:text-[6rem] text-blue-300">
-                        ZOBACZ
-                      </span>
-                    </div>
-                    <span className="hidden h-24 w-px bg-white/25 md:block" aria-hidden />
-                    <div className="flex flex-col items-center gap-3 md:items-start">
-                      <span className="text-[0.7rem] font-semibold uppercase tracking-[0.85em] text-white/60">
-                        NASZE
-                      </span>
-                      <span className="text-[2.75rem] font-black uppercase leading-[0.9] tracking-[-0.01em] sm:text-[3.25rem] lg:text-[4rem] text-blue-300">
-                        NOWOŚCI
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  ref={newsAnimationRef}
-                  className="w-full min-h-[calc(65vh-290px)] lg:min-h-[calc(78vh-290px)] relative"
-                  aria-hidden
-                >
-                  {shouldRenderNewsSpline ? (
-                    <spline-viewer
-                      key={newsSplineKey}
-                      url={newsSplineUrl}
-                      className="block h-full w-full"
-                      style={{ transform: `scale(${newsScaleValue})` }}
-                    />
-                  ) : shouldRenderNewsVideoFallback ? (
-                    <video
-                      className="block h-full w-full object-cover rounded-2xl"
-                      style={{ transform: `scale(${newsScaleValue})` }}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    >
-                      <source src={fallbackAnimationSrc} type="video/mp4" />
-                    </video>
-                  ) : shouldRenderNewsReducedMotionNotice ? (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="max-w-md rounded-3xl border border-white/10 bg-white/5 px-6 py-5 text-center text-white shadow-2xl backdrop-blur">
-                        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/60">Animacja wyłączona</p>
-                        <p className="mt-3 text-lg font-medium text-white/85">
-                          Efekty ruchu są obecnie wyłączone. Aby zobaczyć animację nowości STANIAX, włącz animacje w ustawieniach urządzenia.
-                        </p>
-                      </div>
-                    </div>
-                  ) : null}
-                  
-                  <div className="absolute bottom-[20px] left-0 right-0 flex justify-center">
-                    <Button
-                      onClick={() => navigate('/news')}
-                      variant="outline"
-                      className="border-white/60 bg-white/15 backdrop-blur-sm hover:bg-white/30 text-white font-bold uppercase tracking-[0.25em] transition-all duration-300"
-                    >
-                      Pobierz Biuletyn
-                      <ArrowRight className="h-5 w-5 ml-2 inline-block" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* FAQ SECTION */}
         <section id="faq" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-white via-blue-50/30 to-white">

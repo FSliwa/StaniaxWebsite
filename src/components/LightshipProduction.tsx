@@ -157,6 +157,9 @@ export function LightshipProduction() {
              </div>
           </div>
       </div>
+      
+      {/* Bottom Gradient Transition to Green (Next Section) */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[#f0fdf4] pointer-events-none z-20" />
     </motion.section>
   )
 }
