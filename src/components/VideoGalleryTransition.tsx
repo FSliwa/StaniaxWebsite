@@ -6,7 +6,7 @@ import { ArrowUpRight } from '@phosphor-icons/react'
 
 // Import assets
 import videoSrc from '@/assets/Generowanie_Wideo_Dłoni_z_Efektem.mp4'
-import liquidGold from '@/assets/liquid-gold-hand.mp4'
+import liquidGold from '@/assets/Tworzenie_animacji_wideo_z_grafiki.mp4'
 import toroidAnim from '@/assets/toroid-animation.mp4'
 import vinylTrans from '@/assets/vinyl-transformation.mp4'
 // Using existing videos as placeholders for the 4th element if needed, or reusing one
@@ -28,6 +28,8 @@ export function VideoGalleryTransition() {
   // 1. Hero Video Transition: Full Screen -> Grid Center
   // Center Video Scale (Starts huge, shrinks to 1)
   const centerScale = useTransform(scrollYProgress, [0, 0.35], [2.5, 1])
+  // Counter-scale for the video content to keep it "natural" (1x) while container shrinks
+  const videoScale = useTransform(scrollYProgress, [0, 0.35], [1/2.5, 1])
   
   // 2. Assembly Effect & Staggering (Side Columns)
   // Left Column: Enters slightly earlier
@@ -117,7 +119,12 @@ export function VideoGalleryTransition() {
             >
                 <div className="relative w-full h-full rounded-[32px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
-                        <video src={videoSrc} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <motion.video 
+                            src={videoSrc} 
+                            autoPlay muted loop playsInline 
+                            style={{ scale: videoScale }}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                        />
                     </motion.div>
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
                     

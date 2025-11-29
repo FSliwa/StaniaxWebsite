@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { PenNib, Wrench, Factory, CheckCircle } from '@phosphor-icons/react'
 
@@ -8,106 +8,215 @@ const steps = [
     id: 1,
     title: "Projektowanie",
     description: "Nasz zespół inżynierów tworzy precyzyjne modele CAD/CAM, optymalizując konstrukcję pod kątem wytrzymałości i kosztów produkcji.",
-    icon: <PenNib className="w-full h-full text-blue-500" />,
-    color: "bg-blue-50"
+    icon: <PenNib className="w-full h-full text-blue-600" />,
+    color: "bg-blue-50",
+    accent: "text-blue-600",
+    bgAccent: "bg-blue-600"
   },
   {
     id: 2,
     title: "Prototypowanie",
     description: "Szybkie tworzenie prototypów pozwala na weryfikację założeń projektowych i wprowadzenie niezbędnych korekt przed seryjną produkcją.",
-    icon: <Wrench className="w-full h-full text-orange-500" />,
-    color: "bg-orange-50"
+    icon: <Wrench className="w-full h-full text-orange-600" />,
+    color: "bg-orange-50",
+    accent: "text-orange-600",
+    bgAccent: "bg-orange-600"
   },
   {
     id: 3,
     title: "Produkcja",
     description: "Wykorzystujemy nowoczesny park maszynowy CNC oraz zaawansowane technologie spawalnicze, aby zapewnić najwyższą jakość wykonania.",
-    icon: <Factory className="w-full h-full text-purple-500" />,
-    color: "bg-purple-50"
+    icon: <Factory className="w-full h-full text-purple-600" />,
+    color: "bg-purple-50",
+    accent: "text-purple-600",
+    bgAccent: "bg-purple-600"
   },
   {
     id: 4,
     title: "Kontrola Jakości",
     description: "Każdy element przechodzi rygorystyczne testy wytrzymałościowe i pomiary geometryczne, gwarantując zgodność ze specyfikacją.",
-    icon: <CheckCircle className="w-full h-full text-green-500" />,
-    color: "bg-green-50"
+    icon: <CheckCircle className="w-full h-full text-green-600" />,
+    color: "bg-green-50",
+    accent: "text-green-600",
+    bgAccent: "bg-green-600"
   }
 ]
 
 export function LightshipProduction() {
-  const [activeStep, setActiveStep] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  
+  // Track scroll progress of the entire section
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  })
+
+  // Smooth out the progress for fluid animations
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 })
+
+  // Dynamic Background Color based on active step
+  const backgroundColor = useTransform(
+    smoothProgress,
+    [0, 0.25, 0.5, 0.75],
+    ["#eff6ff", "#fff7ed", "#faf5ff", "#f0fdf4"] // blue-50, orange-50, purple-50, green-50
+  )
 
   return (
-    <section className="relative bg-white">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+    <motion.section 
+        ref={containerRef} 
+        style={{ backgroundColor }}
+        className="relative"
+    >
+      <div className="flex flex-col lg:flex-row">
           
-          {/* Sticky Visual (Left) - Mimicking Lightship's pinned graphic */}
-          <div className="lg:w-1/2 relative hidden lg:block">
-            <div className="sticky top-0 h-screen flex items-center justify-center">
-                <div className="relative w-full aspect-square max-w-xl bg-gray-50 rounded-[40px] shadow-2xl overflow-hidden flex items-center justify-center p-20">
-                    {steps.map((step, index) => (
-                        <motion.div
-                            key={step.id}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ 
-                                opacity: activeStep === index ? 1 : 0,
-                                scale: activeStep === index ? 1 : 0.8,
-                            }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                            className={cn("absolute inset-0 flex items-center justify-center", step.color)}
-                        >
-                            <div className="w-48 h-48">
-                                {step.icon}
-                            </div>
-                        </motion.div>
-                    ))}
+          {/* LEFT COLUMN: Sticky Visuals */}
+          <div className="lg:w-1/2 relative hidden lg:block h-[400vh]"> {/* Height matches total scroll distance */}
+            <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+                <div className="relative w-full aspect-square max-w-xl rounded-[40px] flex items-center justify-center p-10">
+                    {/* Background Circle/Shape that morphs */}
+                    <motion.div 
+                        className="absolute inset-0 rounded-[40px] bg-white shadow-2xl"
+                        style={{
+                            scale: useTransform(smoothProgress, [0, 0.5, 1], [0.9, 1, 0.9]),
+                            rotate: useTransform(smoothProgress, [0, 1], [0, 10])
+                        }}
+                    />
+
+                    {/* Step Visuals */}
+                    {steps.map((step, index) => {
+                        // Calculate active range for this step
+                        const start = index * 0.25
+                        const end = start + 0.25
+                        const peak = start + 0.125
+
+                        // Opacity: Fade in, stay, fade out
+                        const opacity = useTransform(
+                            smoothProgress,
+                            [start - 0.1, start, end - 0.1, end],
+                            [0, 1, 1, 0]
+                        )
+                        
+                        // Scale: Slight zoom in
+                        const scale = useTransform(
+                            smoothProgress,
+                            [start, end],
+                            [0.8, 1.1]
+                        )
+
+                        // Y Position: Slide up slightly
+                        const y = useTransform(
+                            smoothProgress,
+                            [start, end],
+                            [50, -50]
+                        )
+
+                        return (
+                            <motion.div
+                                key={step.id}
+                                style={{ opacity, scale, y }}
+                                className="absolute inset-0 flex items-center justify-center p-20"
+                            >
+                                <div className="w-full h-full relative">
+                                    {/* Icon Container */}
+                                    <div className="w-full h-full drop-shadow-2xl">
+                                        {step.icon}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )
+                    })}
                 </div>
             </div>
           </div>
 
-          {/* Scrolling Steps (Right) - Triggers for the visual */}
-          <div className="lg:w-1/2 py-24">
-            <div className="space-y-[50vh]">
+          {/* RIGHT COLUMN: Scrolling Text Steps */}
+          <div className="lg:w-1/2 relative">
+             {/* Progress Line Container - Sticky within the column */}
+             <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-[2px] bg-gray-200/50">
+                <motion.div 
+                    className="w-full bg-slate-900 origin-top"
+                    style={{ 
+                        height: "100vh", // Visible window height
+                        scaleY: smoothProgress, // Fills up as we scroll
+                        position: 'sticky',
+                        top: 0
+                    }}
+                />
+             </div>
+
+             <div className="flex flex-col">
                 {steps.map((step, index) => (
-                    <StepCard 
+                    <StepTextCard 
                         key={step.id} 
                         step={step} 
                         index={index} 
-                        onInView={() => setActiveStep(index)} 
+                        totalSteps={steps.length}
+                        scrollYProgress={smoothProgress}
                     />
                 ))}
-            </div>
+             </div>
           </div>
-
-        </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
-function StepCard({ step, index, onInView }: { step: any, index: number, onInView: () => void }) {
+function StepTextCard({ step, index, totalSteps, scrollYProgress }: { step: any, index: number, totalSteps: number, scrollYProgress: MotionValue<number> }) {
+    // Calculate range for this step's "Focus" state
+    const stepRange = 1 / totalSteps
+    const start = index * stepRange
+    const end = start + stepRange
+    const center = start + (stepRange / 2)
+
+    // Focus Opacity: Dim when not in center of view
+    const opacity = useTransform(
+        scrollYProgress,
+        [start, center - 0.1, center + 0.1, end],
+        [0.2, 1, 1, 0.2]
+    )
+
+    // Scale: Subtle pop when active
+    const scale = useTransform(
+        scrollYProgress,
+        [start, center, end],
+        [0.95, 1, 0.95]
+    )
+
+    // X Shift: Slide in slightly
+    const x = useTransform(
+        scrollYProgress,
+        [start, center, end],
+        [20, 0, -20]
+    )
+
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ margin: "-50% 0px -50% 0px" }}
-            onViewportEnter={onInView}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col justify-center min-h-[50vh]"
-        >
-            <span className="text-8xl font-black text-gray-100 mb-8">0{step.id}</span>
-            <h3 className="text-4xl font-bold text-gray-900 mb-6">{step.title}</h3>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-md">
-                {step.description}
-            </p>
-            
-            {/* Mobile Visual Fallback */}
-            <div className="lg:hidden mt-8 w-full aspect-square bg-gray-50 rounded-3xl flex items-center justify-center p-12">
-                 <div className={cn("w-32 h-32", step.color.replace('bg-', 'text-').replace('-50', '-500'))}>
-                    {step.icon}
-                 </div>
-            </div>
-        </motion.div>
+        <div className="h-[100vh] flex items-center justify-center lg:justify-start lg:pl-24 px-6 relative">
+            <motion.div 
+                style={{ opacity, scale, x }}
+                className="max-w-md"
+            >
+                <div className="flex items-center gap-4 mb-6">
+                    <span className={cn("text-6xl font-black opacity-20", step.accent)}>
+                        0{step.id}
+                    </span>
+                    <div className={cn("h-[2px] w-12", step.bgAccent)} />
+                </div>
+                
+                <h3 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                    {step.title}
+                </h3>
+                
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed">
+                    {step.description}
+                </p>
+
+                {/* Mobile Visual (Visible only on mobile) */}
+                <div className="lg:hidden mt-8 w-full aspect-square bg-white rounded-3xl shadow-lg flex items-center justify-center p-12">
+                     <div className={cn("w-32 h-32", step.accent)}>
+                        {step.icon}
+                     </div>
+                </div>
+            </motion.div>
+        </div>
     )
 }
