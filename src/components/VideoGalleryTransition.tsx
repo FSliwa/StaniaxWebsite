@@ -27,7 +27,7 @@ export function VideoGalleryTransition() {
   
   // 1. Hero Video Transition: Full Screen -> Grid Center
   // Center Video Scale (Starts huge, shrinks to 1)
-  const centerScale = useTransform(scrollYProgress, [0, 0.35], [5, 1])
+  const centerScale = useTransform(scrollYProgress, [0, 0.35], [2.5, 1])
   
   // 2. Assembly Effect & Staggering (Side Columns)
   // Left Column: Enters slightly earlier
@@ -44,7 +44,7 @@ export function VideoGalleryTransition() {
 
   // 4. Inner Parallax (Video inside the tile moves slightly)
   // We map scroll progress to a larger vertical shift for visibility
-  const innerParallaxY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"])
+  const innerParallaxY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"])
 
   // Grid Parallax Effects (Existing logic for column movement during scroll)
   const centerY = useTransform(scrollYProgress, [0, 1], [0, 50])
@@ -73,6 +73,7 @@ export function VideoGalleryTransition() {
                 <h1 className="text-[15vw] leading-none font-black tracking-tighter text-white">
                     STANIAX
                 </h1>
+                <div className="w-full h-[1px] bg-white/30 mt-4 max-w-[90vw]" />
             </div>
 
             {/* Scroll to explore - Bottom Right */}
@@ -95,14 +96,14 @@ export function VideoGalleryTransition() {
             >
                 {/* Top Left */}
                 <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[120%] -mt-[10%]">
+                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
                         <video src={liquidGold} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
                 </div>
                 {/* Bottom Left */}
                 <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[120%] -mt-[10%]">
+                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
                         <video src={toroidAnim} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
@@ -115,7 +116,7 @@ export function VideoGalleryTransition() {
                 className="h-full z-40 origin-center"
             >
                 <div className="relative w-full h-full rounded-[32px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[120%] -mt-[10%]">
+                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
                         <video src={videoSrc} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </motion.div>
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
@@ -136,14 +137,14 @@ export function VideoGalleryTransition() {
             >
                 {/* Top Right */}
                 <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[120%] -mt-[10%]">
+                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
                         <video src={vinylTrans} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
                 </div>
                 {/* Bottom Right */}
                 <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[120%] -mt-[10%]">
+                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
                         <video src={galleryVideo} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />

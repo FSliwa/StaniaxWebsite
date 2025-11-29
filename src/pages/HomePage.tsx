@@ -1256,44 +1256,7 @@ function HomePage() {
         aria-hidden="true"
       />
 
-      {/* STICKY SIDE NAVIGATION - Minimalist Dots */}
-      {isDesktop && !prefersReducedMotion && (
-        <nav className="fixed right-8 top-1/2 -translate-y-1/2 z-40" aria-label="Section Navigation">
-          <div className="flex flex-col gap-4">
-            {sectionIds.map((sectionId, index) => {
-              const labels = ['Start', 'Metryki', 'Usługi', 'O Nas', 'O Firmie', 'Projekty', 'Kontakt']
-              const isActive = activeSectionIndex === index
-              
-              return (
-                <div key={sectionId} className="group relative">
-                  <button
-                    onClick={() => scrollToSection(sectionId)}
-                    className={cn(
-                      'w-3 h-3 rounded-full transition-all duration-300',
-                      isActive
-                        ? 'bg-blue-700 scale-150 animate-pulse'
-                        : 'bg-gray-400 hover:bg-blue-500 hover:scale-125'
-                    )}
-                    aria-label={`Go to ${labels[index]}`}
-                  />
-                  
-                  {/* Label on hover */}
-                  <span className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-slate-900 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider pointer-events-none">
-                    {labels[index]}
-                  </span>
-                </div>
-              )
-            })}
-          </div>
-          
-          {/* Section Counter */}
-          <div className="mt-6 text-center">
-            <span className="text-xs font-bold text-gray-500">
-              {String(activeSectionIndex + 1).padStart(2, '0')} / {String(sectionIds.length).padStart(2, '0')}
-            </span>
-          </div>
-        </nav>
-      )}
+      {/* STICKY SIDE NAVIGATION REMOVED */}
 
       {/* Custom Cursor (Desktop only) */}
       {isDesktop && !prefersReducedMotion && (
