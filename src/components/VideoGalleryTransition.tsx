@@ -27,9 +27,9 @@ export function VideoGalleryTransition() {
   
   // 1. Hero Video Transition: Full Screen -> Grid Center
   // Center Video Scale (Starts huge, shrinks to 1)
-  const centerScale = useTransform(scrollYProgress, [0, 0.35], [4.5, 1])
-  // Animate height from "landscape" (45% of container) to "portrait" (100% of container)
-  const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["45%", "100%"])
+  const centerScale = useTransform(scrollYProgress, [0, 0.35], [2.4, 1])
+  // Animate height from "landscape" (50% of container) to "portrait" (100% of container)
+  const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["50%", "100%"])
   
   // 2. Assembly Effect & Staggering (Side Columns)
   // Left Column: Enters slightly earlier
