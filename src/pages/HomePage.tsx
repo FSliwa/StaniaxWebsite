@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { VideoGalleryTransition } from '@/components/VideoGalleryTransition'
+import { LightshipSection } from '@/components/LightshipSection'
 
 
 
@@ -658,7 +659,7 @@ function HomePage() {
   
   // STICKY SIDE NAVIGATION STATE
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
-  const sectionIds = ['top', 'metrics', 'services', 'custom-section', 'about', 'projects', 'contact']
+  const sectionIds = ['top', 'metrics', 'services', 'lightship-section', 'custom-section', 'about', 'projects', 'contact']
   
   const { scrollYProgress: aboutScrollProgress } = useScroll({
     target: aboutMosaicRef,
@@ -1525,6 +1526,8 @@ function HomePage() {
 
       {/* HERO & GALLERY SECTION (Seamless Transition) */}
       <VideoGalleryTransition />
+      
+      <LightshipSection />
       
 
 

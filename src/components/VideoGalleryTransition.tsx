@@ -43,24 +43,24 @@ export function VideoGalleryTransition() {
 
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-white">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 sm:px-10">
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         
         {/* Hero Text Overlay (Fades out quickly) */}
         <motion.div 
             style={{ opacity: heroOpacity, scale: heroScale }}
-            className="absolute inset-0 flex flex-col items-center justify-center z-50 pointer-events-none"
+            className="absolute inset-0 flex flex-col items-center justify-end pb-[5vh] z-50 pointer-events-none"
         >
-             <h1 className="text-[12vw] sm:text-[15vw] font-black tracking-tighter text-white mix-blend-difference">
+             <h1 className="text-[22vw] leading-[0.75] font-black tracking-tighter text-white mix-blend-difference">
                 STANIAX
             </h1>
-            <p className="text-white/80 text-lg sm:text-xl font-medium tracking-widest uppercase mt-4 mix-blend-difference">
+            <p className="text-white/80 text-xl font-medium tracking-widest uppercase mb-8 mix-blend-difference">
                 Lifestyle Gallery
             </p>
         </motion.div>
 
 
         {/* Bento Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] h-[85vh]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full h-[85vh] px-4 md:px-8">
             
             {/* Left Column */}
             <motion.div 
