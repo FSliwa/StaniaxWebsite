@@ -5,7 +5,7 @@ import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
 
 // Import assets
-import videoSrc from '@/assets/metallic-transformation-video.mp4'
+import videoSrc from '@/assets/Generowanie_Wideo_Dłoni_z_Efektem.mp4'
 import liquidGold from '@/assets/liquid-gold-hand.mp4'
 import toroidAnim from '@/assets/toroid-animation.mp4'
 import vinylTrans from '@/assets/vinyl-transformation.mp4'
@@ -23,24 +23,28 @@ export function VideoGalleryTransition() {
   
   // 1. Hero Video Transition: Full Screen -> Grid Center
   // Center Video Scale (Starts huge, shrinks to 1)
-  const centerScale = useTransform(scrollYProgress, [0, 0.3], [5, 1])
+  // Animation Transforms
+  
+  // 1. Hero Video Transition: Full Screen -> Grid Center
+  // Center Video Scale (Starts huge, shrinks to 1)
+  const centerScale = useTransform(scrollYProgress, [0, 0.35], [5, 1])
   
   // 2. Assembly Effect & Staggering (Side Columns)
   // Left Column: Enters slightly earlier
-  const leftColOpacity = useTransform(scrollYProgress, [0.15, 0.3], [0, 1])
-  const leftColEnterY = useTransform(scrollYProgress, [0.15, 0.3], [100, 0]) // Slides up
+  const leftColOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1])
+  const leftColEnterY = useTransform(scrollYProgress, [0.2, 0.4], [200, 0]) // Slides up more dramatically
   
   // Right Column: Enters slightly later
-  const rightColOpacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1])
-  const rightColEnterY = useTransform(scrollYProgress, [0.2, 0.35], [100, 0]) // Slides up
+  const rightColOpacity = useTransform(scrollYProgress, [0.25, 0.45], [0, 1])
+  const rightColEnterY = useTransform(scrollYProgress, [0.25, 0.45], [200, 0]) // Slides up more dramatically
 
   // 3. Scaling (Side Columns)
-  // They start slightly smaller and grow to full size as they settle
-  const sideColsScale = useTransform(scrollYProgress, [0.15, 0.35], [0.9, 1])
+  // They start smaller and grow to full size
+  const sideColsScale = useTransform(scrollYProgress, [0.2, 0.45], [0.8, 1])
 
   // 4. Inner Parallax (Video inside the tile moves slightly)
-  // We map scroll progress to a small vertical shift
-  const innerParallaxY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
+  // We map scroll progress to a larger vertical shift for visibility
+  const innerParallaxY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"])
 
   // Grid Parallax Effects (Existing logic for column movement during scroll)
   const centerY = useTransform(scrollYProgress, [0, 1], [0, 50])
@@ -52,8 +56,9 @@ export function VideoGalleryTransition() {
   const rightTotalY = useTransform(() => rightColY.get() + rightColEnterY.get())
   
   // Hero Text Animation (Fade Out)
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
-  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.9])
+  // Made it fade out slightly later so "Scroll to explore" is visible longer
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9])
 
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-white">
