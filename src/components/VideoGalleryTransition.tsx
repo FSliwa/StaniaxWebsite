@@ -22,31 +22,33 @@ export function VideoGalleryTransition() {
   // Animation Transforms
   
   // 1. Hero Video Transition: Full Screen -> Grid Center
-  // It starts at 100% width/height and shrinks to the grid cell size
-  // We'll simulate this by having the grid container be the target
+  // The center column is roughly 40% of the width. We scale it up to cover the screen initially.
+  // We also need to hide the other columns initially.
   
   // Grid Parallax Effects
   const centerY = useTransform(scrollYProgress, [0, 1], [0, 50])
   const leftColY = useTransform(scrollYProgress, [0, 1], [-50, 100])
   const rightColY = useTransform(scrollYProgress, [0, 1], [-100, 50])
 
-  // Entrance Animation (Scale & Blur)
-  const gridScale = useTransform(scrollYProgress, [0, 0.2], [0.95, 1])
-  const gridBlur = useTransform(scrollYProgress, [0, 0.2], [10, 0])
-  const gridOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1])
-
+  // Center Video Scale (Starts huge, shrinks to 1)
+  // We apply this to the center column wrapper
+  const centerScale = useTransform(scrollYProgress, [0, 0.3], [2.5, 1])
+  
+  // Surrounding Columns Opacity (Start invisible, fade in)
+  const sideColumnsOpacity = useTransform(scrollYProgress, [0.15, 0.35], [0, 1])
+  
   // Hero Text Animation (Fade Out)
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0])
-  const heroScale = useTransform(scrollYProgress, [0, 0.1], [1, 0.9])
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
+  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.9])
 
   return (
-    <section ref={containerRef} className="relative h-[200vh] bg-white py-20">
+    <section ref={containerRef} className="relative h-[250vh] bg-white">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 sm:px-10">
         
         {/* Hero Text Overlay (Fades out quickly) */}
         <motion.div 
             style={{ opacity: heroOpacity, scale: heroScale }}
-            className="absolute inset-0 flex flex-col items-center justify-center z-40 pointer-events-none"
+            className="absolute inset-0 flex flex-col items-center justify-center z-50 pointer-events-none"
         >
              <h1 className="text-[12vw] sm:text-[15vw] font-black tracking-tighter text-white mix-blend-difference">
                 STANIAX
@@ -58,13 +60,13 @@ export function VideoGalleryTransition() {
 
 
         {/* Bento Grid Container */}
-        <motion.div 
-            style={{ scale: gridScale, filter: useTransform(gridBlur, (v) => `blur(${v}px)`), opacity: gridOpacity }}
-            className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] h-[85vh]"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] h-[85vh]">
             
             {/* Left Column */}
-            <motion.div style={{ y: leftColY }} className="flex flex-col gap-4 md:gap-8 h-full justify-end">
+            <motion.div 
+                style={{ y: leftColY, opacity: sideColumnsOpacity }} 
+                className="flex flex-col gap-4 md:gap-8 h-full justify-end"
+            >
                 {/* Top Left */}
                 <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
                     <video src={liquidGold} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -78,7 +80,10 @@ export function VideoGalleryTransition() {
             </motion.div>
 
             {/* Center Column (Hero) */}
-            <motion.div style={{ y: centerY }} className="h-full">
+            <motion.div 
+                style={{ y: centerY, scale: centerScale }} 
+                className="h-full z-40 origin-center"
+            >
                 <div className="relative w-full h-full rounded-[32px] overflow-hidden shadow-2xl group">
                     <video src={videoSrc} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
@@ -93,7 +98,10 @@ export function VideoGalleryTransition() {
             </motion.div>
 
             {/* Right Column */}
-            <motion.div style={{ y: rightColY }} className="flex flex-col gap-4 md:gap-8 h-full justify-start">
+            <motion.div 
+                style={{ y: rightColY, opacity: sideColumnsOpacity }} 
+                className="flex flex-col gap-4 md:gap-8 h-full justify-start"
+            >
                 {/* Top Right */}
                 <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
                     <video src={vinylTrans} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -106,7 +114,7 @@ export function VideoGalleryTransition() {
                 </div>
             </motion.div>
 
-        </motion.div>
+        </div>
 
       </div>
     </section>
