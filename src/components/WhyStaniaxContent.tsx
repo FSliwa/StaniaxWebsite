@@ -25,17 +25,10 @@ export function WhyStaniaxContent() {
   const textY = useTransform(scrollYProgress, [0.4, 0.6], [50, 0])
 
   return (
-    <section ref={containerRef} className="relative h-[150vh] bg-white overflow-hidden">
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-center">
+    <section id="why-staniax" data-theme="light" ref={containerRef} className="relative h-[150vh] bg-white overflow-hidden">
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center">
         
-        {/* 1. Massive Headline (Left) */}
-        <div className="absolute top-12 left-6 z-30 mix-blend-difference">
-             <h2 className="text-[10vw] leading-[0.8] font-black tracking-tighter text-white uppercase">
-                Poznaj<br />Staniax
-            </h2>
-        </div>
-
-        {/* 2. Parallax Media Composition */}
+        {/* Parallax Media Composition */}
         <div className="relative w-full h-[80vh] flex items-center justify-center">
             
             {/* Background Layer (Wide, Atmospheric) */}
@@ -69,28 +62,25 @@ export function WhyStaniaxContent() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
             </motion.div>
 
-        </div>
+            {/* Centered Text Overlay */}
+            <motion.div 
+                style={{ opacity: textOpacity, y: textY }}
+                className="absolute z-30 flex flex-col items-center text-center max-w-4xl px-4 mix-blend-difference text-white"
+            >
+                <h2 className="text-[12vw] md:text-[8vw] leading-[0.8] font-black tracking-tighter uppercase mb-6">
+                    STANIAX
+                </h2>
+                <p className="text-lg md:text-2xl font-medium tracking-wide max-w-2xl mx-auto">
+                    Specjalistyczne powłoki metaliczne dla przemysłu i prototypowania.
+                </p>
+                
+                <button className="mt-8 group flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-blue-400 transition-colors">
+                    Dowiedz się więcej
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+            </motion.div>
 
-        {/* 3. Text Column (Right) */}
-        <motion.div 
-            style={{ opacity: textOpacity, y: textY }}
-            className="absolute top-1/2 right-6 md:right-12 w-[280px] md:w-[320px] z-30"
-        >
-            <h3 className="text-2xl font-bold mb-4 text-black">
-                Technologia Przyszłości
-            </h3>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                Dla projektów wymagających najwyższej precyzji i estetyki. Nasze procesy metalizacji próżniowej przekształcają zwykłe powierzchnie w dzieła sztuki inżynieryjnej.
-            </p>
-            <p className="text-gray-600 text-sm leading-relaxed mb-8">
-                Zaprojektowane, by sprostać wyzwaniom nowoczesnego przemysłu i designu.
-            </p>
-            
-            <button className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-black hover:text-blue-600 transition-colors">
-                Dowiedz się więcej
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-        </motion.div>
+        </div>
 
       </div>
     </section>
