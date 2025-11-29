@@ -33,7 +33,10 @@ export function VideoGalleryTransition() {
   // Center Video Scale (Starts huge, shrinks to 1)
   // We apply this to the center column wrapper
   // Increased scale to ensure it covers full width even with padding/max-width
-  const centerScale = useTransform(scrollYProgress, [0, 0.3], [3.5, 1])
+  // Center Video Scale (Starts huge, shrinks to 1)
+  // We apply this to the center column wrapper
+  // Increased scale to ensure it covers full width even with padding/max-width
+  const centerScale = useTransform(scrollYProgress, [0, 0.3], [5, 1])
   
   // Surrounding Columns Opacity (Start invisible, fade in)
   const sideColumnsOpacity = useTransform(scrollYProgress, [0.15, 0.35], [0, 1])
@@ -51,7 +54,7 @@ export function VideoGalleryTransition() {
             style={{ opacity: heroOpacity, scale: heroScale }}
             className="absolute inset-0 flex flex-col items-center justify-end pb-20 z-50 pointer-events-none"
         >
-             <h1 className="text-[15vw] leading-none font-medium tracking-tighter text-[#E0E0E0] mix-blend-overlay">
+             <h1 className="text-[15vw] leading-none font-black tracking-tighter text-white">
                 STANIAX
             </h1>
         </motion.div>
