@@ -15,7 +15,7 @@ import { VideoGalleryTransition } from '@/components/VideoGalleryTransition'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { SpotlightCard } from '@/components/ui/SpotlightCard'
 import { SmoothScroll } from '@/components/SmoothScroll'
-import { ProductionProcess } from '@/components/ProductionProcess'
+import { LightshipProduction } from '@/components/LightshipProduction'
 import { BigFooter } from '@/components/BigFooter'
 import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
@@ -1534,8 +1534,8 @@ function HomePage() {
 
 
 
-      {/* PRODUCTION PROCESS (Sticky Features) */}
-      <ProductionProcess />
+      {/* PRODUCTION PROCESS (Lightship Style Sticky Scroll) */}
+      <LightshipProduction />
 
       {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
       <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
