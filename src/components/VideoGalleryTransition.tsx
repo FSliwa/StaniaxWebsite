@@ -29,7 +29,9 @@ export function VideoGalleryTransition() {
   // Center Video Scale (Starts huge, shrinks to 1)
   // 1. Hero Video Transition: Full Screen -> Grid Center
   // Center Video Scale (Starts huge, shrinks to 1)
-  const centerScale = useTransform(scrollYProgress, [0, 0.35], [2.35, 1])
+  // 1. Hero Video Transition: Full Screen -> Grid Center
+  // Center Video Scale (Starts huge, shrinks to 1)
+  const centerScale = useTransform(scrollYProgress, [0, 0.35], [2.4, 1])
   // Animate height from "landscape" (56.25vw = 16:9 aspect ratio) to "portrait" (100% of container)
   const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["56.25vw", "100%"])
   
@@ -66,7 +68,7 @@ export function VideoGalleryTransition() {
 
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-white">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 sm:px-10">
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         
         {/* Hero Text Overlay (Fades out quickly) */}
         <motion.div 
@@ -91,7 +93,7 @@ export function VideoGalleryTransition() {
 
 
         {/* Bento Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] h-[85vh]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full h-[85vh]">
             
             {/* Left Column */}
             <motion.div 

@@ -16,7 +16,7 @@ import { WhyStaniaxContent } from '@/components/WhyStaniaxContent'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { SpotlightCard } from '@/components/ui/SpotlightCard'
 import { SmoothScroll } from '@/components/SmoothScroll'
-import { LightshipProduction } from '@/components/LightshipProduction'
+
 import { BigFooter } from '@/components/BigFooter'
 import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
@@ -1500,8 +1500,7 @@ function HomePage() {
 
 
 
-      {/* PRODUCTION PROCESS (Lightship Style Sticky Scroll) */}
-      <LightshipProduction />
+
 
       {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
       {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
