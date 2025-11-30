@@ -108,13 +108,13 @@ export function VideoGalleryTransition() {
                 className="flex flex-col gap-4 md:gap-8 h-full justify-end"
             >
                 {/* Top Left */}
-                <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group bg-black">
+                <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
                         <video src={liquidGold} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
                 {/* Bottom Left */}
-                <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group bg-black">
+                <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
                         <video src={toroidAnim} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
@@ -156,13 +156,13 @@ export function VideoGalleryTransition() {
                 className="flex flex-col gap-4 md:gap-8 h-full justify-start"
             >
                 {/* Top Right */}
-                <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group bg-black">
+                <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
                         <video src={vinylTrans} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
                 {/* Bottom Right */}
-                <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group bg-black">
+                <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
                         <video src={galleryVideo} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>

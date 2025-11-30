@@ -149,18 +149,10 @@ export function WhyStaniaxContent() {
                         />
                         <div className="absolute inset-0 bg-black/20" />
                         
-                        {/* Restored Text Overlay */}
-                        <div className="absolute bottom-10 left-10 max-w-md text-white z-10">
-                            <h3 className="text-3xl font-bold mb-4">
-                                Technologia Przyszłości
-                            </h3>
-                            <p className="text-sm leading-relaxed opacity-90 mb-6">
-                                Dla projektów wymagających najwyższej precyzji i estetyki. Nasze procesy metalizacji próżniowej przekształcają zwykłe powierzchnie w dzieła sztuki inżynieryjnej.
-                            </p>
-                            <button className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-blue-400 transition-colors">
-                                Dowiedz się więcej
-                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </button>
+                        {/* Restored Text Overlay - "Odkryj więcej" style */}
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/90">
+                            <span className="text-xs uppercase tracking-widest font-medium">Odkryj więcej</span>
+                            <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
                         </div>
                     </motion.div>
 
