@@ -38,6 +38,11 @@ export function WhyStaniaxContent() {
   const contentY = useTransform(scrollYProgress, [0.4, 1], ["20%", "0%"])
   const contentOpacity = useTransform(scrollYProgress, [0.5, 0.8], [0, 1])
 
+  // Internal Reveal: Video slides UP to reveal Image
+  // We want this to happen when the card is fully visible/centered.
+  // Let's say between 0.2 and 0.8 progress.
+  const internalRevealY = useTransform(scrollYProgress, [0.3, 0.8], ["0%", "-100%"])
+
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-black text-white">
       
@@ -109,10 +114,31 @@ export function WhyStaniaxContent() {
 
             {/* Content Container (White Background, Animated) */}
             <div className="flex-1 px-4 sm:px-10 pb-10 w-full max-w-[1800px] mx-auto">
-                <div className="relative w-full h-full bg-white rounded-[40px] overflow-hidden shadow-2xl grid grid-cols-1 md:grid-cols-2">
+                <div className="relative w-full h-full bg-white rounded-[40px] overflow-hidden shadow-2xl">
                     
-                    {/* 1. Video Section */}
-                    <div className="relative w-full h-full overflow-hidden">
+                    {/* LAYER 1: Airplane Image (Background/Revealed) */}
+                    <div className="absolute inset-0 w-full h-full">
+                         <img 
+                            src={bgImage} 
+                            alt="Aerospace Technology" 
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10" />
+                         <div className="absolute bottom-10 left-10 max-w-md text-white z-10">
+                            <h3 className="text-3xl font-bold mb-4">
+                                Precyzja Lotnicza
+                            </h3>
+                            <p className="text-sm leading-relaxed opacity-90">
+                                Standardy AS9100 w każdym detalu.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* LAYER 2: Video (Foreground/Cover) - Slides UP to reveal Layer 1 */}
+                    <motion.div 
+                        style={{ y: internalRevealY }} 
+                        className="absolute inset-0 w-full h-full z-20 bg-black"
+                    >
                         <video 
                             src={fgVideo} 
                             autoPlay 
@@ -136,25 +162,7 @@ export function WhyStaniaxContent() {
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </div>
-                    </div>
-
-                    {/* 2. Airplane Image Section */}
-                    <div className="relative w-full h-full overflow-hidden hidden md:block">
-                         <img 
-                            src={bgImage} 
-                            alt="Aerospace Technology" 
-                            className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/10" />
-                         <div className="absolute bottom-10 left-10 max-w-md text-white z-10">
-                            <h3 className="text-3xl font-bold mb-4">
-                                Precyzja Lotnicza
-                            </h3>
-                            <p className="text-sm leading-relaxed opacity-90">
-                                Standardy AS9100 w każdym detalu.
-                            </p>
-                        </div>
-                    </div>
+                    </motion.div>
 
                 </div>
             </div>
