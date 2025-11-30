@@ -71,6 +71,30 @@ export function LightshipProduction() {
         style={{ backgroundColor }}
         className="relative"
     >
+      {/* Meet STANIAX Header */}
+      <div className="w-full bg-[#f5f5f7] pt-32 pb-16 px-6 lg:px-12 flex flex-col items-center text-center relative z-10">
+          <div className="w-full max-w-[1600px] flex justify-between items-center mb-12 text-sm font-medium tracking-widest uppercase text-slate-500">
+              <span>Model S.1</span>
+              <div className="flex gap-8">
+                  <span>Technologia</span>
+                  <span>Twoja Przyszłość</span>
+              </div>
+          </div>
+          
+          <h2 className="text-[12vw] leading-[0.8] font-black tracking-tighter text-slate-900 mb-8">
+              Poznaj<br />STANIAX.
+          </h2>
+
+          {/* Hero Image for Section */}
+          <div className="w-full max-w-[1600px] aspect-video rounded-[40px] overflow-hidden shadow-2xl mt-8">
+              <img 
+                  src={productionManufacturing} 
+                  alt="Staniax Production" 
+                  className="w-full h-full object-cover"
+              />
+          </div>
+      </div>
+
       <div className="flex flex-col lg:flex-row">
           
           {/* LEFT COLUMN: Sticky Visuals */}

@@ -10,77 +10,129 @@ export function WhyStaniaxContent() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start start", "end end"]
   })
 
-  // Parallax Transforms
-  // Background moves slowly (creating depth)
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
-  
-  // Foreground moves faster (sliding up over the background)
-  const fgY = useTransform(scrollYProgress, [0.2, 0.8], ["20%", "-10%"])
-  
-  // Text Reveal (Fade in + Slide up)
-  const textOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1])
-  const textY = useTransform(scrollYProgress, [0.4, 0.6], [50, 0])
+  // --- PARALLAX & REVEAL LOGIC ---
+  // The section is 200vh tall. 
+  // 0.0 - 0.5: The "Cover" (Foreground) is fully visible.
+  // 0.5 - 1.0: The "Cover" slides UP to reveal the "Base" (Background).
+
+  // 1. Background (The "Base" Layer)
+  // It stays fixed or moves slightly to create depth.
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.1, 1])
+  const bgOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0.5, 1]) // Fades in as cover lifts
+
+  // 2. Foreground (The "Cover" Layer)
+  // Slides UP out of view.
+  const coverY = useTransform(scrollYProgress, [0.3, 1], ["0%", "-100%"])
+  const coverScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]) // Slight shrink before lifting
+  const coverRadius = useTransform(scrollYProgress, [0, 0.3], ["0px", "40px"]) // Rounds corners before lifting
+
+  // 3. Text Elements
+  // Title moves slower than the container for parallax feel
+  const titleY = useTransform(scrollYProgress, [0, 0.5], ["0%", "50%"])
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0])
+
+  // Content revealed underneath
+  const contentY = useTransform(scrollYProgress, [0.4, 1], ["20%", "0%"])
+  const contentOpacity = useTransform(scrollYProgress, [0.5, 0.8], [0, 1])
 
   return (
-    <section id="why-staniax" data-theme="light" ref={containerRef} className="relative h-[150vh] bg-white overflow-hidden">
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center">
-        
-        {/* Parallax Media Composition */}
-        <div className="relative w-full h-[80vh] flex items-center justify-center">
-            
-            {/* Background Layer (Wide, Atmospheric) */}
-            <div className="absolute inset-0 w-full h-full overflow-hidden">
-                <motion.div 
-                    style={{ y: bgY, scale: 1.1 }}
-                    className="w-full h-full"
-                >
-                    <img 
-                        src={bgImage} 
-                        alt="Atmospheric Background" 
-                        className="w-full h-full object-cover opacity-80"
-                    />
-                </motion.div>
-            </div>
+    <section ref={containerRef} className="relative h-[250vh] bg-black text-white">
+      
+      {/* STICKY VIEWPORT */}
+      <div className="sticky top-0 w-full h-screen overflow-hidden">
 
-            {/* Foreground Layer (Rounded Media, "Hero") */}
+        {/* --- LAYER 1: BACKGROUND (REVEALED) --- */}
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
             <motion.div 
-                style={{ y: fgY }}
-                className="relative z-20 w-[80vw] md:w-[50vw] aspect-[4/3] md:aspect-video bg-black rounded-[32px] overflow-hidden shadow-2xl"
+                style={{ scale: bgScale, opacity: bgOpacity }}
+                className="absolute inset-0 w-full h-full"
             >
-                <video 
-                    src={fgVideo} 
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline 
+                <img 
+                    src={bgImage} 
+                    alt="Aerospace Background" 
                     className="w-full h-full object-cover"
                 />
-                {/* Inner Shadow/Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-black/60" /> {/* Darken for text readability */}
             </motion.div>
 
-            {/* Centered Text Overlay */}
+            {/* Revealed Content */}
             <motion.div 
-                style={{ opacity: textOpacity, y: textY }}
-                className="absolute z-30 flex flex-col items-center text-center max-w-4xl px-4 mix-blend-difference text-white"
+                style={{ y: contentY, opacity: contentOpacity }}
+                className="relative z-10 max-w-5xl px-6 text-center"
             >
-                <h2 className="text-[12vw] md:text-[8vw] leading-[0.8] font-black tracking-tighter uppercase mb-6">
-                    STANIAX
-                </h2>
-                <p className="text-lg md:text-2xl font-medium tracking-wide max-w-2xl mx-auto">
-                    Specjalistyczne powłoki metaliczne dla przemysłu i prototypowania.
+                <h3 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">
+                    Precyzja, która definiuje <span className="text-blue-500">przyszłość</span>.
+                </h3>
+                <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Nasze powłoki to nie tylko ochrona. To inżynieria na poziomie molekularnym, 
+                    zaprojektowana, by przetrwać w najbardziej ekstremalnych warunkach. 
+                    Od głębin oceanów po orbitę okołoziemską.
                 </p>
-                
-                <button className="mt-8 group flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-blue-400 transition-colors">
-                    Dowiedz się więcej
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                <div className="mt-12 flex flex-wrap justify-center gap-6">
+                    <div className="flex flex-col items-center gap-2">
+                        <span className="text-5xl font-black text-white">500+</span>
+                        <span className="text-sm uppercase tracking-widest text-gray-400">Projektów</span>
+                    </div>
+                    <div className="w-px h-16 bg-white/20" />
+                    <div className="flex flex-col items-center gap-2">
+                        <span className="text-5xl font-black text-white">ISO</span>
+                        <span className="text-sm uppercase tracking-widest text-gray-400">9001:2015</span>
+                    </div>
+                    <div className="w-px h-16 bg-white/20" />
+                    <div className="flex flex-col items-center gap-2">
+                        <span className="text-5xl font-black text-white">100%</span>
+                        <span className="text-sm uppercase tracking-widest text-gray-400">Polski Kapitał</span>
+                    </div>
+                </div>
+            </motion.div>
+        </div>
+
+        {/* --- LAYER 2: FOREGROUND (COVER) --- */}
+        <motion.div 
+            style={{ y: coverY, scale: coverScale, borderRadius: coverRadius }}
+            className="absolute inset-0 w-full h-full bg-white overflow-hidden shadow-2xl z-20 origin-bottom"
+        >
+            {/* Video Background */}
+            <video 
+                src={fgVideo} 
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+                className="w-full h-full object-cover opacity-90"
+            />
+            
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/60" />
+
+            {/* Massive Typography */}
+            <motion.div 
+                style={{ y: titleY, opacity: titleOpacity }}
+                className="absolute inset-0 flex flex-col items-center justify-center z-30 mix-blend-difference text-white pointer-events-none"
+            >
+                <h2 className="text-[15vw] leading-[0.8] font-black tracking-tighter uppercase text-center">
+                    BEYOND<br />LIMITS
+                </h2>
+                <div className="mt-8 flex items-center gap-4">
+                    <div className="h-px w-24 bg-white" />
+                    <span className="text-xl font-medium tracking-[0.5em] uppercase">Staniax Engineering</span>
+                    <div className="h-px w-24 bg-white" />
+                </div>
             </motion.div>
 
-        </div>
+            {/* Scroll Indicator */}
+            <motion.div 
+                style={{ opacity: titleOpacity }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/80"
+            >
+                <span className="text-xs uppercase tracking-widest">Odkryj więcej</span>
+                <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
+            </motion.div>
+
+        </motion.div>
 
       </div>
     </section>

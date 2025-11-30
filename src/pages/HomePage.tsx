@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { VideoGalleryTransition } from '@/components/VideoGalleryTransition'
+import { WhyStaniaxContent } from '@/components/WhyStaniaxContent'
 
 
 
@@ -1488,6 +1489,9 @@ function HomePage() {
 
       {/* HERO & GALLERY SECTION (Seamless Transition) */}
       <VideoGalleryTransition />
+      
+      {/* FEATURE HIGHLIGHT (Parallax Reveal) */}
+      <WhyStaniaxContent />
       
 
 
