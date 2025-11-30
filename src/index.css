@@ -162,28 +162,7 @@
   transition: width 0.1s ease-out;
 }
 
-/* CUSTOM CURSOR TRAIL */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: rgba(234, 88, 12, 0.5);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transition: transform 0.15s ease-out;
-}
 
-.cursor-outline {
-  width: 30px;
-  height: 30px;
-  border: 2px solid rgba(29, 78, 216, 0.3);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9997;
-  transition: transform 0.2s ease-out;
-}
 
 /* GRADIENT SHIFT ANIMATION */
 @keyframes gradientShift {
@@ -713,17 +692,7 @@
 
 /* VIBOR.IT STYLE MICRO-INTERACTIONS */
 
-/* Cursor Trail */
-.cursor-trail {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(59, 130, 246, 0.5);
-  pointer-events: none;
-  z-index: 9998;
-  transition: transform 0.15s ease-out, opacity 0.15s ease-out;
-}
+
 
 /* Magnetic Buttons */
 .magnetic-button {

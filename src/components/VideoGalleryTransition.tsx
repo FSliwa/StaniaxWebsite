@@ -34,7 +34,10 @@ export function VideoGalleryTransition() {
   const centerWidth = useTransform(scrollYProgress, [0, 0.35], ["100vw", "100%"])
   // Animate X position to keep it centered: Shift left by (100vw - 100%)/2
   const centerX = useTransform(scrollYProgress, [0, 0.35], ["calc(-50vw + 50%)", "0%"])
-  // Animate height from "landscape" (56.25vw = 16:9 aspect ratio) to "portrait" (100% of container)
+  // Animate height: Start with "auto" (natural aspect ratio) -> End with "100%" (fill grid cell)
+  // Since we can't animate to "auto", we use a value that matches the video's aspect ratio (16:9)
+  // 100vw / (16/9) = 56.25vw. 
+  // We keep it at 56.25vw initially to match width, then transition to 100% of container height.
   const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["56.25vw", "100%"])
   
   // 2. Assembly Effect & Staggering (Side Columns)
@@ -132,7 +135,7 @@ export function VideoGalleryTransition() {
                             <motion.video 
                                 src={videoSrc} 
                                 autoPlay muted loop playsInline 
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                                className="w-full h-full object-cover" 
                             />
                         </motion.div>
                     </motion.div>
