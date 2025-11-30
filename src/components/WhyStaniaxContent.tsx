@@ -93,44 +93,45 @@ export function WhyStaniaxContent() {
         {/* --- LAYER 2: FOREGROUND (COVER) --- */}
         <motion.div 
             style={{ y: coverY, scale: coverScale, borderRadius: coverRadius }}
-            className="absolute inset-0 w-full h-full bg-white overflow-hidden shadow-2xl z-20 origin-bottom"
+            className="absolute inset-0 w-full h-full bg-white overflow-hidden shadow-2xl z-20 origin-bottom flex flex-col"
         >
-            {/* Video Background */}
-            <video 
-                src={fgVideo} 
-                autoPlay 
-                muted 
-                loop 
-                playsInline 
-                className="w-full h-full object-cover opacity-90"
-            />
-            
-            {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/60" />
-
-            {/* Massive Typography */}
+            {/* Header Section */}
             <motion.div 
-                style={{ y: titleY, opacity: titleOpacity }}
-                className="absolute inset-0 flex flex-col items-center justify-center z-30 mix-blend-difference text-white pointer-events-none"
+                style={{ opacity: titleOpacity, y: titleY }}
+                className="w-full pt-24 pb-12 px-6 flex flex-col items-center justify-center z-30 text-black shrink-0"
             >
+                <div className="flex items-center gap-4 mb-8 opacity-60">
+                    <div className="h-px w-12 bg-black" />
+                    <span className="text-sm font-medium tracking-[0.3em] uppercase">Staniax Engineering</span>
+                    <div className="h-px w-12 bg-black" />
+                </div>
+
                 <h2 className="text-[15vw] leading-[0.8] font-black tracking-tighter uppercase text-center">
                     BEYOND<br />LIMITS
                 </h2>
-                <div className="mt-8 flex items-center gap-4">
-                    <div className="h-px w-24 bg-white" />
-                    <span className="text-xl font-medium tracking-[0.5em] uppercase">Staniax Engineering</span>
-                    <div className="h-px w-24 bg-white" />
-                </div>
             </motion.div>
 
-            {/* Scroll Indicator */}
-            <motion.div 
-                style={{ opacity: titleOpacity }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/80"
-            >
-                <span className="text-xs uppercase tracking-widest">Odkryj więcej</span>
-                <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
-            </motion.div>
+            {/* Video Section */}
+            <div className="flex-1 w-full px-4 pb-4 md:px-8 md:pb-8 overflow-hidden min-h-0">
+                <div className="w-full h-full rounded-[40px] overflow-hidden relative shadow-inner">
+                    <video 
+                        src={fgVideo} 
+                        autoPlay 
+                        muted 
+                        loop 
+                        playsInline 
+                        className="w-full h-full object-cover"
+                    />
+                    {/* Overlay Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                    
+                    {/* Scroll Indicator inside video */}
+                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/90">
+                        <span className="text-xs uppercase tracking-widest font-medium">Odkryj więcej</span>
+                        <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
+                    </div>
+                </div>
+            </div>
 
         </motion.div>
 
