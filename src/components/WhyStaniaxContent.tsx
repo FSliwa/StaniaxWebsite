@@ -93,7 +93,7 @@ export function WhyStaniaxContent() {
         {/* --- LAYER 2: FOREGROUND (COVER) --- */}
         <motion.div 
             style={{ y: coverY, scale: coverScale, borderRadius: coverRadius }}
-            className="absolute inset-0 w-full h-full bg-[#f5f5f7] z-20 origin-bottom flex flex-col"
+            className="absolute inset-0 w-full h-full bg-[#f5f5f7] z-20 origin-bottom flex flex-col overflow-hidden"
         >
             {/* Header Section */}
             <div className="w-full pt-20 pb-10 px-6 text-center z-30">
@@ -107,47 +107,55 @@ export function WhyStaniaxContent() {
                 </div>
             </div>
 
-            {/* Video Container (Rounded & Padded) */}
+            {/* Content Container (White Background, Animated) */}
             <div className="flex-1 px-4 sm:px-10 pb-10 w-full max-w-[1800px] mx-auto">
-                <div className="relative w-full h-full rounded-[40px] overflow-hidden shadow-2xl">
-                    <video 
-                        src={fgVideo} 
-                        autoPlay 
-                        muted 
-                        loop 
-                        playsInline 
-                        className="w-full h-full object-cover"
-                    />
+                <div className="relative w-full h-full bg-white rounded-[40px] overflow-hidden shadow-2xl grid grid-cols-1 md:grid-cols-2">
                     
-                    {/* Overlay Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/60" />
+                    {/* 1. Video Section */}
+                    <div className="relative w-full h-full overflow-hidden">
+                        <video 
+                            src={fgVideo} 
+                            autoPlay 
+                            muted 
+                            loop 
+                            playsInline 
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/20" />
+                        
+                        {/* Restored Text Overlay */}
+                        <div className="absolute bottom-10 left-10 max-w-md text-white z-10">
+                            <h3 className="text-3xl font-bold mb-4">
+                                Technologia Przyszłości
+                            </h3>
+                            <p className="text-sm leading-relaxed opacity-90 mb-6">
+                                Dla projektów wymagających najwyższej precyzji i estetyki. Nasze procesy metalizacji próżniowej przekształcają zwykłe powierzchnie w dzieła sztuki inżynieryjnej.
+                            </p>
+                            <button className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-blue-400 transition-colors">
+                                Dowiedz się więcej
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </div>
+                    </div>
 
-                    {/* Existing Overlay Text (Preserved) */}
-                    <motion.div 
-                        style={{ opacity: titleOpacity }}
-                        className="absolute inset-0 flex flex-col items-center justify-center z-30 mix-blend-difference text-white pointer-events-none"
-                    >
-                         {/* Optional: Keep or remove the center text if the header is now above. 
-                             User said "zostaw obecny napis na wideo także". 
-                             The previous text was "BEYOND LIMITS" huge in center. 
-                             If I have it in header, maybe I should keep something else here or just the same?
-                             I'll keep the "Staniax Engineering" subtitle or similar to not duplicate the huge title too much, 
-                             OR I will keep the exact previous content as requested. 
-                             "zostaw obecny napis na wideo także" -> Leave the current text on video ALSO.
-                             Okay, I will keep the huge BEYOND LIMITS on the video too. */}
-                        <h2 className="text-[10vw] leading-[0.8] font-black tracking-tighter uppercase text-center opacity-50">
-                            BEYOND<br />LIMITS
-                        </h2>
-                    </motion.div>
+                    {/* 2. Airplane Image Section */}
+                    <div className="relative w-full h-full overflow-hidden hidden md:block">
+                         <img 
+                            src={bgImage} 
+                            alt="Aerospace Technology" 
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/10" />
+                         <div className="absolute bottom-10 left-10 max-w-md text-white z-10">
+                            <h3 className="text-3xl font-bold mb-4">
+                                Precyzja Lotnicza
+                            </h3>
+                            <p className="text-sm leading-relaxed opacity-90">
+                                Standardy AS9100 w każdym detalu.
+                            </p>
+                        </div>
+                    </div>
 
-                    {/* Scroll Indicator */}
-                    <motion.div 
-                        style={{ opacity: titleOpacity }}
-                        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/80"
-                    >
-                        <span className="text-xs uppercase tracking-widest">Odkryj więcej</span>
-                        <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
-                    </motion.div>
                 </div>
             </div>
 
