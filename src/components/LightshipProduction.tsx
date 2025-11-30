@@ -118,7 +118,7 @@ export function LightshipProduction() {
                             <motion.div
                                 key={step.id}
                                 style={{ opacity, scale, y }}
-                                className="absolute inset-0 flex items-center justify-center p-20"
+                                className="absolute inset-0 flex items-center justify-center"
                             >
                                 <div className="w-full h-full relative">
                                     {/* Icon Container */}
