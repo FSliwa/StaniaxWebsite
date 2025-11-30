@@ -2,13 +2,17 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { PenNib, Wrench, Factory, CheckCircle } from '@phosphor-icons/react'
+import productionDesign from '@/assets/production-design.png'
+import productionPrototype from '@/assets/production-prototype.png'
+import productionManufacturing from '@/assets/production-manufacturing.png'
+import productionQuality from '@/assets/production-quality.png'
 
 const steps = [
   {
     id: 1,
     title: "Projektowanie",
     description: "Nasz zespół inżynierów tworzy precyzyjne modele CAD/CAM, optymalizując konstrukcję pod kątem wytrzymałości i kosztów produkcji.",
-    icon: <PenNib className="w-full h-full text-blue-600" />,
+    image: productionDesign,
     color: "bg-blue-50",
     accent: "text-blue-600",
     bgAccent: "bg-blue-600"
@@ -17,7 +21,7 @@ const steps = [
     id: 2,
     title: "Prototypowanie",
     description: "Szybkie tworzenie prototypów pozwala na weryfikację założeń projektowych i wprowadzenie niezbędnych korekt przed seryjną produkcją.",
-    icon: <Wrench className="w-full h-full text-orange-600" />,
+    image: productionPrototype,
     color: "bg-orange-50",
     accent: "text-orange-600",
     bgAccent: "bg-orange-600"
@@ -26,7 +30,7 @@ const steps = [
     id: 3,
     title: "Produkcja",
     description: "Wykorzystujemy nowoczesny park maszynowy CNC oraz zaawansowane technologie spawalnicze, aby zapewnić najwyższą jakość wykonania.",
-    icon: <Factory className="w-full h-full text-purple-600" />,
+    image: productionManufacturing,
     color: "bg-purple-50",
     accent: "text-purple-600",
     bgAccent: "bg-purple-600"
@@ -35,7 +39,7 @@ const steps = [
     id: 4,
     title: "Kontrola Jakości",
     description: "Każdy element przechodzi rygorystyczne testy wytrzymałościowe i pomiary geometryczne, gwarantując zgodność ze specyfikacją.",
-    icon: <CheckCircle className="w-full h-full text-green-600" />,
+    image: productionQuality,
     color: "bg-green-50",
     accent: "text-green-600",
     bgAccent: "bg-green-600"
@@ -118,8 +122,12 @@ export function LightshipProduction() {
                             >
                                 <div className="w-full h-full relative">
                                     {/* Icon Container */}
-                                    <div className="w-full h-full drop-shadow-2xl">
-                                        {step.icon}
+                                    <div className="w-full h-full drop-shadow-2xl overflow-hidden rounded-[32px]">
+                                        <img 
+                                            src={step.image} 
+                                            alt={step.title}
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
                                 </div>
                             </motion.div>
@@ -215,8 +223,12 @@ function StepTextCard({ step, index, totalSteps, scrollYProgress }: { step: any,
 
                 {/* Mobile Visual (Visible only on mobile) */}
                 <div className="lg:hidden mt-8 w-full aspect-square bg-white rounded-3xl shadow-lg flex items-center justify-center p-12">
-                     <div className={cn("w-32 h-32", step.accent)}>
-                        {step.icon}
+                     <div className={cn("w-full h-full overflow-hidden rounded-2xl", step.accent)}>
+                        <img 
+                            src={step.image} 
+                            alt={step.title}
+                            className="w-full h-full object-cover"
+                        />
                      </div>
                 </div>
             </motion.div>
