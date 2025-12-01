@@ -146,9 +146,9 @@ export function WhyStaniaxContent() {
                             muted 
                             loop 
                             playsInline 
-                            className="w-full h-full object-cover rounded-[40px]"
+                            className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-black/20 rounded-[40px]" />
+                        <div className="absolute inset-0 bg-black/20" />
                         
                         {/* Restored Text Overlay - "BEYOND LIMITS" style from 4 commits ago */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center z-30 pointer-events-none">

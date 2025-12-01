@@ -125,12 +125,13 @@ export function VideoGalleryTransition() {
             {/* Center Column (Hero) */}
             <motion.div 
                 style={{ y: centerY, width: centerWidth, borderRadius: heroRadius, x: xPosition }} 
-                className="h-full z-40 origin-center relative left-1/2 aspect-video"
+                className="h-full z-40 origin-center relative left-1/2"
             >
                 <div className="relative w-full h-full overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] relative">
                         <motion.div 
-                            className="absolute top-1/2 left-0 w-full -translate-y-1/2 overflow-hidden h-full"
+                            style={{ height: videoHeight }}
+                            className="absolute top-1/2 left-0 w-full -translate-y-1/2 overflow-hidden"
                         >
                             <motion.video 
                                 src={videoSrc} 
