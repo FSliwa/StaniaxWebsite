@@ -1941,13 +1941,13 @@ function HomePage() {
             {/* CTA - Traditional Grid Below Carousel */}
             <div className="text-center mt-20">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">Zobacz więcej</p>
-              <Button
-                onClick={() => navigate('/news')}
-                className="magnetic-button px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+              <MagneticButton
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] rounded-full flex items-center justify-center mx-auto"
               >
                 Wszystkie Projekty
                 <ArrowRight className="w-5 h-5 ml-2 inline-block" />
-              </Button>
+              </MagneticButton>
             </div>
           </div>
         </section>
@@ -2063,16 +2063,16 @@ function HomePage() {
                 <p className="text-gray-600 mb-6 text-lg font-medium">
                   Nie znalazłeś odpowiedzi na swoje pytanie?
                 </p>
-                <Button
+                <MagneticButton
                   onClick={() => {
                     const contactSection = document.getElementById('contact')
                     contactSection?.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-105"
+                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-105 rounded-full flex items-center justify-center mx-auto"
                 >
                   Skontaktuj się z nami
                   <ArrowRight className="w-5 h-5 ml-2 inline-block" />
-                </Button>
+                </MagneticButton>
               </div>
             </div>
           </div>

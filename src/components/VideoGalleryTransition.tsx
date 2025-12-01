@@ -143,7 +143,10 @@ export function VideoGalleryTransition() {
                     
                     {/* Center CTA */}
                     <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <MagneticButton className="bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold flex items-center gap-2">
+                        <MagneticButton 
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold flex items-center gap-2"
+                        >
                             Zobacz Więcej <ArrowUpRight className="w-4 h-4" />
                         </MagneticButton>
                     </div>

@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight } from '@phosphor-icons/react'
+import { MagneticButton } from '@/components/ui/MagneticButton'
 
 // Assets
 import bgImage from '@/assets/airplane-04-1600x900.jpg'
@@ -150,9 +151,14 @@ export function WhyStaniaxContent() {
                         <div className="absolute inset-0 bg-black/20" />
                         
                         {/* Restored Text Overlay - "Odkryj więcej" style */}
-                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/90">
-                            <span className="text-xs uppercase tracking-widest font-medium">Odkryj więcej</span>
-                            <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30">
+                            <MagneticButton 
+                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="flex flex-col items-center gap-2 text-white/90 rounded-full px-6 py-4 hover:bg-white/10 transition-colors"
+                            >
+                                <span className="text-xs uppercase tracking-widest font-medium">Odkryj więcej</span>
+                                <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
+                            </MagneticButton>
                         </div>
                     </motion.div>
 
