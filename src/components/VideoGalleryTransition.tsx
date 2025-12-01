@@ -71,10 +71,12 @@ export function VideoGalleryTransition() {
   // Made it fade out slightly later so "Scroll to explore" is visible longer
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
   const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9])
+  // Force X centering using a MotionValue to ensure it's not dropped
+  const xPosition = useTransform(scrollYProgress, [0, 1], ["-50%", "-50%"])
 
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-white">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center px-4 sm:px-10">
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         
         {/* Hero Text Overlay (Fades out quickly) */}
         <motion.div 
@@ -99,7 +101,7 @@ export function VideoGalleryTransition() {
 
 
         {/* Bento Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] h-[85vh]">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] h-[85vh] px-4 sm:px-10">
             
             {/* Left Column */}
             <motion.div 
@@ -122,14 +124,13 @@ export function VideoGalleryTransition() {
 
             {/* Center Column (Hero) */}
             <motion.div 
-                style={{ y: centerY, width: centerWidth, borderRadius: heroRadius, x: "-50%" }} 
-                className="h-full z-40 origin-center relative left-1/2"
+                style={{ y: centerY, width: centerWidth, borderRadius: heroRadius, x: xPosition }} 
+                className="h-full z-40 origin-center relative left-1/2 aspect-video"
             >
                 <div className="relative w-full h-full overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] relative">
                         <motion.div 
-                            style={{ height: videoHeight }}
-                            className="absolute top-1/2 left-0 w-full -translate-y-1/2 overflow-hidden"
+                            className="absolute top-1/2 left-0 w-full -translate-y-1/2 overflow-hidden h-full"
                         >
                             <motion.video 
                                 src={videoSrc} 
