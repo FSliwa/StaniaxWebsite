@@ -37,7 +37,8 @@ export function VideoGalleryTransition() {
   // To prevent "zoom" (cropping), we MUST respect the video's natural aspect ratio (16:9).
   // We set the height to be proportional to the width (16:9 ratio).
   // This ensures the video is always full width and natural height.
-  const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["56.25vw", "56.25vw"]) // Constant 16:9 aspect ratio
+  // CRITICAL: Animate to "100%" so it fits the grid cell at the end!
+  const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["56.25vw", "100%"]) 
   // Animate Border Radius: 0px (Full Screen) -> 32px (Grid Tile)
   const heroRadius = useTransform(scrollYProgress, [0, 0.35], ["0px", "32px"])
   
@@ -125,7 +126,7 @@ export function VideoGalleryTransition() {
             {/* Center Column (Hero) */}
             <motion.div 
                 style={{ y: centerY, width: centerWidth, borderRadius: heroRadius, x: xPosition }} 
-                className="h-full z-40 origin-center relative left-1/2"
+                className="h-full z-40 origin-center relative left-1/2 max-w-none"
             >
                 <div className="relative w-full h-full overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] relative">
