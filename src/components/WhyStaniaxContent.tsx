@@ -150,15 +150,16 @@ export function WhyStaniaxContent() {
                         />
                         <div className="absolute inset-0 bg-black/20 rounded-[40px]" />
                         
-                        {/* Restored Text Overlay - "Odkryj więcej" style */}
-                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30">
-                            <MagneticButton 
-                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="flex flex-col items-center gap-2 text-white/90 rounded-full px-6 py-4 hover:bg-white/10 transition-colors"
-                            >
-                                <span className="text-xs uppercase tracking-widest font-medium">Odkryj więcej</span>
-                                <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
-                            </MagneticButton>
+                        {/* Restored Text Overlay - "BEYOND LIMITS" style from 4 commits ago */}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center z-30 pointer-events-none">
+                             <h2 className="text-[10vw] leading-[0.8] font-black tracking-tighter uppercase text-center opacity-50 text-white mix-blend-overlay">
+                                BEYOND<br />LIMITS
+                            </h2>
+                        </div>
+
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 text-white/80">
+                            <span className="text-xs uppercase tracking-widest font-medium">Odkryj więcej</span>
+                            <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
                         </div>
                     </motion.div>
 

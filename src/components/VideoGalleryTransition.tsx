@@ -37,10 +37,9 @@ export function VideoGalleryTransition() {
   
   // Height Logic:
   // To prevent "zoom" (cropping), we MUST respect the video's natural aspect ratio (16:9).
-  // 100vw width / (16/9) = 56.25vw height.
-  // We KEEP it at 56.25vw (or auto/aspect-ratio) to prevent vertical cropping/zoom.
-  // We do NOT animate to "100%" because that forces the video to stretch/crop if the container is taller.
-  const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["56.25vw", "56.25vw"]) // Constant height based on width
+  // We set the height to be proportional to the width (16:9 ratio).
+  // This ensures the video is always full width and natural height.
+  const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["56.25vw", "56.25vw"]) // Constant 16:9 aspect ratio
   
   // 2. Assembly Effect & Staggering (Side Columns)
   // Left Column: Enters slightly earlier
