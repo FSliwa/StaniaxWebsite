@@ -32,8 +32,6 @@ export function VideoGalleryTransition() {
   // 1. Hero Video Transition: Full Screen -> Grid Center
   // Animate Width from Full Screen (100vw) to Grid Column (100%)
   const centerWidth = useTransform(scrollYProgress, [0, 0.35], ["100vw", "100%"])
-  // Animate X position to keep it centered: Shift left by (100vw - 100%)/2
-  const centerX = useTransform(scrollYProgress, [0, 0.35], ["calc(-50vw + 50%)", "0%"])
   
   // Height Logic:
   // To prevent "zoom" (cropping), we MUST respect the video's natural aspect ratio (16:9).
@@ -122,8 +120,8 @@ export function VideoGalleryTransition() {
 
             {/* Center Column (Hero) */}
             <motion.div 
-                style={{ y: centerY, width: centerWidth, x: centerX }} 
-                className="h-full z-40 origin-center"
+                style={{ y: centerY, width: centerWidth }} 
+                className="h-full z-40 origin-center justify-self-center"
             >
                 <div className="relative w-full h-full rounded-[32px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] relative">
