@@ -41,8 +41,8 @@ export function WhyStaniaxContent() {
 
   // Internal Reveal: Video slides UP to reveal Image
   // We want this to happen when the card is fully visible/centered.
-  // Let's say between 0.2 and 0.8 progress.
-  const internalRevealY = useTransform(scrollYProgress, [0.3, 0.8], ["0%", "-100%"])
+  // Adjusted to [0.4, 0.9] to sync better with the card's "lift" and hold phase.
+  const internalRevealY = useTransform(scrollYProgress, [0.4, 0.9], ["0%", "-100%"])
 
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-black text-white">
@@ -122,9 +122,9 @@ export function WhyStaniaxContent() {
                          <img 
                             src={bgImage} 
                             alt="Aerospace Technology" 
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover rounded-[40px]"
                         />
-                        <div className="absolute inset-0 bg-black/10" />
+                        <div className="absolute inset-0 bg-black/10 rounded-[40px]" />
                          <div className="absolute bottom-10 left-10 max-w-md text-white z-10">
                             <h3 className="text-3xl font-bold mb-4">
                                 Precyzja Lotnicza
@@ -138,7 +138,7 @@ export function WhyStaniaxContent() {
                     {/* LAYER 2: Video (Foreground/Cover) - Slides UP to reveal Layer 1 */}
                     <motion.div 
                         style={{ y: internalRevealY }} 
-                        className="absolute inset-0 w-full h-full z-20 bg-black"
+                        className="absolute inset-0 w-full h-full z-20 bg-black rounded-[40px] overflow-hidden"
                     >
                         <video 
                             src={fgVideo} 
@@ -146,9 +146,9 @@ export function WhyStaniaxContent() {
                             muted 
                             loop 
                             playsInline 
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover rounded-[40px]"
                         />
-                        <div className="absolute inset-0 bg-black/20" />
+                        <div className="absolute inset-0 bg-black/20 rounded-[40px]" />
                         
                         {/* Restored Text Overlay - "Odkryj więcej" style */}
                         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30">
