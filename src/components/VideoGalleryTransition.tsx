@@ -38,6 +38,8 @@ export function VideoGalleryTransition() {
   // We set the height to be proportional to the width (16:9 ratio).
   // This ensures the video is always full width and natural height.
   const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["56.25vw", "56.25vw"]) // Constant 16:9 aspect ratio
+  // Animate Border Radius: 0px (Full Screen) -> 32px (Grid Tile)
+  const heroRadius = useTransform(scrollYProgress, [0, 0.35], ["0px", "32px"])
   
   // 2. Assembly Effect & Staggering (Side Columns)
   // Left Column: Enters slightly earlier
@@ -120,10 +122,10 @@ export function VideoGalleryTransition() {
 
             {/* Center Column (Hero) */}
             <motion.div 
-                style={{ y: centerY, width: centerWidth }} 
-                className="h-full z-40 origin-center justify-self-center"
+                style={{ y: centerY, width: centerWidth, borderRadius: heroRadius }} 
+                className="h-full z-40 origin-center relative left-1/2 -translate-x-1/2"
             >
-                <div className="relative w-full h-full rounded-[32px] overflow-hidden shadow-2xl group">
+                <div className="relative w-full h-full overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] relative">
                         <motion.div 
                             style={{ height: videoHeight }}

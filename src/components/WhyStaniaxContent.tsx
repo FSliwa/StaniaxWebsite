@@ -152,7 +152,7 @@ export function WhyStaniaxContent() {
                         
                         {/* Restored Text Overlay - "BEYOND LIMITS" style from 4 commits ago */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center z-30 pointer-events-none">
-                             <h2 className="text-[10vw] leading-[0.8] font-black tracking-tighter uppercase text-center opacity-50 text-white">
+                             <h2 className="text-[10vw] leading-[0.8] font-black tracking-tighter uppercase text-center opacity-50 text-white mix-blend-overlay">
                                 BEYOND<br />LIMITS
                             </h2>
                         </div>
