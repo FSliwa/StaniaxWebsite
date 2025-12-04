@@ -185,17 +185,13 @@ export function VideoGalleryTransition() {
                     }}
                     className="absolute max-w-none overflow-hidden shadow-2xl group"
                 >
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] relative">
-                        <motion.div 
-                            className="absolute top-1/2 left-0 w-full h-full -translate-y-1/2 overflow-hidden"
-                        >
-                            <motion.video 
-                                src={videoSrc} 
-                                autoPlay muted loop playsInline 
-                                className="w-full h-full object-cover" 
-                            />
-                        </motion.div>
-                    </motion.div>
+                    <div className="w-full h-full relative">
+                        <motion.video 
+                            src={videoSrc} 
+                            autoPlay muted loop playsInline 
+                            className="w-full h-full object-cover" 
+                        />
+                    </div>
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
                     
                     {/* Center CTA */}
