@@ -9,47 +9,90 @@ export function BigFooter() {
     <footer className="bg-black text-white pt-24 pb-12 overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12">
         
-        {/* Top Section */}
+{/* Top Section: Company Info & Stats */}
+        <div className="mb-16 border-b border-white/10 pb-12">
+            <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
+                <div className="max-w-2xl">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">STANIAX – SYSTEMY METALIZACJI PRÓŻNIOWEJ</h2>
+                    <p className="text-xl text-gray-400 mb-6">LAKIEROWANIE TWORZYW, SZKŁA, METALI</p>
+                    <p className="text-lg font-medium text-blue-400 mb-8">SPECJALISTYCZNE POWLEKANIE METALICZNE</p>
+                    
+                    <div className="flex flex-wrap gap-4 mb-8">
+                        <MagneticButton className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-gray-200 transition-colors">
+                            BEZPŁATNA KONSULTACJA
+                        </MagneticButton>
+                        <MagneticButton className="border border-white text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+                            WYCEŃ PROJEKT <ArrowUpRight weight="bold" />
+                        </MagneticButton>
+                    </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-8 lg:gap-12 text-center sm:text-left">
+                    <div>
+                        <span className="block text-4xl font-black text-white mb-1">30+</span>
+                        <span className="text-xs uppercase tracking-widest text-gray-500">Lat Doświadczeń</span>
+                    </div>
+                    <div>
+                        <span className="block text-4xl font-black text-white mb-1">2500+</span>
+                        <span className="text-xs uppercase tracking-widest text-gray-500">Zrealizowanych Projektów</span>
+                    </div>
+                    <div>
+                        <span className="block text-4xl font-black text-white mb-1">24H</span>
+                        <span className="text-xs uppercase tracking-widest text-gray-500">Czas Reakcji</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* Middle Section: Services & Contact */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 text-sm lg:text-base tracking-wider text-gray-400 font-mono">
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 text-sm lg:text-base tracking-wider text-gray-400 font-mono">
             
-            {/* Column 1: Addresses */}
+            {/* Column 1: Services */}
             <div className="space-y-8">
                 <div>
-                    <h4 className="text-white font-bold mb-2">DANE ADRESOWE:</h4>
-                    <div className="space-y-4">
+                    <h4 className="text-white font-bold mb-4 text-lg">OFERTA:</h4>
+                    <ul className="space-y-3">
+                        <li className="hover:text-white transition-colors cursor-pointer">1. METALIZACJA PRÓŻNIOWA</li>
+                        <li className="hover:text-white transition-colors cursor-pointer">2. LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH</li>
+                        <li className="hover:text-white transition-colors cursor-pointer">3. LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI</li>
+                        <li className="hover:text-white transition-colors cursor-pointer">4. ODBLASKI W METALIZACJI</li>
+                        <li className="hover:text-white transition-colors cursor-pointer">5. GALERIA</li>
+                    </ul>
+                </div>
+            </div>
+
+            {/* Column 2: Addresses */}
+            <div className="space-y-8">
+                <div>
+                    <h4 className="text-white font-bold mb-4 text-lg">DANE ADRESOWE:</h4>
+                    <div className="space-y-6">
                         <div>
-                            <p className="text-white font-semibold">SIEDZIBA :</p>
+                            <p className="text-white font-semibold mb-1">SIEDZIBA :</p>
                             <p>POLSKA, WARSZAWA 00-132,</p>
-                            <p>UL. GRZYBOWSKA 5 A <a href="#" className="text-blue-500 hover:text-blue-400 ml-2">(MAPA-NAWIGACJA)</a></p>
+                            <p>UL. GRZYBOWSKA 5 A <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA)</a></p>
                         </div>
                         <div>
-                            <p className="text-white font-semibold">ZAKŁAD USŁUGOWY :</p>
+                            <p className="text-white font-semibold mb-1">ZAKŁAD USŁUGOWY :</p>
                             <p>JÓZEFÓW 05-420,</p>
-                            <p>UL. WYSZYŃSKIEGO 116 A <a href="#" className="text-blue-500 hover:text-blue-400 ml-2">(MAPA-NAWIGACJA)</a></p>
+                            <p>UL. WYSZYŃSKIEGO 116 A <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA)</a></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* Column 2: Contact & Hours */}
+            {/* Column 3: Contact & Hours */}
             <div className="space-y-8">
                 <div>
-                    <h4 className="text-white font-bold mb-2">KONTAKT:</h4>
-                    <p>TEL: <a href="tel:+48882488844" className="hover:text-white transition-colors">( +48 882 488 844 )</a></p>
-                    <p>EMAIL: <a href="mailto:metalizacja@staniax.pl" className="hover:text-white transition-colors">metalizacja@staniax.pl</a></p>
+                    <h4 className="text-white font-bold mb-4 text-lg">KONTAKT:</h4>
+                    <p className="mb-2">TEL: <a href="tel:+48882488844" className="text-white hover:text-blue-400 transition-colors font-semibold">( +48 882 488 844 )</a></p>
+                    <p>EMAIL: <a href="mailto:metalizacja@staniax.pl" className="text-white hover:text-blue-400 transition-colors font-semibold">metalizacja@staniax.pl</a></p>
                 </div>
 
                 <div>
-                    <h4 className="text-white font-bold mb-2">GODZINY OTWARCIA:</h4>
-                    <p>PONIEDZIAŁEK - PIĄTEK: 7.00 - 17.00</p>
+                    <h4 className="text-white font-bold mb-4 text-lg">GODZINY OTWARCIA:</h4>
+                    <p className="mb-1">PONIEDZIAŁEK - PIĄTEK: 7.00 - 17.00</p>
                     <p>SOBOTA, NIEDZIELA: ZAMKNIĘTE</p>
-                </div>
-
-                <div className="pt-4">
-                    <MagneticButton className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 hover:bg-gray-200 transition-colors w-fit">
-                        Napisz do nas <ArrowUpRight weight="bold" />
-                    </MagneticButton>
                 </div>
             </div>
 

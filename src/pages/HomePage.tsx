@@ -2297,34 +2297,56 @@ function HomePage() {
                   />
                 </motion.div>
 
-                {/* Contact Details */}
+{/* Contact Details */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className="space-y-8"
+                  className="space-y-6"
                 >
-                  {/* Address */}
+                  {/* Address 1: Siedziba */}
                   <div className="group">
                     <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
                       <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <MapPin className="w-6 h-6 text-white" weight="bold" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Adres</h3>
-                        <p className="text-xl font-bold text-gray-900 leading-relaxed">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">SIEDZIBA</h3>
+                        <p className="text-lg font-bold text-gray-900 leading-relaxed">
                           ul. Grzybowska 5A<br />
                           00-132 Warszawa
                         </p>
+                        <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
+                          (MAPA-NAWIGACJA)
+                        </a>
                       </div>
                     </div>
                   </div>
 
-                  {/* Phone */}
+                  {/* Address 2: Zakład Usługowy */}
+                  <div className="group">
+                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Factory className="w-6 h-6 text-white" weight="bold" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">ZAKŁAD USŁUGOWY</h3>
+                        <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                          ul. Wyszyńskiego 116A<br />
+                          05-420 Józefów
+                        </p>
+                        <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
+                          (MAPA-NAWIGACJA)
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Phone & Hours */}
                   <div className="group">
                     <a
-                      href="tel:+48123456789"
+                      href="tel:+48882488844"
                       className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
                     >
                       <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -2333,11 +2355,12 @@ function HomePage() {
                       <div className="flex-1 min-w-0">
                         <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Telefon</h3>
                         <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
-                          +48 123 456 789
+                          +48 882 488 844
                         </p>
-                        <p className="text-sm text-gray-600 mt-1">
-                          Pon-Pt: 8:00 - 18:00
-                        </p>
+                        <div className="text-sm text-gray-600 mt-2 space-y-1">
+                          <p><span className="font-semibold">Pon-Pt:</span> 7:00 - 17:00</p>
+                          <p><span className="font-semibold">Sob-Nd:</span> Zamknięte</p>
+                        </div>
                       </div>
                     </a>
                   </div>
@@ -2345,7 +2368,7 @@ function HomePage() {
                   {/* Email */}
                   <div className="group">
                     <a
-                      href="mailto:kontakt@staniax.pl"
+                      href="mailto:metalizacja@staniax.pl"
                       className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
                     >
                       <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -2353,40 +2376,14 @@ function HomePage() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Email</h3>
-                        <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors break-all">
-                          kontakt@staniax.pl
+                        <p className="text-lg font-bold text-gray-900 break-all group-hover:text-blue-700 transition-colors">
+                          metalizacja@staniax.pl
                         </p>
                         <p className="text-sm text-gray-600 mt-1">
-                          Odpowiadamy w ciągu 24h
+                          Odpowiadamy w 24h
                         </p>
                       </div>
                     </a>
-                  </div>
-
-                  {/* Business Hours */}
-                  <div className="group">
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Clock className="w-6 h-6 text-white" weight="bold" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Godziny otwarcia</h3>
-                        <div className="space-y-1 text-gray-900">
-                          <p className="flex justify-between font-semibold">
-                            <span>Poniedziałek - Piątek:</span>
-                            <span className="text-blue-700">8:00 - 18:00</span>
-                          </p>
-                          <p className="flex justify-between font-semibold">
-                            <span>Sobota:</span>
-                            <span className="text-blue-700">8:00 - 14:00</span>
-                          </p>
-                          <p className="flex justify-between font-semibold text-gray-500">
-                            <span>Niedziela:</span>
-                            <span>Zamknięte</span>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </motion.div>
               </div>
