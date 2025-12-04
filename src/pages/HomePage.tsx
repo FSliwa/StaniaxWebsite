@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
+import { TextReveal } from '@/components/ui/TextReveal'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -1577,7 +1578,7 @@ function HomePage() {
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OFERTA</p>
               <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
                 <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
-                  NASZA OFERTA
+                  <TextReveal text="NASZA OFERTA" />
                 </h2>
                 
                 <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
