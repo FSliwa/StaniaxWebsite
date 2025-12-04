@@ -1515,7 +1515,7 @@ function HomePage() {
                 {/* Metryka 1 */}
                 <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                   <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    <CountUp end={30} suffix="+" shouldStart={metricsVisible} />
+                    <CountUp end={15} suffix="+" shouldStart={metricsVisible} />
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
                     LAT DOŚWIADCZENIA
@@ -1525,7 +1525,7 @@ function HomePage() {
                 {/* Metryka 2 */}
                 <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                   <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    <CountUp end={2500} suffix="+" shouldStart={metricsVisible} />
+                    <CountUp end={500} suffix="+" shouldStart={metricsVisible} />
                   </div>
                   <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
                     ZREALIZOWANYCH PROJEKTÓW
@@ -1574,28 +1574,14 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-20 section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OFERTA</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">O NAS</p>
               <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
-                <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
-                  NASZA OFERTA
+                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 tracking-tighter leading-none text-blue-400">
+                  TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
                 </h2>
-                
-                <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
-                    {[
-                        "METALIZACJA PRÓŻNIOWA",
-                        "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH",
-                        "LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI",
-                        "ODBLASKI W METALIZACJI",
-                        "GALERIA"
-                    ].map((item, index) => (
-                        <div key={index} className="flex items-baseline gap-6 group cursor-pointer">
-                            <span className="text-xl font-mono text-blue-500 font-bold">0{index + 1}.</span>
-                            <h3 className="text-2xl md:text-4xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors uppercase">
-                                {item}
-                            </h3>
-                        </div>
-                    ))}
-                </div>
+                <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal mt-6 leading-relaxed">
+                  15 lat doświadczenia w zaawansowanych technologiach metalizacyjnych
+                </p>
               </div>
             </div>
 
