@@ -4,9 +4,9 @@ import { ArrowRight } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 
 // Assets
-import bgImage from '@/assets/airplane-04-1600x900.jpg'
-import fgVideo from '@/assets/liquid-gold-hand.mp4'
-import toroidAnim from '@/assets/toroid-animation.mp4'
+import precisionImg from '@/assets/precision_turbine.webp'
+import technologyImg from '@/assets/technology_robot.webp'
+import innovationImg from '@/assets/innovation_material.webp'
 
 interface CardData {
   id: number
@@ -24,7 +24,7 @@ const cards: CardData[] = [
     title: "PRECYZJA",
     subtitle: "Standardy Lotnicze",
     description: "Nasze powłoki spełniają rygorystyczne normy AS9100. Precyzja na poziomie mikronów to dla nas standard, nie wyzwanie.",
-    media: bgImage,
+    media: precisionImg,
     type: 'image',
     theme: 'dark'
   },
@@ -33,8 +33,8 @@ const cards: CardData[] = [
     title: "TECHNOLOGIA",
     subtitle: "Automatyzacja Przyszłości",
     description: "Wykorzystujemy zaawansowane roboty lakiernicze i systemy PVD, aby zapewnić powtarzalność i doskonałość w każdym detalu.",
-    media: fgVideo,
-    type: 'video',
+    media: technologyImg,
+    type: 'image',
     theme: 'light'
   },
   {
@@ -42,8 +42,8 @@ const cards: CardData[] = [
     title: "INNOWACJA",
     subtitle: "Materiały Nowej Generacji",
     description: "Pionierskie badania nad nanomateriałami pozwalają nam tworzyć powłoki o niespotykanej trwałości i właściwościach.",
-    media: toroidAnim,
-    type: 'video',
+    media: innovationImg,
+    type: 'image',
     theme: 'dark'
   }
 ]
