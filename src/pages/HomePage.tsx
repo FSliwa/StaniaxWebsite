@@ -1505,7 +1505,7 @@ function HomePage() {
 
       {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
       {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
-      <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-b from-green-50 to-white overflow-hidden">
+      <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
             {/* Background Decorations */}
             <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
             <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
