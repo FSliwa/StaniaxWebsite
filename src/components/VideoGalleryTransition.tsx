@@ -52,12 +52,13 @@ export function VideoGalleryTransition() {
   // Hold full width for first 15% of scroll
   const centerWidth = useTransform(scrollYProgress, [0, 0.15, 0.4], ["100vw", "100vw", "100%"])
   
-  // Height Logic:
-  // To prevent "zoom" (cropping), we MUST respect the video's natural aspect ratio (16:9).
-  // We set the height to be proportional to the width (16:9 ratio).
-  // This ensures the video is always full width and natural height.
-  // CRITICAL: Animate to "100%" so it fits the grid cell at the end!
-  const videoHeight = useTransform(scrollYProgress, [0, 0.15, 0.4], ["56.25vw", "56.25vw", "100%"]) 
+  // Height & Position Logic:
+  // Start: 100vh height, Centered vertically (top: 50%, y: -50%)
+  // End: 100% height (of grid cell), Top aligned (top: 0%, y: 0%)
+  const centerHeight = useTransform(scrollYProgress, [0, 0.15, 0.4], ["100vh", "100vh", "100%"])
+  const centerTop = useTransform(scrollYProgress, [0, 0.15, 0.4], ["50%", "50%", "0%"])
+  const centerYCorrection = useTransform(scrollYProgress, [0, 0.15, 0.4], ["-50%", "-50%", "0%"])
+  
   // Animate Border Radius: 0px (Full Screen) -> 32px (Grid Tile)
   const heroRadius = useTransform(scrollYProgress, [0, 0.15, 0.4], ["0px", "0px", "32px"])
   
@@ -86,6 +87,13 @@ export function VideoGalleryTransition() {
   // Combine entrance Y with parallax Y for smooth motion
   const leftTotalY = useTransform(() => leftColY.get() + leftColEnterY.get())
   const rightTotalY = useTransform(() => rightColY.get() + rightColEnterY.get())
+  
+  // Combine vertical centering correction with parallax for the central video
+  const finalY = useTransform(() => {
+    const correction = centerYCorrection.get() // string like "-50%" or "0%"
+    const parallax = centerY.get() // number like 0 or 50
+    return `calc(${correction} + ${parallax}px)`
+  })
   
   // Hero Text Animation (Fade Out)
   // Made it fade out slightly later so "Scroll to explore" is visible longer
@@ -166,13 +174,20 @@ export function VideoGalleryTransition() {
             >
                 {/* Animated Hero Video - Breaks out of grid */}
                 <motion.div
-                    style={{ width: centerWidth, borderRadius: heroRadius, left: '50%', x: xPosition }}
-                    className="absolute top-0 h-full max-w-none overflow-hidden shadow-2xl group"
+                    style={{ 
+                      width: centerWidth, 
+                      height: centerHeight,
+                      borderRadius: heroRadius, 
+                      left: '50%', 
+                      top: centerTop,
+                      x: xPosition,
+                      y: finalY
+                    }}
+                    className="absolute max-w-none overflow-hidden shadow-2xl group"
                 >
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] relative">
                         <motion.div 
-                            style={{ height: videoHeight }}
-                            className="absolute top-1/2 left-0 w-full -translate-y-1/2 overflow-hidden"
+                            className="absolute top-1/2 left-0 w-full h-full -translate-y-1/2 overflow-hidden"
                         >
                             <motion.video 
                                 src={videoSrc} 
