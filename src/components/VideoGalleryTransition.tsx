@@ -137,7 +137,7 @@ export function VideoGalleryTransition() {
 
 
         {/* Bento Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] h-[85vh] px-4 sm:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] mx-auto h-[85vh] px-4 sm:px-10">
             
             {/* Left Column */}
             <motion.div 
@@ -165,8 +165,8 @@ export function VideoGalleryTransition() {
             >
                 {/* Animated Hero Video - Breaks out of grid */}
                 <motion.div
-                    style={{ width: centerWidth, borderRadius: heroRadius }}
-                    className="absolute top-0 left-1/2 -translate-x-1/2 h-full max-w-none overflow-hidden shadow-2xl group"
+                    style={{ width: centerWidth, borderRadius: heroRadius, left: '50%', x: xPosition }}
+                    className="absolute top-0 h-full max-w-none overflow-hidden shadow-2xl group"
                 >
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] relative">
                         <motion.div 
