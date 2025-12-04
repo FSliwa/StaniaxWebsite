@@ -111,25 +111,28 @@ export function VideoGalleryTransition() {
             style={{ opacity: heroOpacity, scale: heroScale }}
             className="absolute inset-0 z-50 pointer-events-none"
         >
-            <div className="w-full h-full flex flex-col items-center justify-end pb-20">
-                <h1 className="text-[15vw] leading-none font-black tracking-tighter text-white">
-                    STANIAX
+            <div className="w-full h-full flex flex-col items-center justify-end pb-20 px-4 text-center">
+                <h1 className="text-[5vw] md:text-[6vw] leading-none font-black tracking-tighter text-white mb-4">
+                    STANIAX – SYSTEMY METALIZACJI PRÓŻNIOWEJ
                 </h1>
                 
-                {/* Dynamic Text Rotator */}
-                <div className="h-8 mt-2 mb-6 overflow-hidden relative min-w-[300px] flex justify-center items-center">
-                    <AnimatePresence mode="wait">
-                        <motion.span
-                            key={langIndex}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -20, opacity: 0 }}
-                            transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="absolute text-xl md:text-2xl font-medium tracking-widest text-white/90 uppercase"
-                        >
-                            {languages[langIndex]}
-                        </motion.span>
-                    </AnimatePresence>
+                <p className="text-xl md:text-2xl font-medium tracking-widest text-white/90 uppercase mb-8">
+                    - LAKIEROWANIE TWORZYW, SZKŁA, METALI
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                    <MagneticButton 
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors"
+                    >
+                        BEZPŁATNA KONSULTACJA
+                    </MagneticButton>
+                    <MagneticButton 
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-transparent border border-white text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
+                    >
+                        WYCEŃ PROJEKT
+                    </MagneticButton>
                 </div>
 
                 <div className="w-full h-[1px] bg-white/30 max-w-[90vw]" />
@@ -155,15 +158,15 @@ export function VideoGalleryTransition() {
             >
                 {/* Top Left */}
                 <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
+                    <div className="w-full h-full relative">
                         <video src={liquidGold} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    </motion.div>
+                    </div>
                 </div>
                 {/* Bottom Left */}
                 <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
+                    <div className="w-full h-full relative">
                         <video src={toroidAnim} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    </motion.div>
+                    </div>
                 </div>
             </motion.div>
 
@@ -213,15 +216,15 @@ export function VideoGalleryTransition() {
             >
                 {/* Top Right */}
                 <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
+                    <div className="w-full h-full relative">
                         <video src={vinylTrans} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    </motion.div>
+                    </div>
                 </div>
                 {/* Bottom Right */}
                 <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
+                    <div className="w-full h-full relative">
                         <video src={galleryVideo} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    </motion.div>
+                    </div>
                 </div>
             </motion.div>
 
