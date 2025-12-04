@@ -6,11 +6,10 @@ import { ArrowUpRight } from '@phosphor-icons/react'
 
 // Import assets
 import videoSrc from '@/assets/Generowanie_Wideo_Dłoni_z_Efektem.mp4'
-import liquidGold from '@/assets/Tworzenie_animacji_wideo_z_grafiki.mp4'
-import toroidAnim from '@/assets/toroid-animation.mp4'
-import vinylTrans from '@/assets/vinyl-transformation.mp4'
-// Using existing videos as placeholders for the 4th element if needed, or reusing one
-import galleryVideo from '@/assets/metallic-transformation-video.mp4' 
+import sideTile1 from '@/assets/side-tile-1.png'
+import sideTile2 from '@/assets/side-tile-2.jpg'
+import sideTile3 from '@/assets/side-tile-3.png'
+import sideTile4 from '@/assets/side-tile-4.png' 
 
 const languages = [
   "Metalizacja próżniowa",
@@ -156,13 +155,13 @@ export function VideoGalleryTransition() {
                 {/* Top Left */}
                 <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
-                        <video src={liquidGold} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <img src={sideTile1} alt="Gallery 1" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
                 {/* Bottom Left */}
                 <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
-                        <video src={toroidAnim} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <img src={sideTile2} alt="Gallery 2" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
             </motion.div>
@@ -214,13 +213,13 @@ export function VideoGalleryTransition() {
                 {/* Top Right */}
                 <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
-                        <video src={vinylTrans} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <img src={sideTile3} alt="Gallery 3" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
                 {/* Bottom Right */}
                 <div className="relative aspect-video rounded-[24px] overflow-hidden shadow-2xl group">
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
-                        <video src={galleryVideo} autoPlay muted loop playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <img src={sideTile4} alt="Gallery 4" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
             </motion.div>

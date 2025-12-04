@@ -56,7 +56,7 @@ export function WhyStaniaxContent() {
   })
 
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-black">
+    <section ref={containerRef} className="relative h-[400vh] bg-white">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         <div className="relative w-full h-full max-w-[1600px] px-4 sm:px-10 py-10 md:py-20">
             {cards.map((card, index) => (
