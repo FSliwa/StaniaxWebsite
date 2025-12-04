@@ -30,15 +30,15 @@ export function BigFooter() {
                 <div className="flex flex-col sm:flex-row gap-8 lg:gap-12 text-center sm:text-left">
                     <div>
                         <span className="block text-4xl font-black text-white mb-1">30+</span>
-                        <span className="text-xs uppercase tracking-widest text-gray-500">Lat Doświadczeń</span>
+                        <span className="text-xs uppercase tracking-widest text-gray-500">LAT DOŚWIADCZEŃ</span>
                     </div>
                     <div>
                         <span className="block text-4xl font-black text-white mb-1">2500+</span>
-                        <span className="text-xs uppercase tracking-widest text-gray-500">Zrealizowanych Projektów</span>
+                        <span className="text-xs uppercase tracking-widest text-gray-500">ZREALIZOWANYCH PROJEKTÓW</span>
                     </div>
                     <div>
                         <span className="block text-4xl font-black text-white mb-1">24H</span>
-                        <span className="text-xs uppercase tracking-widest text-gray-500">Czas Reakcji</span>
+                        <span className="text-xs uppercase tracking-widest text-gray-500">CZAS REAKCJI</span>
                     </div>
                 </div>
             </div>
@@ -70,12 +70,12 @@ export function BigFooter() {
                         <div>
                             <p className="text-white font-semibold mb-1">SIEDZIBA :</p>
                             <p>POLSKA, WARSZAWA 00-132,</p>
-                            <p>UL. GRZYBOWSKA 5 A <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA)</a></p>
+                            <p>UL. GRZYBWOSKA 5 A <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
                         </div>
                         <div>
                             <p className="text-white font-semibold mb-1">ZAKŁAD USŁUGOWY :</p>
                             <p>JÓZEFÓW 05-420,</p>
-                            <p>UL. WYSZYŃSKIEGO 116 A <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA)</a></p>
+                            <p>UL. WYSZYŃSKIEGO 116 A <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
                         </div>
                     </div>
                 </div>
@@ -91,8 +91,8 @@ export function BigFooter() {
 
                 <div>
                     <h4 className="text-white font-bold mb-4 text-lg">GODZINY OTWARCIA:</h4>
-                    <p className="mb-1">PONIEDZIAŁEK - PIĄTEK: 7.00 - 17.00</p>
-                    <p>SOBOTA, NIEDZIELA: ZAMKNIĘTE</p>
+                    <p className="mb-1">PONIEDZIAŁEK- PIĄTEK 7.00. - 17.00</p>
+                    <p>SOBOTA, NIEDZIELA - ZAMKNIĘTE</p>
                 </div>
             </div>
 
