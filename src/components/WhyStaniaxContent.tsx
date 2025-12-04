@@ -117,14 +117,42 @@ export function WhyStaniaxContent() {
             <div className="flex-1 px-4 sm:px-10 pb-10 w-full max-w-[1800px] mx-auto">
                 <div className="relative w-full h-full bg-white rounded-[40px] overflow-hidden shadow-2xl">
                     
-                    {/* LAYER 1: Airplane Image (Background/Revealed) */}
+                    {/* LAYER 1: Video (Background/Revealed) */}
                     <div className="absolute inset-0 w-full h-full">
+                        <video 
+                            src={fgVideo} 
+                            autoPlay 
+                            muted 
+                            loop 
+                            playsInline 
+                            className="w-full h-full object-cover rounded-[40px]"
+                        />
+                        <div className="absolute inset-0 bg-black/20 rounded-[40px]" />
+                        
+                        {/* Text Overlay on Video */}
+                        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
+                             <h2 className="text-[10vw] leading-[0.8] font-black tracking-tighter uppercase text-center opacity-50 text-white mix-blend-overlay">
+                                BEYOND<br />LIMITS
+                            </h2>
+                        </div>
+
+                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/80">
+                            <span className="text-xs uppercase tracking-widest font-medium">Odkryj więcej</span>
+                            <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
+                        </div>
+                    </div>
+
+                    {/* LAYER 2: Image (Foreground/Cover) - Slides UP to reveal Layer 1 */}
+                    <motion.div 
+                        style={{ y: internalRevealY }} 
+                        className="absolute inset-0 w-full h-full z-20 bg-white rounded-[40px] overflow-hidden"
+                    >
                          <img 
                             src={bgImage} 
                             alt="Aerospace Technology" 
-                            className="w-full h-full object-cover rounded-[40px]"
+                            className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-black/10 rounded-[40px]" />
+                        <div className="absolute inset-0 bg-black/10" />
                          <div className="absolute bottom-10 left-10 max-w-md text-white z-10">
                             <h3 className="text-3xl font-bold mb-4">
                                 Precyzja Lotnicza
@@ -132,34 +160,6 @@ export function WhyStaniaxContent() {
                             <p className="text-sm leading-relaxed opacity-90">
                                 Standardy AS9100 w każdym detalu.
                             </p>
-                        </div>
-                    </div>
-
-                    {/* LAYER 2: Video (Foreground/Cover) - Slides UP to reveal Layer 1 */}
-                    <motion.div 
-                        style={{ y: internalRevealY }} 
-                        className="absolute inset-0 w-full h-full z-20 bg-black rounded-[40px] overflow-hidden"
-                    >
-                        <video 
-                            src={fgVideo} 
-                            autoPlay 
-                            muted 
-                            loop 
-                            playsInline 
-                            className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/20" />
-                        
-                        {/* Restored Text Overlay - "BEYOND LIMITS" style from 4 commits ago */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center z-30 pointer-events-none">
-                             <h2 className="text-[10vw] leading-[0.8] font-black tracking-tighter uppercase text-center opacity-50 text-white mix-blend-overlay">
-                                BEYOND<br />LIMITS
-                            </h2>
-                        </div>
-
-                        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 text-white/80">
-                            <span className="text-xs uppercase tracking-widest font-medium">Odkryj więcej</span>
-                            <ArrowRight className="w-4 h-4 rotate-90 animate-bounce" />
                         </div>
                     </motion.div>
 
