@@ -49,16 +49,17 @@ export function VideoGalleryTransition() {
   // Center Video Scale (Starts huge, shrinks to 1)
   // 1. Hero Video Transition: Full Screen -> Grid Center
   // Animate Width from Full Screen (100vw) to Grid Column (100%)
-  const centerWidth = useTransform(scrollYProgress, [0, 0.35], ["100vw", "100%"])
+  // Hold full width for first 15% of scroll
+  const centerWidth = useTransform(scrollYProgress, [0, 0.15, 0.4], ["100vw", "100vw", "100%"])
   
   // Height Logic:
   // To prevent "zoom" (cropping), we MUST respect the video's natural aspect ratio (16:9).
   // We set the height to be proportional to the width (16:9 ratio).
   // This ensures the video is always full width and natural height.
   // CRITICAL: Animate to "100%" so it fits the grid cell at the end!
-  const videoHeight = useTransform(scrollYProgress, [0, 0.35], ["56.25vw", "100%"]) 
+  const videoHeight = useTransform(scrollYProgress, [0, 0.15, 0.4], ["56.25vw", "56.25vw", "100%"]) 
   // Animate Border Radius: 0px (Full Screen) -> 32px (Grid Tile)
-  const heroRadius = useTransform(scrollYProgress, [0, 0.35], ["0px", "32px"])
+  const heroRadius = useTransform(scrollYProgress, [0, 0.15, 0.4], ["0px", "0px", "32px"])
   
   // 2. Assembly Effect & Staggering (Side Columns)
   // Left Column: Enters slightly earlier
