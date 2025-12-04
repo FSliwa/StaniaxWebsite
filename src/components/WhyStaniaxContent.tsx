@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
+import { motion, useScroll, useTransform, MotionValue, useSpring, cubicBezier } from 'framer-motion'
 import { ArrowRight } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 
@@ -55,8 +55,15 @@ export function WhyStaniaxContent() {
     offset: ["start start", "end end"]
   })
 
+  // Smooth spring for scroll progress
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
-    <section ref={containerRef} className="relative h-[400vh] bg-white">
+    <section ref={containerRef} className="relative h-[400vh] bg-white z-20 -mt-[20vh] rounded-t-[40px] shadow-[0_-50px_100px_rgba(0,0,0,0.1)] overflow-hidden">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         <div className="relative w-full h-full max-w-[1600px] px-4 sm:px-10 py-10 md:py-20">
             {cards.map((card, index) => (
@@ -65,7 +72,7 @@ export function WhyStaniaxContent() {
                     card={card} 
                     index={index} 
                     total={cards.length} 
-                    scrollYProgress={scrollYProgress} 
+                    scrollYProgress={smoothProgress} 
                 />
             ))}
         </div>
@@ -84,12 +91,15 @@ function Card({ card, index, total, scrollYProgress }: { card: CardData, index: 
     const start = index * stepSize
     const end = start + stepSize
     
+    const customEase = cubicBezier(0.65, 0, 0.35, 1);
+
     // Entrance (Y position)
     // First card starts at 0. Others start at 100vh and slide up.
     const y = useTransform(
         scrollYProgress,
         [start - 0.1, start], // Start sliding in slightly before its "turn"
-        ["100%", "0%"]
+        ["100%", "0%"],
+        { ease: customEase }
     )
     
     // Scale (Exit effect)
@@ -98,7 +108,8 @@ function Card({ card, index, total, scrollYProgress }: { card: CardData, index: 
     const scale = useTransform(
         scrollYProgress,
         [nextStart - 0.1, nextStart + 0.1], // As next card enters
-        [1, 0.9]
+        [1, 0.9],
+        { ease: customEase }
     )
 
     // Opacity (Darken effect)
@@ -121,10 +132,10 @@ function Card({ card, index, total, scrollYProgress }: { card: CardData, index: 
                 filter: `brightness(${index !== total - 1 ? brightness : 1})`, // Last card doesn't darken
                 zIndex: index 
             }}
-            className="absolute inset-0 w-full h-full p-4 md:p-10 flex items-center justify-center"
+            className="absolute inset-0 w-full h-full p-4 md:p-10 flex items-center justify-center will-change-transform"
         >
             <div className={cn(
-                "relative w-full h-full rounded-[32px] md:rounded-[48px] overflow-hidden shadow-2xl flex flex-col md:flex-row",
+                "relative w-full h-full rounded-[32px] md:rounded-[48px] overflow-hidden shadow-2xl flex flex-col md:flex-row will-change-transform",
                 card.theme === 'dark' ? "bg-zinc-900 text-white" : "bg-white text-black"
             )}>
                 

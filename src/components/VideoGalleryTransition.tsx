@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence, useSpring, cubicBezier } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
@@ -27,6 +27,13 @@ export function VideoGalleryTransition() {
     offset: ["start start", "end end"]
   })
 
+  // Smooth spring for scroll progress to remove jitter and add weight
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const [langIndex, setLangIndex] = useState(0)
 
   useEffect(() => {
@@ -37,51 +44,46 @@ export function VideoGalleryTransition() {
   }, [])
 
   // Animation Transforms
-  
-  // 1. Hero Video Transition: Full Screen -> Grid Center
-  // Center Video Scale (Starts huge, shrinks to 1)
-  // Animation Transforms
-  
-  // 1. Hero Video Transition: Full Screen -> Grid Center
-  // Center Video Scale (Starts huge, shrinks to 1)
-  // 1. Hero Video Transition: Full Screen -> Grid Center
-  // Center Video Scale (Starts huge, shrinks to 1)
+  const customEase = cubicBezier(0.65, 0, 0.35, 1); // Cubic bezier for "buttery" feel
+
   // 1. Hero Video Transition: Full Screen -> Grid Center
   // Animate Width from Full Screen (100vw) to Grid Column (100%)
-  // Hold full width for first 15% of scroll
-  const centerWidth = useTransform(scrollYProgress, [0, 0.15, 0.4], ["100vw", "100vw", "100%"])
+  const centerWidth = useTransform(smoothProgress, [0, 0.15, 0.4], ["100vw", "100vw", "100%"], { ease: customEase })
   
   // Height & Position Logic:
-  // Start: 100vh height, Centered vertically (top: 50%, y: -50%)
-  // End: 100% height (of grid cell), Top aligned (top: 0%, y: 0%)
-  const centerHeight = useTransform(scrollYProgress, [0, 0.15, 0.4], ["100vh", "100vh", "100%"])
-  const centerTop = useTransform(scrollYProgress, [0, 0.15, 0.4], ["50%", "50%", "0%"])
-  const centerYCorrection = useTransform(scrollYProgress, [0, 0.15, 0.4], ["-50%", "-50%", "0%"])
+  const centerHeight = useTransform(smoothProgress, [0, 0.15, 0.4], ["100vh", "100vh", "100%"], { ease: customEase })
+  const centerTop = useTransform(smoothProgress, [0, 0.15, 0.4], ["50%", "50%", "0%"], { ease: customEase })
+  const centerYCorrection = useTransform(smoothProgress, [0, 0.15, 0.4], ["-50%", "-50%", "0%"], { ease: customEase })
   
-  // Animate Border Radius: 0px (Full Screen) -> 32px (Grid Tile)
-  const heroRadius = useTransform(scrollYProgress, [0, 0.15, 0.4], ["0px", "0px", "32px"])
+  // Animate Border Radius: 0px (Full Screen) -> 40px (Grid Tile)
+  const heroRadius = useTransform(smoothProgress, [0, 0.15, 0.4], ["0px", "0px", "40px"], { ease: customEase })
   
   // 2. Assembly Effect & Staggering (Side Columns)
   // Left Column: Enters slightly earlier
-  const leftColOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1])
-  const leftColEnterY = useTransform(scrollYProgress, [0.2, 0.4], [200, 0]) // Slides up more dramatically
+  const leftColOpacity = useTransform(smoothProgress, [0.2, 0.4], [0, 1])
+  // Overshoot effect: slides up past 0 slightly then settles? 
+  // For now, just a smooth slide up with spring physics from smoothProgress
+  const leftColEnterY = useTransform(smoothProgress, [0.2, 0.4], [200, 0], { ease: customEase })
   
-  // Right Column: Enters slightly later
-  const rightColOpacity = useTransform(scrollYProgress, [0.25, 0.45], [0, 1])
-  const rightColEnterY = useTransform(scrollYProgress, [0.25, 0.45], [200, 0]) // Slides up more dramatically
+  // Right Column: Enters slightly later (more stagger)
+  const rightColOpacity = useTransform(smoothProgress, [0.25, 0.5], [0, 1])
+  const rightColEnterY = useTransform(smoothProgress, [0.25, 0.5], [200, 0], { ease: customEase })
 
   // 3. Scaling (Side Columns)
-  // They start smaller and grow to full size
-  const sideColsScale = useTransform(scrollYProgress, [0.2, 0.45], [0.8, 1])
+  // Start smaller (0.9) and grow to 1
+  const sideColsScale = useTransform(smoothProgress, [0.2, 0.45], [0.9, 1], { ease: customEase })
 
   // 4. Inner Parallax (Video inside the tile moves slightly)
-  // We map scroll progress to a larger vertical shift for visibility
-  const innerParallaxY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"])
+  // Parallax for the main video to give it depth inside the container
+  const mainVideoScale = useTransform(smoothProgress, [0, 0.4], [1.1, 1]) // Slight zoom out as it shrinks
+  
+  // Side tiles parallax
+  const innerParallaxY = useTransform(smoothProgress, [0, 1], ["-15%", "15%"])
 
   // Grid Parallax Effects (Existing logic for column movement during scroll)
-  const centerY = useTransform(scrollYProgress, [0, 1], [0, 50])
-  const leftColY = useTransform(scrollYProgress, [0, 1], [-50, 100])
-  const rightColY = useTransform(scrollYProgress, [0, 1], [-100, 50])
+  const centerY = useTransform(smoothProgress, [0, 1], [0, 50])
+  const leftColY = useTransform(smoothProgress, [0, 1], [-50, 100])
+  const rightColY = useTransform(smoothProgress, [0, 1], [-100, 50])
 
   // Combine entrance Y with parallax Y for smooth motion
   const leftTotalY = useTransform(() => leftColY.get() + leftColEnterY.get())
@@ -95,15 +97,15 @@ export function VideoGalleryTransition() {
   })
   
   // Hero Text Animation (Fade Out)
-  // Made it fade out slightly later so "Scroll to explore" is visible longer
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
-  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9])
+  // Fade out faster [0, 0.15]
+  const heroOpacity = useTransform(smoothProgress, [0, 0.15], [1, 0])
+  const heroScale = useTransform(smoothProgress, [0, 0.15], [1, 0.9])
   // Force X centering using a MotionValue to ensure it's not dropped
-  const xPosition = useTransform(scrollYProgress, [0, 1], ["-50%", "-50%"])
+  const xPosition = useTransform(smoothProgress, [0, 1], ["-50%", "-50%"])
 
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-white">
-      <div className="sticky top-0 h-screen w-full flex items-center justify-center">
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         
         {/* Hero Text Overlay (Fades out quickly) */}
         <motion.div 
@@ -150,17 +152,17 @@ export function VideoGalleryTransition() {
             {/* Left Column */}
             <motion.div 
                 style={{ y: leftTotalY, opacity: leftColOpacity, scale: sideColsScale }} 
-                className="flex flex-col gap-4 md:gap-8 h-full justify-end"
+                className="flex flex-col gap-4 md:gap-8 h-full justify-end will-change-transform"
             >
                 {/* Top Left */}
                 <div className="relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
+                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] will-change-transform">
                         <img src={sideTile2} alt="Gallery 1" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
                 {/* Bottom Left */}
                 <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
+                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] will-change-transform">
                         <img src={sideTile1} alt="Gallery 2" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
@@ -169,7 +171,7 @@ export function VideoGalleryTransition() {
             {/* Center Column (Hero) - Grid Slot */}
             <motion.div 
                 style={{ y: centerY }} 
-                className="relative h-full z-40 col-start-1 md:col-start-2 row-start-1 md:row-start-1"
+                className="relative h-full z-40 col-start-1 md:col-start-2 row-start-1 md:row-start-1 will-change-transform"
             >
                 {/* Animated Hero Video - Breaks out of grid */}
                 <motion.div
@@ -182,13 +184,14 @@ export function VideoGalleryTransition() {
                       x: xPosition,
                       y: finalY
                     }}
-                    className="absolute max-w-none overflow-hidden shadow-2xl group"
+                    className="absolute max-w-none overflow-hidden shadow-2xl group will-change-transform"
                 >
                     <div className="w-full h-full relative">
                         <motion.video 
+                            style={{ scale: mainVideoScale }}
                             src={videoSrc} 
                             autoPlay muted loop playsInline 
-                            className="w-full h-full object-cover" 
+                            className="w-full h-full object-cover will-change-transform" 
                         />
                     </div>
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
@@ -208,17 +211,17 @@ export function VideoGalleryTransition() {
             {/* Right Column */}
             <motion.div 
                 style={{ y: rightTotalY, opacity: rightColOpacity, scale: sideColsScale }} 
-                className="flex flex-col gap-4 md:gap-8 h-full justify-start"
+                className="flex flex-col gap-4 md:gap-8 h-full justify-start will-change-transform"
             >
                 {/* Top Right */}
                 <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
+                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] will-change-transform">
                         <img src={sideTile3} alt="Gallery 3" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
                 {/* Bottom Right */}
                 <div className="relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-2xl group">
-                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
+                    <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] will-change-transform">
                         <img src={sideTile4} alt="Gallery 4" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
                 </div>
