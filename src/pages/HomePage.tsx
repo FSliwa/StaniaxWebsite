@@ -1724,14 +1724,7 @@ function HomePage() {
               </div>
 
               {/* CTA - wyśrodkowany - w szarym tle */}
-              <div className="text-center mt-12">
-                <Button
-                  onClick={() => scrollToSection('contact')}
-                  className="bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 px-12 py-5 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
-                >
-                  Skontaktuj się z nami
-                </Button>
-              </div>
+
             </div>
 
             {/* CTA after About section */}
