@@ -1,5 +1,6 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+```javascript
+import { useRef, useState, useEffect } from 'react'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
@@ -12,12 +13,30 @@ import vinylTrans from '@/assets/vinyl-transformation.mp4'
 // Using existing videos as placeholders for the 4th element if needed, or reusing one
 import galleryVideo from '@/assets/metallic-transformation-video.mp4' 
 
+const languages = [
+  "Metalizacja próżniowa",
+  "Vacuum Metallization",
+  "Vakuummetallisierung",
+  "Métallisation sous vide",
+  "Metallizzazione sotto vuoto",
+  "Vacuümmetallisatie"
+]
+
 export function VideoGalleryTransition() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   })
+
+  const [langIndex, setLangIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLangIndex((prev) => (prev + 1) % languages.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   // Animation Transforms
   
@@ -88,7 +107,24 @@ export function VideoGalleryTransition() {
                 <h1 className="text-[15vw] leading-none font-black tracking-tighter text-white">
                     STANIAX
                 </h1>
-                <div className="w-full h-[1px] bg-white/30 mt-4 max-w-[90vw]" />
+                
+                {/* Dynamic Text Rotator */}
+                <div className="h-8 mt-2 mb-6 overflow-hidden relative min-w-[300px] flex justify-center items-center">
+                    <AnimatePresence mode="wait">
+                        <motion.span
+                            key={langIndex}
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -20, opacity: 0 }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            className="absolute text-xl md:text-2xl font-medium tracking-widest text-white/90 uppercase"
+                        >
+                            {languages[langIndex]}
+                        </motion.span>
+                    </AnimatePresence>
+                </div>
+
+                <div className="w-full h-[1px] bg-white/30 max-w-[90vw]" />
             </div>
 
             {/* Scroll to explore - Bottom Right */}
