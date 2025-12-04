@@ -112,7 +112,7 @@ export function BigFooter() {
           
           <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-xs font-mono text-gray-500 uppercase tracking-widest">
             <p>&copy; {currentYear} Staniax. All rights reserved.</p>
-            <p>Designed & Developed by AI</p>
+            <p>Designed & Developed by Filip Śliwa</p>
           </div>
         </div>
 
