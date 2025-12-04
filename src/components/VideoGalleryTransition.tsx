@@ -117,7 +117,7 @@ export function VideoGalleryTransition() {
                 </h1>
                 
                 {/* Dynamic Text Rotator */}
-                <div className="h-8 mt-2 mb-6 overflow-hidden relative min-w-[300px] flex justify-center items-center">
+                <div className="h-12 mt-2 mb-6 overflow-hidden relative w-full flex justify-center items-center px-4">
                     <AnimatePresence mode="wait">
                         <motion.span
                             key={langIndex}
@@ -125,7 +125,7 @@ export function VideoGalleryTransition() {
                             animate={{ y: 0, opacity: 1 }}
                             exit={{ y: -20, opacity: 0 }}
                             transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="absolute text-xl md:text-2xl font-medium tracking-widest text-white/90 uppercase"
+                            className="absolute text-lg sm:text-xl md:text-2xl font-medium tracking-widest text-white/90 uppercase whitespace-nowrap text-center w-full"
                         >
                             {languages[langIndex]}
                         </motion.span>
