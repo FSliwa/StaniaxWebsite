@@ -123,12 +123,16 @@ export function VideoGalleryTransition() {
                 </div>
             </motion.div>
 
-            {/* Center Column (Hero) */}
+            {/* Center Column (Hero) - Grid Slot */}
             <motion.div 
-                style={{ y: centerY, width: centerWidth, borderRadius: heroRadius, x: xPosition }} 
-                className="h-full z-40 origin-center relative left-1/2 max-w-none overflow-hidden"
+                style={{ y: centerY }} 
+                className="relative h-full z-40 col-start-1 md:col-start-2 row-start-1 md:row-start-1"
             >
-                <div className="relative w-full h-full shadow-2xl group">
+                {/* Animated Hero Video - Breaks out of grid */}
+                <motion.div
+                    style={{ width: centerWidth, borderRadius: heroRadius }}
+                    className="absolute top-0 left-1/2 -translate-x-1/2 h-full max-w-none overflow-hidden shadow-2xl group"
+                >
                     <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%] relative">
                         <motion.div 
                             style={{ height: videoHeight }}
@@ -152,7 +156,7 @@ export function VideoGalleryTransition() {
                             Zobacz Więcej <ArrowUpRight className="w-4 h-4" />
                         </MagneticButton>
                     </div>
-                </div>
+                </motion.div>
             </motion.div>
 
             {/* Right Column */}
