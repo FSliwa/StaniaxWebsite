@@ -95,7 +95,7 @@ export function VideoGalleryTransition() {
 
   return (
     <section ref={containerRef} className="relative h-[250vh] bg-white">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center">
         
         {/* Hero Text Overlay (Fades out quickly) */}
         <motion.div 
