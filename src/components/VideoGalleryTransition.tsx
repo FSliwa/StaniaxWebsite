@@ -111,25 +111,32 @@ export function VideoGalleryTransition() {
             style={{ opacity: heroOpacity, scale: heroScale }}
             className="absolute inset-0 z-50 pointer-events-none"
         >
-            <div className="w-full h-full flex flex-col items-center justify-end pb-20">
-                <h1 className="text-[15vw] leading-none font-black tracking-tighter text-white">
-                    STANIAX
+            <div className="w-full h-full flex flex-col items-center justify-end pb-20 px-4 text-center">
+                <h1 className="text-[4vw] md:text-[5vw] leading-none font-black tracking-tighter text-white mb-2">
+                    STANIAX – SYSTEMY METALIZACJI PRÓŻNIOWEJ
                 </h1>
                 
-                {/* Dynamic Text Rotator */}
-                <div className="h-8 mt-2 mb-6 overflow-hidden relative min-w-[300px] flex justify-center items-center">
-                    <AnimatePresence mode="wait">
-                        <motion.span
-                            key={langIndex}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -20, opacity: 0 }}
-                            transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="absolute text-xl md:text-2xl font-medium tracking-widest text-white/90 uppercase"
-                        >
-                            {languages[langIndex]}
-                        </motion.span>
-                    </AnimatePresence>
+                <p className="text-xl md:text-2xl font-medium tracking-widest text-white/90 uppercase mb-4">
+                    - LAKIEROWANIE TWORZYW, SZKŁA, METALI
+                </p>
+
+                <p className="text-lg md:text-xl font-light tracking-wider text-white/80 uppercase mb-8">
+                    SPECJALISTYCZNE POWLEKANIE METALICZNE
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 mb-8 pointer-events-auto">
+                    <MagneticButton 
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors"
+                    >
+                        BEZPŁATNA KONSULTACJA
+                    </MagneticButton>
+                    <MagneticButton 
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="bg-transparent border border-white text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
+                    >
+                        WYCEŃ PROJEKT
+                    </MagneticButton>
                 </div>
 
                 <div className="w-full h-[1px] bg-white/30 max-w-[90vw]" />

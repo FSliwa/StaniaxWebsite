@@ -11,29 +11,48 @@ export function BigFooter() {
         
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
-          <div className="max-w-xl">
-            <h3 className="text-2xl font-bold mb-6">Masz projekt w głowie?</h3>
-            <p className="text-gray-400 text-lg mb-8">
-              Skontaktuj się z nami, aby omówić szczegóły. Pomożemy Ci przejść od pomysłu do gotowego produktu.
-            </p>
-            <MagneticButton className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 hover:bg-gray-200 transition-colors">
-              Napisz do nas <ArrowUpRight weight="bold" />
-            </MagneticButton>
-          </div>
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 text-sm lg:text-base tracking-wider text-gray-400 font-mono">
+            
+            {/* Column 1: Addresses */}
+            <div className="space-y-8">
+                <div>
+                    <h4 className="text-white font-bold mb-2">DANE ADRESOWE:</h4>
+                    <div className="space-y-4">
+                        <div>
+                            <p className="text-white font-semibold">SIEDZIBA :</p>
+                            <p>POLSKA, WARSZAWA 00-132,</p>
+                            <p>UL. GRZYBOWSKA 5 A <a href="#" className="text-blue-500 hover:text-blue-400 ml-2">(MAPA-NAWIGACJA)</a></p>
+                        </div>
+                        <div>
+                            <p className="text-white font-semibold">ZAKŁAD USŁUGOWY :</p>
+                            <p>JÓZEFÓW 05-420,</p>
+                            <p>UL. WYSZYŃSKIEGO 116 A <a href="#" className="text-blue-500 hover:text-blue-400 ml-2">(MAPA-NAWIGACJA)</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-          <div className="grid grid-cols-2 gap-12 md:gap-24 text-sm font-mono tracking-wider text-gray-400">
-            <div className="space-y-4">
-              <p className="text-white font-bold mb-4">Social</p>
-              <a href="#" className="block hover:text-white transition-colors">LinkedIn</a>
-              <a href="#" className="block hover:text-white transition-colors">Instagram</a>
-              <a href="#" className="block hover:text-white transition-colors">Facebook</a>
+            {/* Column 2: Contact & Hours */}
+            <div className="space-y-8">
+                <div>
+                    <h4 className="text-white font-bold mb-2">KONTAKT:</h4>
+                    <p>TEL: <a href="tel:+48882488844" className="hover:text-white transition-colors">( +48 882 488 844 )</a></p>
+                    <p>EMAIL: <a href="mailto:metalizacja@staniax.pl" className="hover:text-white transition-colors">metalizacja@staniax.pl</a></p>
+                </div>
+
+                <div>
+                    <h4 className="text-white font-bold mb-2">GODZINY OTWARCIA:</h4>
+                    <p>PONIEDZIAŁEK - PIĄTEK: 7.00 - 17.00</p>
+                    <p>SOBOTA, NIEDZIELA: ZAMKNIĘTE</p>
+                </div>
+
+                <div className="pt-4">
+                    <MagneticButton className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 hover:bg-gray-200 transition-colors w-fit">
+                        Napisz do nas <ArrowUpRight weight="bold" />
+                    </MagneticButton>
+                </div>
             </div>
-            <div className="space-y-4">
-              <p className="text-white font-bold mb-4">Legal</p>
-              <a href="#" className="block hover:text-white transition-colors">Polityka Prywatności</a>
-              <a href="#" className="block hover:text-white transition-colors">Regulamin</a>
-              <a href="#" className="block hover:text-white transition-colors">Cookies</a>
-            </div>
+
           </div>
         </div>
 
