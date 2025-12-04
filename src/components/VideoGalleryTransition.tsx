@@ -1,4 +1,3 @@
-```javascript
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
