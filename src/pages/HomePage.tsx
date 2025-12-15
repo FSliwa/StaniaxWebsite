@@ -1355,7 +1355,7 @@ function HomePage() {
               >
                 STANIAX
               </span>
-              <div className="h-6 overflow-hidden relative w-full flex items-center">
+              <div className="h-6 overflow-hidden relative w-full flex items-center min-w-[220px]">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={langIndex}
