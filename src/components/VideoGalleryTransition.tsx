@@ -110,39 +110,6 @@ export function VideoGalleryTransition() {
                 </motion.div>
 
 
-                {/* Animated Hero Video - Breaks out of grid - MOVED OUTSIDE GRID */}
-                <motion.div
-                    style={{
-                        width: centerWidth,
-                        height: centerHeight,
-                        borderRadius: heroRadius,
-                        left: '50%',
-                        top: centerTop,
-                        x: xPosition,
-                        y: finalY,
-                        zIndex: 40
-                    }}
-                    className="absolute max-w-none overflow-hidden shadow-2xl group"
-                >
-                    <div className="w-full h-full relative">
-                        <motion.video
-                            src={videoSrc}
-                            autoPlay muted loop playsInline
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
-
-                    {/* Center CTA */}
-                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <MagneticButton
-                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold flex items-center gap-2"
-                        >
-                            Zobacz Więcej <ArrowUpRight className="w-4 h-4" />
-                        </MagneticButton>
-                    </div>
-                </motion.div>
 
                 {/* Bento Grid Container */}
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] gap-4 md:gap-8 w-full max-w-[1600px] mx-auto h-[85vh] px-4 sm:px-10">
@@ -166,11 +133,43 @@ export function VideoGalleryTransition() {
                         </div>
                     </motion.div>
 
-                    {/* Center Column (Hero) - Grid Slot - EMPTY NOW as video is absolute */}
+                    {/* Center Column (Hero) - Grid Slot */}
                     <motion.div
                         style={{ y: centerY }}
-                        className="relative h-full z-40 col-start-1 md:col-start-2 row-start-1 md:row-start-1 pointer-events-none"
+                        className="relative h-full z-40 col-start-1 md:col-start-2 row-start-1 md:row-start-1"
                     >
+                        {/* Animated Hero Video - Breaks out of grid */}
+                        <motion.div
+                            style={{
+                                width: centerWidth,
+                                height: centerHeight,
+                                borderRadius: heroRadius,
+                                left: '50%',
+                                top: centerTop,
+                                x: xPosition,
+                                y: finalY
+                            }}
+                            className="absolute max-w-none overflow-hidden shadow-2xl group"
+                        >
+                            <div className="w-full h-full relative">
+                                <motion.video
+                                    src={videoSrc}
+                                    autoPlay muted loop playsInline
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
+
+                            {/* Center CTA */}
+                            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <MagneticButton
+                                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                    className="bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold flex items-center gap-2"
+                                >
+                                    Zobacz Więcej <ArrowUpRight className="w-4 h-4" />
+                                </MagneticButton>
+                            </div>
+                        </motion.div>
                     </motion.div>
 
                     {/* Right Column */}
