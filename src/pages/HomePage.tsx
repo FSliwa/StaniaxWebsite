@@ -180,50 +180,50 @@ const projectsData: ProjectItem[] = [
     category: 'Motoryzacja',
     year: '2024'
   },
-  { 
+  {
     id: 'aerospace',
-    title: 'Części Lotnicze', 
-    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+    title: 'Części Lotnicze',
+    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: projectImgAerospace,
     description: 'Precyzyjne powłoki dla krytycznych komponentów lotniczych',
     details: 'Metalizacja elementów silników odrzutowych, struktur nośnych i systemów hydraulicznych zgodnie z normami aerospace.',
     category: 'Lotnictwo',
     year: '2024'
   },
-  { 
-    id: 'precision-tools', 
-    title: 'Narzędzia Precyzyjne', 
-    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+  {
+    id: 'precision-tools',
+    title: 'Narzędzia Precyzyjne',
+    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: projectImgAutomotive,
     description: 'Powłoki zwiększające trwałość narzędzi precyzyjnych',
     details: 'Specjalne powłoki twardościowe dla narzędzi skrawających, matryc i form wtryskowych. Zwiększenie żywotności o 300%.',
     category: 'Narzędzia',
     year: '2024'
   },
-  { 
-    id: 'industrial', 
-    title: 'Urządzenia Przemysłowe', 
-    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+  {
+    id: 'industrial',
+    title: 'Urządzenia Przemysłowe',
+    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: projectImgIndustrial,
     description: 'Ochrona przed korozją dla maszyn przemysłowych',
     details: 'Kompleksowa metalizacja linii produkcyjnych, robotów przemysłowych i urządzeń technologicznych.',
     category: 'Przemysł',
     year: '2024'
   },
-  { 
-    id: 'production-tools', 
-    title: 'Narzędzia Produkcyjne', 
-    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+  {
+    id: 'production-tools',
+    title: 'Narzędzia Produkcyjne',
+    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: serviceImg2,
     description: 'Powłoki funkcjonalne dla narzędzi produkcyjnych',
     details: 'Metalizacja narzędzi do obróbki plastycznej, urządzeń formujących i elementów automatyki przemysłowej.',
     category: 'Produkcja',
     year: '2024'
   },
-  { 
-    id: 'prototypes', 
-    title: 'Projekty Prototypów', 
-    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />, 
+  {
+    id: 'prototypes',
+    title: 'Projekty Prototypów',
+    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: projectImgPrototype,
     description: 'Szybkie prototypowanie z zaawansowanymi powłokami',
     details: 'Ekspresowa metalizacja prototypów dla R&D, testowanie nowych rozwiązań powłokowych i weryfikacja parametrów.',
@@ -562,17 +562,17 @@ function CountUp({ end, duration = 2000, suffix = '', shouldStart }: CountUpProp
 
   useEffect(() => {
     if (!shouldStart || hasStarted) return
-    
+
     setHasStarted(true)
     let startTime: number
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime
       const progress = Math.min((currentTime - startTime) / duration, 1)
-      
+
       // Easing function (easeOutCubic)
       const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.floor(eased * end))
-      
+
       if (progress < 1) {
         requestAnimationFrame(animate)
       }
@@ -610,7 +610,7 @@ function HomePage() {
   const prefersReducedMotion = useReducedMotion() ?? false
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const servicesSectionRef = useRef<HTMLDivElement | null>(null)
-  
+
   const [langIndex, setLangIndex] = useState(0)
 
   useEffect(() => {
@@ -619,50 +619,50 @@ function HomePage() {
     }, 3000)
     return () => clearInterval(interval)
   }, [])
-  
+
   // NEW: Animation states
   const [scrollProgress, setScrollProgress] = useState(0)
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [isDesktop, setIsDesktop] = useState(false)
   const metricsRef = useRef<HTMLDivElement | null>(null)
   const [metricsVisible, setMetricsVisible] = useState(false)
-  
+
   // Vibor.it Style: Wavy Line
   const [wavyLineVisible, setWavyLineVisible] = useState(false)
   const [wavyLinePath, setWavyLinePath] = useState('')
   const wavyLineContainerRef = useRef<HTMLDivElement | null>(null)
-  
+
   // CASE STUDIES CAROUSEL STATE
   const [activeSlide, setActiveSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [beforeAfterSlider, setBeforeAfterSlider] = useState(50) // percentage for before/after slider
-  
+
   // HERO VIDEO CAROUSEL STATE
   const [activeHeroVideo, setActiveHeroVideo] = useState(0)
   const heroVideos = useMemo(() => [liquidGoldHandVideo, toroidAnimationVideo, liquidMetalVideo, vinylTransformationVideo], [])
   const heroVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
-  
+
   // MOBILE FLOATING CTA STATE
   const [showFloatingCTA, setShowFloatingCTA] = useState(false)
-  
+
   // SCROLL TO TOP BUTTON STATE
   const [showScrollTop, setShowScrollTop] = useState(false)
-  
+
   // FAQ ACCORDION STATE
   const [expandedFAQs, setExpandedFAQs] = useState<Set<string>>(new Set())
-  
+
   // CHAT SUPPORT BUBBLE STATE
   const [isChatOpen, setIsChatOpen] = useState(false)
-  
+
   // MICRO-INTERACTIONS STATE
-  const [cursorTrail, setCursorTrail] = useState<Array<{x: number, y: number, id: number}>>([])
-  
+  const [cursorTrail, setCursorTrail] = useState<Array<{ x: number, y: number, id: number }>>([])
+
   // TECH SPECS TABLE STATE
   const [selectedFilter, setSelectedFilter] = useState<string>('all')
   const [compareMode, setCompareMode] = useState(false)
   const [selectedForCompare, setSelectedForCompare] = useState<string[]>([])
   const [expandedRow, setExpandedRow] = useState<string | null>(null)
-  
+
   // SMART CONTACT FORM STATE
   const [formStep, setFormStep] = useState(1)
   const [smartFormData, setSmartFormData] = useState({
@@ -675,11 +675,11 @@ function HomePage() {
     message: '',
     file: null as File | null
   })
-  
+
   // STICKY SIDE NAVIGATION STATE
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
   const sectionIds = ['top', 'metrics', 'services', 'custom-section', 'about', 'projects', 'contact']
-  
+
   const { scrollYProgress: aboutScrollProgress } = useScroll({
     target: aboutMosaicRef,
     offset: ['start 90%', 'end 15%']
@@ -693,14 +693,14 @@ function HomePage() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
       setScrollY(currentScrollY)
-      
+
       // Calculate scroll progress for progress bar
       const windowHeight = window.innerHeight
       const documentHeight = document.documentElement.scrollHeight
       const scrollableDistance = documentHeight - windowHeight
       const progress = (currentScrollY / scrollableDistance) * 100
       setScrollProgress(progress)
-      
+
       // Show floating CTA on mobile after scrolling past hero section
       const heroSection = document.getElementById('top')
       if (heroSection && window.innerWidth < 640) { // sm breakpoint
@@ -709,10 +709,10 @@ function HomePage() {
       } else {
         setShowFloatingCTA(false)
       }
-      
+
       // Show scroll-to-top button after scrolling 300px
       setShowScrollTop(currentScrollY > 300)
-      
+
       // Wavy Line Visibility (shows from metrics section onwards)
       const metricsSection = document.getElementById('metrics')
       if (metricsSection) {
@@ -720,7 +720,7 @@ function HomePage() {
         setWavyLineVisible(metricsSectionTop <= windowHeight * 0.5)
       }
     }
-    
+
     handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -740,22 +740,22 @@ function HomePage() {
   // Custom cursor effect (desktop only)
   useEffect(() => {
     if (typeof window === 'undefined') return
-    
+
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024)
     checkDesktop()
     window.addEventListener('resize', checkDesktop)
-    
+
     if (!isDesktop || prefersReducedMotion) {
       window.removeEventListener('resize', checkDesktop)
       return
     }
-    
+
     const handleMouseMove = (e: MouseEvent) => {
       setCursorPosition({ x: e.clientX, y: e.clientY })
     }
-    
+
     window.addEventListener('mousemove', handleMouseMove)
-    
+
     return () => {
       window.removeEventListener('resize', checkDesktop)
       window.removeEventListener('mousemove', handleMouseMove)
@@ -765,9 +765,9 @@ function HomePage() {
   // Cursor Trail Effect (Vibor.it micro-interaction)
   useEffect(() => {
     if (!isDesktop || prefersReducedMotion) return
-    
+
     let trailId = 0
-    
+
     const handleMouseMove = (e: MouseEvent) => {
       setCursorTrail((prev) => {
         const newTrail = [...prev, { x: e.clientX, y: e.clientY, id: trailId++ }]
@@ -775,9 +775,9 @@ function HomePage() {
         return newTrail.slice(-8)
       })
     }
-    
+
     window.addEventListener('mousemove', handleMouseMove)
-    
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
     }
@@ -786,11 +786,11 @@ function HomePage() {
   // Auto-play carousel for case studies
   useEffect(() => {
     if (!isAutoPlaying) return
-    
+
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
     }, 5000) // Change slide every 5 seconds
-    
+
     return () => clearInterval(interval)
   }, [isAutoPlaying])
 
@@ -799,7 +799,7 @@ function HomePage() {
     const interval = setInterval(() => {
       setActiveHeroVideo((prev) => (prev + 1) % heroVideos.length)
     }, 7000) // Change video every 7 seconds
-    
+
     return () => clearInterval(interval)
   }, [heroVideos.length])
 
@@ -821,7 +821,7 @@ function HomePage() {
       threshold: 0.4,
       rootMargin: '-20% 0px -20% 0px'
     }
-    
+
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -832,14 +832,14 @@ function HomePage() {
         }
       })
     }
-    
+
     const observer = new IntersectionObserver(observerCallback, observerOptions)
-    
+
     sectionIds.forEach((id) => {
       const element = document.getElementById(id)
       if (element) observer.observe(element)
     })
-    
+
     return () => observer.disconnect()
   }, [])
 
@@ -872,31 +872,31 @@ function HomePage() {
   // Wavy Line Path Generation
   useEffect(() => {
     if (!wavyLineContainerRef.current || prefersReducedMotion) return
-    
+
     const generateWavyPath = () => {
       const container = wavyLineContainerRef.current
       if (!container) return ''
-      
+
       const height = container.offsetHeight
       const amplitude = 15 // Wave amplitude
       const frequency = 0.01 // Wave frequency
-      
+
       let path = 'M 0 0'
       for (let y = 0; y <= height; y += 5) {
         const x = Math.sin(y * frequency) * amplitude
         path += ` L ${x} ${y}`
       }
-      
+
       return path
     }
-    
+
     const updatePath = () => {
       setWavyLinePath(generateWavyPath())
     }
-    
+
     updatePath()
     window.addEventListener('resize', updatePath)
-    
+
     return () => window.removeEventListener('resize', updatePath)
   }, [prefersReducedMotion])
 
@@ -954,10 +954,10 @@ function HomePage() {
       }
     } else {
       setSplineStatus('loading')
-  script = document.createElement('script')
+      script = document.createElement('script')
       script.id = scriptId
       script.type = 'module'
-  script.src = 'https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js'
+      script.src = 'https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js'
       script.addEventListener('load', handleScriptLoad)
       script.addEventListener('error', handleScriptError)
       document.head.appendChild(script)
@@ -987,32 +987,32 @@ function HomePage() {
     let ctx: gsap.Context | undefined
     let isMounted = true
 
-    ;(async () => {
-      const [{ gsap: gsapInstance }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
-      if (!isMounted) return
+      ; (async () => {
+        const [{ gsap: gsapInstance }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
+        if (!isMounted) return
 
-      gsapInstance.registerPlugin(ScrollTrigger)
+        gsapInstance.registerPlugin(ScrollTrigger)
 
-      ctx = gsapInstance.context(() => {
-        const cards = projectCardsRef.current.filter((card): card is HTMLDivElement => Boolean(card))
-        if (!cards.length) return
+        ctx = gsapInstance.context(() => {
+          const cards = projectCardsRef.current.filter((card): card is HTMLDivElement => Boolean(card))
+          if (!cards.length) return
 
-        gsapInstance.set(cards, { opacity: 0, y: 16, scale: 0.96 })
-        gsapInstance.to(cards, {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.85,
-          ease: 'power3.out',
-          stagger: 0.12,
-          scrollTrigger: {
-            trigger: projectsSectionRef.current,
-            start: 'top 75%',
-            once: true
-          }
-        })
-      }, projectsSectionRef)
-    })()
+          gsapInstance.set(cards, { opacity: 0, y: 16, scale: 0.96 })
+          gsapInstance.to(cards, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.85,
+            ease: 'power3.out',
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: projectsSectionRef.current,
+              start: 'top 75%',
+              once: true
+            }
+          })
+        }, projectsSectionRef)
+      })()
 
     return () => {
       isMounted = false
@@ -1092,12 +1092,12 @@ function HomePage() {
     const handleMouseMove = (e: MouseEvent) => {
       // Generuj kilka iskier jednocześnie dla efektu spawania
       const sparkCount = Math.floor(Math.random() * 3) + 1
-      
+
       for (let i = 0; i < sparkCount; i++) {
         if (Math.random() > 0.7) continue // Ogranicza gęstość
 
         const sparkle = document.createElement('div')
-        
+
         // Losowy kolor iskry
         const colors = ['sparkle-white', 'sparkle-yellow', 'sparkle-orange']
         const colorClass = colors[Math.floor(Math.random() * colors.length)]
@@ -1174,7 +1174,7 @@ function HomePage() {
   const triggerConfetti = () => {
     const colors = ['#1d4ed8', '#3b82f6', '#60a5fa', '#93c5fd']
     const confettiCount = 50
-    
+
     for (let i = 0; i < confettiCount; i++) {
       const confetti = document.createElement('div')
       confetti.className = 'confetti'
@@ -1183,7 +1183,7 @@ function HomePage() {
       confetti.style.animationDelay = Math.random() * 0.5 + 's'
       confetti.style.animationDuration = 2 + Math.random() * 2 + 's'
       document.body.appendChild(confetti)
-      
+
       setTimeout(() => confetti.remove(), 4000)
     }
   }
@@ -1213,40 +1213,40 @@ function HomePage() {
   // Hero effects
   const heroScaleValue = Math.min(1.05 + scrollY * 0.0006, 1.25)
   const heroParallaxY = scrollY * 0.3 // Subtle parallax movement
-  
+
   // Mouse follow effect for hero title  
   const [heroMousePosition, setHeroMousePosition] = useState({ x: 0, y: 0 })
-  
+
   useEffect(() => {
     const heroSection = document.getElementById('top')
     if (!heroSection) return
-    
+
     const handleMouseMove = (e: MouseEvent) => {
       const rect = heroSection.getBoundingClientRect()
       const x = (e.clientX - rect.left - rect.width / 2) / rect.width
       const y = (e.clientY - rect.top - rect.height / 2) / rect.height
       setHeroMousePosition({ x: x * 20, y: y * 20 })
     }
-    
+
     heroSection.addEventListener('mousemove', handleMouseMove)
     return () => heroSection.removeEventListener('mousemove', handleMouseMove)
   }, [])
-  
+
   const newsScaleValue = useMemo(() => {
     if (!newsAnimationRef.current) return 1
-    
+
     const rect = newsAnimationRef.current.getBoundingClientRect()
     const elementTop = scrollY + rect.top
     const viewportHeight = window.innerHeight
-    
+
     // Rozpocznij skalowanie gdy sekcja wchodzi w viewport
     const scrollStart = elementTop - viewportHeight
     const scrollProgress = Math.max(0, scrollY - scrollStart)
-    
+
     return Math.min(1.0 + scrollProgress * 0.0003, 1.15)
   }, [scrollY])
   const isDarkHeaderContext = headerTheme === 'dark'
-  
+
   // Menu classes - White text on dark background for better visibility
   const menuBackgroundClass = 'bg-slate-950/95 text-white'
   const menuMutedClass = 'text-white/70'
@@ -1267,255 +1267,254 @@ function HomePage() {
 
   return (
     <SmoothScroll>
-    <main className="min-h-screen bg-white selection:bg-blue-500/30">
-      {/* Scroll Progress Bar */}
-      <div 
-        className="scroll-progress" 
-        style={{ width: `${scrollProgress}%` }}
-        aria-hidden="true"
-      />
+      <main className="min-h-screen bg-white selection:bg-blue-500/30">
+        {/* Scroll Progress Bar */}
+        <div
+          className="scroll-progress"
+          style={{ width: `${scrollProgress}%` }}
+          aria-hidden="true"
+        />
 
-      {/* STICKY SIDE NAVIGATION REMOVED */}
+        {/* STICKY SIDE NAVIGATION REMOVED */}
 
-      {/* Custom Cursor (Desktop only) */}
-      {isDesktop && !prefersReducedMotion && (
-        <>
-          <div 
-            className="cursor-dot" 
-            style={{ 
-              left: `${cursorPosition.x}px`, 
-              top: `${cursorPosition.y}px`,
-              transform: 'translate(-50%, -50%)'
-            }}
-            aria-hidden="true"
-          />
-          <div 
-            className="cursor-outline" 
-            style={{ 
-              left: `${cursorPosition.x}px`, 
-              top: `${cursorPosition.y}px`,
-              transform: 'translate(-50%, -50%)'
-            }}
-            aria-hidden="true"
-          />
-          
-          {/* Cursor Trail - Vibor.it micro-interaction */}
-          {cursorTrail.map((pos, index) => (
+        {/* Custom Cursor (Desktop only) */}
+        {isDesktop && !prefersReducedMotion && (
+          <>
             <div
-              key={pos.id}
-              className="cursor-trail"
+              className="cursor-dot"
               style={{
-                left: `${pos.x}px`,
-                top: `${pos.y}px`,
-                opacity: (index + 1) / cursorTrail.length * 0.6,
-                transform: `translate(-50%, -50%) scale(${(index + 1) / cursorTrail.length})`,
+                left: `${cursorPosition.x}px`,
+                top: `${cursorPosition.y}px`,
+                transform: 'translate(-50%, -50%)'
               }}
               aria-hidden="true"
             />
-          ))}
-        </>
-      )}
+            <div
+              className="cursor-outline"
+              style={{
+                left: `${cursorPosition.x}px`,
+                top: `${cursorPosition.y}px`,
+                transform: 'translate(-50%, -50%)'
+              }}
+              aria-hidden="true"
+            />
 
-      <Toaster position="top-right" richColors />
-
-      <header
-        className={cn(
-          'fixed top-0 w-full transition-all duration-500',
-          isMenuOpen ? 'z-[100]' : 'z-50',
-          scrollY > 32
-            ? 'bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
-            : 'bg-transparent border-transparent'
+            {/* Cursor Trail - Vibor.it micro-interaction */}
+            {cursorTrail.map((pos, index) => (
+              <div
+                key={pos.id}
+                className="cursor-trail"
+                style={{
+                  left: `${pos.x}px`,
+                  top: `${pos.y}px`,
+                  opacity: (index + 1) / cursorTrail.length * 0.6,
+                  transform: `translate(-50%, -50%) scale(${(index + 1) / cursorTrail.length})`,
+                }}
+                aria-hidden="true"
+              />
+            ))}
+          </>
         )}
-      >
-        <div
+
+        <Toaster position="top-right" richColors />
+
+        <header
           className={cn(
-            'w-full flex items-center justify-between py-4 sm:py-5 transition-colors duration-300',
-            'px-6 lg:px-24 xl:px-36',
-            isMenuOpen 
-              ? 'text-foreground' 
-              : isDarkHeaderContext 
-                ? 'text-white' 
-                : 'text-foreground'
+            'fixed top-0 w-full transition-all duration-500',
+            isMenuOpen ? 'z-[100]' : 'z-50',
+            scrollY > 32
+              ? 'bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
+              : 'bg-transparent border-transparent'
           )}
         >
-          <button
-            onClick={() => scrollToSection('top')}
-            className="group flex flex-col items-start text-left"
-            aria-label="Przewiń na górę"
+          <div
+            className={cn(
+              'w-full flex items-center justify-between py-4 sm:py-5 transition-colors duration-300',
+              'px-6 lg:px-24 xl:px-36',
+              isMenuOpen
+                ? 'text-foreground'
+                : isDarkHeaderContext
+                  ? 'text-white'
+                  : 'text-foreground'
+            )}
           >
-            <span
-              className={cn(
-                'block text-2xl sm:text-3xl font-black tracking-tighter transition-colors duration-300',
-                isMenuOpen 
-                  ? 'text-foreground' 
-                  : isDarkHeaderContext 
-                    ? 'text-white' 
-                    : 'text-foreground'
-              )}
-            >
-              STANIAX
-            </span>
-            <div className="h-6 overflow-hidden relative w-full flex items-center">
-                <AnimatePresence mode="wait">
-                    <motion.span
-                        key={langIndex}
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -20, opacity: 0 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                        className={cn(
-                            "absolute text-[10px] sm:text-xs font-medium tracking-widest uppercase whitespace-nowrap",
-                             isMenuOpen 
-                                ? 'text-muted-foreground' 
-                                : isDarkHeaderContext 
-                                  ? 'text-white/70' 
-                                  : 'text-muted-foreground'
-                        )}
-                    >
-                        {languages[langIndex]}
-                    </motion.span>
-                </AnimatePresence>
-            </div>
-          </button>
-          <div className="flex items-center gap-5">
-            <Button
-              onClick={() => scrollToSection('contact')}
-              className={cn(
-                'hidden sm:inline-flex border bg-transparent transition-all duration-300',
-                isMenuOpen
-                  ? 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
-                  : isDarkHeaderContext
-                    ? 'border-white/40 text-white hover:bg-white hover:text-foreground'
-                    : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
-              )}
-            >
-              Wyceń Projekt
-            </Button>
             <button
-              className={cn(
-                'relative h-10 w-10 sm:h-12 sm:w-12 rounded-full border backdrop-blur-md flex items-center justify-center transition-all duration-300',
-                isMenuOpen
-                  ? 'border-foreground/30 bg-background text-foreground'
-                  : isDarkHeaderContext
-                    ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
-                    : 'border-foreground/20 bg-background/70 text-foreground hover:border-foreground/40'
-              )}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Przełącz nawigację"
-              aria-expanded={isMenuOpen}
+              onClick={() => scrollToSection('top')}
+              className="group flex flex-col items-start text-left"
+              aria-label="Przewiń na górę"
             >
               <span
                 className={cn(
-                  'absolute h-0.5 w-5 sm:w-6 rounded-full bg-current transition-all duration-300',
-                  isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-1.5'
+                  'block text-2xl sm:text-3xl font-black tracking-tighter transition-colors duration-300',
+                  isMenuOpen
+                    ? 'text-foreground'
+                    : isDarkHeaderContext
+                      ? 'text-white'
+                      : 'text-foreground'
                 )}
-              />
-              <span
-                className={cn(
-                  'absolute h-0.5 w-3 sm:w-4 rounded-full bg-current transition-all duration-300',
-                  isMenuOpen ? 'w-5 sm:w-6 translate-y-0 -rotate-45' : 'translate-y-1.5'
-                )}
-              />
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Backdrop - OUTSIDE header */}
-      <div
-        className={cn(
-          'fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300',
-          isMenuOpen ? 'pointer-events-auto opacity-100 z-[110]' : 'pointer-events-none opacity-0 z-[-1]'
-        )}
-        onClick={() => setIsMenuOpen(false)}
-        aria-hidden={!isMenuOpen}
-      />
-      
-      {/* Side Menu - Slide-in from Right - OUTSIDE header */}
-      <div
-        className={cn(
-          'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[120] overflow-y-auto',
-          menuBackgroundClass,
-          'backdrop-blur-2xl border-l border-white/10',
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        )}
-        aria-hidden={!isMenuOpen}
-      >
-        <div className="flex h-full flex-col justify-between px-6 py-8">
-          <div className="flex items-start justify-between gap-6">
-            <div>
-              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
-            </div>
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              className="text-white/70 hover:text-white transition-colors"
-              aria-label="Zamknij menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          <div className="flex flex-col gap-8">
-            <nav className="space-y-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item)}
-                  className={cn(
-                    'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
-                    menuPrimaryTextClass
-                  )}
-                >
-                  <span className="text-lg font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
-                    {item.label}
-                  </span>
-                  <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </button>
-              ))}
-            </nav>
-            
-            <div className="pt-6 border-t border-white/10">
-              <Button
-                onClick={() => {
-                  scrollToSection('contact')
-                  setIsMenuOpen(false)
-                }}
-                className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
               >
-                Porozmawiajmy
-                <ArrowUpRight className="ml-2 h-4 w-4" />
+                STANIAX
+              </span>
+              <div className="h-6 overflow-hidden relative w-full flex items-center">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={langIndex}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className={cn(
+                      "absolute text-[10px] sm:text-xs font-medium tracking-widest uppercase whitespace-nowrap",
+                      isMenuOpen
+                        ? 'text-muted-foreground'
+                        : isDarkHeaderContext
+                          ? 'text-white/70'
+                          : 'text-muted-foreground'
+                    )}
+                  >
+                    {languages[langIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+            </button>
+            <div className="flex items-center gap-5">
+              <Button
+                onClick={() => scrollToSection('contact')}
+                className={cn(
+                  'hidden sm:inline-flex border bg-transparent transition-all duration-300',
+                  isMenuOpen
+                    ? 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
+                    : isDarkHeaderContext
+                      ? 'border-white/40 text-white hover:bg-white hover:text-foreground'
+                      : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
+                )}
+              >
+                Wyceń Projekt
               </Button>
+              <button
+                className={cn(
+                  'relative h-10 w-10 sm:h-12 sm:w-12 rounded-full border backdrop-blur-md flex items-center justify-center transition-all duration-300',
+                  isMenuOpen
+                    ? 'border-foreground/30 bg-background text-foreground'
+                    : isDarkHeaderContext
+                      ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
+                      : 'border-foreground/20 bg-background/70 text-foreground hover:border-foreground/40'
+                )}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Przełącz nawigację"
+                aria-expanded={isMenuOpen}
+              >
+                <span
+                  className={cn(
+                    'absolute h-0.5 w-5 sm:w-6 rounded-full bg-current transition-all duration-300',
+                    isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-1.5'
+                  )}
+                />
+                <span
+                  className={cn(
+                    'absolute h-0.5 w-3 sm:w-4 rounded-full bg-current transition-all duration-300',
+                    isMenuOpen ? 'w-5 sm:w-6 translate-y-0 -rotate-45' : 'translate-y-1.5'
+                  )}
+                />
+              </button>
             </div>
           </div>
+        </header>
 
-          <div className="space-y-6">
-            <div>
-              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
-              <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
-                <p>Grzybowska 5A</p>
-                <p>00-132 Warszawa</p>
+        {/* Backdrop - OUTSIDE header */}
+        <div
+          className={cn(
+            'fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300',
+            isMenuOpen ? 'pointer-events-auto opacity-100 z-[110]' : 'pointer-events-none opacity-0 z-[-1]'
+          )}
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden={!isMenuOpen}
+        />
+
+        {/* Side Menu - Slide-in from Right - OUTSIDE header */}
+        <div
+          className={cn(
+            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[120] overflow-y-auto',
+            menuBackgroundClass,
+            'backdrop-blur-2xl border-l border-white/10',
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          )}
+          aria-hidden={!isMenuOpen}
+        >
+          <div className="flex h-full flex-col justify-between px-6 py-8">
+            <div className="flex items-start justify-between gap-6">
+              <div>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="text-white/70 hover:text-white transition-colors"
+                aria-label="Zamknij menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-8">
+              <nav className="space-y-4">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item)}
+                    className={cn(
+                      'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
+                      menuPrimaryTextClass
+                    )}
+                  >
+                    <span className="text-lg font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
+                      {item.label}
+                    </span>
+                    <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                ))}
+              </nav>
+
+              <div className="pt-6 border-t border-white/10">
+                <Button
+                  onClick={() => {
+                    scrollToSection('contact')
+                    setIsMenuOpen(false)
+                  }}
+                  className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
+                >
+                  Porozmawiajmy
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </Button>
               </div>
             </div>
-            <div>
-              <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
-              <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
-                <button onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
-                <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
-                <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
+
+            <div className="space-y-6">
+              <div>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
+                <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
+                  <p>Grzybowska 5A</p>
+                  <p>00-132 Warszawa</p>
+                </div>
+              </div>
+              <div>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
+                <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
+                  <button onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
+                  <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
+                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* HERO & GALLERY SECTION (Seamless Transition) */}
-      <VideoGalleryTransition />
-      
-      {/* FEATURE HIGHLIGHT (Parallax Reveal) */}
-      <WhyStaniaxContent />
-      
+        {/* HERO & GALLERY SECTION (Seamless Transition) */}
+        <VideoGalleryTransition />
+
+        {/* FEATURE HIGHLIGHT (Parallax Reveal) */}
+        <WhyStaniaxContent />
 
 
 
@@ -1525,62 +1524,54 @@ function HomePage() {
 
 
 
-      {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
-      {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
-      <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
-            {/* Background Decorations */}
-            <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
-            <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
-            
-            <div className="container mx-auto px-6 lg:px-12 relative z-10">
-              {/* Grid 1x4 metryk z Stagger Animation */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                {/* Metryka 1 */}
-                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    <CountUp end={30} suffix="+" shouldStart={metricsVisible} />
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    LAT DOŚWIADCZENIA
-                  </p>
+
+        {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
+        {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
+        <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
+          {/* Background Decorations */}
+          <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
+          <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
+
+          <div className="container mx-auto px-6 lg:px-12 relative z-10">
+            {/* Grid 1x4 metryk z Stagger Animation */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {/* Metryka 1 */}
+              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                  <CountUp end={30} suffix="+" shouldStart={metricsVisible} />
                 </div>
+                <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                  LAT DOŚWIADCZENIA
+                </p>
+              </div>
 
-                {/* Metryka 2 */}
-                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    <CountUp end={2500} suffix="+" shouldStart={metricsVisible} />
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    ZREALIZOWANYCH PROJEKTÓW
-                  </p>
+              {/* Metryka 2 */}
+              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                <div className="relative text-3xl lg:text-5xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
+                  METALIZACJA PRÓŻNIOWA
                 </div>
+              </div>
 
-                {/* Metryka 3 */}
-                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    24H
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    CZAS REAKCJI
-                  </p>
+              {/* Metryka 3 */}
+              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                <div className="relative text-2xl lg:text-4xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
+                  LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH
                 </div>
+              </div>
 
-                {/* Metryka 4 */}
-                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                    ISO
-                  </div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                    9001:2015 CERTYFIKAT
-                  </p>
+              {/* Metryka 4 */}
+              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                  ISO
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
 
 
-      {/* GALLERY SECTION (Video -> Grid Transition) */}
+        {/* GALLERY SECTION (Video -> Grid Transition) */}
 
 
 
@@ -1590,10 +1581,10 @@ function HomePage() {
         <section id="about" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-tl from-white via-gray-50/50 to-white overflow-hidden">
           {/* Subtle Metallic Texture Overlay */}
           <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8), linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8)', backgroundSize: '60px 60px', backgroundPosition: '0 0, 30px 30px' }} aria-hidden="true" />
-          
+
           {/* Background Decorations */}
           {/* Removed images as per request */}
-          
+
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-20 section-reveal">
@@ -1602,22 +1593,27 @@ function HomePage() {
                 <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
                   <TextReveal text="NASZA OFERTA" />
                 </h2>
-                
+
                 <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
-                    {[
-                        "METALIZACJA PRÓŻNIOWA",
-                        "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH",
-                        "LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI",
-                        "ODBLASKI W METALIZACJI",
-                        "GALERIA"
-                    ].map((item, index) => (
-                        <div key={index} className="flex items-baseline gap-6 group cursor-pointer">
-                            <span className="text-xl font-mono text-blue-500 font-bold">0{index + 1}.</span>
-                            <h3 className="text-2xl md:text-4xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors uppercase">
-                                {item}
-                            </h3>
-                        </div>
-                    ))}
+                  {[
+                    { label: "KIM JESTEŚMY", section: "about" },
+                    { label: "METALIZACJA PRÓŻNIOWA", section: "services" },
+                    { label: "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH", section: "services" },
+                    { label: "LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI", section: "services" },
+                    { label: "ODBLASKI W METALIZACJI", section: "services" },
+                    { label: "GALERIA", section: "projects" }
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-baseline gap-6 group cursor-pointer"
+                      onClick={() => scrollToSection(item.section)}
+                    >
+                      <span className="text-xl font-mono text-blue-500 font-bold">0{index + 1}.</span>
+                      <h3 className="text-2xl md:text-4xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors uppercase">
+                        {item.label}
+                      </h3>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -1625,116 +1621,116 @@ function HomePage() {
             {/* Grid 2x2 kart - układ po skosie - w szarym tle */}
             <div className="bg-gray-100 -mx-6 lg:-mx-12 px-6 lg:px-12 pt-8 pb-20 -mt-32">
               <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
-              {/* Karta 1: Kim Jesteśmy - Prawy górny (0px) */}
-              <div 
-                className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
-                style={{
-                  transform: 'translateY(0px)',
-                  animationDelay: '0s'
-                }}
-                onMouseEnter={(e) => {
-                  const current = e.currentTarget as HTMLElement
-                  current.style.transform = `translateY(0px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
-                }}
-                onMouseLeave={(e) => {
-                  const current = e.currentTarget as HTMLElement
-                  current.style.transform = `translateY(0px)`
-                }}
-              >
-                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
-                  <Factory className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                {/* Karta 1: Kim Jesteśmy - Prawy górny (0px) */}
+                <div
+                  className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
+                  style={{
+                    transform: 'translateY(0px)',
+                    animationDelay: '0s'
+                  }}
+                  onMouseEnter={(e) => {
+                    const current = e.currentTarget as HTMLElement
+                    current.style.transform = `translateY(0px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                  }}
+                  onMouseLeave={(e) => {
+                    const current = e.currentTarget as HTMLElement
+                    current.style.transform = `translateY(0px)`
+                  }}
+                >
+                  <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                    <Factory className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
+                    KIM JESTEŚMY
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed font-normal text-base">
+                    <span className="font-bold text-gray-900">STANIAX Sp. z o.o.</span> to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A, specjalizująca się w zaawansowanych rozwiązaniach metalizacyjnych dla przemysłu. Łączymy ponad 15-letnie doświadczenie w inżynierii powierzchni z nowoczesnymi technologiami.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
-                  KIM JESTEŚMY
-                </h3>
-                <p className="text-gray-600 leading-relaxed font-normal text-base">
-                  <span className="font-bold text-gray-900">STANIAX Sp. z o.o.</span> to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A, specjalizująca się w zaawansowanych rozwiązaniach metalizacyjnych dla przemysłu. Łączymy ponad 15-letnie doświadczenie w inżynierii powierzchni z nowoczesnymi technologiami.
-                </p>
-              </div>
 
-              {/* Karta 2: Technologie - Lewy górny (80px) */}
-              <div 
-                className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
-                style={{
-                  transform: 'translateY(80px)',
-                  animationDelay: '0.1s'
-                }}
-                onMouseEnter={(e) => {
-                  const current = e.currentTarget as HTMLElement
-                  current.style.transform = `translateY(80px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
-                }}
-                onMouseLeave={(e) => {
-                  const current = e.currentTarget as HTMLElement
-                  current.style.transform = `translateY(80px)`
-                }}
-              >
-                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
-                  <Wrench className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                {/* Karta 2: Technologie - Lewy górny (80px) */}
+                <div
+                  className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
+                  style={{
+                    transform: 'translateY(80px)',
+                    animationDelay: '0.1s'
+                  }}
+                  onMouseEnter={(e) => {
+                    const current = e.currentTarget as HTMLElement
+                    current.style.transform = `translateY(80px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                  }}
+                  onMouseLeave={(e) => {
+                    const current = e.currentTarget as HTMLElement
+                    current.style.transform = `translateY(80px)`
+                  }}
+                >
+                  <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                    <Wrench className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
+                    TECHNOLOGIE
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed font-normal text-base">
+                    Oferujemy szeroki zakres metod: <span className="font-semibold text-gray-800">PVD, CVD, natrysk plazmowy</span> oraz <span className="font-semibold text-gray-800">galwanizację przemysłową</span>. Pracujemy z materiałami takimi jak tytan, chrom, nikiel, wolfram oraz ceramika techniczna.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
-                  TECHNOLOGIE
-                </h3>
-                <p className="text-gray-600 leading-relaxed font-normal text-base">
-                  Oferujemy szeroki zakres metod: <span className="font-semibold text-gray-800">PVD, CVD, natrysk plazmowy</span> oraz <span className="font-semibold text-gray-800">galwanizację przemysłową</span>. Pracujemy z materiałami takimi jak tytan, chrom, nikiel, wolfram oraz ceramika techniczna.
-                </p>
-              </div>
 
-              {/* Karta 3: Branże - Prawy dolny (80px) */}
-              <div 
-                className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
-                style={{
-                  transform: 'translateY(80px)',
-                  animationDelay: '0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  const current = e.currentTarget as HTMLElement
-                  current.style.transform = `translateY(80px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
-                }}
-                onMouseLeave={(e) => {
-                  const current = e.currentTarget as HTMLElement
-                  current.style.transform = `translateY(80px)`
-                }}
-              >
-                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
-                  <Users className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                {/* Karta 3: Branże - Prawy dolny (80px) */}
+                <div
+                  className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
+                  style={{
+                    transform: 'translateY(80px)',
+                    animationDelay: '0.2s'
+                  }}
+                  onMouseEnter={(e) => {
+                    const current = e.currentTarget as HTMLElement
+                    current.style.transform = `translateY(80px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                  }}
+                  onMouseLeave={(e) => {
+                    const current = e.currentTarget as HTMLElement
+                    current.style.transform = `translateY(80px)`
+                  }}
+                >
+                  <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                    <Users className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
+                    BRANŻE
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed font-normal text-base">
+                    Realizujemy projekty dla <span className="font-semibold text-gray-800">przemysłu lotniczego, motoryzacyjnego, medycznego, energetycznego</span> oraz <span className="font-semibold text-gray-800">sektora narzędziowego</span>. Nasze powłoki zwiększają odporność na zużycie, korozję i wysokie temperatury.
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
-                  BRANŻE
-                </h3>
-                <p className="text-gray-600 leading-relaxed font-normal text-base">
-                  Realizujemy projekty dla <span className="font-semibold text-gray-800">przemysłu lotniczego, motoryzacyjnego, medycznego, energetycznego</span> oraz <span className="font-semibold text-gray-800">sektora narzędziowego</span>. Nasze powłoki zwiększają odporność na zużycie, korozję i wysokie temperatury.
-                </p>
-              </div>
 
-              {/* Karta 4: Jakość - Lewy dolny (160px) */}
-              <div 
-                className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
-                style={{
-                  transform: 'translateY(160px)',
-                  animationDelay: '0.3s'
-                }}
-                onMouseEnter={(e) => {
-                  const current = e.currentTarget as HTMLElement
-                  current.style.transform = `translateY(160px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
-                }}
-                onMouseLeave={(e) => {
-                  const current = e.currentTarget as HTMLElement
-                  current.style.transform = `translateY(160px)`
-                }}
-              >
-                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
-                  <Trophy className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
-                  JAKOŚĆ
-                </h3>
-                <div className="space-y-4 text-base text-gray-600 leading-relaxed font-normal">
-                  <p><span className="font-bold text-gray-900">✓ ISO 9001:2015</span> - Certyfikowane zarządzanie jakością</p>
-                  <p><span className="font-bold text-gray-900">✓ Kontrole środowiskowe</span> - Nowoczesne technologie oczyszczania</p>
-                  <p><span className="font-bold text-gray-900">✓ Wsparcie 24/7</span> - Elastyczne planowanie i dostępność</p>
+                {/* Karta 4: Jakość - Lewy dolny (160px) */}
+                <div
+                  className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
+                  style={{
+                    transform: 'translateY(160px)',
+                    animationDelay: '0.3s'
+                  }}
+                  onMouseEnter={(e) => {
+                    const current = e.currentTarget as HTMLElement
+                    current.style.transform = `translateY(160px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                  }}
+                  onMouseLeave={(e) => {
+                    const current = e.currentTarget as HTMLElement
+                    current.style.transform = `translateY(160px)`
+                  }}
+                >
+                  <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                    <Trophy className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                  </div>
+                  <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
+                    JAKOŚĆ
+                  </h3>
+                  <div className="space-y-4 text-base text-gray-600 leading-relaxed font-normal">
+                    <p><span className="font-bold text-gray-900">✓ ISO 9001:2015</span> - Certyfikowane zarządzanie jakością</p>
+                    <p><span className="font-bold text-gray-900">✓ Kontrole środowiskowe</span> - Nowoczesne technologie oczyszczania</p>
+                    <p><span className="font-bold text-gray-900">✓ Wsparcie 24/7</span> - Elastyczne planowanie i dostępność</p>
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
 
             {/* Cytat misji - poniżej siatki - w szarym tle */}
@@ -1796,7 +1792,7 @@ function HomePage() {
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                       {/* Left: Before/After Image Comparison */}
                       <div className="relative group">
-                        <div 
+                        <div
                           className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-gray-200 shadow-2xl cursor-ew-resize"
                           onClick={(e) => {
                             const rect = e.currentTarget.getBoundingClientRect()
@@ -1823,9 +1819,9 @@ function HomePage() {
                             alt={`${caseStudy.title} - Przed`}
                             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                           />
-                          
+
                           {/* After Image with Slider */}
-                          <div 
+                          <div
                             className="absolute inset-0 overflow-hidden pointer-events-none"
                             style={{ clipPath: `inset(0 ${100 - beforeAfterSlider}% 0 0)` }}
                           >
@@ -1837,7 +1833,7 @@ function HomePage() {
                           </div>
 
                           {/* Slider Handle */}
-                          <div 
+                          <div
                             className="absolute top-0 bottom-0 w-1 bg-white pointer-events-none"
                             style={{ left: `${beforeAfterSlider}%` }}
                           >
@@ -1989,7 +1985,7 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">FAQ</p>
-              
+
               <div className="mb-12 text-center">
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
                   NAJCZĘŚCIEJ<br />ZADAWANE PYTANIA
@@ -2002,7 +1998,7 @@ function HomePage() {
               <div className="space-y-4">
                 {faqData.map((faq, index) => {
                   const isExpanded = expandedFAQs.has(faq.id)
-                  
+
                   return (
                     <motion.div
                       key={faq.id}
@@ -2044,7 +2040,7 @@ function HomePage() {
                           )}>
                             <Question className="w-5 h-5" weight="bold" />
                           </div>
-                          
+
                           <div className="flex-1 min-w-0">
                             <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors">
                               {faq.question}
@@ -2055,7 +2051,7 @@ function HomePage() {
                               </p>
                             )}
                           </div>
-                          
+
                           <div className={cn(
                             'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300',
                             isExpanded ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
@@ -2067,7 +2063,7 @@ function HomePage() {
                             )}
                           </div>
                         </div>
-                        
+
                         {isExpanded && (
                           <motion.div
                             id={`faq-answer-${faq.id}`}
@@ -2112,7 +2108,7 @@ function HomePage() {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT</p>
-              
+
               <div className="mb-12 text-center">
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
                   SKONTAKTUJ SIĘ<br />Z NAMI
@@ -2130,7 +2126,7 @@ function HomePage() {
                     Krok <span className="text-blue-700 text-lg">{formStep}</span> z 2
                   </p>
                 </div>
-                
+
                 <div className="flex justify-center gap-8 mb-4">
                   {[1, 2].map((step) => (
                     <div
@@ -2313,7 +2309,7 @@ function HomePage() {
                   />
                 </motion.div>
 
-{/* Contact Details */}
+                {/* Contact Details */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -2408,70 +2404,70 @@ function HomePage() {
         </section>
 
 
-      {/* BIG TYPE FOOTER */}
-      <BigFooter />
+        {/* BIG TYPE FOOTER */}
+        <BigFooter />
 
-      <CookieBanner />
+        <CookieBanner />
 
 
-      {/* Mobile Floating CTA Button */}
-      <button
-        onClick={() => scrollToSection('contact')}
-        className={cn(
-          'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
-          showFloatingCTA
-            ? 'translate-y-0 opacity-100 pointer-events-auto'
-            : 'translate-y-20 opacity-0 pointer-events-none'
-        )}
-        aria-label="Wyceń projekt"
-      >
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl border-2 border-blue-400/30">
+        {/* Mobile Floating CTA Button */}
+        <button
+          onClick={() => scrollToSection('contact')}
+          className={cn(
+            'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+            showFloatingCTA
+              ? 'translate-y-0 opacity-100 pointer-events-auto'
+              : 'translate-y-20 opacity-0 pointer-events-none'
+          )}
+          aria-label="Wyceń projekt"
+        >
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl border-2 border-blue-400/30">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+          </div>
+        </button>
+
+        {/* Support Chat Bubble */}
+        <button
+          onClick={() => {
+            setIsChatOpen(!isChatOpen)
+            if (!isChatOpen) {
+              toast.info('Czat support będzie dostępny wkrótce! Na razie skontaktuj się z nami przez formularz.')
+            }
+          }}
+          className="fixed bottom-6 left-6 z-[85] flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-110 focus-visible:ring-4 focus-visible:ring-blue-400 group"
+          aria-label="Otwórz czat support"
+        >
+          <ChatCircle className="w-8 h-8" weight="bold" />
+
+          {/* Pulsing indicator */}
+          <span className="absolute top-0 left-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full animate-pulse" />
+
+          {/* Tooltip on hover */}
+          <span className="absolute left-20 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+            Porozmawiaj z nami 💬
+          </span>
+        </button>
+
+        {/* Scroll to Top Button */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className={cn(
+            'fixed bottom-24 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+            showScrollTop
+              ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
+              : 'translate-y-20 opacity-0 pointer-events-none scale-75'
+          )}
+          aria-label="Powrót do góry strony"
+        >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
           </svg>
-        </div>
-      </button>
+        </button>
 
-      {/* Support Chat Bubble */}
-      <button
-        onClick={() => {
-          setIsChatOpen(!isChatOpen)
-          if (!isChatOpen) {
-            toast.info('Czat support będzie dostępny wkrótce! Na razie skontaktuj się z nami przez formularz.')
-          }
-        }}
-        className="fixed bottom-6 left-6 z-[85] flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-110 focus-visible:ring-4 focus-visible:ring-blue-400 group"
-        aria-label="Otwórz czat support"
-      >
-        <ChatCircle className="w-8 h-8" weight="bold" />
-        
-        {/* Pulsing indicator */}
-        <span className="absolute top-0 left-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full animate-pulse" />
-        
-        {/* Tooltip on hover */}
-        <span className="absolute left-20 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
-          Porozmawiaj z nami 💬
-        </span>
-      </button>
-
-      {/* Scroll to Top Button */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className={cn(
-          'fixed bottom-24 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
-          showScrollTop
-            ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
-            : 'translate-y-20 opacity-0 pointer-events-none scale-75'
-        )}
-        aria-label="Powrót do góry strony"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-      </button>
-
-      {/* Global Focus Styles */}
-      <style>{`
+        {/* Global Focus Styles */}
+        <style>{`
         *:focus-visible {
           outline: 3px solid rgb(96 165 250) !important;
           outline-offset: 2px !important;
@@ -2487,7 +2483,7 @@ function HomePage() {
           outline-offset: 2px !important;
         }
       `}</style>
-    </main>
+      </main>
     </SmoothScroll>
   )
 }
