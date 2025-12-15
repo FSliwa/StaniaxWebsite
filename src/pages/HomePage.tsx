@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence, type MotionValue } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import { TextReveal } from '@/components/ui/TextReveal'
 import { Button } from '@/components/ui/button'
@@ -75,6 +75,15 @@ const virtualStudioFallbackSplineUrl =
   'https://prod.spline.design/xk-PvTQqtoScZ5Zq/scene.splinecode'
 const virtualStudioEmbedUrl =
   import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_EMBED_URL ?? 'undefined'
+
+const languages = [
+  "Metalizacja próżniowa",
+  "Vacuum Metallization",
+  "Vakuummetallisierung",
+  "Métallisation sous vide",
+  "Metallizzazione sotto vuoto",
+  "Vacuümmetallisatie"
+]
 
 type NavItem =
   | { id: string; label: string; type: 'section' }
@@ -601,6 +610,15 @@ function HomePage() {
   const prefersReducedMotion = useReducedMotion() ?? false
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const servicesSectionRef = useRef<HTMLDivElement | null>(null)
+  
+  const [langIndex, setLangIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLangIndex((prev) => (prev + 1) % languages.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
   
   // NEW: Animation states
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -1322,37 +1340,41 @@ function HomePage() {
         >
           <button
             onClick={() => scrollToSection('top')}
-            className="group flex items-center gap-2 sm:gap-3 text-left"
+            className="group flex flex-col items-start text-left"
             aria-label="Przewiń na górę"
           >
-            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
-              <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
-            <div className="leading-tight hidden sm:block">
-              <span
-                className={cn(
-                  'block text-xs uppercase tracking-[0.5em] transition-colors duration-300',
-                  isMenuOpen 
-                    ? 'text-muted-foreground' 
-                    : isDarkHeaderContext 
-                      ? 'text-white/70' 
-                      : 'text-muted-foreground'
-                )}
-              >
-                STANIAX
-              </span>
-              <span
-                className={cn(
-                  'block text-base sm:text-lg font-black transition-colors duration-300',
-                  isMenuOpen 
-                    ? 'text-foreground' 
-                    : isDarkHeaderContext 
-                      ? 'text-white' 
-                      : 'text-foreground'
-                )}
-              >
-                Studio Metalizacji
-              </span>
+            <span
+              className={cn(
+                'block text-2xl sm:text-3xl font-black tracking-tighter transition-colors duration-300',
+                isMenuOpen 
+                  ? 'text-foreground' 
+                  : isDarkHeaderContext 
+                    ? 'text-white' 
+                    : 'text-foreground'
+              )}
+            >
+              STANIAX
+            </span>
+            <div className="h-6 overflow-hidden relative w-full flex items-center">
+                <AnimatePresence mode="wait">
+                    <motion.span
+                        key={langIndex}
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -20, opacity: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        className={cn(
+                            "absolute text-[10px] sm:text-xs font-medium tracking-widest uppercase whitespace-nowrap",
+                             isMenuOpen 
+                                ? 'text-muted-foreground' 
+                                : isDarkHeaderContext 
+                                  ? 'text-white/70' 
+                                  : 'text-muted-foreground'
+                        )}
+                    >
+                        {languages[langIndex]}
+                    </motion.span>
+                </AnimatePresence>
             </div>
           </button>
           <div className="flex items-center gap-5">
