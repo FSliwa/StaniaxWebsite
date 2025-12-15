@@ -1533,8 +1533,8 @@ function HomePage() {
           <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            {/* Grid 1x4 metryk z Stagger Animation */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {/* Grid 1x3 metryk z Stagger Animation */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Metryka 1 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                 <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
@@ -1559,12 +1559,7 @@ function HomePage() {
                 </div>
               </div>
 
-              {/* Metryka 4 */}
-              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                  ISO
-                </div>
-              </div>
+
             </div>
           </div>
         </section>
