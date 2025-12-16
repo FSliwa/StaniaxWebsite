@@ -275,8 +275,8 @@ const caseStudiesData: CaseStudy[] = [
     id: 'packaging-innovation',
     title: 'OPAKOWANIA PRODUKTOWE',
     subtitle: 'Estetyka i Funkcjonalność w Kosmetyce',
-    imageBefore: packagingBefore,
-    imageAfter: packagingAfter,
+    imageBefore: packagingAfter,
+    imageAfter: packagingBefore,
     metrics: [
       { value: '2 mln', label: 'Sztuk/Rok' },
       { value: '100%', label: 'Powtarzalność' },

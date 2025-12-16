@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import precisionImg from '@/assets/precision_turbine.webp'
 import technologyImg from '@/assets/technology_robot.webp'
 import innovationImg from '@/assets/innovation_material.webp'
+import metallizationVideo from '@/assets/metallization-machine.mp4'
 
 interface CardData {
     id: number
@@ -24,8 +25,8 @@ const cards: CardData[] = [
         title: "PRECYZJA",
         subtitle: "Standardy Lotnicze",
         description: "Nasze powłoki spełniają rygorystyczne normy AS9100. Precyzja na poziomie mikronów to dla nas standard, nie wyzwanie.",
-        media: precisionImg,
-        type: 'image',
+        media: metallizationVideo,
+        type: 'video',
         theme: 'dark'
     },
     {
