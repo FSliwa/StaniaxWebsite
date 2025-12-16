@@ -86,7 +86,13 @@ export function BigFooter() {
                         <div className="space-y-8">
                             <div>
                                 <h4 className="text-white font-bold mb-4 text-lg">KONTAKT:</h4>
-                                <p className="mb-2">TEL: <a href="tel:+48882488844" className="text-white hover:text-blue-400 transition-colors font-semibold">+48 882 488 844</a></p>
+                                <motion.div
+                                    animate={{ scale: [1, 1.05, 1], textShadow: ["0 0 0px rgba(59,130,246,0)", "0 0 10px rgba(59,130,246,0.5)", "0 0 0px rgba(59,130,246,0)"] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                                    className="inline-block origin-left"
+                                >
+                                    <p className="mb-2">TEL: <a href="tel:+48882488844" className="text-white hover:text-blue-400 transition-colors font-semibold">+48 882 488 844</a></p>
+                                </motion.div>
                                 <p>EMAIL: <a href="mailto:metalizacja@staniax.pl" className="text-white hover:text-blue-400 transition-colors font-semibold">metalizacja@staniax.pl</a></p>
                             </div>
 
