@@ -58,6 +58,8 @@ import automotiveBefore from '@/assets/automotive-before.jpeg'
 import automotiveAfter from '@/assets/automotive-after.jpeg'
 import industrialBefore from '@/assets/industrial-before.jpeg'
 import industrialAfter from '@/assets/industrial-after.jpeg'
+import packagingBefore from '@/assets/packaging-before.png'
+import packagingAfter from '@/assets/packaging-after.png'
 
 import whyChooseImg1 from '@/assets/Dlaczego Staniax V1.png'
 import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
@@ -270,23 +272,23 @@ const caseStudiesData: CaseStudy[] = [
     badge: '+250% Trwałość'
   },
   {
-    id: 'aerospace-innovation',
-    title: 'Innowacje Lotnicze',
-    subtitle: 'Precyzyjne powłoki dla komponentów lotniczych',
-    imageBefore: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop',
-    imageAfter: projectImgAerospace,
+    id: 'packaging-innovation',
+    title: 'OPAKOWANIA PRODUKTOWE',
+    subtitle: 'Estetyka i Funkcjonalność w Kosmetyce',
+    imageBefore: packagingBefore,
+    imageAfter: packagingAfter,
     metrics: [
-      { value: '6 msc', label: 'Projekt' },
-      { value: '99.9%', label: 'Precyzja' },
-      { value: 'AS9100', label: 'Standard' }
+      { value: '2 mln', label: 'Sztuk/Rok' },
+      { value: '100%', label: 'Powtarzalność' },
+      { value: 'Premium', label: 'Jakość' }
     ],
     testimonial: {
-      quote: 'STANIAX spełnił najwyższe standardy aerospace. Ich metalizacja zwiększyła żywotność elementów turbinowych o 180% przy zachowaniu norm AS9100.',
-      author: 'Anna Nowak',
-      role: 'Główny Inżynier, AeroTech',
+      quote: 'Metalizacja opakowań kosmetycznych przez STANIAX pozwoliła nam wejść na rynek premium. Idealne odwzorowanie kolorów i trwałość powłoki to klucz do sukcesu.',
+      author: 'Ewa Minge',
+      role: 'Dyrektor Kreatywna, BeautyLine',
       avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
     },
-    badge: '+180% Żywotność'
+    badge: 'Design Premium'
   },
   {
     id: 'industrial-revolution',

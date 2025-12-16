@@ -30,18 +30,18 @@ const cards: CardData[] = [
     },
     {
         id: 2,
-        title: "TECHNOLOGIE",
-        subtitle: "Automatyzacja Przyszłości",
-        description: "Oferujemy szeroki zakres metod: PVD, CVD, natrysk plazmowy oraz galwanizację przemysłową. Pracujemy z materiałami takimi jak tytan, chrom, nikiel, wolfram oraz ceramika techniczna.",
+        title: "NASZA OFERTA",
+        subtitle: "METALIZACJA PRÓŻNIOWA",
+        description: "Zaawansowane procesy napylania próżniowego (PVD) dla uzyskania idealnych powłok metalicznych na tworzywach sztucznych, szkle i metalu. Ekologiczna alternatywa dla chromowania.",
         media: technologyImg,
         type: 'image',
         theme: 'light'
     },
     {
         id: 3,
-        title: "BRANŻE",
-        subtitle: "Sektory Przemysłu",
-        description: "Realizujemy projekty dla przemysłu lotniczego, motoryzacyjnego, medycznego, energetycznego oraz sektora narzędziowego. Nasze powłoki zwiększają odporność na zużycie, korozję i wysokie temperatury.",
+        title: "NASZA OFERTA",
+        subtitle: "LAKIEROWANIE UV",
+        description: "Nowoczesna lakiernia UV zapewniająca trwałe zabezpieczenie powłok metalizowanych oraz samodzielne lakierowanie detali. Wysoka odporność na ścieranie i czynniki chemiczne.",
         media: innovationImg,
         type: 'image',
         theme: 'dark'
