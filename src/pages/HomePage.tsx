@@ -1584,7 +1584,7 @@ function HomePage() {
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-20 section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OFERTA</p>
-              <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
+              <div className="bg-white py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
                 <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
                   <TextReveal text="NASZA OFERTA" />
                 </h2>
@@ -1612,7 +1612,7 @@ function HomePage() {
                 </div>
 
                 {/* Cytat misji - moved here */}
-                <div className="mt-12 max-w-4xl ml-auto">
+                <div className="mt-12 w-full ml-auto">
                   <p className="text-lg text-gray-600 italic border-l-4 border-blue-700 pl-8 leading-relaxed font-normal">
                     "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
                   </p>
@@ -2162,31 +2162,61 @@ function HomePage() {
               <div className="mb-12 text-center">
                 <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ODWIEDŹ NAS</p>
                 <h3 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter text-blue-400">
-                  NASZ ZAKŁAD
+                  ODWIEDŹ NAS
                 </h3>
               </div>
 
               <div className="grid lg:grid-cols-2 gap-12 items-start">
-                {/* Map */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
-                >
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.1234567890123!2d20.9876543!3d52.2297700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDEzJzQ3LjIiTiAyMMKwNTknMTUuNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Lokalizacja zakładu STANIAX"
-                    aria-label="Mapa Google pokazująca lokalizację zakładu STANIAX"
-                  />
-                </motion.div>
+                {/* Maps Container */}
+                <div className="space-y-12">
+                  {/* Map 1: Siedziba */}
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">SIEDZIBA (BIURO)</h4>
+                    <motion.div
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+                    >
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.1234567890123!2d20.9876543!3d52.2297700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDEzJzQ3LjIiTiAyMMKwNTknMTUuNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Lokalizacja siedziby STANIAX"
+                        aria-label="Mapa Google pokazująca lokalizację siedziby STANIAX"
+                      />
+                    </motion.div>
+                  </div>
+
+                  {/* Map 2: Zakład Usługowy */}
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">ZAKŁAD USŁUGOWY</h4>
+                    <motion.div
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+                    >
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.1234567890123!2d20.9876543!3d52.2297700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDEzJzQ3LjIiTiAyMMKwNTknMTUuNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Lokalizacja zakładu usługowego STANIAX"
+                        aria-label="Mapa Google pokazująca lokalizację zakładu usługowego STANIAX"
+                      />
+                    </motion.div>
+                  </div>
+                </div>
 
                 {/* Contact Details */}
                 <motion.div
