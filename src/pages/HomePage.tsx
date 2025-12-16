@@ -1613,39 +1613,7 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Grid 2x2 kart - układ po skosie - w szarym tle */}
-            <div className="bg-gray-100 -mx-6 lg:-mx-12 px-6 lg:px-12 pt-8 pb-20 -mt-32">
-              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
-                {/* Karta 1: Kim Jesteśmy - Prawy górny (0px) */}
-                <div
-                  className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
-                  style={{
-                    transform: 'translateY(0px)',
-                    animationDelay: '0s'
-                  }}
-                  onMouseEnter={(e) => {
-                    const current = e.currentTarget as HTMLElement
-                    current.style.transform = `translateY(0px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
-                  }}
-                  onMouseLeave={(e) => {
-                    const current = e.currentTarget as HTMLElement
-                    current.style.transform = `translateY(0px)`
-                  }}
-                >
-                  <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
-                    <Factory className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
-                    KIM JESTEŚMY
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed font-normal text-base">
-                    <span className="font-bold text-gray-900">STANIAX Sp. z o.o.</span> to warszawska spółka technologiczna z siedzibą przy ul. Grzybowskiej 5A, specjalizująca się w zaawansowanych rozwiązaniach metalizacyjnych dla przemysłu. Łączymy ponad 15-letnie doświadczenie w inżynierii powierzchni z nowoczesnymi technologiami.
-                  </p>
-                </div>
 
-
-              </div>
-            </div>
 
             {/* Cytat misji - poniżej siatki - w szarym tle */}
             <div className="bg-gray-100 -mx-6 lg:-mx-12 px-6 lg:px-12 pt-8 pb-12 -mt-8">
