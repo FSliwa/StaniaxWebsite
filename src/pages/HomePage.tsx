@@ -1613,7 +1613,7 @@ function HomePage() {
 
                 {/* Cytat misji - moved here */}
                 <div className="mt-12 w-full ml-auto">
-                  <p className="text-lg text-gray-600 italic border-l-4 border-blue-700 pl-8 leading-relaxed font-normal">
+                  <p className="text-lg text-gray-600 italic border-l-4 border-r-4 border-blue-700 px-8 leading-relaxed font-normal text-center">
                     "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
                   </p>
                 </div>
@@ -2180,7 +2180,7 @@ function HomePage() {
                       className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
                     >
                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.1234567890123!2d20.9876543!3d52.2297700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDEzJzQ3LjIiTiAyMMKwNTknMTUuNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
+                        src="https://maps.google.com/maps?q=ul.+Grzybowska+5A,+00-132+Warszawa&t=&z=13&ie=UTF8&iwloc=&output=embed"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -2204,7 +2204,7 @@ function HomePage() {
                       className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
                     >
                       <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.1234567890123!2d20.9876543!3d52.2297700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDEzJzQ3LjIiTiAyMMKwNTknMTUuNiJF!5e0!3m2!1spl!2spl!4v1234567890123!5m2!1spl!2spl"
+                        src="https://maps.google.com/maps?q=ul.+Wyszyńskiego+116A,+05-420+Józefów&t=&z=13&ie=UTF8&iwloc=&output=embed"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}

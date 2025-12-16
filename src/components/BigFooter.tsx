@@ -30,15 +30,15 @@ export function BigFooter() {
                         <div className="flex flex-col sm:flex-row gap-8 lg:gap-12 text-center sm:text-left">
                             <div>
                                 <span className="block text-4xl font-black text-white mb-1">30+</span>
-                                <span className="text-xs uppercase tracking-widest text-gray-500">LAT DOŚWIADCZEŃ</span>
+                                <span className="text-xs uppercase tracking-widest text-gray-300">LAT DOŚWIADCZEŃ</span>
                             </div>
                             <div>
                                 <span className="block text-4xl font-black text-white mb-1">2500+</span>
-                                <span className="text-xs uppercase tracking-widest text-gray-500">ZREALIZOWANYCH PROJEKTÓW</span>
+                                <span className="text-xs uppercase tracking-widest text-gray-300">ZREALIZOWANYCH PROJEKTÓW</span>
                             </div>
                             <div>
                                 <span className="block text-4xl font-black text-white mb-1">24H</span>
-                                <span className="text-xs uppercase tracking-widest text-gray-500">CZAS REAKCJI</span>
+                                <span className="text-xs uppercase tracking-widest text-gray-300">CZAS REAKCJI</span>
                             </div>
                         </div>
                     </div>
@@ -53,11 +53,12 @@ export function BigFooter() {
                             <div>
                                 <h4 className="text-white font-bold mb-4 text-lg">OFERTA:</h4>
                                 <ul className="space-y-3">
-                                    <li className="hover:text-white transition-colors cursor-pointer">1. METALIZACJA PRÓŻNIOWA</li>
-                                    <li className="hover:text-white transition-colors cursor-pointer">2. LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH</li>
-                                    <li className="hover:text-white transition-colors cursor-pointer">3. LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI</li>
-                                    <li className="hover:text-white transition-colors cursor-pointer">4. ODBLASKI W METALIZACJI</li>
-                                    <li className="hover:text-white transition-colors cursor-pointer">5. GALERIA</li>
+                                    <li className="hover:text-white transition-colors cursor-pointer">01. KIM JESTEŚMY</li>
+                                    <li className="hover:text-white transition-colors cursor-pointer">02. METALIZACJA PRÓŻNIOWA</li>
+                                    <li className="hover:text-white transition-colors cursor-pointer">03. LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH</li>
+                                    <li className="hover:text-white transition-colors cursor-pointer">04. LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI</li>
+                                    <li className="hover:text-white transition-colors cursor-pointer">05. ODBLASKI W METALIZACJI</li>
+                                    <li className="hover:text-white transition-colors cursor-pointer">06. GALERIA</li>
                                 </ul>
                             </div>
                         </div>
@@ -85,7 +86,7 @@ export function BigFooter() {
                         <div className="space-y-8">
                             <div>
                                 <h4 className="text-white font-bold mb-4 text-lg">KONTAKT:</h4>
-                                <p className="mb-2">TEL: <a href="tel:+48882488844" className="text-white hover:text-blue-400 transition-colors font-semibold">( +48 882 488 844 )</a></p>
+                                <p className="mb-2">TEL: <a href="tel:+48882488844" className="text-white hover:text-blue-400 transition-colors font-semibold">+48 882 488 844</a></p>
                                 <p>EMAIL: <a href="mailto:metalizacja@staniax.pl" className="text-white hover:text-blue-400 transition-colors font-semibold">metalizacja@staniax.pl</a></p>
                             </div>
 
