@@ -40,9 +40,9 @@ export function VideoGalleryTransition() {
     // Height & Position Logic:
     // Start: 100vh height, Centered vertically (top: 50%, y: -50%)
     // End: 100% height (of grid cell), Top aligned (top: 0%, y: 0%)
-    const centerHeight = useTransform(scrollYProgress, [0, 0.15, 0.4], ["100vh", "100vh", "100%"])
+    const centerHeight = useTransform(scrollYProgress, [0, 0.15, 0.4], ["120vh", "120vh", "100%"])
     const centerTop = useTransform(scrollYProgress, [0, 0.15, 0.4], ["50%", "50%", "0%"])
-    const centerYCorrection = useTransform(scrollYProgress, [0, 0.15, 0.4], ["-50%", "-50%", "0%"])
+    const centerYCorrection = useTransform(scrollYProgress, [0, 0.15, 0.4], ["calc(-50% - 2vh)", "calc(-50% - 2vh)", "0%"])
 
     // Animate Border Radius: 0px (Full Screen) -> 32px (Grid Tile)
     const heroRadius = useTransform(scrollYProgress, [0, 0.15, 0.4], ["0px", "0px", "32px"])
