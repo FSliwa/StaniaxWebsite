@@ -1760,654 +1760,654 @@ function HomePage() {
                             PO
                           </div>
                         </div>
-                    </div>
-                  </TiltCard>
 
-                    {/* Right: Content */ }
-                  < div className = "space-y-8" >
-                  <div>
-                    <h3 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase mb-3 tracking-tight">
-                      {caseStudy.title}
-                    </h3>
-                    <p className="text-lg text-gray-600 font-normal leading-relaxed">
-                      {caseStudy.subtitle}
-                    </p>
-                  </div>
+                      </TiltCard>
 
-                      {/* Metrics */ }
-                  < div className = "grid grid-cols-3 gap-6" >
-                  {
-                    caseStudy.metrics.map((metric, idx) => (
-                      <div key={idx} className="text-center">
-                        <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2 font-mono">
-                          {metric.value}
-                        </div>
-                        <p className="text-xs uppercase tracking-wider text-gray-600 font-semibold">
-                          {metric.label}
-                        </p>
-                      </div>
-                    ))
-                  }
-                      </div>
-
-              {/* Testimonial */}
-              <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-8">
-                <blockquote className="space-y-4">
-                  <p className="text-gray-700 leading-relaxed italic">
-                    "{caseStudy.testimonial.quote}"
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={caseStudy.testimonial.avatar}
-                      alt={caseStudy.testimonial.author}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-blue-700"
-                    />
-                    <div>
-                      <cite className="not-italic font-bold text-gray-900 block">
-                        — {caseStudy.testimonial.author}
-                      </cite>
-                      <span className="text-sm text-gray-600">
-                        {caseStudy.testimonial.role}
-                      </span>
-                    </div>
-                  </div>
-                </blockquote>
-              </div>
-
-              {/* Performance Badge */}
-              <div className="inline-flex items-center gap-3 bg-blue-700 text-white px-6 py-3 rounded-full font-bold uppercase tracking-wider text-sm">
-                <Trophy className="w-5 h-5" />
-                {caseStudy.badge}
-              </div>
-            </div>
-          </div>
-        </div>
-                ))}
-      </div>
-
-      {/* Carousel Controls */}
-      <div className="flex items-center justify-center gap-8 mt-12">
-        <button
-          onClick={() => {
-            setActiveSlide((prev) => (prev - 1 + caseStudiesData.length) % caseStudiesData.length)
-            setIsAutoPlaying(false)
-          }}
-          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
-          aria-label="Poprzedni projekt"
-        >
-          ←
-        </button>
-
-        {/* Dots with numbers */}
-        <div className="flex gap-3 items-center">
-          <span className="text-sm font-semibold text-gray-600 mr-2">
-            {activeSlide + 1} / {caseStudiesData.length}
-          </span>
-          {caseStudiesData.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setActiveSlide(index)
-                setIsAutoPlaying(false)
-              }}
-              className={cn(
-                'w-3 h-3 rounded-full transition-all duration-300',
-                activeSlide === index
-                  ? 'bg-blue-700 w-8'
-                  : 'bg-gray-300 hover:bg-gray-400'
-              )}
-              aria-label={`Przejdź do projektu ${index + 1}`}
-            />
-          ))}
-        </div>
-
-        <button
-          onClick={() => {
-            setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
-            setIsAutoPlaying(false)
-          }}
-          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
-          aria-label="Następny projekt"
-        >
-          →
-        </button>
-      </div>
-    </div>
-
-          {/* CTA - Traditional Grid Below Carousel */ }
-  <div className="text-center mt-20">
-    <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">Zobacz więcej</p>
-    <MagneticButton
-      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-      className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] rounded-full flex items-center justify-center mx-auto"
-    >
-      Wszystkie Projekty
-      <ArrowRight className="w-5 h-5 ml-2 inline-block" />
-    </MagneticButton>
-  </div>
-        </div >
-      </section >
-
-
-
-    {/* FAQ SECTION */ }
-    < section id = "faq" data - theme="light" className = "py-20 lg:py-32 bg-gradient-to-br from-white via-blue-50/30 to-white" >
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">FAQ</p>
-
-          <div className="mb-12 text-center">
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-              NAJCZĘŚCIEJ<br />ZADAWANE PYTANIA
-            </h2>
-            <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-              Odpowiedzi na pytania dotyczące technologii metalizacji
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {faqData.map((faq, index) => {
-              const isExpanded = expandedFAQs.has(faq.id)
-
-              return (
-                <motion.div
-                  key={faq.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="group"
-                >
-                  <button
-                    onClick={() => {
-                      setExpandedFAQs((prev) => {
-                        const next = new Set(prev)
-                        if (next.has(faq.id)) {
-                          next.delete(faq.id)
-                        } else {
-                          next.add(faq.id)
-                        }
-                        return next
-                      })
-                    }}
-                    className={cn(
-                      'w-full text-left p-6 rounded-2xl transition-all duration-300',
-                      'border-2 bg-white shadow-md hover:shadow-xl',
-                      'focus-visible:ring-4 focus-visible:ring-blue-400/50',
-                      isExpanded
-                        ? 'border-blue-400 bg-blue-50/50'
-                        : 'border-gray-200 hover:border-blue-300'
-                    )}
-                    aria-expanded={isExpanded}
-                    aria-controls={`faq-answer-${faq.id}`}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className={cn(
-                        'flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300',
-                        isExpanded
-                          ? 'bg-blue-600 text-white scale-110 shadow-lg'
-                          : 'bg-blue-100 text-blue-600 group-hover:bg-blue-200'
-                      )}>
-                        <Question className="w-5 h-5" weight="bold" />
-                      </div>
-
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors">
-                          {faq.question}
-                        </h3>
-                        {!isExpanded && (
-                          <p className="text-sm text-gray-500 line-clamp-1">
-                            Kliknij, aby rozwinąć
+                      {/* Right: Content */}
+                      <div className="space-y-8">
+                        <div>
+                          <h3 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase mb-3 tracking-tight">
+                            {caseStudy.title}
+                          </h3>
+                          <p className="text-lg text-gray-600 font-normal leading-relaxed">
+                            {caseStudy.subtitle}
                           </p>
-                        )}
-                      </div>
+                        </div>
 
-                      <div className={cn(
-                        'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300',
-                        isExpanded ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
-                      )}>
-                        {isExpanded ? (
-                          <CaretUp className="w-5 h-5" weight="bold" />
-                        ) : (
-                          <CaretDown className="w-5 h-5" weight="bold" />
-                        )}
+                        {/* Metrics */}
+                        <div className="grid grid-cols-3 gap-6">
+                          {
+                            caseStudy.metrics.map((metric, idx) => (
+                              <div key={idx} className="text-center">
+                                <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2 font-mono">
+                                  {metric.value}
+                                </div>
+                                <p className="text-xs uppercase tracking-wider text-gray-600 font-semibold">
+                                  {metric.label}
+                                </p>
+                              </div>
+                            ))
+                          }
+                        </div>
+
+                        {/* Testimonial */}
+                        <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-8">
+                          <blockquote className="space-y-4">
+                            <p className="text-gray-700 leading-relaxed italic">
+                              "{caseStudy.testimonial.quote}"
+                            </p>
+                            <div className="flex items-center gap-4">
+                              <img
+                                src={caseStudy.testimonial.avatar}
+                                alt={caseStudy.testimonial.author}
+                                className="w-12 h-12 rounded-full object-cover border-2 border-blue-700"
+                              />
+                              <div>
+                                <cite className="not-italic font-bold text-gray-900 block">
+                                  — {caseStudy.testimonial.author}
+                                </cite>
+                                <span className="text-sm text-gray-600">
+                                  {caseStudy.testimonial.role}
+                                </span>
+                              </div>
+                            </div>
+                          </blockquote>
+                        </div>
+
+                        {/* Performance Badge */}
+                        <div className="inline-flex items-center gap-3 bg-blue-700 text-white px-6 py-3 rounded-full font-bold uppercase tracking-wider text-sm">
+                          <Trophy className="w-5 h-5" />
+                          {caseStudy.badge}
+                        </div>
                       </div>
                     </div>
-
-                    {isExpanded && (
-                      <motion.div
-                        id={`faq-answer-${faq.id}`}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4 pl-14"
-                      >
-                        <p className="text-gray-700 leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </motion.div>
-                    )}
-                  </button>
-                </motion.div>
-              )
-            })}
-          </div>
-
-          {/* CTA to Contact */}
-          <div className="text-center mt-16">
-            <p className="text-gray-600 mb-6 text-lg font-medium">
-              Nie znalazłeś odpowiedzi na swoje pytanie?
-            </p>
-            <MagneticButton
-              onClick={() => {
-                const contactSection = document.getElementById('contact')
-                contactSection?.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-105 rounded-full flex items-center justify-center mx-auto"
-            >
-              Skontaktuj się z nami
-              <ArrowRight className="w-5 h-5 ml-2 inline-block" />
-            </MagneticButton>
-          </div>
-        </div>
-      </div>
-      </section >
-
-    <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT</p>
-
-          <div className="mb-12 text-center">
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-              SKONTAKTUJ SIĘ<br />Z NAMI
-            </h2>
-            <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-              Wypełnij formularz, a my skontaktujemy się z Tobą w ciągu 24 godzin
-            </p>
-          </div>
-
-          {/* Progress Bar */}
-          <div className="mb-12">
-            {/* Step indicator text */}
-            <div className="text-center mb-4">
-              <p className="text-sm font-semibold text-gray-600">
-                Krok <span className="text-blue-700 text-lg">{formStep}</span> z 2
-              </p>
-            </div>
-
-            <div className="flex justify-center gap-8 mb-4">
-              {[1, 2].map((step) => (
-                <div
-                  key={step}
-                  className={cn(
-                    'flex items-center gap-2',
-                    formStep >= step ? 'text-blue-700' : 'text-gray-400'
-                  )}
-                >
-                  <div className={cn(
-                    'w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300',
-                    formStep >= step ? 'bg-blue-700 text-white scale-110 shadow-lg' : 'bg-gray-200'
-                  )}>
-                    {formStep > step ? '✓' : step}
                   </div>
-                  <span className="hidden sm:inline text-sm font-semibold">
-                    {step === 1 && 'Projekt'}
-                    {step === 2 && 'Kontakt'}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
-              <div
-                className="h-full bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-500 shadow-md"
-                style={{ width: `${(formStep / 2) * 100}%` }}
-              />
-            </div>
-          </div>
+                ))}
+              </div>
 
-          {/* Form Steps */}
-          <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
-            {formStep === 1 && (
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-gray-900">Wybierz typ projektu</h3>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {['Prototypy', 'Produkcja', 'Naprawa', 'Konsultacja'].map((type) => (
+              {/* Carousel Controls */}
+              <div className="flex items-center justify-center gap-8 mt-12">
+                <button
+                  onClick={() => {
+                    setActiveSlide((prev) => (prev - 1 + caseStudiesData.length) % caseStudiesData.length)
+                    setIsAutoPlaying(false)
+                  }}
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
+                  aria-label="Poprzedni projekt"
+                >
+                  ←
+                </button>
+
+                {/* Dots with numbers */}
+                <div className="flex gap-3 items-center">
+                  <span className="text-sm font-semibold text-gray-600 mr-2">
+                    {activeSlide + 1} / {caseStudiesData.length}
+                  </span>
+                  {caseStudiesData.map((_, index) => (
                     <button
-                      key={type}
-                      onClick={() => setSmartFormData({ ...smartFormData, projectType: type })}
+                      key={index}
+                      onClick={() => {
+                        setActiveSlide(index)
+                        setIsAutoPlaying(false)
+                      }}
                       className={cn(
-                        'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px]',
-                        smartFormData.projectType === type
-                          ? 'border-blue-700 bg-blue-50 text-blue-900'
-                          : 'border-gray-200 hover:border-blue-300'
+                        'w-3 h-3 rounded-full transition-all duration-300',
+                        activeSlide === index
+                          ? 'bg-blue-700 w-8'
+                          : 'bg-gray-300 hover:bg-gray-400'
                       )}
-                      aria-label={`Wybierz ${type}`}
-                    >
-                      {type}
-                    </button>
+                      aria-label={`Przejdź do projektu ${index + 1}`}
+                    />
                   ))}
                 </div>
-              </div>
-            )}
 
-            {formStep === 2 && (
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-gray-900">Twoje dane kontaktowe</h3>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <Input
-                    placeholder="Imię (np. Jan) *"
-                    value={smartFormData.firstName}
-                    onChange={(e) => setSmartFormData({ ...smartFormData, firstName: e.target.value })}
-                    className="border-2 min-h-[44px]"
-                    aria-label="Imię"
-                    required
-                  />
-                  <Input
-                    placeholder="Nazwisko (np. Kowalski) *"
-                    value={smartFormData.lastName}
-                    onChange={(e) => setSmartFormData({ ...smartFormData, lastName: e.target.value })}
-                    className="border-2 min-h-[44px]"
-                    aria-label="Nazwisko"
-                  />
-                </div>
-                <Input
-                  type="email"
-                  placeholder="E-mail (np. jan.kowalski@firma.pl) *"
-                  value={smartFormData.email}
-                  onChange={(e) => setSmartFormData({ ...smartFormData, email: e.target.value })}
-                  className="border-2 min-h-[44px]"
-                  aria-label="Adres e-mail"
-                  required
-                />
-                <Input
-                  placeholder="Telefon (opcjonalnie, np. +48 123 456 789)"
-                  value={smartFormData.phone}
-                  onChange={(e) => setSmartFormData({ ...smartFormData, phone: e.target.value })}
-                  className="border-2 min-h-[44px]"
-                  aria-label="Numer telefonu"
-                />
-                <Textarea
-                  placeholder="Opisz swój projekt - im więcej szczegółów, tym lepiej pomożemy *"
-                  value={smartFormData.message}
-                  onChange={(e) => setSmartFormData({ ...smartFormData, message: e.target.value })}
-                  className="border-2 min-h-32"
-                  aria-label="Opis projektu"
-                  required
-                />
-              </div>
-            )}
-
-            {/* Navigation Buttons */}
-            <div className="flex justify-between mt-8">
-              {formStep > 1 && (
-                <Button
-                  onClick={() => setFormStep(formStep - 1)}
-                  variant="outline"
-                  className="font-bold"
+                <button
+                  onClick={() => {
+                    setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
+                    setIsAutoPlaying(false)
+                  }}
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
+                  aria-label="Następny projekt"
                 >
-                  ← Wstecz
-                </Button>
-              )}
-              <div className="ml-auto">
-                {formStep < 2 ? (
-                  <Button
-                    onClick={() => setFormStep(formStep + 1)}
-                    className="bg-blue-700 hover:bg-blue-800 font-bold"
-                    disabled={formStep === 1 && !smartFormData.projectType}
-                  >
-                    Kontynuuj →
-                  </Button>
-                ) : (
-                  <Button
-                    onClick={() => {
-                      triggerConfetti()
-                      toast.success('Dziękujemy! Odpowiemy w ciągu 24h')
-                      setFormStep(1)
-                      setSmartFormData({
-                        projectType: '',
-                        technology: '',
-                        firstName: '',
-                        lastName: '',
-                        email: '',
-                        phone: '',
-                        message: '',
-                        file: null
-                      })
-                    }}
-                    className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button"
-                    disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message}
-                  >
-                    Wyślij zapytanie 🚀
-                  </Button>
-                )}
+                  →
+                </button>
+              </div>
+            </div>
+
+            {/* CTA - Traditional Grid Below Carousel */}
+            <div className="text-center mt-20">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">Zobacz więcej</p>
+              <MagneticButton
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] rounded-full flex items-center justify-center mx-auto"
+              >
+                Wszystkie Projekty
+                <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+              </MagneticButton>
+            </div>
+          </div >
+        </section >
+
+
+
+        {/* FAQ SECTION */}
+        <section id="faq" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-white via-blue-50/30 to-white">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">FAQ</p>
+
+              <div className="mb-12 text-center">
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
+                  NAJCZĘŚCIEJ<br />ZADAWANE PYTANIA
+                </h2>
+                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
+                  Odpowiedzi na pytania dotyczące technologii metalizacji
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {faqData.map((faq, index) => {
+                  const isExpanded = expandedFAQs.has(faq.id)
+
+                  return (
+                    <motion.div
+                      key={faq.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      className="group"
+                    >
+                      <button
+                        onClick={() => {
+                          setExpandedFAQs((prev) => {
+                            const next = new Set(prev)
+                            if (next.has(faq.id)) {
+                              next.delete(faq.id)
+                            } else {
+                              next.add(faq.id)
+                            }
+                            return next
+                          })
+                        }}
+                        className={cn(
+                          'w-full text-left p-6 rounded-2xl transition-all duration-300',
+                          'border-2 bg-white shadow-md hover:shadow-xl',
+                          'focus-visible:ring-4 focus-visible:ring-blue-400/50',
+                          isExpanded
+                            ? 'border-blue-400 bg-blue-50/50'
+                            : 'border-gray-200 hover:border-blue-300'
+                        )}
+                        aria-expanded={isExpanded}
+                        aria-controls={`faq-answer-${faq.id}`}
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className={cn(
+                            'flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300',
+                            isExpanded
+                              ? 'bg-blue-600 text-white scale-110 shadow-lg'
+                              : 'bg-blue-100 text-blue-600 group-hover:bg-blue-200'
+                          )}>
+                            <Question className="w-5 h-5" weight="bold" />
+                          </div>
+
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors">
+                              {faq.question}
+                            </h3>
+                            {!isExpanded && (
+                              <p className="text-sm text-gray-500 line-clamp-1">
+                                Kliknij, aby rozwinąć
+                              </p>
+                            )}
+                          </div>
+
+                          <div className={cn(
+                            'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300',
+                            isExpanded ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
+                          )}>
+                            {isExpanded ? (
+                              <CaretUp className="w-5 h-5" weight="bold" />
+                            ) : (
+                              <CaretDown className="w-5 h-5" weight="bold" />
+                            )}
+                          </div>
+                        </div>
+
+                        {isExpanded && (
+                          <motion.div
+                            id={`faq-answer-${faq.id}`}
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-4 pl-14"
+                          >
+                            <p className="text-gray-700 leading-relaxed">
+                              {faq.answer}
+                            </p>
+                          </motion.div>
+                        )}
+                      </button>
+                    </motion.div>
+                  )
+                })}
+              </div>
+
+              {/* CTA to Contact */}
+              <div className="text-center mt-16">
+                <p className="text-gray-600 mb-6 text-lg font-medium">
+                  Nie znalazłeś odpowiedzi na swoje pytanie?
+                </p>
+                <MagneticButton
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact')
+                    contactSection?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-105 rounded-full flex items-center justify-center mx-auto"
+                >
+                  Skontaktuj się z nami
+                  <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+                </MagneticButton>
               </div>
             </div>
           </div>
+        </section >
 
-        </div>
+        <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT</p>
 
-        {/* Map and Contact Details Section */}
-        <div className="max-w-7xl mx-auto mt-20">
-          <div className="mb-12 text-center">
-            <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ODWIEDŹ NAS</p>
-            <h3 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter text-blue-400">
-              ODWIEDŹ NAS
-            </h3>
-          </div>
+              <div className="mb-12 text-center">
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
+                  SKONTAKTUJ SIĘ<br />Z NAMI
+                </h2>
+                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
+                  Wypełnij formularz, a my skontaktujemy się z Tobą w ciągu 24 godzin
+                </p>
+              </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Maps Container */}
-            <div className="space-y-12">
-              {/* Map 1: Siedziba */}
-              <div className="space-y-4">
-                <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">SIEDZIBA (BIURO)</h4>
+              {/* Progress Bar */}
+              <div className="mb-12">
+                {/* Step indicator text */}
+                <div className="text-center mb-4">
+                  <p className="text-sm font-semibold text-gray-600">
+                    Krok <span className="text-blue-700 text-lg">{formStep}</span> z 2
+                  </p>
+                </div>
+
+                <div className="flex justify-center gap-8 mb-4">
+                  {[1, 2].map((step) => (
+                    <div
+                      key={step}
+                      className={cn(
+                        'flex items-center gap-2',
+                        formStep >= step ? 'text-blue-700' : 'text-gray-400'
+                      )}
+                    >
+                      <div className={cn(
+                        'w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300',
+                        formStep >= step ? 'bg-blue-700 text-white scale-110 shadow-lg' : 'bg-gray-200'
+                      )}>
+                        {formStep > step ? '✓' : step}
+                      </div>
+                      <span className="hidden sm:inline text-sm font-semibold">
+                        {step === 1 && 'Projekt'}
+                        {step === 2 && 'Kontakt'}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                <div className="h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                  <div
+                    className="h-full bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-500 shadow-md"
+                    style={{ width: `${(formStep / 2) * 100}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* Form Steps */}
+              <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
+                {formStep === 1 && (
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-bold text-gray-900">Wybierz typ projektu</h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {['Prototypy', 'Produkcja', 'Naprawa', 'Konsultacja'].map((type) => (
+                        <button
+                          key={type}
+                          onClick={() => setSmartFormData({ ...smartFormData, projectType: type })}
+                          className={cn(
+                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px]',
+                            smartFormData.projectType === type
+                              ? 'border-blue-700 bg-blue-50 text-blue-900'
+                              : 'border-gray-200 hover:border-blue-300'
+                          )}
+                          aria-label={`Wybierz ${type}`}
+                        >
+                          {type}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {formStep === 2 && (
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-bold text-gray-900">Twoje dane kontaktowe</h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <Input
+                        placeholder="Imię (np. Jan) *"
+                        value={smartFormData.firstName}
+                        onChange={(e) => setSmartFormData({ ...smartFormData, firstName: e.target.value })}
+                        className="border-2 min-h-[44px]"
+                        aria-label="Imię"
+                        required
+                      />
+                      <Input
+                        placeholder="Nazwisko (np. Kowalski) *"
+                        value={smartFormData.lastName}
+                        onChange={(e) => setSmartFormData({ ...smartFormData, lastName: e.target.value })}
+                        className="border-2 min-h-[44px]"
+                        aria-label="Nazwisko"
+                      />
+                    </div>
+                    <Input
+                      type="email"
+                      placeholder="E-mail (np. jan.kowalski@firma.pl) *"
+                      value={smartFormData.email}
+                      onChange={(e) => setSmartFormData({ ...smartFormData, email: e.target.value })}
+                      className="border-2 min-h-[44px]"
+                      aria-label="Adres e-mail"
+                      required
+                    />
+                    <Input
+                      placeholder="Telefon (opcjonalnie, np. +48 123 456 789)"
+                      value={smartFormData.phone}
+                      onChange={(e) => setSmartFormData({ ...smartFormData, phone: e.target.value })}
+                      className="border-2 min-h-[44px]"
+                      aria-label="Numer telefonu"
+                    />
+                    <Textarea
+                      placeholder="Opisz swój projekt - im więcej szczegółów, tym lepiej pomożemy *"
+                      value={smartFormData.message}
+                      onChange={(e) => setSmartFormData({ ...smartFormData, message: e.target.value })}
+                      className="border-2 min-h-32"
+                      aria-label="Opis projektu"
+                      required
+                    />
+                  </div>
+                )}
+
+                {/* Navigation Buttons */}
+                <div className="flex justify-between mt-8">
+                  {formStep > 1 && (
+                    <Button
+                      onClick={() => setFormStep(formStep - 1)}
+                      variant="outline"
+                      className="font-bold"
+                    >
+                      ← Wstecz
+                    </Button>
+                  )}
+                  <div className="ml-auto">
+                    {formStep < 2 ? (
+                      <Button
+                        onClick={() => setFormStep(formStep + 1)}
+                        className="bg-blue-700 hover:bg-blue-800 font-bold"
+                        disabled={formStep === 1 && !smartFormData.projectType}
+                      >
+                        Kontynuuj →
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={() => {
+                          triggerConfetti()
+                          toast.success('Dziękujemy! Odpowiemy w ciągu 24h')
+                          setFormStep(1)
+                          setSmartFormData({
+                            projectType: '',
+                            technology: '',
+                            firstName: '',
+                            lastName: '',
+                            email: '',
+                            phone: '',
+                            message: '',
+                            file: null
+                          })
+                        }}
+                        className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button"
+                        disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message}
+                      >
+                        Wyślij zapytanie 🚀
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Map and Contact Details Section */}
+            <div className="max-w-7xl mx-auto mt-20">
+              <div className="mb-12 text-center">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ODWIEDŹ NAS</p>
+                <h3 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter text-blue-400">
+                  ODWIEDŹ NAS
+                </h3>
+              </div>
+
+              <div className="grid lg:grid-cols-2 gap-12 items-start">
+                {/* Maps Container */}
+                <div className="space-y-12">
+                  {/* Map 1: Siedziba */}
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">SIEDZIBA (BIURO)</h4>
+                    <motion.div
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6 }}
+                      className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+                    >
+                      <iframe
+                        src="https://maps.google.com/maps?q=ul.+Grzybowska+5A,+00-132+Warszawa&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Lokalizacja siedziby STANIAX"
+                        aria-label="Mapa Google pokazująca lokalizację siedziby STANIAX"
+                      />
+                    </motion.div>
+                  </div>
+
+                  {/* Map 2: Zakład Usługowy */}
+                  <div className="space-y-4">
+                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">ZAKŁAD USŁUGOWY</h4>
+                    <motion.div
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+                    >
+                      <iframe
+                        src="https://maps.google.com/maps?q=ul.+Wyszyńskiego+116A,+05-420+Józefów&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Lokalizacja zakładu usługowego STANIAX"
+                        aria-label="Mapa Google pokazująca lokalizację zakładu usługowego STANIAX"
+                      />
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* Contact Details */}
                 <motion.div
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+                  className="space-y-6"
                 >
-                  <iframe
-                    src="https://maps.google.com/maps?q=ul.+Grzybowska+5A,+00-132+Warszawa&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Lokalizacja siedziby STANIAX"
-                    aria-label="Mapa Google pokazująca lokalizację siedziby STANIAX"
-                  />
-                </motion.div>
-              </div>
+                  {/* Address 1: Siedziba */}
+                  <div className="group">
+                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <MapPin className="w-6 h-6 text-white" weight="bold" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">SIEDZIBA</h3>
+                        <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                          ul. Grzybowska 5A<br />
+                          00-132 Warszawa
+                        </p>
+                        <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
+                          (MAPA-NAWIGACJA)
+                        </a>
+                      </div>
+                    </div>
+                  </div>
 
-              {/* Map 2: Zakład Usługowy */}
-              <div className="space-y-4">
-                <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">ZAKŁAD USŁUGOWY</h4>
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
-                >
-                  <iframe
-                    src="https://maps.google.com/maps?q=ul.+Wyszyńskiego+116A,+05-420+Józefów&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Lokalizacja zakładu usługowego STANIAX"
-                    aria-label="Mapa Google pokazująca lokalizację zakładu usługowego STANIAX"
-                  />
+                  {/* Address 2: Zakład Usługowy */}
+                  <div className="group">
+                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Factory className="w-6 h-6 text-white" weight="bold" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">ZAKŁAD USŁUGOWY</h3>
+                        <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                          ul. Wyszyńskiego 116A<br />
+                          05-420 Józefów
+                        </p>
+                        <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
+                          (MAPA-NAWIGACJA)
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Phone & Hours */}
+                  <div className="group">
+                    <a
+                      href="tel:+48882488844"
+                      className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <Phone className="w-6 h-6 text-white" weight="bold" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Telefon</h3>
+                        <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
+                          +48 882 488 844
+                        </p>
+                        <div className="text-sm text-gray-600 mt-2 space-y-1">
+                          <p><span className="font-semibold">Pon-Pt:</span> 7:00 - 17:00</p>
+                          <p><span className="font-semibold">Sob-Nd:</span> Zamknięte</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  {/* Email */}
+                  <div className="group">
+                    <a
+                      href="mailto:metalizacja@staniax.pl"
+                      className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <EnvelopeSimple className="w-6 h-6 text-white" weight="bold" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Email</h3>
+                        <p className="text-lg font-bold text-gray-900 break-all group-hover:text-blue-700 transition-colors">
+                          metalizacja@staniax.pl
+                        </p>
+                        <p className="text-sm text-gray-600 mt-1">
+                          Odpowiadamy w 24h
+                        </p>
+                      </div>
+                    </a>
+                  </div>
                 </motion.div>
               </div>
             </div>
-
-            {/* Contact Details */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
-            >
-              {/* Address 1: Siedziba */}
-              <div className="group">
-                <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <MapPin className="w-6 h-6 text-white" weight="bold" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">SIEDZIBA</h3>
-                    <p className="text-lg font-bold text-gray-900 leading-relaxed">
-                      ul. Grzybowska 5A<br />
-                      00-132 Warszawa
-                    </p>
-                    <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
-                      (MAPA-NAWIGACJA)
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Address 2: Zakład Usługowy */}
-              <div className="group">
-                <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Factory className="w-6 h-6 text-white" weight="bold" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">ZAKŁAD USŁUGOWY</h3>
-                    <p className="text-lg font-bold text-gray-900 leading-relaxed">
-                      ul. Wyszyńskiego 116A<br />
-                      05-420 Józefów
-                    </p>
-                    <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
-                      (MAPA-NAWIGACJA)
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Phone & Hours */}
-              <div className="group">
-                <a
-                  href="tel:+48882488844"
-                  className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
-                >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Phone className="w-6 h-6 text-white" weight="bold" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Telefon</h3>
-                    <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
-                      +48 882 488 844
-                    </p>
-                    <div className="text-sm text-gray-600 mt-2 space-y-1">
-                      <p><span className="font-semibold">Pon-Pt:</span> 7:00 - 17:00</p>
-                      <p><span className="font-semibold">Sob-Nd:</span> Zamknięte</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              {/* Email */}
-              <div className="group">
-                <a
-                  href="mailto:metalizacja@staniax.pl"
-                  className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
-                >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <EnvelopeSimple className="w-6 h-6 text-white" weight="bold" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Email</h3>
-                    <p className="text-lg font-bold text-gray-900 break-all group-hover:text-blue-700 transition-colors">
-                      metalizacja@staniax.pl
-                    </p>
-                    <p className="text-sm text-gray-600 mt-1">
-                      Odpowiadamy w 24h
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </motion.div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
 
-  {/* BIG TYPE FOOTER */ }
-      <BigFooter />
+        {/* BIG TYPE FOOTER */}
+        <BigFooter />
 
-      <CookieBanner />
+        <CookieBanner />
 
 
-  {/* Mobile Floating CTA Button */ }
-  <button
-    onClick={() => scrollToSection('contact')}
-    className={cn(
-      'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
-      showFloatingCTA
-        ? 'translate-y-0 opacity-100 pointer-events-auto'
-        : 'translate-y-20 opacity-0 pointer-events-none'
-    )}
-    aria-label="Wyceń projekt"
-  >
-    <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl border-2 border-blue-400/30">
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-      </svg>
-    </div>
-  </button>
+        {/* Mobile Floating CTA Button */}
+        <button
+          onClick={() => scrollToSection('contact')}
+          className={cn(
+            'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+            showFloatingCTA
+              ? 'translate-y-0 opacity-100 pointer-events-auto'
+              : 'translate-y-20 opacity-0 pointer-events-none'
+          )}
+          aria-label="Wyceń projekt"
+        >
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl border-2 border-blue-400/30">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+          </div>
+        </button>
 
-  {/* Support Chat Bubble */ }
-  <button
-    onClick={() => {
-      setIsChatOpen(!isChatOpen)
-      if (!isChatOpen) {
-        toast.info('Czat support będzie dostępny wkrótce! Na razie skontaktuj się z nami przez formularz.')
-      }
-    }}
-    className="fixed bottom-6 left-6 z-[85] flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-110 focus-visible:ring-4 focus-visible:ring-blue-400 group"
-    aria-label="Otwórz czat support"
-  >
-    <ChatCircle className="w-8 h-8" weight="bold" />
+        {/* Support Chat Bubble */}
+        <button
+          onClick={() => {
+            setIsChatOpen(!isChatOpen)
+            if (!isChatOpen) {
+              toast.info('Czat support będzie dostępny wkrótce! Na razie skontaktuj się z nami przez formularz.')
+            }
+          }}
+          className="fixed bottom-6 left-6 z-[85] flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-110 focus-visible:ring-4 focus-visible:ring-blue-400 group"
+          aria-label="Otwórz czat support"
+        >
+          <ChatCircle className="w-8 h-8" weight="bold" />
 
-    {/* Pulsing indicator */}
-    <span className="absolute top-0 left-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full animate-pulse" />
+          {/* Pulsing indicator */}
+          <span className="absolute top-0 left-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full animate-pulse" />
 
-    {/* Tooltip on hover */}
-    <span className="absolute left-20 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
-      Porozmawiaj z nami 💬
-    </span>
-  </button>
+          {/* Tooltip on hover */}
+          <span className="absolute left-20 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+            Porozmawiaj z nami 💬
+          </span>
+        </button>
 
-  {/* Scroll to Top Button */ }
-  <button
-    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-    className={cn(
-      'fixed bottom-24 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
-      showScrollTop
-        ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
-        : 'translate-y-20 opacity-0 pointer-events-none scale-75'
-    )}
-    aria-label="Powrót do góry strony"
-  >
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-    </svg>
-  </button>
+        {/* Scroll to Top Button */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className={cn(
+            'fixed bottom-24 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+            showScrollTop
+              ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
+              : 'translate-y-20 opacity-0 pointer-events-none scale-75'
+          )}
+          aria-label="Powrót do góry strony"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
 
-  {/* Global Focus Styles */ }
-  <style>{`
+        {/* Global Focus Styles */}
+        <style>{`
         *:focus-visible {
           outline: 3px solid rgb(96 165 250) !important;
           outline-offset: 2px !important;
@@ -2423,7 +2423,7 @@ function HomePage() {
           outline-offset: 2px !important;
         }
       `}</style>
-    </main >
+      </main >
     </SmoothScroll >
   )
 }
