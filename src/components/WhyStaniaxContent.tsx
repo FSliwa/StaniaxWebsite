@@ -28,24 +28,6 @@ const cards: CardData[] = [
         media: metallizationVideo,
         type: 'video',
         theme: 'dark'
-    },
-    {
-        id: 2,
-        title: "NASZA OFERTA",
-        subtitle: "METALIZACJA PRÓŻNIOWA",
-        description: "Zaawansowane procesy napylania próżniowego (PVD) dla uzyskania idealnych powłok metalicznych na tworzywach sztucznych, szkle i metalu. Ekologiczna alternatywa dla chromowania.",
-        media: technologyImg,
-        type: 'image',
-        theme: 'light'
-    },
-    {
-        id: 3,
-        title: "NASZA OFERTA",
-        subtitle: "LAKIEROWANIE UV",
-        description: "Nowoczesna lakiernia UV zapewniająca trwałe zabezpieczenie powłok metalizowanych oraz samodzielne lakierowanie detali. Wysoka odporność na ścieranie i czynniki chemiczne.",
-        media: innovationImg,
-        type: 'image',
-        theme: 'dark'
     }
 ]
 
