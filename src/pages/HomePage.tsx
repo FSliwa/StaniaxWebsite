@@ -85,13 +85,46 @@ const virtualStudioEmbedUrl =
   import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_EMBED_URL ?? 'undefined'
 
 const languages = [
-  "Metalizacja próżniowa",
-  "Vacuum Metallization",
-  "Vakuummetallisierung",
-  "Métallisation sous vide",
-  "Metallizzazione sotto vuoto",
-  "Vacuümmetallisatie"
+  { text: "Metalizacja próżniowa", flag: "🇵🇱", lang: "pl" },
+  { text: "Vacuum Metallization", flag: "🇬🇧", lang: "en" },
+  { text: "Vakuummetallisierung", flag: "🇩🇪", lang: "de" },
+  { text: "Métallisation sous vide", flag: "🇫🇷", lang: "fr" },
+  { text: "Metallizzazione sotto vuoto", flag: "🇮🇹", lang: "it" },
+  { text: "Vacuümmetallisatie", flag: "🇳🇱", lang: "nl" }
 ]
+
+function RotatingText() {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % languages.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="h-[1.2em] overflow-hidden relative inline-flex items-center gap-4">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -40, opacity: 0 }}
+          transition={{ duration: 0.5, ease: "circOut" }}
+          className="flex items-center gap-4"
+        >
+          <span className="text-4xl lg:text-6xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
+            {languages[index].text}
+          </span>
+          <span className="text-2xl lg:text-4xl shadow-sm rounded-full overflow-hidden" role="img" aria-label={`Flag for ${languages[index].lang}`}>
+            {languages[index].flag}
+          </span>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  )
+}
 
 type NavItem =
   | { id: string; label: string; type: 'section' }
@@ -619,14 +652,7 @@ function HomePage() {
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const servicesSectionRef = useRef<HTMLDivElement | null>(null)
 
-  const [langIndex, setLangIndex] = useState(0)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLangIndex((prev) => (prev + 1) % languages.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
 
   // NEW: Animation states
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -1343,25 +1369,7 @@ function HomePage() {
                 STANIAX
               </span>
               <div className="h-6 overflow-hidden relative w-full flex items-center min-w-[220px]">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={langIndex}
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -20, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className={cn(
-                      "absolute text-[10px] sm:text-xs font-medium tracking-widest uppercase whitespace-nowrap",
-                      isMenuOpen
-                        ? 'text-muted-foreground'
-                        : isDarkHeaderContext
-                          ? 'text-white/70'
-                          : 'text-muted-foreground'
-                    )}
-                  >
-                    {languages[langIndex]}
-                  </motion.span>
-                </AnimatePresence>
+                <RotatingText />
               </div>
             </button>
             <div className="flex items-center gap-5">
