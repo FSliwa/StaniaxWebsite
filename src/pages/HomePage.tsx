@@ -1137,34 +1137,7 @@ function HomePage() {
     }
   }, [])
 
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (isTransitioning.current) {
-        e.preventDefault()
-        return
-      }
-
-      const scrollDown = e.deltaY > 0
-      const scrollUp = e.deltaY < 0
-
-      if (activeSection === 0 && scrollDown) {
-        e.preventDefault()
-        isTransitioning.current = true
-        setActiveSection(1)
-        setTimeout(() => { isTransitioning.current = false }, 1000)
-      } else if (activeSection === 1 && scrollUp && window.scrollY === 0) {
-        e.preventDefault()
-        isTransitioning.current = true
-        setActiveSection(0)
-        setTimeout(() => { isTransitioning.current = false }, 1000)
-      }
-    }
-
-    window.addEventListener('wheel', handleWheel, { passive: false })
-    return () => {
-      window.removeEventListener('wheel', handleWheel)
-    }
-  }, [activeSection])
+  // Removed conflicting wheel event listener to allow natural scrolling with Lenis
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id)
