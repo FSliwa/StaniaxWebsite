@@ -30,18 +30,18 @@ const cards: CardData[] = [
     },
     {
         id: 2,
-        title: "METALIZACJA PRÓŻNIOWA",
-        subtitle: "Technologia PVD",
-        description: "Zaawansowane procesy metalizacji próżniowej zapewniające doskonałe wykończenie i trwałość powłok.",
+        title: "TECHNOLOGIE",
+        subtitle: "Automatyzacja Przyszłości",
+        description: "Oferujemy szeroki zakres metod: PVD, CVD, natrysk plazmowy oraz galwanizację przemysłową. Pracujemy z materiałami takimi jak tytan, chrom, nikiel, wolfram oraz ceramika techniczna.",
         media: technologyImg,
         type: 'image',
         theme: 'light'
     },
     {
         id: 3,
-        title: "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH",
-        subtitle: "Precyzja i Estetyka",
-        description: "Kompleksowe usługi lakierowania detali z tworzyw sztucznych, gwarantujące najwyższą jakość i powtarzalność.",
+        title: "BRANŻE",
+        subtitle: "Sektory Przemysłu",
+        description: "Realizujemy projekty dla przemysłu lotniczego, motoryzacyjnego, medycznego, energetycznego oraz sektora narzędziowego. Nasze powłoki zwiększają odporność na zużycie, korozję i wysokie temperatury.",
         media: innovationImg,
         type: 'image',
         theme: 'dark'

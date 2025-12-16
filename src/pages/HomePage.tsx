@@ -1610,22 +1610,19 @@ function HomePage() {
                     </div>
                   ))}
                 </div>
+
+                {/* Cytat misji - moved here */}
+                <div className="mt-12 max-w-4xl ml-auto">
+                  <p className="text-lg text-gray-600 italic border-l-4 border-blue-700 pl-8 leading-relaxed font-normal">
+                    "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
+                  </p>
+                </div>
               </div>
             </div>
 
 
 
-            {/* Cytat misji - poniżej siatki - w szarym tle */}
-            <div className="bg-gray-100 -mx-6 lg:-mx-12 px-6 lg:px-12 pt-8 pb-12 -mt-8">
-              <div className="max-w-4xl mx-auto">
-                <p className="text-lg text-gray-600 italic border-l-4 border-blue-700 pl-8 leading-relaxed font-normal">
-                  "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
-                </p>
-              </div>
 
-              {/* CTA - wyśrodkowany - w szarym tle */}
-
-            </div>
 
             {/* CTA after About section */}
             <div className="mt-16 text-center">
