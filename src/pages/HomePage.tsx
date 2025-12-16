@@ -67,8 +67,8 @@ import whyChooseImg1 from '@/assets/Dlaczego Staniax V1.png'
 import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
 import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
 
-import spinningMachineImg from '@/assets/WhatsApp Image 2025-10-06 at 21.02.24.jpeg'
-import colorfulPackagingImg from '@/assets/_DSC9662-Edit.png'
+import spinningMachineImg from '@/assets/spinning_machine.jpeg'
+import colorfulPackagingImg from '@/assets/colorful_packaging.png'
 import threeReflectorsImg from '@/assets/three_reflectors_1765869273944.png'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
@@ -1569,6 +1569,7 @@ function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
         </section>
 
 
