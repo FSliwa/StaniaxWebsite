@@ -1521,51 +1521,29 @@ function HomePage() {
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Grid 1x3 metryk z Stagger Animation */}
-            {/* Grid 2x2 metryk z Stagger Animation */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Metryka 1 (Top Left) - Text */}
-              <div className={`flex flex-col items-center justify-center p-8 bg-gray-50 rounded-3xl aspect-square group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+            {/* Grid 1x3 metryk z Stagger Animation */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Metryka 1 */}
+              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                 <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
                   <CountUp end={30} suffix="+" shouldStart={metricsVisible} />
                 </div>
-                <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold text-center">
+                <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
                   LAT DOŚWIADCZENIA
                 </p>
               </div>
 
-              {/* Metryka 2 (Top Right) - Spinning Machine */}
-              <div className={`relative overflow-hidden rounded-3xl aspect-square group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <img
-                  src={spinningMachineImg}
-                  alt="Maszyna w ruchu"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white font-bold uppercase tracking-wider">Park Maszynowy</span>
+              {/* Metryka 2 */}
+              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                <div className="relative text-3xl lg:text-5xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
+                  METALIZACJA PRÓŻNIOWA
                 </div>
               </div>
 
-              {/* Metryka 3 (Bottom Left) - Colorful Packaging */}
-              <div className={`relative overflow-hidden rounded-3xl aspect-square group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <img
-                  src={colorfulPackagingImg}
-                  alt="Kolorowe opakowania"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white font-bold uppercase tracking-wider">Lakierowanie UV</span>
-                </div>
-              </div>
-
-              {/* Metryka 4 (Bottom Right) - Three Reflectors */}
-              <div className={`relative overflow-hidden rounded-3xl aspect-square group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <img
-                  src={threeReflectorsImg}
-                  alt="Trzy odblaski"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white font-bold uppercase tracking-wider">Metalizacja Próżniowa</span>
+              {/* Metryka 3 */}
+              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                <div className="relative text-2xl lg:text-4xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
+                  LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH
                 </div>
               </div>
             </div>

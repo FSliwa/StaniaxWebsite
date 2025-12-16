@@ -6,10 +6,10 @@ import { ArrowUpRight } from '@phosphor-icons/react'
 
 // Import assets
 import videoSrc from '@/assets/Generowanie_Wideo_Dłoni_z_Efektem.mp4'
-import sideTile1 from '@/assets/side-tile-1.png'
+import sideTile1 from '@/assets/colorful_packaging.png' // Bottom Left
 import sideTile2 from '@/assets/side-tile-2.jpg'
-import sideTile3 from '@/assets/side-tile-3.png'
-import sideTile4 from '@/assets/side-tile-4.png'
+import sideTile3 from '@/assets/spinning_machine.jpeg' // Top Right
+import sideTile4 from '@/assets/three_reflectors_1765869273944.png' // Bottom Right
 
 
 
