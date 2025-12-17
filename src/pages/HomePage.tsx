@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence, type MotionValue } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
-import { TextReveal } from '@/components/ui/TextReveal'
+import { ScrambleText } from '@/components/ui/ScrambleText'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -1542,24 +1542,24 @@ function HomePage() {
               {/* Metryka 1 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                 <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                  <CountUp end={30} suffix="+" shouldStart={metricsVisible} />
+                  <ScrambleText text="30+" duration={1500} />
                 </div>
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                  LAT DOŚWIADCZENIA
+                  <ScrambleText text="LAT DOŚWIADCZENIA" delay={500} />
                 </p>
               </div>
 
               {/* Metryka 2 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                 <div className="relative text-3xl lg:text-5xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
-                  METALIZACJA PRÓŻNIOWA
+                  <ScrambleText text="METALIZACJA PRÓŻNIOWA" delay={200} />
                 </div>
               </div>
 
               {/* Metryka 3 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                 <div className="relative text-2xl lg:text-4xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
-                  LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH
+                  <ScrambleText text="LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH" delay={400} />
                 </div>
               </div>
             </div>
