@@ -112,12 +112,12 @@ function RotatingText({ className }: { className?: string }) {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -40, opacity: 0 }}
           transition={{ duration: 0.5, ease: "circOut" }}
-          className="flex items-center gap-4 absolute top-0 left-0 whitespace-nowrap"
+          className="flex items-center gap-3 absolute top-0 left-0 whitespace-nowrap"
         >
-          <span className={cn("text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tighter", className)}>
+          <span className={cn("text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tighter", className)}>
             {languages[index].text}
           </span>
-          <span className="text-xl sm:text-2xl lg:text-3xl shadow-sm rounded-full overflow-hidden flex-shrink-0" role="img" aria-label={`Flag for ${languages[index].lang}`}>
+          <span className="text-xl sm:text-2xl lg:text-3xl shadow-sm rounded-full overflow-hidden flex-shrink-0 opacity-80" role="img" aria-label={`Flag for ${languages[index].lang}`}>
             {languages[index].flag}
           </span>
         </motion.div>
