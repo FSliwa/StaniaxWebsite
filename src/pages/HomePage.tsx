@@ -93,7 +93,7 @@ const languages = [
   { text: "Vacuümmetallisatie", flag: "🇳🇱", lang: "nl" }
 ]
 
-function RotatingText() {
+function RotatingText({ className }: { className?: string }) {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -104,7 +104,7 @@ function RotatingText() {
   }, [])
 
   return (
-    <div className="h-[1.2em] overflow-hidden relative inline-flex items-center gap-4">
+    <div className="h-[1.5em] overflow-visible relative inline-flex items-center gap-4 py-2">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -112,12 +112,12 @@ function RotatingText() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -40, opacity: 0 }}
           transition={{ duration: 0.5, ease: "circOut" }}
-          className="flex items-center gap-4"
+          className="flex items-center gap-4 absolute top-0 left-0 whitespace-nowrap"
         >
-          <span className="text-4xl lg:text-6xl font-black uppercase tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
+          <span className={cn("text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tighter", className)}>
             {languages[index].text}
           </span>
-          <span className="text-2xl lg:text-4xl shadow-sm rounded-full overflow-hidden" role="img" aria-label={`Flag for ${languages[index].lang}`}>
+          <span className="text-xl sm:text-2xl lg:text-3xl shadow-sm rounded-full overflow-hidden flex-shrink-0" role="img" aria-label={`Flag for ${languages[index].lang}`}>
             {languages[index].flag}
           </span>
         </motion.div>
@@ -1368,8 +1368,16 @@ function HomePage() {
               >
                 STANIAX
               </span>
-              <div className="h-6 overflow-hidden relative w-full flex items-center min-w-[220px]">
-                <RotatingText />
+              <div className="h-12 overflow-visible relative w-full flex items-center min-w-[220px]">
+                <RotatingText
+                  className={
+                    isMenuOpen
+                      ? 'text-muted-foreground'
+                      : isDarkHeaderContext
+                        ? 'text-white/70'
+                        : 'text-muted-foreground'
+                  }
+                />
               </div>
             </button>
             <div className="flex items-center gap-5">
