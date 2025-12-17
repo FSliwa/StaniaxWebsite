@@ -39,7 +39,7 @@ export function WhyStaniaxContent() {
     })
 
     return (
-        <section ref={containerRef} className="relative h-[400vh] bg-white z-20 -mt-[5vh] rounded-t-[3rem] shadow-[0_-25px_50px_-12px_rgba(0,0,0,0.15)] [mask-image:linear-gradient(to_bottom,transparent,black_10%)]">
+        <section ref={containerRef} className="relative h-[400vh] bg-white z-50 rounded-t-[3rem] shadow-[0_-25px_50px_-12px_rgba(0,0,0,0.25)]">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                 <div className="relative w-full h-full max-w-[1600px] px-4 sm:px-10 py-10 md:py-20">
                     {cards.map((card, index) => (

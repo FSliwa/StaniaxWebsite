@@ -89,7 +89,7 @@ export function VideoGalleryTransition() {
     const xPosition = useTransform(scrollYProgress, [0, 1], ["-50%", "-50%"])
 
     return (
-        <section ref={containerRef} className="relative h-[250vh] bg-white">
+        <section ref={containerRef} className="relative h-[250vh] bg-white z-10">
             <div className="sticky top-0 h-screen w-full flex items-center justify-center">
 
                 {/* Hero Text Overlay (Fades out quickly) */}
@@ -137,7 +137,7 @@ export function VideoGalleryTransition() {
                     {/* Center Column (Hero) - Grid Slot */}
                     <motion.div
                         style={{ y: centerY }}
-                        className="relative h-full z-40 col-start-1 md:col-start-2 row-start-1 md:row-start-1"
+                        className="relative h-full z-30 col-start-1 md:col-start-2 row-start-1 md:row-start-1"
                     >
                         {/* Animated Hero Video - Breaks out of grid */}
                         <motion.div
