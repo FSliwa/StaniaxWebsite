@@ -123,13 +123,13 @@ export function VideoGalleryTransition() {
                         {/* Top Left */}
                         <div className="relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-2xl group">
                             <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
-                                <LensImage src={sideTile2} alt="Gallery 1" className="w-full h-full" />
+                                <img src={sideTile2} alt="Gallery 1" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             </motion.div>
                         </div>
                         {/* Bottom Left */}
                         <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
                             <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
-                                <LensImage src={sideTile1} alt="Gallery 2" className="w-full h-full" />
+                                <img src={sideTile1} alt="Gallery 2" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             </motion.div>
                         </div>
                     </motion.div>
@@ -181,13 +181,13 @@ export function VideoGalleryTransition() {
                         {/* Top Right */}
                         <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden shadow-2xl group">
                             <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
-                                <LensImage src={sideTile3} alt="Gallery 3" className="w-full h-full" />
+                                <img src={sideTile3} alt="Gallery 3" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             </motion.div>
                         </div>
                         {/* Bottom Right */}
                         <div className="relative aspect-[16/10] rounded-[24px] overflow-hidden shadow-2xl group">
                             <motion.div style={{ y: innerParallaxY }} className="w-full h-[150%] -mt-[25%]">
-                                <LensImage src={sideTile4} alt="Gallery 4" className="w-full h-full" />
+                                <img src={sideTile4} alt="Gallery 4" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                             </motion.div>
                         </div>
                     </motion.div>

@@ -1542,24 +1542,24 @@ function HomePage() {
               {/* Metryka 1 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                 <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                  <ScrambleText text="30+" duration={1500} />
+                  30+
                 </div>
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                  <ScrambleText text="LAT DOŚWIADCZENIA" delay={500} />
+                  LAT DOŚWIADCZENIA
                 </p>
               </div>
 
               {/* Metryka 2 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                 <div className="relative text-3xl lg:text-5xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
-                  <ScrambleText text="METALIZACJA PRÓŻNIOWA" delay={200} />
+                  METALIZACJA PRÓŻNIOWA
                 </div>
               </div>
 
               {/* Metryka 3 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                 <div className="relative text-2xl lg:text-4xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
-                  <ScrambleText text="LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH" delay={400} />
+                  LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH
                 </div>
               </div>
             </div>
@@ -1588,7 +1588,7 @@ function HomePage() {
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OFERTA</p>
               <div className="bg-white py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
                 <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
-                  <TextReveal text="NASZA OFERTA" />
+                  NASZA OFERTA
                 </h2>
 
                 <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
