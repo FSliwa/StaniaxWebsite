@@ -104,7 +104,7 @@ function RotatingText({ className }: { className?: string }) {
   }, [])
 
   return (
-    <div className="h-[1.5em] overflow-visible relative inline-flex items-center gap-4 py-2">
+    <div className="h-[1.5em] overflow-visible relative inline-flex items-center gap-2 py-2">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -114,7 +114,7 @@ function RotatingText({ className }: { className?: string }) {
           transition={{ duration: 0.5, ease: "circOut" }}
           className="flex items-center gap-2 absolute top-0 left-0 whitespace-nowrap"
         >
-          <span className={cn("text-2xl sm:text-3xl lg:text-4xl font-semibold uppercase tracking-tighter", className)}>
+          <span className={cn("text-2xl sm:text-3xl lg:text-4xl font-medium uppercase tracking-tighter", className)}>
             {languages[index].text}
           </span>
           <span className="text-xl sm:text-2xl lg:text-3xl shadow-sm rounded-full overflow-hidden flex-shrink-0 opacity-90" role="img" aria-label={`Flag for ${languages[index].lang}`}>
@@ -1055,7 +1055,7 @@ function HomePage() {
   }, [])
 
   useEffect(() => {
-    const sectionIds = ['top', ...navItems.filter((item) => item.type === 'section').map((item) => item.id)]
+    const sectionIds = ['top', 'video-gallery', 'why-staniax', ...navItems.filter((item) => item.type === 'section').map((item) => item.id)]
 
     const sections = sectionIds
       .map((id) => document.getElementById(id))
@@ -1514,10 +1514,14 @@ function HomePage() {
         </div>
 
         {/* HERO & GALLERY SECTION (Seamless Transition) */}
-        <VideoGalleryTransition />
+        <section id="video-gallery" data-theme="dark">
+          <VideoGalleryTransition />
+        </section>
 
         {/* FEATURE HIGHLIGHT (Parallax Reveal) */}
-        <WhyStaniaxContent />
+        <section id="why-staniax" data-theme="light">
+          <WhyStaniaxContent />
+        </section>
 
 
 
