@@ -20,6 +20,9 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
     })
 
     lenisRef.current = lenis
+    
+    // Make Lenis available globally for scrollToSection
+    ;(window as any).lenis = lenis
 
     function raf(time: number) {
       lenis.raf(time)
@@ -30,6 +33,7 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
 
     return () => {
       lenis.destroy()
+      delete (window as any).lenis
     }
   }, [])
 

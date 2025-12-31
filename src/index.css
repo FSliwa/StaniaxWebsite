@@ -190,6 +190,22 @@
   body {
     font-family: "Outfit", sans-serif;
     @apply bg-background text-foreground;
+    cursor: none !important;
+  }
+  
+  * {
+    cursor: none !important;
+  }
+  
+  /* Show default cursor only for text inputs and textareas */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea {
+    cursor: text !important;
   }
 }
 

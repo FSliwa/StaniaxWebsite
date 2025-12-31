@@ -70,6 +70,8 @@ import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
 import spinningMachineImg from '@/assets/spinning_machine.jpeg'
 import colorfulPackagingImg from '@/assets/colorful_packaging.png'
 import threeReflectorsImg from '@/assets/three_reflectors_1765869273944.png'
+import affiliatedCompaniesImg from '@/assets/affiliated-companies.jpeg'
+import vacuumMetalizationImg from '@/assets/vacuum-metalization.jpg'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -114,11 +116,11 @@ function RotatingText({ className }: { className?: string }) {
           transition={{ duration: 0.5, ease: "circOut" }}
           className="flex items-center gap-2 absolute top-0 left-0 whitespace-nowrap"
         >
-          <span className={cn("text-2xl sm:text-3xl lg:text-4xl font-medium uppercase tracking-tighter", className)}>
-            {languages[index].text}
-          </span>
           <span className="text-xl sm:text-2xl lg:text-3xl shadow-sm rounded-full overflow-hidden flex-shrink-0 opacity-90" role="img" aria-label={`Flag for ${languages[index].lang}`}>
             {languages[index].flag}
+          </span>
+          <span className={cn("text-2xl sm:text-3xl lg:text-4xl font-medium uppercase tracking-tighter", className)}>
+            {languages[index].text}
           </span>
         </motion.div>
       </AnimatePresence>
@@ -135,6 +137,7 @@ const navItems: NavItem[] = [
   { id: 'services', label: 'Oferta', type: 'section' },
   { id: 'custom-section', label: 'Specjalnie dla Ciebie', type: 'section' },
   { id: 'projects', label: 'Realizacje', type: 'section' },
+  { id: 'gallery', label: 'Galeria', type: 'route', path: '/gallery' },
   { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
   { id: 'contact', label: 'Kontakt', type: 'section' }
 ]
@@ -171,6 +174,16 @@ type AboutTileConfig = {
 }
 
 const servicesData: ServiceItem[] = [
+  {
+    id: 'kim-jestesmy',
+    title: 'Kim Jesteśmy',
+    description:
+      'STANIAX to zespół pasjonatów technologii powłokowych z ponad 20-letnim doświadczeniem. Łączymy tradycję rzemiosła z najnowocześniejszymi rozwiązaniami, oferując kompleksowe usługi metalizacji i lakierowania dla wymagających klientów z całej Europy.',
+    icon: <Users className="w-16 h-16 text-white/80 icon-welding-effect" />,
+    image: vacuumMetalizationImg,
+    alt: 'Metalizacja próżniowa - chromowane elementy',
+    tagline: 'O Nas'
+  },
   {
     id: 'vacuum-metallization',
     title: 'Metalizacja Próżniowa',
@@ -281,12 +294,6 @@ type CaseStudy = {
   imageBefore: string
   imageAfter: string
   metrics: Array<{ value: string; label: string }>
-  testimonial: {
-    quote: string
-    author: string
-    role: string
-    avatar: string
-  }
   badge: string
 }
 
@@ -294,7 +301,7 @@ const caseStudiesData: CaseStudy[] = [
   {
     id: 'automotive-excellence',
     title: 'Rewolucja Przemysłowa',
-    subtitle: 'Przełomowa metalizacja komponentów silnikowych',
+    subtitle: 'Metalizacja próżniowa elementów maszyn przemysłowych zwiększająca odporność na zużycie i korozję',
     imageBefore: automotiveAfter,
     imageAfter: automotiveBefore,
     metrics: [
@@ -302,18 +309,12 @@ const caseStudiesData: CaseStudy[] = [
       { value: '50K+', label: 'Elementy' },
       { value: 'ISO 9001', label: 'Certyfikat' }
     ],
-    testimonial: {
-      quote: 'Współpraca z STANIAX przyniosła rewolucyjne rezultaty. Trwałość naszych komponentów wzrosła o 250%, a koszty produkcji spadły o 30%.',
-      author: 'Jan Kowalski',
-      role: 'Prezes, TechMotors',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
-    },
     badge: '+250% Trwałość'
   },
   {
     id: 'packaging-innovation',
-    title: 'OPAKOWANIA PRODUKTOWE',
-    subtitle: 'Estetyka i Funkcjonalność w Kosmetyce',
+    title: 'METALIZACJA PRÓŻNIOWA',
+    subtitle: 'Powłoki dekoracyjne na opakowaniach kosmetycznych i produktowych nadające efekt premium',
     imageBefore: packagingAfter,
     imageAfter: packagingBefore,
     metrics: [
@@ -321,18 +322,12 @@ const caseStudiesData: CaseStudy[] = [
       { value: '100%', label: 'Powtarzalność' },
       { value: 'Premium', label: 'Jakość' }
     ],
-    testimonial: {
-      quote: 'Metalizacja opakowań kosmetycznych przez STANIAX pozwoliła nam wejść na rynek premium. Idealne odwzorowanie kolorów i trwałość powłoki to klucz do sukcesu.',
-      author: 'Ewa Minge',
-      role: 'Dyrektor Kreatywna, BeautyLine',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
-    },
     badge: 'Design Premium'
   },
   {
     id: 'industrial-revolution',
     title: 'Doskonałość Motoryzacyjna',
-    subtitle: 'Kompleksowa ochrona linii produkcyjnej',
+    subtitle: 'Precyzyjne powłoki na komponentach motoryzacyjnych spełniające najwyższe standardy jakości',
     imageBefore: industrialAfter,
     imageAfter: industrialBefore,
     metrics: [
@@ -340,12 +335,6 @@ const caseStudiesData: CaseStudy[] = [
       { value: '200+', label: 'Maszyny' },
       { value: '0', label: 'Awarie' }
     ],
-    testimonial: {
-      quote: 'Dzięki metalizacji całej linii produkcyjnej przez STANIAX, eliminujemy 95% awarii związanych z korozją i zużyciem. ROI osiągnęliśmy w 8 miesięcy.',
-      author: 'Piotr Wiśniewski',
-      role: 'Dyrektor Operacyjny, IndustryPro',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
-    },
     badge: '95% Redukcja Awarii'
   }
 ]
@@ -714,10 +703,6 @@ function HomePage() {
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
   const sectionIds = ['top', 'metrics', 'services', 'custom-section', 'about', 'projects', 'contact']
 
-  const { scrollYProgress: aboutScrollProgress } = useScroll({
-    target: aboutMosaicRef,
-    offset: ['start 90%', 'end 15%']
-  })
   const isSplineReady = splineStatus === 'ready'
   const shouldRenderNewsSpline = !prefersReducedMotion && hasNewsSpline && isSplineReady
   const shouldRenderNewsVideoFallback = !prefersReducedMotion && (!hasNewsSpline || splineStatus !== 'ready')
@@ -1173,7 +1158,18 @@ function HomePage() {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id)
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Try to use Lenis if available for smooth scrolling
+      const lenis = (window as any).lenis
+      if (lenis) {
+        lenis.scrollTo(section, {
+          offset: -80, // Offset for header
+          duration: 1.5,
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+        })
+      } else {
+        // Fallback to native smooth scroll
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
     }
   }
 
@@ -1336,7 +1332,7 @@ function HomePage() {
             'fixed top-0 w-full transition-all duration-500',
             isMenuOpen ? 'z-[100]' : 'z-50',
             scrollY > 32
-              ? 'bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
+              ? 'bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
               : 'bg-transparent border-transparent'
           )}
         >
@@ -1346,9 +1342,11 @@ function HomePage() {
               'px-6 lg:px-24 xl:px-36',
               isMenuOpen
                 ? 'text-foreground'
-                : isDarkHeaderContext
-                  ? 'text-white'
-                  : 'text-foreground'
+                : scrollY > 32
+                  ? 'text-foreground'
+                  : isDarkHeaderContext
+                    ? 'text-white'
+                    : 'text-foreground'
             )}
           >
             <button
@@ -1361,9 +1359,11 @@ function HomePage() {
                   'block text-2xl sm:text-3xl font-black tracking-tighter transition-colors duration-300',
                   isMenuOpen
                     ? 'text-foreground'
-                    : isDarkHeaderContext
-                      ? 'text-white'
-                      : 'text-foreground'
+                    : scrollY > 32
+                      ? 'text-foreground'
+                      : isDarkHeaderContext
+                        ? 'text-white'
+                        : 'text-foreground'
                 )}
               >
                 STANIAX
@@ -1373,23 +1373,27 @@ function HomePage() {
                   className={
                     isMenuOpen
                       ? 'text-muted-foreground'
-                      : isDarkHeaderContext
-                        ? 'text-white/70'
-                        : 'text-muted-foreground'
+                      : scrollY > 32
+                        ? 'text-muted-foreground'
+                        : isDarkHeaderContext
+                          ? 'text-white/70'
+                          : 'text-muted-foreground'
                   }
                 />
               </div>
             </button>
             <div className="flex items-center gap-5">
-              <Button
+                <Button
                 onClick={() => scrollToSection('contact')}
                 className={cn(
                   'hidden sm:inline-flex border bg-transparent transition-all duration-300',
                   isMenuOpen
                     ? 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
-                    : isDarkHeaderContext
-                      ? 'border-white/40 text-white hover:bg-white hover:text-foreground'
-                      : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
+                    : scrollY > 32
+                      ? 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
+                      : isDarkHeaderContext
+                        ? 'border-white/40 text-white hover:bg-white hover:text-foreground'
+                        : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
                 )}
               >
                 Wyceń Projekt
@@ -1399,9 +1403,11 @@ function HomePage() {
                   'relative h-10 w-10 sm:h-12 sm:w-12 rounded-full border backdrop-blur-md flex items-center justify-center transition-all duration-300',
                   isMenuOpen
                     ? 'border-foreground/30 bg-background text-foreground'
-                    : isDarkHeaderContext
-                      ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
-                      : 'border-foreground/20 bg-background/70 text-foreground hover:border-foreground/40'
+                    : scrollY > 32
+                      ? 'border-foreground/20 bg-background/70 text-foreground hover:border-foreground/40'
+                      : isDarkHeaderContext
+                        ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
+                        : 'border-foreground/20 bg-background/70 text-foreground hover:border-foreground/40'
                 )}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Przełącz nawigację"
@@ -1597,17 +1603,17 @@ function HomePage() {
 
                 <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
                   {[
-                    { label: "KIM JESTEŚMY", section: "about" },
-                    { label: "METALIZACJA PRÓŻNIOWA", section: "vacuum-metallization" },
-                    { label: "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH", section: "plastic-painting" },
-                    { label: "LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI", section: "glass-painting" },
-                    { label: "ODBLASKI W METALIZACJI", section: "reflectors" },
-                    { label: "GALERIA", section: "projects" }
+                    { label: "KIM JESTEŚMY", section: "kim-jestesmy", isRoute: false },
+                    { label: "METALIZACJA PRÓŻNIOWA", section: "vacuum-metallization", isRoute: false },
+                    { label: "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH", section: "plastic-painting", isRoute: false },
+                    { label: "LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI", section: "glass-painting", isRoute: false },
+                    { label: "ODBLASKI W METALIZACJI", section: "reflectors", isRoute: false },
+                    { label: "GALERIA", section: "/gallery", isRoute: true }
                   ].map((item, index) => (
                     <div
                       key={index}
                       className="flex items-baseline gap-6 group cursor-pointer"
-                      onClick={() => scrollToSection(item.section)}
+                      onClick={() => item.isRoute ? navigate(item.section) : scrollToSection(item.section)}
                     >
                       <span className="text-xl font-mono text-blue-500 font-bold">0{index + 1}.</span>
                       <h3 className="text-2xl md:text-4xl font-bold text-gray-800 transition-colors uppercase relative overflow-hidden">
@@ -1626,11 +1632,14 @@ function HomePage() {
                       key={service.id}
                       id={service.id}
                       className={cn(
-                        "flex flex-col gap-12 items-center",
-                        index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                        "grid gap-12 items-stretch",
+                        index % 2 === 0 ? "lg:grid-cols-[1fr_1.2fr]" : "lg:grid-cols-[1.2fr_1fr]"
                       )}
                     >
-                      <div className="flex-1 space-y-6">
+                      <div className={cn(
+                        "flex flex-col justify-center space-y-6",
+                        index % 2 !== 0 && "lg:order-2"
+                      )}>
                         <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
                           <span className="w-12 h-px bg-blue-600"></span>
                           {service.tagline}
@@ -1645,19 +1654,22 @@ function HomePage() {
                           Szczegóły
                         </MagneticButton>
                       </div>
-                      <div className="flex-1 w-full">
-                        <TiltCard className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+                      <div className={cn(
+                        "w-full",
+                        index % 2 !== 0 && "lg:order-1"
+                      )}>
+                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
                           <img
                             src={service.image}
                             alt={service.alt}
-                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
                             <div className="text-white/20">
                               {service.icon}
                             </div>
                           </div>
-                        </TiltCard>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -1812,30 +1824,6 @@ function HomePage() {
                               </div>
                             ))
                           }
-                        </div>
-
-                        {/* Testimonial */}
-                        <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-8">
-                          <blockquote className="space-y-4">
-                            <p className="text-gray-700 leading-relaxed italic">
-                              "{caseStudy.testimonial.quote}"
-                            </p>
-                            <div className="flex items-center gap-4">
-                              <img
-                                src={caseStudy.testimonial.avatar}
-                                alt={caseStudy.testimonial.author}
-                                className="w-12 h-12 rounded-full object-cover border-2 border-blue-700"
-                              />
-                              <div>
-                                <cite className="not-italic font-bold text-gray-900 block">
-                                  — {caseStudy.testimonial.author}
-                                </cite>
-                                <span className="text-sm text-gray-600">
-                                  {caseStudy.testimonial.role}
-                                </span>
-                              </div>
-                            </div>
-                          </blockquote>
                         </div>
 
                         {/* Performance Badge */}

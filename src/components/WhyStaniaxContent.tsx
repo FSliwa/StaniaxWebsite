@@ -23,8 +23,8 @@ const cards: CardData[] = [
     {
         id: 1,
         title: "PRECYZJA",
-        subtitle: "Standardy Lotnicze",
-        description: "Nasze powłoki spełniają rygorystyczne normy AS9100. Precyzja na poziomie mikronów to dla nas standard, nie wyzwanie.",
+        subtitle: "Metalizacja Próżniowa",
+        description: "Nasze powłoki spełniają najwyższe standardy jakości. Precyzja na poziomie mikronów to dla nas standard, nie wyzwanie.",
         media: metallizationVideo,
         type: 'video',
         theme: 'dark'
