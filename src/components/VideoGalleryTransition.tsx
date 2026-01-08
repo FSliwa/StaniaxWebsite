@@ -6,7 +6,7 @@ import { ArrowUpRight } from '@phosphor-icons/react'
 import { LensImage } from '@/components/ui/LensImage'
 
 // Import assets
-import videoSrc from '@/assets/Generowanie_Wideo_Dłoni_z_Efektem.mp4'
+import videoSrc from '@/assets/hand_effect_video.mp4'
 import sideTile1 from '@/assets/colorful_packaging.png' // Bottom Left
 import sideTile2 from '@/assets/side-tile-2.jpg'
 import sideTile3 from '@/assets/spinning_machine.jpeg' // Top Right

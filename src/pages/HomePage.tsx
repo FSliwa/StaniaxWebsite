@@ -133,9 +133,9 @@ type NavItem =
   | { id: string; label: string; type: 'route'; path: string }
 
 const navItems: NavItem[] = [
-  { id: 'about', label: 'O STANIAX', type: 'section' },
-  { id: 'services', label: 'Oferta', type: 'section' },
-  { id: 'custom-section', label: 'Specjalnie dla Ciebie', type: 'section' },
+  { id: 'kim-jestesmy', label: 'O STANIAX', type: 'section' },
+  { id: 'about', label: 'Oferta', type: 'section' },
+  { id: 'about', label: 'Specjalnie dla Ciebie', type: 'section' },
   { id: 'projects', label: 'Realizacje', type: 'section' },
   { id: 'gallery', label: 'Galeria', type: 'route', path: '/gallery' },
   { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
@@ -150,6 +150,11 @@ type ServiceItem = {
   image: string
   alt: string
   tagline: string
+  details?: {
+    features: string[]
+    applications: string[]
+    advantages: string[]
+  }
 }
 
 type ProjectItem = {
@@ -175,16 +180,6 @@ type AboutTileConfig = {
 
 const servicesData: ServiceItem[] = [
   {
-    id: 'kim-jestesmy',
-    title: 'Kim Jesteśmy',
-    description:
-      'STANIAX to zespół pasjonatów technologii powłokowych z ponad 20-letnim doświadczeniem. Łączymy tradycję rzemiosła z najnowocześniejszymi rozwiązaniami, oferując kompleksowe usługi metalizacji i lakierowania dla wymagających klientów z całej Europy.',
-    icon: <Users className="w-16 h-16 text-white/80 icon-welding-effect" />,
-    image: vacuumMetalizationImg,
-    alt: 'Metalizacja próżniowa - chromowane elementy',
-    tagline: 'O Nas'
-  },
-  {
     id: 'vacuum-metallization',
     title: 'Metalizacja Próżniowa',
     description:
@@ -192,7 +187,12 @@ const servicesData: ServiceItem[] = [
     icon: <Gear className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
     alt: 'Proces metalizacji próżniowej',
-    tagline: 'Technologia PVD'
+    tagline: 'Technologia PVD',
+    details: {
+      features: ['Napylanie aluminium, chromu, złota', 'Grubość powłoki 0.05-0.5 μm', 'Wysoki połysk lustrzany', 'Proces przyjazny środowisku'],
+      applications: ['Elementy dekoracyjne samochodów', 'Opakowania kosmetyków', 'Reflektory i odbłyśniki', 'Gadżety reklamowe'],
+      advantages: ['Efekt chromu bez użycia chromu', 'Niska emisja CO2', 'Możliwość metalizacji skomplikowanych kształtów', 'Krótki czas realizacji']
+    }
   },
   {
     id: 'plastic-painting',
@@ -201,7 +201,12 @@ const servicesData: ServiceItem[] = [
     icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg2,
     alt: 'Lakierowanie elementów z tworzyw sztucznych',
-    tagline: 'Estetyka i Ochrona'
+    tagline: 'Estetyka i Ochrona',
+    details: {
+      features: ['Lakiery UV, wodne i rozpuszczalnikowe', 'Efekty specjalne: perłowe, metaliczne', 'Wykończenia mat, półmat, połysk', 'Lakierowanie wielowarstwowe'],
+      applications: ['Obudowy elektroniki', 'Elementy AGD', 'Części motoryzacyjne', 'Opakowania premium'],
+      advantages: ['Odporność na zarysowania', 'Trwałość kolorów', 'Ochrona przed UV', 'Możliwość naprawy lokalnej']
+    }
   },
   {
     id: 'glass-painting',
@@ -210,7 +215,12 @@ const servicesData: ServiceItem[] = [
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg3,
     alt: 'Lakierowanie butelek szklanych',
-    tagline: 'Dekoracja Premium'
+    tagline: 'Dekoracja Premium',
+    details: {
+      features: ['Lakiery organiczne i nieorganiczne', 'Efekty frosted i satynowe', 'Gradienty kolorystyczne', 'Powłoki hydrofobowe'],
+      applications: ['Butelki perfum i kosmetyków', 'Flakoniki farmaceutyczne', 'Szkło dekoracyjne', 'Opakowania alkoholi premium'],
+      advantages: ['Wyjątkowa estetyka', 'Odporność na zmywanie', 'Możliwość personalizacji', 'Zgodność z normami kosmetycznymi']
+    }
   },
   {
     id: 'reflectors',
@@ -219,7 +229,12 @@ const servicesData: ServiceItem[] = [
     icon: <Target className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
     alt: 'Metalizowane odbłyśniki',
-    tagline: 'Maksymalna Refleksja'
+    tagline: 'Maksymalna Refleksja',
+    details: {
+      features: ['Współczynnik odbicia >95%', 'Powłoki aluminiowe i srebrne', 'Warstwa ochronna lakierem', 'Precyzja geometryczna'],
+      applications: ['Reflektory samochodowe', 'Oprawy oświetleniowe LED', 'Lampy przemysłowe', 'Systemy optyczne'],
+      advantages: ['Maksymalna wydajność świetlna', 'Długa żywotność', 'Odporność termiczna', 'Zgodność z normami ECE']
+    }
   }
 ]
 
@@ -629,6 +644,8 @@ function HomePage() {
     message: ''
   })
   const [activeService, setActiveService] = useState<string>(servicesData[0]?.id ?? '')
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null)
+  const [isServiceModalOpen, setIsServiceModalOpen] = useState(false)
   const projectsSectionRef = useRef<HTMLDivElement | null>(null)
   const projectCardsRef = useRef<HTMLDivElement[]>([])
   const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null)
@@ -701,7 +718,7 @@ function HomePage() {
 
   // STICKY SIDE NAVIGATION STATE
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
-  const sectionIds = ['top', 'metrics', 'services', 'custom-section', 'about', 'projects', 'contact']
+  const sectionIds = ['top', 'metrics', 'about', 'projects', 'contact']
 
   const isSplineReady = splineStatus === 'ready'
   const shouldRenderNewsSpline = !prefersReducedMotion && hasNewsSpline && isSplineReady
@@ -1510,9 +1527,9 @@ function HomePage() {
               <div>
                 <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
                 <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
-                  <button onClick={() => { scrollToSection('custom-section'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
+                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
                   <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
-                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
+                  <button onClick={() => { scrollToSection('kim-jestesmy'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
                 </div>
               </div>
             </div>
@@ -1582,7 +1599,86 @@ function HomePage() {
 
 
 
+        {/* KIM JESTEŚMY SECTION */}
+        <section id="kim-jestesmy" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
+          {/* Subtle Pattern */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)', backgroundSize: '40px 40px' }} aria-hidden="true" />
+          
+          <div className="container mx-auto px-6 lg:px-12 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Left: Content */}
+              <div className="space-y-8">
+                <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
+                  <span className="w-12 h-px bg-blue-600"></span>
+                  O Nas
+                </div>
+                <h2 className="text-4xl lg:text-6xl font-black uppercase text-gray-900 tracking-tight leading-[0.95]">
+                  Kim<br />Jesteśmy
+                </h2>
+                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
+                  STANIAX to zespół pasjonatów technologii powłokowych z ponad 20-letnim doświadczeniem. Łączymy tradycję rzemiosła z najnowocześniejszymi rozwiązaniami, oferując kompleksowe usługi metalizacji i lakierowania dla wymagających klientów z całej Europy.
+                </p>
+                
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200">
+                  <div>
+                    <div className="text-3xl lg:text-4xl font-black text-blue-700">20+</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Lat doświadczenia</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl lg:text-4xl font-black text-blue-700">2500+</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Projektów</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl lg:text-4xl font-black text-blue-700">ISO</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Certyfikaty</div>
+                  </div>
+                </div>
 
+                {/* Features */}
+                <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                  {[
+                    { icon: <Users className="w-5 h-5" />, text: 'Wykwalifikowany zespół' },
+                    { icon: <Gear className="w-5 h-5" />, text: 'Nowoczesny park maszynowy' },
+                    { icon: <Shield className="w-5 h-5" />, text: 'Gwarancja jakości' },
+                    { icon: <Clock className="w-5 h-5" />, text: 'Terminowość dostaw' }
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-3 text-gray-700">
+                      <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
+                        {item.icon}
+                      </div>
+                      <span className="text-sm font-medium">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <MagneticButton 
+                  onClick={() => scrollToSection('contact')}
+                  className="mt-4 px-8 py-3 bg-blue-600 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors"
+                >
+                  Skontaktuj się z nami
+                </MagneticButton>
+              </div>
+
+              {/* Right: Image */}
+              <div className="relative">
+                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src={vacuumMetalizationImg}
+                    alt="Zespół STANIAX - metalizacja próżniowa"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
+                {/* Floating Badge */}
+                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 max-w-[200px]">
+                  <div className="text-4xl font-black text-blue-700 mb-1">24h</div>
+                  <div className="text-sm text-gray-600 font-medium">Czas reakcji na zapytanie</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
 
         <section id="about" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-tl from-white via-gray-50/50 to-white overflow-hidden">
@@ -1603,7 +1699,6 @@ function HomePage() {
 
                 <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
                   {[
-                    { label: "KIM JESTEŚMY", section: "kim-jestesmy", isRoute: false },
                     { label: "METALIZACJA PRÓŻNIOWA", section: "vacuum-metallization", isRoute: false },
                     { label: "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH", section: "plastic-painting", isRoute: false },
                     { label: "LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI", section: "glass-painting", isRoute: false },
@@ -1650,7 +1745,13 @@ function HomePage() {
                         <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
                           {service.description}
                         </p>
-                        <MagneticButton className="mt-8 px-8 py-3 bg-gray-900 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors">
+                        <MagneticButton 
+                          onClick={() => {
+                            setSelectedService(service)
+                            setIsServiceModalOpen(true)
+                          }}
+                          className="mt-8 px-8 py-3 bg-gray-900 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors"
+                        >
                           Szczegóły
                         </MagneticButton>
                       </div>
@@ -1890,7 +1991,7 @@ function HomePage() {
             <div className="text-center mt-20">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">Zobacz więcej</p>
               <MagneticButton
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => navigate('/gallery')}
                 className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] rounded-full flex items-center justify-center mx-auto"
               >
                 Wszystkie Projekty
@@ -2435,6 +2536,142 @@ function HomePage() {
           outline-offset: 2px !important;
         }
       `}</style>
+
+      {/* Service Details Modal */}
+      <AnimatePresence>
+        {isServiceModalOpen && selectedService && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            onClick={() => setIsServiceModalOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-3xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header with Image */}
+              <div className="relative h-48 sm:h-64 overflow-hidden">
+                <img
+                  src={selectedService.image}
+                  alt={selectedService.alt}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                  <div className="flex items-center gap-3 text-blue-400 font-mono text-sm tracking-widest uppercase mb-2">
+                    <span className="w-8 h-px bg-blue-400"></span>
+                    {selectedService.tagline}
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-black uppercase text-white tracking-tight">
+                    {selectedService.title}
+                  </h2>
+                </div>
+                {/* Close Button */}
+                <button
+                  onClick={() => setIsServiceModalOpen(false)}
+                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Content */}
+              <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-16rem)]">
+                <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                  {selectedService.description}
+                </p>
+
+                {selectedService.details && (
+                  <div className="grid sm:grid-cols-3 gap-6">
+                    {/* Features */}
+                    <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-5">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
+                          <Gear className="w-5 h-5 text-white" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">Cechy</h3>
+                      </div>
+                      <ul className="space-y-2">
+                        {selectedService.details.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Applications */}
+                    <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-2xl p-5">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center">
+                          <Target className="w-5 h-5 text-white" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">Zastosowania</h3>
+                      </div>
+                      <ul className="space-y-2">
+                        {selectedService.details.applications.map((app, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 flex-shrink-0" />
+                            {app}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Advantages */}
+                    <div className="bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-2xl p-5">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-amber-600 flex items-center justify-center">
+                          <Trophy className="w-5 h-5 text-white" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">Zalety</h3>
+                      </div>
+                      <ul className="space-y-2">
+                        {selectedService.details.advantages.map((adv, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 flex-shrink-0" />
+                            {adv}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+
+                {/* CTA */}
+                <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                  <button
+                    onClick={() => {
+                      setIsServiceModalOpen(false)
+                      scrollToSection('contact')
+                    }}
+                    className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2"
+                  >
+                    Zapytaj o wycenę
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setIsServiceModalOpen(false)}
+                    className="flex-1 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold uppercase tracking-wider rounded-full transition-colors"
+                  >
+                    Zamknij
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       </main >
     </SmoothScroll >
   )

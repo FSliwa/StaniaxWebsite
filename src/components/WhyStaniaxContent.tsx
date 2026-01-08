@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion'
-import { ArrowRight } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 
 // Assets
@@ -147,22 +146,9 @@ function Card({ card, index, total, scrollYProgress }: { card: CardData, index: 
                         {card.title}
                     </h2>
 
-                    <p className="text-lg md:text-xl font-medium leading-relaxed max-w-md opacity-90 mb-10">
+                    <p className="text-lg md:text-xl font-medium leading-relaxed max-w-md opacity-90">
                         {card.description}
                     </p>
-
-                    <button className={cn(
-                        "flex items-center gap-3 text-sm font-bold tracking-widest uppercase group w-fit",
-                        card.theme === 'dark' ? "text-white" : "text-black"
-                    )}>
-                        Więcej informacji
-                        <div className={cn(
-                            "w-8 h-8 rounded-full border flex items-center justify-center transition-all group-hover:w-12",
-                            card.theme === 'dark' ? "border-white/30 bg-white/10" : "border-black/30 bg-black/5"
-                        )}>
-                            <ArrowRight className="w-4 h-4" />
-                        </div>
-                    </button>
                 </div>
 
             </div>

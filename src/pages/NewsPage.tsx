@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowLeft, ArrowRight, Clock, Factory } from '@phosphor-icons/react'
@@ -50,9 +50,29 @@ const newsItems = [
 ]
 
 function NewsPage() {
+  const navigate = useNavigate()
   const featuredArticle = newsItems[0]
   const secondaryArticles = newsItems.slice(1, 4)
   const moreArticles = newsItems.slice(4)
+  
+  const scrollToContact = () => {
+    navigate('/')
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact')
+      if (contactSection) {
+        const lenis = (window as any).lenis
+        if (lenis) {
+          lenis.scrollTo(contactSection, {
+            offset: -80,
+            duration: 1.5,
+            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+          })
+        } else {
+          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }
+    }, 100)
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -267,9 +287,7 @@ function NewsPage() {
                 <Button
                   size="lg"
                   className="font-semibold"
-                  onClick={() => {
-                    window.location.href = '/#contact'
-                  }}
+                  onClick={scrollToContact}
                 >
                   Skontaktuj się z zespołem
                   <ArrowRight className="ml-2 h-5 w-5" />

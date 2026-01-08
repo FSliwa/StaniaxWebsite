@@ -1,9 +1,35 @@
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 export function BigFooter() {
     const currentYear = new Date().getFullYear()
+    const navigate = useNavigate()
+
+    const scrollToSection = (sectionId: string) => {
+        if (window.location.pathname !== '/') {
+            window.location.href = `/#${sectionId}`
+        } else {
+            const section = document.getElementById(sectionId)
+            if (section) {
+                const lenis = (window as any).lenis
+                if (lenis) {
+                    lenis.scrollTo(section, {
+                        offset: -80,
+                        duration: 1.5,
+                        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                    })
+                } else {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+            }
+        }
+    }
+
+    const navigateToPage = (path: string) => {
+        navigate(path)
+    }
 
     return (
         <footer className="bg-black text-white pt-24 pb-12 overflow-hidden">
@@ -18,10 +44,52 @@ export function BigFooter() {
                             <p className="text-lg font-medium text-blue-400 mb-8">SPECJALISTYCZNE POWLEKANIE METALICZNE</p>
 
                             <div className="flex flex-wrap gap-4 mb-8">
-                                <MagneticButton className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-gray-200 transition-colors">
+                                <MagneticButton 
+                                    onClick={() => {
+                                        if (window.location.pathname !== '/') {
+                                            window.location.href = '/#contact'
+                                        } else {
+                                            const contactSection = document.getElementById('contact')
+                                            if (contactSection) {
+                                                const lenis = (window as any).lenis
+                                                if (lenis) {
+                                                    lenis.scrollTo(contactSection, {
+                                                        offset: -80,
+                                                        duration: 1.5,
+                                                        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                                                    })
+                                                } else {
+                                                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                                                }
+                                            }
+                                        }
+                                    }}
+                                    className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-gray-200 transition-colors cursor-pointer"
+                                >
                                     BEZPŁATNA KONSULTACJA
                                 </MagneticButton>
-                                <MagneticButton className="border border-white text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-white/10 transition-colors">
+                                <MagneticButton 
+                                    onClick={() => {
+                                        if (window.location.pathname !== '/') {
+                                            window.location.href = '/#contact'
+                                        } else {
+                                            const contactSection = document.getElementById('contact')
+                                            if (contactSection) {
+                                                const lenis = (window as any).lenis
+                                                if (lenis) {
+                                                    lenis.scrollTo(contactSection, {
+                                                        offset: -80,
+                                                        duration: 1.5,
+                                                        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+                                                    })
+                                                } else {
+                                                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                                                }
+                                            }
+                                        }
+                                    }}
+                                    className="border border-white text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-white/10 transition-colors cursor-pointer"
+                                >
                                     WYCEŃ PROJEKT <ArrowUpRight weight="bold" />
                                 </MagneticButton>
                             </div>
@@ -53,12 +121,12 @@ export function BigFooter() {
                             <div>
                                 <h4 className="text-white font-bold mb-4 text-lg">OFERTA:</h4>
                                 <ul className="space-y-3">
-                                    <li className="hover:text-white transition-colors cursor-pointer">01. KIM JESTEŚMY</li>
-                                    <li className="hover:text-white transition-colors cursor-pointer">02. METALIZACJA PRÓŻNIOWA</li>
-                                    <li className="hover:text-white transition-colors cursor-pointer">03. LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH</li>
-                                    <li className="hover:text-white transition-colors cursor-pointer">04. LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI</li>
-                                    <li className="hover:text-white transition-colors cursor-pointer">05. ODBLASKI W METALIZACJI</li>
-                                    <li className="hover:text-white transition-colors cursor-pointer">06. GALERIA</li>
+                                    <li onClick={() => scrollToSection('kim-jestesmy')} className="hover:text-white transition-colors cursor-pointer">01. KIM JESTEŚMY</li>
+                                    <li onClick={() => scrollToSection('vacuum-metallization')} className="hover:text-white transition-colors cursor-pointer">02. METALIZACJA PRÓŻNIOWA</li>
+                                    <li onClick={() => scrollToSection('plastic-painting')} className="hover:text-white transition-colors cursor-pointer">03. LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH</li>
+                                    <li onClick={() => scrollToSection('glass-painting')} className="hover:text-white transition-colors cursor-pointer">04. LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI</li>
+                                    <li onClick={() => scrollToSection('reflectors')} className="hover:text-white transition-colors cursor-pointer">05. ODBLASKI W METALIZACJI</li>
+                                    <li onClick={() => navigateToPage('/gallery')} className="hover:text-white transition-colors cursor-pointer">06. GALERIA</li>
                                 </ul>
                             </div>
                         </div>
@@ -71,7 +139,7 @@ export function BigFooter() {
                                     <div>
                                         <p className="text-white font-semibold mb-1">SIEDZIBA :</p>
                                         <p>POLSKA, WARSZAWA 00-132,</p>
-                                        <p>UL. GRZYBWOSKA 5 A <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
+                                        <p>UL. GRZYBOWSKA 5 A <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
                                     </div>
                                     <div>
                                         <p className="text-white font-semibold mb-1">ZAKŁAD USŁUGOWY :</p>
