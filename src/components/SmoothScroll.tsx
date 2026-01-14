@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 
 interface SmoothScrollProps {
   children: React.ReactNode
@@ -10,13 +11,15 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      // Keep it smooth, but responsive (avoid "blocked" feeling between sections)
+      lerp: 0.18,
+      duration: 0.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
+      wheelMultiplier: 1.25,
+      touchMultiplier: 1.15,
     })
 
     lenisRef.current = lenis

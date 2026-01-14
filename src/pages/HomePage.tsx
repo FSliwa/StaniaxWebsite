@@ -1057,7 +1057,7 @@ function HomePage() {
   }, [])
 
   useEffect(() => {
-    const sectionIds = ['top', 'video-gallery', 'why-staniax', ...navItems.filter((item) => item.type === 'section').map((item) => item.id)]
+    const sectionIds = ['top', 'video-gallery', 'why-staniax', 'footer', ...navItems.filter((item) => item.type === 'section').map((item) => item.id)]
 
     const sections = sectionIds
       .map((id) => document.getElementById(id))
@@ -1180,7 +1180,7 @@ function HomePage() {
       if (lenis) {
         lenis.scrollTo(section, {
           offset: -80, // Offset for header
-          duration: 1.5,
+          duration: 0.3,
           easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
         })
       } else {
@@ -1373,14 +1373,14 @@ function HomePage() {
             >
               <span
                 className={cn(
-                  'block text-2xl sm:text-3xl font-black tracking-tighter transition-colors duration-300',
+                  'block text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter transition-colors duration-500',
                   isMenuOpen
-                    ? 'text-foreground'
-                    : scrollY > 32
-                      ? 'text-foreground'
-                      : isDarkHeaderContext
-                        ? 'text-white'
-                        : 'text-foreground'
+                    ? 'text-slate-700'
+                    : isDarkHeaderContext
+                      ? 'text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]'
+                      : scrollY > 32
+                        ? 'text-blue-900/85'
+                        : 'text-slate-700/90'
                 )}
               >
                 STANIAX
@@ -1389,12 +1389,12 @@ function HomePage() {
                 <RotatingText
                   className={
                     isMenuOpen
-                      ? 'text-muted-foreground'
-                      : scrollY > 32
-                        ? 'text-muted-foreground'
-                        : isDarkHeaderContext
-                          ? 'text-white/70'
-                          : 'text-muted-foreground'
+                      ? 'text-slate-600'
+                      : isDarkHeaderContext
+                        ? 'text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]'
+                        : scrollY > 32
+                          ? 'text-blue-800/75'
+                          : 'text-slate-600/90'
                   }
                 />
               </div>
@@ -1403,28 +1403,28 @@ function HomePage() {
                 <Button
                 onClick={() => scrollToSection('contact')}
                 className={cn(
-                  'hidden sm:inline-flex border bg-transparent transition-all duration-300',
+                  'hidden sm:inline-flex border-2 transition-all duration-500 text-base font-bold px-6 h-12',
                   isMenuOpen
-                    ? 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
-                    : scrollY > 32
-                      ? 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
-                      : isDarkHeaderContext
-                        ? 'border-white/40 text-white hover:bg-white hover:text-foreground'
-                        : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
+                    ? 'border-foreground/15 text-foreground bg-transparent hover:bg-foreground hover:text-background'
+                    : isDarkHeaderContext
+                      ? 'border-white/40 text-white bg-transparent hover:bg-white hover:text-foreground'
+                      : scrollY > 32
+                        ? 'border-blue-900/30 text-blue-900/85 bg-transparent hover:bg-blue-900 hover:text-white'
+                        : 'border-slate-900 text-slate-900 bg-white shadow-lg hover:bg-slate-900 hover:text-white'
                 )}
               >
                 Wyceń Projekt
               </Button>
               <button
                 className={cn(
-                  'relative h-10 w-10 sm:h-12 sm:w-12 rounded-full border backdrop-blur-md flex items-center justify-center transition-all duration-300',
+                  'relative h-11 w-11 sm:h-14 sm:w-14 rounded-full border-2 backdrop-blur-md flex items-center justify-center transition-all duration-500',
                   isMenuOpen
                     ? 'border-foreground/30 bg-background text-foreground'
-                    : scrollY > 32
-                      ? 'border-foreground/20 bg-background/70 text-foreground hover:border-foreground/40'
-                      : isDarkHeaderContext
-                        ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
-                        : 'border-foreground/20 bg-background/70 text-foreground hover:border-foreground/40'
+                    : isDarkHeaderContext
+                      ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
+                      : scrollY > 32
+                        ? 'border-blue-900/20 bg-white/70 text-blue-900/85 hover:border-blue-900/40'
+                        : 'border-slate-900 bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow-lg'
                 )}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label="Przełącz nawigację"
@@ -1432,14 +1432,14 @@ function HomePage() {
               >
                 <span
                   className={cn(
-                    'absolute h-0.5 w-5 sm:w-6 rounded-full bg-current transition-all duration-300',
+                    'absolute h-0.5 w-6 sm:w-7 rounded-full bg-current transition-all duration-300',
                     isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-1.5'
                   )}
                 />
                 <span
                   className={cn(
-                    'absolute h-0.5 w-3 sm:w-4 rounded-full bg-current transition-all duration-300',
-                    isMenuOpen ? 'w-5 sm:w-6 translate-y-0 -rotate-45' : 'translate-y-1.5'
+                    'absolute h-0.5 w-4 sm:w-5 rounded-full bg-current transition-all duration-300',
+                    isMenuOpen ? 'w-6 sm:w-7 translate-y-0 -rotate-45' : 'translate-y-1.5'
                   )}
                 />
               </button>
@@ -1537,7 +1537,7 @@ function HomePage() {
         </div>
 
         {/* HERO & GALLERY SECTION (Seamless Transition) */}
-        <section id="video-gallery" data-theme="dark">
+        <section id="video-gallery" data-theme="light">
           <VideoGalleryTransition />
         </section>
 
@@ -2458,7 +2458,9 @@ function HomePage() {
 
 
         {/* BIG TYPE FOOTER */}
-        <BigFooter />
+        <section id="footer" data-theme="dark">
+          <BigFooter />
+        </section>
 
         <CookieBanner />
 
