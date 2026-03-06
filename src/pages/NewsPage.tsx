@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ArrowLeft, ArrowRight, Clock, Factory } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Clock, Factory, List, X } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 
 const newsItems = [
@@ -44,6 +45,7 @@ const newsItems = [
 
 function NewsPage() {
   const navigate = useNavigate()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const featuredArticle = newsItems[0]
   const secondaryArticles = newsItems.slice(1, 4)
   const moreArticles = newsItems.slice(4)
@@ -104,20 +106,67 @@ function NewsPage() {
             </nav>
             <Link
               to="/"
-              className={cn(buttonVariants({ variant: 'outline' }), 'font-semibold')}
+              className={cn(buttonVariants({ variant: 'outline' }), 'font-semibold hidden sm:inline-flex')}
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Wróć do strony głównej
             </Link>
             <Button
-              className="font-semibold"
+              className="font-semibold hidden sm:inline-flex"
               onClick={scrollToContact}
             >
               Skontaktuj się
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
+            {/* Mobile hamburger */}
+            <button
+              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-muted transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <List className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-6 py-6 space-y-4">
+            <nav className="flex flex-col gap-4 text-sm font-medium">
+              <Link to="/#kim-jestesmy" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                O STANIAX
+              </Link>
+              <Link to="/#about" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                Oferta
+              </Link>
+              <Link to="/#projects" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                Realizacje
+              </Link>
+              <Link to="/gallery" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                Galeria
+              </Link>
+              <Link to="/#contact" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                Kontakt
+              </Link>
+            </nav>
+            <div className="flex flex-col gap-3 pt-2 border-t border-border/40">
+              <Link
+                to="/"
+                className={cn(buttonVariants({ variant: 'outline' }), 'font-semibold w-full justify-center')}
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Wróć do strony głównej
+              </Link>
+              <Button
+                className="font-semibold w-full"
+                onClick={() => { setMobileMenuOpen(false); scrollToContact(); }}
+              >
+                Skontaktuj się
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="pt-28">
@@ -133,7 +182,7 @@ function NewsPage() {
                   Centrum wiadomości STANIAX
                 </h1>
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
-                  Najświeższe wiadomości o naszych inwestycjach, partnerstwach, wyróżnieniach i innowacjach, które wyznaczają kierunek metalizacji przemysłowej w Szkocji.
+                  Najświeższe wiadomości o naszych inwestycjach, partnerstwach, wyróżnieniach i innowacjach, które wyznaczają kierunek metalizacji próżniowej w Polsce.
                 </p>
               </div>
               <Card className="border border-border/60 bg-card/80 backdrop-blur-xl">

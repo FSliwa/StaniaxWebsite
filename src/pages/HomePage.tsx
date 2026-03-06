@@ -1,25 +1,12 @@
 import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence, type MotionValue } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
-import { ScrambleText } from '@/components/ui/ScrambleText'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
 import { AnimatedSection } from '@/components/AnimatedSection'
-import { VideoGalleryTransition } from '@/components/VideoGalleryTransition'
-import { WhyStaniaxContent } from '@/components/WhyStaniaxContent'
-
-
-
-
-import { MagneticButton } from '@/components/ui/MagneticButton'
-import { SpotlightCard } from '@/components/ui/SpotlightCard'
-import { TiltCard } from '@/components/ui/TiltCard'
-import { SmoothScroll } from '@/components/SmoothScroll'
-
-import { BigFooter } from '@/components/BigFooter'
 import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
 import {
@@ -37,15 +24,9 @@ import {
   Gear,
   Target,
   Wrench,
-  Users,
-  Question,
-  CaretDown,
-  CaretUp
+  Users
 } from '@phosphor-icons/react'
-import liquidGoldHandVideo from '@/assets/liquid-gold-hand.mp4'
-import toroidAnimationVideo from '@/assets/toroid-animation.mp4'
-import liquidMetalVideo from '@/assets/metallic-transformation-video.mp4'
-import vinylTransformationVideo from '@/assets/vinyl-transformation.mp4'
+import heroVideo from '@/assets/Prompt_Generowania_Wideo_z_Efektami.mp4'
 import whyChooseVideo from '@/assets/Generowanie_Wideo_Produktowego_Dłoń_i_Mikrofon.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
@@ -54,27 +35,12 @@ import projectImgAutomotive from '@/assets/IMG_0990-2575648632.jpeg'
 import projectImgAerospace from '@/assets/airplane-04-1600x900.jpg'
 import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
 import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
-import automotiveBefore from '@/assets/automotive-before.jpeg'
-import automotiveAfter from '@/assets/automotive-after.jpeg'
-import industrialBefore from '@/assets/industrial-before.jpeg'
-import industrialAfter from '@/assets/industrial-after.jpeg'
-
-import packagingBefore from '@/assets/packaging-before.png'
-import packagingAfter from '@/assets/packaging-after.png'
 
 import whyChooseImg1 from '@/assets/Dlaczego Staniax V1.png'
 import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
 import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
 
-import spinningMachineImg from '@/assets/spinning_machine.jpeg'
-import colorfulPackagingImg from '@/assets/colorful_packaging.png'
-import threeReflectorsImg from '@/assets/three_reflectors_1765869273944.png'
-import affiliatedCompaniesImg from '@/assets/affiliated-companies.jpeg'
-import vacuumMetalizationImg from '@/assets/vacuum-metalization.jpg'
-
-const fallbackAnimationSrc = liquidGoldHandVideo
-
-
+const fallbackAnimationSrc = heroVideo
 const statsSplineUrl =
   import.meta.env.VITE_STATS_SPLINE_URL ?? 'https://prod.spline.design/f8rjqRArLakUTPCP/scene.splinecode'
 const newsSplineUrl =
@@ -85,61 +51,15 @@ const virtualStudioFallbackSplineUrl =
 const virtualStudioEmbedUrl =
   import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_EMBED_URL ?? 'undefined'
 
-const languages = [
-  { text: "Metalizacja próżniowa", flag: "🇵🇱", lang: "pl" },
-  { text: "Vacuum Metallization", flag: "🇬🇧", lang: "en" },
-  { text: "Vakuummetallisierung", flag: "🇩🇪", lang: "de" },
-  { text: "Métallisation sous vide", flag: "🇫🇷", lang: "fr" },
-  { text: "Metallizzazione sotto vuoto", flag: "🇮🇹", lang: "it" },
-  { text: "Vacuümmetallisatie", flag: "🇳🇱", lang: "nl" }
-]
-
-type HomePageProps = {
-  lang?: 'pl' | 'en' | 'de'
-}
-
-function RotatingText({ className }: { className?: string }) {
-  const [index, setIndex] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % languages.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <div className="h-[1.5em] overflow-visible relative inline-flex items-center gap-2 py-2">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={index}
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -40, opacity: 0 }}
-          transition={{ duration: 0.5, ease: "circOut" }}
-          className="flex items-center gap-2 absolute top-0 left-0 whitespace-nowrap"
-        >
-          <span className="text-xl sm:text-2xl lg:text-3xl shadow-sm rounded-full overflow-hidden flex-shrink-0 opacity-90" role="img" aria-label={`Flag for ${languages[index].lang}`}>
-            {languages[index].flag}
-          </span>
-          <span className={cn("text-2xl sm:text-3xl lg:text-4xl font-medium uppercase tracking-tighter", className)}>
-            {languages[index].text}
-          </span>
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  )
-}
-
 type NavItem =
   | { id: string; label: string; type: 'section' }
   | { id: string; label: string; type: 'route'; path: string }
 
 const navItems: NavItem[] = [
-  { id: 'kim-jestesmy', label: 'O STANIAX', type: 'section' },
-  { id: 'about', label: 'Oferta', type: 'section' },
+  { id: 'about', label: 'O STANIAX', type: 'section' },
+  { id: 'services', label: 'Oferta', type: 'section' },
   { id: 'projects', label: 'Realizacje', type: 'section' },
-  { id: 'gallery', label: 'Galeria', type: 'route', path: '/gallery' },
+  { id: 'news-showcase', label: 'Nowości', type: 'section' },
   { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
   { id: 'contact', label: 'Kontakt', type: 'section' }
 ]
@@ -152,11 +72,6 @@ type ServiceItem = {
   image: string
   alt: string
   tagline: string
-  details?: {
-    features: string[]
-    applications: string[]
-    advantages: string[]
-  }
 }
 
 type ProjectItem = {
@@ -182,123 +97,103 @@ type AboutTileConfig = {
 
 const servicesData: ServiceItem[] = [
   {
-    id: 'vacuum-metallization',
+    id: 'metalizacja',
     title: 'Metalizacja Próżniowa',
     description:
-      'Zaawansowane procesy napylania próżniowego (PVD) dla uzyskania idealnych powłok metalicznych na tworzywach sztucznych, szkle i metalu. Ekologiczna alternatywa dla chromowania.',
+      'Zaawansowana technologia napylania próżniowego nadająca efekt chromu, złota i innych metali na różnych podłożach.',
     icon: <Gear className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
-    alt: 'Proces metalizacji próżniowej',
-    tagline: 'Technologia PVD',
-    details: {
-      features: ['Napylanie aluminium, chromu, złota', 'Grubość powłoki 0.05-0.5 μm', 'Wysoki połysk lustrzany', 'Proces przyjazny środowisku'],
-      applications: ['Elementy dekoracyjne samochodów', 'Opakowania kosmetyków', 'Reflektory i odbłyśniki', 'Gadżety reklamowe'],
-      advantages: ['Efekt chromu bez użycia chromu', 'Niska emisja CO2', 'Możliwość metalizacji skomplikowanych kształtów', 'Krótki czas realizacji']
-    }
+    alt: 'Proces metalizacji próżniowej w komorze napylania',
+    tagline: 'Perfekcyjne powłoki metaliczne'
   },
   {
-    id: 'plastic-painting',
-    title: 'Lakierowanie Tworzyw',
-    description: 'Precyzyjne lakierowanie detali z tworzyw sztucznych. Oferujemy pełną gamę kolorów i wykończeń, od matu po wysoki połysk, z gwarancją trwałości.',
+    id: 'lakierowanie-tworzyw',
+    title: 'Lakierowanie Tworzyw Sztucznych',
+    description: 'Profesjonalne lakierowanie detali z tworzyw sztucznych — trwałe, estetyczne i odporne na uszkodzenia.',
     icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg2,
-    alt: 'Lakierowanie elementów z tworzyw sztucznych',
-    tagline: 'Estetyka i Ochrona',
-    details: {
-      features: ['Lakiery UV, wodne i rozpuszczalnikowe', 'Efekty specjalne: perłowe, metaliczne', 'Wykończenia mat, półmat, połysk', 'Lakierowanie wielowarstwowe'],
-      applications: ['Obudowy elektroniki', 'Elementy AGD', 'Części motoryzacyjne', 'Opakowania premium'],
-      advantages: ['Odporność na zarysowania', 'Trwałość kolorów', 'Ochrona przed UV', 'Możliwość naprawy lokalnej']
-    }
+    alt: 'Lakierowanie detali z tworzyw sztucznych',
+    tagline: 'Trwałe wykończenia'
   },
   {
-    id: 'glass-painting',
-    title: 'Lakierowanie Szkła',
-    description: 'Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.',
-    icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
-    image: serviceImg3,
-    alt: 'Lakierowanie butelek szklanych',
-    tagline: 'Dekoracja Premium',
-    details: {
-      features: ['Lakiery organiczne i nieorganiczne', 'Efekty frosted i satynowe', 'Gradienty kolorystyczne', 'Powłoki hydrofobowe'],
-      applications: ['Butelki perfum i kosmetyków', 'Flakoniki farmaceutyczne', 'Szkło dekoracyjne', 'Opakowania alkoholi premium'],
-      advantages: ['Wyjątkowa estetyka', 'Odporność na zmywanie', 'Możliwość personalizacji', 'Zgodność z normami kosmetycznymi']
-    }
-  },
-  {
-    id: 'reflectors',
-    title: 'Odblaski w Metalizacji',
-    description: 'Produkcja wysokiej jakości odbłyśników i reflektorów. Metalizacja zapewniająca maksymalny współczynnik odbicia światła dla branży oświetleniowej i motoryzacyjnej.',
+    id: 'lakierowanie-szkla',
+    title: 'Lakierowanie Szkła i Ceramiki',
+    description: 'Precyzyjne lakierowanie detali ze szkła i ceramiki z zachowaniem najwyższych standardów jakości.',
     icon: <Target className="w-16 h-16 text-white/80 icon-welding-effect" />,
+    image: serviceImg3,
+    alt: 'Lakierowanie elementów ze szkła',
+    tagline: 'Precyzja na każdym podłożu'
+  },
+  {
+    id: 'odblaski',
+    title: 'Odblaski w Metalizacji',
+    description: 'Specjalistyczne powłoki odblaskowe stosowane w metalizacji próżniowej do zastosowań technicznych i dekoracyjnych.',
+    icon: <Wrench className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
-    alt: 'Metalizowane odbłyśniki',
-    tagline: 'Maksymalna Refleksja',
-    details: {
-      features: ['Współczynnik odbicia >95%', 'Powłoki aluminiowe i srebrne', 'Warstwa ochronna lakierem', 'Precyzja geometryczna'],
-      applications: ['Reflektory samochodowe', 'Oprawy oświetleniowe LED', 'Lampy przemysłowe', 'Systemy optyczne'],
-      advantages: ['Maksymalna wydajność świetlna', 'Długa żywotność', 'Odporność termiczna', 'Zgodność z normami ECE']
-    }
+    alt: 'Elementy z powłoką odblaskową',
+    tagline: 'Efekty lustrzane'
   }
 ]
 
 const projectsData: ProjectItem[] = [
   {
-    id: 'automotive',
-    title: 'Komponenty Motoryzacyjne',
-    icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90" />,
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&h=800&fit=crop&crop=center',
-    description: 'Zaawansowane powłoki ochronne dla przemysłu motoryzacyjnego',
-    details: 'Specjalistyczne metalizacja części silnikowych, układów hamulcowych i elementów karoserii. Powłoki odporne na korozję i wysokie temperatury.',
+    id: 'cosmetics',
+    title: 'Opakowania Kosmetyczne',
+    icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />,
+    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&h=800&fit=crop&crop=center',
+    description: 'Metalizacja próżniowa opakowań i nakrętek dla branży kosmetycznej',
+    details: 'Nadanie efektu chromu, złota i lustrzanego połysku na elementach opakowań kosmetycznych. Trwałe i estetyczne wykończenie premium.',
+    category: 'Kosmetyka',
+    year: '2024'
+  },
+  { 
+    id: 'packaging',
+    title: 'Opakowania Dekoracyjne', 
+    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    image: projectImgAerospace,
+    description: 'Lakierowanie i metalizacja elementów opakowań premium',
+    details: 'Metalizacja próżniowa i lakierowanie opakowań z tworzyw sztucznych — nakrętki, butelki, zamknięcia. Efekty lustrzane, matowe i kolorowe.',
+    category: 'Opakowania',
+    year: '2024'
+  },
+  { 
+    id: 'decorations', 
+    title: 'Elementy Dekoracyjne', 
+    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    image: projectImgAutomotive,
+    description: 'Metalizacja i lakierowanie elementów wystroju wnętrz',
+    details: 'Efekty chromu, złota i srebra na detalach dekoracyjnych z tworzyw sztucznych. Realizacje dla branży wyposażenia wnętrz i oświetlenia.',
+    category: 'Dekoracje',
+    year: '2024'
+  },
+  { 
+    id: 'automotive', 
+    title: 'Detale Motoryzacyjne', 
+    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
+    image: projectImgIndustrial,
+    description: 'Metalizacja i lakierowanie detali z tworzyw sztucznych dla motoryzacji',
+    details: 'Elementy wykończeniowe, listwy, emblematy i komponenty wnętrz pojazdów z efektem metalu. Odporność na warunki eksploatacji.',
     category: 'Motoryzacja',
     year: '2024'
   },
-  {
-    id: 'aerospace',
-    title: 'Części Lotnicze',
-    icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90" />,
-    image: projectImgAerospace,
-    description: 'Precyzyjne powłoki dla krytycznych komponentów lotniczych',
-    details: 'Metalizacja elementów silników odrzutowych, struktur nośnych i systemów hydraulicznych zgodnie z normami aerospace.',
-    category: 'Lotnictwo',
-    year: '2024'
-  },
-  {
-    id: 'precision-tools',
-    title: 'Narzędzia Precyzyjne',
-    icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90" />,
-    image: projectImgAutomotive,
-    description: 'Powłoki zwiększające trwałość narzędzi precyzyjnych',
-    details: 'Specjalne powłoki twardościowe dla narzędzi skrawających, matryc i form wtryskowych. Zwiększenie żywotności o 300%.',
-    category: 'Narzędzia',
-    year: '2024'
-  },
-  {
-    id: 'industrial',
-    title: 'Urządzenia Przemysłowe',
-    icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90" />,
-    image: projectImgIndustrial,
-    description: 'Ochrona przed korozją dla maszyn przemysłowych',
-    details: 'Kompleksowa metalizacja linii produkcyjnych, robotów przemysłowych i urządzeń technologicznych.',
-    category: 'Przemysł',
-    year: '2024'
-  },
-  {
-    id: 'production-tools',
-    title: 'Narzędzia Produkcyjne',
-    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />,
+  { 
+    id: 'glass-ceramics', 
+    title: 'Szkło i Ceramika', 
+    icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
     image: serviceImg2,
-    description: 'Powłoki funkcjonalne dla narzędzi produkcyjnych',
-    details: 'Metalizacja narzędzi do obróbki plastycznej, urządzeń formujących i elementów automatyki przemysłowej.',
-    category: 'Produkcja',
+    description: 'Lakierowanie szkła i ceramiki dla efektów dekoracyjnych',
+    details: 'Lakierowanie butelek szklanych, flakonów, elementów ceramicznych. Efekty matowe, transparentne i kolorowe na szkle.',
+    category: 'Szkło',
     year: '2024'
   },
-  {
-    id: 'prototypes',
-    title: 'Projekty Prototypów',
-    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />,
+  { 
+    id: 'reflectors', 
+    title: 'Odblaski i Reflektory', 
+    icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90 icon-welding-effect" />, 
     image: projectImgPrototype,
-    description: 'Szybkie prototypowanie z zaawansowanymi powłokami',
-    details: 'Ekspresowa metalizacja prototypów dla R&D, testowanie nowych rozwiązań powłokowych i weryfikacja parametrów.',
-    category: 'R&D',
+    description: 'Metalizacja próżniowa reflektorów i elementów odblaskowych',
+    details: 'Nanoszenie warstw aluminium w procesie próżniowym na reflektory, klosze lamp i elementy wymagające wysokiej odbijalności światła.',
+    category: 'Odblaski',
     year: '2024'
   }
 ]
@@ -311,59 +206,84 @@ type CaseStudy = {
   imageBefore: string
   imageAfter: string
   metrics: Array<{ value: string; label: string }>
+  testimonial: {
+    quote: string
+    author: string
+    role: string
+    avatar: string
+  }
   badge: string
 }
 
 const caseStudiesData: CaseStudy[] = [
   {
-    id: 'automotive-excellence',
-    title: 'Rewolucja Przemysłowa',
-    subtitle: 'Metalizacja próżniowa elementów maszyn przemysłowych zwiększająca odporność na zużycie i korozję',
-    imageBefore: automotiveAfter,
-    imageAfter: automotiveBefore,
+    id: 'cosmetics-packaging',
+    title: 'Opakowania Kosmetyczne',
+    subtitle: 'Metalizacja próżniowa nakrętek i zamknięć premium',
+    imageBefore: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop',
+    imageAfter: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=600&fit=crop',
     metrics: [
-      { value: '3 msc', label: 'Realizacja' },
-      { value: '50K+', label: 'Elementy' }
+      { value: '2 tyg.', label: 'Realizacja' },
+      { value: '10K+', label: 'Elementy' },
+      { value: '100%', label: 'Powtarzalność' }
     ],
-    badge: '+250% Trwałość'
+    testimonial: {
+      quote: 'Metalizacja próżniowa od STANIAX nadała naszym opakowaniom wygląd premium. Efekt chromu jest trwały i powtarzalny w każdej serii produkcyjnej.',
+      author: 'Klient',
+      role: 'Branża kosmetyczna',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+    },
+    badge: 'Efekt Premium'
   },
   {
-    id: 'packaging-innovation',
-    title: 'METALIZACJA PRÓŻNIOWA',
-    subtitle: 'Powłoki dekoracyjne na opakowaniach kosmetycznych i produktowych nadające efekt premium',
-    imageBefore: packagingAfter,
-    imageAfter: packagingBefore,
+    id: 'glass-lacquering',
+    title: 'Lakierowanie Szkła',
+    subtitle: 'Kolorowe lakierowanie flakonów i butelek szklanych',
+    imageBefore: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&h=600&fit=crop',
+    imageAfter: projectImgAerospace,
     metrics: [
-      { value: '2 mln', label: 'Sztuk/Rok' },
-      { value: '100%', label: 'Powtarzalność' },
-      { value: 'Premium', label: 'Jakość' }
+      { value: '3 tyg.', label: 'Projekt' },
+      { value: '5K+', label: 'Sztuk' },
+      { value: '12', label: 'Kolorów' }
     ],
-    badge: 'Design Premium'
+    testimonial: {
+      quote: 'Dzięki lakierowaniu szkła w STANIAX uzyskaliśmy unikalne kolory flakonów, które wyróżniają nasz produkt na półce. Jakość i terminowość na najwyższym poziomie.',
+      author: 'Klient',
+      role: 'Branża opakowań szklanych',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+    },
+    badge: 'Unikalne Wykończenie'
   },
   {
-    id: 'industrial-revolution',
-    title: 'Doskonałość Motoryzacyjna',
-    subtitle: 'Precyzyjne powłoki na komponentach motoryzacyjnych spełniające najwyższe standardy jakości',
-    imageBefore: industrialAfter,
-    imageAfter: industrialBefore,
+    id: 'reflector-metallization',
+    title: 'Metalizacja Reflektorów',
+    subtitle: 'Próżniowe nanoszenie aluminium na reflektory i klosze',
+    imageBefore: 'https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop',
+    imageAfter: projectImgIndustrial,
     metrics: [
-      { value: '12 msc', label: 'Wdrożenie' },
-      { value: '200+', label: 'Maszyny' },
-      { value: '0', label: 'Awarie' }
+      { value: '1 tyg.', label: 'Realizacja' },
+      { value: '2K+', label: 'Elementów' },
+      { value: '95%+', label: 'Odbijalność' }
     ],
-    badge: '95% Redukcja Awarii'
+    testimonial: {
+      quote: 'STANIAX zapewnia doskonałą jakość metalizacji reflektorów. Wysoka odbijalność światła i powtarzalność procesu to ich największe atuty.',
+      author: 'Klient',
+      role: 'Branża oświetleniowa',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
+    },
+    badge: 'Wysoka Odbijalność'
   }
 ]
 
 // BRAND SHOWCASE DATA - Trusted Companies & Certifications
 const brandShowcaseData = [
-  { name: 'Motoryzacja', logo: 'AUTO' },
-  { name: 'Lotnictwo', logo: 'AERO' },
-  { name: 'Medycyna', logo: 'MED' },
-  { name: 'Certyfikat CE', logo: 'CE' },
-  { name: 'Przemysł 4.0', logo: 'IND' },
-  { name: 'Eko Technologie', logo: 'ECO' },
-  { name: 'Jakość Przede Wszystkim', logo: 'QA' }
+  { name: 'Kosmetyka', logo: 'KOSM' },
+  { name: 'Opakowania', logo: 'OPAK' },
+  { name: 'Motoryzacja', logo: 'MOTO' },
+  { name: 'Oświetlenie', logo: 'OŚWT' },
+  { name: 'Dekoracje', logo: 'DEKO' },
+  { name: 'Szkło', logo: 'SZKŁ' },
+  { name: 'Ceramika', logo: 'CERM' }
 ]
 
 // TECH SPECS DATA - Interactive Comparison Table
@@ -379,67 +299,67 @@ type TechSpec = {
 
 const techSpecsData: TechSpec[] = [
   {
-    id: 'metalizacja',
-    method: 'Metalizacja',
-    temperature: '200-500°C',
-    thickness: '0.1-20 μm',
-    applications: 'Automotive, lotnictwo, przemysł, prototypy',
+    id: 'vacuum-metallization',
+    method: 'Metalizacja Próżniowa',
+    temperature: '100-200°C',
+    thickness: '0.02-0.1 μm',
+    applications: 'Nakrętki, opakowania, reflektory, elementy dekoracyjne',
     advantages: [
-      'Najwyższa trwałość',
-      'Prawdziwy metaliczny efekt',
-      'Odporność na ścieranie',
-      'Wysoka jakość premium'
+      'Efekt chromu i lustrzany połysk',
+      'Cienka i równomierna warstwa',
+      'Ekologiczny proces bez ścieków',
+      'Idealna powtarzalność'
     ],
-    materials: 'Al, Cr, Ti, Cu, Au'
+    materials: 'Aluminium (Al)'
   },
   {
-    id: 'malowanie',
-    method: 'Malowanie Proszkowe',
-    temperature: '150-200°C',
-    thickness: '50-150 μm',
-    applications: 'Części ogólnego przeznaczenia, meble metalowe',
-    advantages: [
-      'Niski koszt',
-      'Szeroka paleta kolorów',
-      'Dobra odporność na UV',
-      'Łatwa aplikacja'
-    ],
-    materials: 'Farby proszkowe'
-  },
-  {
-    id: 'lakierowanie',
-    method: 'Lakierowanie',
+    id: 'plastic-lacquering',
+    method: 'Lakierowanie Tworzyw',
     temperature: '20-80°C',
-    thickness: '20-100 μm',
-    applications: 'Detale dekoracyjne, elementy wizualne',
+    thickness: '10-50 μm',
+    applications: 'Opakowania kosmetyczne, elementy dekoracyjne, detale motoryzacyjne',
     advantages: [
-      'Uniwersalne zastosowanie',
-      'Elastyczność kolorystyczna',
-      'Przystępna cena',
-      'Szybki proces'
+      'Szeroka paleta kolorów',
+      'Efekty matowe i połyskowe',
+      'Ochrona warstwy metalicznej',
+      'Możliwość lakierowania UV'
     ],
-    materials: 'Lakiery, emalie'
+    materials: 'Lakiery UV, solventowe, wodne'
   },
   {
-    id: 'folia',
-    method: 'Oklejanie Folią',
+    id: 'glass-lacquering',
+    method: 'Lakierowanie Szkła',
     temperature: '20-60°C',
-    thickness: '50-200 μm',
-    applications: 'Branding, reklama, wizualizacje tymczasowe',
+    thickness: '10-40 μm',
+    applications: 'Butelki, flakony, elementy ceramiczne, szkło dekoracyjne',
     advantages: [
-      'Odwracalny proces',
-      'Nieinwazyjne',
-      'Zmiana wyglądu bez malowania',
-      'Grafika cyfrowa'
+      'Trwałe pokrycie na szkle',
+      'Efekty transparentne i kryjące',
+      'Odporność na zmywanie',
+      'Możliwość nadruku'
     ],
-    materials: 'Folie PVC, winylowe'
+    materials: 'Lakiery ceramiczne, UV, organiczne'
+  },
+  {
+    id: 'reflectors',
+    method: 'Odblaski w Metalizacji',
+    temperature: '100-150°C',
+    thickness: '0.03-0.08 μm',
+    applications: 'Reflektory, klosze lamp, elementy oświetleniowe',
+    advantages: [
+      'Wysoka odbijalność światła (95%+)',
+      'Równomierna warstwa aluminium',
+      'Proces próżniowy',
+      'Powtarzalność optyczna'
+    ],
+    materials: 'Aluminium (Al), SiO₂ (warstwa ochronna)'
   }
 ]
 
 const aboutTilesData: AboutTileConfig[] = [
   {
     id: 'tile-lab',
-    image: serviceImg1,
+    image: 'https://images.unsplash.com/photo-1581092916376-0239b9349155?w=400&h=400&fit=crop&crop=center',
     alt: 'Naukowiec w laboratorium badawczym',
     drift: -3,
     overlay: <Flask className="w-12 h-12 text-white/80" />,
@@ -447,7 +367,7 @@ const aboutTilesData: AboutTileConfig[] = [
   },
   {
     id: 'tile-shield',
-    image: serviceImg2,
+    image: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?w=400&h=400&fit=crop&crop=center',
     alt: 'Kontrola jakości metalowej powierzchni',
     drift: 3,
     overlay: <Shield className="w-12 h-12 text-white/80" />,
@@ -455,7 +375,7 @@ const aboutTilesData: AboutTileConfig[] = [
   },
   {
     id: 'tile-factory',
-    image: serviceImg3,
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1000&h=600&fit=crop&crop=center',
     alt: 'Wnętrze hali produkcyjnej STANIAX',
     drift: 5,
     overlay: (
@@ -466,53 +386,6 @@ const aboutTilesData: AboutTileConfig[] = [
     ),
     colSpan: 3,
     overlayDelay: 0.25
-  }
-]
-
-// FAQ DATA
-type FAQItem = {
-  id: string
-  question: string
-  answer: string
-  category: 'process' | 'technology' | 'business'
-}
-
-const faqData: FAQItem[] = [
-  {
-    id: 'faq-1',
-    question: 'Jak przygotować projekt do metalizacji?',
-    answer: 'Przygotowanie projektu wymaga: 1) Dostarczenia rysunków technicznych lub modeli 3D, 2) Określenia wymagań dotyczących grubości powłoki i właściwości, 3) Wskazania obszarów krytycznych wymagających szczególnej ochrony, 4) Informacji o warunkach eksploatacji elementu.',
-    category: 'process'
-  },
-  {
-    id: 'faq-2',
-    question: 'Jaką technologię metalizacji wybrać dla mojego projektu?',
-    answer: 'Wybór zależy od zastosowania: dla narzędzi skrawających polecamy powłoki PVD/CVD zapewniające wysoką twardość, dla elementów narażonych na korozję - metalizację chromem lub cynkiem, dla prototypów - powłoki dekoracyjne aluminium lub miedzi. Nasz zespół pomoże dobrać optymalne rozwiązanie.',
-    category: 'technology'
-  },
-  {
-    id: 'faq-3',
-    question: 'Jaki jest minimalny czas realizacji zamówienia?',
-    answer: 'Standardowy czas realizacji to 5-10 dni roboczych dla projektów produkcyjnych. Dla prototypów oferujemy tryb ekspresowy 2-3 dni. Dokładny czas zależy od złożoności projektu, ilości elementów i wybranej technologii.',
-    category: 'business'
-  },
-  {
-    id: 'faq-4',
-    question: 'Czy metalizacja zwiększa trwałość elementów?',
-    answer: 'Tak, metalizacja znacząco zwiększa trwałość - powłoki metaliczne podnoszą odporność na ścieranie o 200-400%, zabezpieczają przed korozją, zwiększają twardość powierzchni i mogą przedłużyć żywotność elementów nawet o 300%.',
-    category: 'technology'
-  },
-  {
-    id: 'faq-5',
-    question: 'Jakie materiały mogą być metalizowane?',
-    answer: 'Metalizować możemy większość materiałów inżynieryjnych: stale narzędziowe, stale nierdzewne, aluminium, miedź, tytan, ceramikę techniczną, a także wybrane tworzywa sztuczne po odpowiednim przygotowaniu powierzchni.',
-    category: 'process'
-  },
-  {
-    id: 'faq-6',
-    question: 'Czy oferujecie certyfikaty jakości?',
-    answer: 'Do każdego zamówienia dołączamy protokół kontroli jakości z pomiarami grubości powłoki, adhezji i innych parametrów. Dla branży lotniczej i medycznej oferujemy dodatkową dokumentację zgodną z wymaganiami sektorowymi.',
-    category: 'business'
   }
 ]
 
@@ -607,17 +480,17 @@ function CountUp({ end, duration = 2000, suffix = '', shouldStart }: CountUpProp
 
   useEffect(() => {
     if (!shouldStart || hasStarted) return
-
+    
     setHasStarted(true)
     let startTime: number
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime
       const progress = Math.min((currentTime - startTime) / duration, 1)
-
+      
       // Easing function (easeOutCubic)
       const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.floor(eased * end))
-
+      
       if (progress < 1) {
         requestAnimationFrame(animate)
       }
@@ -628,7 +501,7 @@ function CountUp({ end, duration = 2000, suffix = '', shouldStart }: CountUpProp
   return <span>{count}{suffix}</span>
 }
 
-function HomePage({ lang = 'pl' }: HomePageProps) {
+function HomePage() {
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
@@ -644,8 +517,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     message: ''
   })
   const [activeService, setActiveService] = useState<string>(servicesData[0]?.id ?? '')
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null)
-  const [isServiceModalOpen, setIsServiceModalOpen] = useState(false)
   const projectsSectionRef = useRef<HTMLDivElement | null>(null)
   const projectCardsRef = useRef<HTMLDivElement[]>([])
   const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null)
@@ -657,49 +528,29 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const prefersReducedMotion = useReducedMotion() ?? false
   const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
   const servicesSectionRef = useRef<HTMLDivElement | null>(null)
-
-
-
+  
   // NEW: Animation states
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [isDesktop, setIsDesktop] = useState(false)
   const metricsRef = useRef<HTMLDivElement | null>(null)
   const [metricsVisible, setMetricsVisible] = useState(false)
-
+  
   // Vibor.it Style: Wavy Line
   const [wavyLineVisible, setWavyLineVisible] = useState(false)
   const [wavyLinePath, setWavyLinePath] = useState('')
   const wavyLineContainerRef = useRef<HTMLDivElement | null>(null)
-
+  
   // CASE STUDIES CAROUSEL STATE
   const [activeSlide, setActiveSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [beforeAfterSlider, setBeforeAfterSlider] = useState(50) // percentage for before/after slider
-
-  // HERO VIDEO CAROUSEL STATE
-  const [activeHeroVideo, setActiveHeroVideo] = useState(0)
-  const heroVideos = useMemo(() => [liquidGoldHandVideo, toroidAnimationVideo, liquidMetalVideo, vinylTransformationVideo], [])
-  const heroVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
-
-  // MOBILE FLOATING CTA STATE
-  const [showFloatingCTA, setShowFloatingCTA] = useState(false)
-
-  // SCROLL TO TOP BUTTON STATE
-  const [showScrollTop, setShowScrollTop] = useState(false)
-
-  // FAQ ACCORDION STATE
-  const [expandedFAQs, setExpandedFAQs] = useState<Set<string>>(new Set())
-
-  // MICRO-INTERACTIONS STATE
-  const [cursorTrail, setCursorTrail] = useState<Array<{ x: number, y: number, id: number }>>([])
-
+  
   // TECH SPECS TABLE STATE
   const [selectedFilter, setSelectedFilter] = useState<string>('all')
   const [compareMode, setCompareMode] = useState(false)
   const [selectedForCompare, setSelectedForCompare] = useState<string[]>([])
   const [expandedRow, setExpandedRow] = useState<string | null>(null)
-
+  
   // SMART CONTACT FORM STATE
   const [formStep, setFormStep] = useState(1)
   const [smartFormData, setSmartFormData] = useState({
@@ -712,11 +563,15 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     message: '',
     file: null as File | null
   })
-
+  
   // STICKY SIDE NAVIGATION STATE
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
-  const sectionIds = ['top', 'metrics', 'about', 'projects', 'contact']
-
+  const sectionIds = ['top', 'metrics', 'services', 'why-staniax', 'about', 'projects', 'contact']
+  
+  const { scrollYProgress: aboutScrollProgress } = useScroll({
+    target: aboutMosaicRef,
+    offset: ['start 90%', 'end 15%']
+  })
   const isSplineReady = splineStatus === 'ready'
   const shouldRenderNewsSpline = !prefersReducedMotion && hasNewsSpline && isSplineReady
   const shouldRenderNewsVideoFallback = !prefersReducedMotion && (!hasNewsSpline || splineStatus !== 'ready')
@@ -726,26 +581,14 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
       setScrollY(currentScrollY)
-
+      
       // Calculate scroll progress for progress bar
       const windowHeight = window.innerHeight
       const documentHeight = document.documentElement.scrollHeight
       const scrollableDistance = documentHeight - windowHeight
       const progress = (currentScrollY / scrollableDistance) * 100
       setScrollProgress(progress)
-
-      // Show floating CTA on mobile after scrolling past hero section
-      const heroSection = document.getElementById('top')
-      if (heroSection && window.innerWidth < 640) { // sm breakpoint
-        const heroBottom = heroSection.getBoundingClientRect().bottom
-        setShowFloatingCTA(heroBottom < 100)
-      } else {
-        setShowFloatingCTA(false)
-      }
-
-      // Show scroll-to-top button after scrolling 300px
-      setShowScrollTop(currentScrollY > 300)
-
+      
       // Wavy Line Visibility (shows from metrics section onwards)
       const metricsSection = document.getElementById('metrics')
       if (metricsSection) {
@@ -753,7 +596,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
         setWavyLineVisible(metricsSectionTop <= windowHeight * 0.5)
       }
     }
-
+    
     handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -770,82 +613,29 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     return () => body.classList.remove('overflow-hidden')
   }, [isMenuOpen])
 
-  // Custom cursor effect (desktop only)
+  // Desktop detection
   useEffect(() => {
     if (typeof window === 'undefined') return
-
+    
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024)
     checkDesktop()
     window.addEventListener('resize', checkDesktop)
-
-    if (!isDesktop || prefersReducedMotion) {
-      window.removeEventListener('resize', checkDesktop)
-      return
-    }
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-
+    
     return () => {
       window.removeEventListener('resize', checkDesktop)
-      window.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [isDesktop, prefersReducedMotion])
-
-  // Cursor Trail Effect (Vibor.it micro-interaction)
-  useEffect(() => {
-    if (!isDesktop || prefersReducedMotion) return
-
-    let trailId = 0
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorTrail((prev) => {
-        const newTrail = [...prev, { x: e.clientX, y: e.clientY, id: trailId++ }]
-        // Keep only last 8 trail positions
-        return newTrail.slice(-8)
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [isDesktop, prefersReducedMotion])
+  }, [])
 
   // Auto-play carousel for case studies
   useEffect(() => {
     if (!isAutoPlaying) return
-
+    
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
     }, 5000) // Change slide every 5 seconds
-
+    
     return () => clearInterval(interval)
   }, [isAutoPlaying])
-
-  // Auto-play carousel for hero videos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveHeroVideo((prev) => (prev + 1) % heroVideos.length)
-    }, 7000) // Change video every 7 seconds
-
-    return () => clearInterval(interval)
-  }, [heroVideos.length])
-
-  // Restart video from beginning when it becomes active
-  useEffect(() => {
-    const currentVideo = heroVideoRefs.current[activeHeroVideo]
-    if (currentVideo) {
-      currentVideo.currentTime = 0
-      currentVideo.play().catch(() => {
-        // Ignore autoplay errors
-      })
-    }
-  }, [activeHeroVideo])
 
   // Sticky Side Navigation - Track active section
   useEffect(() => {
@@ -854,7 +644,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
       threshold: 0.4,
       rootMargin: '-20% 0px -20% 0px'
     }
-
+    
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -865,14 +655,14 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
         }
       })
     }
-
+    
     const observer = new IntersectionObserver(observerCallback, observerOptions)
-
+    
     sectionIds.forEach((id) => {
       const element = document.getElementById(id)
       if (element) observer.observe(element)
     })
-
+    
     return () => observer.disconnect()
   }, [])
 
@@ -905,31 +695,31 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   // Wavy Line Path Generation
   useEffect(() => {
     if (!wavyLineContainerRef.current || prefersReducedMotion) return
-
+    
     const generateWavyPath = () => {
       const container = wavyLineContainerRef.current
       if (!container) return ''
-
+      
       const height = container.offsetHeight
       const amplitude = 15 // Wave amplitude
       const frequency = 0.01 // Wave frequency
-
+      
       let path = 'M 0 0'
       for (let y = 0; y <= height; y += 5) {
         const x = Math.sin(y * frequency) * amplitude
         path += ` L ${x} ${y}`
       }
-
+      
       return path
     }
-
+    
     const updatePath = () => {
       setWavyLinePath(generateWavyPath())
     }
-
+    
     updatePath()
     window.addEventListener('resize', updatePath)
-
+    
     return () => window.removeEventListener('resize', updatePath)
   }, [prefersReducedMotion])
 
@@ -987,10 +777,10 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
       }
     } else {
       setSplineStatus('loading')
-      script = document.createElement('script')
+  script = document.createElement('script')
       script.id = scriptId
       script.type = 'module'
-      script.src = 'https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js'
+  script.src = 'https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js'
       script.addEventListener('load', handleScriptLoad)
       script.addEventListener('error', handleScriptError)
       document.head.appendChild(script)
@@ -1020,32 +810,32 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     let ctx: gsap.Context | undefined
     let isMounted = true
 
-      ; (async () => {
-        const [{ gsap: gsapInstance }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
-        if (!isMounted) return
+    ;(async () => {
+      const [{ gsap: gsapInstance }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
+      if (!isMounted) return
 
-        gsapInstance.registerPlugin(ScrollTrigger)
+      gsapInstance.registerPlugin(ScrollTrigger)
 
-        ctx = gsapInstance.context(() => {
-          const cards = projectCardsRef.current.filter((card): card is HTMLDivElement => Boolean(card))
-          if (!cards.length) return
+      ctx = gsapInstance.context(() => {
+        const cards = projectCardsRef.current.filter((card): card is HTMLDivElement => Boolean(card))
+        if (!cards.length) return
 
-          gsapInstance.set(cards, { opacity: 0, y: 16, scale: 0.96 })
-          gsapInstance.to(cards, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.85,
-            ease: 'power3.out',
-            stagger: 0.12,
-            scrollTrigger: {
-              trigger: projectsSectionRef.current,
-              start: 'top 75%',
-              once: true
-            }
-          })
-        }, projectsSectionRef)
-      })()
+        gsapInstance.set(cards, { opacity: 0, y: 16, scale: 0.96 })
+        gsapInstance.to(cards, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.85,
+          ease: 'power3.out',
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: projectsSectionRef.current,
+            start: 'top 75%',
+            once: true
+          }
+        })
+      }, projectsSectionRef)
+    })()
 
     return () => {
       isMounted = false
@@ -1054,7 +844,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   }, [])
 
   useEffect(() => {
-    const sectionIds = ['top', 'video-gallery', 'why-staniax', 'footer', ...navItems.filter((item) => item.type === 'section').map((item) => item.id)]
+    const sectionIds = ['top', ...navItems.filter((item) => item.type === 'section').map((item) => item.id)]
 
     const sections = sectionIds
       .map((id) => document.getElementById(id))
@@ -1125,12 +915,12 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     const handleMouseMove = (e: MouseEvent) => {
       // Generuj kilka iskier jednocześnie dla efektu spawania
       const sparkCount = Math.floor(Math.random() * 3) + 1
-
+      
       for (let i = 0; i < sparkCount; i++) {
         if (Math.random() > 0.7) continue // Ogranicza gęstość
 
         const sparkle = document.createElement('div')
-
+        
         // Losowy kolor iskry
         const colors = ['sparkle-white', 'sparkle-yellow', 'sparkle-orange']
         const colorClass = colors[Math.floor(Math.random() * colors.length)]
@@ -1167,23 +957,39 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     }
   }, [])
 
-  // Removed conflicting wheel event listener to allow natural scrolling with Lenis
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (isTransitioning.current) {
+        e.preventDefault()
+        return
+      }
+
+      const scrollDown = e.deltaY > 0
+      const scrollUp = e.deltaY < 0
+
+      if (activeSection === 0 && scrollDown) {
+        e.preventDefault()
+        isTransitioning.current = true
+        setActiveSection(1)
+        setTimeout(() => { isTransitioning.current = false }, 1000)
+      } else if (activeSection === 1 && scrollUp && window.scrollY === 0) {
+        e.preventDefault()
+        isTransitioning.current = true
+        setActiveSection(0)
+        setTimeout(() => { isTransitioning.current = false }, 1000)
+      }
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+    }
+  }, [activeSection])
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id)
     if (section) {
-      // Try to use Lenis if available for smooth scrolling
-      const lenis = (window as any).lenis
-      if (lenis) {
-        lenis.scrollTo(section, {
-          offset: -80, // Offset for header
-          duration: 0.3,
-          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-        })
-      } else {
-        // Fallback to native smooth scroll
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
 
@@ -1191,7 +997,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const triggerConfetti = () => {
     const colors = ['#1d4ed8', '#3b82f6', '#60a5fa', '#93c5fd']
     const confettiCount = 50
-
+    
     for (let i = 0; i < confettiCount; i++) {
       const confetti = document.createElement('div')
       confetti.className = 'confetti'
@@ -1200,7 +1006,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
       confetti.style.animationDelay = Math.random() * 0.5 + 's'
       confetti.style.animationDuration = 2 + Math.random() * 2 + 's'
       document.body.appendChild(confetti)
-
+      
       setTimeout(() => confetti.remove(), 4000)
     }
   }
@@ -1227,43 +1033,21 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
-  // Hero effects
-  const heroScaleValue = Math.min(1.05 + scrollY * 0.0006, 1.25)
-  const heroParallaxY = scrollY * 0.3 // Subtle parallax movement
-
-  // Mouse follow effect for hero title  
-  const [heroMousePosition, setHeroMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const heroSection = document.getElementById('top')
-    if (!heroSection) return
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = heroSection.getBoundingClientRect()
-      const x = (e.clientX - rect.left - rect.width / 2) / rect.width
-      const y = (e.clientY - rect.top - rect.height / 2) / rect.height
-      setHeroMousePosition({ x: x * 20, y: y * 20 })
-    }
-
-    heroSection.addEventListener('mousemove', handleMouseMove)
-    return () => heroSection.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
   const newsScaleValue = useMemo(() => {
     if (!newsAnimationRef.current) return 1
-
+    
     const rect = newsAnimationRef.current.getBoundingClientRect()
     const elementTop = scrollY + rect.top
     const viewportHeight = window.innerHeight
-
+    
     // Rozpocznij skalowanie gdy sekcja wchodzi w viewport
     const scrollStart = elementTop - viewportHeight
     const scrollProgress = Math.max(0, scrollY - scrollStart)
-
+    
     return Math.min(1.0 + scrollProgress * 0.0003, 1.15)
   }, [scrollY])
   const isDarkHeaderContext = headerTheme === 'dark'
-
+  
   // Menu classes - White text on dark background for better visibility
   const menuBackgroundClass = 'bg-slate-950/95 text-white'
   const menuMutedClass = 'text-white/70'
@@ -1283,181 +1067,172 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   }
 
   return (
-    <SmoothScroll>
-      <main className="min-h-screen bg-white selection:bg-blue-500/30">
-        {/* Scroll Progress Bar */}
-        <div
-          className="scroll-progress"
-          style={{ width: `${scrollProgress}%` }}
-          aria-hidden="true"
-        />
+    <div className="min-h-screen bg-background">
+      {/* Scroll Progress Bar */}
+      <div 
+        className="scroll-progress" 
+        style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
 
-        {/* STICKY SIDE NAVIGATION REMOVED */}
+      {/* STICKY SIDE NAVIGATION - Minimalist Dots */}
+      {isDesktop && !prefersReducedMotion && (
+        <nav className="fixed right-8 top-1/2 -translate-y-1/2 z-40" aria-label="Section Navigation">
+          <div className="flex flex-col gap-4">
+            {sectionIds.map((sectionId, index) => {
+              const labels = ['Hero', 'Metryki', 'Usługi', 'O Nas', 'O Firmie', 'Projekty', 'Kontakt']
+              const isActive = activeSectionIndex === index
+              
+              return (
+                <div key={sectionId} className="group relative">
+                  <button
+                    onClick={() => scrollToSection(sectionId)}
+                    className={cn(
+                      'w-3 h-3 rounded-full transition-all duration-300',
+                      isActive
+                        ? 'bg-blue-700 scale-150 animate-pulse'
+                        : 'bg-gray-400 hover:bg-blue-500 hover:scale-125'
+                    )}
+                    aria-label={`Go to ${labels[index]}`}
+                  />
+                  
+                  {/* Label on hover */}
+                  <span className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-slate-900 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider pointer-events-none">
+                    {labels[index]}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+          
+          {/* Section Counter */}
+          <div className="mt-6 text-center">
+            <span className="text-xs font-bold text-gray-500">
+              {String(activeSectionIndex + 1).padStart(2, '0')} / {String(sectionIds.length).padStart(2, '0')}
+            </span>
+          </div>
+        </nav>
+      )}
 
-        {/* Custom Cursor (Desktop only) */}
-        {isDesktop && !prefersReducedMotion && (
-          <>
-            <div
-              className="cursor-dot"
-              style={{
-                left: `${cursorPosition.x}px`,
-                top: `${cursorPosition.y}px`,
-                transform: 'translate(-50%, -50%)'
-              }}
-              aria-hidden="true"
-            />
-            <div
-              className="cursor-outline"
-              style={{
-                left: `${cursorPosition.x}px`,
-                top: `${cursorPosition.y}px`,
-                transform: 'translate(-50%, -50%)'
-              }}
-              aria-hidden="true"
-            />
+      <Toaster position="top-right" richColors />
 
-            {/* Cursor Trail - Vibor.it micro-interaction */}
-            {cursorTrail.map((pos, index) => (
-              <div
-                key={pos.id}
-                className="cursor-trail"
-                style={{
-                  left: `${pos.x}px`,
-                  top: `${pos.y}px`,
-                  opacity: (index + 1) / cursorTrail.length * 0.6,
-                  transform: `translate(-50%, -50%) scale(${(index + 1) / cursorTrail.length})`,
-                }}
-                aria-hidden="true"
-              />
-            ))}
-          </>
+      <header
+        className={cn(
+          'fixed top-0 w-full transition-all duration-500',
+          isMenuOpen ? 'z-[60]' : 'z-50',
+          scrollY > 32
+            ? 'bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
+            : 'bg-transparent border-transparent'
         )}
-
-        {/* Progress Line "Laser" */}
-        <motion.div
-          className="fixed top-0 left-0 right-0 h-1 bg-blue-500 z-[110] origin-left"
-          style={{ scaleX: scrollProgress / 100 }}
-        />
-
-        <Toaster position="top-right" richColors />
-
-        <header
+      >
+        <div
           className={cn(
-            'fixed top-0 w-full transition-all duration-500',
-            isMenuOpen ? 'z-[100]' : 'z-50',
-            scrollY > 32
-              ? 'bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
-              : 'bg-transparent border-transparent'
+            'container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 sm:py-5 transition-colors duration-300',
+            isMenuOpen 
+              ? 'text-foreground' 
+              : isDarkHeaderContext 
+                ? 'text-white' 
+                : 'text-foreground'
           )}
         >
-          <div
-            className={cn(
-              'w-full flex items-center justify-between py-4 sm:py-5 transition-colors duration-300',
-              'px-6 lg:px-24 xl:px-36',
-              isMenuOpen
-                ? 'text-foreground'
-                : scrollY > 32
-                  ? 'text-foreground'
-                  : isDarkHeaderContext
-                    ? 'text-white'
-                    : 'text-foreground'
-            )}
+          <button
+            onClick={() => scrollToSection('top')}
+            className="group flex items-center gap-2 sm:gap-3 text-left"
+            aria-label="Przewiń na górę"
           >
-            <button
-              onClick={() => scrollToSection('top')}
-              className="group flex flex-col items-start text-left"
-              aria-label="Przewiń na górę"
-            >
+            <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
+              <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
+            </div>
+            <div className="leading-tight hidden sm:block">
               <span
                 className={cn(
-                  'block text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter transition-colors duration-500',
-                  isMenuOpen
-                    ? 'text-slate-700'
-                    : isDarkHeaderContext
-                      ? 'text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]'
-                      : scrollY > 32
-                        ? 'text-blue-900/85'
-                        : 'text-slate-700/90'
+                  'block text-xs uppercase tracking-[0.5em] transition-colors duration-300',
+                  isMenuOpen 
+                    ? 'text-muted-foreground' 
+                    : isDarkHeaderContext 
+                      ? 'text-white/70' 
+                      : 'text-muted-foreground'
                 )}
               >
                 STANIAX
               </span>
-              <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
-                <RotatingText
-                  className={
-                    isMenuOpen
-                      ? 'text-slate-600'
-                      : isDarkHeaderContext
-                        ? 'text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]'
-                        : scrollY > 32
-                          ? 'text-blue-800/75'
-                          : 'text-slate-600/90'
-                  }
-                />
-              </div>
-            </button>
-            <div className="flex items-center gap-5">
-                <Button
-                onClick={() => scrollToSection('contact')}
+              <span
                 className={cn(
-                  'hidden sm:inline-flex border-2 transition-all duration-500 text-base font-bold px-6 h-12',
-                  isMenuOpen
-                    ? 'border-foreground/15 text-foreground bg-transparent hover:bg-foreground hover:text-background'
-                    : isDarkHeaderContext
-                      ? 'border-white/40 text-white bg-transparent hover:bg-white hover:text-foreground'
-                      : scrollY > 32
-                        ? 'border-blue-900/30 text-blue-900/85 bg-transparent hover:bg-blue-900 hover:text-white'
-                        : 'border-slate-900 text-slate-900 bg-white shadow-lg hover:bg-slate-900 hover:text-white'
+                  'block text-base sm:text-lg font-black transition-colors duration-300',
+                  isMenuOpen 
+                    ? 'text-foreground' 
+                    : isDarkHeaderContext 
+                      ? 'text-white' 
+                      : 'text-foreground'
                 )}
               >
-                Wyceń Projekt
-              </Button>
-              <button
-                className={cn(
-                  'relative h-11 w-11 sm:h-14 sm:w-14 rounded-full border-2 backdrop-blur-md flex items-center justify-center transition-all duration-500',
-                  isMenuOpen
-                    ? 'border-foreground/30 bg-background text-foreground'
-                    : isDarkHeaderContext
-                      ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
-                      : scrollY > 32
-                        ? 'border-blue-900/20 bg-white/70 text-blue-900/85 hover:border-blue-900/40'
-                        : 'border-slate-900 bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow-lg'
-                )}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label="Przełącz nawigację"
-                aria-expanded={isMenuOpen}
-              >
-                <span
-                  className={cn(
-                    'absolute h-0.5 w-6 sm:w-7 rounded-full bg-current transition-all duration-300',
-                    isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-1.5'
-                  )}
-                />
-                <span
-                  className={cn(
-                    'absolute h-0.5 w-4 sm:w-5 rounded-full bg-current transition-all duration-300',
-                    isMenuOpen ? 'w-6 sm:w-7 translate-y-0 -rotate-45' : 'translate-y-1.5'
-                  )}
-                />
-              </button>
+                Metal Coating Studio
+              </span>
             </div>
+          </button>
+          <div className="flex items-center gap-5">
+            {/* Language Flags */}
+            <div className="hidden sm:flex items-center gap-1.5">
+              <Link to="/" className="px-2 py-1 rounded-md text-sm hover:bg-white/10 transition-colors" title="Polski">🇵🇱</Link>
+              <Link to="/en" className="px-2 py-1 rounded-md text-sm hover:bg-white/10 transition-colors" title="English">🇬🇧</Link>
+              <Link to="/de" className="px-2 py-1 rounded-md text-sm hover:bg-white/10 transition-colors" title="Deutsch">🇩🇪</Link>
+            </div>
+            <Button
+              onClick={() => scrollToSection('contact')}
+              className={cn(
+                'hidden sm:inline-flex border bg-transparent transition-all duration-300',
+                isMenuOpen
+                  ? 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
+                  : isDarkHeaderContext
+                    ? 'border-white/40 text-white hover:bg-white hover:text-foreground'
+                    : 'border-foreground/15 text-foreground hover:bg-foreground hover:text-background'
+              )}
+            >
+              Kontakt
+            </Button>
+            <button
+              className={cn(
+                'relative h-10 w-10 sm:h-12 sm:w-12 rounded-full border backdrop-blur-md flex items-center justify-center transition-all duration-300',
+                isMenuOpen
+                  ? 'border-foreground/30 bg-background text-foreground'
+                  : isDarkHeaderContext
+                    ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
+                    : 'border-foreground/20 bg-background/70 text-foreground hover:border-foreground/40'
+              )}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Przełącz nawigację"
+              aria-expanded={isMenuOpen}
+            >
+              <span
+                className={cn(
+                  'absolute h-0.5 w-5 sm:w-6 rounded-full bg-current transition-all duration-300',
+                  isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-1.5'
+                )}
+              />
+              <span
+                className={cn(
+                  'absolute h-0.5 w-3 sm:w-4 rounded-full bg-current transition-all duration-300',
+                  isMenuOpen ? 'w-5 sm:w-6 translate-y-0 -rotate-45' : 'translate-y-1.5'
+                )}
+              />
+            </button>
           </div>
-        </header>
+        </div>
 
-        {/* Backdrop - OUTSIDE header */}
+        {/* Backdrop */}
         <div
           className={cn(
-            'fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300',
-            isMenuOpen ? 'pointer-events-auto opacity-100 z-[110]' : 'pointer-events-none opacity-0 z-[-1]'
+            'fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-all duration-300',
+            isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
           )}
           onClick={() => setIsMenuOpen(false)}
           aria-hidden={!isMenuOpen}
         />
-
-        {/* Side Menu - Slide-in from Right - OUTSIDE header */}
+        
+        {/* Side Menu */}
         <div
           className={cn(
-            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[120] overflow-y-auto',
+            'fixed inset-y-0 right-0 z-50 w-full max-w-md transform transition-transform duration-500 ease-in-out',
             menuBackgroundClass,
             'backdrop-blur-2xl border-l border-white/10',
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -1498,308 +1273,680 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   </button>
                 ))}
               </nav>
-
-              <div className="pt-6 border-t border-white/10">
-                <Button
-                  onClick={() => {
-                    scrollToSection('contact')
-                    setIsMenuOpen(false)
-                  }}
-                  className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
-                >
-                  Porozmawiajmy
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
             </div>
 
             <div className="space-y-6">
               <div>
                 <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
                 <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
-                  <p>Grzybowska 5A</p>
-                  <p>00-132 Warszawa</p>
+                  <p>Grzybowska 5A, 00-132 Warszawa</p>
+                  <p><a href="tel:+48882488844">+48 882 488 844</a></p>
+                  <p><a href="mailto:metalizacja@staniax.pl">metalizacja@staniax.pl</a></p>
                 </div>
               </div>
               <div>
                 <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
                 <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
-                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
                   <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
-                  <button onClick={() => { scrollToSection('kim-jestesmy'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
+                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </header>
 
-        {/* HERO & GALLERY SECTION (Seamless Transition) */}
-        <section id="video-gallery" data-theme="light">
-          <VideoGalleryTransition />
-        </section>
-
-        {/* FEATURE HIGHLIGHT (Parallax Reveal) */}
-        <section id="why-staniax" data-theme="light">
-          <WhyStaniaxContent />
-        </section>
-
-
-
-
-
-
-
-
-
-
-        {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
-        {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
-        <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
-          {/* Background Decorations */}
-          <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
-          <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
-
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            {/* Grid 1x3 metryk z Stagger Animation */}
-            {/* Grid 1x3 metryk z Stagger Animation */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Metryka 1 */}
-              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                  30+
-                </div>
-                <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                  LAT DOŚWIADCZENIA
-                </p>
-              </div>
-
-              {/* Metryka 2 */}
-              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <div className="relative text-3xl lg:text-5xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
-                  METALIZACJA PRÓŻNIOWA
-                </div>
-              </div>
-
-              {/* Metryka 3 */}
-              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <div className="relative text-2xl lg:text-4xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
-                  LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH
+      <div className="relative w-full">
+          <section id="top" data-theme="light" className="relative w-full bg-white overflow-hidden">
+            {/* Górna część - Napis "POWŁOKI PRZYSZŁOŚCI" z Mouse Follow Effect */}
+            <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-20">
+              <div className="max-w-7xl mx-auto">
+                <div className="space-y-6">
+                  <h1 
+                    className="text-[4rem] sm:text-[6rem] lg:text-[10rem] xl:text-[14rem] font-black leading-[0.85] tracking-tighter group cursor-default"
+                  >
+                    <span className="block bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
+                      POWŁOKI
+                    </span>
+                    <span className="block bg-gradient-to-r from-blue-600 via-blue-400 to-blue-800 animated-gradient bg-clip-text text-transparent transition-all duration-700 group-hover:scale-105">
+                      PRZYSZŁOŚCI
+                    </span>
+                  </h1>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
 
-
-
-        {/* GALLERY SECTION (Video -> Grid Transition) */}
-
-
-
-        {/* KIM JESTEŚMY SECTION */}
-        <section id="kim-jestesmy" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
-          {/* Subtle Pattern */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)', backgroundSize: '40px 40px' }} aria-hidden="true" />
-          
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* Left: Content */}
-              <div className="space-y-8">
-                <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
-                  <span className="w-12 h-px bg-blue-600"></span>
-                  O Nas
+            {/* Dolna część - Wideo z Parallax Effect + Floating Badge */}
+            <div className="container mx-auto px-6 lg:px-12 pb-20 lg:pb-32 relative z-10">
+              <div className="max-w-[90rem] mx-auto relative">
+                {/* Floating Badge - Darmowa Konsultacja */}
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 floating-badge">
+                  <div className="bg-blue-700 text-white px-6 py-3 rounded-full shadow-2xl border-2 border-white/20 backdrop-blur-sm">
+                    <span className="text-sm font-bold uppercase tracking-wider">✨ Darmowa Konsultacja</span>
+                  </div>
                 </div>
-                <h2 className="text-4xl lg:text-6xl font-black uppercase text-gray-900 tracking-tight leading-[0.95]">
-                  Kim<br />Jesteśmy
-                </h2>
-                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-                  STANIAX to zespół pasjonatów technologii powłokowych z ponad 20-letnim doświadczeniem. Łączymy tradycję rzemiosła z najnowocześniejszymi rozwiązaniami, oferując kompleksowe usługi metalizacji i lakierowania dla wymagających klientów z całej Europy.
-                </p>
                 
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200">
-                  <div>
-                    <div className="text-3xl lg:text-4xl font-black text-blue-700">20+</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Lat doświadczenia</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl lg:text-4xl font-black text-blue-700">2500+</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Projektów</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl lg:text-4xl font-black text-blue-700">24h</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Czas reakcji</div>
-                  </div>
-                </div>
-
-                {/* Features */}
-                <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                  {[
-                    { icon: <Users className="w-5 h-5" />, text: 'Wykwalifikowany zespół' },
-                    { icon: <Gear className="w-5 h-5" />, text: 'Nowoczesny park maszynowy' },
-                    { icon: <Shield className="w-5 h-5" />, text: 'Gwarancja jakości' },
-                    { icon: <Clock className="w-5 h-5" />, text: 'Terminowość dostaw' }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-gray-700">
-                      <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
-                        {item.icon}
-                      </div>
-                      <span className="text-sm font-medium">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <MagneticButton 
-                  onClick={() => scrollToSection('contact')}
-                  className="mt-4 px-8 py-3 bg-blue-600 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors"
+                <div 
+                  className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
                 >
-                  Skontaktuj się z nami
-                </MagneticButton>
-              </div>
-
-              {/* Right: Image */}
-              <div className="relative">
-                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                  <img
-                    src={vacuumMetalizationImg}
-                    alt="Zespół STANIAX - metalizacja próżniowa"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-                {/* Floating Badge */}
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 max-w-[200px]">
-                  <div className="text-4xl font-black text-blue-700 mb-1">24h</div>
-                  <div className="text-sm text-gray-600 font-medium">Czas reakcji na zapytanie</div>
+                  <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  >
+                    <source src={heroVideo} type="video/mp4" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-
-        <section id="about" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-tl from-white via-gray-50/50 to-white overflow-hidden">
-          {/* Subtle Metallic Texture Overlay */}
-          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8), linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8)', backgroundSize: '60px 60px', backgroundPosition: '0 0, 30px 30px' }} aria-hidden="true" />
-
-          {/* Background Decorations */}
-          {/* Removed images as per request */}
-
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
-            <div className="text-right mb-20 section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OFERTA</p>
-              <div className="bg-white py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
-                <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
-                  NASZA OFERTA
-                </h2>
-
-                <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
-                  {[
-                    { label: "METALIZACJA PRÓŻNIOWA", section: "vacuum-metallization", isRoute: false },
-                    { label: "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH", section: "plastic-painting", isRoute: false },
-                    { label: "LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI", section: "glass-painting", isRoute: false },
-                    { label: "ODBLASKI W METALIZACJI", section: "reflectors", isRoute: false },
-                    { label: "GALERIA", section: "/gallery", isRoute: true }
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-baseline gap-6 group cursor-pointer"
-                      onClick={() => item.isRoute ? navigate(item.section) : scrollToSection(item.section)}
-                    >
-                      <span className="text-xl font-mono text-blue-500 font-bold">0{index + 1}.</span>
-                      <h3 className="text-2xl md:text-4xl font-bold text-gray-800 transition-colors uppercase relative overflow-hidden">
-                        <span className="relative z-10 liquid-metal-text">{item.label}</span>
-                        <span className="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-blue-600 to-blue-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                      </h3>
-                      <ArrowRight className="w-6 h-6 text-blue-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                    </div>
-                  ))}
+          {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
+          <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+            {/* Background Decorations */}
+            <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
+            <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
+            
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+              {/* Grid 1x4 metryk z Stagger Animation */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                {/* Metryka 1 */}
+                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    <CountUp end={30} suffix="+" shouldStart={metricsVisible} />
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    LAT DOŚWIADCZENIA
+                  </p>
                 </div>
 
-                {/* DETAILED SERVICES SECTION */}
-                <div className="mt-32 space-y-32">
-                  {servicesData.map((service, index) => (
-                    <div
-                      key={service.id}
-                      id={service.id}
-                      className={cn(
-                        "grid gap-12 items-stretch",
-                        index % 2 === 0 ? "lg:grid-cols-[1fr_1.2fr]" : "lg:grid-cols-[1.2fr_1fr]"
-                      )}
-                    >
-                      <div className={cn(
-                        "flex flex-col justify-center space-y-6",
-                        index % 2 !== 0 && "lg:order-2"
-                      )}>
-                        <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
-                          <span className="w-12 h-px bg-blue-600"></span>
-                          {service.tagline}
-                        </div>
-                        <h3 className="text-4xl lg:text-5xl font-black uppercase text-gray-900 leading-tight">
-                          {service.title}
-                        </h3>
-                        <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-                          {service.description}
-                        </p>
-                        <MagneticButton 
-                          onClick={() => {
-                            setSelectedService(service)
-                            setIsServiceModalOpen(true)
-                          }}
-                          className="mt-8 px-8 py-3 bg-gray-900 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors"
-                        >
-                          Szczegóły
-                        </MagneticButton>
-                      </div>
-                      <div className={cn(
-                        "w-full",
-                        index % 2 !== 0 && "lg:order-1"
-                      )}>
-                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
-                          <img
-                            src={service.image}
-                            alt={service.alt}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                            <div className="text-white/20">
-                              {service.icon}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                {/* Metryka 2 */}
+                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    <CountUp end={2500} suffix="+" shouldStart={metricsVisible} />
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    ZREALIZOWANYCH PROJEKTÓW
+                  </p>
                 </div>
 
-                {/* Cytat misji - moved here */}
-                <div className="mt-12 w-full ml-auto">
-                  <p className="text-lg text-gray-600 italic border-l-4 border-r-4 border-blue-700 px-8 leading-relaxed font-normal text-center">
-                    "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
+                {/* Metryka 3 */}
+                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    24H
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    CZAS REAKCJI
+                  </p>
+                </div>
+
+                {/* Metryka 4 */}
+                <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    <CountUp end={99} suffix="%" shouldStart={metricsVisible} />
+                  </div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    SKUTECZNOŚĆ
                   </p>
                 </div>
               </div>
             </div>
+          </section>
 
+          {/* BRAND SHOWCASE MARQUEE - Trusted Companies */}
+          <section data-theme="light" className="py-16 bg-gradient-to-r from-gray-50 via-white to-gray-50 overflow-hidden border-y border-gray-200">
+            <div className="container mx-auto px-6 lg:px-12">
+              <p className="text-center text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold">
+                Zaufali Nam
+              </p>
+            </div>
+            
+            {/* Marquee Container */}
+            <div className="relative">
+              {/* Gradient Overlays */}
+              <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+              
+              {/* Scrolling Content */}
+              <div className="flex gap-16 brand-marquee">
+                {/* First set */}
+                {brandShowcaseData.map((brand, index) => (
+                  <div
+                    key={`brand-1-${index}`}
+                    className="flex-shrink-0 w-40 h-24 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-blue-700 hover:shadow-lg transition-all duration-300 group"
+                  >
+                    <span className="text-2xl font-black text-gray-400 group-hover:text-blue-700 transition-colors uppercase tracking-tight">
+                      {brand.logo}
+                    </span>
+                  </div>
+                ))}
+                {/* Duplicate for seamless loop */}
+                {brandShowcaseData.map((brand, index) => (
+                  <div
+                    key={`brand-2-${index}`}
+                    className="flex-shrink-0 w-40 h-24 bg-white border border-gray-200 rounded-lg flex items-center justify-center hover:border-blue-700 hover:shadow-lg transition-all duration-300 group"
+                  >
+                    <span className="text-2xl font-black text-gray-400 group-hover:text-blue-700 transition-colors uppercase tracking-tight">
+                      {brand.logo}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
 
+          <section id="services" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
+            {/* Background Decorations */}
+            <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '400px', height: '400px', top: '5%', right: '0%' }} />
+            <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '350px', height: '350px', bottom: '10%', left: '0%', animationDelay: '3s' }} />
+            
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+              {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
+              <div className="text-right mb-20 max-w-7xl ml-auto section-reveal">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OUR SERVICES</p>
+                <h2 className="text-8xl lg:text-9xl xl:text-[10rem] font-black uppercase mb-6 text-gray-900 tracking-tighter leading-none">
+                  NASZE USŁUGI
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal leading-relaxed">
+                  Kompleksowe rozwiązania metalizacyjne dla różnorodnych zastosowań przemysłowych
+                </p>
+              </div>
 
+              {/* Grid 2x2 usług - układ po skosie */}
+              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+                {servicesData.map((service, index) => {
+                  // Układ po skosie: lewe kafelki niżej, prawe wyżej
+                  // Lewy: index 0 (+80px), index 2 (+160px)
+                  // Prawy: index 1 (0px), index 3 (+80px)
+                  const isLeftColumn = index % 2 === 0
+                  const rowNumber = Math.floor(index / 2)
+                  const translateY = isLeftColumn 
+                    ? (rowNumber + 1) * 80  // Lewe: 80px, 160px
+                    : rowNumber * 80  // Prawe: 0px, 80px
+                  
+                  return (
+                    <div
+                      key={service.id}
+                      className="bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-300 group hover:shadow-2xl stagger-item"
+                      style={{
+                        transform: `translateY(${translateY}px)`,
+                        animationDelay: `${index * 0.1}s`
+                      }}
+                      onMouseEnter={(e) => {
+                        const current = e.currentTarget as HTMLElement
+                        current.style.transform = `translateY(${translateY}px) perspective(1000px) rotateX(3deg) rotateY(-3deg) scale(1.02)`
+                      }}
+                      onMouseLeave={(e) => {
+                        const current = e.currentTarget as HTMLElement
+                        current.style.transform = `translateY(${translateY}px)`
+                      }}
+                    >
+                    {/* Obrazek */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={service.image} 
+                        alt={service.alt}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 group-hover:from-black/70" />
+                      <div className="absolute bottom-4 left-4 text-7xl font-black text-white/30 transition-all duration-300 group-hover:text-white/40 group-hover:scale-105">
+                        {String(index + 1).padStart(2, '0')}
+                      </div>
+                    </div>
+                    
+                    {/* Treść */}
+                    <div className="p-8">
+                      {/* Tytuł */}
+                      <h3 className="text-2xl font-bold uppercase mb-3 text-gray-900 transition-colors duration-300 group-hover:text-blue-700">
+                        {service.title}
+                      </h3>
+                      
+                      {/* Tagline */}
+                      <p className="text-xs uppercase tracking-widest text-blue-600 font-semibold mb-4 transition-all duration-300 group-hover:tracking-[0.3em]">
+                        {service.tagline}
+                      </p>
+                      
+                      {/* Opis */}
+                      <p className="text-gray-600 leading-relaxed font-normal">
+                        {service.description}
+                      </p>
+                    </div>
+                  </div>
+                  )
+                })}
+              </div>
+            </div>
+          </section>
 
+      {/* INTERACTIVE TECH SPECS TABLE */}
+      <section data-theme="light" className="py-20 lg:py-32 bg-white">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">TECHNOLOGY COMPARISON</p>
+              <h2 className="text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 uppercase mb-8 tracking-tighter">
+                PORÓWNAJ<br />TECHNOLOGIE
+              </h2>
+            </div>
 
-            {/* CTA after About section */}
-            <div className="mt-16 text-center">
+            {/* Filters & Compare Toggle */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setSelectedFilter('all')}
+                  className={cn(
+                    'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
+                    selectedFilter === 'all'
+                      ? 'bg-blue-700 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  )}
+                >
+                  Wszystkie
+                </button>
+                {techSpecsData.map((spec) => (
+                  <button
+                    key={spec.id}
+                    onClick={() => setSelectedFilter(spec.id)}
+                    className={cn(
+                      'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
+                      selectedFilter === spec.id
+                        ? 'bg-blue-700 text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    )}
+                  >
+                    {spec.method.split(' ')[0]}
+                  </button>
+                ))}
+              </div>
+              
               <button
-                onClick={() => scrollToSection('contact')}
-                className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-105"
+                onClick={() => {
+                  setCompareMode(!compareMode)
+                  setSelectedForCompare([])
+                }}
+                className={cn(
+                  'px-6 py-2 rounded-full font-bold uppercase tracking-wider text-sm transition-all',
+                  compareMode
+                    ? 'bg-orange-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                )}
               >
-                <span className="text-base font-bold uppercase tracking-wider">
-                  ✨ Bezpłatna Konsultacja
-                </span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                {compareMode ? '✓ Compare Mode' : 'Compare Mode'}
               </button>
-              <p className="mt-4 text-sm text-gray-600">Porozmawiaj z naszymi ekspertami o Twoim projekcie</p>
+            </div>
+
+            {/* Table */}
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
+              <table className="w-full">
+                <thead className="bg-gradient-to-r from-gray-50 to-gray-100">
+                  <tr>
+                    {compareMode && <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Select</th>}
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Metoda</th>
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Temperatura</th>
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Grubość</th>
+                    <th className="p-4 text-left text-xs uppercase tracking-wider text-gray-600 font-bold">Zastosowanie</th>
+                    <th className="p-4 text-center text-xs uppercase tracking-wider text-gray-600 font-bold">Szczegóły</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {techSpecsData
+                    .filter((spec) => selectedFilter === 'all' || selectedFilter === spec.id)
+                    .map((spec) => (
+                      <>
+                        <tr
+                          key={spec.id}
+                          className={cn(
+                            'border-t border-gray-200 hover:bg-blue-50 transition-colors cursor-pointer',
+                            selectedForCompare.includes(spec.id) && 'bg-blue-100'
+                          )}
+                          onClick={() => setExpandedRow(expandedRow === spec.id ? null : spec.id)}
+                        >
+                          {compareMode && (
+                            <td className="p-4">
+                              <input
+                                type="checkbox"
+                                checked={selectedForCompare.includes(spec.id)}
+                                onChange={(e) => {
+                                  e.stopPropagation()
+                                  if (selectedForCompare.includes(spec.id)) {
+                                    setSelectedForCompare(selectedForCompare.filter((id) => id !== spec.id))
+                                  } else if (selectedForCompare.length < 2) {
+                                    setSelectedForCompare([...selectedForCompare, spec.id])
+                                  }
+                                }}
+                                className="w-5 h-5"
+                                disabled={!selectedForCompare.includes(spec.id) && selectedForCompare.length >= 2}
+                              />
+                            </td>
+                          )}
+                          <td className="p-4 font-bold text-gray-900">{spec.method}</td>
+                          <td className="p-4 text-gray-700">{spec.temperature}</td>
+                          <td className="p-4 text-gray-700">{spec.thickness}</td>
+                          <td className="p-4 text-gray-700 text-sm">{spec.applications}</td>
+                          <td className="p-4 text-center">
+                            <button className="text-blue-700 hover:text-blue-900 font-bold">
+                              {expandedRow === spec.id ? '▲' : '▼'}
+                            </button>
+                          </td>
+                        </tr>
+                        {expandedRow === spec.id && (
+                          <tr className="bg-gray-50 border-t border-gray-200">
+                            <td colSpan={compareMode ? 6 : 5} className="p-6">
+                              <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Zalety:</h4>
+                                  <ul className="space-y-2">
+                                    {spec.advantages.map((advantage, idx) => (
+                                      <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                                        <span className="text-blue-700 font-bold">✓</span>
+                                        {advantage}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                                <div>
+                                  <h4 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-3">Materiały:</h4>
+                                  <p className="text-sm text-gray-700">{spec.materials}</p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        )}
+                      </>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Compare Results */}
+            {compareMode && selectedForCompare.length === 2 && (
+              <div className="mt-8 p-8 bg-gradient-to-br from-blue-50 to-white border-2 border-blue-700 rounded-2xl">
+                <h3 className="text-2xl font-black uppercase mb-6 text-blue-900">Porównanie</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {selectedForCompare.map((id) => {
+                    const spec = techSpecsData.find((s) => s.id === id)
+                    if (!spec) return null
+                    return (
+                      <div key={id} className="space-y-4">
+                        <h4 className="text-xl font-bold text-gray-900">{spec.method}</h4>
+                        <div className="space-y-2 text-sm">
+                          <p><strong>Temperatura:</strong> {spec.temperature}</p>
+                          <p><strong>Grubość:</strong> {spec.thickness}</p>
+                          <p><strong>Materiały:</strong> {spec.materials}</p>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Sekcja Dlaczego STANIAX - Premium Video Background (Vibor.it Style) */}
+      <section
+        id="why-staniax"
+        data-theme="dark"
+        className="relative py-20 lg:py-32 overflow-hidden"
+      >
+        {/* Video Background with Overlay */}
+        <div className="absolute inset-0" aria-hidden="true">
+          {!prefersReducedMotion ? (
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src={whyChooseVideo} type="video/mp4" />
+            </video>
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+          )}
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-950/85 to-slate-950/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent" />
+        </div>
+        
+        <div className="container mx-auto px-6 lg:px-12 relative z-10">
+          {/* Nagłówek sekcji - wyrównany do lewej jak Vibor.it */}
+          <div className="text-left mb-20 max-w-7xl mr-auto section-reveal">
+            <p className="text-xs uppercase tracking-[0.5em] text-white/60 mb-6 font-semibold">WHY CHOOSE</p>
+            <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 text-white tracking-tighter leading-none">
+              STANIAX
+            </h2>
+            <p className="text-lg text-white/80 max-w-2xl mr-auto font-normal leading-relaxed">
+              Dlaczego warto wybrać nas jako partnera do metalizacji przemysłowej
+            </p>
+          </div>
+
+          {/* Trzy kolumny z ikonami - wzór Vibor.it */}
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
+            {/* Kolumna 1: Wsparcie Techniczne */}
+            <div className="text-center space-y-4 group stagger-item hover-lift">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-white/30">
+                  <Users className="w-8 h-8 text-blue-400 icon-pulse" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:text-blue-400">
+                WSPARCIE TECHNICZNE
+              </h3>
+              <p className="text-white/70 leading-relaxed font-normal">
+                Towarzyszymy klientowi w wyborze odpowiedniego rozwiązania dla jego potrzeb, oferując również techniczny serwis posprzedażny.
+              </p>
+            </div>
+
+            {/* Kolumna 2: Jakość Produktów */}
+            <div className="text-center space-y-4 group stagger-item hover-lift">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-white/30">
+                  <Shield className="w-8 h-8 text-blue-400 icon-pulse" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:text-blue-400">
+                JAKOŚĆ PRODUKTÓW
+              </h3>
+              <p className="text-white/70 leading-relaxed font-normal">
+                Innowacyjne pomysły i szczególna uwaga na wpływ środowiskowy produkcji przemysłowej to misja STANIAX.
+              </p>
+            </div>
+
+            {/* Kolumna 3: Personalizacja */}
+            <div className="text-center space-y-4 group stagger-item hover-lift">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-sm border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-white/30">
+                  <Wrench className="w-8 h-8 text-blue-400 icon-pulse" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold uppercase tracking-wider text-white transition-colors duration-300 group-hover:text-blue-400">
+                PERSONALIZACJA
+              </h3>
+              <p className="text-white/70 leading-relaxed font-normal">
+                Towarzyszymy klientowi podczas konfiguracji produktu, aby zidentyfikować najlepsze ustawienia wydajności.
+              </p>
+            </div>
+          </div>
+
+          {/* Paragraf jakości - na dole */}
+          <div className="mt-16 text-center max-w-3xl mx-auto">
+            <p className="text-sm text-white/70 leading-relaxed font-normal">
+              WSZYSTKIE PRODUKTY STANIAX SĄ PROJEKTOWANE ZGODNIE Z EUROPEJSKIMI REGULACJAMI TECHNICZNYMI, ABY ZAPEWNIĆ <span className="font-bold text-white">NAJWYŻSZE STANDARDY JAKOŚCI</span> I TRWAŁOŚCI.
+            </p>
+          </div>
+
+          {/* Micro-CTA */}
+          <div className="mt-8 text-center">
+            <p className="text-sm text-white/70 font-normal">
+              POTRZEBUJESZ POMOCY? {' '}
+              <button 
+                onClick={() => scrollToSection('contact')} 
+                className="font-bold text-blue-400 hover:text-blue-300 hover:underline transition-all"
+              >
+                SKONTAKTUJ SIĘ Z NAMI
+              </button>
+            </p>
+          </div>
+        </div>
+      </section>
+
+        <section id="about" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
+          {/* Background Decorations */}
+          <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '350px', height: '350px', top: '8%', right: '5%' }} />
+          <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '300px', height: '300px', bottom: '12%', left: '3%', animationDelay: '2.5s' }} />
+          
+          <div className="container mx-auto px-6 lg:px-12 relative z-10">
+            {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
+            <div className="text-right mb-20 section-reveal">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">ABOUT US</p>
+              <div className="bg-gray-100 py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
+                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-6 text-gray-900 tracking-tighter leading-none">
+                  TWORZYMY DOSKONAŁOŚĆ<br />W METALIZACJI
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl ml-auto font-normal mt-6 leading-relaxed">
+                  Ponad 30 lat doświadczenia w metalizacji próżniowej i lakierowaniu
+                </p>
+              </div>
+            </div>
+
+            {/* Grid 2x2 kart - układ po skosie - w szarym tle */}
+            <div className="bg-gray-100 -mx-6 lg:-mx-12 px-6 lg:px-12 pt-8 pb-20 -mt-32">
+              <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+              {/* Karta 1: Kim Jesteśmy - Prawy górny (0px) */}
+              <div 
+                className="bg-white border border-gray-200 rounded-lg p-10 transition-all duration-300 group hover:shadow-2xl stagger-item"
+                style={{
+                  transform: 'translateY(0px)',
+                  animationDelay: '0s'
+                }}
+                onMouseEnter={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(0px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                }}
+                onMouseLeave={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(0px)`
+                }}
+              >
+                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                  <Factory className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
+                  KIM JESTEŚMY
+                </h3>
+                <p className="text-gray-600 leading-relaxed font-normal text-base">
+                  <span className="font-bold text-gray-900">STANIAX Sp. z o.o.</span> to kontynuacja wiedzy i doświadczenia Dariusza Staniaka, który od 1993 roku stał się liderem metalizacji próżniowej na Mazowszu. Firma z siedzibą przy ul. Grzybowskiej 5A w Warszawie i zakładem usługowym w Józefowie specjalizuje się w metalizacji próżniowej oraz lakierowaniu tworzyw, szkła i metali.
+                </p>
+              </div>
+
+              {/* Karta 2: Technologie - Lewy górny (80px) */}
+              <div 
+                className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
+                style={{
+                  transform: 'translateY(80px)',
+                  animationDelay: '0.1s'
+                }}
+                onMouseEnter={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(80px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                }}
+                onMouseLeave={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(80px)`
+                }}
+              >
+                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                  <Wrench className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
+                  TECHNOLOGIE
+                </h3>
+                <p className="text-gray-600 leading-relaxed font-normal text-base">
+                  Specjalizujemy się w <span className="font-semibold text-gray-800">metalizacji próżniowej</span>, <span className="font-semibold text-gray-800">lakierowaniu detali z tworzyw sztucznych</span>, szkła i ceramiki oraz <span className="font-semibold text-gray-800">odblaskach w metalizacji</span>. Wysoka jakość i precyzja to fundament naszej działalności.
+                </p>
+              </div>
+
+              {/* Karta 3: Branże - Prawy dolny (80px) */}
+              <div 
+                className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
+                style={{
+                  transform: 'translateY(80px)',
+                  animationDelay: '0.2s'
+                }}
+                onMouseEnter={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(80px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                }}
+                onMouseLeave={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(80px)`
+                }}
+              >
+                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                  <Users className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
+                  BRANŻE
+                </h3>
+                <p className="text-gray-600 leading-relaxed font-normal text-base">
+                  Realizujemy projekty dla <span className="font-semibold text-gray-800">branży kosmetycznej, opakowaniowej, dekoracyjnej</span> oraz <span className="font-semibold text-gray-800">przemysłu motoryzacyjnego</span>. Nasze powłoki zapewniają efekt chromu, złota i innych wykończeń metalicznych na różnych podłożach.
+                </p>
+              </div>
+
+              {/* Karta 4: Jakość - Lewy dolny (160px) */}
+              <div 
+                className="bg-white border border-gray-200 rounded-xl p-12 lg:p-14 transition-all duration-500 group hover:shadow-2xl hover:border-blue-200 stagger-item"
+                style={{
+                  transform: 'translateY(160px)',
+                  animationDelay: '0.3s'
+                }}
+                onMouseEnter={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(160px) perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02)`
+                }}
+                onMouseLeave={(e) => {
+                  const current = e.currentTarget as HTMLElement
+                  current.style.transform = `translateY(160px)`
+                }}
+              >
+                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-700 group-hover:rotate-6">
+                  <Trophy className="w-7 h-7 text-blue-700 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold uppercase mb-6 text-gray-900 tracking-wide">
+                  JAKOŚĆ
+                </h3>
+                <div className="space-y-4 text-base text-gray-600 leading-relaxed font-normal">
+                  <p><span className="font-bold text-gray-900">✓ Europejskie standardy</span> - Certyfikowane zarządzanie jakością</p>
+                  <p><span className="font-bold text-gray-900">✓ Kontrole środowiskowe</span> - Nowoczesne technologie oczyszczania</p>
+                  <p><span className="font-bold text-gray-900">✓ Wsparcie 24/7</span> - Elastyczne planowanie i dostępność</p>
+                </div>
+              </div>
+            </div>
+            </div>
+
+            {/* Cytat misji - poniżej siatki - w szarym tle */}
+            <div className="bg-gray-100 -mx-6 lg:-mx-12 px-6 lg:px-12 pt-8 pb-12 -mt-8">
+              <div className="max-w-4xl mx-auto">
+                <p className="text-lg text-gray-600 italic border-l-4 border-blue-700 pl-8 leading-relaxed font-normal">
+                  "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
+                </p>
+              </div>
+
+              {/* CTA - wyśrodkowany - w szarym tle */}
+              <div className="text-center mt-12">
+                <Button
+                  onClick={() => scrollToSection('contact')}
+                  className="bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 px-12 py-5 rounded-lg hover:shadow-2xl hover:scale-[1.02]"
+                >
+                  Skontaktuj się z nami
+                </Button>
+              </div>
             </div>
           </div>
         </section>
@@ -1809,12 +1956,12 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           <div className="container mx-auto px-6 lg:px-12">
             {/* Header */}
             <div className="text-left mb-20 max-w-7xl section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">STUDIA PRZYPADKÓW</p>
-              <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-blue-400">
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">CASE STUDIES</p>
+              <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black text-gray-900 uppercase mb-8 tracking-tighter leading-none">
                 NASZE<br />REALIZACJE
               </h2>
               <p className="text-lg text-gray-600 font-normal max-w-2xl leading-relaxed">
-                Odkryj historie sukcesów naszych klientów z branż motoryzacyjnej, lotniczej i przemysłowej
+                Odkryj historie sukcesów naszych klientów z branż kosmetycznej, opakowaniowej i oświetleniowej
               </p>
             </div>
 
@@ -1832,51 +1979,50 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   >
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                       {/* Left: Before/After Image Comparison */}
-                      <TiltCard className="relative group">
-                        <div
-                          className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-gray-200 shadow-2xl cursor-ew-resize"
-                          onClick={(e) => {
-                            const rect = e.currentTarget.getBoundingClientRect()
-                            const newX = ((e.clientX - rect.left) / rect.width) * 100
-                            setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
-                          }}
-                          onMouseMove={(e) => {
-                            if (e.buttons === 1) { // Left mouse button is pressed
-                              const rect = e.currentTarget.getBoundingClientRect()
-                              const newX = ((e.clientX - rect.left) / rect.width) * 100
-                              setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
-                            }
-                          }}
-                          onTouchMove={(e) => {
-                            const rect = e.currentTarget.getBoundingClientRect()
-                            const touch = e.touches[0]
-                            const newX = ((touch.clientX - rect.left) / rect.width) * 100
-                            setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
-                          }}
-                        >
+                      <div className="relative group">
+                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-gray-200 shadow-2xl">
                           {/* Before Image */}
                           <img
                             src={caseStudy.imageBefore}
-                            alt={`${caseStudy.title} - Przed`}
-                            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                            alt={`${caseStudy.title} - Before`}
+                            className="absolute inset-0 w-full h-full object-cover"
                           />
-
+                          
                           {/* After Image with Slider */}
-                          <div
-                            className="absolute inset-0 overflow-hidden pointer-events-none"
+                          <div 
+                            className="absolute inset-0 overflow-hidden"
                             style={{ clipPath: `inset(0 ${100 - beforeAfterSlider}% 0 0)` }}
                           >
                             <img
                               src={caseStudy.imageAfter}
-                              alt={`${caseStudy.title} - Po`}
+                              alt={`${caseStudy.title} - After`}
                               className="absolute inset-0 w-full h-full object-cover"
                             />
                           </div>
 
                           {/* Slider Handle */}
-                          <div
-                            className="absolute top-0 bottom-0 w-1 bg-white pointer-events-none"
+                          <div 
+                            className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
                             style={{ left: `${beforeAfterSlider}%` }}
+                            onMouseDown={(e) => {
+                              const startX = e.clientX
+                              const startSlider = beforeAfterSlider
+                              
+                              const handleMouseMove = (moveEvent: MouseEvent) => {
+                                const rect = e.currentTarget.parentElement?.getBoundingClientRect()
+                                if (!rect) return
+                                const newX = ((moveEvent.clientX - rect.left) / rect.width) * 100
+                                setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
+                              }
+                              
+                              const handleMouseUp = () => {
+                                document.removeEventListener('mousemove', handleMouseMove)
+                                document.removeEventListener('mouseup', handleMouseUp)
+                              }
+                              
+                              document.addEventListener('mousemove', handleMouseMove)
+                              document.addEventListener('mouseup', handleMouseUp)
+                            }}
                           >
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
                               <div className="flex gap-1">
@@ -1887,15 +2033,14 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           </div>
 
                           {/* Before/After Labels */}
-                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            PRZED
+                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                            BEFORE
                           </div>
-                          <div className="absolute top-4 right-4 bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            PO
+                          <div className="absolute top-4 right-4 bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                            AFTER
                           </div>
                         </div>
-
-                      </TiltCard>
+                      </div>
 
                       {/* Right: Content */}
                       <div className="space-y-8">
@@ -1910,18 +2055,40 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
                         {/* Metrics */}
                         <div className="grid grid-cols-3 gap-6">
-                          {
-                            caseStudy.metrics.map((metric, idx) => (
-                              <div key={idx} className="text-center">
-                                <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2 font-mono">
-                                  {metric.value}
-                                </div>
-                                <p className="text-xs uppercase tracking-wider text-gray-600 font-semibold">
-                                  {metric.label}
-                                </p>
+                          {caseStudy.metrics.map((metric, idx) => (
+                            <div key={idx} className="text-center">
+                              <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2">
+                                {metric.value}
                               </div>
-                            ))
-                          }
+                              <p className="text-xs uppercase tracking-wider text-gray-600 font-semibold">
+                                {metric.label}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Testimonial */}
+                        <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-8">
+                          <blockquote className="space-y-4">
+                            <p className="text-gray-700 leading-relaxed italic">
+                              "{caseStudy.testimonial.quote}"
+                            </p>
+                            <div className="flex items-center gap-4">
+                              <img
+                                src={caseStudy.testimonial.avatar}
+                                alt={caseStudy.testimonial.author}
+                                className="w-12 h-12 rounded-full object-cover border-2 border-blue-700"
+                              />
+                              <div>
+                                <cite className="not-italic font-bold text-gray-900 block">
+                                  — {caseStudy.testimonial.author}
+                                </cite>
+                                <span className="text-sm text-gray-600">
+                                  {caseStudy.testimonial.role}
+                                </span>
+                              </div>
+                            </div>
+                          </blockquote>
                         </div>
 
                         {/* Performance Badge */}
@@ -1942,17 +2109,14 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     setActiveSlide((prev) => (prev - 1 + caseStudiesData.length) % caseStudiesData.length)
                     setIsAutoPlaying(false)
                   }}
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
-                  aria-label="Poprzedni projekt"
+                  className="w-12 h-12 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold"
+                  aria-label="Previous slide"
                 >
                   ←
                 </button>
 
-                {/* Dots with numbers */}
-                <div className="flex gap-3 items-center">
-                  <span className="text-sm font-semibold text-gray-600 mr-2">
-                    {activeSlide + 1} / {caseStudiesData.length}
-                  </span>
+                {/* Dots */}
+                <div className="flex gap-3">
                   {caseStudiesData.map((_, index) => (
                     <button
                       key={index}
@@ -1966,7 +2130,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           ? 'bg-blue-700 w-8'
                           : 'bg-gray-300 hover:bg-gray-400'
                       )}
-                      aria-label={`Przejdź do projektu ${index + 1}`}
+                      aria-label={`Go to slide ${index + 1}`}
                     />
                   ))}
                 </div>
@@ -1976,8 +2140,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
                     setIsAutoPlaying(false)
                   }}
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
-                  aria-label="Następny projekt"
+                  className="w-12 h-12 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold"
+                  aria-label="Next slide"
                 >
                   →
                 </button>
@@ -1987,168 +2151,117 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
             {/* CTA - Traditional Grid Below Carousel */}
             <div className="text-center mt-20">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">Zobacz więcej</p>
-              <MagneticButton
-                onClick={() => navigate('/gallery')}
-                className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] rounded-full flex items-center justify-center mx-auto"
+              <Button
+                onClick={() => navigate('/news')}
+                className="magnetic-button px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
               >
                 Wszystkie Projekty
                 <ArrowRight className="w-5 h-5 ml-2 inline-block" />
-              </MagneticButton>
+              </Button>
             </div>
-          </div >
-        </section >
+          </div>
+        </section>
 
+        <section
+          id="news-showcase"
+          data-theme="dark"
+          className="relative isolate overflow-hidden py-24 lg:py-32"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-950/80 to-slate-950/95" aria-hidden />
 
+          <div className="relative z-10 container mx-auto px-6 lg:px-12">
+            <div className="mx-auto max-w-5xl text-white">
+              <div className="space-y-10">
+                <div className="w-full space-y-8">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.5em]">
+                    Nowości STANIAX
+                  </span>
+                  <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-end md:justify-between md:text-left pb-5">
+                    <div className="flex flex-col items-center gap-4 md:items-start">
+                      <span className="text-[3.5rem] font-black uppercase leading-[0.85] tracking-[-0.03em] sm:text-[4.5rem] lg:text-[6rem]">
+                        ZOBACZ
+                      </span>
+                    </div>
+                    <span className="hidden h-24 w-px bg-white/25 md:block" aria-hidden />
+                    <div className="flex flex-col items-center gap-3 md:items-start">
+                      <span className="text-[0.7rem] font-semibold uppercase tracking-[0.85em] text-white/60">
+                        NASZE
+                      </span>
+                      <span className="text-[2.75rem] font-black uppercase leading-[0.9] tracking-[-0.01em] sm:text-[3.25rem] lg:text-[4rem]">
+                        NOWOŚCI
+                      </span>
+                    </div>
+                  </div>
+                </div>
 
-        {/* FAQ SECTION */}
-        <section id="faq" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-white via-blue-50/30 to-white">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">FAQ</p>
-
-              <div className="mb-12 text-center">
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  NAJCZĘŚCIEJ<br />ZADAWANE PYTANIA
-                </h2>
-                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Odpowiedzi na pytania dotyczące technologii metalizacji
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {faqData.map((faq, index) => {
-                  const isExpanded = expandedFAQs.has(faq.id)
-
-                  return (
-                    <motion.div
-                      key={faq.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1, duration: 0.5 }}
-                      className="group"
-                    >
-                      <button
-                        onClick={() => {
-                          setExpandedFAQs((prev) => {
-                            const next = new Set(prev)
-                            if (next.has(faq.id)) {
-                              next.delete(faq.id)
-                            } else {
-                              next.add(faq.id)
-                            }
-                            return next
-                          })
-                        }}
-                        className={cn(
-                          'w-full text-left p-6 rounded-2xl transition-all duration-300',
-                          'border-2 bg-white shadow-md hover:shadow-xl',
-                          'focus-visible:ring-4 focus-visible:ring-blue-400/50',
-                          isExpanded
-                            ? 'border-blue-400 bg-blue-50/50'
-                            : 'border-gray-200 hover:border-blue-300'
-                        )}
-                        aria-expanded={isExpanded}
-                        aria-controls={`faq-answer-${faq.id}`}
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className={cn(
-                            'flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300',
-                            isExpanded
-                              ? 'bg-blue-600 text-white scale-110 shadow-lg'
-                              : 'bg-blue-100 text-blue-600 group-hover:bg-blue-200'
-                          )}>
-                            <Question className="w-5 h-5" weight="bold" />
-                          </div>
-
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors">
-                              {faq.question}
-                            </h3>
-                            {!isExpanded && (
-                              <p className="text-sm text-gray-500 line-clamp-1">
-                                Kliknij, aby rozwinąć
-                              </p>
-                            )}
-                          </div>
-
-                          <div className={cn(
-                            'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300',
-                            isExpanded ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
-                          )}>
-                            {isExpanded ? (
-                              <CaretUp className="w-5 h-5" weight="bold" />
-                            ) : (
-                              <CaretDown className="w-5 h-5" weight="bold" />
-                            )}
-                          </div>
-                        </div>
-
-                        {isExpanded && (
-                          <motion.div
-                            id={`faq-answer-${faq.id}`}
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="mt-4 pl-14"
-                          >
-                            <p className="text-gray-700 leading-relaxed">
-                              {faq.answer}
-                            </p>
-                          </motion.div>
-                        )}
-                      </button>
-                    </motion.div>
-                  )
-                })}
-              </div>
-
-              {/* CTA to Contact */}
-              <div className="text-center mt-16">
-                <p className="text-gray-600 mb-6 text-lg font-medium">
-                  Nie znalazłeś odpowiedzi na swoje pytanie?
-                </p>
-                <MagneticButton
-                  onClick={() => {
-                    const contactSection = document.getElementById('contact')
-                    contactSection?.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-105 rounded-full flex items-center justify-center mx-auto"
+                <div
+                  ref={newsAnimationRef}
+                  className="w-full min-h-[calc(65vh-290px)] lg:min-h-[calc(78vh-290px)] relative"
+                  aria-hidden
                 >
-                  Skontaktuj się z nami
-                  <ArrowRight className="w-5 h-5 ml-2 inline-block" />
-                </MagneticButton>
+                  {shouldRenderNewsSpline ? (
+                    <spline-viewer
+                      key={newsSplineKey}
+                      url={newsSplineUrl}
+                      className="block h-full w-full"
+                      style={{ transform: `scale(${newsScaleValue})` }}
+                    />
+                  ) : shouldRenderNewsVideoFallback ? (
+                    <video
+                      className="block h-full w-full object-cover rounded-2xl"
+                      style={{ transform: `scale(${newsScaleValue})` }}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    >
+                      <source src={fallbackAnimationSrc} type="video/mp4" />
+                    </video>
+                  ) : shouldRenderNewsReducedMotionNotice ? (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="max-w-md rounded-3xl border border-white/10 bg-white/5 px-6 py-5 text-center text-white shadow-2xl backdrop-blur">
+                        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/60">Animacja wyłączona</p>
+                        <p className="mt-3 text-lg font-medium text-white/85">
+                          Efekty ruchu są obecnie wyłączone. Aby zobaczyć animację nowości STANIAX, włącz animacje w ustawieniach urządzenia.
+                        </p>
+                      </div>
+                    </div>
+                  ) : null}
+                  
+                  <div className="absolute bottom-[20px] left-0 right-0 flex justify-center">
+                    <Button
+                      onClick={() => navigate('/news')}
+                      variant="outline"
+                      className="border-white/60 bg-white/15 backdrop-blur-sm hover:bg-white/30 text-white font-bold uppercase tracking-[0.25em] transition-all duration-300"
+                    >
+                      Pobierz Biuletyn
+                      <ArrowRight className="h-5 w-5 ml-2 inline-block" />
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </section >
+        </section>
 
         <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT I WYCENA</p>
-
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT</p>
+              
               <div className="mb-12 text-center">
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  SKONTAKTUJ SIĘ<br />I WYCEN PROJEKT
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 uppercase leading-[0.85] tracking-tighter mb-6">
+                  SKONTAKTUJ SIĘ<br />Z NAMI
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Wypełnij formularz, a my przygotujemy dopasowaną wycenę i skontaktujemy się z Tobą w ciągu 24 godzin.
+                  Wypełnij formularz, a my skontaktujemy się z Tobą w ciągu 24 godzin
                 </p>
               </div>
 
               {/* Progress Bar */}
               <div className="mb-12">
-                {/* Step indicator text */}
-                <div className="text-center mb-4">
-                  <p className="text-sm font-semibold text-gray-600">
-                    Krok <span className="text-blue-700 text-lg">{formStep}</span> z 2
-                  </p>
-                </div>
-
-                <div className="flex justify-center gap-8 mb-4">
-                  {[1, 2].map((step) => (
+                <div className="flex justify-between mb-4">
+                  {[1, 2, 3].map((step) => (
                     <div
                       key={step}
                       className={cn(
@@ -2157,22 +2270,23 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       )}
                     >
                       <div className={cn(
-                        'w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300',
-                        formStep >= step ? 'bg-blue-700 text-white scale-110 shadow-lg' : 'bg-gray-200'
+                        'w-10 h-10 rounded-full flex items-center justify-center font-bold',
+                        formStep >= step ? 'bg-blue-700 text-white' : 'bg-gray-200'
                       )}>
-                        {formStep > step ? '✓' : step}
+                        {step}
                       </div>
                       <span className="hidden sm:inline text-sm font-semibold">
                         {step === 1 && 'Projekt'}
-                        {step === 2 && 'Kontakt'}
+                        {step === 2 && 'Technologia'}
+                        {step === 3 && 'Kontakt'}
                       </span>
                     </div>
                   ))}
                 </div>
-                <div className="h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-500 shadow-md"
-                    style={{ width: `${(formStep / 2) * 100}%` }}
+                    className="h-full bg-blue-700 transition-all duration-500"
+                    style={{ width: `${(formStep / 3) * 100}%` }}
                   />
                 </div>
               </div>
@@ -2187,16 +2301,15 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <button
                           key={type}
                           onClick={() => {
-                            setSmartFormData((prev) => ({ ...prev, projectType: type }))
-                            setFormStep(2)
+                            setSmartFormData({ ...smartFormData, projectType: type })
+                            setTimeout(() => setFormStep(2), 400)
                           }}
                           className={cn(
-                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px]',
+                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105',
                             smartFormData.projectType === type
                               ? 'border-blue-700 bg-blue-50 text-blue-900'
                               : 'border-gray-200 hover:border-blue-300'
                           )}
-                          aria-label={`Wybierz ${type}`}
                         >
                           {type}
                         </button>
@@ -2207,47 +2320,64 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
                 {formStep === 2 && (
                   <div className="space-y-6">
+                    <h3 className="text-2xl font-bold text-gray-900">Wybierz technologię</h3>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {['Metalizacja Próżniowa', 'Lakierowanie Tworzyw', 'Lakierowanie Szkła/Ceramiki', 'Odblaski'].map((tech) => (
+                        <button
+                          key={tech}
+                          onClick={() => {
+                            setSmartFormData({ ...smartFormData, technology: tech })
+                            setTimeout(() => setFormStep(3), 400)
+                          }}
+                          className={cn(
+                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105',
+                            smartFormData.technology === tech
+                              ? 'border-blue-700 bg-blue-50 text-blue-900'
+                              : 'border-gray-200 hover:border-blue-300'
+                          )}
+                        >
+                          {tech}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {formStep === 3 && (
+                  <div className="space-y-6">
                     <h3 className="text-2xl font-bold text-gray-900">Twoje dane kontaktowe</h3>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <Input
-                        placeholder="Imię (np. Jan) *"
+                        placeholder="Imię *"
                         value={smartFormData.firstName}
                         onChange={(e) => setSmartFormData({ ...smartFormData, firstName: e.target.value })}
-                        className="border-2 min-h-[44px]"
-                        aria-label="Imię"
-                        required
+                        className="border-2"
                       />
                       <Input
-                        placeholder="Nazwisko (np. Kowalski) *"
+                        placeholder="Nazwisko *"
                         value={smartFormData.lastName}
                         onChange={(e) => setSmartFormData({ ...smartFormData, lastName: e.target.value })}
-                        className="border-2 min-h-[44px]"
-                        aria-label="Nazwisko"
+                        className="border-2"
                       />
                     </div>
                     <Input
                       type="email"
-                      placeholder="E-mail (np. jan.kowalski@firma.pl) *"
+                      placeholder="Email *"
                       value={smartFormData.email}
                       onChange={(e) => setSmartFormData({ ...smartFormData, email: e.target.value })}
-                      className="border-2 min-h-[44px]"
-                      aria-label="Adres e-mail"
-                      required
+                      className="border-2"
                     />
                     <Input
-                      placeholder="Telefon (opcjonalnie, np. +48 123 456 789)"
+                      placeholder="Telefon"
                       value={smartFormData.phone}
                       onChange={(e) => setSmartFormData({ ...smartFormData, phone: e.target.value })}
-                      className="border-2 min-h-[44px]"
-                      aria-label="Numer telefonu"
+                      className="border-2"
                     />
                     <Textarea
-                      placeholder="Opisz swój projekt - im więcej szczegółów, tym lepiej pomożemy *"
+                      placeholder="Wiadomość *"
                       value={smartFormData.message}
                       onChange={(e) => setSmartFormData({ ...smartFormData, message: e.target.value })}
                       className="border-2 min-h-32"
-                      aria-label="Opis projektu"
-                      required
                     />
                   </div>
                 )}
@@ -2264,19 +2394,22 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     </Button>
                   )}
                   <div className="ml-auto">
-                    {formStep < 2 ? (
+                    {formStep < 3 ? (
                       <Button
                         onClick={() => setFormStep(formStep + 1)}
                         className="bg-blue-700 hover:bg-blue-800 font-bold"
-                        disabled={formStep === 1 && !smartFormData.projectType}
+                        disabled={
+                          (formStep === 1 && !smartFormData.projectType) ||
+                          (formStep === 2 && !smartFormData.technology)
+                        }
                       >
-                        Kontynuuj →
+                        Dalej →
                       </Button>
                     ) : (
                       <Button
                         onClick={() => {
                           triggerConfetti()
-                          toast.success('Dziękujemy! Odpowiemy w ciągu 24h')
+                          toast.success('Wiadomość wysłana!')
                           setFormStep(1)
                           setSmartFormData({
                             projectType: '',
@@ -2292,370 +2425,119 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button"
                         disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message}
                       >
-                        Wyślij zapytanie 🚀
+                        Wyślij 🚀
                       </Button>
                     )}
                   </div>
                 </div>
               </div>
 
-            </div>
-
-            {/* Map and Contact Details Section */}
-            <div className="max-w-7xl mx-auto mt-20">
-              <div className="mb-12 text-center">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ODWIEDŹ NAS</p>
-                <h3 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter text-blue-400">
-                  ODWIEDŹ NAS
-                </h3>
-              </div>
-
-              <div className="grid lg:grid-cols-2 gap-12 items-start">
-                {/* Maps Container */}
-                <div className="space-y-12">
-                  {/* Map 1: Siedziba */}
-                  <div className="space-y-4">
-                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">SIEDZIBA (BIURO)</h4>
-                    <motion.div
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6 }}
-                      className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
-                    >
-                      <iframe
-                        src="https://maps.google.com/maps?q=ul.+Grzybowska+5A,+00-132+Warszawa&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Lokalizacja siedziby STANIAX"
-                        aria-label="Mapa Google pokazująca lokalizację siedziby STANIAX"
-                      />
-                    </motion.div>
-                  </div>
-
-                  {/* Map 2: Zakład Usługowy */}
-                  <div className="space-y-4">
-                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">ZAKŁAD USŁUGOWY</h4>
-                    <motion.div
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
-                    >
-                      <iframe
-                        src="https://maps.google.com/maps?q=ul.+Wyszyńskiego+116A,+05-420+Józefów&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Lokalizacja zakładu usługowego STANIAX"
-                        aria-label="Mapa Google pokazująca lokalizację zakładu usługowego STANIAX"
-                      />
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Contact Details */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="space-y-6"
-                >
-                  {/* Address 1: Siedziba */}
-                  <div className="group">
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <MapPin className="w-6 h-6 text-white" weight="bold" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">SIEDZIBA</h3>
-                        <p className="text-lg font-bold text-gray-900 leading-relaxed">
-                          ul. Grzybowska 5A<br />
-                          00-132 Warszawa
-                        </p>
-                        <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
-                          (MAPA-NAWIGACJA)
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Address 2: Zakład Usługowy */}
-                  <div className="group">
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Factory className="w-6 h-6 text-white" weight="bold" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">ZAKŁAD USŁUGOWY</h3>
-                        <p className="text-lg font-bold text-gray-900 leading-relaxed">
-                          ul. Wyszyńskiego 116A<br />
-                          05-420 Józefów
-                        </p>
-                        <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
-                          (MAPA-NAWIGACJA)
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Phone & Hours */}
-                  <div className="group">
-                    <a
-                      href="tel:+48882488844"
-                      className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Phone className="w-6 h-6 text-white" weight="bold" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Telefon</h3>
-                        <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
-                          +48 882 488 844
-                        </p>
-                        <div className="text-sm text-gray-600 mt-2 space-y-1">
-                          <p><span className="font-semibold">Pon-Pt:</span> 7:00 - 17:00</p>
-                          <p><span className="font-semibold">Sob-Nd:</span> Zamknięte</p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-
-                  {/* Email */}
-                  <div className="group">
-                    <a
-                      href="mailto:metalizacja@staniax.pl"
-                      className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <EnvelopeSimple className="w-6 h-6 text-white" weight="bold" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Email</h3>
-                        <p className="text-lg font-bold text-gray-900 break-all group-hover:text-blue-700 transition-colors">
-                          metalizacja@staniax.pl
-                        </p>
-                        <p className="text-sm text-gray-600 mt-1">
-                          Odpowiadamy w 24h
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-        {/* BIG TYPE FOOTER */}
-        <section id="footer" data-theme="dark">
-          <BigFooter />
-        </section>
-
-        <CookieBanner />
-
-
-        {/* Mobile Floating CTA Button */}
-        <button
-          onClick={() => scrollToSection('contact')}
-          className={cn(
-            'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
-            showFloatingCTA
-              ? 'translate-y-0 opacity-100 pointer-events-auto'
-              : 'translate-y-20 opacity-0 pointer-events-none'
-          )}
-          aria-label="Wyceń projekt"
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl border-2 border-blue-400/30">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-          </div>
-        </button>
-
-        {/* Scroll to Top Button */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className={cn(
-            'fixed bottom-24 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
-            showScrollTop
-              ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
-              : 'translate-y-20 opacity-0 pointer-events-none scale-75'
-          )}
-          aria-label="Powrót do góry strony"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </button>
-
-        {/* Global Focus Styles */}
-        <style>{`
-        *:focus-visible {
-          outline: 3px solid rgb(96 165 250) !important;
-          outline-offset: 2px !important;
-          border-radius: 4px !important;
-        }
-        
-        button:focus-visible,
-        a:focus-visible,
-        input:focus-visible,
-        textarea:focus-visible,
-        select:focus-visible {
-          outline: 3px solid rgb(96 165 250) !important;
-          outline-offset: 2px !important;
-        }
-      `}</style>
-
-      {/* Service Details Modal */}
-      <AnimatePresence>
-        {isServiceModalOpen && selectedService && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-            onClick={() => setIsServiceModalOpen(false)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-3xl shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Header with Image */}
-              <div className="relative h-48 sm:h-64 overflow-hidden">
-                <img
-                  src={selectedService.image}
-                  alt={selectedService.alt}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                  <div className="flex items-center gap-3 text-blue-400 font-mono text-sm tracking-widest uppercase mb-2">
-                    <span className="w-8 h-px bg-blue-400"></span>
-                    {selectedService.tagline}
-                  </div>
-                  <h2 className="text-3xl sm:text-4xl font-black uppercase text-white tracking-tight">
-                    {selectedService.title}
-                  </h2>
-                </div>
-                {/* Close Button */}
+              {/* Quick Contact */}
+              <div className="flex flex-col sm:flex-row gap-6 mt-12">
                 <button
-                  onClick={() => setIsServiceModalOpen(false)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                  onClick={() => window.open('tel:+48882488844')}
+                  className="group px-8 py-4 bg-blue-700 text-white font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02] magnetic-button"
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  +48 882 488 844
+                </button>
+                <button
+                  onClick={() => window.open('mailto:metalizacja@staniax.pl', '_blank')}
+                  className="group px-8 py-4 bg-gray-900 text-white font-bold uppercase tracking-wider hover:bg-gray-800 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02] magnetic-button"
+                >
+                  metalizacja@staniax.pl
+                </button>
+                <button
+                  onClick={() => window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank')}
+                  className="group px-8 py-4 border-2 border-gray-300 text-gray-900 font-bold uppercase tracking-wider hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 rounded-lg hover:shadow-2xl hover:scale-[1.02] magnetic-button"
+                >
+                  Grzybowska 5A, Warszawa
                 </button>
               </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
-              {/* Content */}
-              <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-16rem)]">
-                <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                  {selectedService.description}
-                </p>
+      <Toaster position="top-right" richColors />
+      <CookieBanner />
 
-                {selectedService.details && (
-                  <div className="grid sm:grid-cols-3 gap-6">
-                    {/* Features */}
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-5">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
-                          <Gear className="w-5 h-5 text-white" />
-                        </div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">Cechy</h3>
-                      </div>
-                      <ul className="space-y-2">
-                        {selectedService.details.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Applications */}
-                    <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-2xl p-5">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center">
-                          <Target className="w-5 h-5 text-white" />
-                        </div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">Zastosowania</h3>
-                      </div>
-                      <ul className="space-y-2">
-                        {selectedService.details.applications.map((app, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 flex-shrink-0" />
-                            {app}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Advantages */}
-                    <div className="bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-2xl p-5">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-amber-600 flex items-center justify-center">
-                          <Trophy className="w-5 h-5 text-white" />
-                        </div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">Zalety</h3>
-                      </div>
-                      <ul className="space-y-2">
-                        {selectedService.details.advantages.map((adv, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 flex-shrink-0" />
-                            {adv}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                )}
-
-                {/* CTA */}
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={() => {
-                      setIsServiceModalOpen(false)
-                      scrollToSection('contact')
-                    }}
-                    className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2"
-                  >
-                    Zapytaj o wycenę
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={() => setIsServiceModalOpen(false)}
-                    className="flex-1 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold uppercase tracking-wider rounded-full transition-colors"
-                  >
-                    Zamknij
-                  </button>
+      <footer className="bg-slate-950 text-white">
+        <div className="container mx-auto px-6 lg:px-12 py-12">
+          <div className="grid gap-12 md:grid-cols-3">
+            {/* Kolumna 1: Logo i opis */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="h-12 w-12 rounded-full bg-blue-700 text-white flex items-center justify-center shadow-lg">
+                  <Factory className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-2xl font-black uppercase">STANIAX</p>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <p className="text-sm text-white/70 font-normal max-w-xs">
+                Metalizacja próżniowa, lakierowanie tworzyw, szkła i metali. Ponad 30 lat doświadczenia.
+              </p>
+            </div>
 
-      </main >
-    </SmoothScroll >
+            {/* Kolumna 2: Szybka nawigacja + Certifications */}
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold">Nawigacja</p>
+              <ul className="space-y-3 text-white/80 text-sm font-normal">
+                <li><button onClick={() => scrollToSection('services')} className="link-underline hover:text-white transition-colors">Oferta</button></li>
+                <li><button onClick={() => scrollToSection('projects')} className="link-underline hover:text-white transition-colors">Realizacje</button></li>
+                <li><button onClick={() => scrollToSection('about')} className="link-underline hover:text-white transition-colors">O nas</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="link-underline hover:text-white transition-colors">Kontakt</button></li>
+              </ul>
+              
+              <div className="pt-4">
+                <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold mb-3">Informacje</p>
+                <ul className="space-y-2 text-white/80 text-sm font-normal">
+                  <li className="text-white/60 text-xs">Polityka Prywatności (wkrótce)</li>
+                  <li className="text-white/60 text-xs">Regulamin (wkrótce)</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Kolumna 3: Dane kontaktowe */}
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-[0.5em] text-white/60 font-bold">Kontakt</p>
+              <div className="space-y-3 text-white/80 text-sm font-normal">
+                <p className="font-bold text-white">STANIAX Sp. z o.o.</p>
+                <div>
+                  <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Siedziba:</p>
+                  <p className="leading-relaxed">
+                    ul. Grzybowska 5A<br />
+                    00-132 Warszawa
+                  </p>
+                </div>
+                <div>
+                  <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Zakład usługowy:</p>
+                  <p className="leading-relaxed">
+                    ul. Wyszyńskiego 116A<br />
+                    05-420 Józefów
+                  </p>
+                </div>
+                <div className="pt-2 space-y-1">
+                  <p>Tel: <a href="tel:+48882488844" className="text-white hover:text-blue-400 transition-colors font-semibold">+48 882 488 844</a></p>
+                  <p>Email: <a href="mailto:metalizacja@staniax.pl" className="text-white hover:text-blue-400 transition-colors font-semibold">metalizacja@staniax.pl</a></p>
+                </div>
+                <div className="pt-2">
+                  <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Godziny otwarcia:</p>
+                  <p>Pon–Pt: 7:00–17:00</p>
+                  <p>Sob–Nd: zamknięte</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="border-t border-white/10 py-6">
+          <div className="container mx-auto px-6 lg:px-12 flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-xs uppercase tracking-[0.4em] text-white/50">
+            <span>© {new Date().getFullYear()} STANIAX Sp. z o.o. Wszelkie prawa zastrzeżone.</span>
+          </div>
+        </div>
+      </footer>
+    </div>
   )
 }
 
 export default HomePage
-// Force reload wto, 4 lis 2025, 23:36:53 CET
