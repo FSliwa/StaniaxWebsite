@@ -9,9 +9,9 @@ function App() {
     <>
       <ScrollProgress />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/en" element={<HomePage />} />
-        <Route path="/de" element={<HomePage />} />
+        <Route path="/" element={<HomePage lang="pl" />} />
+        <Route path="/en" element={<HomePage lang="en" />} />
+        <Route path="/de" element={<HomePage lang="de" />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
       </Routes>
