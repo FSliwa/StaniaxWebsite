@@ -40,8 +40,7 @@ import {
   Users,
   Question,
   CaretDown,
-  CaretUp,
-  ChatCircle
+  CaretUp
 } from '@phosphor-icons/react'
 import liquidGoldHandVideo from '@/assets/liquid-gold-hand.mp4'
 import toroidAnimationVideo from '@/assets/toroid-animation.mp4'
@@ -95,6 +94,10 @@ const languages = [
   { text: "Vacuümmetallisatie", flag: "🇳🇱", lang: "nl" }
 ]
 
+type HomePageProps = {
+  lang?: 'pl' | 'en' | 'de'
+}
+
 function RotatingText({ className }: { className?: string }) {
   const [index, setIndex] = useState(0)
 
@@ -135,7 +138,6 @@ type NavItem =
 const navItems: NavItem[] = [
   { id: 'kim-jestesmy', label: 'O STANIAX', type: 'section' },
   { id: 'about', label: 'Oferta', type: 'section' },
-  { id: 'about', label: 'Specjalnie dla Ciebie', type: 'section' },
   { id: 'projects', label: 'Realizacje', type: 'section' },
   { id: 'gallery', label: 'Galeria', type: 'route', path: '/gallery' },
   { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
@@ -321,8 +323,7 @@ const caseStudiesData: CaseStudy[] = [
     imageAfter: automotiveBefore,
     metrics: [
       { value: '3 msc', label: 'Realizacja' },
-      { value: '50K+', label: 'Elementy' },
-      { value: 'ISO 9001', label: 'Certyfikat' }
+      { value: '50K+', label: 'Elementy' }
     ],
     badge: '+250% Trwałość'
   },
@@ -356,7 +357,6 @@ const caseStudiesData: CaseStudy[] = [
 
 // BRAND SHOWCASE DATA - Trusted Companies & Certifications
 const brandShowcaseData = [
-  { name: 'ISO 9001:2015', logo: 'ISO' },
   { name: 'Motoryzacja', logo: 'AUTO' },
   { name: 'Lotnictwo', logo: 'AERO' },
   { name: 'Medycyna', logo: 'MED' },
@@ -511,7 +511,7 @@ const faqData: FAQItem[] = [
   {
     id: 'faq-6',
     question: 'Czy oferujecie certyfikaty jakości?',
-    answer: 'Tak, posiadamy certyfikat ISO 9001:2015. Do każdego zamówienia dołączamy protokół kontroli jakości z pomiarami grubości powłoki, adhezji i innych parametrów. Dla branży lotniczej i medycznej oferujemy dodatkową dokumentację zgodną z wymaganiami sektorowymi.',
+    answer: 'Do każdego zamówienia dołączamy protokół kontroli jakości z pomiarami grubości powłoki, adhezji i innych parametrów. Dla branży lotniczej i medycznej oferujemy dodatkową dokumentację zgodną z wymaganiami sektorowymi.',
     category: 'business'
   }
 ]
@@ -628,7 +628,7 @@ function CountUp({ end, duration = 2000, suffix = '', shouldStart }: CountUpProp
   return <span>{count}{suffix}</span>
 }
 
-function HomePage() {
+function HomePage({ lang = 'pl' }: HomePageProps) {
   const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
@@ -690,9 +690,6 @@ function HomePage() {
 
   // FAQ ACCORDION STATE
   const [expandedFAQs, setExpandedFAQs] = useState<Set<string>>(new Set())
-
-  // CHAT SUPPORT BUBBLE STATE
-  const [isChatOpen, setIsChatOpen] = useState(false)
 
   // MICRO-INTERACTIONS STATE
   const [cursorTrail, setCursorTrail] = useState<Array<{ x: number, y: number, id: number }>>([])
@@ -1630,8 +1627,8 @@ function HomePage() {
                     <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Projektów</div>
                   </div>
                   <div>
-                    <div className="text-3xl lg:text-4xl font-black text-blue-700">ISO</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Certyfikaty</div>
+                    <div className="text-3xl lg:text-4xl font-black text-blue-700">24h</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Czas reakcji</div>
                   </div>
                 </div>
 
@@ -2130,14 +2127,14 @@ function HomePage() {
         <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT I WYCENA</p>
 
               <div className="mb-12 text-center">
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  SKONTAKTUJ SIĘ<br />Z NAMI
+                  SKONTAKTUJ SIĘ<br />I WYCEN PROJEKT
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Wypełnij formularz, a my skontaktujemy się z Tobą w ciągu 24 godzin
+                  Wypełnij formularz, a my przygotujemy dopasowaną wycenę i skontaktujemy się z Tobą w ciągu 24 godzin.
                 </p>
               </div>
 
@@ -2189,7 +2186,10 @@ function HomePage() {
                       {['Prototypy', 'Produkcja', 'Naprawa', 'Konsultacja'].map((type) => (
                         <button
                           key={type}
-                          onClick={() => setSmartFormData({ ...smartFormData, projectType: type })}
+                          onClick={() => {
+                            setSmartFormData((prev) => ({ ...prev, projectType: type }))
+                            setFormStep(2)
+                          }}
                           className={cn(
                             'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px]',
                             smartFormData.projectType === type
@@ -2481,28 +2481,6 @@ function HomePage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
             </svg>
           </div>
-        </button>
-
-        {/* Support Chat Bubble */}
-        <button
-          onClick={() => {
-            setIsChatOpen(!isChatOpen)
-            if (!isChatOpen) {
-              toast.info('Czat support będzie dostępny wkrótce! Na razie skontaktuj się z nami przez formularz.')
-            }
-          }}
-          className="fixed bottom-6 left-6 z-[85] flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 hover:from-blue-700 hover:via-blue-800 hover:to-blue-900 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-110 focus-visible:ring-4 focus-visible:ring-blue-400 group"
-          aria-label="Otwórz czat support"
-        >
-          <ChatCircle className="w-8 h-8" weight="bold" />
-
-          {/* Pulsing indicator */}
-          <span className="absolute top-0 left-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full animate-pulse" />
-
-          {/* Tooltip on hover */}
-          <span className="absolute left-20 bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
-            Porozmawiaj z nami 💬
-          </span>
         </button>
 
         {/* Scroll to Top Button */}

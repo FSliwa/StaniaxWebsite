@@ -3,16 +3,16 @@ import HomePage from './pages/HomePage'
 import NewsPage from './pages/NewsPage'
 import GalleryPage from './pages/GalleryPage'
 import { Analytics } from '@vercel/analytics/react';
-import { CustomCursor } from './components/ui/CustomCursor';
 import { ScrollProgress } from './components/ui/ScrollProgress';
 
 function App() {
   return (
     <>
-      <CustomCursor />
       <ScrollProgress />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage lang="pl" />} />
+        <Route path="/en" element={<HomePage lang="en" />} />
+        <Route path="/de" element={<HomePage lang="de" />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
       </Routes>

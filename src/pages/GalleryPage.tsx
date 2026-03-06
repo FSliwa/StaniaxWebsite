@@ -116,23 +116,23 @@ function GalleryPage() {
   }, [selectedImage, filteredImages.length])
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] overflow-x-hidden">
+    <div className="min-h-screen bg-slate-950 overflow-x-hidden">
       {/* Animated background gradient */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[150px] animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-slate-400/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[150px] animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-slate-500/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       {/* Header */}
-      <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-[#0a0a0a]/80 backdrop-blur-2xl">
+      <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-slate-950/80 backdrop-blur-2xl">
         <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 py-5">
           <Link to="/" className="group flex items-center gap-4" aria-label="Powrót na stronę główną">
-            <div className="relative h-12 w-12 rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 text-black flex items-center justify-center shadow-lg shadow-amber-500/20 transition-all duration-500 group-hover:shadow-amber-500/40 group-hover:scale-105">
+            <div className="relative h-12 w-12 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white flex items-center justify-center shadow-lg shadow-blue-500/20 transition-all duration-500 group-hover:shadow-blue-500/40 group-hover:scale-105">
               <Factory className="w-6 h-6" weight="bold" />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent" />
             </div>
             <div className="leading-tight">
-              <span className="block text-[10px] uppercase tracking-[0.4em] text-amber-400/80 font-medium">
+              <span className="block text-[10px] uppercase tracking-[0.4em] text-blue-400/80 font-medium">
                 STANIAX
               </span>
               <span className="block text-xl font-black text-white tracking-tight">
@@ -142,7 +142,7 @@ function GalleryPage() {
           </Link>
           <Link
             to="/"
-            className="group inline-flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/30 text-white font-medium rounded-full transition-all duration-500 backdrop-blur-sm"
+            className="group inline-flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/30 text-white font-medium rounded-full transition-all duration-500 backdrop-blur-sm"
           >
             <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
             <span className="hidden sm:inline">Strona główna</span>
@@ -159,14 +159,14 @@ function GalleryPage() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-4xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400/10 border border-amber-400/20 mb-8">
-              <Sparkle className="w-4 h-4 text-amber-400" weight="fill" />
-              <span className="text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold">Nasze realizacje</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-400/10 border border-blue-400/20 mb-8">
+              <Sparkle className="w-4 h-4 text-blue-400" weight="fill" />
+              <span className="text-xs uppercase tracking-[0.3em] text-blue-400 font-semibold">Nasze realizacje</span>
             </div>
             
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
               <span className="block">GALERIA</span>
-              <span className="block bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
                 REALIZACJI
               </span>
             </h1>
@@ -180,7 +180,7 @@ function GalleryPage() {
       </section>
 
       {/* Category Filter */}
-      <section className="pb-12 sticky top-[85px] z-40 bg-[#0a0a0a]/90 backdrop-blur-xl">
+      <section className="pb-12 sticky top-[85px] z-40 bg-slate-950/90 backdrop-blur-xl">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -198,14 +198,14 @@ function GalleryPage() {
                 className={cn(
                   'relative px-6 py-3 rounded-full font-medium text-sm tracking-wide transition-all duration-500 overflow-hidden',
                   activeCategory === category
-                    ? 'text-black'
-                    : 'text-white/60 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20'
+                    ? 'text-slate-900'
+                    : 'text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20'
                 )}
               >
                 {activeCategory === category && (
                   <motion.div
                     layoutId="activeCategory"
-                    className="absolute inset-0 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 rounded-full"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 rounded-full"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 )}
@@ -221,7 +221,7 @@ function GalleryPage() {
             transition={{ delay: 0.5 }}
             className="mt-6 text-sm text-white/30"
           >
-            Wyświetlanie <span className="text-amber-400 font-semibold">{filteredImages.length}</span> {filteredImages.length === 1 ? 'realizacji' : 'realizacji'}
+            Wyświetlanie <span className="text-blue-400 font-semibold">{filteredImages.length}</span> {filteredImages.length === 1 ? 'realizacji' : 'realizacji'}
           </motion.p>
         </div>
       </section>
@@ -272,11 +272,11 @@ function GalleryPage() {
                   </div>
                   
                   {/* Border glow */}
-                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-white/10 group-hover:ring-amber-400/30 transition-all duration-500" />
+                  <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-white/10 group-hover:ring-blue-400/30 transition-all duration-500" />
                   
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                    <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-400 text-black text-xs font-bold rounded-full uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500 text-white text-xs font-bold rounded-full uppercase tracking-wider">
                       <span className="w-1.5 h-1.5 rounded-full bg-black/30" />
                       {image.category}
                     </span>
@@ -286,7 +286,7 @@ function GalleryPage() {
                   {/* Corner accent */}
                   <div className="absolute top-4 right-4 w-8 h-8 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                     <div className="w-full h-full rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                      <Sparkle className="w-4 h-4 text-amber-400" weight="fill" />
+                      <Sparkle className="w-4 h-4 text-blue-400" weight="fill" />
                     </div>
                   </div>
                 </motion.div>
@@ -308,9 +308,9 @@ function GalleryPage() {
             onClick={closeLightbox}
           >
             {/* Ambient glow from image */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vh] bg-amber-500/5 rounded-full blur-[100px]" />
-            </div>
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vh] bg-blue-500/5 rounded-full blur-[100px]" />
+              </div>
 
             {/* Close Button */}
             <button
@@ -356,7 +356,7 @@ function GalleryPage() {
               
               {/* Image info bar */}
               <div className="absolute -bottom-16 left-0 right-0 flex items-center justify-center gap-4">
-                <span className="px-4 py-2 bg-amber-400 text-black text-xs font-bold rounded-full uppercase tracking-wider">
+                <span className="px-4 py-2 bg-blue-500 text-white text-xs font-bold rounded-full uppercase tracking-wider">
                   {filteredImages[selectedImage].category}
                 </span>
                 <span className="text-white/40 text-sm">
@@ -368,7 +368,7 @@ function GalleryPage() {
             {/* Counter & Progress */}
             <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-6">
               <span className="text-white/40 text-sm font-mono">
-                <span className="text-amber-400 font-bold">{String(selectedImage + 1).padStart(2, '0')}</span>
+                <span className="text-blue-400 font-bold">{String(selectedImage + 1).padStart(2, '0')}</span>
                 <span className="mx-2">/</span>
                 <span>{String(filteredImages.length).padStart(2, '0')}</span>
               </span>
@@ -382,7 +382,7 @@ function GalleryPage() {
                     className={cn(
                       'w-2 h-2 rounded-full transition-all duration-300',
                       selectedImage === index 
-                        ? 'bg-amber-400 w-6' 
+                        ? 'bg-blue-400 w-6' 
                         : 'bg-white/20 hover:bg-white/40'
                     )}
                   />
@@ -394,12 +394,12 @@ function GalleryPage() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer className="relative border-t border-white/5 py-12 bg-[#0a0a0a]">
+      <footer className="relative border-t border-white/5 py-12 bg-slate-950">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center">
-                <Factory className="w-5 h-5 text-black" weight="bold" />
+              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                <Factory className="w-5 h-5 text-white" weight="bold" />
               </div>
               <div>
                 <p className="text-sm text-white/30 font-medium">
@@ -411,7 +411,7 @@ function GalleryPage() {
             
             <Link
               to="/"
-              className="group inline-flex items-center gap-3 text-white/50 hover:text-amber-400 transition-colors duration-300 font-medium"
+              className="group inline-flex items-center gap-3 text-white/50 hover:text-blue-400 transition-colors duration-300 font-medium"
             >
               <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
               Wróć do strony głównej

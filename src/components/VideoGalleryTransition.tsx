@@ -41,7 +41,7 @@ export function VideoGalleryTransition() {
     // Height & Position Logic:
     // Start: 100vh height, Centered vertically (top: 50%, y: -50%)
     // End: 100% height (of grid cell), Top aligned (top: 0%, y: 0%)
-    const centerHeight = useTransform(scrollYProgress, [0, 0.15, 0.4], ["120vh", "120vh", "100%"])
+    const centerHeight = useTransform(scrollYProgress, [0, 0.15, 0.4], ["100vh", "100vh", "100%"])
     const centerTop = useTransform(scrollYProgress, [0, 0.15, 0.4], ["50%", "50%", "0%"])
     const centerYCorrection = useTransform(scrollYProgress, [0, 0.15, 0.4], ["calc(-50% - 2vh)", "calc(-50% - 2vh)", "0%"])
 
@@ -51,15 +51,15 @@ export function VideoGalleryTransition() {
     // 2. Assembly Effect & Staggering (Side Columns)
     // Left Column: Enters slightly earlier
     const leftColOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1])
-    const leftColEnterY = useTransform(scrollYProgress, [0.2, 0.4], [200, 0]) // Slides up more dramatically
+    const leftColEnterY = useTransform(scrollYProgress, [0.2, 0.4], [60, 0])
 
     // Right Column: Enters slightly later
     const rightColOpacity = useTransform(scrollYProgress, [0.25, 0.45], [0, 1])
-    const rightColEnterY = useTransform(scrollYProgress, [0.25, 0.45], [200, 0]) // Slides up more dramatically
+    const rightColEnterY = useTransform(scrollYProgress, [0.25, 0.45], [60, 0])
 
     // 3. Scaling (Side Columns)
-    // They start smaller and grow to full size
-    const sideColsScale = useTransform(scrollYProgress, [0.2, 0.45], [0.8, 1])
+    // Utrzymujemy stałą skalę, aby uniknąć efektu „zoomowania”
+    const sideColsScale = useTransform(scrollYProgress, [0.2, 0.45], [1, 1])
 
     // 4. Inner Parallax (Video inside the tile moves slightly)
     // We map scroll progress to a larger vertical shift for visibility

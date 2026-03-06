@@ -6,18 +6,11 @@ import { cn } from '@/lib/utils'
 
 const newsItems = [
   {
-  title: 'Nowa linia produkcyjna w Warszawie',
+    title: 'Nowa linia produkcyjna w Warszawie',
     date: '15 września 2025',
     category: 'Inwestycje',
-  excerpt: 'Otwarcie nowoczesnej linii produkcyjnej w warszawskim centrum STANIAX zwiększa naszą wydajność o 40% i pozwala obsługiwać większe zamówienia w krótszych terminach.',
+    excerpt: 'Otwarcie nowoczesnej linii produkcyjnej w warszawskim centrum STANIAX zwiększa naszą wydajność o 40% i pozwala obsługiwać większe zamówienia w krótszych terminach.',
     image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=800&fit=crop&crop=center'
-  },
-  {
-    title: 'Certyfikat ISO 9001:2015 Odnowiony',
-    date: '2 września 2025',
-    category: 'Certyfikaty',
-    excerpt: 'Z dumą ogłaszamy pomyślne odnowienie certyfikatu ISO 9001:2015, potwierdzającego najwyższe standardy jakości naszych usług.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop&crop=center'
   },
   {
     title: 'Partnerstwo z Wiodącym Producentem Lotniczym',
@@ -91,7 +84,24 @@ function NewsPage() {
               </span>
             </div>
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
+              <Link to="/#kim-jestesmy" className="text-muted-foreground hover:text-accent transition-colors">
+                O STANIAX
+              </Link>
+              <Link to="/#about" className="text-muted-foreground hover:text-accent transition-colors">
+                Oferta
+              </Link>
+              <Link to="/#projects" className="text-muted-foreground hover:text-accent transition-colors">
+                Realizacje
+              </Link>
+              <Link to="/gallery" className="text-muted-foreground hover:text-accent transition-colors">
+                Galeria
+              </Link>
+              <Link to="/#contact" className="text-muted-foreground hover:text-accent transition-colors">
+                Kontakt
+              </Link>
+            </nav>
             <Link
               to="/"
               className={cn(buttonVariants({ variant: 'outline' }), 'font-semibold')}
@@ -101,9 +111,7 @@ function NewsPage() {
             </Link>
             <Button
               className="font-semibold"
-              onClick={() => {
-                window.location.href = 'tel:+441234567890'
-              }}
+              onClick={scrollToContact}
             >
               Skontaktuj się
               <ArrowRight className="ml-2 h-4 w-4" />
