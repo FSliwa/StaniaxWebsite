@@ -662,7 +662,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
   // NEW: Animation states
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
   const [isDesktop, setIsDesktop] = useState(false)
   const metricsRef = useRef<HTMLDivElement | null>(null)
   const [metricsVisible, setMetricsVisible] = useState(false)
@@ -690,9 +689,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
   // FAQ ACCORDION STATE
   const [expandedFAQs, setExpandedFAQs] = useState<Set<string>>(new Set())
-
-  // MICRO-INTERACTIONS STATE
-  const [cursorTrail, setCursorTrail] = useState<Array<{ x: number, y: number, id: number }>>([])
 
   // TECH SPECS TABLE STATE
   const [selectedFilter, setSelectedFilter] = useState<string>('all')
@@ -770,7 +766,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     return () => body.classList.remove('overflow-hidden')
   }, [isMenuOpen])
 
-  // Custom cursor effect (desktop only)
+  // Desktop detection
   useEffect(() => {
     if (typeof window === 'undefined') return
 
@@ -778,43 +774,10 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     checkDesktop()
     window.addEventListener('resize', checkDesktop)
 
-    if (!isDesktop || prefersReducedMotion) {
-      window.removeEventListener('resize', checkDesktop)
-      return
-    }
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-
     return () => {
       window.removeEventListener('resize', checkDesktop)
-      window.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [isDesktop, prefersReducedMotion])
-
-  // Cursor Trail Effect (Vibor.it micro-interaction)
-  useEffect(() => {
-    if (!isDesktop || prefersReducedMotion) return
-
-    let trailId = 0
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorTrail((prev) => {
-        const newTrail = [...prev, { x: e.clientX, y: e.clientY, id: trailId++ }]
-        // Keep only last 8 trail positions
-        return newTrail.slice(-8)
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-    }
-  }, [isDesktop, prefersReducedMotion])
+  }, [])
 
   // Auto-play carousel for case studies
   useEffect(() => {
@@ -1227,28 +1190,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
-  // Hero effects
-  const heroScaleValue = Math.min(1.05 + scrollY * 0.0006, 1.25)
-  const heroParallaxY = scrollY * 0.3 // Subtle parallax movement
-
-  // Mouse follow effect for hero title  
-  const [heroMousePosition, setHeroMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const heroSection = document.getElementById('top')
-    if (!heroSection) return
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = heroSection.getBoundingClientRect()
-      const x = (e.clientX - rect.left - rect.width / 2) / rect.width
-      const y = (e.clientY - rect.top - rect.height / 2) / rect.height
-      setHeroMousePosition({ x: x * 20, y: y * 20 })
-    }
-
-    heroSection.addEventListener('mousemove', handleMouseMove)
-    return () => heroSection.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
   const newsScaleValue = useMemo(() => {
     if (!newsAnimationRef.current) return 1
 
@@ -1293,45 +1234,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
         />
 
         {/* STICKY SIDE NAVIGATION REMOVED */}
-
-        {/* Custom Cursor (Desktop only) */}
-        {isDesktop && !prefersReducedMotion && (
-          <>
-            <div
-              className="cursor-dot"
-              style={{
-                left: `${cursorPosition.x}px`,
-                top: `${cursorPosition.y}px`,
-                transform: 'translate(-50%, -50%)'
-              }}
-              aria-hidden="true"
-            />
-            <div
-              className="cursor-outline"
-              style={{
-                left: `${cursorPosition.x}px`,
-                top: `${cursorPosition.y}px`,
-                transform: 'translate(-50%, -50%)'
-              }}
-              aria-hidden="true"
-            />
-
-            {/* Cursor Trail - Vibor.it micro-interaction */}
-            {cursorTrail.map((pos, index) => (
-              <div
-                key={pos.id}
-                className="cursor-trail"
-                style={{
-                  left: `${pos.x}px`,
-                  top: `${pos.y}px`,
-                  opacity: (index + 1) / cursorTrail.length * 0.6,
-                  transform: `translate(-50%, -50%) scale(${(index + 1) / cursorTrail.length})`,
-                }}
-                aria-hidden="true"
-              />
-            ))}
-          </>
-        )}
 
         {/* Progress Line "Laser" */}
         <motion.div
