@@ -322,11 +322,23 @@ type CaseStudy = {
 
 const caseStudiesData: CaseStudy[] = [
   {
+    id: 'automotive-parts',
+    title: 'Detale Motoryzacyjne',
+    subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu',
+    imageBefore: automotiveAfter,
+    imageAfter: automotiveBefore,
+    metrics: [
+      { value: '100%', label: 'Kontrola jakości' },
+      { value: '10K+', label: 'Detali/msc' }
+    ],
+    badge: 'Najwyższa Jakość'
+  },
+  {
     id: 'cosmetics-packaging',
     title: 'Opakowania Kosmetyczne',
     subtitle: 'Metalizacja próżniowa opakowań kosmetycznych — efekt złota, srebra i chromu na nakrętkach, butelkach i słoiczkach',
-    imageBefore: automotiveAfter,
-    imageAfter: automotiveBefore,
+    imageBefore: packagingAfter,
+    imageAfter: packagingBefore,
     metrics: [
       { value: '2 mln+', label: 'Sztuk/Rok' },
       { value: '100%', label: 'Powtarzalność' }
@@ -334,30 +346,17 @@ const caseStudiesData: CaseStudy[] = [
     badge: 'Efekt Premium'
   },
   {
-    id: 'decorative-elements',
-    title: 'Elementy Dekoracyjne',
-    subtitle: 'Powłoki dekoracyjne na detalach meblowych, oświetleniowych i architektonicznych — trwały efekt lustrzany',
-    imageBefore: packagingAfter,
-    imageAfter: packagingBefore,
+    id: 'industrial-elements',
+    title: 'Elementy Przemysłowe',
+    subtitle: 'Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania',
+    imageBefore: industrialAfter,
+    imageAfter: industrialBefore,
     metrics: [
       { value: '25+', label: 'Lat doświadczenia' },
       { value: '2500+', label: 'Projektów' },
       { value: 'Premium', label: 'Jakość' }
     ],
-    badge: 'Efekt Lustrzany'
-  },
-  {
-    id: 'automotive-parts',
-    title: 'Detale Motoryzacyjne',
-    subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych',
-    imageBefore: industrialAfter,
-    imageAfter: industrialBefore,
-    metrics: [
-      { value: '100%', label: 'Kontrola jakości' },
-      { value: '10K+', label: 'Detali/msc' },
-      { value: '0', label: 'Reklamacji' }
-    ],
-    badge: 'Najwyższa Jakość'
+    badge: 'Solidność'
   }
 ]
 
