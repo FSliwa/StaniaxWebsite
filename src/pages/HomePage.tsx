@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence, type MotionValue } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { t, type Lang } from '@/lib/translations'
 import { ScrambleText } from '@/components/ui/ScrambleText'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -141,14 +142,16 @@ const languageLinks = [
   { flag: "🇩🇪", lang: "de", path: "/de", label: "Deutsch" },
 ]
 
-const navItems: NavItem[] = [
-  { id: 'kim-jestesmy', label: 'O STANIAX', type: 'section' },
-  { id: 'about', label: 'Oferta', type: 'section' },
-  { id: 'projects', label: 'Realizacje', type: 'section' },
-  { id: 'gallery', label: 'Galeria', type: 'route', path: '/gallery' },
-  { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
-  { id: 'contact', label: 'Kontakt', type: 'section' }
-]
+function getNavItems(lang: Lang): NavItem[] {
+  return [
+    { id: 'kim-jestesmy', label: t(lang, 'oStaniax'), type: 'section' },
+    { id: 'about', label: t(lang, 'oferta'), type: 'section' },
+    { id: 'projects', label: t(lang, 'realizacje'), type: 'section' },
+    { id: 'gallery', label: t(lang, 'galeria'), type: 'route', path: '/gallery' },
+    { id: 'news', label: t(lang, 'aktualnosci'), type: 'route', path: '/news' },
+    { id: 'contact', label: t(lang, 'kontakt'), type: 'section' }
+  ]
+}
 
 type ServiceItem = {
   id: string
@@ -650,6 +653,7 @@ function CountUp({ end, duration = 2000, suffix = '', shouldStart }: CountUpProp
 
 function HomePage({ lang = 'pl' }: HomePageProps) {
   const navigate = useNavigate()
+  const navItems = getNavItems(lang)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [activeSection, setActiveSection] = useState(0)
@@ -1338,7 +1342,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         : 'border-slate-900 text-slate-900 bg-white shadow-lg hover:bg-slate-900 hover:text-white'
                 )}
               >
-                Kontakt
+                {t(lang, 'kontakt')}
               </Button>
               <button
                 className={cn(
@@ -1432,7 +1436,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
             <div className="space-y-6">
               <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Kontakt</p>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>{t(lang, 'kontakt')}</p>
                 <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
                   <p>Grzybowska 5A</p>
                   <p>00-132 Warszawa</p>
@@ -1520,16 +1524,16 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               <div className="space-y-8">
                 <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
                   <span className="w-12 h-px bg-blue-600"></span>
-                  O Nas
+                  {t(lang, 'oNas')}
                 </div>
                 <h2 className="text-4xl lg:text-6xl font-black uppercase text-gray-900 tracking-tight leading-[0.95]">
-                  Kim<br />Jesteśmy
+                  {t(lang, 'kimJestesmy').split('\n').map((line, i) => <span key={i}>{line}<br /></span>)}
                 </h2>
                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-                  Witamy w&nbsp;STANIAX Sp.&nbsp;z&nbsp;o.o. (z&nbsp;siedzibą w&nbsp;Warszawie) — firmie specjalizującej się w&nbsp;metalizacji próżniowej i&nbsp;lakierowaniu natryskowym. Wysoka jakość, którą oferujemy naszym kontrahentom, jest gwarantem dobrej współpracy. Taką jakość czerpiemy od naszego mentora — Dariusza Staniaka, który od 1993 roku stał się liderem metalizacji próżniowej na Mazowszu w&nbsp;Józefowie koło Otwocka. Dziś STANIAX jest kontynuacją jego wiedzy i&nbsp;doświadczenia.
+                  {t(lang, 'kimJestesmyText1')}
                 </p>
                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-                  Zespół wysoko wykwalifikowanych pracowników sprawia, że jakość naszych usług stawia nas w&nbsp;czołówce podobnych firm w&nbsp;Polsce. Zaletą naszą jest precyzja oraz możliwość szybkiego przeorganizowania otrzymanych zleceń — zwłaszcza dla klientów, którzy muszą wdrożyć nowe wzory.
+                  {t(lang, 'kimJestesmyText2')}
                 </p>
                 
                 {/* Stats */}
@@ -1551,10 +1555,10 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 {/* Features */}
                 <div className="grid sm:grid-cols-2 gap-4 pt-4">
                   {[
-                    { icon: <Users className="w-5 h-5" />, text: 'Wykwalifikowany zespół' },
-                    { icon: <Gear className="w-5 h-5" />, text: 'Nowoczesny park maszynowy' },
-                    { icon: <Shield className="w-5 h-5" />, text: 'Gwarancja jakości' },
-                    { icon: <Clock className="w-5 h-5" />, text: 'Terminowość dostaw' }
+                    { icon: <Users className="w-5 h-5" />, text: t(lang, 'wykwalifikowanyZespol') },
+                    { icon: <Gear className="w-5 h-5" />, text: t(lang, 'nowoczesnyPark') },
+                    { icon: <Shield className="w-5 h-5" />, text: t(lang, 'gwarancjaJakosci') },
+                    { icon: <Clock className="w-5 h-5" />, text: t(lang, 'terminowoscDostaw') }
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3 text-gray-700">
                       <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
@@ -1569,7 +1573,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   onClick={() => scrollToSection('contact')}
                   className="mt-4 px-8 py-3 bg-blue-600 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors"
                 >
-                  Skontaktuj się z nami
+                  {t(lang, 'skontaktujSieZNami')}
                 </MagneticButton>
               </div>
 
@@ -1615,18 +1619,18 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   className="h-px bg-blue-600" 
                 />
-                <span className="text-xs font-mono uppercase tracking-[0.5em] text-blue-600 font-semibold">Sprawdź co oferujemy</span>
+                <span className="text-xs font-mono uppercase tracking-[0.5em] text-blue-600 font-semibold">{t(lang, 'sprawdzCoOferujemy')}</span>
               </div>
 
               {/* Big statement */}
               <div className="max-w-5xl">
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-gray-900 tracking-tighter leading-[0.95] mb-8">
-                  Technologia,<br />
-                  <span className="text-blue-600">która zmienia</span><br />
-                  powierzchnię
+                  {t(lang, 'technologiaKtoraZmienia')}<br />
+                  <span className="text-blue-600">{t(lang, 'ktoraZmienia')}</span><br />
+                  {t(lang, 'powierzchnie')}
                 </h2>
                 <p className="text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed">
-                  Od metalizacji próżniowej po lakierowanie natryskowe — oferujemy pełne spektrum wykończeń przemysłowych.
+                  {t(lang, 'bridgeDesc')}
                 </p>
               </div>
 
@@ -1645,7 +1649,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 >
                   <ArrowDown className="w-5 h-5" />
                 </motion.div>
-                <span className="text-xs uppercase tracking-[0.3em] font-medium">Przewiń dalej</span>
+                <span className="text-xs uppercase tracking-[0.3em] font-medium">{t(lang, 'przewinDalej')}</span>
               </motion.button>
             </motion.div>
           </div>
@@ -1771,13 +1775,13 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-105"
               >
                 <span className="text-base font-bold uppercase tracking-wider">
-                  ✨ Bezpłatna Konsultacja
+                  {t(lang, 'bezplatnaKonsultacja')}
                 </span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </button>
-              <p className="mt-4 text-sm text-gray-600">Skontaktuj się z nami i omów szczegóły Twojego projektu</p>
+              <p className="mt-4 text-sm text-gray-600">{t(lang, 'skontaktujSieIOmow')}</p>
             </div>
           </div>
         </section>
@@ -2085,7 +2089,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               {/* CTA to Contact */}
               <div className="text-center mt-16">
                 <p className="text-gray-600 mb-6 text-lg font-medium">
-                  Nie znalazłeś odpowiedzi na swoje pytanie?
+                  {t(lang, 'nieZnalazlesOdpowiedzi')}
                 </p>
                 <MagneticButton
                   onClick={() => {
@@ -2094,7 +2098,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   }}
                   className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-105 rounded-full flex items-center justify-center mx-auto"
                 >
-                  Skontaktuj się z nami
+                  {t(lang, 'skontaktujSieZNami')}
                   <ArrowRight className="w-5 h-5 ml-2 inline-block" />
                 </MagneticButton>
               </div>
@@ -2105,14 +2109,14 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
         <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">WYCENA PROJEKTU</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">{t(lang, 'wycenaProjektu')}</p>
 
               <div className="mb-12 text-center">
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  WYCEŃ SWÓJ<br />PROJEKT
+                  {t(lang, 'wycenSwojProjekt')}<br />{t(lang, 'projekt')}
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Wypełnij formularz, a my przygotujemy dopasowaną wycenę i skontaktujemy się z Tobą w ciągu 24 godzin.
+                  {t(lang, 'wypelnijFormularz')}
                 </p>
               </div>
 
@@ -2121,7 +2125,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 {/* Step indicator text */}
                 <div className="text-center mb-4">
                   <p className="text-sm font-semibold text-gray-600">
-                    Krok <span className="text-blue-700 text-lg">{formStep}</span> z 2
+                    {t(lang, 'krok')} <span className="text-blue-700 text-lg">{formStep}</span> {t(lang, 'z2')}
                   </p>
                 </div>
 
@@ -2141,8 +2145,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         {formStep > step ? '✓' : step}
                       </div>
                       <span className="hidden sm:inline text-sm font-semibold">
-                        {step === 1 && 'Projekt'}
-                        {step === 2 && 'Kontakt'}
+                        {step === 1 && t(lang, 'stepProjekt')}
+                        {step === 2 && t(lang, 'stepKontakt')}
                       </span>
                     </div>
                   ))}
@@ -2159,24 +2163,29 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
                 {formStep === 1 && (
                   <div className="space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-900">Wybierz typ projektu</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">{t(lang, 'wybierzTypProjektu')}</h3>
                     <div className="grid sm:grid-cols-2 gap-4">
-                      {['Prototypy', 'Produkcja', 'Naprawa', 'Konsultacja'].map((type) => (
+                      {([
+                        { key: 'prototypy' as const, value: 'Prototypy' },
+                        { key: 'produkcja' as const, value: 'Produkcja' },
+                        { key: 'naprawa' as const, value: 'Naprawa' },
+                        { key: 'konsultacja' as const, value: 'Konsultacja' }
+                      ]).map(({ key, value }) => (
                         <button
-                          key={type}
+                          key={value}
                           onClick={() => {
-                            setSmartFormData((prev) => ({ ...prev, projectType: type }))
+                            setSmartFormData((prev) => ({ ...prev, projectType: value }))
                             setFormStep(2)
                           }}
                           className={cn(
                             'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px]',
-                            smartFormData.projectType === type
+                            smartFormData.projectType === value
                               ? 'border-blue-700 bg-blue-50 text-blue-900'
                               : 'border-gray-200 hover:border-blue-300'
                           )}
-                          aria-label={`Wybierz ${type}`}
+                          aria-label={t(lang, key)}
                         >
-                          {type}
+                          {t(lang, key)}
                         </button>
                       ))}
                     </div>
@@ -2185,46 +2194,46 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
                 {formStep === 2 && (
                   <div className="space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-900">Twoje dane kontaktowe</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">{t(lang, 'twojeDaneKontaktowe')}</h3>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <Input
-                        placeholder="Imię (np. Jan) *"
+                        placeholder={t(lang, 'imie')}
                         value={smartFormData.firstName}
                         onChange={(e) => setSmartFormData({ ...smartFormData, firstName: e.target.value })}
                         className="border-2 min-h-[44px]"
-                        aria-label="Imię"
+                        aria-label={t(lang, 'imie')}
                         required
                       />
                       <Input
-                        placeholder="Nazwisko (np. Kowalski) *"
+                        placeholder={t(lang, 'nazwisko')}
                         value={smartFormData.lastName}
                         onChange={(e) => setSmartFormData({ ...smartFormData, lastName: e.target.value })}
                         className="border-2 min-h-[44px]"
-                        aria-label="Nazwisko"
+                        aria-label={t(lang, 'nazwisko')}
                       />
                     </div>
                     <Input
                       type="email"
-                      placeholder="E-mail (np. jan.kowalski@firma.pl) *"
+                      placeholder={t(lang, 'email')}
                       value={smartFormData.email}
                       onChange={(e) => setSmartFormData({ ...smartFormData, email: e.target.value })}
                       className="border-2 min-h-[44px]"
-                      aria-label="Adres e-mail"
+                      aria-label={t(lang, 'email')}
                       required
                     />
                     <Input
-                      placeholder="Telefon (opcjonalnie, np. +48 123 456 789)"
+                      placeholder={t(lang, 'telefon')}
                       value={smartFormData.phone}
                       onChange={(e) => setSmartFormData({ ...smartFormData, phone: e.target.value })}
                       className="border-2 min-h-[44px]"
-                      aria-label="Numer telefonu"
+                      aria-label={t(lang, 'telefon')}
                     />
                     <Textarea
-                      placeholder="Opisz swój projekt - im więcej szczegółów, tym lepiej pomożemy *"
+                      placeholder={t(lang, 'opisProjekt')}
                       value={smartFormData.message}
                       onChange={(e) => setSmartFormData({ ...smartFormData, message: e.target.value })}
                       className="border-2 min-h-32"
-                      aria-label="Opis projektu"
+                      aria-label={t(lang, 'opisProjekt')}
                       required
                     />
                   </div>
@@ -2238,7 +2247,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       variant="outline"
                       className="font-bold"
                     >
-                      ← Wstecz
+                      {t(lang, 'wstecz')}
                     </Button>
                   )}
                   <div className="ml-auto">
@@ -2248,7 +2257,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         className="bg-blue-700 hover:bg-blue-800 font-bold"
                         disabled={formStep === 1 && !smartFormData.projectType}
                       >
-                        Kontynuuj →
+                        {t(lang, 'kontynuuj')}
                       </Button>
                     ) : (
                       <Button
@@ -2270,7 +2279,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button"
                         disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message}
                       >
-                        Wyślij zapytanie 🚀
+                        {t(lang, 'wyslijZapytanie')}
                       </Button>
                     )}
                   </div>
@@ -2287,12 +2296,12 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
             {/* Map and Contact Details Section */}
             <div className="max-w-7xl mx-auto">
               <div className="mb-12 text-center">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">KONTAKT</p>
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">{t(lang, 'kontaktHeader')}</p>
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  SKONTAKTUJ SIĘ<br />Z NAMI
+                  {t(lang, 'skontaktujSie')}<br />{t(lang, 'zNami')}
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Odwiedź nas lub skontaktuj się telefonicznie bądź mailowo.
+                  {t(lang, 'kontaktDesc')}
                 </p>
               </div>
 
@@ -2301,7 +2310,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 <div className="space-y-12">
                   {/* Map 1: Siedziba */}
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">SIEDZIBA (BIURO)</h4>
+                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">{t(lang, 'siedziba')}</h4>
                     <motion.div
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -2325,7 +2334,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
                   {/* Map 2: Zakład Usługowy */}
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">ZAKŁAD USŁUGOWY</h4>
+                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">{t(lang, 'zakladUslugowy')}</h4>
                     <motion.div
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -2369,7 +2378,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           00-132 Warszawa
                         </p>
                         <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
-                          (MAPA-NAWIGACJA)
+                          {t(lang, 'mapaNawigacja')}
                         </a>
                       </div>
                     </div>
@@ -2382,13 +2391,13 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <Factory className="w-6 h-6 text-white" weight="bold" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">ZAKŁAD USŁUGOWY</h3>
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'zakladUslugowy')}</h3>
                         <p className="text-lg font-bold text-gray-900 leading-relaxed">
                           ul. Wyszyńskiego 116A<br />
                           05-420 Józefów
                         </p>
                         <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
-                          (MAPA-NAWIGACJA)
+                          {t(lang, 'mapaNawigacja')}
                         </a>
                       </div>
                     </div>
@@ -2404,7 +2413,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <Phone className="w-6 h-6 text-white" weight="bold" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Telefon</h3>
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'telefonLabel')}</h3>
                         <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
                           +48 882 488 844
                         </p>
@@ -2426,12 +2435,12 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <EnvelopeSimple className="w-6 h-6 text-white" weight="bold" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">Email</h3>
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'emailLabel')}</h3>
                         <p className="text-lg font-bold text-gray-900 break-all group-hover:text-blue-700 transition-colors">
                           metalizacja@staniax.pl
                         </p>
                         <p className="text-sm text-gray-600 mt-1">
-                          Odpowiadamy w 24h
+                          {t(lang, 'odpowiadamyW24h')}
                         </p>
                       </div>
                     </a>

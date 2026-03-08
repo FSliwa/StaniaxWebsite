@@ -22,7 +22,7 @@ export function VideoGalleryTransition() {
     const gridInView = useInView(gridRef, { once: true, margin: "-80px" })
 
     return (
-        <div className="relative bg-black">
+        <div className="relative bg-white">
             {/* Hero Video — Full Screen, edge-to-edge */}
             <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden bg-black">
                 <video
