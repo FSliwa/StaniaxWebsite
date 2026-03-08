@@ -1285,25 +1285,27 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     : 'text-foreground'
             )}
           >
-            <button
-              onClick={() => scrollToSection('top')}
-              className="group flex flex-col items-start text-left"
-              aria-label="Przewiń na górę"
-            >
-              <span
-                className={cn(
-                  'block text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter transition-colors duration-500',
-                  isMenuOpen
-                    ? 'text-slate-700'
-                    : isDarkHeaderContext
-                      ? 'text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]'
-                      : scrollY > 32
-                        ? 'text-blue-900/85'
-                        : 'text-slate-700/90'
-                )}
+            <div className="flex flex-col items-start">
+              <button
+                onClick={() => scrollToSection('top')}
+                className="group text-left"
+                aria-label="Przewiń na górę"
               >
-                STANIAX
-              </span>
+                <span
+                  className={cn(
+                    'block text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter transition-colors duration-500',
+                    isMenuOpen
+                      ? 'text-slate-700'
+                      : isDarkHeaderContext
+                        ? 'text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]'
+                        : scrollY > 32
+                          ? 'text-blue-900/85'
+                          : 'text-slate-700/90'
+                  )}
+                >
+                  STANIAX
+                </span>
+              </button>
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
                 <div className="flex items-center gap-2">
                   {languageLinks.map((l) => (
@@ -1321,7 +1323,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   ))}
                 </div>
               </div>
-            </button>
+            </div>
             <div className="flex items-center gap-5">
                 <Button
                 onClick={() => scrollToSection('contact')}
