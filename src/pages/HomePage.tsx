@@ -135,6 +135,12 @@ type NavItem =
   | { id: string; label: string; type: 'section' }
   | { id: string; label: string; type: 'route'; path: string }
 
+const languageLinks = [
+  { flag: "🇵🇱", lang: "pl", path: "/", label: "Polski" },
+  { flag: "🇬🇧", lang: "en", path: "/en", label: "English" },
+  { flag: "🇩🇪", lang: "de", path: "/de", label: "Deutsch" },
+]
+
 const navItems: NavItem[] = [
   { id: 'kim-jestesmy', label: 'O STANIAX', type: 'section' },
   { id: 'about', label: 'Oferta', type: 'section' },
@@ -1285,17 +1291,21 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 STANIAX
               </span>
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
-                <RotatingText
-                  className={
-                    isMenuOpen
-                      ? 'text-slate-600'
-                      : isDarkHeaderContext
-                        ? 'text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]'
-                        : scrollY > 32
-                          ? 'text-blue-800/75'
-                          : 'text-slate-600/90'
-                  }
-                />
+                <div className="flex items-center gap-2">
+                  {languageLinks.map((l) => (
+                    <Link
+                      key={l.lang}
+                      to={l.path}
+                      aria-label={l.label}
+                      className={cn(
+                        'text-xl sm:text-2xl rounded-full transition-all duration-300 hover:scale-125',
+                        lang === l.lang ? 'opacity-100 scale-110' : 'opacity-50 hover:opacity-90'
+                      )}
+                    >
+                      {l.flag}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </button>
             <div className="flex items-center gap-5">
@@ -1401,18 +1411,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 ))}
               </nav>
 
-              <div className="pt-6 border-t border-white/10">
-                <Button
-                  onClick={() => {
-                    scrollToSection('contact')
-                    setIsMenuOpen(false)
-                  }}
-                  className={cn('w-full border bg-transparent transition-all duration-300', menuButtonClass)}
-                >
-                  Porozmawiajmy
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
+              <div className="pt-6 border-t border-white/10" />
             </div>
 
             <div className="space-y-6">
@@ -1701,7 +1700,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </button>
-              <p className="mt-4 text-sm text-gray-600">Porozmawiaj z naszymi ekspertami o Twoim projekcie</p>
+              <p className="mt-4 text-sm text-gray-600">Skontaktuj się z nami i omów szczegóły Twojego projektu</p>
             </div>
           </div>
         </section>
