@@ -23,13 +23,12 @@ export function VideoGalleryTransition() {
     return (
         <div className="relative bg-white">
             {/* Hero Video — Full Screen, edge-to-edge */}
-            <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden -mt-[1px]">
+            <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden">
                 <video
                     src={videoSrc}
                     autoPlay muted loop playsInline
                     className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/15" />
 
                 {/* Scroll indicator */}
                 <div className="absolute bottom-8 right-8 flex items-center gap-3 text-white/70">
