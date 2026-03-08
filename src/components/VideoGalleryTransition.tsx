@@ -5,6 +5,7 @@ import { ArrowUpRight } from '@phosphor-icons/react'
 
 // Import assets
 import videoSrc from '@/assets/hand_effect_video.mp4'
+import centerImage from '@/assets/whatsapp-hero-2026-03-05.jpeg'
 import sideTile1 from '@/assets/colorful_packaging.png'
 import sideTile2 from '@/assets/side-tile-2.jpg'
 import sideTile3 from '@/assets/spinning_machine.jpeg'
@@ -21,8 +22,8 @@ export function VideoGalleryTransition() {
 
     return (
         <div className="relative bg-white">
-            {/* Hero Video — Full Screen, static (no scroll-hijack) */}
-            <div className="relative h-screen w-full overflow-hidden">
+            {/* Hero Video — Full Screen on all devices */}
+            <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden">
                 <video
                     src={videoSrc}
                     autoPlay muted loop playsInline
@@ -68,12 +69,12 @@ export function VideoGalleryTransition() {
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
                         className="row-span-2 rounded-[20px] overflow-hidden shadow-lg group relative"
                     >
-                        <video
-                            src={videoSrc}
-                            autoPlay muted loop playsInline
-                            className="w-full h-full object-cover"
+                        <img
+                            src={centerImage}
+                            alt="Metalizacja STANIAX"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
+                        <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500" />
                         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <MagneticButton
                                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
