@@ -1629,12 +1629,13 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               </div>
 
               {/* Animated scroll indicator */}
-              <motion.div 
+              <motion.button 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, duration: 0.5 }}
-                className="mt-12 flex items-center gap-3 text-gray-400"
+                onClick={() => scrollToSection('about')}
+                className="mt-12 flex items-center gap-3 text-gray-400 hover:text-blue-600 transition-colors cursor-pointer"
               >
                 <motion.div
                   animate={{ y: [0, 8, 0] }}
@@ -1643,7 +1644,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   <ArrowDown className="w-5 h-5" />
                 </motion.div>
                 <span className="text-xs uppercase tracking-[0.3em] font-medium">Przewiń dalej</span>
-              </motion.div>
+              </motion.button>
             </motion.div>
           </div>
 
