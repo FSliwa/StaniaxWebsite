@@ -147,7 +147,6 @@ const navItems: NavItem[] = [
   { id: 'projects', label: 'Realizacje', type: 'section' },
   { id: 'gallery', label: 'Galeria', type: 'route', path: '/gallery' },
   { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
-  { id: 'wycena', label: 'Wycena', type: 'section' },
   { id: 'contact', label: 'Kontakt', type: 'section' }
 ]
 
@@ -1768,7 +1767,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
             {/* CTA after About section */}
             <div className="mt-16 text-center">
               <button
-                onClick={() => scrollToSection('wycena')}
+                onClick={() => scrollToSection('contact')}
                 className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-105"
               >
                 <span className="text-base font-bold uppercase tracking-wider">
@@ -2103,7 +2102,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           </div>
         </section >
 
-        <section id="wycena" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
+        <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">WYCENA PROJEKTU</p>
@@ -2282,8 +2281,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           </div>
         </section>
 
-        {/* KONTAKT SECTION — Separate from pricing form */}
-        <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-white">
+        {/* KONTAKT SECTION — Dane kontaktowe, adresy, mapy */}
+        <section id="dane-kontaktowe" data-theme="light" className="py-20 lg:py-32 bg-white">
           <div className="container mx-auto px-6 lg:px-12">
             {/* Map and Contact Details Section */}
             <div className="max-w-7xl mx-auto">
@@ -2454,7 +2453,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
         {/* Mobile Floating CTA Button */}
         <button
-          onClick={() => scrollToSection('wycena')}
+          onClick={() => scrollToSection('contact')}
           className={cn(
             'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
             showFloatingCTA
@@ -2619,7 +2618,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   <button
                     onClick={() => {
                       setIsServiceModalOpen(false)
-                      scrollToSection('wycena')
+                      scrollToSection('contact')
                     }}
                     className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2"
                   >

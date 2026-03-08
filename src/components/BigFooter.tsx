@@ -71,19 +71,19 @@ export function BigFooter() {
                                 <MagneticButton 
                                     onClick={() => {
                                         if (window.location.pathname !== '/') {
-                                            window.location.href = '/#wycena'
+                                            window.location.href = '/#contact'
                                         } else {
-                                            const wycenaSection = document.getElementById('wycena')
-                                            if (wycenaSection) {
+                                            const contactSection = document.getElementById('contact')
+                                            if (contactSection) {
                                                 const lenis = (window as any).lenis
                                                 if (lenis) {
-                                                    lenis.scrollTo(wycenaSection, {
+                                                    lenis.scrollTo(contactSection, {
                                                         offset: -80,
                                                         duration: 1.5,
                                                         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
                                                     })
                                                 } else {
-                                                    wycenaSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                                                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
                                                 }
                                             }
                                         }
