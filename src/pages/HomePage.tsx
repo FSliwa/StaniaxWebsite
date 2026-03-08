@@ -40,7 +40,8 @@ import {
   Users,
   Question,
   CaretDown,
-  CaretUp
+  CaretUp,
+  ArrowDown
 } from '@phosphor-icons/react'
 import liquidGoldHandVideo from '@/assets/liquid-gold-hand.mp4'
 import toroidAnimationVideo from '@/assets/toroid-animation.mp4'
@@ -241,6 +242,21 @@ const servicesData: ServiceItem[] = [
       features: ['Współczynnik odbicia >95%', 'Powłoki aluminiowe i srebrne', 'Warstwa ochronna lakierem', 'Precyzja geometryczna'],
       applications: ['Reflektory samochodowe', 'Oprawy oświetleniowe LED', 'Lampy przemysłowe', 'Systemy optyczne'],
       advantages: ['Maksymalna wydajność świetlna', 'Długa żywotność', 'Odporność termiczna', 'Zgodność z normami ECE']
+    }
+  },
+  {
+    id: 'spray-painting',
+    title: 'Lakierowanie Natryskowe',
+    description:
+      'Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.',
+    icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
+    image: spinningMachineImg,
+    alt: 'Lakierowanie natryskowe elementów',
+    tagline: 'Uniwersalne Wykończenie',
+    details: {
+      features: ['Pełna paleta RAL i NCS', 'Efekty soft-touch i strukturalne', 'Lakierowanie wielowarstwowe', 'Gruntowanie i podkładowanie'],
+      applications: ['Obudowy urządzeń', 'Elementy meblarskie', 'Detale przemysłowe', 'Prototypy i krótkie serie'],
+      advantages: ['Szybka realizacja', 'Elastyczność kolorystyczna', 'Odporność na ścieranie', 'Możliwość napraw lokalnych']
     }
   }
 ]
@@ -1575,6 +1591,66 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           </div>
         </section>
 
+        {/* BRIDGE SECTION — Transition from "Kim Jesteśmy" to "NASZA OFERTA" */}
+        <section data-theme="light" className="relative bg-white overflow-hidden">
+          {/* Top gradient fade from previous section */}
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-blue-50/30 to-transparent" />
+          
+          <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-28">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="relative"
+            >
+              {/* Decorative line */}
+              <div className="flex items-center gap-6 mb-10">
+                <motion.div 
+                  initial={{ width: 0 }} 
+                  whileInView={{ width: '80px' }} 
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="h-px bg-blue-600" 
+                />
+                <span className="text-xs font-mono uppercase tracking-[0.5em] text-blue-600 font-semibold">Sprawdź co oferujemy</span>
+              </div>
+
+              {/* Big statement */}
+              <div className="max-w-5xl">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-gray-900 tracking-tighter leading-[0.95] mb-8">
+                  Technologia,<br />
+                  <span className="text-blue-600">która zmienia</span><br />
+                  powierzchnię
+                </h2>
+                <p className="text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed">
+                  Od metalizacji próżniowej po lakierowanie natryskowe — oferujemy pełne spektrum wykończeń przemysłowych.
+                </p>
+              </div>
+
+              {/* Animated scroll indicator */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                className="mt-12 flex items-center gap-3 text-gray-400"
+              >
+                <motion.div
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <ArrowDown className="w-5 h-5" />
+                </motion.div>
+                <span className="text-xs uppercase tracking-[0.3em] font-medium">Przewiń dalej</span>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Bottom gradient fade into next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50/50 to-transparent" />
+        </section>
+
 
         <section id="about" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-tl from-white via-gray-50/50 to-white overflow-hidden">
           {/* Subtle Metallic Texture Overlay */}
@@ -1598,6 +1674,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     { label: "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH", section: "plastic-painting", isRoute: false },
                     { label: "LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI", section: "glass-painting", isRoute: false },
                     { label: "ODBLASKI W METALIZACJI", section: "reflectors", isRoute: false },
+                    { label: "LAKIEROWANIE NATRYSKOWE", section: "spray-painting", isRoute: false },
                     { label: "GALERIA", section: "/gallery", isRoute: true }
                   ].map((item, index) => (
                     <div
