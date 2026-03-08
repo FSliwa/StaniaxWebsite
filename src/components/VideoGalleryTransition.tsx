@@ -22,9 +22,9 @@ export function VideoGalleryTransition() {
     const gridInView = useInView(gridRef, { once: true, margin: "-80px" })
 
     return (
-        <div className="relative bg-white">
+        <div className="relative bg-black">
             {/* Hero Video — Full Screen, edge-to-edge */}
-            <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden">
+            <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden bg-black">
                 <video
                     src={videoSrc}
                     autoPlay muted loop playsInline
@@ -86,7 +86,7 @@ export function VideoGalleryTransition() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                         <div className="absolute bottom-6 left-6 right-6">
                             <MagneticButton
-                                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => document.getElementById('wycena')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold flex items-center gap-2 text-sm"
                             >
                                 Wyceń Projekt <ArrowUpRight className="w-4 h-4" />

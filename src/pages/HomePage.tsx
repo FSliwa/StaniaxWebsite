@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence, type MotionValue } from 'framer-motion'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ScrambleText } from '@/components/ui/ScrambleText'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -147,6 +147,7 @@ const navItems: NavItem[] = [
   { id: 'projects', label: 'Realizacje', type: 'section' },
   { id: 'gallery', label: 'Galeria', type: 'route', path: '/gallery' },
   { id: 'news', label: 'Aktualności', type: 'route', path: '/news' },
+  { id: 'wycena', label: 'Wycena', type: 'section' },
   { id: 'contact', label: 'Kontakt', type: 'section' }
 ]
 
@@ -1309,17 +1310,17 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
                 <div className="flex items-center gap-2">
                   {languageLinks.map((l) => (
-                    <Link
+                    <a
                       key={l.lang}
-                      to={l.path}
+                      href={l.path}
                       aria-label={l.label}
                       className={cn(
-                        'text-xl sm:text-2xl rounded-full transition-all duration-300 hover:scale-125',
-                        lang === l.lang ? 'opacity-100 scale-110' : 'opacity-50 hover:opacity-90'
+                        'text-xl sm:text-2xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative z-[60]',
+                        lang === l.lang ? 'opacity-100 scale-110 ring-2 ring-blue-500 ring-offset-2' : 'opacity-50 hover:opacity-90'
                       )}
                     >
                       {l.flag}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -1767,7 +1768,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
             {/* CTA after About section */}
             <div className="mt-16 text-center">
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('wycena')}
                 className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-105"
               >
                 <span className="text-base font-bold uppercase tracking-wider">
@@ -2102,14 +2103,14 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           </div>
         </section >
 
-        <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
+        <section id="wycena" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">KONTAKT I WYCENA</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">WYCENA PROJEKTU</p>
 
               <div className="mb-12 text-center">
                 <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  SKONTAKTUJ SIĘ<br />I WYCEN PROJEKT
+                  WYCEŃ SWÓJ<br />PROJEKT
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
                   Wypełnij formularz, a my przygotujemy dopasowaną wycenę i skontaktujemy się z Tobą w ciągu 24 godzin.
@@ -2278,14 +2279,22 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               </div>
 
             </div>
+          </div>
+        </section>
 
+        {/* KONTAKT SECTION — Separate from pricing form */}
+        <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-white">
+          <div className="container mx-auto px-6 lg:px-12">
             {/* Map and Contact Details Section */}
-            <div className="max-w-7xl mx-auto mt-20">
+            <div className="max-w-7xl mx-auto">
               <div className="mb-12 text-center">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">ODWIEDŹ NAS</p>
-                <h3 className="text-4xl sm:text-5xl font-black uppercase leading-tight tracking-tighter text-blue-400">
-                  ODWIEDŹ NAS
-                </h3>
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">KONTAKT</p>
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
+                  SKONTAKTUJ SIĘ<br />Z NAMI
+                </h2>
+                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
+                  Odwiedź nas lub skontaktuj się telefonicznie bądź mailowo.
+                </p>
               </div>
 
               <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -2445,14 +2454,14 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
         {/* Mobile Floating CTA Button */}
         <button
-          onClick={() => scrollToSection('contact')}
+          onClick={() => scrollToSection('wycena')}
           className={cn(
             'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
             showFloatingCTA
               ? 'translate-y-0 opacity-100 pointer-events-auto'
               : 'translate-y-20 opacity-0 pointer-events-none'
           )}
-          aria-label="Kontakt"
+          aria-label="Wyceń projekt"
         >
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl border-2 border-blue-400/30">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2610,7 +2619,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   <button
                     onClick={() => {
                       setIsServiceModalOpen(false)
-                      scrollToSection('contact')
+                      scrollToSection('wycena')
                     }}
                     className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2"
                   >
