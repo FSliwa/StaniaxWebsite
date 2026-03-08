@@ -4,7 +4,7 @@ import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
 
 // Import assets
-import videoSrc from '@/assets/Generowanie_Wideo_Produktowego_Dłoń_i_Mikrofon.mp4'
+import videoSrc from '@/assets/Tworzenie_animacji_wideo_z_grafiki.mp4'
 import centerImage from '@/assets/whatsapp-hero-2026-03-05.jpeg'
 import sideTile1 from '@/assets/colorful_packaging.png'
 import sideTile2 from '@/assets/side-tile-2.jpg'
