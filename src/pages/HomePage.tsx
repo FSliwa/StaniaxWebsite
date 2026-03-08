@@ -1464,16 +1464,22 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
               {/* Metryka 2 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <div className="relative text-3xl lg:text-5xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
-                  METALIZACJA PRÓŻNIOWA
+                <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                  2500+
                 </div>
+                <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                  ZREALIZOWANYCH PROJEKTÓW
+                </p>
               </div>
 
               {/* Metryka 3 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <div className="relative text-2xl lg:text-4xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow uppercase leading-tight">
-                  LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH
+                <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                  24h
                 </div>
+                <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                  CZAS REAKCJI
+                </p>
               </div>
             </div>
           </div>
