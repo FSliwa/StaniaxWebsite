@@ -27,26 +27,31 @@ import gallery19 from '@/assets/gallery/gallery-19.jpg'
 import gallery20 from '@/assets/gallery/gallery-20.jpg'
 
 const galleryImages = [
-  { src: gallery01, alt: 'Metalizowane nakrętki kosmetyczne w odcieniu złota', category: 'Złoto' },
-  { src: gallery02, alt: 'Chromowane elementy obudowy reflektora', category: 'Chrom' },
-  { src: gallery03, alt: 'Dekoracyjne wykończenie panelu wnętrza', category: 'Dekoracyjne' },
-  { src: gallery04, alt: 'Złote powłoki na opakowaniach perfumeryjnych', category: 'Złoto' },
-  { src: gallery05, alt: 'Lustrzana metalizacja chromowa detali', category: 'Chrom' },
-  { src: gallery06, alt: 'Dekoracyjna powłoka na elementach meblowych', category: 'Dekoracyjne' },
-  { src: gallery07, alt: 'Złote wykończenie próżniowe akcesoriów', category: 'Złoto' },
-  { src: gallery08, alt: 'Chromowane komponenty przemysłowe', category: 'Chrom' },
-  { src: gallery09, alt: 'Powłoka dekoracyjna na galanterii', category: 'Dekoracyjne' },
-  { src: gallery10, alt: 'Złota metalizacja elementów serii produkcyjnej', category: 'Złoto' },
-  { src: gallery11, alt: 'Chromowane osłony i listwy ozdobne', category: 'Chrom' },
-  { src: gallery12, alt: 'Dekoracyjne powłoki na elementach wystawowych', category: 'Dekoracyjne' },
-  { src: gallery13, alt: 'Złote wykończenie luksusowych detali', category: 'Złoto' },
-  { src: gallery14, alt: 'Chromowana powierzchnia w wysokim połysku', category: 'Chrom' },
-  { src: gallery15, alt: 'Dekoracyjna metalizacja opakowań premium', category: 'Dekoracyjne' },
+  // Złoto (8) — ciepłe, złotawe tony dominujące w centrum zdjęcia
+  { src: gallery01, alt: 'Złote elementy kosmetyczne — metalizacja próżniowa', category: 'Złoto' },
+  { src: gallery02, alt: 'Złote powłoki na opakowaniach perfumeryjnych', category: 'Złoto' },
+  { src: gallery04, alt: 'Złote nakrętki premium — seria produkcyjna', category: 'Złoto' },
+  { src: gallery05, alt: 'Złota metalizacja detali dekoracyjnych', category: 'Złoto' },
+  { src: gallery12, alt: 'Złote wykończenie elementów seryjnych', category: 'Złoto' },
   { src: gallery16, alt: 'Złota powłoka próżniowa na komponentach', category: 'Złoto' },
-  { src: gallery17, alt: 'Chromowane elementy prototypowe', category: 'Chrom' },
-  { src: gallery18, alt: 'Dekoracyjne wykończenie gadżetów reklamowych', category: 'Dekoracyjne' },
-  { src: gallery19, alt: 'Złote metalizowane detale architektoniczne', category: 'Złoto' },
-  { src: gallery20, alt: 'Chromowane powłoki na częściach samochodowych', category: 'Chrom' },
+  { src: gallery17, alt: 'Złote akcesoria — metalizacja lustrzana', category: 'Złoto' },
+  { src: gallery18, alt: 'Subtelne złote wykończenie powierzchni', category: 'Złoto' },
+
+  // Chrom (8) — zimne, srebrne/szare tony, achromatic
+  { src: gallery06, alt: 'Chromowana rzeźba — powłoka lustrzana', category: 'Chrom' },
+  { src: gallery07, alt: 'Chromowane detale z głębokim połyskiem', category: 'Chrom' },
+  { src: gallery08, alt: 'Chromowane komponenty przemysłowe', category: 'Chrom' },
+  { src: gallery09, alt: 'Srebrna metalizacja próżniowa elementów', category: 'Chrom' },
+  { src: gallery10, alt: 'Chromowane wykończenie w wysokim połysku', category: 'Chrom' },
+  { src: gallery11, alt: 'Chromowane osłony i listwy ozdobne', category: 'Chrom' },
+  { src: gallery19, alt: 'Chromowana powierzchnia — efekt lustra', category: 'Chrom' },
+  { src: gallery20, alt: 'Chromowane powłoki na częściach technicznych', category: 'Chrom' },
+
+  // Dekoracyjne (4) — kolorowe, wielobarwne powłoki
+  { src: gallery03, alt: 'Dekoracyjne powłoki kolorowe — fiolet i niebieski', category: 'Dekoracyjne' },
+  { src: gallery13, alt: 'Wielobarwna metalizacja dekoracyjna', category: 'Dekoracyjne' },
+  { src: gallery14, alt: 'Dekoracyjne wykończenie z akcentami kolorowymi', category: 'Dekoracyjne' },
+  { src: gallery15, alt: 'Dekoracyjna powłoka z efektem kolorystycznym', category: 'Dekoracyjne' },
 ]
 
 const categories = ['Wszystkie', 'Złoto', 'Chrom', 'Dekoracyjne']
