@@ -40,7 +40,7 @@ export function BigFooter() {
                     <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
                         <div className="max-w-2xl">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">STANIAX Sp.&nbsp;z&nbsp;o.o. – METALIZACJA PRÓŻNIOWA</h2>
-                            <p className="text-3xl text-gray-400 mb-6">LAKIEROWANIE TWORZYW, SZKŁA, METALI</p>
+                            <p className="text-3xl text-gray-400 mb-6">LAKIEROWANIE NATRYSKOWE — TWORZYW, SZKŁA, METALI</p>
                             <p className="text-lg font-medium text-blue-400 mb-8">SPECJALISTYCZNE POWLEKANIE METALICZNE</p>
 
                             <div className="flex flex-wrap gap-4 mb-8">

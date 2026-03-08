@@ -1504,7 +1504,10 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   Kim<br />Jesteśmy
                 </h2>
                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-                  STANIAX Sp.&nbsp;z&nbsp;o.o. to kontynuacja wiedzy i doświadczenia Dariusza Staniaka — mentora i założyciela firmy, który w 1993 roku w Józefowie koło Otwocka na Mazowszu rozpoczął działalność w branży metalizacji próżniowej. Dziś, z ponad 25-letnim doświadczeniem, łączymy tradycję rzemiosła z najnowocześniejszymi rozwiązaniami, oferując kompleksowe usługi metalizacji i lakierowania dla wymagających klientów z całej Europy.
+                  Witamy w&nbsp;STANIAX Sp.&nbsp;z&nbsp;o.o. (z&nbsp;siedzibą w&nbsp;Warszawie) — firmie specjalizującej się w&nbsp;metalizacji próżniowej i&nbsp;lakierowaniu natryskowym. Wysoka jakość, którą oferujemy naszym kontrahentom, jest gwarantem dobrej współpracy. Taką jakość czerpiemy od naszego mentora — Dariusza Staniaka, który od 1993 roku stał się liderem metalizacji próżniowej na Mazowszu w&nbsp;Józefowie koło Otwocka. Dziś STANIAX jest kontynuacją jego wiedzy i&nbsp;doświadczenia.
+                </p>
+                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
+                  Zespół wysoko wykwalifikowanych pracowników sprawia, że jakość naszych usług stawia nas w&nbsp;czołówce podobnych firm w&nbsp;Polsce. Zaletą naszą jest precyzja oraz możliwość szybkiego przeorganizowania otrzymanych zleceń — zwłaszcza dla klientów, którzy muszą wdrożyć nowe wzory.
                 </p>
                 
                 {/* Stats */}
@@ -1667,7 +1670,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 {/* Cytat misji - moved here */}
                 <div className="mt-12 w-full ml-auto">
                   <p className="text-lg text-gray-600 italic border-l-4 border-r-4 border-blue-700 px-8 leading-relaxed font-normal text-center">
-                    "Nasza misja to nie tylko nanoszenie powłok, ale budowanie długoterminowych partnerstw opartych na innowacjach, jakości i zaufaniu. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny."
+                    "Nasza otwartość w lepsze jutro zaprasza Was — Klientów — do podjęcia wyzwań i wspaniałej współpracy z nami. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny. Czekamy na kontakt z Wami."
                   </p>
                 </div>
               </div>
