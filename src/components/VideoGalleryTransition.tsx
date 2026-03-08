@@ -27,7 +27,7 @@ export function VideoGalleryTransition() {
                 <video
                     src={videoSrc}
                     autoPlay muted loop playsInline
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-[-5%] w-[110%] h-[110%] object-cover"
                 />
 
                 {/* Scroll indicator */}
