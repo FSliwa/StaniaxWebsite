@@ -86,8 +86,8 @@ function NewsPage() {
               </span>
             </div>
           </Link>
-          <div className="flex items-center gap-6">
-            <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
+          <div className="flex items-center gap-3 sm:gap-6">
+            <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
               <Link to="/#kim-jestesmy" className="text-muted-foreground hover:text-accent transition-colors">
                 O STANIAX
               </Link>
@@ -104,23 +104,16 @@ function NewsPage() {
                 Kontakt
               </Link>
             </nav>
-            <Link
-              to="/"
-              className={cn(buttonVariants({ variant: 'outline' }), 'font-semibold hidden sm:inline-flex')}
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Wróć do strony głównej
-            </Link>
             <Button
-              className="font-semibold hidden sm:inline-flex"
+              className="font-semibold text-xs sm:text-sm px-3 sm:px-4"
               onClick={scrollToContact}
             >
               Skontaktuj się
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-1 sm:ml-2 h-4 w-4" />
             </Button>
             {/* Mobile hamburger */}
             <button
-              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-muted transition-colors"
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-muted transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
             >
@@ -131,7 +124,7 @@ function NewsPage() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-6 py-6 space-y-4">
+          <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-6 py-6 space-y-4">
             <nav className="flex flex-col gap-4 text-sm font-medium">
               <Link to="/#kim-jestesmy" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
                 O STANIAX
