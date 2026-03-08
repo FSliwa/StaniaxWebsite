@@ -27,20 +27,29 @@ export function VideoGalleryTransition() {
                 <video
                     src={videoSrc}
                     autoPlay muted loop playsInline
-                    className="absolute inset-[-5%] w-[110%] h-[110%] object-cover"
+                    className="absolute inset-[-8%] w-[116%] h-[116%] object-cover"
                 />
 
                 {/* Scroll indicator */}
-                <div className="absolute bottom-8 right-8 flex items-center gap-3 text-white/70">
-                    <span className="text-sm font-medium tracking-widest uppercase hidden sm:block">Scroll to explore</span>
-                    <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center backdrop-blur-sm bg-white/5">
-                        <ArrowUpRight className="w-4 h-4 rotate-90" />
+                <button
+                    onClick={() => {
+                        const grid = document.getElementById('bento-grid')
+                        grid?.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                    className="absolute bottom-8 right-8 z-10 flex items-center gap-3 cursor-pointer group"
+                >
+                    <span className="text-sm font-medium tracking-widest uppercase hidden sm:block text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] group-hover:opacity-80 transition-opacity">
+                        Scroll to explore
+                    </span>
+                    <div className="w-12 h-12 rounded-full border-2 border-white/60 flex items-center justify-center backdrop-blur-md bg-black/30 shadow-lg shadow-black/20 group-hover:bg-black/50 group-hover:border-white/80 transition-all duration-300">
+                        <ArrowUpRight className="w-5 h-5 text-white rotate-90" />
                     </div>
-                </div>
+                </button>
             </div>
 
             {/* Bento Grid — Static layout with fade-in on viewport entry */}
             <div
+                id="bento-grid"
                 ref={gridRef}
                 className="relative max-w-[1600px] mx-auto px-4 sm:px-10 py-12 md:py-20"
             >
