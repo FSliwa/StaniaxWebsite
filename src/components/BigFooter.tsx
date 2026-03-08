@@ -39,8 +39,8 @@ export function BigFooter() {
                 <div className="mb-16 border-b border-white/10 pb-12">
                     <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
                         <div className="max-w-2xl">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">STANIAX Sp.&nbsp;z&nbsp;o.o. – METALIZACJA PRÓŻNIOWA</h2>
-                            <p className="text-3xl text-gray-400 mb-6">LAKIEROWANIE NATRYSKOWE — TWORZYW, SZKŁA, METALI</p>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">STANIAX Sp.&nbsp;z&nbsp;o.o. – SYSTEMY METALIZACJI PRÓŻNIOWEJ</h2>
+                            <p className="text-3xl text-gray-400 mb-6">LAKIEROWANIE TWORZYW, SZKŁA, METALI</p>
                             <p className="text-lg font-medium text-blue-400 mb-8">SPECJALISTYCZNE POWLEKANIE METALICZNE</p>
 
                             <div className="flex flex-wrap gap-4 mb-8">
@@ -97,7 +97,7 @@ export function BigFooter() {
 
                         <div className="flex flex-col sm:flex-row gap-8 lg:gap-12 text-center sm:text-left">
                             <div>
-                                <span className="block text-4xl font-black text-white mb-1">30+</span>
+                                <span className="block text-4xl font-black text-white mb-1">25+</span>
                                 <span className="text-xs uppercase tracking-widest text-gray-300">LAT DOŚWIADCZEŃ</span>
                             </div>
                             <div>
@@ -126,7 +126,8 @@ export function BigFooter() {
                                     <li onClick={() => scrollToSection('plastic-painting')} className="hover:text-white transition-colors cursor-pointer">03. LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH</li>
                                     <li onClick={() => scrollToSection('glass-painting')} className="hover:text-white transition-colors cursor-pointer">04. LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI</li>
                                     <li onClick={() => scrollToSection('reflectors')} className="hover:text-white transition-colors cursor-pointer">05. ODBLASKI W METALIZACJI</li>
-                                    <li onClick={() => navigateToPage('/gallery')} className="hover:text-white transition-colors cursor-pointer">06. GALERIA</li>
+                                    <li onClick={() => scrollToSection('spray-painting')} className="hover:text-white transition-colors cursor-pointer">06. LAKIEROWANIE NATRYSKOWE</li>
+                                    <li onClick={() => navigateToPage('/gallery')} className="hover:text-white transition-colors cursor-pointer">07. GALERIA</li>
                                 </ul>
                             </div>
                         </div>
