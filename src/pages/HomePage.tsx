@@ -340,8 +340,8 @@ const caseStudiesData: CaseStudy[] = [
     imageBefore: packagingAfter,
     imageAfter: packagingBefore,
     metrics: [
-      { value: '30+', label: 'Lat doświadczenia' },
-      { value: '500+', label: 'Projektów' },
+      { value: '25+', label: 'Lat doświadczenia' },
+      { value: '2500+', label: 'Projektów' },
       { value: 'Premium', label: 'Jakość' }
     ],
     badge: 'Efekt Lustrzany'
@@ -1457,7 +1457,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               {/* Metryka 1 */}
               <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
                 <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                  30+
+                  25+
                 </div>
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
                   LAT DOŚWIADCZENIA
@@ -1504,13 +1504,13 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   Kim<br />Jesteśmy
                 </h2>
                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-                  STANIAX to zespół pasjonatów technologii powłokowych z ponad 20-letnim doświadczeniem. Łączymy tradycję rzemiosła z najnowocześniejszymi rozwiązaniami, oferując kompleksowe usługi metalizacji i lakierowania dla wymagających klientów z całej Europy.
+                  STANIAX Sp.&nbsp;z&nbsp;o.o. to kontynuacja wiedzy i doświadczenia Dariusza Staniaka — mentora i założyciela firmy, który w 1993 roku w Józefowie koło Otwocka na Mazowszu rozpoczął działalność w branży metalizacji próżniowej. Dziś, z ponad 25-letnim doświadczeniem, łączymy tradycję rzemiosła z najnowocześniejszymi rozwiązaniami, oferując kompleksowe usługi metalizacji i lakierowania dla wymagających klientów z całej Europy.
                 </p>
                 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200">
                   <div>
-                    <div className="text-3xl lg:text-4xl font-black text-blue-700">20+</div>
+                    <div className="text-3xl lg:text-4xl font-black text-blue-700">25+</div>
                     <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Lat doświadczenia</div>
                   </div>
                   <div>

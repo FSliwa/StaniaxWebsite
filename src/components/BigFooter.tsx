@@ -39,7 +39,7 @@ export function BigFooter() {
                 <div className="mb-16 border-b border-white/10 pb-12">
                     <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
                         <div className="max-w-2xl">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">STANIAX – METALIZACJA PRÓŻNIOWA</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">STANIAX Sp.&nbsp;z&nbsp;o.o. – METALIZACJA PRÓŻNIOWA</h2>
                             <p className="text-3xl text-gray-400 mb-6">LAKIEROWANIE TWORZYW, SZKŁA, METALI</p>
                             <p className="text-lg font-medium text-blue-400 mb-8">SPECJALISTYCZNE POWLEKANIE METALICZNE</p>
 
@@ -186,7 +186,7 @@ export function BigFooter() {
                     </motion.h1>
 
                     <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-xs font-mono text-gray-500 uppercase tracking-widest">
-                        <p>&copy; {currentYear} Staniax. All rights reserved.</p>
+                        <p>&copy; {currentYear} STANIAX Sp.&nbsp;z&nbsp;o.o. All rights reserved.</p>
                         <p>DESIGNED & DEVELOPED BY FILIP ŚLIWA</p>
                     </div>
                 </div>
