@@ -22,12 +22,12 @@ export function VideoGalleryTransition() {
 
     return (
         <div className="relative bg-white">
-            {/* Hero Video — Full Screen on all devices */}
-            <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden">
+            {/* Hero Video — Full Screen, edge-to-edge */}
+            <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden -mt-[1px]">
                 <video
                     src={videoSrc}
                     autoPlay muted loop playsInline
-                    className="w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/15" />
 
@@ -38,9 +38,6 @@ export function VideoGalleryTransition() {
                         <ArrowUpRight className="w-4 h-4 rotate-90" />
                     </div>
                 </div>
-
-                {/* Bottom fade to white */}
-                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-white pointer-events-none" />
             </div>
 
             {/* Bento Grid — Static layout with fade-in on viewport entry */}

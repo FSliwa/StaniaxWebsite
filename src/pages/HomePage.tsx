@@ -1231,7 +1231,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
   return (
     <SmoothScroll>
-      <main className="min-h-screen bg-white selection:bg-blue-500/30">
+      <main className="min-h-screen bg-black selection:bg-blue-500/30">
         {/* Scroll Progress Bar */}
         <div
           className="scroll-progress"
