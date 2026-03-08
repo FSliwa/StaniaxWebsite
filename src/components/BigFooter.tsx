@@ -2,8 +2,9 @@ import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
+import { t, type Lang } from '@/lib/translations'
 
-export function BigFooter() {
+export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const currentYear = new Date().getFullYear()
     const navigate = useNavigate()
 
@@ -39,9 +40,9 @@ export function BigFooter() {
                 <div className="mb-16 border-b border-white/10 pb-12">
                     <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
                         <div className="max-w-2xl">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">STANIAX Sp.&nbsp;z&nbsp;o.o. – SYSTEMY METALIZACJI PRÓŻNIOWEJ</h2>
-                            <p className="text-3xl text-gray-400 mb-6">LAKIEROWANIE TWORZYW, SZKŁA, METALI</p>
-                            <p className="text-lg font-medium text-blue-400 mb-8">SPECJALISTYCZNE POWLEKANIE METALICZNE</p>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">{t(lang, 'footerHeading')}</h2>
+                            <p className="text-3xl text-gray-400 mb-6">{t(lang, 'footerSubheading')}</p>
+                            <p className="text-lg font-medium text-blue-400 mb-8">{t(lang, 'footerSpecialist')}</p>
 
                             <div className="flex flex-wrap gap-4 mb-8">
                                 <MagneticButton 
@@ -66,7 +67,7 @@ export function BigFooter() {
                                     }}
                                     className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-gray-200 transition-colors cursor-pointer"
                                 >
-                                    BEZPŁATNA KONSULTACJA
+                                    {t(lang, 'footerFreeConsultation')}
                                 </MagneticButton>
                                 <MagneticButton 
                                     onClick={() => {
@@ -90,7 +91,7 @@ export function BigFooter() {
                                     }}
                                     className="border border-white text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-white/10 transition-colors cursor-pointer"
                                 >
-                                    WYCEŃ PROJEKT <ArrowUpRight weight="bold" />
+                                    {t(lang, 'footerGetQuote')} <ArrowUpRight weight="bold" />
                                 </MagneticButton>
                             </div>
                         </div>
@@ -98,15 +99,15 @@ export function BigFooter() {
                         <div className="flex flex-col sm:flex-row gap-8 lg:gap-12 text-center sm:text-left">
                             <div>
                                 <span className="block text-4xl font-black text-white mb-1">25+</span>
-                                <span className="text-xs uppercase tracking-widest text-gray-300">LAT DOŚWIADCZEŃ</span>
+                                <span className="text-xs uppercase tracking-widest text-gray-300">{t(lang, 'footerYearsExp')}</span>
                             </div>
                             <div>
                                 <span className="block text-4xl font-black text-white mb-1">2500+</span>
-                                <span className="text-xs uppercase tracking-widest text-gray-300">ZREALIZOWANYCH PROJEKTÓW</span>
+                                <span className="text-xs uppercase tracking-widest text-gray-300">{t(lang, 'footerProjectsDone')}</span>
                             </div>
                             <div>
                                 <span className="block text-4xl font-black text-white mb-1">24H</span>
-                                <span className="text-xs uppercase tracking-widest text-gray-300">CZAS REAKCJI</span>
+                                <span className="text-xs uppercase tracking-widest text-gray-300">{t(lang, 'footerResponseTime')}</span>
                             </div>
                         </div>
                     </div>
@@ -119,15 +120,15 @@ export function BigFooter() {
                         {/* Column 1: Services */}
                         <div className="space-y-8">
                             <div>
-                                <h4 className="text-white font-bold mb-4 text-lg">OFERTA:</h4>
+                                <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerServicesTitle')}</h4>
                                 <ul className="space-y-3">
-                                    <li onClick={() => scrollToSection('kim-jestesmy')} className="hover:text-white transition-colors cursor-pointer">01. KIM JESTEŚMY</li>
-                                    <li onClick={() => scrollToSection('vacuum-metallization')} className="hover:text-white transition-colors cursor-pointer">02. METALIZACJA PRÓŻNIOWA</li>
-                                    <li onClick={() => scrollToSection('plastic-painting')} className="hover:text-white transition-colors cursor-pointer">03. LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH</li>
-                                    <li onClick={() => scrollToSection('glass-painting')} className="hover:text-white transition-colors cursor-pointer">04. LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI</li>
-                                    <li onClick={() => scrollToSection('reflectors')} className="hover:text-white transition-colors cursor-pointer">05. ODBLASKI W METALIZACJI</li>
-                                    <li onClick={() => scrollToSection('spray-painting')} className="hover:text-white transition-colors cursor-pointer">06. LAKIEROWANIE NATRYSKOWE</li>
-                                    <li onClick={() => navigateToPage('/gallery')} className="hover:text-white transition-colors cursor-pointer">07. GALERIA</li>
+                                    <li onClick={() => scrollToSection('kim-jestesmy')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerKimJestesmy')}</li>
+                                    <li onClick={() => scrollToSection('vacuum-metallization')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc1')}</li>
+                                    <li onClick={() => scrollToSection('plastic-painting')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc2')}</li>
+                                    <li onClick={() => scrollToSection('glass-painting')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc3')}</li>
+                                    <li onClick={() => scrollToSection('reflectors')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc4')}</li>
+                                    <li onClick={() => scrollToSection('spray-painting')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc5')}</li>
+                                    <li onClick={() => navigateToPage('/gallery')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc6')}</li>
                                 </ul>
                             </div>
                         </div>
@@ -135,15 +136,15 @@ export function BigFooter() {
                         {/* Column 2: Addresses */}
                         <div className="space-y-8">
                             <div>
-                                <h4 className="text-white font-bold mb-4 text-lg">DANE ADRESOWE:</h4>
+                                <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerAddressTitle')}</h4>
                                 <div className="space-y-6">
                                     <div>
-                                        <p className="text-white font-semibold mb-1">SIEDZIBA :</p>
+                                        <p className="text-white font-semibold mb-1">{t(lang, 'footerHQ')}</p>
                                         <p>POLSKA, WARSZAWA 00-132,</p>
                                         <p>UL. GRZYBOWSKA 5 A <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
                                     </div>
                                     <div>
-                                        <p className="text-white font-semibold mb-1">ZAKŁAD USŁUGOWY :</p>
+                                        <p className="text-white font-semibold mb-1">{t(lang, 'footerFactory')}</p>
                                         <p>JÓZEFÓW 05-420,</p>
                                         <p>UL. WYSZYŃSKIEGO 116 A <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
                                     </div>
@@ -154,7 +155,7 @@ export function BigFooter() {
                         {/* Column 3: Contact & Hours */}
                         <div className="space-y-8">
                             <div>
-                                <h4 className="text-white font-bold mb-4 text-lg">KONTAKT:</h4>
+                                <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerContactTitle')}</h4>
                                 <motion.div
                                     animate={{ scale: [1, 1.05, 1], textShadow: ["0 0 0px rgba(59,130,246,0)", "0 0 10px rgba(59,130,246,0.5)", "0 0 0px rgba(59,130,246,0)"] }}
                                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -166,9 +167,9 @@ export function BigFooter() {
                             </div>
 
                             <div>
-                                <h4 className="text-white font-bold mb-4 text-lg">GODZINY OTWARCIA:</h4>
-                                <p className="mb-1">PONIEDZIAŁEK- PIĄTEK 7.00. - 17.00</p>
-                                <p>SOBOTA, NIEDZIELA - ZAMKNIĘTE</p>
+                                <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerHoursTitle')}</h4>
+                                <p className="mb-1">{t(lang, 'footerHoursWeekday')}</p>
+                                <p>{t(lang, 'footerHoursWeekend')}</p>
                             </div>
                         </div>
 

@@ -932,7 +932,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     const markError = () => {
       if (!isMounted) return
       setSplineStatus('error')
-      toast.error('Nie udało się wczytać animacji 3D')
+      toast.error(t(lang, 'toast3dError'))
     }
     const waitForDefinition = () => {
       if (!('customElements' in window)) {
@@ -1195,12 +1195,12 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
-      toast.error('Proszę wypełnić wszystkie wymagane pola')
+      toast.error(t(lang, 'toastFormError'))
       return
     }
 
     triggerConfetti()
-    toast.success('Dziękujemy za wiadomość! Skontaktujemy się z Państwem wkrótce.')
+    toast.success(t(lang, 'toastFormSuccess'))
     setFormData({
       firstName: '',
       lastName: '',
@@ -1443,11 +1443,11 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 </div>
               </div>
               <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Szybkie linki</p>
+                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>{t(lang, 'szybkieLinki')}</p>
                 <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
-                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Studio</button>
-                  <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">Projekty</button>
-                  <button onClick={() => { scrollToSection('kim-jestesmy'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">O nas</button>
+                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuStudio')}</button>
+                  <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuProjekty')}</button>
+                  <button onClick={() => { scrollToSection('kim-jestesmy'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuONas')}</button>
                 </div>
               </div>
             </div>
@@ -1456,12 +1456,12 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
         {/* HERO & GALLERY SECTION */}
         <section id="video-gallery" data-theme="light">
-          <VideoGalleryTransition />
+          <VideoGalleryTransition lang={lang} />
         </section>
 
         {/* FEATURE HIGHLIGHT */}
         <section id="why-staniax" data-theme="light">
-          <WhyStaniaxContent />
+          <WhyStaniaxContent lang={lang} />
         </section>
 
         {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
@@ -1480,7 +1480,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   25+
                 </div>
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                  LAT DOŚWIADCZENIA
+                  {t(lang, 'latDoswiadczenia')}
                 </p>
               </div>
 
@@ -1490,7 +1490,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   2500+
                 </div>
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                  ZREALIZOWANYCH PROJEKTÓW
+                  {t(lang, 'zrealizowanychProjektow')}
                 </p>
               </div>
 
@@ -1500,7 +1500,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   24h
                 </div>
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                  CZAS REAKCJI
+                  {t(lang, 'footerResponseTime')}
                 </p>
               </div>
             </div>
@@ -1540,15 +1540,15 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200">
                   <div>
                     <div className="text-3xl lg:text-4xl font-black text-blue-700">25+</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Lat doświadczenia</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">{t(lang, 'csMetricExp')}</div>
                   </div>
                   <div>
                     <div className="text-3xl lg:text-4xl font-black text-blue-700">2500+</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Projektów</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">{t(lang, 'csMetricProjects')}</div>
                   </div>
                   <div>
                     <div className="text-3xl lg:text-4xl font-black text-blue-700">24h</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">Czas reakcji</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">{t(lang, 'czasReakcjiShort')}</div>
                   </div>
                 </div>
 
@@ -1590,7 +1590,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 {/* Floating Badge */}
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 max-w-[200px]">
                   <div className="text-4xl font-black text-blue-700 mb-1">24h</div>
-                  <div className="text-sm text-gray-600 font-medium">Czas reakcji na zapytanie</div>
+                  <div className="text-sm text-gray-600 font-medium">{t(lang, 'czasReakcji')}</div>
                 </div>
               </div>
             </div>
@@ -1669,20 +1669,20 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
             <div className="text-right mb-20 section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">OFERTA</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">{t(lang, 'ofertaLabel')}</p>
               <div className="bg-white py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
                 <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
-                  NASZA OFERTA
+                  {t(lang, 'naszaOferta')}
                 </h2>
 
                 <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
                   {[
-                    { label: "METALIZACJA PRÓŻNIOWA", section: "vacuum-metallization", isRoute: false },
-                    { label: "LAKIEROWANIE DETALI Z TWORZYW SZTUCZNYCH", section: "plastic-painting", isRoute: false },
-                    { label: "LAKIEROWANIE DETALI ZE SZKŁA I CERAMIKI", section: "glass-painting", isRoute: false },
-                    { label: "ODBLASKI W METALIZACJI", section: "reflectors", isRoute: false },
-                    { label: "LAKIEROWANIE NATRYSKOWE", section: "spray-painting", isRoute: false },
-                    { label: "GALERIA", section: "/gallery", isRoute: true }
+                    { label: t(lang, 'ofertaItem1'), section: "vacuum-metallization", isRoute: false },
+                    { label: t(lang, 'ofertaItem2'), section: "plastic-painting", isRoute: false },
+                    { label: t(lang, 'ofertaItem3'), section: "glass-painting", isRoute: false },
+                    { label: t(lang, 'ofertaItem4'), section: "reflectors", isRoute: false },
+                    { label: t(lang, 'ofertaItem5'), section: "spray-painting", isRoute: false },
+                    { label: t(lang, 'ofertaItem6'), section: "/gallery", isRoute: true }
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -1716,13 +1716,43 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       )}>
                         <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
                           <span className="w-12 h-px bg-blue-600"></span>
-                          {service.tagline}
+                          {(() => {
+                            const svcKeyMap: Record<string, { title: string; desc: string; tagline: string }> = {
+                              'vacuum-metallization': { title: 'svcVacuumTitle', desc: 'svcVacuumDesc', tagline: 'svcVacuumTagline' },
+                              'plastic-painting': { title: 'svcPlasticTitle', desc: 'svcPlasticDesc', tagline: 'svcPlasticTagline' },
+                              'glass-painting': { title: 'svcGlassTitle', desc: 'svcGlassDesc', tagline: 'svcGlassTagline' },
+                              'reflectors': { title: 'svcReflectorsTitle', desc: 'svcReflectorsDesc', tagline: 'svcReflectorsTagline' },
+                              'spray-painting': { title: 'svcSprayTitle', desc: 'svcSprayDesc', tagline: 'svcSprayTagline' }
+                            }
+                            const keys = svcKeyMap[service.id]
+                            return keys ? t(lang, keys.tagline as any) : service.tagline
+                          })()}
                         </div>
                         <h3 className="text-4xl lg:text-5xl font-black uppercase text-gray-900 leading-tight">
-                          {service.title}
+                          {(() => {
+                            const svcKeyMap: Record<string, string> = {
+                              'vacuum-metallization': 'svcVacuumTitle',
+                              'plastic-painting': 'svcPlasticTitle',
+                              'glass-painting': 'svcGlassTitle',
+                              'reflectors': 'svcReflectorsTitle',
+                              'spray-painting': 'svcSprayTitle'
+                            }
+                            const key = svcKeyMap[service.id]
+                            return key ? t(lang, key as any) : service.title
+                          })()}
                         </h3>
                         <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-                          {service.description}
+                          {(() => {
+                            const svcKeyMap: Record<string, string> = {
+                              'vacuum-metallization': 'svcVacuumDesc',
+                              'plastic-painting': 'svcPlasticDesc',
+                              'glass-painting': 'svcGlassDesc',
+                              'reflectors': 'svcReflectorsDesc',
+                              'spray-painting': 'svcSprayDesc'
+                            }
+                            const key = svcKeyMap[service.id]
+                            return key ? t(lang, key as any) : service.description
+                          })()}
                         </p>
                         <MagneticButton 
                           onClick={() => {
@@ -1731,7 +1761,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           }}
                           className="mt-8 px-8 py-3 bg-gray-900 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors"
                         >
-                          Szczegóły
+                          {t(lang, 'szczegoly')}
                         </MagneticButton>
                       </div>
                       <div className={cn(
@@ -1758,7 +1788,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 {/* Cytat misji - moved here */}
                 <div className="mt-12 w-full ml-auto">
                   <p className="text-lg text-gray-600 italic border-l-4 border-r-4 border-blue-700 px-8 leading-relaxed font-normal text-center">
-                    "Nasza otwartość w lepsze jutro zaprasza Was — Klientów — do podjęcia wyzwań i wspaniałej współpracy z nami. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny. Czekamy na kontakt z Wami."
+                    {t(lang, 'cytatMisji')}
                   </p>
                 </div>
               </div>
@@ -1791,12 +1821,12 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           <div className="container mx-auto px-6 lg:px-12">
             {/* Header */}
             <div className="text-left mb-20 max-w-7xl section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">STUDIA PRZYPADKÓW</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">{t(lang, 'studiaPrzypadkow')}</p>
               <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-blue-400">
-                NASZE<br />REALIZACJE
+                {t(lang, 'naszeRealizacje1')}<br />{t(lang, 'naszeRealizacje2')}
               </h2>
               <p className="text-lg text-gray-600 font-normal max-w-2xl leading-relaxed">
-                Odkryj historie sukcesów naszych klientów z branż motoryzacyjnej, lotniczej i przemysłowej
+                {t(lang, 'realizacjeDesc')}
               </p>
             </div>
 
@@ -1870,10 +1900,10 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
                           {/* Before/After Labels */}
                           <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            PRZED
+                            {t(lang, 'przed')}
                           </div>
                           <div className="absolute top-4 right-4 bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            PO
+                            {t(lang, 'po')}
                           </div>
                         </div>
 
@@ -1883,33 +1913,69 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       <div className="space-y-8">
                         <div>
                           <h3 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase mb-3 tracking-tight">
-                            {caseStudy.title}
+                            {(() => {
+                              const csKeyMap: Record<string, string> = {
+                                'automotive-parts': 'csAutomotiveTitle',
+                                'cosmetics-packaging': 'csCosmeticsTitle',
+                                'industrial-elements': 'csIndustrialTitle'
+                              }
+                              const key = csKeyMap[caseStudy.id]
+                              return key ? t(lang, key as any) : caseStudy.title
+                            })()}
                           </h3>
                           <p className="text-lg text-gray-600 font-normal leading-relaxed">
-                            {caseStudy.subtitle}
+                            {(() => {
+                              const csKeyMap: Record<string, string> = {
+                                'automotive-parts': 'csAutomotiveSubtitle',
+                                'cosmetics-packaging': 'csCosmeticsSubtitle',
+                                'industrial-elements': 'csIndustrialSubtitle'
+                              }
+                              const key = csKeyMap[caseStudy.id]
+                              return key ? t(lang, key as any) : caseStudy.subtitle
+                            })()}
                           </p>
                         </div>
 
                         {/* Metrics */}
                         <div className="grid grid-cols-3 gap-6">
                           {
-                            caseStudy.metrics.map((metric, idx) => (
+                            caseStudy.metrics.map((metric, idx) => {
+                              const metricLabelMap: Record<string, string> = {
+                                'Kontrola jakości': 'csMetricQuality',
+                                'Detali/msc': 'csMetricParts',
+                                'Sztuk/Rok': 'csMetricYear',
+                                'Powtarzalność': 'csMetricRepeat',
+                                'Lat doświadczenia': 'csMetricExp',
+                                'Projektów': 'csMetricProjects',
+                                'Jakość': 'csMetricQualityLabel'
+                              }
+                              const labelKey = metricLabelMap[metric.label]
+                              return (
                               <div key={idx} className="text-center">
                                 <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2 font-mono">
                                   {metric.value}
                                 </div>
                                 <p className="text-xs uppercase tracking-wider text-gray-600 font-semibold">
-                                  {metric.label}
+                                  {labelKey ? t(lang, labelKey as any) : metric.label}
                                 </p>
                               </div>
-                            ))
+                              )
+                            })
                           }
                         </div>
 
                         {/* Performance Badge */}
                         <div className="inline-flex items-center gap-3 bg-blue-700 text-white px-6 py-3 rounded-full font-bold uppercase tracking-wider text-sm">
                           <Trophy className="w-5 h-5" />
-                          {caseStudy.badge}
+                          {(() => {
+                            const csBadgeMap: Record<string, string> = {
+                              'automotive-parts': 'csAutomotiveBadge',
+                              'cosmetics-packaging': 'csCosmeticsBadge',
+                              'industrial-elements': 'csIndustrialBadge'
+                            }
+                            const key = csBadgeMap[caseStudy.id]
+                            return key ? t(lang, key as any) : caseStudy.badge
+                          })()}
                         </div>
                       </div>
                     </div>
@@ -1968,12 +2034,12 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
             {/* CTA - Traditional Grid Below Carousel */}
             <div className="text-center mt-20">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">Zobacz więcej</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">{t(lang, 'zobaczWiecej')}</p>
               <MagneticButton
                 onClick={() => navigate('/gallery')}
                 className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] rounded-full flex items-center justify-center mx-auto"
               >
-                Wszystkie Projekty
+                {t(lang, 'wszystkieProjekty')}
                 <ArrowRight className="w-5 h-5 ml-2 inline-block" />
               </MagneticButton>
             </div>
@@ -1986,20 +2052,23 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
         <section id="faq" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-white via-blue-50/30 to-white">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">FAQ</p>
+              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">{t(lang, 'faqLabel')}</p>
 
               <div className="mb-12 text-center">
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  NAJCZĘŚCIEJ<br />ZADAWANE PYTANIA
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400 whitespace-pre-line">
+                  {t(lang, 'faqTitle')}
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  Odpowiedzi na pytania dotyczące technologii metalizacji
+                  {t(lang, 'faqSubtitle')}
                 </p>
               </div>
 
               <div className="space-y-4">
                 {faqData.map((faq, index) => {
                   const isExpanded = expandedFAQs.has(faq.id)
+                  const faqKey = `faq${index + 1}` as const
+                  const translatedQuestion = t(lang, `${faqKey}q` as any)
+                  const translatedAnswer = t(lang, `${faqKey}a` as any)
 
                   return (
                     <motion.div
@@ -2045,11 +2114,11 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
                           <div className="flex-1 min-w-0">
                             <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors">
-                              {faq.question}
+                              {translatedQuestion}
                             </h3>
                             {!isExpanded && (
                               <p className="text-sm text-gray-500 line-clamp-1">
-                                Kliknij, aby rozwinąć
+                                {t(lang, 'kliknijAbyRozwinac')}
                               </p>
                             )}
                           </div>
@@ -2076,7 +2145,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                             className="mt-4 pl-14"
                           >
                             <p className="text-gray-700 leading-relaxed">
-                              {faq.answer}
+                              {translatedAnswer}
                             </p>
                           </motion.div>
                         )}
@@ -2263,7 +2332,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       <Button
                         onClick={() => {
                           triggerConfetti()
-                          toast.success('Dziękujemy! Odpowiemy w ciągu 24h')
+                          toast.success(t(lang, 'toastSuccess'))
                           setFormStep(1)
                           setSmartFormData({
                             projectType: '',
@@ -2418,8 +2487,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           +48 882 488 844
                         </p>
                         <div className="text-sm text-gray-600 mt-2 space-y-1">
-                          <p><span className="font-semibold">Pon-Pt:</span> 7:00 - 17:00</p>
-                          <p><span className="font-semibold">Sob-Nd:</span> Zamknięte</p>
+                          <p><span className="font-semibold">{t(lang, 'ponPt')}</span> 7:00 - 17:00</p>
+                          <p><span className="font-semibold">{t(lang, 'sobNd')}</span> {t(lang, 'zamkniete')}</p>
                         </div>
                       </div>
                     </a>
@@ -2454,10 +2523,10 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
         {/* BIG TYPE FOOTER */}
         <section id="footer" data-theme="dark">
-          <BigFooter />
+          <BigFooter lang={lang} />
         </section>
 
-        <CookieBanner />
+        <CookieBanner lang={lang} />
 
 
         {/* Mobile Floating CTA Button */}
@@ -2544,7 +2613,17 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     {selectedService.tagline}
                   </div>
                   <h2 className="text-3xl sm:text-4xl font-black uppercase text-white tracking-tight">
-                    {selectedService.title}
+                    {(() => {
+                      const svcKeyMap: Record<string, string> = {
+                        'vacuum-metallization': 'svcVacuumTitle',
+                        'plastic-painting': 'svcPlasticTitle',
+                        'glass-painting': 'svcGlassTitle',
+                        'reflectors': 'svcReflectorsTitle',
+                        'spray-painting': 'svcSprayTitle'
+                      }
+                      const key = svcKeyMap[selectedService.id]
+                      return key ? t(lang, key as any) : selectedService.title
+                    })()}
                   </h2>
                 </div>
                 {/* Close Button */}
@@ -2561,7 +2640,17 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               {/* Content */}
               <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-16rem)]">
                 <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                  {selectedService.description}
+                  {(() => {
+                    const svcKeyMap: Record<string, string> = {
+                      'vacuum-metallization': 'svcVacuumDesc',
+                      'plastic-painting': 'svcPlasticDesc',
+                      'glass-painting': 'svcGlassDesc',
+                      'reflectors': 'svcReflectorsDesc',
+                      'spray-painting': 'svcSprayDesc'
+                    }
+                    const key = svcKeyMap[selectedService.id]
+                    return key ? t(lang, key as any) : selectedService.description
+                  })()}
                 </p>
 
                 {selectedService.details && (
@@ -2572,7 +2661,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
                           <Gear className="w-5 h-5 text-white" />
                         </div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">Cechy</h3>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">{t(lang, 'modalCechy')}</h3>
                       </div>
                       <ul className="space-y-2">
                         {selectedService.details.features.map((feature, idx) => (
@@ -2590,7 +2679,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center">
                           <Target className="w-5 h-5 text-white" />
                         </div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">Zastosowania</h3>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">{t(lang, 'modalZastosowania')}</h3>
                       </div>
                       <ul className="space-y-2">
                         {selectedService.details.applications.map((app, idx) => (
@@ -2608,7 +2697,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <div className="w-10 h-10 rounded-xl bg-amber-600 flex items-center justify-center">
                           <Trophy className="w-5 h-5 text-white" />
                         </div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">Zalety</h3>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">{t(lang, 'modalZalety')}</h3>
                       </div>
                       <ul className="space-y-2">
                         {selectedService.details.advantages.map((adv, idx) => (
@@ -2631,14 +2720,14 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     }}
                     className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2"
                   >
-                    Zapytaj o wycenę
+                    {t(lang, 'modalZapytaj')}
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => setIsServiceModalOpen(false)}
                     className="flex-1 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold uppercase tracking-wider rounded-full transition-colors"
                   >
-                    Zamknij
+                    {t(lang, 'modalZamknij')}
                   </button>
                 </div>
               </div>

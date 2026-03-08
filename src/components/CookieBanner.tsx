@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { t, type Lang } from '@/lib/translations'
 
 const STORAGE_KEY = 'staniax-cookie-consent'
 
 type CookieBannerProps = {
   className?: string
+  lang?: Lang
 }
 
-export function CookieBanner({ className }: CookieBannerProps) {
+export function CookieBanner({ className, lang = 'pl' }: CookieBannerProps) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -42,10 +44,10 @@ export function CookieBanner({ className }: CookieBannerProps) {
         <div className="space-y-2">
           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/70">Cookies</p>
           <p className="text-base font-medium text-white/90">
-            Korzystamy z plików cookies, aby personalizować treści, analizować ruch oraz zapewnić najwyższą jakość usług w naszym serwisie.
+            {t(lang, 'cookieText')}
           </p>
           <p className="text-xs text-white/60">
-            Kontynuując korzystanie z witryny, akceptujesz politykę cookies STANIAX. Zawsze możesz zmienić ustawienia w swojej przeglądarce.
+            {t(lang, 'cookieSubtext')}
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -54,13 +56,13 @@ export function CookieBanner({ className }: CookieBannerProps) {
             className="w-full sm:w-auto bg-white text-slate-950 hover:bg-white/90"
             onClick={handleAccept}
           >
-            Akceptuję
+            {t(lang, 'cookieAccept')}
           </Button>
           <a
             href="/polityka-cookies"
             className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70 transition-colors hover:text-white"
           >
-            Dowiedz się więcej
+            {t(lang, 'cookieMore')}
           </a>
         </div>
       </div>

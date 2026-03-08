@@ -1,11 +1,12 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import { t, type Lang } from '@/lib/translations'
 
 // Assets
 import metallizationVideo from '@/assets/metallization-machine.mp4'
 
-export function WhyStaniaxContent() {
+export function WhyStaniaxContent({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const sectionRef = useRef<HTMLDivElement>(null)
     const inView = useInView(sectionRef, { once: true, margin: "-100px" })
 
@@ -46,15 +47,15 @@ export function WhyStaniaxContent() {
                                 <div className="flex items-center gap-4 mb-6 opacity-70">
                                     <span className="text-sm font-mono tracking-widest uppercase">01</span>
                                     <div className="h-px w-12 bg-white" />
-                                    <span className="text-sm font-mono tracking-widest uppercase">Metalizacja Próżniowa</span>
+                                    <span className="text-sm font-mono tracking-widest uppercase">{t(lang, 'whyLabel')}</span>
                                 </div>
 
                                 <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 uppercase leading-[0.9]">
-                                    PRECYZJA
+                                    {t(lang, 'whyHeading')}
                                 </h2>
 
                                 <p className="text-lg md:text-xl font-medium leading-relaxed max-w-md opacity-90">
-                                    Nasze powłoki spełniają najwyższe standardy jakości. Precyzja na poziomie mikronów to dla nas standard, nie wyzwanie.
+                                    {t(lang, 'whyDesc')}
                                 </p>
                             </motion.div>
                         </div>
