@@ -1434,26 +1434,16 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           </div>
         </div>
 
-        {/* HERO & GALLERY SECTION (Seamless Transition) */}
+        {/* HERO & GALLERY SECTION */}
         <section id="video-gallery" data-theme="light">
           <VideoGalleryTransition />
         </section>
 
-        {/* FEATURE HIGHLIGHT (Parallax Reveal) */}
+        {/* FEATURE HIGHLIGHT */}
         <section id="why-staniax" data-theme="light">
           <WhyStaniaxContent />
         </section>
 
-
-
-
-
-
-
-
-
-
-        {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
         {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
         <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
           {/* Background Decorations */}
