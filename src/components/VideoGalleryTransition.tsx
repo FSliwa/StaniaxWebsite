@@ -4,7 +4,7 @@ import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
 
 // Import assets
-import videoSrc from '@/assets/hand_effect_video.mp4'
+import videoSrc from '@/assets/metallic-transformation-video.mp4'
 import centerImage from '@/assets/whatsapp-hero-2026-03-05.jpeg'
 import sideTile1 from '@/assets/colorful_packaging.png'
 import sideTile2 from '@/assets/side-tile-2.jpg'
@@ -27,7 +27,7 @@ export function VideoGalleryTransition() {
                 <video
                     src={videoSrc}
                     autoPlay muted loop playsInline
-                    className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
+                    className="absolute inset-0 w-full h-full object-cover"
                 />
 
                 {/* Scroll indicator */}
