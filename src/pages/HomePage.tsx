@@ -76,6 +76,9 @@ import productionDesignImg from '@/assets/production-design.png'
 import productionManufacturingImg from '@/assets/production-manufacturing.png'
 import productionQualityImg from '@/assets/production-quality.png'
 import automotivePartAfterImg from '@/assets/automotive_part_after_coating_1765868408448.png'
+import whatsappImg1 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35.jpeg'
+import whatsappImg2 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35-2.jpeg'
+import whatsappHeroImg from '@/assets/whatsapp-hero-2026-03-05.jpeg'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -216,7 +219,7 @@ const servicesData: ServiceItem[] = [
     description: 'Precyzyjne lakierowanie detali z tworzyw sztucznych. Oferujemy pełną gamę kolorów i wykończeń, od matu po wysoki połysk, z gwarancją trwałości.',
     icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg2,
-    images: [serviceImg2, colorfulPackagingImg, projectImgAutomotive, packagingAfter],
+    images: [serviceImg2, automotiveBefore, automotiveAfter, whatsappImg1],
     alt: 'Lakierowanie elementów z tworzyw sztucznych',
     tagline: 'Estetyka i Ochrona',
     details: {
@@ -231,7 +234,7 @@ const servicesData: ServiceItem[] = [
     description: 'Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg3,
-    images: [serviceImg3, packagingBefore, packagingAfter, vacuumMetalizationImg],
+    images: [serviceImg3, whatsappImg2, whatsappHeroImg, industrialBefore],
     alt: 'Lakierowanie butelek szklanych',
     tagline: 'Dekoracja Premium',
     details: {
@@ -261,7 +264,7 @@ const servicesData: ServiceItem[] = [
       'Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: spinningMachineImg,
-    images: [spinningMachineImg, projectImgIndustrial, projectImgPrototype, productionManufacturingImg],
+    images: [spinningMachineImg, industrialAfter, serviceImg1, automotiveBefore],
     alt: 'Lakierowanie natryskowe elementów',
     tagline: 'Uniwersalne Wykończenie',
     details: {
@@ -348,16 +351,17 @@ type CaseStudy = {
 
 const caseStudiesData: CaseStudy[] = [
   {
-    id: 'automotive-parts',
-    title: 'Detale Motoryzacyjne',
-    subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu',
+    id: 'industrial-elements',
+    title: 'Elementy Przemysłowe',
+    subtitle: 'Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania',
     imageBefore: automotiveAfter,
     imageAfter: automotiveBefore,
     metrics: [
-      { value: '100%', label: 'Kontrola jakości' },
-      { value: '10K+', label: 'Detali/msc' }
+      { value: '25+', label: 'Lat doświadczenia' },
+      { value: '2500+', label: 'Projektów' },
+      { value: 'Premium', label: 'Jakość' }
     ],
-    badge: 'Najwyższa Jakość'
+    badge: 'Solidność'
   },
   {
     id: 'cosmetics-packaging',
@@ -372,17 +376,16 @@ const caseStudiesData: CaseStudy[] = [
     badge: 'Efekt Premium'
   },
   {
-    id: 'industrial-elements',
-    title: 'Elementy Przemysłowe',
-    subtitle: 'Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania',
+    id: 'automotive-parts',
+    title: 'Detale Motoryzacyjne',
+    subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu',
     imageBefore: industrialAfter,
     imageAfter: industrialBefore,
     metrics: [
-      { value: '25+', label: 'Lat doświadczenia' },
-      { value: '2500+', label: 'Projektów' },
-      { value: 'Premium', label: 'Jakość' }
+      { value: '100%', label: 'Kontrola jakości' },
+      { value: '10K+', label: 'Detali/msc' }
     ],
-    badge: 'Solidność'
+    badge: 'Najwyższa Jakość'
   }
 ]
 
