@@ -16,6 +16,7 @@ const translations = {
     ktoraZmienia: 'która zmienia',
     powierzchnie: 'powierzchnię',
     bridgeDesc: 'Od metalizacji próżniowej po lakierowanie natryskowe — oferujemy pełne spektrum wykończeń przemysłowych.',
+    bridgeVideoLabel: 'Metalizacja w akcji',
     przewinDalej: 'Przewiń dalej',
 
     // Bento grid
@@ -235,6 +236,7 @@ const translations = {
     ktoraZmienia: 'that transforms',
     powierzchnie: 'surfaces',
     bridgeDesc: 'From vacuum metallization to spray painting — we offer the full spectrum of industrial finishes.',
+    bridgeVideoLabel: 'Metallization in action',
     przewinDalej: 'Scroll down',
 
     bentoSubtitle: 'STANIAX Sp. z o.o.',
@@ -438,6 +440,7 @@ const translations = {
     ktoraZmienia: 'die Oberflächen',
     powierzchnie: 'verändert',
     bridgeDesc: 'Von der Vakuummetallisierung bis zur Sprühlackierung — wir bieten das gesamte Spektrum industrieller Oberflächen.',
+    bridgeVideoLabel: 'Metallisierung in Aktion',
     przewinDalej: 'Weiter scrollen',
 
     bentoSubtitle: 'STANIAX Sp. z o.o.',

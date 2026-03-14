@@ -131,11 +131,7 @@ function GalleryPage() {
       {/* Header */}
       <header className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-2xl">
         <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 py-5">
-          <Link to="/" className="group flex items-center gap-4" aria-label="Powrót na stronę główną">
-            <div className="relative h-12 w-12 rounded-2xl bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white flex items-center justify-center shadow-lg shadow-blue-500/20 transition-all duration-500 group-hover:shadow-blue-500/40 group-hover:scale-105">
-              <Factory className="w-6 h-6" weight="bold" />
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent" />
-            </div>
+          <Link to="/" className="group flex items-center gap-3" aria-label="Powrót na stronę główną">
             <div className="leading-tight">
               <span className="block text-[10px] uppercase tracking-[0.4em] text-gray-500 font-medium">
                 STANIAX

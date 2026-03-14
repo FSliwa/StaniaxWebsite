@@ -159,6 +159,7 @@ type ServiceItem = {
   description: string
   icon: ReactNode
   image: string
+  images?: string[]
   alt: string
   tagline: string
   details?: {
@@ -211,6 +212,7 @@ const servicesData: ServiceItem[] = [
     description: 'Precyzyjne lakierowanie detali z tworzyw sztucznych. Oferujemy pełną gamę kolorów i wykończeń, od matu po wysoki połysk, z gwarancją trwałości.',
     icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg2,
+    images: [serviceImg2, colorfulPackagingImg, projectImgAutomotive, spinningMachineImg],
     alt: 'Lakierowanie elementów z tworzyw sztucznych',
     tagline: 'Estetyka i Ochrona',
     details: {
@@ -225,6 +227,7 @@ const servicesData: ServiceItem[] = [
     description: 'Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg3,
+    images: [serviceImg3, serviceImg1, vacuumMetalizationImg, threeReflectorsImg],
     alt: 'Lakierowanie butelek szklanych',
     tagline: 'Dekoracja Premium',
     details: {
@@ -254,6 +257,7 @@ const servicesData: ServiceItem[] = [
       'Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: spinningMachineImg,
+    images: [spinningMachineImg, projectImgIndustrial, serviceImg2, projectImgPrototype],
     alt: 'Lakierowanie natryskowe elementów',
     tagline: 'Uniwersalne Wykończenie',
     details: {
@@ -340,16 +344,17 @@ type CaseStudy = {
 
 const caseStudiesData: CaseStudy[] = [
   {
-    id: 'automotive-parts',
-    title: 'Detale Motoryzacyjne',
-    subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu',
-    imageBefore: automotiveAfter,
-    imageAfter: automotiveBefore,
+    id: 'industrial-elements',
+    title: 'Elementy Przemysłowe',
+    subtitle: 'Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania',
+    imageBefore: industrialAfter,
+    imageAfter: industrialBefore,
     metrics: [
-      { value: '100%', label: 'Kontrola jakości' },
-      { value: '10K+', label: 'Detali/msc' }
+      { value: '25+', label: 'Lat doświadczenia' },
+      { value: '2500+', label: 'Projektów' },
+      { value: 'Premium', label: 'Jakość' }
     ],
-    badge: 'Najwyższa Jakość'
+    badge: 'Solidność'
   },
   {
     id: 'cosmetics-packaging',
@@ -364,17 +369,16 @@ const caseStudiesData: CaseStudy[] = [
     badge: 'Efekt Premium'
   },
   {
-    id: 'industrial-elements',
-    title: 'Elementy Przemysłowe',
-    subtitle: 'Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania',
-    imageBefore: industrialAfter,
-    imageAfter: industrialBefore,
+    id: 'automotive-parts',
+    title: 'Detale Motoryzacyjne',
+    subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu',
+    imageBefore: automotiveAfter,
+    imageAfter: automotiveBefore,
     metrics: [
-      { value: '25+', label: 'Lat doświadczenia' },
-      { value: '2500+', label: 'Projektów' },
-      { value: 'Premium', label: 'Jakość' }
+      { value: '100%', label: 'Kontrola jakości' },
+      { value: '10K+', label: 'Detali/msc' }
     ],
-    badge: 'Solidność'
+    badge: 'Najwyższa Jakość'
   }
 ]
 
@@ -721,7 +725,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const [expandedRow, setExpandedRow] = useState<string | null>(null)
 
   // SMART CONTACT FORM STATE
-  const [formStep, setFormStep] = useState(1)
   const [smartFormData, setSmartFormData] = useState({
     projectType: '',
     technology: '',
@@ -1291,7 +1294,14 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           >
             <div className="flex flex-col items-start">
               <button
-                onClick={() => scrollToSection('top')}
+                onClick={() => {
+                  const lenis = (window as any).lenis
+                  if (lenis) {
+                    lenis.scrollTo(0, { duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) })
+                  } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
+                  }
+                }}
                 className="group text-left"
                 aria-label="Przewiń na górę"
               >
@@ -1603,6 +1613,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-blue-50/30 to-transparent" />
           
           <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-28">
+            <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1652,6 +1663,34 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 <span className="text-xs uppercase tracking-[0.3em] font-medium">{t(lang, 'przewinDalej')}</span>
               </motion.button>
             </motion.div>
+
+            {/* Video tile */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="relative hidden lg:block"
+            >
+              <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+                <video
+                  src={liquidMetalVideo}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                    {t(lang, 'bridgeVideoLabel') || 'Metalizacja w akcji'}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            </div>
           </div>
 
           {/* Bottom gradient fade into next section */}
@@ -1768,6 +1807,20 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         "w-full",
                         index % 2 !== 0 && "lg:order-1"
                       )}>
+                        {service.images && service.images.length === 4 ? (
+                          <div className="grid grid-cols-2 gap-3 aspect-[4/3]">
+                            {service.images.map((img, imgIdx) => (
+                              <div key={imgIdx} className="relative rounded-2xl overflow-hidden shadow-xl group/img">
+                                <img
+                                  src={img}
+                                  alt={`${service.alt} ${imgIdx + 1}`}
+                                  className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
                           <img
                             src={service.image}
@@ -1780,6 +1833,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                             </div>
                           </div>
                         </div>
+                        )}
                       </div>
                     </div>
                   ))}
@@ -2181,59 +2235,18 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">{t(lang, 'wycenaProjektu')}</p>
 
               <div className="mb-12 text-center">
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  {t(lang, 'wycenSwojProjekt')}<br />{t(lang, 'projekt')}
-                </h2>
-                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase leading-tight tracking-tighter mb-6 text-blue-400">
                   {t(lang, 'wypelnijFormularz')}
-                </p>
+                </h2>
               </div>
 
-              {/* Progress Bar */}
-              <div className="mb-12">
-                {/* Step indicator text */}
-                <div className="text-center mb-4">
-                  <p className="text-sm font-semibold text-gray-600">
-                    {t(lang, 'krok')} <span className="text-blue-700 text-lg">{formStep}</span> {t(lang, 'z2')}
-                  </p>
-                </div>
-
-                <div className="flex justify-center gap-8 mb-4">
-                  {[1, 2].map((step) => (
-                    <div
-                      key={step}
-                      className={cn(
-                        'flex items-center gap-2',
-                        formStep >= step ? 'text-blue-700' : 'text-gray-400'
-                      )}
-                    >
-                      <div className={cn(
-                        'w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300',
-                        formStep >= step ? 'bg-blue-700 text-white scale-110 shadow-lg' : 'bg-gray-200'
-                      )}>
-                        {formStep > step ? '✓' : step}
-                      </div>
-                      <span className="hidden sm:inline text-sm font-semibold">
-                        {step === 1 && t(lang, 'stepProjekt')}
-                        {step === 2 && t(lang, 'stepKontakt')}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <div className="h-3 bg-gray-200 rounded-full overflow-hidden shadow-inner">
-                  <div
-                    className="h-full bg-gradient-to-r from-blue-600 to-blue-700 transition-all duration-500 shadow-md"
-                    style={{ width: `${(formStep / 2) * 100}%` }}
-                  />
-                </div>
-              </div>
-
-              {/* Form Steps */}
+              {/* Single-step Form */}
               <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
-                {formStep === 1 && (
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-900">{t(lang, 'wybierzTypProjektu')}</h3>
-                    <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-8">
+                  {/* Project type selection */}
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-gray-900">{t(lang, 'wybierzTypProjektu')}</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {([
                         { key: 'prototypy' as const, value: 'Prototypy' },
                         { key: 'produkcja' as const, value: 'Produkcja' },
@@ -2244,10 +2257,9 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           key={value}
                           onClick={() => {
                             setSmartFormData((prev) => ({ ...prev, projectType: value }))
-                            setFormStep(2)
                           }}
                           className={cn(
-                            'p-6 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px]',
+                            'p-4 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px] text-sm',
                             smartFormData.projectType === value
                               ? 'border-blue-700 bg-blue-50 text-blue-900'
                               : 'border-gray-200 hover:border-blue-300'
@@ -2259,11 +2271,10 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       ))}
                     </div>
                   </div>
-                )}
 
-                {formStep === 2 && (
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-bold text-gray-900">{t(lang, 'twojeDaneKontaktowe')}</h3>
+                  {/* Contact details */}
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-gray-900">{t(lang, 'twojeDaneKontaktowe')}</h3>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <Input
                         placeholder={t(lang, 'imie')}
@@ -2306,52 +2317,30 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       required
                     />
                   </div>
-                )}
+                </div>
 
-                {/* Navigation Buttons */}
-                <div className="flex justify-between mt-8">
-                  {formStep > 1 && (
-                    <Button
-                      onClick={() => setFormStep(formStep - 1)}
-                      variant="outline"
-                      className="font-bold"
-                    >
-                      {t(lang, 'wstecz')}
-                    </Button>
-                  )}
-                  <div className="ml-auto">
-                    {formStep < 2 ? (
-                      <Button
-                        onClick={() => setFormStep(formStep + 1)}
-                        className="bg-blue-700 hover:bg-blue-800 font-bold"
-                        disabled={formStep === 1 && !smartFormData.projectType}
-                      >
-                        {t(lang, 'kontynuuj')}
-                      </Button>
-                    ) : (
-                      <Button
-                        onClick={() => {
-                          triggerConfetti()
-                          toast.success(t(lang, 'toastSuccess'))
-                          setFormStep(1)
-                          setSmartFormData({
-                            projectType: '',
-                            technology: '',
-                            firstName: '',
-                            lastName: '',
-                            email: '',
-                            phone: '',
-                            message: '',
-                            file: null
-                          })
-                        }}
-                        className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button"
-                        disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message}
-                      >
-                        {t(lang, 'wyslijZapytanie')}
-                      </Button>
-                    )}
-                  </div>
+                {/* Submit Button */}
+                <div className="flex justify-end mt-8">
+                  <Button
+                    onClick={() => {
+                      triggerConfetti()
+                      toast.success(t(lang, 'toastSuccess'))
+                      setSmartFormData({
+                        projectType: '',
+                        technology: '',
+                        firstName: '',
+                        lastName: '',
+                        email: '',
+                        phone: '',
+                        message: '',
+                        file: null
+                      })
+                    }}
+                    className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button px-8 py-3"
+                    disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message || !smartFormData.projectType}
+                  >
+                    {t(lang, 'wyslijZapytanie')}
+                  </Button>
                 </div>
               </div>
 

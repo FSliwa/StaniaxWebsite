@@ -38,13 +38,13 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         const grid = document.getElementById('bento-grid')
                         grid?.scrollIntoView({ behavior: 'smooth' })
                     }}
-                    className="absolute bottom-8 right-8 z-10 flex items-center gap-3 cursor-pointer group"
+                    className="absolute bottom-8 right-8 z-10 flex items-center gap-4 cursor-pointer group"
                 >
-                    <span className="text-sm font-medium tracking-widest uppercase hidden sm:block text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] group-hover:opacity-80 transition-opacity">
+                    <span className="text-base font-bold tracking-widest uppercase text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] group-hover:opacity-90 transition-opacity">
                         {t(lang, 'scrollToExplore')}
                     </span>
-                    <div className="w-12 h-12 rounded-full border-2 border-white/60 flex items-center justify-center backdrop-blur-md bg-black/30 shadow-lg shadow-black/20 group-hover:bg-black/50 group-hover:border-white/80 transition-all duration-300">
-                        <ArrowUpRight className="w-5 h-5 text-white rotate-90" />
+                    <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center backdrop-blur-md bg-blue-600/80 shadow-xl shadow-blue-600/30 group-hover:bg-blue-700 group-hover:border-white transition-all duration-300">
+                        <ArrowUpRight className="w-7 h-7 text-white rotate-90" />
                     </div>
                 </button>
             </div>
