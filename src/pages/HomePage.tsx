@@ -72,6 +72,10 @@ import colorfulPackagingImg from '@/assets/colorful_packaging.png'
 import threeReflectorsImg from '@/assets/three_reflectors_1765869273944.png'
 import affiliatedCompaniesImg from '@/assets/affiliated-companies.jpeg'
 import vacuumMetalizationImg from '@/assets/vacuum-metalization.jpg'
+import productionDesignImg from '@/assets/production-design.png'
+import productionManufacturingImg from '@/assets/production-manufacturing.png'
+import productionQualityImg from '@/assets/production-quality.png'
+import automotivePartAfterImg from '@/assets/automotive_part_after_coating_1765868408448.png'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -212,7 +216,7 @@ const servicesData: ServiceItem[] = [
     description: 'Precyzyjne lakierowanie detali z tworzyw sztucznych. Oferujemy pełną gamę kolorów i wykończeń, od matu po wysoki połysk, z gwarancją trwałości.',
     icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg2,
-    images: [serviceImg2, colorfulPackagingImg, projectImgAutomotive, spinningMachineImg],
+    images: [serviceImg2, colorfulPackagingImg, packagingAfter, productionDesignImg],
     alt: 'Lakierowanie elementów z tworzyw sztucznych',
     tagline: 'Estetyka i Ochrona',
     details: {
@@ -227,7 +231,7 @@ const servicesData: ServiceItem[] = [
     description: 'Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg3,
-    images: [serviceImg3, serviceImg1, vacuumMetalizationImg, threeReflectorsImg],
+    images: [serviceImg3, packagingBefore, vacuumMetalizationImg, productionQualityImg],
     alt: 'Lakierowanie butelek szklanych',
     tagline: 'Dekoracja Premium',
     details: {
@@ -257,7 +261,7 @@ const servicesData: ServiceItem[] = [
       'Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: spinningMachineImg,
-    images: [spinningMachineImg, projectImgIndustrial, serviceImg2, projectImgPrototype],
+    images: [spinningMachineImg, projectImgIndustrial, automotivePartAfterImg, productionManufacturingImg],
     alt: 'Lakierowanie natryskowe elementów',
     tagline: 'Uniwersalne Wykończenie',
     details: {
@@ -1324,12 +1328,12 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     window.scrollTo({ top: 0, behavior: 'smooth' })
                   }
                 }}
-                className="group text-left"
+                className="group text-left flex items-baseline gap-3 sm:gap-4"
                 aria-label="Przewiń na górę"
               >
                 <span
                   className={cn(
-                    'block text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter transition-colors duration-500',
+                    'text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter transition-colors duration-500 shrink-0',
                     isMenuOpen
                       ? 'text-slate-700'
                       : isDarkHeaderContext
@@ -1343,7 +1347,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 </span>
                 <span
                   className={cn(
-                    'block text-[9px] sm:text-[10px] lg:text-xs font-medium tracking-wide uppercase transition-colors duration-500 mt-0.5',
+                    'hidden sm:block text-[9px] sm:text-[10px] lg:text-xs font-medium tracking-wide uppercase transition-colors duration-500 leading-tight max-w-[220px]',
                     isMenuOpen
                       ? 'text-slate-500'
                       : isDarkHeaderContext
@@ -1365,7 +1369,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       aria-label={l.label}
                       className={cn(
                         'text-xl sm:text-2xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative z-[60]',
-                        lang === l.lang ? 'opacity-100 scale-110 ring-2 ring-blue-500 ring-offset-2' : 'opacity-50 hover:opacity-90'
+                        lang === l.lang ? 'opacity-100 scale-110' : 'opacity-50 hover:opacity-90'
                       )}
                     >
                       {l.flag}
