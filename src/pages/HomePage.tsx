@@ -344,17 +344,16 @@ type CaseStudy = {
 
 const caseStudiesData: CaseStudy[] = [
   {
-    id: 'industrial-elements',
-    title: 'Elementy Przemysłowe',
-    subtitle: 'Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania',
-    imageBefore: industrialAfter,
-    imageAfter: industrialBefore,
+    id: 'automotive-parts',
+    title: 'Detale Motoryzacyjne',
+    subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu',
+    imageBefore: automotiveAfter,
+    imageAfter: automotiveBefore,
     metrics: [
-      { value: '25+', label: 'Lat doświadczenia' },
-      { value: '2500+', label: 'Projektów' },
-      { value: 'Premium', label: 'Jakość' }
+      { value: '100%', label: 'Kontrola jakości' },
+      { value: '10K+', label: 'Detali/msc' }
     ],
-    badge: 'Solidność'
+    badge: 'Najwyższa Jakość'
   },
   {
     id: 'cosmetics-packaging',
@@ -369,16 +368,17 @@ const caseStudiesData: CaseStudy[] = [
     badge: 'Efekt Premium'
   },
   {
-    id: 'automotive-parts',
-    title: 'Detale Motoryzacyjne',
-    subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu',
-    imageBefore: automotiveAfter,
-    imageAfter: automotiveBefore,
+    id: 'industrial-elements',
+    title: 'Elementy Przemysłowe',
+    subtitle: 'Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania',
+    imageBefore: industrialAfter,
+    imageAfter: industrialBefore,
     metrics: [
-      { value: '100%', label: 'Kontrola jakości' },
-      { value: '10K+', label: 'Detali/msc' }
+      { value: '25+', label: 'Lat doświadczenia' },
+      { value: '2500+', label: 'Projektów' },
+      { value: 'Premium', label: 'Jakość' }
     ],
-    badge: 'Najwyższa Jakość'
+    badge: 'Solidność'
   }
 ]
 
@@ -1177,6 +1177,28 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     }
   }
 
+  const sectionOrder = ['video-gallery', 'why-staniax', 'metrics', 'kim-jestesmy', 'about', 'projects', 'faq', 'contact', 'dane-kontaktowe', 'footer']
+
+  const scrollToNextSection = () => {
+    const currentScrollY = window.scrollY + window.innerHeight / 3
+    for (let i = 0; i < sectionOrder.length - 1; i++) {
+      const section = document.getElementById(sectionOrder[i])
+      const nextSection = document.getElementById(sectionOrder[i + 1])
+      if (section && nextSection) {
+        const sectionTop = section.offsetTop
+        const nextTop = nextSection.offsetTop
+        if (currentScrollY >= sectionTop && currentScrollY < nextTop) {
+          scrollToSection(sectionOrder[i + 1])
+          return
+        }
+      }
+    }
+    // If at the very top or before first section, scroll to first section
+    if (sectionOrder.length > 0) {
+      scrollToSection(sectionOrder[0])
+    }
+  }
+
   // Confetti animation
   const triggerConfetti = () => {
     const colors = ['#1d4ed8', '#3b82f6', '#60a5fa', '#93c5fd']
@@ -1318,6 +1340,20 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   )}
                 >
                   STANIAX
+                </span>
+                <span
+                  className={cn(
+                    'block text-[9px] sm:text-[10px] lg:text-xs font-medium tracking-wide uppercase transition-colors duration-500 mt-0.5',
+                    isMenuOpen
+                      ? 'text-slate-500'
+                      : isDarkHeaderContext
+                        ? 'text-white/70'
+                        : scrollY > 32
+                          ? 'text-blue-700/60'
+                          : 'text-slate-500/70'
+                  )}
+                >
+                  Systemy metalizacji próżniowej, lakierowanie tworzyw/szkła/metali
                 </span>
               </button>
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
@@ -1613,7 +1649,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-blue-50/30 to-transparent" />
           
           <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-28">
-            <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-1 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1670,9 +1706,9 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative hidden lg:block"
+              className="relative"
             >
-              <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
                 <video
                   src={liquidMetalVideo}
                   autoPlay
@@ -2549,6 +2585,22 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
+
+        {/* Scroll to Next Section Button */}
+        <button
+          onClick={scrollToNextSection}
+          className={cn(
+            'fixed bottom-24 right-20 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-blue-600 hover:to-blue-700 text-white rounded-full shadow-2xl border-2 border-gray-400/30 hover:border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+            showScrollTop
+              ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
+              : 'translate-y-20 opacity-0 pointer-events-none scale-75'
+          )}
+          aria-label="Przewiń do następnej sekcji"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </button>
 
