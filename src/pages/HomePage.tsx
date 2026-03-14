@@ -216,7 +216,7 @@ const servicesData: ServiceItem[] = [
     description: 'Precyzyjne lakierowanie detali z tworzyw sztucznych. Oferujemy pełną gamę kolorów i wykończeń, od matu po wysoki połysk, z gwarancją trwałości.',
     icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg2,
-    images: [serviceImg2, colorfulPackagingImg, packagingAfter, productionDesignImg],
+    images: [serviceImg2, colorfulPackagingImg, projectImgAutomotive, packagingAfter],
     alt: 'Lakierowanie elementów z tworzyw sztucznych',
     tagline: 'Estetyka i Ochrona',
     details: {
@@ -231,7 +231,7 @@ const servicesData: ServiceItem[] = [
     description: 'Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg3,
-    images: [serviceImg3, packagingBefore, vacuumMetalizationImg, productionQualityImg],
+    images: [serviceImg3, packagingBefore, packagingAfter, vacuumMetalizationImg],
     alt: 'Lakierowanie butelek szklanych',
     tagline: 'Dekoracja Premium',
     details: {
@@ -261,7 +261,7 @@ const servicesData: ServiceItem[] = [
       'Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: spinningMachineImg,
-    images: [spinningMachineImg, projectImgIndustrial, automotivePartAfterImg, productionManufacturingImg],
+    images: [spinningMachineImg, projectImgIndustrial, projectImgPrototype, productionManufacturingImg],
     alt: 'Lakierowanie natryskowe elementów',
     tagline: 'Uniwersalne Wykończenie',
     details: {
@@ -1328,7 +1328,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     window.scrollTo({ top: 0, behavior: 'smooth' })
                   }
                 }}
-                className="group text-left flex items-baseline gap-3 sm:gap-4"
+                className="group text-left flex items-start gap-3 sm:gap-4"
                 aria-label="Przewiń na górę"
               >
                 <span
@@ -1653,7 +1653,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
           <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-blue-50/30 to-transparent" />
           
           <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-28">
-            <div className="grid lg:grid-cols-1 gap-12 lg:gap-16 items-center">
+            <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
