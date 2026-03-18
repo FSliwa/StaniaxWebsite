@@ -79,6 +79,7 @@ import automotivePartAfterImg from '@/assets/automotive_part_after_coating_17658
 import whatsappImg1 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35.jpeg'
 import whatsappImg2 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35-2.jpeg'
 import whatsappHeroImg from '@/assets/whatsapp-hero-2026-03-05.jpeg'
+import tekstAkapituImg from '@/assets/Tekst akapitu-2.jpg'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -219,7 +220,7 @@ const servicesData: ServiceItem[] = [
     description: 'Precyzyjne lakierowanie detali z tworzyw sztucznych. Oferujemy pełną gamę kolorów i wykończeń, od matu po wysoki połysk, z gwarancją trwałości.',
     icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg2,
-    images: [serviceImg2, automotiveBefore, automotiveAfter, whatsappImg1],
+    images: [serviceImg2, automotiveAfter, whatsappImg1, tekstAkapituImg],
     alt: 'Lakierowanie elementów z tworzyw sztucznych',
     tagline: 'Estetyka i Ochrona',
     details: {
@@ -234,7 +235,7 @@ const servicesData: ServiceItem[] = [
     description: 'Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg3,
-    images: [serviceImg3, whatsappImg2, whatsappHeroImg, industrialBefore],
+    images: [serviceImg3, vacuumMetalizationImg, whatsappImg2, affiliatedCompaniesImg],
     alt: 'Lakierowanie butelek szklanych',
     tagline: 'Dekoracja Premium',
     details: {
@@ -264,7 +265,7 @@ const servicesData: ServiceItem[] = [
       'Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: spinningMachineImg,
-    images: [spinningMachineImg, industrialAfter, serviceImg1, automotiveBefore],
+    images: [spinningMachineImg, whatsappHeroImg, industrialAfter, serviceImg1],
     alt: 'Lakierowanie natryskowe elementów',
     tagline: 'Uniwersalne Wykończenie',
     details: {

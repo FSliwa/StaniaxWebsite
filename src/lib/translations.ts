@@ -22,7 +22,7 @@ const translations = {
     // Bento grid
     bentoSubtitle: 'STANIAX Sp. z o.o.',
     bentoTitle: 'Metalizacja i Lakierowanie',
-    bentoDesc: 'Perfekcyjne powłoki metaliczne i lakiernicze dla przemysłu. Ponad 25 lat doświadczenia w metalizacji próżniowej.',
+    bentoDesc: 'Perfekcyjne powłoki metaliczne i lakiernicze. Ponad 25 lat doświadczenia w metalizacji próżniowej.',
     wycenProjekt: 'Wyceń Projekt',
     latDoswiadczenia: 'LAT DOŚWIADCZENIA',
     zrealizowanychProjektow: 'ZREALIZOWANYCH PROJEKTÓW',
