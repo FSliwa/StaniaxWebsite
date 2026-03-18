@@ -70,7 +70,6 @@ import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
 import spinningMachineImg from '@/assets/spinning_machine.jpeg'
 import colorfulPackagingImg from '@/assets/colorful_packaging.png'
 import threeReflectorsImg from '@/assets/three_reflectors_1765869273944.png'
-import affiliatedCompaniesImg from '@/assets/affiliated-companies.jpeg'
 import vacuumMetalizationImg from '@/assets/vacuum-metalization.jpg'
 import productionDesignImg from '@/assets/production-design.png'
 import productionManufacturingImg from '@/assets/production-manufacturing.png'
@@ -235,7 +234,7 @@ const servicesData: ServiceItem[] = [
     description: 'Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg3,
-    images: [serviceImg3, vacuumMetalizationImg, whatsappImg2, affiliatedCompaniesImg],
+    images: [serviceImg3, vacuumMetalizationImg, whatsappImg2, colorfulPackagingImg],
     alt: 'Lakierowanie butelek szklanych',
     tagline: 'Dekoracja Premium',
     details: {
