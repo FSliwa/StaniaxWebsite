@@ -84,6 +84,10 @@ import lakierowanieTworzyw1 from '@/assets/lakierowanie-tworzyw-1.jpeg'
 import lakierowanieTworzyw2 from '@/assets/lakierowanie-tworzyw-2.jpeg'
 import lakierowanieTworzyw3 from '@/assets/lakierowanie-tworzyw-3.jpeg'
 import lakierowanieTworzyw4 from '@/assets/lakierowanie-tworzyw-4.jpeg'
+import lakierowanieSzkla1 from '@/assets/lakierowanie-szkla-1.jpeg'
+import lakierowanieSzkla2 from '@/assets/lakierowanie-szkla-2.jpeg'
+import lakierowanieSzkla3 from '@/assets/lakierowanie-szkla-3.jpeg'
+import lakierowanieSzkla4 from '@/assets/lakierowanie-szkla-4.jpeg'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -238,8 +242,8 @@ const servicesData: ServiceItem[] = [
     title: 'Lakierowanie Szkła',
     description: 'Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
-    image: serviceImg3,
-    images: [serviceImg3, vacuumMetalizationImg, whatsappImg2, colorfulPackagingImg],
+    image: lakierowanieSzkla1,
+    images: [lakierowanieSzkla1, lakierowanieSzkla2, lakierowanieSzkla3, lakierowanieSzkla4],
     alt: 'Lakierowanie butelek szklanych',
     tagline: 'Dekoracja Premium',
     details: {
