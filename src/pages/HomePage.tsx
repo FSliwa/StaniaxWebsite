@@ -88,6 +88,10 @@ import lakierowanieSzkla1 from '@/assets/lakierowanie-szkla-1.jpeg'
 import lakierowanieSzkla2 from '@/assets/lakierowanie-szkla-2.jpeg'
 import lakierowanieSzkla3 from '@/assets/lakierowanie-szkla-3.jpeg'
 import lakierowanieSzkla4 from '@/assets/lakierowanie-szkla-4.jpeg'
+import lakierowanieNatryskowe1 from '@/assets/lakierowanie-natryskowe-1.jpeg'
+import lakierowanieNatryskowe2 from '@/assets/lakierowanie-natryskowe-2.jpeg'
+import lakierowanieNatryskowe3 from '@/assets/lakierowanie-natryskowe-3.jpeg'
+import lakierowanieNatryskowe4 from '@/assets/lakierowanie-natryskowe-4.jpeg'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -272,8 +276,8 @@ const servicesData: ServiceItem[] = [
     description:
       'Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
-    image: spinningMachineImg,
-    images: [spinningMachineImg, whatsappHeroImg, industrialAfter, serviceImg1],
+    image: lakierowanieNatryskowe1,
+    images: [lakierowanieNatryskowe1, lakierowanieNatryskowe2, lakierowanieNatryskowe3, lakierowanieNatryskowe4],
     alt: 'Lakierowanie natryskowe elementów',
     tagline: 'Uniwersalne Wykończenie',
     details: {
