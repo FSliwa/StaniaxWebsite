@@ -80,6 +80,10 @@ import whatsappImg1 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35.jpeg'
 import whatsappImg2 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35-2.jpeg'
 import whatsappHeroImg from '@/assets/whatsapp-hero-2026-03-05.jpeg'
 import tekstAkapituImg from '@/assets/Tekst akapitu-2.jpg'
+import lakierowanieTworzyw1 from '@/assets/lakierowanie-tworzyw-1.jpeg'
+import lakierowanieTworzyw2 from '@/assets/lakierowanie-tworzyw-2.jpeg'
+import lakierowanieTworzyw3 from '@/assets/lakierowanie-tworzyw-3.jpeg'
+import lakierowanieTworzyw4 from '@/assets/lakierowanie-tworzyw-4.jpeg'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -219,8 +223,8 @@ const servicesData: ServiceItem[] = [
     title: 'Lakierowanie Tworzyw',
     description: 'Precyzyjne lakierowanie detali z tworzyw sztucznych. Oferujemy pełną gamę kolorów i wykończeń, od matu po wysoki połysk, z gwarancją trwałości.',
     icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
-    image: serviceImg2,
-    images: [serviceImg2, automotiveAfter, whatsappImg1, tekstAkapituImg],
+    image: lakierowanieTworzyw1,
+    images: [lakierowanieTworzyw1, lakierowanieTworzyw2, lakierowanieTworzyw3, lakierowanieTworzyw4],
     alt: 'Lakierowanie elementów z tworzyw sztucznych',
     tagline: 'Estetyka i Ochrona',
     details: {
