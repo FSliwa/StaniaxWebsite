@@ -47,6 +47,7 @@ import {
 import liquidGoldHandVideo from '@/assets/liquid-gold-hand.mp4'
 import toroidAnimationVideo from '@/assets/toroid-animation.mp4'
 import liquidMetalVideo from '@/assets/metallic-transformation-video.mp4'
+import bridgeSectionVideo from '@/assets/whatsapp-video-2026-03-18.mp4'
 import vinylTransformationVideo from '@/assets/vinyl-transformation.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
@@ -1718,7 +1719,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
             >
               <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
                 <video
-                  src={liquidMetalVideo}
+                  src={bridgeSectionVideo}
                   autoPlay
                   loop
                   muted

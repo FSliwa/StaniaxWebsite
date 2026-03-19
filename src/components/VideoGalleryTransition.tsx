@@ -12,6 +12,7 @@ import sideTile2 from '@/assets/side-tile-2.jpg'
 import sideTile3 from '@/assets/spinning_machine.jpeg'
 import sideTile4 from '@/assets/three_reflectors_1765869273944.png'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
+import vacuumImg from '@/assets/vacuum-metalization.jpg'
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -138,12 +139,23 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         </div>
                     </motion.div>
 
-                    {/* Bottom row — 3 image tiles + 1 accent */}
+                    {/* Bottom right of row 2 — vacuum metalization image */}
                     <motion.div
                         variants={fadeUp}
                         initial="hidden"
                         animate={gridInView ? "visible" : "hidden"}
-                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
+                        className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
+                    >
+                        <img src={vacuumImg} alt="Metalizacja próżniowa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    </motion.div>
+
+                    {/* Bottom row — 4 image tiles */}
+                    <motion.div
+                        variants={fadeUp}
+                        initial="hidden"
+                        animate={gridInView ? "visible" : "hidden"}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
                         <img src={sideTile3} alt="Proces metalizacji" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -153,7 +165,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         variants={fadeUp}
                         initial="hidden"
                         animate={gridInView ? "visible" : "hidden"}
-                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.27 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
                         <img src={serviceImg1} alt="Powłoki metaliczne" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -163,7 +175,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         variants={fadeUp}
                         initial="hidden"
                         animate={gridInView ? "visible" : "hidden"}
-                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.32 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
                         <img src={sideTile1} alt="Kolorowe opakowania" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -173,7 +185,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         variants={fadeUp}
                         initial="hidden"
                         animate={gridInView ? "visible" : "hidden"}
-                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
+                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.37 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
                         <img src={sideTile4} alt="Reflektory" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
