@@ -7,12 +7,11 @@ import { t, type Lang } from '@/lib/translations'
 // Import assets
 import videoSrc from '@/assets/hand_effect_video.mp4'
 import centerImage from '@/assets/whatsapp-hero-2026-03-05.jpeg'
-import sideTile1 from '@/assets/colorful_packaging.png'
-import sideTile2 from '@/assets/side-tile-2.jpg'
-import sideTile3 from '@/assets/spinning_machine.jpeg'
-import sideTile4 from '@/assets/three_reflectors_1765869273944.png'
-import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
-import vacuumImg from '@/assets/vacuum-metalization.jpg'
+import bentoTile1 from '@/assets/bento-tile-1.jpeg'
+import bentoTile2 from '@/assets/bento-tile-2.jpeg'
+import bentoTile3 from '@/assets/bento-tile-3.jpeg'
+import bentoTile4 from '@/assets/bento-tile-4.jpeg'
+import bentoTile5 from '@/assets/bento-tile-5.jpeg'
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -121,7 +120,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
-                        <img src={sideTile2} alt="Metalizacja próżniowa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={bentoTile1} alt="Metalizacja próżniowa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </motion.div>
 
                     {/* Second stats tile */}
@@ -147,7 +146,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
-                        <img src={vacuumImg} alt="Metalizacja próżniowa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={bentoTile2} alt="Metalizacja próżniowa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </motion.div>
 
                     {/* Bottom row — 4 image tiles */}
@@ -158,7 +157,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
-                        <img src={sideTile3} alt="Proces metalizacji" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={bentoTile3} alt="Proces metalizacji" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </motion.div>
 
                     <motion.div
@@ -168,7 +167,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.27 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
-                        <img src={serviceImg1} alt="Powłoki metaliczne" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={bentoTile4} alt="Powłoki metaliczne" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </motion.div>
 
                     <motion.div
@@ -178,7 +177,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.32 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
-                        <img src={sideTile1} alt="Kolorowe opakowania" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={bentoTile5} alt="Lakierowanie przemysłowe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </motion.div>
 
                     <motion.div
@@ -188,7 +187,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.37 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
-                        <img src={sideTile4} alt="Reflektory" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={bentoTile3} alt="Reflektory" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </motion.div>
 
                 </div>
