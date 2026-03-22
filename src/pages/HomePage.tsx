@@ -58,6 +58,8 @@ import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
 import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
 import automotiveBefore from '@/assets/automotive-before.jpeg'
 import automotiveAfter from '@/assets/automotive-after.jpeg'
+import elementyPrzemyslowePrzed from '@/assets/elementy-przemyslowe-przed.jpeg'
+import elementyPrzemyslowePo from '@/assets/elementy-przemyslowe-po.mp4'
 import industrialBefore from '@/assets/industrial-before.jpeg'
 import industrialAfter from '@/assets/industrial-after.jpeg'
 
@@ -358,6 +360,7 @@ type CaseStudy = {
   subtitle: string
   imageBefore: string
   imageAfter: string
+  videoAfter?: string
   metrics: Array<{ value: string; label: string }>
   badge: string
 }
@@ -367,8 +370,9 @@ const caseStudiesData: CaseStudy[] = [
     id: 'industrial-elements',
     title: 'Elementy Przemysłowe',
     subtitle: 'Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania',
-    imageBefore: automotiveAfter,
-    imageAfter: automotiveBefore,
+    imageBefore: elementyPrzemyslowePrzed,
+    imageAfter: elementyPrzemyslowePrzed,
+    videoAfter: elementyPrzemyslowePo,
     metrics: [
       { value: '25+', label: 'Lat doświadczenia' },
       { value: '2500+', label: 'Projektów' },
@@ -1984,16 +1988,27 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                             className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                           />
 
-                          {/* After Image with Slider */}
+                          {/* After Image/Video with Slider */}
                           <div
                             className="absolute inset-0 overflow-hidden pointer-events-none"
                             style={{ clipPath: `inset(0 ${100 - beforeAfterSlider}% 0 0)` }}
                           >
-                            <img
-                              src={caseStudy.imageAfter}
-                              alt={`${caseStudy.title} - Po`}
-                              className="absolute inset-0 w-full h-full object-cover"
-                            />
+                            {caseStudy.videoAfter ? (
+                              <video
+                                src={caseStudy.videoAfter}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="absolute inset-0 w-full h-full object-cover"
+                              />
+                            ) : (
+                              <img
+                                src={caseStudy.imageAfter}
+                                alt={`${caseStudy.title} - Po`}
+                                className="absolute inset-0 w-full h-full object-cover"
+                              />
+                            )}
                           </div>
 
                           {/* Slider Handle */}
