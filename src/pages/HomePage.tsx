@@ -1991,7 +1991,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           {/* After Image/Video with Slider */}
                           <div
                             className="absolute inset-0 overflow-hidden pointer-events-none"
-                            style={{ clipPath: `inset(0 ${100 - beforeAfterSlider}% 0 0)` }}
+                            style={{ clipPath: `inset(0 0 0 ${beforeAfterSlider}%)` }}
                           >
                             {caseStudy.videoAfter ? (
                               <video
