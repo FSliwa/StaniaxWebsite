@@ -384,8 +384,8 @@ const caseStudiesData: CaseStudy[] = [
     id: 'cosmetics-packaging',
     title: 'Opakowania Kosmetyczne',
     subtitle: 'Metalizacja próżniowa opakowań kosmetycznych — efekt złota, srebra i chromu na nakrętkach, butelkach i słoiczkach',
-    imageBefore: packagingAfter,
-    imageAfter: packagingBefore,
+    imageBefore: packagingBefore,
+    imageAfter: packagingAfter,
     metrics: [
       { value: '2 mln+', label: 'Sztuk/Rok' },
       { value: '100%', label: 'Powtarzalność' }
@@ -396,8 +396,8 @@ const caseStudiesData: CaseStudy[] = [
     id: 'automotive-parts',
     title: 'Detale Motoryzacyjne',
     subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu',
-    imageBefore: industrialAfter,
-    imageAfter: industrialBefore,
+    imageBefore: industrialBefore,
+    imageAfter: industrialAfter,
     metrics: [
       { value: '100%', label: 'Kontrola jakości' },
       { value: '10K+', label: 'Detali/msc' }
