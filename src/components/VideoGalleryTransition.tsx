@@ -6,7 +6,7 @@ import { t, type Lang } from '@/lib/translations'
 
 // Import assets
 import videoSrc from '@/assets/hand_effect_video.mp4'
-import centerImage from '@/assets/whatsapp-hero-2026-03-05.jpeg'
+import centerImage from '@/assets/bento-center-image.jpeg'
 import bentoTile1 from '@/assets/bento-tile-1.jpeg'
 import bentoTile2 from '@/assets/bento-tile-2.jpeg'
 import bentoTile3 from '@/assets/bento-tile-3.jpeg'
