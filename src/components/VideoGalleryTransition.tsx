@@ -12,6 +12,8 @@ import bentoTile2 from '@/assets/bento-tile-2.jpeg'
 import bentoTile3 from '@/assets/bento-tile-3.jpeg'
 import bentoTile4 from '@/assets/bento-tile-4.jpeg'
 import bentoTile5 from '@/assets/bento-tile-5.jpeg'
+import zamiennik1 from '@/assets/zamiennik-1.jpeg'
+import zamiennik2 from '@/assets/zamiennik-2.jpeg'
 
 const fadeUp = {
     hidden: { opacity: 0, y: 40 },
@@ -146,7 +148,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.18 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
-                        <img src={bentoTile2} alt="Metalizacja próżniowa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={zamiennik1} alt="Metalizacja próżniowa" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </motion.div>
 
                     {/* Bottom row — 4 image tiles */}
@@ -157,7 +159,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
-                        <img src={bentoTile3} alt="Proces metalizacji" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={zamiennik2} alt="Proces metalizacji" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     </motion.div>
 
                     <motion.div
