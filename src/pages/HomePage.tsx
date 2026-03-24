@@ -260,7 +260,7 @@ const servicesData: ServiceItem[] = [
   },
   {
     id: 'reflectors',
-    title: 'Odblaski w Metalizacji',
+    title: 'Odbłyśniki w Metalizacji',
     description: 'Produkcja wysokiej jakości odbłyśników i reflektorów. Metalizacja zapewniająca maksymalny współczynnik odbicia światła dla branży oświetleniowej i motoryzacyjnej.',
     icon: <Target className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
@@ -343,12 +343,12 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: 'reflectors',
-    title: 'Odblaski i Reflektory',
+    title: 'Odbłyśniki i Reflektory',
     icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: projectImgPrototype,
     description: 'Metalizacja próżniowa reflektorów i elementów odblaskowych',
     details: 'Wysokiej jakości powłoki odblaskowe na reflektorach, kloszach lamp i elementach oświetleniowych.',
-    category: 'Odblaski',
+    category: 'Odbłyśniki',
     year: '2024'
   }
 ]
@@ -472,8 +472,8 @@ const techSpecsData: TechSpec[] = [
     materials: 'Lakiery organiczne, nieorganiczne'
   },
   {
-    id: 'odblaski',
-    method: 'Odblaski w Metalizacji',
+    id: 'odblyśniki',
+    method: 'Odbłyśniki w Metalizacji',
     temperature: '200-400°C',
     thickness: '0.1-1 μm',
     applications: 'Reflektory, klosze lamp, elementy oświetleniowe',
