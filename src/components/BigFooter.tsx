@@ -164,6 +164,7 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                                     <p className="mb-2">TEL: <a href="tel:+48882488844" className="text-white hover:text-blue-400 transition-colors font-semibold">+48 882 488 844</a></p>
                                 </motion.div>
                                 <p>EMAIL: <a href="mailto:metalizacja@staniax.pl" className="text-white hover:text-blue-400 transition-colors font-semibold">metalizacja@staniax.pl</a></p>
+                                <p className="mt-1">EMAIL: <a href="mailto:office@staniax.pl" className="text-white hover:text-blue-400 transition-colors font-semibold">office@staniax.pl</a></p>
                             </div>
 
                             <div>

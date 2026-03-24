@@ -35,7 +35,7 @@ const translations = {
     // Kim Jesteśmy
     oNas: 'O Nas',
     kimJestesmy: 'Kim\nJesteśmy',
-    kimJestesmyText1: 'Witamy w\u00a0STANIAX Sp.\u00a0z\u00a0o.o. (z\u00a0siedzibą w\u00a0Warszawie) — firmie specjalizującej się w\u00a0metalizacji próżniowej i\u00a0lakierowaniu natryskowym. Wysoka jakość, którą oferujemy naszym kontrahentom, jest gwarantem dobrej współpracy. Taką jakość czerpiemy od naszego mentora — Dariusza Staniaka, który od 1993 roku stał się liderem metalizacji próżniowej na Mazowszu w\u00a0Józefowie koło Otwocka. Dziś STANIAX jest kontynuacją jego wiedzy i\u00a0doświadczenia.',
+    kimJestesmyText1: 'Witamy w\u00a0STANIAX Sp.\u00a0z\u00a0o.o. (z\u00a0siedzibą w\u00a0Warszawie) — firmie specjalizującej się w\u00a0metalizacji próżniowej i\u00a0lakierowaniu natryskowym. Wysoka jakość, którą oferujemy naszym kontrahentom, jest gwarantem dobrej współpracy. Taką jakość czerpiemy od naszego mentora — **Dariusza Staniak**, który od 1993 roku stał się liderem metalizacji próżniowej na Mazowszu w\u00a0Józefowie koło Otwocka. Dziś STANIAX jest kontynuacją jego wiedzy i\u00a0doświadczenia.',
     kimJestesmyText2: 'Zespół wysoko wykwalifikowanych pracowników sprawia, że jakość naszych usług stawia nas w\u00a0czołówce podobnych firm w\u00a0Polsce. Zaletą naszą jest precyzja oraz możliwość szybkiego przeorganizowania otrzymanych zleceń — zwłaszcza dla klientów, którzy muszą wdrożyć nowe wzory.',
     wykwalifikowanyZespol: 'Wykwalifikowany zespół',
     nowoczesnyPark: 'Nowoczesny park maszynowy',
@@ -253,7 +253,7 @@ const translations = {
 
     oNas: 'About Us',
     kimJestesmy: 'Who\nWe Are',
-    kimJestesmyText1: 'Welcome to STANIAX Sp. z o.o. (headquartered in Warsaw) — a company specializing in vacuum metallization and spray painting. The high quality we offer our partners guarantees excellent cooperation. We draw this quality from our mentor — Dariusz Staniak, who since 1993 has been a leader in vacuum metallization in the Mazovia region near Warsaw. Today, STANIAX is a continuation of his knowledge and experience.',
+    kimJestesmyText1: 'Welcome to STANIAX Sp. z o.o. (headquartered in Warsaw) — a company specializing in vacuum metallization and spray painting. The high quality we offer our partners guarantees excellent cooperation. We draw this quality from our mentor — **Dariusz Staniak**, who since 1993 has been a leader in vacuum metallization in the Mazovia region near Warsaw. Today, STANIAX is a continuation of his knowledge and experience.',
     kimJestesmyText2: 'Our team of highly qualified professionals ensures that the quality of our services places us among the top companies in Poland. Our strengths are precision and the ability to quickly reorganize orders — especially for clients who need to implement new designs.',
     wykwalifikowanyZespol: 'Qualified team',
     nowoczesnyPark: 'Modern machinery',
@@ -457,7 +457,7 @@ const translations = {
 
     oNas: 'Über uns',
     kimJestesmy: 'Wer\nwir sind',
-    kimJestesmyText1: 'Willkommen bei STANIAX Sp. z o.o. (mit Sitz in Warschau) — einem Unternehmen, das auf Vakuummetallisierung und Sprühlackierung spezialisiert ist. Die hohe Qualität, die wir unseren Partnern bieten, ist Garant für eine gute Zusammenarbeit. Diese Qualität verdanken wir unserem Mentor — Dariusz Staniak, der seit 1993 ein führender Anbieter von Vakuummetallisierung in der Region Masowien bei Warschau ist. Heute ist STANIAX die Fortsetzung seines Wissens und seiner Erfahrung.',
+    kimJestesmyText1: 'Willkommen bei STANIAX Sp. z o.o. (mit Sitz in Warschau) — einem Unternehmen, das auf Vakuummetallisierung und Sprühlackierung spezialisiert ist. Die hohe Qualität, die wir unseren Partnern bieten, ist Garant für eine gute Zusammenarbeit. Diese Qualität verdanken wir unserem Mentor — **Dariusz Staniak**, der seit 1993 ein führender Anbieter von Vakuummetallisierung in der Region Masowien bei Warschau ist. Heute ist STANIAX die Fortsetzung seines Wissens und seiner Erfahrung.',
     kimJestesmyText2: 'Unser Team hochqualifizierter Mitarbeiter sorgt dafür, dass die Qualität unserer Dienstleistungen uns an die Spitze vergleichbarer Unternehmen in Polen stellt. Unsere Stärke ist die Präzision und die Fähigkeit, Aufträge schnell umzuorganisieren — insbesondere für Kunden, die neue Muster einführen müssen.',
     wykwalifikowanyZespol: 'Qualifiziertes Team',
     nowoczesnyPark: 'Moderner Maschinenpark',

@@ -98,6 +98,8 @@ import lakierowanieNatryskoweV2_1 from '@/assets/lakierowanie-natryskowe-v2-1.mp
 import lakierowanieNatryskoweV2_2 from '@/assets/lakierowanie-natryskowe-v2-2.jpeg'
 import odblysniki1 from '@/assets/odblysniki-nowe-1.jpeg'
 import odblysniki2 from '@/assets/odblysniki-nowe-2.jpeg'
+import whatsapp180620 from '@/assets/whatsapp-18-06-20.jpeg'
+import whatsapp104132 from '@/assets/whatsapp-10-41-32.jpeg'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -224,6 +226,7 @@ const servicesData: ServiceItem[] = [
       'Zaawansowana technologia napylania próżniowego nadająca efekt chromu, złota i innych metali na różnych podłożach. Ekologiczna alternatywa dla chromowania.',
     icon: <Gear className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
+    images: [lakierowanieNatryskoweV2_1, vacuumMetalizationImg, serviceImg1, serviceImg2],
     alt: 'Proces metalizacji próżniowej',
     tagline: 'Perfekcyjne powłoki metaliczne',
     details: {
@@ -284,7 +287,7 @@ const servicesData: ServiceItem[] = [
       'Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.',
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: lakierowanieNatryskowe1,
-    images: [lakierowanieNatryskoweV2_1, lakierowanieNatryskoweV2_2, lakierowanieNatryskowe3, lakierowanieNatryskowe4],
+    images: [whatsapp104132, lakierowanieNatryskoweV2_2, lakierowanieNatryskowe3, lakierowanieNatryskowe4],
     alt: 'Lakierowanie natryskowe elementów',
     tagline: 'Uniwersalne Wykończenie',
     details: {
@@ -1383,8 +1386,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           : 'text-slate-500/70'
                   )}
                 >
-                  <span className="text-base sm:text-lg lg:text-xl font-bold leading-tight whitespace-nowrap">Systemy metalizacji próżniowej</span>
-                  <span className="text-[10px] sm:text-xs lg:text-sm font-medium leading-tight mt-0.5">Lakierowanie tworzyw / szkła / metali</span>
+                  <span className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight whitespace-nowrap">Systemy metalizacji próżniowej</span>
+                  <span className="text-xs sm:text-sm lg:text-base font-medium leading-tight mt-0.5">Lakierowanie tworzyw / szkła / metali</span>
                 </span>
               </button>
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
@@ -1607,7 +1610,11 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   {t(lang, 'kimJestesmy').split('\n').map((line, i) => <span key={i}>{line}<br /></span>)}
                 </h2>
                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-                  {t(lang, 'kimJestesmyText1')}
+                  {t(lang, 'kimJestesmyText1').split(/(\*\*.*?\*\*)/).map((part, i) =>
+                    part.startsWith('**') && part.endsWith('**')
+                      ? <strong key={i} className="font-bold text-gray-900">{part.slice(2, -2)}</strong>
+                      : part
+                  )}
                 </p>
                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
                   {t(lang, 'kimJestesmyText2')}
@@ -1658,7 +1665,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               <div className="relative">
                 <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
                   <img
-                    src={vacuumMetalizationImg}
+                    src={whatsapp180620}
                     alt="Zespół STANIAX - metalizacja próżniowa"
                     className="w-full h-full object-cover"
                   />
@@ -2619,6 +2626,9 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <p className="text-lg font-bold text-gray-900 break-all group-hover:text-blue-700 transition-colors">
                           metalizacja@staniax.pl
                         </p>
+                        <a href="mailto:office@staniax.pl" className="text-lg font-bold text-gray-900 break-all hover:text-blue-700 transition-colors block mt-1">
+                          office@staniax.pl
+                        </a>
                         <p className="text-sm text-gray-600 mt-1">
                           {t(lang, 'odpowiadamyW24h')}
                         </p>
