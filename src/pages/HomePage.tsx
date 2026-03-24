@@ -96,6 +96,8 @@ import lakierowanieNatryskowe3 from '@/assets/lakierowanie-natryskowe-3.jpeg'
 import lakierowanieNatryskowe4 from '@/assets/lakierowanie-natryskowe-4.jpeg'
 import lakierowanieNatryskoweV2_1 from '@/assets/lakierowanie-natryskowe-v2-1.mp4'
 import lakierowanieNatryskoweV2_2 from '@/assets/lakierowanie-natryskowe-v2-2.jpeg'
+import odblysniki1 from '@/assets/odblysniki-nowe-1.jpeg'
+import odblysniki2 from '@/assets/odblysniki-nowe-2.jpeg'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -266,6 +268,7 @@ const servicesData: ServiceItem[] = [
     description: 'Produkcja wysokiej jakości odbłyśników i reflektorów. Metalizacja zapewniająca maksymalny współczynnik odbicia światła dla branży oświetleniowej i motoryzacyjnej.',
     icon: <Target className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
+    images: [odblysniki1, odblysniki2],
     alt: 'Metalizowane odbłyśniki',
     tagline: 'Maksymalna Refleksja',
     details: {
@@ -1890,6 +1893,19 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
                                   />
                                 )}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                              </div>
+                            ))}
+                          </div>
+                        ) : service.images && service.images.length === 2 ? (
+                          <div className="grid grid-rows-2 gap-3 aspect-[4/3]">
+                            {service.images.map((img, imgIdx) => (
+                              <div key={imgIdx} className="relative rounded-2xl overflow-hidden shadow-xl group/img">
+                                <img
+                                  src={img}
+                                  alt={`${service.alt} ${imgIdx + 1}`}
+                                  className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                                />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
                               </div>
                             ))}
