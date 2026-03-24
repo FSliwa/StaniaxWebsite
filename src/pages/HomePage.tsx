@@ -81,6 +81,7 @@ import automotivePartAfterImg from '@/assets/automotive_part_after_coating_17658
 import whatsappImg1 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35.jpeg'
 import whatsappImg2 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35-2.jpeg'
 import whatsappHeroImg from '@/assets/whatsapp-hero-2026-03-05.jpeg'
+import whatsapp180620 from '@/assets/whatsapp-18-06-20.jpeg'
 import tekstAkapituImg from '@/assets/Tekst akapitu-2.jpg'
 import lakierowanieTworzyw1 from '@/assets/lakierowanie-tworzyw-1.jpeg'
 import lakierowanieTworzyw2 from '@/assets/lakierowanie-tworzyw-2.jpeg'
@@ -96,10 +97,9 @@ import lakierowanieNatryskowe3 from '@/assets/lakierowanie-natryskowe-3.jpeg'
 import lakierowanieNatryskowe4 from '@/assets/lakierowanie-natryskowe-4.jpeg'
 import lakierowanieNatryskoweV2_1 from '@/assets/lakierowanie-natryskowe-v2-1.mp4'
 import lakierowanieNatryskoweV2_2 from '@/assets/lakierowanie-natryskowe-v2-2.jpeg'
+import whatsapp104132 from '@/assets/whatsapp-10-41-32.jpeg'
 import odblysniki1 from '@/assets/odblysniki-nowe-1.jpeg'
 import odblysniki2 from '@/assets/odblysniki-nowe-2.jpeg'
-import whatsapp180620 from '@/assets/whatsapp-18-06-20.jpeg'
-import whatsapp104132 from '@/assets/whatsapp-10-41-32.jpeg'
 
 const fallbackAnimationSrc = liquidGoldHandVideo
 
@@ -226,7 +226,7 @@ const servicesData: ServiceItem[] = [
       'Zaawansowana technologia napylania próżniowego nadająca efekt chromu, złota i innych metali na różnych podłożach. Ekologiczna alternatywa dla chromowania.',
     icon: <Gear className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
-    images: [lakierowanieNatryskoweV2_1, vacuumMetalizationImg, serviceImg1, serviceImg2],
+    images: [lakierowanieNatryskoweV2_1],
     alt: 'Proces metalizacji próżniowej',
     tagline: 'Perfekcyjne powłoki metaliczne',
     details: {
@@ -1362,7 +1362,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               >
                 <span
                   className={cn(
-                    'text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter transition-colors duration-500 shrink-0',
+                    'text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter transition-colors duration-500 shrink-0',
                     isMenuOpen
                       ? 'text-slate-700'
                       : isDarkHeaderContext
@@ -1386,8 +1386,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           : 'text-slate-500/70'
                   )}
                 >
-                  <span className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight whitespace-nowrap">Systemy metalizacji próżniowej</span>
-                  <span className="text-xs sm:text-sm lg:text-base font-medium leading-tight mt-0.5">Lakierowanie tworzyw / szkła / metali</span>
+                  <span className="text-xl sm:text-2xl lg:text-3xl font-bold leading-tight whitespace-nowrap">Systemy metalizacji próżniowej</span>
+                  <span className="text-[15px] sm:text-base lg:text-xl font-medium leading-tight mt-0.5">Lakierowanie tworzyw / szkła / metali</span>
                 </span>
               </button>
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
@@ -1610,11 +1610,16 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   {t(lang, 'kimJestesmy').split('\n').map((line, i) => <span key={i}>{line}<br /></span>)}
                 </h2>
                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-                  {t(lang, 'kimJestesmyText1').split(/(\*\*.*?\*\*)/).map((part, i) =>
-                    part.startsWith('**') && part.endsWith('**')
-                      ? <strong key={i} className="font-bold text-gray-900">{part.slice(2, -2)}</strong>
-                      : part
-                  )}
+                  {(() => {
+                    const text = t(lang, 'kimJestesmyText1')
+                    const nameMap: Record<string, string> = { pl: 'Dariusza Staniak', en: 'Dariusz Staniak', de: 'Dariusz Staniak' }
+                    const name = nameMap[lang] || 'Dariusza Staniak'
+                    const parts = text.split(name)
+                    if (parts.length === 2) {
+                      return <>{parts[0]}<strong className="font-bold text-gray-900">{name}</strong>{parts[1]}</>
+                    }
+                    return text
+                  })()}
                 </p>
                 <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
                   {t(lang, 'kimJestesmyText2')}
@@ -1917,6 +1922,30 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
                               </div>
                             ))}
+                          </div>
+                        ) : service.images && service.images.length === 1 ? (
+                          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
+                            {typeof service.images[0] === 'string' && service.images[0].includes('.mp4') ? (
+                              <video
+                                src={service.images[0]}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              />
+                            ) : (
+                              <img
+                                src={service.images[0]}
+                                alt={service.alt}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              />
+                            )}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                              <div className="text-white/20">
+                                {service.icon}
+                              </div>
+                            </div>
                           </div>
                         ) : (
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
@@ -2614,8 +2643,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
                   {/* Email */}
                   <div className="group">
-                    <a
-                      href="mailto:metalizacja@staniax.pl"
+                    <div
                       className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
                     >
                       <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -2623,17 +2651,17 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'emailLabel')}</h3>
-                        <p className="text-lg font-bold text-gray-900 break-all group-hover:text-blue-700 transition-colors">
+                        <a href="mailto:metalizacja@staniax.pl" className="block text-lg font-bold text-gray-900 break-all hover:text-blue-700 transition-colors">
                           metalizacja@staniax.pl
-                        </p>
-                        <a href="mailto:office@staniax.pl" className="text-lg font-bold text-gray-900 break-all hover:text-blue-700 transition-colors block mt-1">
+                        </a>
+                        <a href="mailto:office@staniax.pl" className="block text-lg font-bold text-gray-900 break-all hover:text-blue-700 transition-colors mt-1">
                           office@staniax.pl
                         </a>
                         <p className="text-sm text-gray-600 mt-1">
                           {t(lang, 'odpowiadamyW24h')}
                         </p>
                       </div>
-                    </a>
+                    </div>
                   </div>
                 </motion.div>
               </div>
