@@ -764,6 +764,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     message: '',
     file: null as File | null
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   // STICKY SIDE NAVIGATION STATE
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
@@ -2423,24 +2424,44 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 {/* Submit Button */}
                 <div className="flex justify-end mt-8">
                   <Button
-                    onClick={() => {
-                      triggerConfetti()
-                      toast.success(t(lang, 'toastSuccess'))
-                      setSmartFormData({
-                        projectType: '',
-                        technology: '',
-                        firstName: '',
-                        lastName: '',
-                        email: '',
-                        phone: '',
-                        message: '',
-                        file: null
-                      })
+                    onClick={async () => {
+                      setIsSubmitting(true)
+                      try {
+                        const res = await fetch('/api/send-email', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({
+                            projectType: smartFormData.projectType,
+                            firstName: smartFormData.firstName,
+                            lastName: smartFormData.lastName,
+                            email: smartFormData.email,
+                            phone: smartFormData.phone,
+                            message: smartFormData.message
+                          })
+                        })
+                        if (!res.ok) throw new Error('Send failed')
+                        triggerConfetti()
+                        toast.success(t(lang, 'toastSuccess'))
+                        setSmartFormData({
+                          projectType: '',
+                          technology: '',
+                          firstName: '',
+                          lastName: '',
+                          email: '',
+                          phone: '',
+                          message: '',
+                          file: null
+                        })
+                      } catch {
+                        toast.error('Nie udało się wysłać wiadomości. Spróbuj ponownie.')
+                      } finally {
+                        setIsSubmitting(false)
+                      }
                     }}
                     className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button px-8 py-3"
-                    disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message || !smartFormData.projectType}
+                    disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message || !smartFormData.projectType || isSubmitting}
                   >
-                    {t(lang, 'wyslijZapytanie')}
+                    {isSubmitting ? 'Wysyłanie...' : t(lang, 'wyslijZapytanie')}
                   </Button>
                 </div>
               </div>
