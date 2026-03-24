@@ -20,3 +20,5 @@ yarn-error.log*
 # macOS
 .DS_Store
 wetransfer_staniax_2025-11-26_1843/
+.vercel
+.env*.local
