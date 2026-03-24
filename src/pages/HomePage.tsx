@@ -1353,7 +1353,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               >
                 <span
                   className={cn(
-                    'text-3xl sm:text-4xl lg:text-5xl font-black tracking-tighter transition-colors duration-500 shrink-0',
+                    'text-4xl sm:text-5xl lg:text-6xl font-black tracking-tighter transition-colors duration-500 shrink-0',
                     isMenuOpen
                       ? 'text-slate-700'
                       : isDarkHeaderContext
@@ -1377,8 +1377,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           : 'text-slate-500/70'
                   )}
                 >
-                  <span className="text-sm sm:text-base lg:text-lg font-bold leading-tight whitespace-nowrap">Systemy metalizacji próżniowej</span>
-                  <span className="text-[9px] sm:text-[10px] lg:text-xs font-medium leading-tight mt-0.5">Lakierowanie tworzyw / szkła / metali</span>
+                  <span className="text-base sm:text-lg lg:text-xl font-bold leading-tight whitespace-nowrap">Systemy metalizacji próżniowej</span>
+                  <span className="text-[10px] sm:text-xs lg:text-sm font-medium leading-tight mt-0.5">Lakierowanie tworzyw / szkła / metali</span>
                 </span>
               </button>
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
