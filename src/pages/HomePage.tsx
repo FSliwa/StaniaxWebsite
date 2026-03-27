@@ -1971,10 +1971,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               </div>
             </div>
 
-
-
-
-
             {/* CTA after About section */}
             <div className="mt-16 text-center">
               <button
@@ -2218,7 +2214,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   →
                 </button>
               </div>
-            </div
+            </div>
 
             {/* CTA - Traditional Grid Below Carousel */}
             <div className="text-center mt-20">
