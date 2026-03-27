@@ -1386,8 +1386,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           : 'text-slate-500/70'
                   )}
                 >
-                  <span className="text-xl sm:text-2xl lg:text-3xl font-bold leading-tight whitespace-nowrap">Systemy metalizacji próżniowej</span>
-                  <span className="text-[15px] sm:text-base lg:text-xl font-medium leading-tight mt-0.5">Lakierowanie tworzyw / szkła / metali</span>
+                  <span className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight whitespace-nowrap">Systemy metalizacji próżniowej</span>
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight mt-0.5">Lakierowanie tworzyw / szkła / metali</span>
                 </span>
               </button>
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
@@ -1714,7 +1714,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
               {/* Big statement */}
               <div className="max-w-5xl">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-gray-900 tracking-tighter leading-[0.95] mb-8">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-gray-900 tracking-tight leading-[0.95] mb-8">
                   {t(lang, 'technologiaKtoraZmienia')}<br />
                   <span className="text-blue-600">{t(lang, 'ktoraZmienia')}</span><br />
                   {t(lang, 'powierzchnie')}
@@ -1786,7 +1786,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
           <div className="container mx-auto px-6 lg:px-12 relative z-10">
             {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
-            <div className="text-right mb-20 section-reveal">
+            <div className="text-right mb-20 max-w-7xl section-reveal">
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">{t(lang, 'ofertaLabel')}</p>
               <div className="bg-white py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
                 <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
@@ -2019,7 +2019,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       activeSlide === index ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 pointer-events-none'
                     )}
                   >
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div className="grid lg:grid-cols-2 gap-12">
                       {/* Left: Before/After Image Comparison */}
                       <TiltCard className="relative group">
                         <div
@@ -2218,7 +2218,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   →
                 </button>
               </div>
-            </div>
+            </div
 
             {/* CTA - Traditional Grid Below Carousel */}
             <div className="text-center mt-20">
@@ -2243,7 +2243,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">{t(lang, 'faqLabel')}</p>
 
               <div className="mb-12 text-center">
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400 whitespace-pre-line">
+                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
                   {t(lang, 'faqTitle')}
                 </h2>
                 <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
