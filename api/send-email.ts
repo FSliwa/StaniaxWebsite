@@ -62,7 +62,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const { data, error } = await resend.emails.send({
       from: 'STANIAX Formularz <formularz@staniax.pl>',
-      to: ['filipsliwa.business.contact@gmail.com', 'mmantey@gmail.com'],
+      to: ['metalizacja@staniax.pl', 'filipsliwa.business.contact@gmail.com'],
       subject: `Nowe zapytanie: ${projectType} — ${firstName} ${lastName || ''}`.trim(),
       html: htmlContent,
       replyTo: email

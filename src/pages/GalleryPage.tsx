@@ -25,6 +25,101 @@ import gallery17 from '@/assets/gallery/gallery-17.jpg'
 import gallery18 from '@/assets/gallery/gallery-18.jpg'
 import gallery19 from '@/assets/gallery/gallery-19.jpg'
 import gallery20 from '@/assets/gallery/gallery-20.jpg'
+import gallery21 from '@/assets/gallery/gallery-21.jpg'
+import gallery22 from '@/assets/gallery/gallery-22.jpg'
+import gallery23 from '@/assets/gallery/gallery-23.jpg'
+import gallery24 from '@/assets/gallery/gallery-24.jpg'
+import gallery25 from '@/assets/gallery/gallery-25.jpg'
+import gallery26 from '@/assets/gallery/gallery-26.jpg'
+import gallery27 from '@/assets/gallery/gallery-27.jpg'
+import gallery28 from '@/assets/gallery/gallery-28.jpg'
+import gallery29 from '@/assets/gallery/gallery-29.jpg'
+import gallery30 from '@/assets/gallery/gallery-30.jpg'
+import gallery31 from '@/assets/gallery/gallery-31.jpg'
+import gallery32 from '@/assets/gallery/gallery-32.jpg'
+import gallery33 from '@/assets/gallery/gallery-33.jpg'
+import gallery34 from '@/assets/gallery/gallery-34.jpg'
+import gallery35 from '@/assets/gallery/gallery-35.jpg'
+import gallery36 from '@/assets/gallery/gallery-36.jpg'
+import gallery37 from '@/assets/gallery/gallery-37.jpg'
+import gallery38 from '@/assets/gallery/gallery-38.jpg'
+import gallery39 from '@/assets/gallery/gallery-39.jpg'
+import gallery40 from '@/assets/gallery/gallery-40.jpg'
+import gallery41 from '@/assets/gallery/gallery-41.jpg'
+import gallery42 from '@/assets/gallery/gallery-42.jpg'
+import gallery43 from '@/assets/gallery/gallery-43.jpg'
+import gallery44 from '@/assets/gallery/gallery-44.jpg'
+import gallery45 from '@/assets/gallery/gallery-45.jpg'
+import gallery46 from '@/assets/gallery/gallery-46.jpg'
+import gallery47 from '@/assets/gallery/gallery-47.jpg'
+import gallery48 from '@/assets/gallery/gallery-48.jpg'
+import gallery49 from '@/assets/gallery/gallery-49.jpg'
+import gallery50 from '@/assets/gallery/gallery-50.jpg'
+import gallery51 from '@/assets/gallery/gallery-51.jpg'
+import gallery52 from '@/assets/gallery/gallery-52.jpg'
+import gallery53 from '@/assets/gallery/gallery-53.jpg'
+import gallery54 from '@/assets/gallery/gallery-54.jpg'
+import gallery55 from '@/assets/gallery/gallery-55.jpg'
+import gallery56 from '@/assets/gallery/gallery-56.jpg'
+import gallery57 from '@/assets/gallery/gallery-57.jpg'
+import gallery58 from '@/assets/gallery/gallery-58.jpg'
+import gallery59 from '@/assets/gallery/gallery-59.jpg'
+import gallery60 from '@/assets/gallery/gallery-60.jpg'
+import gallery61 from '@/assets/gallery/gallery-61.jpg'
+import gallery62 from '@/assets/gallery/gallery-62.jpg'
+import gallery63 from '@/assets/gallery/gallery-63.jpg'
+import gallery64 from '@/assets/gallery/gallery-64.jpg'
+import gallery65 from '@/assets/gallery/gallery-65.jpg'
+import gallery66 from '@/assets/gallery/gallery-66.jpg'
+import gallery67 from '@/assets/gallery/gallery-67.jpg'
+import gallery68 from '@/assets/gallery/gallery-68.jpg'
+import gallery69 from '@/assets/gallery/gallery-69.jpg'
+import gallery70 from '@/assets/gallery/gallery-70.jpg'
+import gallery71 from '@/assets/gallery/gallery-71.jpg'
+import gallery72 from '@/assets/gallery/gallery-72.jpg'
+import gallery73 from '@/assets/gallery/gallery-73.jpg'
+import gallery74 from '@/assets/gallery/gallery-74.jpg'
+import gallery75 from '@/assets/gallery/gallery-75.jpg'
+import gallery76 from '@/assets/gallery/gallery-76.jpg'
+import gallery77 from '@/assets/gallery/gallery-77.jpg'
+import gallery78 from '@/assets/gallery/gallery-78.jpg'
+import gallery79 from '@/assets/gallery/gallery-79.jpg'
+import gallery80 from '@/assets/gallery/gallery-80.jpg'
+import gallery81 from '@/assets/gallery/gallery-81.jpg'
+import gallery82 from '@/assets/gallery/gallery-82.jpg'
+import gallery83 from '@/assets/gallery/gallery-83.jpg'
+import gallery84 from '@/assets/gallery/gallery-84.jpg'
+import gallery85 from '@/assets/gallery/gallery-85.jpg'
+import gallery86 from '@/assets/gallery/gallery-86.jpg'
+import gallery87 from '@/assets/gallery/gallery-87.jpg'
+import gallery88 from '@/assets/gallery/gallery-88.jpg'
+import gallery89 from '@/assets/gallery/gallery-89.jpg'
+import gallery90 from '@/assets/gallery/gallery-90.jpg'
+import gallery91 from '@/assets/gallery/gallery-91.jpg'
+import gallery92 from '@/assets/gallery/gallery-92.jpg'
+import gallery93 from '@/assets/gallery/gallery-93.jpg'
+import gallery94 from '@/assets/gallery/gallery-94.jpg'
+import gallery95 from '@/assets/gallery/gallery-95.jpg'
+import gallery96 from '@/assets/gallery/gallery-96.jpg'
+import gallery97 from '@/assets/gallery/gallery-97.jpg'
+import gallery98 from '@/assets/gallery/gallery-98.jpg'
+import gallery99 from '@/assets/gallery/gallery-99.jpg'
+import gallery100 from '@/assets/gallery/gallery-100.jpg'
+import gallery101 from '@/assets/gallery/gallery-101.jpg'
+import gallery102 from '@/assets/gallery/gallery-102.jpg'
+import gallery103 from '@/assets/gallery/gallery-103.jpg'
+import gallery104 from '@/assets/gallery/gallery-104.jpg'
+import gallery105 from '@/assets/gallery/gallery-105.jpg'
+import gallery106 from '@/assets/gallery/gallery-106.jpg'
+import gallery107 from '@/assets/gallery/gallery-107.jpg'
+import gallery108 from '@/assets/gallery/gallery-108.jpg'
+import gallery109 from '@/assets/gallery/gallery-109.jpg'
+import gallery110 from '@/assets/gallery/gallery-110.jpg'
+import gallery111 from '@/assets/gallery/gallery-111.jpg'
+import gallery112 from '@/assets/gallery/gallery-112.jpg'
+import gallery113 from '@/assets/gallery/gallery-113.jpg'
+import gallery114 from '@/assets/gallery/gallery-114.jpg'
+import gallery115 from '@/assets/gallery/gallery-115.jpg'
 
 const galleryImages = [
   // Złoto (8) — ciepłe, złotawe tony dominujące w centrum zdjęcia
@@ -52,6 +147,101 @@ const galleryImages = [
   { src: gallery13, alt: 'Wielobarwna metalizacja dekoracyjna', category: 'Dekoracyjne' },
   { src: gallery14, alt: 'Dekoracyjne wykończenie z akcentami kolorowymi', category: 'Dekoracyjne' },
   { src: gallery15, alt: 'Dekoracyjna powłoka z efektem kolorystycznym', category: 'Dekoracyjne' },
+  { src: gallery21, alt: 'Chrom - metalizacja realizacja 21', category: 'Chrom' },
+  { src: gallery22, alt: 'Chrom - metalizacja realizacja 22', category: 'Chrom' },
+  { src: gallery23, alt: 'Złoto - metalizacja realizacja 23', category: 'Złoto' },
+  { src: gallery24, alt: 'Dekoracyjne - metalizacja realizacja 24', category: 'Dekoracyjne' },
+  { src: gallery25, alt: 'Dekoracyjne - metalizacja realizacja 25', category: 'Dekoracyjne' },
+  { src: gallery26, alt: 'Chrom - metalizacja realizacja 26', category: 'Chrom' },
+  { src: gallery27, alt: 'Dekoracyjne - metalizacja realizacja 27', category: 'Dekoracyjne' },
+  { src: gallery28, alt: 'Chrom - metalizacja realizacja 28', category: 'Chrom' },
+  { src: gallery29, alt: 'Chrom - metalizacja realizacja 29', category: 'Chrom' },
+  { src: gallery30, alt: 'Chrom - metalizacja realizacja 30', category: 'Chrom' },
+  { src: gallery31, alt: 'Chrom - metalizacja realizacja 31', category: 'Chrom' },
+  { src: gallery32, alt: 'Chrom - metalizacja realizacja 32', category: 'Chrom' },
+  { src: gallery33, alt: 'Dekoracyjne - metalizacja realizacja 33', category: 'Dekoracyjne' },
+  { src: gallery34, alt: 'Złoto - metalizacja realizacja 34', category: 'Złoto' },
+  { src: gallery35, alt: 'Chrom - metalizacja realizacja 35', category: 'Chrom' },
+  { src: gallery36, alt: 'Chrom - metalizacja realizacja 36', category: 'Chrom' },
+  { src: gallery37, alt: 'Złoto - metalizacja realizacja 37', category: 'Złoto' },
+  { src: gallery38, alt: 'Dekoracyjne - metalizacja realizacja 38', category: 'Dekoracyjne' },
+  { src: gallery39, alt: 'Chrom - metalizacja realizacja 39', category: 'Chrom' },
+  { src: gallery40, alt: 'Chrom - metalizacja realizacja 40', category: 'Chrom' },
+  { src: gallery41, alt: 'Chrom - metalizacja realizacja 41', category: 'Chrom' },
+  { src: gallery42, alt: 'Dekoracyjne - metalizacja realizacja 42', category: 'Dekoracyjne' },
+  { src: gallery43, alt: 'Chrom - metalizacja realizacja 43', category: 'Chrom' },
+  { src: gallery44, alt: 'Chrom - metalizacja realizacja 44', category: 'Chrom' },
+  { src: gallery45, alt: 'Chrom - metalizacja realizacja 45', category: 'Chrom' },
+  { src: gallery46, alt: 'Chrom - metalizacja realizacja 46', category: 'Chrom' },
+  { src: gallery47, alt: 'Chrom - metalizacja realizacja 47', category: 'Chrom' },
+  { src: gallery48, alt: 'Chrom - metalizacja realizacja 48', category: 'Chrom' },
+  { src: gallery49, alt: 'Chrom - metalizacja realizacja 49', category: 'Chrom' },
+  { src: gallery50, alt: 'Chrom - metalizacja realizacja 50', category: 'Chrom' },
+  { src: gallery51, alt: 'Złoto - metalizacja realizacja 51', category: 'Złoto' },
+  { src: gallery52, alt: 'Dekoracyjne - metalizacja realizacja 52', category: 'Dekoracyjne' },
+  { src: gallery53, alt: 'Chrom - metalizacja realizacja 53', category: 'Chrom' },
+  { src: gallery54, alt: 'Dekoracyjne - metalizacja realizacja 54', category: 'Dekoracyjne' },
+  { src: gallery55, alt: 'Chrom - metalizacja realizacja 55', category: 'Chrom' },
+  { src: gallery56, alt: 'Chrom - metalizacja realizacja 56', category: 'Chrom' },
+  { src: gallery57, alt: 'Złoto - metalizacja realizacja 57', category: 'Złoto' },
+  { src: gallery58, alt: 'Chrom - metalizacja realizacja 58', category: 'Chrom' },
+  { src: gallery59, alt: 'Złoto - metalizacja realizacja 59', category: 'Złoto' },
+  { src: gallery60, alt: 'Złoto - metalizacja realizacja 60', category: 'Złoto' },
+  { src: gallery61, alt: 'Chrom - metalizacja realizacja 61', category: 'Chrom' },
+  { src: gallery62, alt: 'Chrom - metalizacja realizacja 62', category: 'Chrom' },
+  { src: gallery63, alt: 'Chrom - metalizacja realizacja 63', category: 'Chrom' },
+  { src: gallery64, alt: 'Złoto - metalizacja realizacja 64', category: 'Złoto' },
+  { src: gallery65, alt: 'Chrom - metalizacja realizacja 65', category: 'Chrom' },
+  { src: gallery66, alt: 'Chrom - metalizacja realizacja 66', category: 'Chrom' },
+  { src: gallery67, alt: 'Dekoracyjne - metalizacja realizacja 67', category: 'Dekoracyjne' },
+  { src: gallery68, alt: 'Dekoracyjne - metalizacja realizacja 68', category: 'Dekoracyjne' },
+  { src: gallery69, alt: 'Chrom - metalizacja realizacja 69', category: 'Chrom' },
+  { src: gallery70, alt: 'Chrom - metalizacja realizacja 70', category: 'Chrom' },
+  { src: gallery71, alt: 'Dekoracyjne - metalizacja realizacja 71', category: 'Dekoracyjne' },
+  { src: gallery72, alt: 'Dekoracyjne - metalizacja realizacja 72', category: 'Dekoracyjne' },
+  { src: gallery73, alt: 'Chrom - metalizacja realizacja 73', category: 'Chrom' },
+  { src: gallery74, alt: 'Złoto - metalizacja realizacja 74', category: 'Złoto' },
+  { src: gallery75, alt: 'Chrom - metalizacja realizacja 75', category: 'Chrom' },
+  { src: gallery76, alt: 'Chrom - metalizacja realizacja 76', category: 'Chrom' },
+  { src: gallery77, alt: 'Chrom - metalizacja realizacja 77', category: 'Chrom' },
+  { src: gallery78, alt: 'Chrom - metalizacja realizacja 78', category: 'Chrom' },
+  { src: gallery79, alt: 'Chrom - metalizacja realizacja 79', category: 'Chrom' },
+  { src: gallery80, alt: 'Złoto - metalizacja realizacja 80', category: 'Złoto' },
+  { src: gallery81, alt: 'Złoto - metalizacja realizacja 81', category: 'Złoto' },
+  { src: gallery82, alt: 'Dekoracyjne - metalizacja realizacja 82', category: 'Dekoracyjne' },
+  { src: gallery83, alt: 'Złoto - metalizacja realizacja 83', category: 'Złoto' },
+  { src: gallery84, alt: 'Chrom - metalizacja realizacja 84', category: 'Chrom' },
+  { src: gallery85, alt: 'Dekoracyjne - metalizacja realizacja 85', category: 'Dekoracyjne' },
+  { src: gallery86, alt: 'Chrom - metalizacja realizacja 86', category: 'Chrom' },
+  { src: gallery87, alt: 'Złoto - metalizacja realizacja 87', category: 'Złoto' },
+  { src: gallery88, alt: 'Złoto - metalizacja realizacja 88', category: 'Złoto' },
+  { src: gallery89, alt: 'Chrom - metalizacja realizacja 89', category: 'Chrom' },
+  { src: gallery90, alt: 'Złoto - metalizacja realizacja 90', category: 'Złoto' },
+  { src: gallery91, alt: 'Złoto - metalizacja realizacja 91', category: 'Złoto' },
+  { src: gallery92, alt: 'Złoto - metalizacja realizacja 92', category: 'Złoto' },
+  { src: gallery93, alt: 'Chrom - metalizacja realizacja 93', category: 'Chrom' },
+  { src: gallery94, alt: 'Chrom - metalizacja realizacja 94', category: 'Chrom' },
+  { src: gallery95, alt: 'Chrom - metalizacja realizacja 95', category: 'Chrom' },
+  { src: gallery96, alt: 'Chrom - metalizacja realizacja 96', category: 'Chrom' },
+  { src: gallery97, alt: 'Chrom - metalizacja realizacja 97', category: 'Chrom' },
+  { src: gallery98, alt: 'Złoto - metalizacja realizacja 98', category: 'Złoto' },
+  { src: gallery99, alt: 'Chrom - metalizacja realizacja 99', category: 'Chrom' },
+  { src: gallery100, alt: 'Dekoracyjne - metalizacja realizacja 100', category: 'Dekoracyjne' },
+  { src: gallery101, alt: 'Dekoracyjne - metalizacja realizacja 101', category: 'Dekoracyjne' },
+  { src: gallery102, alt: 'Chrom - metalizacja realizacja 102', category: 'Chrom' },
+  { src: gallery103, alt: 'Dekoracyjne - metalizacja realizacja 103', category: 'Dekoracyjne' },
+  { src: gallery104, alt: 'Chrom - metalizacja realizacja 104', category: 'Chrom' },
+  { src: gallery105, alt: 'Chrom - metalizacja realizacja 105', category: 'Chrom' },
+  { src: gallery106, alt: 'Chrom - metalizacja realizacja 106', category: 'Chrom' },
+  { src: gallery107, alt: 'Złoto - metalizacja realizacja 107', category: 'Złoto' },
+  { src: gallery108, alt: 'Chrom - metalizacja realizacja 108', category: 'Chrom' },
+  { src: gallery109, alt: 'Dekoracyjne - metalizacja realizacja 109', category: 'Dekoracyjne' },
+  { src: gallery110, alt: 'Chrom - metalizacja realizacja 110', category: 'Chrom' },
+  { src: gallery111, alt: 'Złoto - metalizacja realizacja 111', category: 'Złoto' },
+  { src: gallery112, alt: 'Chrom - metalizacja realizacja 112', category: 'Chrom' },
+  { src: gallery113, alt: 'Chrom - metalizacja realizacja 113', category: 'Chrom' },
+  { src: gallery114, alt: 'Chrom - metalizacja realizacja 114', category: 'Chrom' },
+  { src: gallery115, alt: 'Złoto - metalizacja realizacja 115', category: 'Złoto' },
 ]
 
 const categories = ['Wszystkie', 'Złoto', 'Chrom', 'Dekoracyjne']
