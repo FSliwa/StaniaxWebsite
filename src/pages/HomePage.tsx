@@ -1308,6 +1308,9 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   return (
     <SmoothScroll>
       <main className="min-h-screen bg-white selection:bg-blue-500/30">
+        <h1 className="sr-only">
+          STANIAX - Metalizacja próżniowa Dariusz Staniak. Metalizacja próżniowa Józefów, profesjonalna metalizacja odbłyśników, lakierowanie tworzyw, szkła oraz metalizacja natryskowa.
+        </h1>
         {/* Scroll Progress Bar */}
         <div
           className="scroll-progress"
