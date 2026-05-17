@@ -538,6 +538,12 @@ type FAQItem = {
 
 const faqData: FAQItem[] = [
   {
+    id: 'faq-seo-1',
+    question: 'Na czym dokładnie polega regeneracja odbłyśników i proces metalizacji?',
+    answer: 'Profesjonalna regeneracja odbłyśników to złożony proces regeneracji, który w pierwszej fazie polega na całkowitym usunięciu zniszczonej powłoki aluminium wraz z podkładem. Następnie na detal aplikuje się warstwę termoodpornego podkładu. Właściwy proces metalizacji próżniowej odbywa się w specjalnej komorze próżniowej, gdzie detal w trakcie metalizacji próżniowej jest pokrywany cienka warstwą aluminium wysokiej czystości. Następnie w określony sposób nałożenie zabezpieczającego lakieru tworzy trwałą powłokę ochronną. Tak uzyskane powłoki gwarantują idealne odbicie światła. Alternatywny proces metalizacji natryskowej znajduje zastosowanie przy innych materiałach.',
+    category: 'technology'
+  },
+  {
     id: 'faq-1',
     question: 'Jak przygotować projekt do metalizacji?',
     answer: 'Przygotowanie projektu wymaga: 1) Dostarczenia rysunków technicznych lub modeli 3D, 2) Określenia wymagań dotyczących grubości powłoki i właściwości, 3) Wskazania obszarów krytycznych wymagających szczególnej ochrony, 4) Informacji o warunkach eksploatacji elementu.',
