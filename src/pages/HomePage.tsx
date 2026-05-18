@@ -1602,37 +1602,95 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
 
 
-        {/* SEO Long-form Article Section */}
-        <section className="bg-white py-16 lg:py-24 border-t border-gray-100">
-          <div className="container mx-auto px-6 lg:px-12 text-gray-600 font-sans">
-            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-10 uppercase tracking-tight">Kompleksowy przewodnik: Metalizacja próżniowa i obróbka powierzchniowa</h2>
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 text-sm sm:text-base leading-relaxed">
-              <div className="space-y-6">
-                <p>W dzisiejszym przemyśle produkcyjnym obróbka powierzchniowa odgrywa kluczową rolę w nadawaniu detalom pożądanych właściwości fizycznych oraz estetycznych. Jednym z najbardziej zaawansowanych procesów w tym zakresie jest technologia, z którą nierozerwalnie wiąże się nasza firma. Jako specjaliści w branży stawiamy na innowacyjność, wysoką powtarzalność oraz doskonałą jakość każdej uzyskiwanej powłoki ochronnej.</p>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Technologie nakładania powłok ochronnych</h3>
-                  <p>Wielu inżynierów zastanawia się, w jaki sposób osiągnąć idealny efekt lustrzany na tworzywach sztucznych, bez konieczności stosowania szkodliwych i przestarzałych metod galwanicznych. Odpowiedzią jest proces, w którym detal umieszczany w nowoczesnej komorze jest pokrywany cienką, lecz niezwykle trwałą warstwą metalu. Ta zaawansowana metoda nie tylko zabezpiecza materiał przed czynnikami zewnętrznymi, ale również nadaje mu ekskluzywny wygląd. To właśnie <strong>metalizacja próżniowa</strong> uznawana jest za najbardziej ekologiczną alternatywę dla tradycyjnego chromowania.</p>
+        {/* SEO Long-form Article Section (Bento Grid Style) */}
+        <section className="relative py-20 lg:py-32 bg-gray-50 overflow-hidden">
+          {/* Subtle Grid Pattern Background */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)', backgroundSize: '40px 40px' }} aria-hidden="true" />
+          
+          <div className="container mx-auto px-6 lg:px-12 relative z-10">
+            
+            {/* Header Area */}
+            <div className="mb-16 lg:mb-24">
+              <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase mb-6">
+                <span className="w-12 h-px bg-blue-600"></span>
+                Baza Wiedzy
+              </div>
+              <h2 className="text-4xl lg:text-6xl font-black uppercase text-gray-900 tracking-tight leading-[0.95] max-w-4xl">
+                Kompleksowy Przewodnik:<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Metalizacja & Obróbka</span>
+              </h2>
+            </div>
+
+            {/* Bento Grid Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 text-sm sm:text-base leading-relaxed">
+              
+              {/* Lead Paragraph - Spans full width */}
+              <div className="col-span-1 md:col-span-12 bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-100 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50/50 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <p className="relative z-10 text-xl lg:text-2xl text-gray-800 font-medium leading-relaxed max-w-5xl">
+                  W dzisiejszym przemyśle produkcyjnym obróbka powierzchniowa odgrywa kluczową rolę w nadawaniu detalom pożądanych właściwości fizycznych oraz estetycznych. Jednym z najbardziej zaawansowanych procesów w tym zakresie jest technologia, z którą nierozerwalnie wiąże się nasza firma. Jako specjaliści w branży stawiamy na innowacyjność, wysoką powtarzalność oraz doskonałą jakość każdej uzyskiwanej powłoki ochronnej.
+                </p>
+              </div>
+
+              {/* Technologies - Spans 7 cols */}
+              <div className="col-span-1 md:col-span-7 bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:border-blue-100 transition-colors">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
+                  <Flask weight="duotone" className="w-6 h-6 text-blue-600" />
                 </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Dlaczego warto wybrać nasze usługi?</h3>
-                  <p>Założycielem i głównym technologiem firmy jest ekspert z wieloletnim doświadczeniem w branży obróbki cieplnej i powierzchniowej. To właśnie z jego nazwiskiem utożsamiana jest nasza jakość i precyzja. Wybierając naszą firmę, decydujesz się na współpracę, nad którą pieczę trzyma firma <strong>metalizacja próżniowa dariusz staniak</strong>, gwarantująca najwyższe standardy obsługi od projektu po finalną produkcję masową. Zapraszamy do obejrzenia <Link to="/gallery" className="text-blue-600 hover:underline">galerii naszych realizacji</Link>, aby przekonać się o jakości świadczonych usług.</p>
+                <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Technologie nakładania powłok ochronnych</h3>
+                <p className="text-gray-600">
+                  Wielu inżynierów zastanawia się, w jaki sposób osiągnąć idealny efekt lustrzany na tworzywach sztucznych, bez konieczności stosowania szkodliwych i przestarzałych metod galwanicznych. Odpowiedzią jest proces, w którym detal umieszczany w nowoczesnej komorze jest pokrywany cienką, lecz niezwykle trwałą warstwą metalu. Ta zaawansowana metoda nie tylko zabezpiecza materiał przed czynnikami zewnętrznymi, ale również nadaje mu ekskluzywny wygląd. To właśnie <strong className="text-gray-900 font-semibold">metalizacja próżniowa</strong> uznawana jest za najbardziej ekologiczną alternatywę dla tradycyjnego chromowania.
+                </p>
+              </div>
+
+              {/* Why Us - Spans 5 cols - Dark Theme */}
+              <div className="col-span-1 md:col-span-5 bg-gray-900 rounded-3xl p-8 lg:p-10 shadow-lg relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">Dlaczego warto wybrać nasze usługi?</h3>
+                    <p className="text-gray-300 mb-6">
+                      Założycielem i głównym technologiem firmy jest ekspert z wieloletnim doświadczeniem w branży obróbki cieplnej i powierzchniowej. To właśnie z jego nazwiskiem utożsamiana jest nasza jakość i precyzja. Wybierając naszą firmę, decydujesz się na współpracę, nad którą pieczę trzyma firma <strong className="text-white font-semibold">metalizacja próżniowa dariusz staniak</strong>.
+                    </p>
+                  </div>
+                  <Link to="/gallery" className="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors mt-auto">
+                    Zobacz galerię realizacji <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
+                  </Link>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Lokalizacja i zaplecze technologiczne</h3>
-                  <p>Nasza infrastruktura pozwala na obsługę zarówno krótkich serii produkcyjnych, jak i wielkonakładowych zleceń dla przemysłu motoryzacyjnego czy kosmetycznego. Główny zakład znajduje się w centralnej Polsce, w doskonałym punkcie logistycznym. Jeśli szukasz rzetelnego partnera biznesowego, to <strong>metalizacja próżniowa józefów</strong> stanowi najlepszy adres na mapie podwykonawców przemysłowych. Aby być na bieżąco z naszymi wdrożeniami i nowymi technologiami, śledź nasze <Link to="/news" className="text-blue-600 hover:underline">aktualności branżowe</Link>.</p>
+              {/* Location - Spans 5 cols */}
+              <div className="col-span-1 md:col-span-5 bg-blue-600 text-white rounded-3xl p-8 lg:p-10 shadow-lg relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">Lokalizacja i zaplecze technologiczne</h3>
+                    <p className="text-blue-100 mb-6">
+                      Nasza infrastruktura pozwala na obsługę zarówno krótkich serii produkcyjnych, jak i wielkonakładowych zleceń dla przemysłu motoryzacyjnego czy kosmetycznego. Główny zakład znajduje się w centralnej Polsce. Jeśli szukasz rzetelnego partnera, <strong className="text-white font-semibold">metalizacja próżniowa józefów</strong> to najlepszy adres na mapie podwykonawców.
+                    </p>
+                  </div>
+                  <Link to="/news" className="inline-flex items-center text-white/90 font-semibold hover:text-white transition-colors mt-auto">
+                    Aktualności branżowe <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
+                  </Link>
                 </div>
+              </div>
 
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Zastosowania i pokrewne techniki obróbki</h3>
-                  <p>Nie wszystkie materiały i geometrie pozwalają na obróbkę w warunkach wysokiej próżni. W takich przypadkach konieczne jest zastosowanie metod pokrewnych, które pozwalają na równomierne rozłożenie materiału na powierzchniach o nietypowych kształtach. Z tego powodu powszechnie stosowana <strong>metalizacja natryskowa</strong> pozostaje kluczowym elementem naszej oferty. Dzięki niej, jesteśmy w stanie dostarczyć doskonałe wykończenie tam, gdzie tradycyjna obróbka w środowisku obniżonego ciśnienia napotyka na ograniczenia fizyczne. Natomiast dla branży oświetleniowej absolutnie kluczowa pozostaje precyzyjna regeneracja odbłyśników, która zapewnia idealny kąt padania wiązki światła i maksymalne bezpieczeństwo użytkowania systemów optycznych.</p>
+              {/* Applications - Spans 7 cols */}
+              <div className="col-span-1 md:col-span-7 bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:border-blue-100 transition-colors">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
+                  <Gear weight="duotone" className="w-6 h-6 text-blue-600" />
                 </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Zastosowania i pokrewne techniki obróbki</h3>
+                <p className="text-gray-600">
+                  Nie wszystkie materiały i geometrie pozwalają na obróbkę w warunkach wysokiej próżni. W takich przypadkach konieczne jest zastosowanie metod pokrewnych, które pozwalają na równomierne rozłożenie materiału na powierzchniach o nietypowych kształtach. Z tego powodu powszechnie stosowana <strong className="text-gray-900 font-semibold">metalizacja natryskowa</strong> pozostaje kluczowym elementem naszej oferty. Dzięki niej, jesteśmy w stanie dostarczyć doskonałe wykończenie tam, gdzie tradycyjna obróbka napotyka na ograniczenia fizyczne. Natomiast dla branży oświetleniowej absolutnie kluczowa pozostaje precyzyjna regeneracja odbłyśników, która zapewnia idealny kąt padania wiązki światła.
+                </p>
+              </div>
 
-                <p className="pt-6 border-t border-gray-200 mt-8 font-medium">Podsumowując, <strong>metalizacja</strong> to coś więcej niż tylko techniczny proces przemysłowy – to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia, której poświęciliśmy nasze zawodowe pasje i kompetencje.</p>
+              {/* Summary - Spans full width */}
+              <div className="col-span-1 md:col-span-12 text-center pt-8 pb-4">
+                <p className="text-lg text-gray-500 font-medium max-w-4xl mx-auto">
+                  Podsumowując, <strong className="text-gray-800">metalizacja</strong> to coś więcej niż tylko techniczny proces przemysłowy – to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia, której poświęciliśmy nasze zawodowe pasje i kompetencje.
+                </p>
               </div>
             </div>
           </div>
