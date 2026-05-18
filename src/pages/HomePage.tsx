@@ -1603,25 +1603,37 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
 
         {/* SEO Long-form Article Section */}
-        <section className="bg-white py-24 border-t border-gray-100">
-          <div className="max-w-4xl mx-auto px-6 sm:px-12 text-gray-600 font-sans">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 uppercase tracking-tight">Kompleksowy przewodnik: Metalizacja próżniowa i obróbka powierzchniowa</h2>
-            <div className="space-y-6 text-sm sm:text-base leading-relaxed">
-              <p>W dzisiejszym przemyśle produkcyjnym obróbka powierzchniowa odgrywa kluczową rolę w nadawaniu detalom pożądanych właściwości fizycznych oraz estetycznych. Jednym z najbardziej zaawansowanych procesów w tym zakresie jest technologia, z którą nierozerwalnie wiąże się nasza firma. Jako specjaliści w branży stawiamy na innowacyjność, wysoką powtarzalność oraz doskonałą jakość każdej uzyskiwanej powłoki ochronnej.</p>
-              
-              <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-4">Technologie nakładania powłok ochronnych</h3>
-              <p>Wielu inżynierów zastanawia się, w jaki sposób osiągnąć idealny efekt lustrzany na tworzywach sztucznych, bez konieczności stosowania szkodliwych i przestarzałych metod galwanicznych. Odpowiedzią jest proces, w którym detal umieszczany w nowoczesnej komorze jest pokrywany cienką, lecz niezwykle trwałą warstwą metalu. Ta zaawansowana metoda nie tylko zabezpiecza materiał przed czynnikami zewnętrznymi, ale również nadaje mu ekskluzywny wygląd. To właśnie <strong>metalizacja próżniowa</strong> uznawana jest za najbardziej ekologiczną alternatywę dla tradycyjnego chromowania.</p>
-              
-              <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-4">Dlaczego warto wybrać nasze usługi?</h3>
-              <p>Założycielem i głównym technologiem firmy jest ekspert z wieloletnim doświadczeniem w branży obróbki cieplnej i powierzchniowej. To właśnie z jego nazwiskiem utożsamiana jest nasza jakość i precyzja. Wybierając naszą firmę, decydujesz się na współpracę, nad którą pieczę trzyma firma <strong>metalizacja próżniowa dariusz staniak</strong>, gwarantująca najwyższe standardy obsługi od projektu po finalną produkcję masową. Zapraszamy do obejrzenia <Link to="/gallery" className="text-blue-600 hover:underline">galerii naszych realizacji</Link>, aby przekonać się o jakości świadczonych usług.</p>
+        <section className="bg-white py-16 lg:py-24 border-t border-gray-100">
+          <div className="container mx-auto px-6 lg:px-12 text-gray-600 font-sans">
+            <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-10 uppercase tracking-tight">Kompleksowy przewodnik: Metalizacja próżniowa i obróbka powierzchniowa</h2>
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 text-sm sm:text-base leading-relaxed">
+              <div className="space-y-6">
+                <p>W dzisiejszym przemyśle produkcyjnym obróbka powierzchniowa odgrywa kluczową rolę w nadawaniu detalom pożądanych właściwości fizycznych oraz estetycznych. Jednym z najbardziej zaawansowanych procesów w tym zakresie jest technologia, z którą nierozerwalnie wiąże się nasza firma. Jako specjaliści w branży stawiamy na innowacyjność, wysoką powtarzalność oraz doskonałą jakość każdej uzyskiwanej powłoki ochronnej.</p>
+                
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Technologie nakładania powłok ochronnych</h3>
+                  <p>Wielu inżynierów zastanawia się, w jaki sposób osiągnąć idealny efekt lustrzany na tworzywach sztucznych, bez konieczności stosowania szkodliwych i przestarzałych metod galwanicznych. Odpowiedzią jest proces, w którym detal umieszczany w nowoczesnej komorze jest pokrywany cienką, lecz niezwykle trwałą warstwą metalu. Ta zaawansowana metoda nie tylko zabezpiecza materiał przed czynnikami zewnętrznymi, ale również nadaje mu ekskluzywny wygląd. To właśnie <strong>metalizacja próżniowa</strong> uznawana jest za najbardziej ekologiczną alternatywę dla tradycyjnego chromowania.</p>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Dlaczego warto wybrać nasze usługi?</h3>
+                  <p>Założycielem i głównym technologiem firmy jest ekspert z wieloletnim doświadczeniem w branży obróbki cieplnej i powierzchniowej. To właśnie z jego nazwiskiem utożsamiana jest nasza jakość i precyzja. Wybierając naszą firmę, decydujesz się na współpracę, nad którą pieczę trzyma firma <strong>metalizacja próżniowa dariusz staniak</strong>, gwarantująca najwyższe standardy obsługi od projektu po finalną produkcję masową. Zapraszamy do obejrzenia <Link to="/gallery" className="text-blue-600 hover:underline">galerii naszych realizacji</Link>, aby przekonać się o jakości świadczonych usług.</p>
+                </div>
+              </div>
 
-              <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-4">Lokalizacja i zaplecze technologiczne</h3>
-              <p>Nasza infrastruktura pozwala na obsługę zarówno krótkich serii produkcyjnych, jak i wielkonakładowych zleceń dla przemysłu motoryzacyjnego czy kosmetycznego. Główny zakład znajduje się w centralnej Polsce, w doskonałym punkcie logistycznym. Jeśli szukasz rzetelnego partnera biznesowego, to <strong>metalizacja próżniowa józefów</strong> stanowi najlepszy adres na mapie podwykonawców przemysłowych. Aby być na bieżąco z naszymi wdrożeniami i nowymi technologiami, śledź nasze <Link to="/news" className="text-blue-600 hover:underline">aktualności branżowe</Link>.</p>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Lokalizacja i zaplecze technologiczne</h3>
+                  <p>Nasza infrastruktura pozwala na obsługę zarówno krótkich serii produkcyjnych, jak i wielkonakładowych zleceń dla przemysłu motoryzacyjnego czy kosmetycznego. Główny zakład znajduje się w centralnej Polsce, w doskonałym punkcie logistycznym. Jeśli szukasz rzetelnego partnera biznesowego, to <strong>metalizacja próżniowa józefów</strong> stanowi najlepszy adres na mapie podwykonawców przemysłowych. Aby być na bieżąco z naszymi wdrożeniami i nowymi technologiami, śledź nasze <Link to="/news" className="text-blue-600 hover:underline">aktualności branżowe</Link>.</p>
+                </div>
 
-              <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-4">Zastosowania i pokrewne techniki obróbki</h3>
-              <p>Nie wszystkie materiały i geometrie pozwalają na obróbkę w warunkach wysokiej próżni. W takich przypadkach konieczne jest zastosowanie metod pokrewnych, które pozwalają na równomierne rozłożenie materiału na powierzchniach o nietypowych kształtach. Z tego powodu powszechnie stosowana <strong>metalizacja natryskowa</strong> pozostaje kluczowym elementem naszej oferty. Dzięki niej, jesteśmy w stanie dostarczyć doskonałe wykończenie tam, gdzie tradycyjna obróbka w środowisku obniżonego ciśnienia napotyka na ograniczenia fizyczne. Natomiast dla branży oświetleniowej absolutnie kluczowa pozostaje precyzyjna regeneracja odbłyśników, która zapewnia idealny kąt padania wiązki światła i maksymalne bezpieczeństwo użytkowania systemów optycznych.</p>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Zastosowania i pokrewne techniki obróbki</h3>
+                  <p>Nie wszystkie materiały i geometrie pozwalają na obróbkę w warunkach wysokiej próżni. W takich przypadkach konieczne jest zastosowanie metod pokrewnych, które pozwalają na równomierne rozłożenie materiału na powierzchniach o nietypowych kształtach. Z tego powodu powszechnie stosowana <strong>metalizacja natryskowa</strong> pozostaje kluczowym elementem naszej oferty. Dzięki niej, jesteśmy w stanie dostarczyć doskonałe wykończenie tam, gdzie tradycyjna obróbka w środowisku obniżonego ciśnienia napotyka na ograniczenia fizyczne. Natomiast dla branży oświetleniowej absolutnie kluczowa pozostaje precyzyjna regeneracja odbłyśników, która zapewnia idealny kąt padania wiązki światła i maksymalne bezpieczeństwo użytkowania systemów optycznych.</p>
+                </div>
 
-              <p className="pt-4 border-t border-gray-100 mt-8 font-medium">Podsumowując, <strong>metalizacja</strong> to coś więcej niż tylko techniczny proces przemysłowy – to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia, której poświęciliśmy nasze zawodowe pasje i kompetencje.</p>
+                <p className="pt-6 border-t border-gray-200 mt-8 font-medium">Podsumowując, <strong>metalizacja</strong> to coś więcej niż tylko techniczny proces przemysłowy – to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia, której poświęciliśmy nasze zawodowe pasje i kompetencje.</p>
+              </div>
             </div>
           </div>
         </section>
