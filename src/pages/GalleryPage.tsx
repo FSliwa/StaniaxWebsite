@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowLeft, X, CaretLeft, CaretRight, Factory, Sparkle } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
+import { BigFooter } from '@/components/BigFooter'
 
 // Import all gallery images
 import gallery01 from '@/assets/gallery/gallery-01.jpg'
@@ -584,32 +585,7 @@ function GalleryPage() {
         )}
       </AnimatePresence>
 
-      {/* Footer */}
-      <footer className="relative border-t border-gray-200 py-12 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                <Factory className="w-5 h-5 text-white" weight="bold" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-500 font-medium">
-                  © {new Date().getFullYear()} STANIAX Sp. z o.o.
-                </p>
-                <p className="text-xs text-gray-400">Wszelkie prawa zastrzeżone</p>
-              </div>
-            </div>
-            
-            <Link
-              to="/"
-              className="group inline-flex items-center gap-3 text-gray-500 hover:text-blue-600 transition-colors duration-300 font-medium"
-            >
-              <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
-              Wróć do strony głównej
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <BigFooter />
     </div>
   )
 }

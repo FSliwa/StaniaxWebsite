@@ -4,6 +4,7 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowLeft, ArrowRight, Clock, Factory, List, X } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
+import { BigFooter } from '@/components/BigFooter'
 
 const newsItems = [
   {
@@ -358,22 +359,7 @@ function NewsPage() {
         </section>
       </main>
 
-      <footer className="border-t border-border py-10">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground font-medium">
-              © {new Date().getFullYear()} STANIAX Sp. z o.o. Wszelkie prawa zastrzeżone.
-            </p>
-            <Link
-              to="/"
-              className={cn(buttonVariants({ variant: 'link' }), 'font-semibold px-0')}
-            >
-              Wróć do strony głównej
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <BigFooter />
     </div>
   )
 }
