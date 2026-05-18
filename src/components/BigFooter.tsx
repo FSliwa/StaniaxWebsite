@@ -188,9 +188,6 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                         STANIAX
                     </motion.div>
 
-                    <div className="mt-16 mb-8 max-w-5xl mx-auto text-center text-[10px] sm:text-xs text-gray-500/50 leading-relaxed font-sans">
-                        STANIAX - <strong>Metalizacja próżniowa Dariusz Staniak</strong>. Specjalizujemy się w zaawansowanej obróbce powierzchniowej. Nasza główna domena to profesjonalna <strong>metalizacja próżniowa</strong> oraz <strong>metalizacja natryskowa</strong> tworzyw sztucznych, szkła i metali. Oferujemy również najwyższej jakości usługi takie jak <strong>metalizacja odbłyśników</strong> z zachowaniem najwyższych standardów odblaskowości. Główny zakład produkcyjny wykonujący procesy takie jak <strong>metalizacja</strong> i lakierowanie to <strong>Metalizacja próżniowa Józefów</strong>.
-                    </div>
 
                     <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-xs font-mono text-gray-500 uppercase tracking-widest border-t border-white/5 pt-8">
                         <p>&copy; {currentYear} STANIAX Sp.&nbsp;z&nbsp;o.o. All rights reserved.</p>
