@@ -1504,9 +1504,17 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
             <div className="flex flex-col gap-8">
               <nav className="space-y-4">
                 {navItems.map((item) => (
-                  <button
+                  <Link
                     key={item.id}
-                    onClick={() => handleNavClick(item)}
+                    to={item.type === 'route' ? (item.path || '/') : `/#${item.id}`}
+                    onClick={(e) => {
+                      if (item.type === 'section') {
+                        e.preventDefault();
+                        handleNavClick(item);
+                      } else {
+                        setIsMenuOpen(false);
+                      }
+                    }}
                     className={cn(
                       'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
                       menuPrimaryTextClass
@@ -1516,7 +1524,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       {item.label}
                     </span>
                     <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </button>
+                  </Link>
                 ))}
               </nav>
 
@@ -1534,9 +1542,9 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               <div>
                 <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>{t(lang, 'szybkieLinki')}</p>
                 <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
-                  <button onClick={() => { scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuStudio')}</button>
-                  <button onClick={() => { scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuProjekty')}</button>
-                  <button onClick={() => { scrollToSection('kim-jestesmy'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuONas')}</button>
+                  <a href="/#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuStudio')}</a>
+                  <a href="/#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuProjekty')}</a>
+                  <a href="/#kim-jestesmy" onClick={(e) => { e.preventDefault(); scrollToSection('kim-jestesmy'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuONas')}</a>
                 </div>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { t, type Lang } from '@/lib/translations'
 
 export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
@@ -122,13 +122,14 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                             <div>
                                 <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerServicesTitle')}</h4>
                                 <ul className="space-y-3">
-                                    <li onClick={() => scrollToSection('kim-jestesmy')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerKimJestesmy')}</li>
-                                    <li onClick={() => scrollToSection('vacuum-metallization')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc1')}</li>
-                                    <li onClick={() => scrollToSection('plastic-painting')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc2')}</li>
-                                    <li onClick={() => scrollToSection('glass-painting')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc3')}</li>
-                                    <li onClick={() => scrollToSection('reflectors')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc4')}</li>
-                                    <li onClick={() => scrollToSection('spray-painting')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc5')}</li>
-                                    <li onClick={() => navigateToPage('/gallery')} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc6')}</li>
+                                    <li><a href="/#kim-jestesmy" onClick={(e) => { e.preventDefault(); scrollToSection('kim-jestesmy'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerKimJestesmy')}</a></li>
+                                    <li><a href="/#vacuum-metallization" onClick={(e) => { e.preventDefault(); scrollToSection('vacuum-metallization'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc1')}</a></li>
+                                    <li><a href="/#plastic-painting" onClick={(e) => { e.preventDefault(); scrollToSection('plastic-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc2')}</a></li>
+                                    <li><a href="/#glass-painting" onClick={(e) => { e.preventDefault(); scrollToSection('glass-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc3')}</a></li>
+                                    <li><a href="/#reflectors" onClick={(e) => { e.preventDefault(); scrollToSection('reflectors'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc4')}</a></li>
+                                    <li><a href="/#spray-painting" onClick={(e) => { e.preventDefault(); scrollToSection('spray-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc5')}</a></li>
+                                    <li><Link to="/gallery" className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc6')}</Link></li>
+                                    <li><Link to="/news" className="hover:text-white transition-colors cursor-pointer">Aktualności</Link></li>
                                 </ul>
                             </div>
                         </div>
