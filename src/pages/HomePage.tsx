@@ -18,6 +18,7 @@ import { WhyStaniaxContent } from '@/components/WhyStaniaxContent'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { SpotlightCard } from '@/components/ui/SpotlightCard'
 import { TiltCard } from '@/components/ui/TiltCard'
+import { LazyVideo } from '@/components/ui/LazyVideo'
 import { SmoothScroll } from '@/components/SmoothScroll'
 
 import { BigFooter } from '@/components/BigFooter'
@@ -1863,7 +1864,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               className="relative"
             >
               <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
-                <video
+                <LazyVideo
                   src={bridgeSectionVideo}
                   autoPlay
                   loop
@@ -2002,7 +2003,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                             {service.images.map((img, imgIdx) => (
                               <div key={imgIdx} className="relative rounded-2xl overflow-hidden shadow-xl group/img">
                                 {typeof img === 'string' && img.includes('.mp4') ? (
-                                  <video
+                                  <LazyVideo
                                     src={img}
                                     autoPlay
                                     loop
@@ -2037,7 +2038,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         ) : service.images && service.images.length === 1 ? (
                           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
                             {typeof service.images[0] === 'string' && service.images[0].includes('.mp4') ? (
-                              <video
+                              <LazyVideo
                                 src={service.images[0]}
                                 autoPlay
                                 loop
@@ -2163,7 +2164,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                             style={{ clipPath: `inset(0 0 0 ${beforeAfterSlider}%)` }}
                           >
                             {caseStudy.videoAfter ? (
-                              <video
+                              <LazyVideo
                                 src={caseStudy.videoAfter}
                                 autoPlay
                                 loop

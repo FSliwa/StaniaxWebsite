@@ -9,5 +9,15 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
-  assetsInclude: ['**/*.JPG', '**/*.JPEG', '**/*.PNG', '**/*.mp4']
+  assetsInclude: ['**/*.JPG', '**/*.JPEG', '**/*.PNG', '**/*.mp4'],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
+          icons: ['@phosphor-icons/react']
+        }
+      }
+    }
+  }
 })
