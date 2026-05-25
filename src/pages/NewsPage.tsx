@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowLeft, ArrowRight, Clock, List, X } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 import { BigFooter } from '@/components/BigFooter'
+import vacuumMetalizationChamber from '@/assets/vacuum_metalization_chamber.jpg'
 
 const newsItems = [
   {
@@ -12,7 +13,7 @@ const newsItems = [
     date: '25 maja 2026',
     category: 'Inwestycje',
     excerpt: 'W warszawskim centrum STANIAX uruchomiona została nowoczesna linia technologiczna. Naszą specjalnością jest precyzyjna metalizacja próżniowa oraz metalizacja natryskowa elementów z tworzyw i metali. W ofercie firmy, którą prowadzi Dariusz Staniak (metalizacja próżniowa Dariusz Staniak), znajduje się m.in. profesjonalna metalizacja odbłyśnika oraz metalizacja odbłyśników samochodowych. Wdrażamy także zaawansowane usługi takie jak metalizacja plastiku i ogólne metalizowanie próżniowe. Nowy punkt usługowy – metalizacja próżniowa Józefów – gwarantuje najwyższą jakość powłok lustrzanych i znacznie krótszy czas realizacji zamówień.',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=800&fit=crop&crop=center'
+    image: vacuumMetalizationChamber
   },
   {
     title: 'Partnerstwo z Wiodącym Producentem Lotniczym',
