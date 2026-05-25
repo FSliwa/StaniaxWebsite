@@ -786,39 +786,52 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const shouldRenderNewsReducedMotionNotice = prefersReducedMotion
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      setScrollY(currentScrollY)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY
+          const windowHeight = window.innerHeight
+          const documentHeight = document.documentElement.scrollHeight
+          const scrollableDistance = documentHeight - windowHeight
+          const progress = scrollableDistance > 0 ? (currentScrollY / scrollableDistance) * 100 : 0
 
-      // Calculate scroll progress for progress bar
-      const windowHeight = window.innerHeight
-      const documentHeight = document.documentElement.scrollHeight
-      const scrollableDistance = documentHeight - windowHeight
-      const progress = (currentScrollY / scrollableDistance) * 100
-      setScrollProgress(progress)
+          let heroBottom = 0
+          const heroSection = document.getElementById('top')
+          if (heroSection) {
+            heroBottom = heroSection.getBoundingClientRect().bottom
+          }
 
-      // Show floating CTA on mobile after scrolling past hero section
-      const heroSection = document.getElementById('top')
-      if (heroSection && window.innerWidth < 640) { // sm breakpoint
-        const heroBottom = heroSection.getBoundingClientRect().bottom
-        setShowFloatingCTA(heroBottom < 100)
-      } else {
-        setShowFloatingCTA(false)
-      }
+          let metricsSectionTop = 0
+          const metricsSection = document.getElementById('metrics')
+          if (metricsSection) {
+            metricsSectionTop = metricsSection.getBoundingClientRect().top
+          }
 
-      // Show scroll-to-top button after scrolling 300px
-      setShowScrollTop(currentScrollY > 300)
+          setScrollY(currentScrollY)
+          setScrollProgress(progress)
 
-      // Wavy Line Visibility (shows from metrics section onwards)
-      const metricsSection = document.getElementById('metrics')
-      if (metricsSection) {
-        const metricsSectionTop = metricsSection.getBoundingClientRect().top
-        setWavyLineVisible(metricsSectionTop <= windowHeight * 0.5)
+          if (heroSection && window.innerWidth < 640) { // sm breakpoint
+            setShowFloatingCTA(heroBottom < 100)
+          } else {
+            setShowFloatingCTA(false)
+          }
+
+          setShowScrollTop(currentScrollY > 300)
+
+          if (metricsSection) {
+            setWavyLineVisible(metricsSectionTop <= windowHeight * 0.5)
+          }
+
+          ticking = false
+        })
+        ticking = true
       }
     }
 
     handleScroll()
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

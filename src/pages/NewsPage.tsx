@@ -2,16 +2,16 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ArrowLeft, ArrowRight, Clock, Factory, List, X } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Clock, List, X } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 import { BigFooter } from '@/components/BigFooter'
 
 const newsItems = [
   {
-    title: 'Nowa linia produkcyjna w Warszawie',
-    date: '15 września 2025',
+    title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
+    date: '25 maja 2026',
     category: 'Inwestycje',
-    excerpt: 'Otwarcie nowoczesnej linii produkcyjnej w warszawskim centrum STANIAX zwiększa naszą wydajność o 40% i pozwala obsługiwać większe zamówienia w krótszych terminach.',
+    excerpt: 'W warszawskim centrum STANIAX uruchomiona została nowoczesna linia technologiczna. Naszą specjalnością jest precyzyjna metalizacja próżniowa oraz metalizacja natryskowa elementów z tworzyw i metali. W ofercie firmy, którą prowadzi Dariusz Staniak (metalizacja próżniowa Dariusz Staniak), znajduje się m.in. profesjonalna metalizacja odbłyśnika oraz metalizacja odbłyśników samochodowych. Wdrażamy także zaawansowane usługi takie jak metalizacja plastiku i ogólne metalizowanie próżniowe. Nowy punkt usługowy – metalizacja próżniowa Józefów – gwarantuje najwyższą jakość powłok lustrzanych i znacznie krótszy czas realizacji zamówień.',
     image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=800&fit=crop&crop=center'
   },
   {
@@ -75,9 +75,6 @@ function NewsPage() {
       <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
           <Link to="/" className="group flex items-center gap-3 text-left" aria-label="Powrót na stronę główną">
-            <div className="h-10 w-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105">
-              <Factory className="w-5 h-5" />
-            </div>
             <div className="leading-tight">
               <span className="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">
                 STANIAX

@@ -11,6 +11,7 @@ export default defineConfig({
   },
   assetsInclude: ['**/*.JPG', '**/*.JPEG', '**/*.PNG', '**/*.mp4'],
   build: {
+    target: 'esnext',
     rollupOptions: {
       output: {
         manualChunks: {
