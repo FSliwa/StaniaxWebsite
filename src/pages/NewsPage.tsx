@@ -202,15 +202,15 @@ function NewsPage() {
         <section className="py-12 lg:py-16 border-y border-border/60">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid gap-12 lg:grid-cols-[1.3fr_0.9fr]">
-              <Card className="overflow-hidden border-0 shadow-2xl">
-                <div className="relative aspect-[16/10]">
+              <Card className="overflow-hidden border-0 shadow-2xl h-full flex flex-col">
+                <div className="relative aspect-[16/10] lg:aspect-auto lg:h-full lg:flex-1 min-h-[480px] lg:min-h-0 flex flex-col justify-end p-8">
                   <img
                     src={featuredArticle.image}
                     alt={featuredArticle.title}
-                    className="h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" aria-hidden />
-                  <div className="absolute bottom-8 left-8 right-8 space-y-4 text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent" aria-hidden />
+                  <div className="relative z-10 space-y-4 text-white">
                     <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em]">
                       {featuredArticle.category}
                     </div>
