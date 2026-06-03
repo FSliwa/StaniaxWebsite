@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
@@ -26,12 +26,22 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
     const gridRef = useRef<HTMLDivElement>(null)
     const gridInView = useInView(gridRef, { once: true, margin: "-80px" })
 
+    // Defer loading the large video source to improve LCP and initial page load speed
+    const [videoSource, setVideoSource] = useState<string>('')
+    useEffect(() => {
+        // Load the video source after the component mounts (giving priority to main thread and critical resources)
+        const timer = setTimeout(() => {
+            setVideoSource(videoSrc)
+        }, 150)
+        return () => clearTimeout(timer)
+    }, [])
+
     return (
         <div className="relative bg-white">
             {/* Hero Video — Full Screen, edge-to-edge */}
             <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden bg-black">
                 <video
-                    src={videoSrc}
+                    src={videoSource || undefined}
                     autoPlay muted loop playsInline
                     className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
                 />

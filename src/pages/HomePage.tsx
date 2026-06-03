@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode } from 'react'
+import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode, lazy, Suspense } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence, type MotionValue } from 'framer-motion'
 import { useNavigate, Link } from 'react-router-dom'
 import { t, type Lang } from '@/lib/translations'
@@ -10,10 +10,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { CookieBanner } from '@/components/CookieBanner'
 import { AnimatedSection } from '@/components/AnimatedSection'
 import { VideoGalleryTransition } from '@/components/VideoGalleryTransition'
-import { WhyStaniaxContent } from '@/components/WhyStaniaxContent'
 
-
-
+const WhyStaniaxContent = lazy(() => import('@/components/WhyStaniaxContent').then(module => ({ default: module.WhyStaniaxContent })))
 
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { SpotlightCard } from '@/components/ui/SpotlightCard'
@@ -21,7 +19,7 @@ import { TiltCard } from '@/components/ui/TiltCard'
 import { LazyVideo } from '@/components/ui/LazyVideo'
 import { SmoothScroll } from '@/components/SmoothScroll'
 
-import { BigFooter } from '@/components/BigFooter'
+const BigFooter = lazy(() => import('@/components/BigFooter').then(module => ({ default: module.BigFooter })))
 import { toast, Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
 import {
@@ -45,11 +43,7 @@ import {
   CaretUp,
   ArrowDown
 } from '@phosphor-icons/react'
-import liquidGoldHandVideo from '@/assets/liquid-gold-hand.mp4'
-import toroidAnimationVideo from '@/assets/toroid-animation.mp4'
-import liquidMetalVideo from '@/assets/metallic-transformation-video.mp4'
 import bridgeSectionVideo from '@/assets/whatsapp-video-2026-03-18.mp4'
-import vinylTransformationVideo from '@/assets/vinyl-transformation.mp4'
 import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
 import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
 import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
@@ -101,19 +95,6 @@ import lakierowanieNatryskoweV2_2 from '@/assets/lakierowanie-natryskowe-v2-2.jp
 import whatsapp104132 from '@/assets/whatsapp-10-41-32.jpeg'
 import odblysniki1 from '@/assets/odblysniki-nowe-1.jpeg'
 import odblysniki2 from '@/assets/odblysniki-nowe-2.jpeg'
-
-const fallbackAnimationSrc = liquidGoldHandVideo
-
-
-const statsSplineUrl =
-  import.meta.env.VITE_STATS_SPLINE_URL ?? 'https://prod.spline.design/f8rjqRArLakUTPCP/scene.splinecode'
-const newsSplineUrl =
-  import.meta.env.VITE_NEWS_SPLINE_SCENE_URL ?? 'https://prod.spline.design/iK5Y6hn8ReGNIQ1J/scene.splinecode'
-const virtualStudioFallbackSplineUrl =
-  import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_URL ??
-  'https://prod.spline.design/xk-PvTQqtoScZ5Zq/scene.splinecode'
-const virtualStudioEmbedUrl =
-  import.meta.env.VITE_VIRTUAL_STUDIO_SPLINE_EMBED_URL ?? 'undefined'
 
 const languages = [
   { text: "Metalizacja próżniowa", flag: "🇵🇱", lang: "pl" },
@@ -702,7 +683,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const [activeSection, setActiveSection] = useState(0)
   const isTransitioning = useRef(false)
   const [headerTheme, setHeaderTheme] = useState<'light' | 'dark'>('dark')
-  const hasNewsSpline = Boolean(newsSplineUrl && newsSplineUrl !== 'undefined')
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -719,11 +699,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null)
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
   const aboutMosaicRef = useRef<HTMLDivElement | null>(null)
-  const newsAnimationRef = useRef<HTMLDivElement | null>(null)
-  const [newsSplineKey, setNewsSplineKey] = useState(0)
   const prefersReducedMotion = useReducedMotion() ?? false
-  const [splineStatus, setSplineStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle')
-  const servicesSectionRef = useRef<HTMLDivElement | null>(null)
 
 
 
@@ -742,11 +718,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const [activeSlide, setActiveSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [beforeAfterSlider, setBeforeAfterSlider] = useState(50) // percentage for before/after slider
-
-  // HERO VIDEO CAROUSEL STATE
-  const [activeHeroVideo, setActiveHeroVideo] = useState(0)
-  const heroVideos = useMemo(() => [liquidGoldHandVideo, toroidAnimationVideo, liquidMetalVideo, vinylTransformationVideo], [])
-  const heroVideoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
   // MOBILE FLOATING CTA STATE
   const [showFloatingCTA, setShowFloatingCTA] = useState(false)
@@ -870,26 +841,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     return () => clearInterval(interval)
   }, [isAutoPlaying])
 
-  // Auto-play carousel for hero videos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveHeroVideo((prev) => (prev + 1) % heroVideos.length)
-    }, 7000) // Change video every 7 seconds
-
-    return () => clearInterval(interval)
-  }, [heroVideos.length])
-
-  // Restart video from beginning when it becomes active
-  useEffect(() => {
-    const currentVideo = heroVideoRefs.current[activeHeroVideo]
-    if (currentVideo) {
-      currentVideo.currentTime = 0
-      currentVideo.play().catch(() => {
-        // Ignore autoplay errors
-      })
-    }
-  }, [activeHeroVideo])
-
   // Sticky Side Navigation - Track active section
   useEffect(() => {
     const observerOptions = {
@@ -979,76 +930,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    let isMounted = true
-    const scriptId = 'spline-viewer-script'
-    const markReady = () => {
-      if (!isMounted) return
-      setSplineStatus('ready')
-    }
-    const markError = () => {
-      if (!isMounted) return
-      setSplineStatus('error')
-      toast.error(t(lang, 'toast3dError'))
-    }
-    const waitForDefinition = () => {
-      if (!('customElements' in window)) {
-        markError()
-        return
-      }
-      setSplineStatus((prev) => (prev === 'ready' ? prev : 'loading'))
-      window.customElements
-        .whenDefined('spline-viewer')
-        .then(markReady)
-        .catch(markError)
-    }
-
-    if ('customElements' in window && window.customElements.get('spline-viewer')) {
-      markReady()
-      return () => {
-        isMounted = false
-      }
-    }
-
-    let script = document.getElementById(scriptId) as HTMLScriptElement | null
-    const handleScriptLoad = () => {
-      if (!isMounted) return
-      script?.setAttribute('data-loaded', 'true')
-      waitForDefinition()
-    }
-    const handleScriptError = () => {
-      if (!isMounted) return
-      markError()
-    }
-
-    if (script) {
-      if (script.dataset.loaded === 'true') {
-        waitForDefinition()
-      } else {
-        setSplineStatus('loading')
-        script.addEventListener('load', handleScriptLoad)
-        script.addEventListener('error', handleScriptError)
-      }
-    } else {
-      setSplineStatus('loading')
-      script = document.createElement('script')
-      script.id = scriptId
-      script.type = 'module'
-      script.src = 'https://unpkg.com/@splinetool/viewer@1.10.77/build/spline-viewer.js'
-      script.addEventListener('load', handleScriptLoad)
-      script.addEventListener('error', handleScriptError)
-      document.head.appendChild(script)
-    }
-
-    return () => {
-      isMounted = false
-      script?.removeEventListener('load', handleScriptLoad)
-      script?.removeEventListener('error', handleScriptError)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReducedMotion) {
       projectCardsRef.current.forEach((card) => {
@@ -1128,85 +1009,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     return () => {
       sections.forEach((section) => observer.unobserve(section))
       observer.disconnect()
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!newsAnimationRef.current || prefersReducedMotion) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Restart animacji Spline poprzez zmianę klucza (wymusza przeładowanie)
-            setNewsSplineKey((prev) => prev + 1)
-          }
-        })
-      },
-      {
-        root: null,
-        threshold: 0.3,
-        rootMargin: '0px'
-      }
-    )
-
-    observer.observe(newsAnimationRef.current)
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [prefersReducedMotion])
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !servicesSectionRef.current) return
-
-    const section = servicesSectionRef.current
-    const sparkleContainer = section.querySelector('#sparkle-container') as HTMLElement
-
-    if (!sparkleContainer) return
-
-    const handleMouseMove = (e: MouseEvent) => {
-      // Generuj kilka iskier jednocześnie dla efektu spawania
-      const sparkCount = Math.floor(Math.random() * 3) + 1
-
-      for (let i = 0; i < sparkCount; i++) {
-        if (Math.random() > 0.7) continue // Ogranicza gęstość
-
-        const sparkle = document.createElement('div')
-
-        // Losowy kolor iskry
-        const colors = ['sparkle-white', 'sparkle-yellow', 'sparkle-orange']
-        const colorClass = colors[Math.floor(Math.random() * colors.length)]
-        sparkle.className = `sparkle ${colorClass}`
-
-        // Większe iskry na początku
-        const size = Math.random() * 4 + 1 // od 1px do 5px
-        sparkle.style.width = `${size}px`
-        sparkle.style.height = `${size}px`
-
-        // Pozycja względem sekcji
-        const rect = section.getBoundingClientRect()
-        sparkle.style.left = `${e.clientX - rect.left + (Math.random() - 0.5) * 10}px`
-        sparkle.style.top = `${e.clientY - rect.top + (Math.random() - 0.5) * 10}px`
-
-        // Iskry lecą głównie w dół z lekkim rozrzutem na boki
-        const dx = (Math.random() - 0.5) * 60 // Ruch na boki
-        const dy = Math.random() * 80 + 40 // Głównie w dół (40-120px)
-        sparkle.style.setProperty('--dx', `${dx}px`)
-        sparkle.style.setProperty('--dy', `${dy}px`)
-
-        sparkleContainer.appendChild(sparkle)
-
-        sparkle.addEventListener('animationend', () => {
-          sparkle.remove()
-        })
-      }
-    }
-
-    section.addEventListener('mousemove', handleMouseMove)
-
-    return () => {
-      section.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
 
@@ -1572,7 +1374,9 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
         {/* FEATURE HIGHLIGHT */}
         <section id="why-staniax" data-theme="light">
-          <WhyStaniaxContent lang={lang} />
+          <Suspense fallback={<div className="h-[400px] w-full flex items-center justify-center bg-gray-50"><div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div></div>}>
+            <WhyStaniaxContent lang={lang} />
+          </Suspense>
         </section>
 
         {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
@@ -2790,7 +2594,9 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
         {/* BIG TYPE FOOTER */}
         <section id="footer" data-theme="dark">
-          <BigFooter lang={lang} />
+          <Suspense fallback={<div className="h-[200px] w-full bg-slate-950 flex items-center justify-center"><div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div></div>}>
+            <BigFooter lang={lang} />
+          </Suspense>
         </section>
 
         <CookieBanner lang={lang} />
