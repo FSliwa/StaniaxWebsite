@@ -751,11 +751,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const [activeSectionIndex, setActiveSectionIndex] = useState(0)
   const sectionIds = ['top', 'metrics', 'about', 'projects', 'contact']
 
-  const isSplineReady = splineStatus === 'ready'
-  const shouldRenderNewsSpline = !prefersReducedMotion && hasNewsSpline && isSplineReady
-  const shouldRenderNewsVideoFallback = !prefersReducedMotion && (!hasNewsSpline || splineStatus !== 'ready')
-  const shouldRenderNewsReducedMotionNotice = prefersReducedMotion
-
   useEffect(() => {
     let ticking = false
 
@@ -1094,19 +1089,6 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
-  const newsScaleValue = useMemo(() => {
-    if (!newsAnimationRef.current) return 1
-
-    const rect = newsAnimationRef.current.getBoundingClientRect()
-    const elementTop = scrollY + rect.top
-    const viewportHeight = window.innerHeight
-
-    // Rozpocznij skalowanie gdy sekcja wchodzi w viewport
-    const scrollStart = elementTop - viewportHeight
-    const scrollProgress = Math.max(0, scrollY - scrollStart)
-
-    return Math.min(1.0 + scrollProgress * 0.0003, 1.15)
-  }, [scrollY])
   const isDarkHeaderContext = headerTheme === 'dark'
 
   // Menu classes - White text on dark background for better visibility
