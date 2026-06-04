@@ -17,9 +17,9 @@ const newsItems = [
     path: '#'
   },
   {
-    title: 'Partnerstwo z Wiodącym Producentem Lotniczym',
+    title: 'Jak metalizacja wpływa na wydajność materiałów? Odkryj jej tajniki!',
     date: '4 czerwca 2026',
-    category: 'Współpraca',
+    category: 'Artykuł',
     excerpt: 'Odkryj, jak zaawansowana metalizacja próżniowa i powłoki ochronne PVD zwiększają wydajność materiałów w branży lotniczej. Poznaj szczegóły strategicznego partnerstwa!',
     image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=800&fit=crop&crop=center',
     path: '/news/partnerstwo-z-wiodacym-producentem-lotniczym'

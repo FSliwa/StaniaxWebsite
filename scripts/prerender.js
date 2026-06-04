@@ -62,7 +62,7 @@ const articleHtml = `
   <main class="pt-28 pb-20">
     <div class="container mx-auto max-w-6xl px-6 lg:px-12">
       <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Współpraca</span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artykuł</span>
         <span class="text-xs text-muted-foreground flex items-center gap-1">4 czerwca 2026</span>
         <span class="text-xs text-muted-foreground flex items-center gap-1">5 min czytania</span>
       </div>

@@ -196,7 +196,7 @@ function ArticleAviation() {
           {/* Metadata aligned to left edge of container */}
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
-              Współpraca
+              Artykuł
             </span>
             <span className="text-xs text-muted-foreground flex items-center gap-1">
               <Clock className="w-3.5 h-3.5" />
