@@ -18,7 +18,7 @@ const newsItems = [
   },
   {
     title: 'Partnerstwo z Wiodącym Producentem Lotniczym',
-    date: '20 sierpnia 2025',
+    date: '4 czerwca 2026',
     category: 'Współpraca',
     excerpt: 'Nawiązaliśmy strategiczne partnerstwo z jednym z największych producentów komponentów lotniczych w Europie, dostarczając powłoki ochronne dla krytycznych części.',
     image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=800&fit=crop&crop=center',
