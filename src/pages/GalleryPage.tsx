@@ -271,6 +271,7 @@ function GalleryPage() {
 
   useEffect(() => {
     setIsLoaded(true)
+    window.scrollTo(0, 0)
   }, [])
 
   const filteredImages = activeCategory === 'Wszystkie'

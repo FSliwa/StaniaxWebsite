@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -56,6 +56,10 @@ function NewsPage() {
   const featuredArticle = newsItems[0]
   const secondaryArticles = newsItems.slice(1, 4)
   const moreArticles = newsItems.slice(4)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   
   const scrollToContact = () => {
     navigate('/')
