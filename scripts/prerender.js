@@ -15,6 +15,11 @@ if (!fs.existsSync(indexPath)) {
 
 let html = fs.readFileSync(indexPath, 'utf-8')
 
+const assetsDir = path.join(distDir, 'assets')
+const files = fs.readdirSync(assetsDir)
+const aviationImgFile = files.find(f => f.startsWith('news_aviation-') && f.endsWith('.jpg'))
+const aviationImgUrl = aviationImgFile ? `/assets/${aviationImgFile}` : '/assets/news_aviation.jpg'
+
 // SEO Meta updates
 const newMeta = `
     <title>Jak metalizacja wpływa na wydajność materiałów? | STANIAX</title>
@@ -75,7 +80,7 @@ const articleHtml = `
       </p>
 
       <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&h=900&fit=crop&crop=center" alt="Samolot pasażerski w locie" class="w-full h-full object-cover" />
+        <img src="${aviationImgUrl}" alt="Hala produkcyjna z maszyną do metalizacji próżniowej i gotowymi wyrobami" class="w-full h-full object-cover" />
       </div>
 
       <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">

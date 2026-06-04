@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, Clock, List, X } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 import { BigFooter } from '@/components/BigFooter'
 import vacuumMetalizationChamber from '@/assets/vacuum_metalization_chamber.jpg'
+import newsAviationImage from '@/assets/news_aviation.jpg'
 
 const newsItems = [
   {
@@ -21,7 +22,7 @@ const newsItems = [
     date: '4 czerwca 2026',
     category: 'Artykuł',
     excerpt: 'Odkryj, jak zaawansowana metalizacja próżniowa i powłoki ochronne PVD zwiększają wydajność materiałów w branży lotniczej. Poznaj szczegóły strategicznego partnerstwa!',
-    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=800&fit=crop&crop=center',
+    image: newsAviationImage,
     path: '/news/partnerstwo-z-wiodacym-producentem-lotniczym'
   },
   {

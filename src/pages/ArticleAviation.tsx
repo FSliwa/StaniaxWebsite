@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, Clock, List, X, ShareNetwork, Printer, BookOpen,
 import { cn } from '@/lib/utils'
 import { BigFooter } from '@/components/BigFooter'
 import { toast } from 'sonner'
+import newsAviationImage from '@/assets/news_aviation.jpg'
 
 function ArticleAviation() {
   const navigate = useNavigate()
@@ -219,8 +220,8 @@ function ArticleAviation() {
           {/* Hero Image */}
           <div className="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
             <img
-              src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&h=900&fit=crop&crop=center"
-              alt="Samolot pasażerski w locie reprezentujący branżę lotniczą i powłoki ochronne"
+              src={newsAviationImage}
+              alt="Hala produkcyjna z maszyną do metalizacji próżniowej i gotowymi wyrobami"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background/30 to-transparent" />
