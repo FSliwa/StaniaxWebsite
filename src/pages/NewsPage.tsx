@@ -13,35 +13,40 @@ const newsItems = [
     date: '25 maja 2026',
     category: 'Inwestycje',
     excerpt: 'W warszawskim centrum STANIAX uruchomiona została nowoczesna linia technologiczna. Naszą specjalnością jest precyzyjna metalizacja próżniowa oraz metalizacja natryskowa elementów z tworzyw i metali. W ofercie firmy, którą prowadzi Dariusz Staniak (metalizacja próżniowa Dariusz Staniak), znajduje się m.in. profesjonalna metalizacja odbłyśnika oraz metalizacja odbłyśników samochodowych. Wdrażamy także zaawansowane usługi takie jak metalizacja plastiku i ogólne metalizowanie próżniowe. Nowy punkt usługowy – metalizacja próżniowa Józefów – gwarantuje najwyższą jakość powłok lustrzanych i znacznie krótszy czas realizacji zamówień.',
-    image: vacuumMetalizationChamber
+    image: vacuumMetalizationChamber,
+    path: '#'
   },
   {
     title: 'Partnerstwo z Wiodącym Producentem Lotniczym',
     date: '20 sierpnia 2025',
     category: 'Współpraca',
     excerpt: 'Nawiązaliśmy strategiczne partnerstwo z jednym z największych producentów komponentów lotniczych w Europie, dostarczając powłoki ochronne dla krytycznych części.',
-    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=800&fit=crop&crop=center'
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=800&fit=crop&crop=center',
+    path: '/news/partnerstwo-z-wiodacym-producentem-lotniczym'
   },
   {
     title: 'Wprowadzenie Technologii Powłok Nanometrycznych',
     date: '10 lipca 2025',
     category: 'Innowacje',
     excerpt: 'Jako pierwsi w regionie wdrożyliśmy zaawansowaną technologię nanometrycznych powłok metalicznych, oferującą bezprecedensową ochronę i trwałość.',
-    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&h=800&fit=crop&crop=center'
+    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
   },
   {
     title: 'Nagroda Innowacyjności Przemysłowej 2025',
     date: '5 czerwca 2025',
     category: 'Nagrody',
     excerpt: 'STANIAX został uhonorowany prestiżową Nagrodą Innowacyjności Przemysłowej za wkład w rozwój ekologicznych rozwiązań metalizacyjnych.',
-    image: 'https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?w=1200&h=800&fit=crop&crop=center'
+    image: 'https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
   },
   {
     title: 'Szkolenia dla Zespołu Inżynieryjnego',
     date: '18 maja 2025',
     category: 'Rozwój',
     excerpt: 'Nasz zespół ukończył zaawansowane szkolenia z zakresu nowych technologii powłokowych i kontroli jakości, zwiększając kompetencje techniczne firmy.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&crop=center'
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
   }
 ]
 
@@ -180,7 +185,15 @@ function NewsPage() {
               <Card className="border border-border/60 bg-card/80 backdrop-blur-xl">
                 <CardHeader className="space-y-3">
                   <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Wyróżniona informacja</p>
-                  <CardTitle className="text-2xl font-black leading-tight">{featuredArticle.title}</CardTitle>
+                  <CardTitle className="text-2xl font-black leading-tight">
+                    {featuredArticle.path && featuredArticle.path !== '#' ? (
+                      <Link to={featuredArticle.path} className="hover:text-accent transition-colors">
+                        {featuredArticle.title}
+                      </Link>
+                    ) : (
+                      featuredArticle.title
+                    )}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -190,10 +203,20 @@ function NewsPage() {
                   <p className="text-sm text-muted-foreground/90">
                     {featuredArticle.excerpt}
                   </p>
-                  <Button variant="link" className="px-0 text-accent font-semibold">
-                    Czytaj więcej
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  {featuredArticle.path && featuredArticle.path !== '#' ? (
+                    <Link 
+                      to={featuredArticle.path} 
+                      className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
+                    >
+                      Czytaj więcej
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  ) : (
+                    <Button variant="link" className="px-0 text-accent font-semibold">
+                      Czytaj więcej
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -216,15 +239,31 @@ function NewsPage() {
                       {featuredArticle.category}
                     </div>
                     <h2 className="text-3xl md:text-4xl font-black leading-tight max-w-2xl">
-                      {featuredArticle.title}
+                      {featuredArticle.path && featuredArticle.path !== '#' ? (
+                        <Link to={featuredArticle.path} className="hover:text-accent/80 transition-colors">
+                          {featuredArticle.title}
+                        </Link>
+                      ) : (
+                        featuredArticle.title
+                      )}
                     </h2>
                     <p className="text-sm text-white/80 max-w-2xl">
                       {featuredArticle.excerpt}
                     </p>
-                    <Button className="bg-white text-slate-950 hover:bg-white/90 w-fit">
-                      Pełna treść
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    {featuredArticle.path && featuredArticle.path !== '#' ? (
+                      <Link 
+                        to={featuredArticle.path} 
+                        className={cn(buttonVariants(), "bg-white text-slate-950 hover:bg-white/90 w-fit font-semibold")}
+                      >
+                        Pełna treść
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    ) : (
+                      <Button className="bg-white text-slate-950 hover:bg-white/90 w-fit">
+                        Pełna treść
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    )}
                   </div>
                 </div>
               </Card>
@@ -251,15 +290,29 @@ function NewsPage() {
                           </span>
                         </div>
                         <h3 className="text-lg font-semibold leading-tight text-foreground group-hover:text-accent">
-                          {article.title}
+                          {article.path && article.path !== '#' ? (
+                            <Link to={article.path}>{article.title}</Link>
+                          ) : (
+                            article.title
+                          )}
                         </h3>
                         <p className="text-sm text-muted-foreground line-clamp-2">
                           {article.excerpt}
                         </p>
-                        <Button variant="link" className="px-0 h-auto text-accent font-semibold">
-                          Czytaj więcej
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                        {article.path && article.path !== '#' ? (
+                          <Link 
+                            to={article.path} 
+                            className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
+                          >
+                            Czytaj więcej
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        ) : (
+                          <Button variant="link" className="px-0 h-auto text-accent font-semibold">
+                            Czytaj więcej
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
@@ -304,17 +357,33 @@ function NewsPage() {
                       </span>
                     </div>
                     <CardTitle className="text-xl font-bold leading-tight">
-                      {article.title}
+                      {article.path && article.path !== '#' ? (
+                        <Link to={article.path} className="hover:text-accent transition-colors">
+                          {article.title}
+                        </Link>
+                      ) : (
+                        article.title
+                      )}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {article.excerpt}
                     </p>
-                    <Button variant="link" className="px-0 h-auto text-accent font-semibold">
-                      Czytaj więcej
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    {article.path && article.path !== '#' ? (
+                      <Link 
+                        to={article.path} 
+                        className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
+                      >
+                        Czytaj więcej
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    ) : (
+                      <Button variant="link" className="px-0 h-auto text-accent font-semibold">
+                        Czytaj więcej
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               ))}

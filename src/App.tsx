@@ -5,6 +5,7 @@ import { ScrollProgress } from './components/ui/ScrollProgress';
 const HomePage = lazy(() => import('./pages/HomePage'))
 const NewsPage = lazy(() => import('./pages/NewsPage'))
 const GalleryPage = lazy(() => import('./pages/GalleryPage'))
+const ArticleAviation = lazy(() => import('./pages/ArticleAviation'))
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/en" element={<HomePage lang="en" />} />
           <Route path="/de" element={<HomePage lang="de" />} />
           <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation />} />
           <Route path="/gallery" element={<GalleryPage />} />
         </Routes>
       </Suspense>
