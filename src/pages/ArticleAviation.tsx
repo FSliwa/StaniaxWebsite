@@ -14,6 +14,40 @@ function ArticleAviation() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+
+    // SEO Meta updates
+    const originalTitle = document.title
+    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
+    
+    document.title = "Jak metalizacja wpływa na wydajność materiałów? | STANIAX"
+    
+    const metaDesc = document.querySelector('meta[name="description"]')
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Odkryj, jak zaawansowana metalizacja próżniowa, lakierowanie tworzyw i procesy PVD wpływają na wytrzymałość i estetykę materiałów w lotnictwie.')
+    }
+    
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) {
+      ogTitle.setAttribute('content', 'Jak metalizacja wpływa na wydajność materiałów? | STANIAX')
+    }
+    
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    if (ogDesc) {
+      ogDesc.setAttribute('content', 'Odkryj, jak zaawansowana metalizacja próżniowa i powłoki ochronne PVD zwiększają wydajność materiałów w branży lotniczej.')
+    }
+
+    return () => {
+      document.title = originalTitle
+      if (metaDesc && originalDescription) {
+        metaDesc.setAttribute('content', originalDescription)
+      }
+      if (ogTitle) {
+        ogTitle.setAttribute('content', 'STANIAX - Metalizacja Próżniowa')
+      }
+      if (ogDesc) {
+        ogDesc.setAttribute('content', 'Profesjonalna metalizacja próżniowa, lakierowanie tworzyw i szkła.')
+      }
+    }
   }, [])
 
   useEffect(() => {
