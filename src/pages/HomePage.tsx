@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode, lazy, Suspense } from 'react'
 import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence, type MotionValue } from 'framer-motion'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { t, type Lang } from '@/lib/translations'
 import { ScrambleText } from '@/components/ui/ScrambleText'
 import { Button } from '@/components/ui/button'
@@ -677,7 +677,31 @@ function CountUp({ end, duration = 2000, suffix = '', shouldStart }: CountUpProp
 
 function HomePage({ lang = 'pl' }: HomePageProps) {
   const navigate = useNavigate()
+  const location = useLocation()
   const navItems = getNavItems(lang)
+
+  // Scroll to hash section on mount or hash change
+  useEffect(() => {
+    const hash = location.hash
+    if (hash) {
+      const id = hash.replace('#', '')
+      const section = document.getElementById(id)
+      if (section) {
+        const timer = setTimeout(() => {
+          const lenis = (window as any).lenis
+          if (lenis) {
+            lenis.scrollTo(section, {
+              offset: -80,
+              duration: 1.2,
+            })
+          } else {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }, 300)
+        return () => clearTimeout(timer)
+      }
+    }
+  }, [location.hash])
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [activeSection, setActiveSection] = useState(0)

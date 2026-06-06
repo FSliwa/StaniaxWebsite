@@ -9,44 +9,6 @@ import { toast } from 'sonner'
 import { t, type Lang } from '@/lib/translations'
 import newsAviationImage from '@/assets/news_aviation.jpg'
 
-const renderTextWithLinks = (textStr: string) => {
-  if (!textStr) return null
-  const regex = /\[([^\]]+)\]\(([^)]+)\)/g
-  const parts = []
-  let lastIndex = 0
-  let match
-  
-  while ((match = regex.exec(textStr)) !== null) {
-    const label = match[1]
-    const url = match[2]
-    const index = match.index
-    
-    if (index > lastIndex) {
-      parts.push(textStr.substring(lastIndex, index))
-    }
-    
-    parts.push(
-      <a
-        key={index}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center text-accent hover:underline font-medium"
-      >
-        {label}
-        <ArrowUpRight className="inline-block w-4 h-4 ml-0.5" />
-      </a>
-    )
-    
-    lastIndex = regex.lastIndex
-  }
-  
-  if (lastIndex < textStr.length) {
-    parts.push(textStr.substring(lastIndex))
-  }
-  
-  return parts.length > 0 ? parts : textStr
-}
 
 const articleContent = {
   pl: {
@@ -232,6 +194,92 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
   const navigate = useNavigate()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [readingProgress, setReadingProgress] = useState(0)
+
+  const renderTextWithLinks = (textStr: string) => {
+    if (!textStr) return null
+    const regex = /\[([^\]]+)\]\(([^)]+)\)/g
+    const parts = []
+    let lastIndex = 0
+    let match
+    
+    while ((match = regex.exec(textStr)) !== null) {
+      const label = match[1]
+      const url = match[2]
+      const index = match.index
+      
+      if (index > lastIndex) {
+        parts.push(textStr.substring(lastIndex, index))
+      }
+      
+      // Resolve staniax internal links dynamically based on the current lang
+      let isInternal = false
+      let targetUrl = url
+      
+      // Clean up Google search wrappers if any remain
+      if (url.includes('google.com/search?q=')) {
+        const qMatch = url.match(/q=([^&]+)/)
+        if (qMatch) {
+          targetUrl = decodeURIComponent(qMatch[1])
+        }
+      }
+      
+      const cleanUrl = targetUrl.replace(/^https?:\/\/(www\.)?staniax\.pl/, '').replace(/\/$/, '')
+      const prefix = lang === 'pl' ? '' : `/${lang}`
+      
+      if (cleanUrl === '' || cleanUrl === '/en' || cleanUrl === '/de') {
+        targetUrl = prefix || '/'
+        isInternal = true
+      } else if (cleanUrl.includes('/metalizacja-prozniowa')) {
+        targetUrl = `${prefix}/#vacuum-metallization`
+        isInternal = true
+      } else if (cleanUrl.includes('/metalizacja-odblysnikow')) {
+        targetUrl = `${prefix}/#reflectors`
+        isInternal = true
+      } else if (cleanUrl.includes('/malowanie-tworzyw-sztucznych')) {
+        targetUrl = `${prefix}/#plastic-painting`
+        isInternal = true
+      } else if (cleanUrl.includes('/o-nas')) {
+        targetUrl = `${prefix}/#kim-jestesmy`
+        isInternal = true
+      } else if (cleanUrl.includes('/oferta')) {
+        targetUrl = `${prefix}/#about`
+        isInternal = true
+      }
+      
+      if (isInternal) {
+        parts.push(
+          <Link
+            key={index}
+            to={targetUrl}
+            className="inline-flex items-center text-accent hover:underline font-medium"
+          >
+            {label}
+          </Link>
+        )
+      } else {
+        parts.push(
+          <a
+            key={index}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-accent hover:underline font-medium"
+          >
+            {label}
+            <ArrowUpRight className="inline-block w-4 h-4 ml-0.5" />
+          </a>
+        )
+      }
+      
+      lastIndex = regex.lastIndex
+    }
+    
+    if (lastIndex < textStr.length) {
+      parts.push(textStr.substring(lastIndex))
+    }
+    
+    return parts.length > 0 ? parts : textStr
+  }
 
   const activeLang = lang === 'pl' ? 'pl' : 'en'
   const text = articleContent[activeLang]
