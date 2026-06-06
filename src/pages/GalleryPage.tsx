@@ -4,6 +4,7 @@ import { ArrowLeft, X, CaretLeft, CaretRight, Factory, Sparkle } from '@phosphor
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { BigFooter } from '@/components/BigFooter'
+import { t, type Lang } from '@/lib/translations'
 
 // Import all gallery images
 import gallery01 from '@/assets/gallery/gallery-01.jpg'
@@ -264,7 +265,7 @@ const getGridSpan = (index: number) => {
   return pattern[index % pattern.length]
 }
 
-function GalleryPage() {
+function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
   const [activeCategory, setActiveCategory] = useState('Wszystkie')
   const [isLoaded, setIsLoaded] = useState(false)
@@ -586,7 +587,7 @@ function GalleryPage() {
         )}
       </AnimatePresence>
 
-      <BigFooter />
+      <BigFooter lang={lang} />
     </div>
   )
 }

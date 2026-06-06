@@ -21,9 +21,18 @@ function App() {
           <Route path="/" element={<HomePage lang="pl" />} />
           <Route path="/en" element={<HomePage lang="en" />} />
           <Route path="/de" element={<HomePage lang="de" />} />
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation />} />
-          <Route path="/gallery" element={<GalleryPage />} />
+          
+          <Route path="/news" element={<NewsPage lang="pl" />} />
+          <Route path="/en/news" element={<NewsPage lang="en" />} />
+          <Route path="/de/news" element={<NewsPage lang="de" />} />
+          
+          <Route path="/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="pl" />} />
+          <Route path="/en/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="en" />} />
+          <Route path="/de/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="de" />} />
+          
+          <Route path="/gallery" element={<GalleryPage lang="pl" />} />
+          <Route path="/en/gallery" element={<GalleryPage lang="en" />} />
+          <Route path="/de/gallery" element={<GalleryPage lang="de" />} />
         </Routes>
       </Suspense>
     </>

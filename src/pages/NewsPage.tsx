@@ -5,10 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowLeft, ArrowRight, Clock, List, X } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 import { BigFooter } from '@/components/BigFooter'
+import { t, type Lang } from '@/lib/translations'
 import vacuumMetalizationChamber from '@/assets/vacuum_metalization_chamber.jpg'
 import newsAviationImage from '@/assets/news_aviation.jpg'
 
-const newsItems = [
+const newsItemsPl = [
   {
     title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
     date: '25 maja 2026',
@@ -51,9 +52,104 @@ const newsItems = [
   }
 ]
 
-function NewsPage() {
+const newsItemsEn = [
+  {
+    title: 'Modern Vacuum Metallization and Reflector Regeneration in Józefów',
+    date: 'May 25, 2026',
+    category: 'Investments',
+    excerpt: 'A modern technological line has been launched at the Warsaw center of STANIAX. Our specialty is precise vacuum metallization and spray coating of plastic and metal parts. The company\'s offer, run by Dariusz Staniak (vacuum metallization Dariusz Staniak), includes professional reflector metallization and automotive reflector metallization. We also implement advanced services such as plastic metallization and general vacuum metallization. The new service point — vacuum metallization Józefów — guarantees the highest quality of mirror coatings and significantly shorter order execution times.',
+    image: vacuumMetalizationChamber,
+    path: '#'
+  },
+  {
+    title: 'How Metallization Affects Material Performance? Discover Its Secrets!',
+    date: 'June 4, 2026',
+    category: 'Article',
+    excerpt: 'Discover how advanced vacuum metallization and PVD protective coatings increase material performance in the aerospace industry. Find out the details of our strategic partnership!',
+    image: newsAviationImage,
+    path: '/news/partnerstwo-z-wiodacym-producentem-lotniczym'
+  },
+  {
+    title: 'Introduction of Nanometric Coatings Technology',
+    date: 'July 10, 2025',
+    category: 'Innovations',
+    excerpt: 'We are the first in the region to implement advanced nanometric metallic coating technology, offering unprecedented protection and durability.',
+    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
+  },
+  {
+    title: 'Expansion of the Quality Control Department',
+    date: 'March 15, 2025',
+    category: 'Quality',
+    excerpt: 'Investment in state-of-the-art measuring equipment and expansion of the research engineering team to ensure 100% repeatability of parameters.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
+  },
+  {
+    title: 'Industrial Innovation Award 2025',
+    date: 'June 5, 2025',
+    category: 'Awards',
+    excerpt: 'STANIAX has been honored with the prestigious Industrial Innovation Award for its contribution to the development of ecological metallization solutions.',
+    image: 'https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
+  },
+  {
+    title: 'Training for the Engineering Team',
+    date: 'May 18, 2025',
+    category: 'Development',
+    excerpt: 'Our team completed advanced training in new coating technologies and quality control, increasing the company\'s technical competencies.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
+  }
+]
+
+const content = {
+  pl: {
+    newsTitle: 'Aktualności',
+    newsCenter: 'Centrum wiadomości STANIAX',
+    newsDesc: 'Najświeższe wiadomości o naszych inwestycjach, partnerstwach, wyróżnieniach i innowacjach, które wyznaczają kierunek metalizacji próżniowej w Polsce.',
+    featuredNews: 'Wyróżniona informacja',
+    readMore: 'Czytaj więcej',
+    fullArticle: 'Pełna treść',
+    otherNews: 'Archiwalne wiadomości',
+    moreUpdates: 'Więcej aktualizacji STANIAX',
+    backToTop: 'Powrót na górę',
+    newsletterTitle: 'Newsletter STANIAX',
+    newsletterHeading: 'Zostań pierwszą osobą, która dowie się o naszych projektach',
+    newsletterDesc: 'Dołącz do grona naszych partnerów i otrzymuj informacje o premierach technologicznych, webinarach i raportach z realizacji.',
+    contactTeam: 'Skontaktuj się z zespołem',
+    visitUs: 'Odwiedź naszą siedzibę',
+    backToHome: 'Wróć do strony głównej',
+    latestNews: 'Najnowsze informacje',
+  },
+  en: {
+    newsTitle: 'News',
+    newsCenter: 'STANIAX News Center',
+    newsDesc: 'The latest news about our investments, partnerships, awards, and innovations that set the direction for vacuum metallization.',
+    featuredNews: 'Featured News',
+    readMore: 'Read more',
+    fullArticle: 'Full article',
+    otherNews: 'Archived updates',
+    moreUpdates: 'More STANIAX updates',
+    backToTop: 'Back to top',
+    newsletterTitle: 'STANIAX Newsletter',
+    newsletterHeading: 'Be the first to know about our projects',
+    newsletterDesc: 'Join our partners and receive information about technological launches, webinars, and case studies.',
+    contactTeam: 'Contact the team',
+    visitUs: 'Visit our headquarters',
+    backToHome: 'Back to home page',
+    latestNews: 'Latest updates',
+  }
+}
+
+function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
   const navigate = useNavigate()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const activeLang = lang === 'pl' ? 'pl' : 'en'
+  const text = content[activeLang]
+  const newsItems = lang === 'pl' ? newsItemsPl : newsItemsEn
+
   const featuredArticle = newsItems[0]
   const secondaryArticles = newsItems.slice(1, 4)
   const moreArticles = newsItems.slice(4)
@@ -61,9 +157,23 @@ function NewsPage() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  const homePath = lang === 'pl' ? '/' : `/${lang}`
+
+  const getArticlePath = (basePath: string) => {
+    if (basePath === '#') return '#'
+    if (lang === 'pl') return basePath
+    return `/${lang}${basePath}`
+  }
+
+  const languageLinks = [
+    { flag: "🇵🇱", lang: "pl" as const, path: "/news", label: "Polski" },
+    { flag: "🇬🇧", lang: "en" as const, path: "/en/news", label: "English" },
+    { flag: "🇩🇪", lang: "de" as const, path: "/de/news", label: "Deutsch" },
+  ]
   
   const scrollToContact = () => {
-    navigate('/')
+    navigate(homePath)
     setTimeout(() => {
       const contactSection = document.getElementById('contact')
       if (contactSection) {
@@ -85,39 +195,54 @@ function NewsPage() {
     <div className="min-h-screen bg-background">
       <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
         <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-          <Link to="/" className="group flex items-center gap-3 text-left" aria-label="Powrót na stronę główną">
+          <Link to={homePath} className="group flex items-center gap-3 text-left" aria-label={text.backToHome}>
             <div className="leading-tight">
               <span className="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">
                 STANIAX
               </span>
               <span className="block text-lg font-black">
-                Aktualności
+                {text.newsTitle}
               </span>
             </div>
           </Link>
           <div className="flex items-center gap-3 sm:gap-6">
             <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-              <Link to="/#kim-jestesmy" className="text-muted-foreground hover:text-accent transition-colors">
-                O STANIAX
+              <Link to={lang === 'pl' ? '/#kim-jestesmy' : `/${lang}#kim-jestesmy`} className="text-muted-foreground hover:text-accent transition-colors">
+                {t(lang, 'oStaniax')}
               </Link>
-              <Link to="/#about" className="text-muted-foreground hover:text-accent transition-colors">
-                Oferta
+              <Link to={lang === 'pl' ? '/#about' : `/${lang}#about`} className="text-muted-foreground hover:text-accent transition-colors">
+                {t(lang, 'oferta')}
               </Link>
-              <Link to="/#projects" className="text-muted-foreground hover:text-accent transition-colors">
-                Realizacje
+              <Link to={lang === 'pl' ? '/#projects' : `/${lang}#projects`} className="text-muted-foreground hover:text-accent transition-colors">
+                {t(lang, 'realizacje')}
               </Link>
-              <Link to="/gallery" className="text-muted-foreground hover:text-accent transition-colors">
-                Galeria
+              <Link to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`} className="text-muted-foreground hover:text-accent transition-colors">
+                {t(lang, 'galeria')}
               </Link>
-              <Link to="/#contact" className="text-muted-foreground hover:text-accent transition-colors">
-                Kontakt
+              <Link to={lang === 'pl' ? '/#contact' : `/${lang}#contact`} className="text-muted-foreground hover:text-accent transition-colors">
+                {t(lang, 'kontakt')}
               </Link>
             </nav>
+            <div className="flex items-center gap-2">
+              {languageLinks.map((l) => (
+                <Link
+                  key={l.lang}
+                  to={l.path}
+                  aria-label={l.label}
+                  className={cn(
+                    'text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative',
+                    lang === l.lang ? 'opacity-100 scale-110' : 'opacity-50 hover:opacity-90'
+                  )}
+                >
+                  {l.flag}
+                </Link>
+              ))}
+            </div>
             <Button
               className="font-semibold text-xs sm:text-sm px-3 sm:px-4"
               onClick={scrollToContact}
             >
-              Skontaktuj się
+              {t(lang, 'kontakt')}
               <ArrowRight className="ml-1 sm:ml-2 h-4 w-4" />
             </Button>
             {/* Mobile hamburger */}
@@ -135,35 +260,36 @@ function NewsPage() {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-6 py-6 space-y-4">
             <nav className="flex flex-col gap-4 text-sm font-medium">
-              <Link to="/#kim-jestesmy" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                O STANIAX
+              <Link to={lang === 'pl' ? '/#kim-jestesmy' : `/${lang}#kim-jestesmy`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {t(lang, 'oStaniax')}
               </Link>
-              <Link to="/#about" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Oferta
+              <Link to={lang === 'pl' ? '/#about' : `/${lang}#about`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {t(lang, 'oferta')}
               </Link>
-              <Link to="/#projects" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Realizacje
+              <Link to={lang === 'pl' ? '/#projects' : `/${lang}#projects`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {t(lang, 'realizacje')}
               </Link>
-              <Link to="/gallery" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Galeria
+              <Link to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {t(lang, 'galeria')}
               </Link>
-              <Link to="/#contact" className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Kontakt
+              <Link to={lang === 'pl' ? '/#contact' : `/${lang}#contact`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                {t(lang, 'kontakt')}
               </Link>
             </nav>
             <div className="flex flex-col gap-3 pt-2 border-t border-border/40">
               <Link
-                to="/"
+                to={homePath}
                 className={cn(buttonVariants({ variant: 'outline' }), 'font-semibold w-full justify-center')}
+                onClick={() => setMobileMenuOpen(false)}
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Wróć do strony głównej
+                {text.backToHome}
               </Link>
               <Button
                 className="font-semibold w-full"
                 onClick={() => { setMobileMenuOpen(false); scrollToContact(); }}
               >
-                Skontaktuj się
+                {t(lang, 'kontakt')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -178,21 +304,21 @@ function NewsPage() {
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start">
               <div className="space-y-6">
                 <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-accent">
-                  Najnowsze informacje
+                  {text.latestNews}
                 </span>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
-                  Centrum wiadomości STANIAX
+                  {text.newsCenter}
                 </h1>
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
-                  Najświeższe wiadomości o naszych inwestycjach, partnerstwach, wyróżnieniach i innowacjach, które wyznaczają kierunek metalizacji próżniowej w Polsce.
+                  {text.newsDesc}
                 </p>
               </div>
               <Card className="border border-border/60 bg-card/80 backdrop-blur-xl">
                 <CardHeader className="space-y-3">
-                  <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Wyróżniona informacja</p>
+                  <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">{text.featuredNews}</p>
                   <CardTitle className="text-2xl font-black leading-tight">
                     {featuredArticle.path && featuredArticle.path !== '#' ? (
-                      <Link to={featuredArticle.path} className="hover:text-accent transition-colors">
+                      <Link to={getArticlePath(featuredArticle.path)} className="hover:text-accent transition-colors">
                         {featuredArticle.title}
                       </Link>
                     ) : (
@@ -210,15 +336,15 @@ function NewsPage() {
                   </p>
                   {featuredArticle.path && featuredArticle.path !== '#' ? (
                     <Link 
-                      to={featuredArticle.path} 
+                      to={getArticlePath(featuredArticle.path)} 
                       className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
                     >
-                      Czytaj więcej
+                      {text.readMore}
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   ) : (
                     <Button variant="link" className="px-0 text-accent font-semibold">
-                      Czytaj więcej
+                      {text.readMore}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   )}
@@ -245,7 +371,7 @@ function NewsPage() {
                     </div>
                     <h2 className="text-3xl md:text-4xl font-black leading-tight max-w-2xl">
                       {featuredArticle.path && featuredArticle.path !== '#' ? (
-                        <Link to={featuredArticle.path} className="hover:text-accent/80 transition-colors">
+                        <Link to={getArticlePath(featuredArticle.path)} className="hover:text-accent/80 transition-colors">
                           {featuredArticle.title}
                         </Link>
                       ) : (
@@ -257,15 +383,15 @@ function NewsPage() {
                     </p>
                     {featuredArticle.path && featuredArticle.path !== '#' ? (
                       <Link 
-                        to={featuredArticle.path} 
+                        to={getArticlePath(featuredArticle.path)} 
                         className={cn(buttonVariants(), "bg-white text-slate-950 hover:bg-white/90 w-fit font-semibold")}
                       >
-                        Pełna treść
+                        {text.fullArticle}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     ) : (
                       <Button className="bg-white text-slate-950 hover:bg-white/90 w-fit">
-                        Pełna treść
+                        {text.fullArticle}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     )}
@@ -296,7 +422,7 @@ function NewsPage() {
                         </div>
                         <h3 className="text-lg font-semibold leading-tight text-foreground group-hover:text-accent">
                           {article.path && article.path !== '#' ? (
-                            <Link to={article.path}>{article.title}</Link>
+                            <Link to={getArticlePath(article.path)}>{article.title}</Link>
                           ) : (
                             article.title
                           )}
@@ -306,15 +432,15 @@ function NewsPage() {
                         </p>
                         {article.path && article.path !== '#' ? (
                           <Link 
-                            to={article.path} 
+                            to={getArticlePath(article.path)} 
                             className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
                           >
-                            Czytaj więcej
+                            {text.readMore}
                             <ArrowRight className="h-4 w-4" />
                           </Link>
                         ) : (
                           <Button variant="link" className="px-0 h-auto text-accent font-semibold">
-                            Czytaj więcej
+                            {text.readMore}
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </Button>
                         )}
@@ -331,11 +457,11 @@ function NewsPage() {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="flex items-center justify-between gap-4 mb-10">
               <div>
-                <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Archiwalne wiadomości</p>
-                <h2 className="text-3xl lg:text-4xl font-black">Więcej aktualizacji STANIAX</h2>
+                <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">{text.otherNews}</p>
+                <h2 className="text-3xl lg:text-4xl font-black">{text.moreUpdates}</h2>
               </div>
               <Button variant="outline" className="font-semibold" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                Powrót na górę
+                {text.backToTop}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -363,7 +489,7 @@ function NewsPage() {
                     </div>
                     <CardTitle className="text-xl font-bold leading-tight">
                       {article.path && article.path !== '#' ? (
-                        <Link to={article.path} className="hover:text-accent transition-colors">
+                        <Link to={getArticlePath(article.path)} className="hover:text-accent transition-colors">
                           {article.title}
                         </Link>
                       ) : (
@@ -377,15 +503,15 @@ function NewsPage() {
                     </p>
                     {article.path && article.path !== '#' ? (
                       <Link 
-                        to={article.path} 
+                        to={getArticlePath(article.path)} 
                         className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
                       >
-                        Czytaj więcej
+                        {text.readMore}
                         <ArrowRight className="h-4 w-4" />
                       </Link>
                     ) : (
                       <Button variant="link" className="px-0 h-auto text-accent font-semibold">
-                        Czytaj więcej
+                        {text.readMore}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     )}
@@ -400,10 +526,10 @@ function NewsPage() {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="rounded-[40px] border border-border/50 bg-muted/30 p-10 lg:p-14 flex flex-col xl:flex-row gap-10 items-start xl:items-center justify-between">
               <div className="space-y-5 max-w-2xl">
-                <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">Newsletter STANIAX</p>
-                <h2 className="text-3xl lg:text-4xl font-black">Zostań pierwszą osobą, która dowie się o naszych projektach</h2>
+                <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">{text.newsletterTitle}</p>
+                <h2 className="text-3xl lg:text-4xl font-black">{text.newsletterHeading}</h2>
                 <p className="text-muted-foreground font-medium">
-                  Dołącz do grona naszych partnerów i otrzymuj informacje o premierach technologicznych, webinarach i raportach z realizacji.
+                  {text.newsletterDesc}
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -412,7 +538,7 @@ function NewsPage() {
                   className="font-semibold"
                   onClick={scrollToContact}
                 >
-                  Skontaktuj się z zespołem
+                  {text.contactTeam}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Button
@@ -423,7 +549,7 @@ function NewsPage() {
                     window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank', 'noopener,noreferrer')
                   }}
                 >
-                  Odwiedź naszą siedzibę
+                  {text.visitUs}
                 </Button>
               </div>
             </div>
@@ -431,7 +557,7 @@ function NewsPage() {
         </section>
       </main>
 
-      <BigFooter />
+      <BigFooter lang={lang} />
     </div>
   )
 }
