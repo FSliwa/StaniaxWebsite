@@ -680,6 +680,25 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
   const location = useLocation()
   const navItems = getNavItems(lang)
 
+  const renderTextWithBold = (textKey: any, boldTerms: Record<Lang, string>, isDark: boolean = false) => {
+    const text = t(lang, textKey)
+    const term = boldTerms[lang]
+    if (!term) return text
+    const parts = text.split(term)
+    if (parts.length === 2) {
+      return (
+        <>
+          {parts[0]}
+          <strong className={isDark ? "text-white font-semibold" : "text-gray-900 font-semibold"}>
+            {term}
+          </strong>
+          {parts[1]}
+        </>
+      )
+    }
+    return text
+  }
+
   // Scroll to hash section on mount or hash change
   useEffect(() => {
     const hash = location.hash
@@ -1445,11 +1464,11 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
             <div className="mb-16 lg:mb-24">
               <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase mb-6">
                 <span className="w-12 h-px bg-blue-600"></span>
-                Baza Wiedzy
+                {t(lang, 'bazaWiedzyTitle')}
               </div>
               <h2 className="text-4xl lg:text-6xl font-black uppercase text-gray-900 tracking-tight leading-[0.95] max-w-4xl">
-                Kompleksowy Przewodnik:<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Metalizacja & Obróbka</span>
+                {t(lang, 'bazaWiedzyHeading')}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">{t(lang, 'bazaWiedzyHeadingSub')}</span>
               </h2>
             </div>
 
@@ -1460,7 +1479,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
               <div className="col-span-1 md:col-span-12 bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-100 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50/50 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
                 <p className="relative z-10 text-xl lg:text-2xl text-gray-800 font-medium leading-relaxed max-w-5xl">
-                  W dzisiejszym przemyśle produkcyjnym obróbka powierzchniowa odgrywa kluczową rolę w nadawaniu detalom pożądanych właściwości fizycznych oraz estetycznych. Jednym z najbardziej zaawansowanych procesów w tym zakresie jest technologia, z którą nierozerwalnie wiąże się nasza firma. Jako specjaliści w branży stawiamy na innowacyjność, wysoką powtarzalność oraz doskonałą jakość każdej uzyskiwanej powłoki ochronnej.
+                  {t(lang, 'bazaWiedzyLead')}
                 </p>
               </div>
 
@@ -1469,9 +1488,13 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
                   <Flask weight="duotone" className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Technologie nakładania powłok ochronnych</h3>
+                <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">{t(lang, 'bazaWiedzyTechTitle')}</h3>
                 <p className="text-gray-600">
-                  Wielu inżynierów zastanawia się, w jaki sposób osiągnąć idealny efekt lustrzany na tworzywach sztucznych, bez konieczności stosowania szkodliwych i przestarzałych metod galwanicznych. Odpowiedzią jest proces, w którym detal umieszczany w nowoczesnej komorze jest pokrywany cienką, lecz niezwykle trwałą warstwą metalu. Ta zaawansowana metoda nie tylko zabezpiecza materiał przed czynnikami zewnętrznymi, ale również nadaje mu ekskluzywny wygląd. To właśnie <strong className="text-gray-900 font-semibold">metalizacja próżniowa</strong> uznawana jest za najbardziej ekologiczną alternatywę dla tradycyjnego chromowania.
+                  {renderTextWithBold('bazaWiedzyTechDesc', {
+                    pl: 'metalizacja próżniowa',
+                    en: 'vacuum metallization',
+                    de: 'Vakuummetallisierung'
+                  })}
                 </p>
               </div>
 
@@ -1480,13 +1503,17 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10 flex flex-col h-full justify-between">
                   <div>
-                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">Dlaczego warto wybrać nasze usługi?</h3>
+                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{t(lang, 'bazaWiedzyWhyTitle')}</h3>
                     <p className="text-gray-300 mb-6">
-                      Założycielem i głównym technologiem firmy jest ekspert z wieloletnim doświadczeniem w branży obróbki cieplnej i powierzchniowej. To właśnie z jego nazwiskiem utożsamiana jest nasza jakość i precyzja. Wybierając naszą firmę, decydujesz się na współpracę, nad którą pieczę trzyma firma <strong className="text-white font-semibold">metalizacja próżniowa dariusz staniak</strong>.
+                      {renderTextWithBold('bazaWiedzyWhyDesc', {
+                        pl: 'metalizacja próżniowa dariusz staniak',
+                        en: 'vacuum metallization company Dariusz Staniak',
+                        de: 'Vakuummetallisierungsfirma Dariusz Staniak'
+                      }, true)}
                     </p>
                   </div>
                   <Link to="/gallery" className="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors mt-auto">
-                    Zobacz galerię realizacji <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
+                    {t(lang, 'bazaWiedzyWhyLink')} <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
                   </Link>
                 </div>
               </div>
@@ -1496,13 +1523,17 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16"></div>
                 <div className="relative z-10 flex flex-col h-full justify-between">
                   <div>
-                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">Lokalizacja i zaplecze technologiczne</h3>
+                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{t(lang, 'bazaWiedzyLocTitle')}</h3>
                     <p className="text-blue-100 mb-6">
-                      Nasza infrastruktura pozwala na obsługę zarówno krótkich serii produkcyjnych, jak i wielkonakładowych zleceń dla przemysłu motoryzacyjnego czy kosmetycznego. Główny zakład znajduje się w centralnej Polsce. Jeśli szukasz rzetelnego partnera, <strong className="text-white font-semibold">metalizacja próżniowa józefów</strong> to najlepszy adres na mapie podwykonawców.
+                      {renderTextWithBold('bazaWiedzyLocDesc', {
+                        pl: 'metalizacja próżniowa józefów',
+                        en: 'vacuum metallization Józefów',
+                        de: 'Vakuummetallisierung Józefów'
+                      }, true)}
                     </p>
                   </div>
                   <Link to="/news" className="inline-flex items-center text-white/90 font-semibold hover:text-white transition-colors mt-auto">
-                    Aktualności branżowe <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
+                    {t(lang, 'bazaWiedzyLocLink')} <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
                   </Link>
                 </div>
               </div>
@@ -1512,16 +1543,24 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
                   <Gear weight="duotone" className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">Zastosowania i pokrewne techniki obróbki</h3>
+                <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">{t(lang, 'bazaWiedzyAppTitle')}</h3>
                 <p className="text-gray-600">
-                  Nie wszystkie materiały i geometrie pozwalają na obróbkę w warunkach wysokiej próżni. W takich przypadkach konieczne jest zastosowanie metod pokrewnych, które pozwalają na równomierne rozłożenie materiału na powierzchniach o nietypowych kształtach. Z tego powodu powszechnie stosowana <strong className="text-gray-900 font-semibold">metalizacja natryskowa</strong> pozostaje kluczowym elementem naszej oferty. Dzięki niej, jesteśmy w stanie dostarczyć doskonałe wykończenie tam, gdzie tradycyjna obróbka napotyka na ograniczenia fizyczne. Natomiast dla branży oświetleniowej absolutnie kluczowa pozostaje precyzyjna regeneracja odbłyśników, która zapewnia idealny kąt padania wiązki światła.
+                  {renderTextWithBold('bazaWiedzyAppDesc', {
+                    pl: 'metalizacja natryskowa',
+                    en: 'spray metallization',
+                    de: 'Spritzmetallisierung'
+                  })}
                 </p>
               </div>
 
               {/* Summary - Spans full width */}
               <div className="col-span-1 md:col-span-12 text-center pt-8 pb-4">
                 <p className="text-lg text-gray-500 font-medium max-w-4xl mx-auto">
-                  Podsumowując, <strong className="text-gray-800">metalizacja</strong> to coś więcej niż tylko techniczny proces przemysłowy – to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia, której poświęciliśmy nasze zawodowe pasje i kompetencje.
+                  {renderTextWithBold('bazaWiedzySummary', {
+                    pl: 'metalizacja',
+                    en: 'metallization',
+                    de: 'Metallisierung'
+                  })}
                 </p>
               </div>
             </div>
