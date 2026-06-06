@@ -379,7 +379,10 @@ function writePrerenderFile(subPath, titleMeta, htmlContent) {
   fileHtml = fileHtml.replace(/<meta property="og:description"[^>]*>/, '')
   fileHtml = fileHtml.replace(/<meta property="og:type"[^>]*>/, '')
   
-  fileHtml = fileHtml.replace('</head>', `${titleMeta}</head>`)
+  // Inject canonical URL link element to avoid duplicate content indexing issues
+  const canonicalLink = `\n    <link rel="canonical" href="https://www.staniax.pl/${subPath}" />\n`;
+  
+  fileHtml = fileHtml.replace('</head>', `${titleMeta}${canonicalLink}</head>`)
   fileHtml = fileHtml.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${htmlContent.trim()}</div>`)
   
   const targetPath = path.join(distDir, subPath)
