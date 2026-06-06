@@ -175,10 +175,10 @@ const plHtml = `
 
 // English/German texts
 const enMeta = `
-    <title>How does metallization affect material performance? | STANIAX</title>
-    <meta name="description" content="Discover how advanced vacuum metallization, plastic coating, and PVD processes affect the strength and aesthetics of materials in aviation." />
-    <meta property="og:title" content="How does metallization affect material performance? | STANIAX" />
-    <meta property="og:description" content="Discover how advanced vacuum metallization and protective PVD coatings increase material performance in the aerospace industry." />
+    <title>How Surface Treatments Affect Material Performance? | STANIAX</title>
+    <meta name="description" content="Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries." />
+    <meta property="og:title" content="How Surface Treatments Affect Material Performance? | STANIAX" />
+    <meta property="og:description" content="Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries." />
     <meta property="og:type" content="article" />
 `
 
@@ -216,10 +216,10 @@ const enHtml = `
       </div>
       
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-        How does metallization affect material performance? Discover its secrets!
+        How Surface Treatments Affect Material Performance? Discover Metallization!
       </h1>
       <p class="text-muted-foreground/80 text-base md:text-lg mb-8 max-w-3xl italic leading-relaxed">
-        Discover how metallization affects material performance! Learn about its types and applications in various industries. Learn more!
+        Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries. Find out the details of our strategic partnership!
       </p>
 
       <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
@@ -229,35 +229,36 @@ const enHtml = `
       <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
         <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
           <div class="space-y-6">
-            <p>The modern manufacturing industry is constantly searching for solutions that combine two key features: high mechanical strength and impeccable aesthetics. In a world where cost reduction and component weight optimization are priorities, traditional methods of producing bulky, all-metal parts are giving way to modern surface engineering technologies. One of the most important processes in this field is modern metallization. Currently, professional vacuum metallization and related vacuum metallizing processes are revolutionizing the approach to detail design.</p>
-            <p>The process of metallization completely changes the way we perceive detail design in the automotive, cosmetic, packaging, and electronics industries. Thanks to it, lightweight plastics acquire completely new physicochemical properties. When analyzing how metallization modifies the external structure of details, we see a huge increase in their performance. In this article, we will take a closer look at what exactly this process is, why aluminum vacuum metallization has become a market standard, how plastic metallization works, and how these technologies affect real material performance.</p>
+            <p>Modern manufacturing constantly seeks solutions that combine two key properties: high mechanical strength and flawless aesthetics. In a world where cost reduction and component weight optimization are priorities, traditional methods of producing bulky, solid alloy parts are giving way to modern surface engineering technologies. One of the most important processes in this field is advanced thin-film application. Today, professional vacuum coating and associated sputtering techniques are revolutionizing the approach to component design.</p>
+            <p>This surface treatment completely changes how we view part design in the automotive, cosmetics, packaging, and electronics industries. Thanks to it, lightweight polymers gain completely new physicochemical properties. When analyzing how the metallization of plastic modifies the external structure of parts, we see a massive increase in their performance. In this article, we will take a closer look at what this process actually entails, why aluminum vapor deposition has become a market standard, how vacuum metallization of plastic works, and how these technologies affect real material performance.</p>
           </div>
 
           <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What is metallization?</h2>
-            <p>Metallization is an advanced technological process consisting of applying a thin layer of metal onto the surface of another material, called the substrate. This substrate can be both other metals and non-metallic materials. Nowadays, a key role is played by modern plastic metallization, which allows replacing bulky metal components with lighter polymer equivalents. Every industrial metallization aims to optimize production costs while maintaining premium features.</p>
-            <p>The main goal of metallization is to give the refined surface specific properties that the material does not naturally possess. This can be electrical conductivity, light reflectivity, or protection against external factors. Since modern metallization and efficient vacuum metallizing are based on ecological and clean technologies, metallic layers are applied exclusively under high vacuum conditions. This makes vacuum metallization guarantee perfect coating repeatability, which is often mentioned in industry technical forums. Both plastic metallization and general metallization of hard substrates significantly increase the utility parameters of the finished product.</p>
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What does the coating process actually entail?</h2>
+            <p>This advanced technological process involves applying a microscopic layer of conductive or reflective material (often a metal) onto the surface of another material, known as the substrate. This substrate can be other alloys as well as non-conductive materials. Nowadays, modern polymer plating alternatives play a key role, allowing heavy steel components to be replaced with lighter synthetic counterparts. Every industrial surface treatment aims to optimize production costs while maintaining a premium feel.</p>
+            <p>The main goal of the process is to give the treated surface specific properties that the material does not naturally possess, such as electrical conductivity, light reflectivity, or protection against external factors. Since modern efficient vacuum deposition relies on ecological and clean technologies, these thin films are applied exclusively under high-vacuum conditions. This guarantees ideal repeatability of coatings, a topic frequently discussed on industry forums like Elektroda.pl. Both the metallization of plastic and the general coating of hard substrates significantly improve the functional parameters of the finished product.</p>
           </div>
 
           <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Types of metallization in vacuum technology</h2>
-            <p>Depending on the desired final properties of the product, engineers choose the optimal surface modification parameters. The modern approach in this industry segment is fully based on advanced processes, dominated by vacuum metallization and precise vacuum metallizing using aluminum.</p>
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What are the main types of thin-film deposition in vacuum technology?</h2>
+            <p>Depending on the desired final properties of the product, engineers choose the optimal surface modification parameters. The modern approach in this industry segment is fully based on high-tech processes dominated by PVD and precise aluminum vacuum deposition.</p>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Aluminum metallization</h3>
-              <p>In a professional production plant, aluminum metallization does not exist as a separate, traditional spray method – this process is implemented exclusively in high vacuum technology. In this process, pure aluminum is evaporated and precisely, layer by layer, deposited on the modified substrate. Such vacuum aluminum metallization allows obtaining a perfect, mirror effect that cannot be achieved by artisanal methods. Through the process of aluminum metallization, elements gain unique aesthetics and excellent performance parameters.</p>
-              <p>This method finds wide application in the automotive industry. It is there that professional metallization of car reflectors is crucial. When headlights lose their efficiency, the solution is precise reflector metallization, which restores the original parameters of the light beam. Every factory reflector metallization is based on applying an aluminum coating in a chamber. Because reflector metallization guarantees excellent light reflection, this process directly translates to road safety. For the lighting industry, vacuum aluminum metallization and precise vacuum metallization are the absolute foundation of operation.</p>
+              <h3 class="text-xl font-bold text-foreground">How does aluminum deposition work?</h3>
+              <p>In a professional manufacturing facility, this process does not exist as a separate, traditional spray method—it is carried out exclusively using high-vacuum technology. Pure aluminum is vaporized and precisely deposited, layer by layer, on the modified substrate. Such vacuum aluminum coating allows for a perfect mirror effect that cannot be achieved by artisanal methods. Through this technique, components gain unique aesthetics and excellent performance parameters.</p>
+              <p>This method is widely used in the automotive industry. That is where the professional metallization of reflectors is of key importance. When headlights lose their efficiency, precise reflector recoating restores the original properties of the light beam. Every factory application is based on applying an aluminum layer inside a specialized chamber. Since the metallization of reflectors guarantees excellent light reflection, this directly translates to road safety. For the lighting sector, precise aluminum sputtering is the absolute foundation of operation.</p>
             </div>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Vacuum metallization</h3>
-              <p>The most technologically advanced type of surface refinement is general vacuum metallization (often identified with <a href="https://en.wikipedia.org/wiki/Physical_vapor_deposition" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">PVD – Physical Vapor Deposition</a> processes). The entire process takes place in special chambers where a high vacuum is generated. The aluminum that forms the coating is thermally evaporated and then condenses on the surface of rotating details. It is no wonder that professional vacuum metallizing has completely replaced old, chemical electroplating techniques. Today, vacuum metallization is synonymous with durability and ecology.</p>
-              <p>The specialized company <a href="https://staniax.pl" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Staniax</a> operates in the market. An example of a leader in this field, whose innovative approach set new trends in the vacuum metallization industry, is <a href="http://www.metalizacje.pl/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Dariusz Staniak</a>. He sets quality standards and implements tooling in the plant that replaces expensive advanced machinery. Often, regional vacuum metallization Józefów is mentioned as a key competence center, where production plants carry out the most demanding projects. When we are interested in proven vacuum metallization or plastic coating, it is worth choosing experienced entities such as Staniax. It is there that vacuum metallization Dariusz Staniak and vacuum metallization Józefów in the new version as Staniax Sp. z o.o. prove that vacuum aluminum metallizing raises detail quality to the highest level.</p>
+              <h3 class="text-xl font-bold text-foreground">What is Physical Vapor Deposition (PVD)?</h3>
+              <p>The most technologically advanced type of surface refinement is general vacuum deposition (often identified with Physical Vapor Deposition or PVD processes). The entire procedure takes place in special chambers where a high vacuum is generated. The source material forming the coating is thermally evaporated and then condenses on the surface of rotating parts. Unsurprisingly, professional PVD has largely replaced older chemical electroplating techniques. Today, this process is synonymous with durability and ecology.</p>
+              <p>The specialized company <a href="https://staniax.pl" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Staniax - vacuum coating and plastic painting</a> operates effectively in this market. These are areas where process synergy determines the ultimate success of the product. An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is <a href="http://www.metalizacje.pl/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Dariusz Staniak</a>. He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. Regional surface treatments in Józefów are often mentioned as a key competence center where manufacturing plants execute the most demanding projects. When seeking proven PVD or polymer painting, it is worth choosing experienced entities like Staniax. The techniques championed by Dariusz Staniak and the modernized Staniax Sp. z o.o. prove that aluminum vacuum deposition elevates part quality to the highest level.</p>
             </div>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">ABS metallization</h3>
-              <p>Metallization of <a href="https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">ABS (acrylonitrile butadiene styrene)</a> is an excellent example of combining the advantages of lightweight plastics with metal parameters. ABS plastic is ideally suited for processes where vacuum plastic metallization is performed. Thanks to the appropriate chemical structure of the polymer, vacuum ABS metallization ensures excellent adhesion of the applied aluminum layer. As a final result, plastic metallization gives a coating resistant to external factors and chipping. Elements for which vacuum ABS metallization has been carried out commonly replace heavy and expensive parts cast from brass or zinc.</p>
+              <h3 class="text-xl font-bold text-foreground">How does ABS surface modification benefit manufacturers?</h3>
+              <p>Modifying ABS (acrylonitrile-butadiene-styrene) is a perfect example of combining the benefits of lightweight synthetics with the robust properties of traditional elements. ABS is ideally suited for processes utilizing the vacuum metallization of plastic. Thanks to the polymer's specific structure, the procedure ensures excellent adhesion of the applied aluminum layer. As a result, the treatment provides a coating highly resistant to external factors and chipping.</p>
+              <p>Parts that have undergone this advanced ABS refinement commonly replace heavy and expensive components cast from brass or zinc. They are lightweight, easy to injection mold, and after the deposition process, they look identical to solid alloys. This strategy is vital to modern design.</p>
             </div>
           </div>
 
@@ -265,7 +266,7 @@ const enHtml = `
             <table class="w-full text-left border-collapse text-sm min-w-[600px]">
               <thead>
                 <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Vacuum application area</th>
+                  <th class="p-4 font-bold text-foreground">Area of application in vacuum</th>
                   <th class="p-4 font-bold text-foreground">Main substrates</th>
                   <th class="p-4 font-bold text-foreground">Key advantages of aluminum coating</th>
                   <th class="p-4 font-bold text-foreground">Typical coating thicknesses</th>
@@ -295,21 +296,56 @@ const enHtml = `
           </div>
 
           <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Application of metallization in various industries</h2>
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">In which industries are these surface applications most common?</h2>
+            <p>The versatility of this surface treatment means we encounter it at almost every step—from everyday objects to advanced industrial components.</p>
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Cosmetic packaging metallization</h3>
-              <p>Visual attractiveness of a product on the store shelf is the key to success in the beauty industry. Cosmetic packaging metallization plays a fundamental role here. Perfume caps, lipstick tubes, or cream jars are covered with shiny aluminum coatings. Perfect packaging metallization increases brand prestige, positioning the product in the premium segment.</p>
-              <p>Cosmetics metallization is a field where aesthetics must go hand in hand with durability. Since cosmetic packaging metallization protects the substances contained inside against light access, it allows limiting the use of artificial preservatives. Every modern brand knows the importance of aesthetic packaging metallization and global cosmetics metallization.</p>
+              <h3 class="text-xl font-bold text-foreground">How is cosmetic packaging refined?</h3>
+              <p>The visual appeal of a product on the store shelf is the key to success in the beauty industry. The metallization of plastic components for cosmetic packaging plays a fundamental role here. Perfume caps, lipstick tubes, or cream jars are covered with shiny aluminum films. Perfect aesthetic refinement raises the prestige of the brand, positioning the product in the premium segment.</p>
+              <p>Broadly understood cosmetic surface engineering is a field where aesthetics must go hand in hand with durability. Since treating these containers protects internal substances from light, it allows for a reduction in artificial preservatives. When stunning bottle aesthetics are the goal, vacuum metallization of plastic has no equal. Moreover, these precise coatings guarantee resistance to the chemicals contained in the products.</p>
             </div>
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Alcohol packaging metallization</h3>
-              <p>The high-proof beverage segment, especially premium, heavily relies on sensory marketing. Refined metallization of alcohol products, and more precisely – luxury glass bottles, closures, and labels, allows brands to stand out in the crowd of competitors. Exclusive metallization of alcohol products attracts attention in clubs and on store shelves, shimmering with metallic luster.</p>
+              <h3 class="text-xl font-bold text-foreground">Why is premium alcoholic beverage packaging coated?</h3>
+              <p>The spirits segment, especially premium brands, relies heavily on sensory marketing. Sophisticated surface finishing of luxury glass bottles, closures, and labels allows brands to stand out in a crowded market. Exclusive decorative coatings attract attention in clubs and on store shelves, shimmering with brilliance.</p>
+              <p>Designers emphasize that vacuum-deposited layers offer unlimited coloring options in copper or gold shades using appropriate transparent varnishes. When a reflective finish appears on a bottle, the beverage acquires collector's item status. Every luxury brand knows that this decorative application is a proven method for product differentiation.</p>
             </div>
           </div>
 
           <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Benefits of metallization for material performance</h2>
-            <p>Increased wear resistance, protection against external factors, and combining aesthetics with functionality are the key advantages of PVD technology in vacuum chambers.</p>
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What are the tangible benefits for material performance?</h2>
+            <p>Beyond the obvious visual advantages, this process radically enhances the technical parameters of the modified components.</p>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">How does it increase wear resistance?</h3>
+              <p>Applying a hard, lacquer-protected aluminum film onto a substrate drastically increases its resistance to mechanical damage and abrasion. In the machinery and lighting industries, PVD protects precise details. When durability is the goal, vacuum-applied layers combined with an appropriate top coat can extend a component's trouble-free operation several times over. Both treated synthetics and glass surfaces create a robust, friction-resistant barrier.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">How does it protect against external factors?</h3>
+              <p>Oxidation and surface degradation are primary enemies of many materials. Modern aluminum deposition creates an extremely tight, microscopic barrier that blocks environmental access to the substrate. Thanks to the precise positioning of atoms in the vacuum chamber, the resulting film adheres perfectly. With professional application, the surface achieves full passivation and high-grade protection, providing a far more durable and homogeneous solution than classic single-layer paints.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">How does it blend aesthetics and functionality?</h3>
+              <p>Utilizing advanced deposition technology allows engineers to design complex shapes from lightweight polymers while giving the end-user the tactile experience of a luxury good. Because vacuum metallization of plastic combines aesthetics with functionality, it dominates modern engineering designs. When perfect light reflection is critical, aluminum deposition in a vacuum chamber remains unmatched.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What does the future hold for surface engineering?</h2>
+            <p>This technology is constantly evolving, responding to strict environmental standards and growing performance requirements.</p>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">What innovations are emerging in vacuum deposition?</h3>
+              <p>Modern developmental directions focus on the complete elimination of older, harmful chemical procedures in favor of fully ecological solutions. Breakthrough innovations allow for identical—and often superior—strength parameters with zero toxic wastewater emission. Modern control systems enable precise layer thickness adjustments down to individual nanometers. These technological leaps open doors for advanced photonics, electronics, and the production of modern lighting systems, where the metallization of reflectors remains paramount.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Which new substrate materials are being used?</h3>
+              <p>Engineers are continually adapting the process for novel substrates. Increasingly, advanced composites and modern 3D printing polymers undergo vacuum treatment. New materials are pushing PVD into completely new arenas of application. This facilitates the rapid prototyping of fully functional, lightweight components for the lighting or medical sectors, where precision and low weight matter, all while maintaining a premium appearance. Today's aluminum deposition perfectly handles the challenges of modern materials science.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What are the final recommendations for enterprises?</h2>
+            <p>Vacuum thin-film deposition is undoubtedly the technology of the future, defining the standards of modern production. Transforming lightweight polymers into high-performance components using vaporized aluminum is the definitive path forward.</p>
+            <p class="italic border-l-4 border-accent pl-4 py-2 bg-accent/5 rounded-r-lg">
+              "For enterprises planning to implement this process or looking for subcontractors, precisely defining the working conditions of the finished part is crucial. The choice of appropriate parameters offered by the vacuum metallization of plastic elements depends on durability requirements and the desired final effect. The comprehensive company Staniax - vacuum coating and plastic painting stands out as an excellent business partner for launching modern products. It is there that expert knowledge and technologies—championed by Dariusz Staniak, a mentor within the newly transformed Staniax Sp. z o.o., operating as the premier local competence center in Józefów—enable clients to achieve the highest market quality. Investing in advanced surface engineering is a proven strategy to increase product competitiveness, reduce material costs, and meet the highest consumer expectations."
+            </p>
           </div>
         </article>
 
