@@ -349,7 +349,7 @@ function writePrerenderFile(subPath, titleMeta, htmlContent) {
 writePrerenderFile('news/partnerstwo-z-wiodacym-producentem-lotniczym', plMeta, plHtml)
 
 // 2. English version
-writePrerenderFile('en/news/partnerstwo-z-wiodacym-producentem-lotniczym', enMeta, enHtml)
+writePrerenderFile('en/news/how-does-metallization-affect-material-performance', enMeta, enHtml)
 
 // 3. German version
-writePrerenderFile('de/news/partnerstwo-z-wiodacym-producentem-lotniczym', enMeta, enHtml)
+writePrerenderFile('de/news/how-does-metallization-affect-material-performance', enMeta, enHtml)

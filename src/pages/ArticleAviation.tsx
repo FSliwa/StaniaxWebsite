@@ -290,8 +290,8 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
 
   const languageLinks = [
     { flag: "🇵🇱", lang: "pl" as const, path: "/news/partnerstwo-z-wiodacym-producentem-lotniczym", label: "Polski" },
-    { flag: "🇬🇧", lang: "en" as const, path: "/en/news/partnerstwo-z-wiodacym-producentem-lotniczym", label: "English" },
-    { flag: "🇩🇪", lang: "de" as const, path: "/de/news/partnerstwo-z-wiodacym-producentem-lotniczym", label: "Deutsch" },
+    { flag: "🇬🇧", lang: "en" as const, path: "/en/news/how-does-metallization-affect-material-performance", label: "English" },
+    { flag: "🇩🇪", lang: "de" as const, path: "/de/news/how-does-metallization-affect-material-performance", label: "Deutsch" },
   ]
 
   return (

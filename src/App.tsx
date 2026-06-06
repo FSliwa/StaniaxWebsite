@@ -27,8 +27,8 @@ function App() {
           <Route path="/de/news" element={<NewsPage lang="de" />} />
           
           <Route path="/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="pl" />} />
-          <Route path="/en/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="en" />} />
-          <Route path="/de/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="de" />} />
+          <Route path="/en/news/how-does-metallization-affect-material-performance" element={<ArticleAviation lang="en" />} />
+          <Route path="/de/news/how-does-metallization-affect-material-performance" element={<ArticleAviation lang="de" />} />
           
           <Route path="/gallery" element={<GalleryPage lang="pl" />} />
           <Route path="/en/gallery" element={<GalleryPage lang="en" />} />

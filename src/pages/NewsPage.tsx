@@ -67,7 +67,7 @@ const newsItemsEn = [
     category: 'Article',
     excerpt: 'Discover how advanced vacuum metallization and PVD protective coatings increase material performance in the aerospace industry. Find out the details of our strategic partnership!',
     image: newsAviationImage,
-    path: '/news/partnerstwo-z-wiodacym-producentem-lotniczym'
+    path: '/news/how-does-metallization-affect-material-performance'
   },
   {
     title: 'Introduction of Nanometric Coatings Technology',
