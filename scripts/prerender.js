@@ -401,7 +401,6 @@ writePrerenderFile('en/news/how-does-metallization-affect-material-performance',
 
 // 3. German version
 writePrerenderFile('de/news/how-does-metallization-affect-material-performance', enMeta, getEnHtml('de'))
-
 // --- Beauty Article ---
 
 const plBeautyMeta = `
@@ -449,7 +448,7 @@ const plBeautyHtml = `
         Metalizacja próżniowa rewolucjonizuje branżę beauty
       </h1>
       <p class="text-muted-foreground/80 text-base md:text-lg mb-8 max-w-3xl italic leading-relaxed">
-        Branża kosmetyczna to przestrzeń, w której liczy się nie tylko doskonały skład produktu, ale również jego opakowanie. Klienci coraz częściej kupują oczami, poszukując produktów premium, które zachwycają swoim wyglądem. W odpowiedzi na te potrzeby rynek opakowań kosmetycznych przechodzi prawdziwą rewolucję, a w jej centrum znajduje się metalizacja próżniowa.
+        Jak nowoczesna metalizacja próżniowa oraz precyzyjne lakierowanie tworzyw i szkła rewolucjonizują rynek opakowań kosmetycznych w segmencie beauty?
       </p>
 
       <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
@@ -459,13 +458,17 @@ const plBeautyHtml = `
       <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
         <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
           <div class="space-y-6">
-            <p>Branża kosmetyczna to przestrzeń, w której liczy się nie tylko doskonały skład produktu, ale również jego opakowanie. Klienci coraz częściej kupują oczami, poszukując produktów premium, które zachwycają swoim wyglądem. W odpowiedzi na te potrzeby rynek opakowań kosmetycznych przechodzi prawdziwą rewolucję, a w jej centrum znajduje się metalizacja próżniowa. W poniższym artykule przyjrzymy się, jak ta technologia zmienia oblicze współczesnych kosmetyków.</p>
+            <p>Branża kosmetyczna to przestrzeń, w której liczy się nie tylko doskonały skład produktu, ale również jego opakowanie. Klienci coraz częściej kupują oczami, poszukując produktów premium, które zachwycają swoim wyglądem. W odpowiedzi na te potrzeby rynek opakowań kosmetycznych przechodzi prawdziwą rewolucję, a w jej centrum znajduje się <a href="/#vacuum-metallization" class="text-accent hover:underline font-medium">metalizacja próżniowa</a>. W poniższym artykule przyjrzymy się, jak ta technologia zmienia oblicze współczesnych kosmetyków.</p>
+            
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Wprowadzenie do metalizacji próżniowej</h2>
             <p>Aby zrozumieć fenomen nowoczesnych opakowań, warto najpierw zgłębić technologię, która za nimi stoi. Odpowiednio dobrane procesy produkcyjne, takie jak precyzyjna metalizacja i staranne lakierowanie, pozwalają osiągnąć niesamowite efekty wizualne na materiałach, które z natury nie przypominają szlachetnych kruszców.</p>
           </div>
 
           <div class="space-y-4">
             <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Co to jest metalizacja próżniowa?</h2>
-            <p>Metalizacja próżniowa to zaawansowany proces technologiczny polegający na osadzaniu cienkiej warstwy metalu (najczęściej aluminium) na powierzchni innego materiału w warunkach wysokiej próżni. W przeciwieństwie do procesów takich jak metalizacja natryskowa, która jest powszechnie stosowana w przemyśle ciężkim w celu ochrony antykorozyjnej dużych konstrukcji stalowych, technika próżniowa pozwala na uzyskanie idealnie gładkiej, lustrzanej powłoki o wysokich walorach estetycznych. Sama metalizacja w tym wydaniu jest niezwykle precyzyjna, dając efekt luksusowego złota, srebra czy miedzi bez konieczności używania tych drogich materiałów w całości.</p>
+            <p>Metalizacja próżniowa to zaawansowany proces technologiczny polegający na osadzaniu cienkiej warstwy metalu (najczęściej <a href="https://pl.wikipedia.org/wiki/Glin" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">aluminium</a>) na powierzchni innego materiału w warunkach wysokiej próżni. W przeciwieństwie do procesów takich jak metalizacja natryskowa, która jest powszechnie stosowana w przemyśle ciężkim w celu ochrony antykorozyjnej dużych konstrukcji stalowych, technika próżniowa pozwala na uzyskanie idealnie gładkiej, lustrzanej powłoki o wysokich walorach estetycznych. Sama metalizacja w tym wydaniu jest niezwykle precyzyjna, dając efekt luksusowego złota, srebra czy miedzi bez konieczności używania tych drogich materiałów w całości.</p>
+            
+            <h3 class="text-xl font-bold text-foreground pt-2">Historia i rozwój technologii</h3>
             <p>Choć nakładanie cienkich powłok metalicznych znane jest od dziesięcioleci, to początkowo proces ten był drogi i zarezerwowany dla przemysłu optycznego czy elektronicznego. Z biegiem lat technologia stawała się coraz bardziej dostępna. Obecnie metalizowanie próżniowe to standard w produkcji eleganckich opakowań. Rozwój maszyn oraz nowoczesnych lakierów sprawił, że proces ten stał się nie tylko szybszy, ale i znacznie bardziej przyjazny dla środowiska.</p>
           </div>
 
@@ -475,12 +478,12 @@ const plBeautyHtml = `
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Metalizacja plastiku w opakowaniach</h3>
-              <p>W branży Beauty najczęściej stosowana jest metalizacja plastiku. Elementy takie jak zakrętki słoiczków z kremami, obudowy szminek czy atomizery, są produkowane z lekkich polimerów, a następnie poddawane procesowi metalizacji. Dzięki temu opakowanie pozostaje lekkie i poręczne dla konsumenta, ale wizualnie prezentuje się jak produkt z najwyższej półki.</p>
+              <p>W branży Beauty najczęściej stosowana jest <a href="/#about" class="text-accent hover:underline font-medium">metalizacja plastiku</a>. Elementy takie jak zakrętki słoiczków z kremami, obudowy szminek czy atomizery, są produkowane z lekkich <a href="https://pl.wikipedia.org/wiki/Polimery" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">polimerów</a>, a następnie poddawane procesowi metalizacji. Dzięki temu opakowanie pozostaje lekkie i poręczne dla konsumenta, ale wizualnie prezentuje się jak produkt z najwyższej półki.</p>
             </div>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Lakierowanie plastiku a metalizacja</h3>
-              <p>Aby powłoka metaliczna była trwała i błyszcząca, sam proces nakładania metalu to za mało. Kluczowe jest odpowiednie lakierowanie plastiku zarówno przed, jak i po nałożeniu warstwy metalu:</p>
+              <p>Aby powłoka metaliczna była trwała i błyszcząca, sam proces nakładania metalu to za mało. Kluczowe jest odpowiednie <a href="/#plastic-painting" class="text-accent hover:underline font-medium">lakierowanie plastiku</a> zarówno przed, jak i po nałożeniu warstwy metalu:</p>
               <ul class="list-disc pl-5 space-y-2 mt-2">
                 <li><strong>Lakier podkładowy (Base coat):</strong> Wygładza powierzchnię plastiku, tworząc idealną bazę pod warstwę aluminium.</li>
                 <li><strong>Lakier nawierzchniowy (Top coat):</strong> Chroni cienką warstwę metalu przed ścieraniem i pozwala na nadanie dowolnego koloru.</li>
@@ -528,7 +531,7 @@ const plBeautyHtml = `
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Estetyka i nowoczesny design</h3>
-              <p>Głównym powodem, dla którego producenci decydują się na metalizowanie, jest niezrównana estetyka. Products gain a mirror shine, which is associated with luxury and prestige in consumers' minds. To pozwala markom na pozycjonowanie swoich produktów w segmencie premium.</p>
+              <p>Głównym powodem, dla którego producenci decydują się na metalizowanie, jest niezrównana estetyka. Produkty zyskują lustrzany połysk, który w świadomości konsumentów nieodłącznie kojarzy się z luksusem i prestiżem. To pozwala markom na pozycjonowanie swoich produktów w segmencie premium.</p>
             </div>
             
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
@@ -543,13 +546,13 @@ const plBeautyHtml = `
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Zrównoważony rozwój i ekologia</h3>
-              <p>Mogłoby się wydawać, że procesy chemiczne nie idą w parze z ekologią. Jednak w porównaniu do litych elementów metalowych, metalizowane opakowania plastikowe są znacznie lżejsze, co zmniejsza ślad węglowy podczas transportu. Co więcej, nowoczesne zakłady usługowe stosują lakiery utwardzane promieniami UV (bez lotnych związków organicznych), co sprawia, że technologia staje się coraz bardziej "zielona".</p>
+              <p>Mogłoby się wydawać, że procesy chemiczne nie idą w parze z ekologią. Jednak w porównaniu do litych elementów metalowych, metalizowane opakowania plastikowe są znacznie lżejsze, co zmniejsza <a href="https://pl.wikipedia.org/wiki/%C5%9Alad_w%C4%99glowy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">ślad węglowy</a> podczas transportu. Co więcej, nowoczesne zakłady usługowe stosują lakiery utwardzane <a href="https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">promieniami UV</a> (bez lotnych związków organicznych), co sprawia, że technologia staje się coraz bardziej "zielona".</p>
             </div>
           </div>
 
           <div class="space-y-6">
             <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Przykłady produktów z metalizacją próżniową</h2>
-            <p>Technologia ta znalazła zastosowanie w niemal każdym segmencie rynku beauty. Polska również jest silnym graczem na mapie europejskiej produkcji -- na przykład zapytania o usługi takie jak <a href="https://staniax.pl" class="text-accent hover:underline">metalizacja próżniowa Józefów</a> i zakład metalizacji STANIAX, czy inne lokalne ośrodki produkcyjne pokazują, że polskie firmy stanowią ważne zaplecze dla międzynarodowych marek.</p>
+            <p>Technologia ta znalazła zastosowanie w niemal każdym segmencie rynku beauty. Polska również jest silnym graczem na mapie europejskiej produkcji -- na przykład zapytania o usługi takie jak <a href="/#contact" class="text-accent hover:underline font-medium">metalizacja próżniowa Józefów</a> i zakład metalizacji STANIAX, czy inne lokalne ośrodki produkcyjne pokazują, że polskie firmy stanowią ważne zaplecze dla międzynarodowych marek.</p>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Innowacyjne kosmetyki z metalizowaniem</h3>
@@ -560,11 +563,6 @@ const plBeautyHtml = `
                 <li><strong>Opakowania perfumów, tubki z kremami i maskarami:</strong> Nawet elastyczne opakowania mogą być pokryte elastycznymi, metalizowanymi foliami.</li>
               </ul>
             </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Zastosowanie w perfumerii</h3>
-              <p>W świecie perfum opakowanie jest równie ważne co sam zapach. Flakony perfum są zazwyczaj wykonane ze szkła, jednak to ich nasadki, korki i atomizery stanowią o charakterze całości. Właśnie tutaj metalizacja plastiku sprawdza się najlepiej, pozwalając na tworzenie misternych, złotych lub srebrnych korków o skomplikowanych kształtach, które byłyby zbyt ciężkie lub zbyt drogie do wykonania z czystego metalu.</p>
-            </div>
           </div>
 
           <div class="space-y-6">
@@ -573,12 +571,66 @@ const plBeautyHtml = `
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Trendy i przewidywania</h3>
-              <p>Przyszłość przyniesie prawdopodobnie jeszcze mocniejszy nacisk na rozwiązania proekologiczne. Branża dąży do stosowania powłok, które nie zakłócają procesu recyklingu plastiku. Będziemy również obserwować rozwój w kierunku efektów specjalnych: powłok holograficznych, kameleonowych (zmieniających kolor pod kątem) oraz matowych metali, które aktualnie zyskują ogromną popularność wśród minimalistycznych marek.</p>
+              <p>Przyszłość przyniesie prawdopodobnie jeszcze mocniejszy nacisk na rozwiązania proekologiczne. Branża dąży do stosowania powłok, które nie zakłócają procesu <a href="https://pl.wikipedia.org/wiki/Recykling" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">recyklingu</a> plastiku. Będziemy również obserwować rozwój w kierunku efektów specjalnych: powłok holograficznych, kameleonowych (zmieniających kolor pod kątem) oraz matowych metali, które aktualnie zyskują ogromną popularność wśród minimalistycznych marek.</p>
             </div>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Wnioski</h3>
               <p>Metalizacja próżniowa bezpowrotnie zmieniła branżę Beauty. Zastępując tradycyjne metale, pozwoliła na masową produkcję ekskluzywnych wizualnie opakowań przy jednoczesnym zachowaniu lekkości i optymalizacji kosztów. Połączenie precyzyjnego osadzania powłok i zaawansowanego lakierowania to dziś klucz do serca (i portfela) konsumenta ceniącego design i wysoką jakość.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Często zadawane pytania (Q&A)</h2>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Czym jest metalizacja próżniowa i czym różni się od metalizacji natryskowej?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Metalizacja próżniowa to osadzanie bardzo cienkiej warstwy metalu (najczęściej aluminium) na powierzchni innego materiału w warunkach wysokiej próżni. Daje idealnie gładką, lustrzaną powłokę o wysokiej wartości estetycznej. Metalizacja natryskowa, stosowana głównie w przemyśle ciężkim, służy przede wszystkim ochronie antykorozyjnej i nie zapewnia tak perfekcyjnie gładkiego, „biżuteryjnego” wykończenia.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Dlaczego w branży Beauty najczęściej metalizuje się plastik zamiast używać litego metalu?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Elementy opakowań (np. zakrętki, obudowy szminek, atomizery) produkuje się z lekkich polimerów, a następnie metalizuje, by połączyć wygodę i niską masę z wyglądem premium (złoto, srebro, miedź). Taka konstrukcja obniża koszty, poprawia ergonomię i zmniejsza ślad węglowy transportu w porównaniu z cięższymi elementami metalowymi, a jednocześnie zachowuje luksusowy efekt wizualny.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Jaką rolę pełni lakierowanie w procesie metalizacji i trwałości opakowań?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Lakier podkładowy (base coat) wygładza powierzchnię plastiku i przygotowuje ją do równomiernego osadzania metalu. Lakier nawierzchniowy (top coat) zabezpiecza cienką warstwę metalu przed zarysowaniami, działaniem chemikaliów z kosmetyków oraz promieniowaniem UV, a także pozwala nadać dowolny kolor. To połączenie odpowiada zarówno za „efekt lustra”, jak i dużą odporność użytkową.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Na ile metalizacja próżniowa jest przyjazna środowisku i co z recyklingiem?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">W porównaniu z litymi metalami lżejsze, metalizowane opakowania plastikowe ograniczają emisje podczas transportu. Dodatkowo nowoczesne lakiery utwardzane promieniami UV nie zawierają lotnych związków organicznych, co czyni proces „zielonym” w porównaniu z tradycyjnymi rozwiązaniami. Branża intensywnie pracuje też nad powłokami, które nie zakłócają recyklingu plastiku, aby jeszcze lepiej wpisać się w gospodarkę obiegu zamkniętego.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Gdzie najczęściej wykorzystuje się tę technologię i jakie są przykłady produktów?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">W makijażu spotkamy ją w oprawkach szminek i błyszczyków oraz w kompaktach i paletach z lustrzanym wykończeniem. Sprawdza się także w perfumerii - przy nasadkach, korkach i atomizerach, gdzie umożliwia tworzenie efektownych, a zarazem lekkich form. Nawet elastyczne opakowania (np. tubki) mogą korzystać z elastycznych, metalizowanych folii. Polska jest istotnym zapleczem produkcyjnym w Europie, o czym świadczy rosnące zainteresowanie usługami metalizacji w lokalnych ośrodkach.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+            <h3 class="text-xl font-bold text-foreground mb-4">Stwórz opakowania, które zachwycą Twoich klientów!</h3>
+            <p class="text-sm md:text-base mb-6 leading-relaxed">
+              Szukasz sprawdzonego i doświadczonego partnera, który zamieni Twoje wizje w luksusową rzeczywistość? W Zakładzie Metalizacji STANIAX łączymy zaawansowane technologie z pasją do perfekcji. Oferujemy najwyższej jakości metalizację próżniową oraz precyzyjne lakierowanie, które wyróżnią Twoje kosmetyki na tle konkurencji.
+            </p>
+            
+            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto współpracować ze STANIAX?</h4>
+            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+              <li><strong>Gwarancja jakości premium:</strong> Zapewniamy idealnie gładkie, lustrzane powłoki o niezwykłej trwałości.</li>
+              <li><strong>Nowoczesny park maszynowy:</strong> Realizujemy zlecenia szybko, precyzyjnie i z myślą o środowisku.</li>
+              <li><strong>Pełna personalizacja:</strong> Osiągamy nieograniczoną paletę barw i efektów dopasowanych do tożsamości Twojej marki.</li>
+            </ul>
+            
+            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Podnieś prestiż swoich produktów i przyciągnij wzrok konsumentów!</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                Skontaktuj się z nami i poproś o darmową wycenę swojego projektu!
+                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
+              </a>
+              <a href="/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Poznaj wykonane projekty Zakładu Metalizacji STANIAX
+                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
+              </a>
             </div>
           </div>
         </article>
@@ -620,7 +672,7 @@ function getEnBeautyHtml(lang) {
           <a href="/${lang}/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">About Us</a>
           <a href="/${lang}/#about" class="text-muted-foreground hover:text-accent transition-colors">Offer</a>
           <a href="/${lang}/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projects</a>
-          <a href="/${lang}/gallery" class="text-muted-foreground hover:text-accent transition-colors">Gallery</a>
+          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Gallery</a>
           <a href="/${lang}/#contact" class="text-muted-foreground hover:text-accent transition-colors">Contact</a>
         </nav>
         <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
@@ -642,7 +694,7 @@ function getEnBeautyHtml(lang) {
         Vacuum Metallization Revolutionizes the Beauty Industry
       </h1>
       <p class="text-muted-foreground/80 text-base md:text-lg mb-8 max-w-3xl italic leading-relaxed">
-        The cosmetics industry is a space where not only the perfect composition of the product matters, but also its packaging. Customers increasingly buy with their eyes, looking for premium products that delight with their appearance. In response to these needs, the cosmetics packaging market is undergoing a real revolution, with vacuum metallization at its center.
+        How modern vacuum metallization and precise plastic and glass painting are revolutionizing the cosmetics packaging market in the beauty segment?
       </p>
 
       <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
@@ -652,13 +704,17 @@ function getEnBeautyHtml(lang) {
       <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
         <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
           <div class="space-y-6">
-            <p>The cosmetics industry is a space where not only the perfect composition of the product matters, but also its packaging. Customers increasingly buy with their eyes, looking for premium products that delight with their appearance. In response to these needs, the cosmetics packaging market is undergoing a real revolution, with vacuum metallization at its center. In this article, we examine how this technology is changing the face of modern cosmetics.</p>
+            <p>The cosmetics industry is a space where not only the perfect composition of the product matters, but also its packaging. Customers increasingly buy with their eyes, looking for premium products that delight with their appearance. In response to these needs, the cosmetics packaging market is undergoing a real revolution, with <a href="/${lang}/#vacuum-metallization" class="text-accent hover:underline font-medium">vacuum metallization</a> at its center. In this article, we examine how this technology is changing the face of modern cosmetics.</p>
+            
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Introduction to Vacuum Metallization</h2>
             <p>To understand the phenomenon of modern packaging, it is first worth exploring the technology behind it. Properly selected manufacturing processes, such as precise metallization and careful coating, allow for amazing visual effects on materials that do not naturally resemble precious metals.</p>
           </div>
 
           <div class="space-y-4">
             <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What is vacuum metallization?</h2>
-            <p>Vacuum metallization is an advanced technological process that involves depositing a thin layer of metal (typically aluminum) on the surface of another material under high vacuum conditions. Unlike processes such as thermal spray metallization, which is commonly used in heavy industry for corrosion protection of large steel structures, the vacuum technique yields a perfectly smooth, mirror-like finish of high aesthetic value. The metallization itself in this version is extremely precise, providing the effect of luxurious gold, silver, or copper without the need to use these expensive materials in their entirety.</p>
+            <p>Vacuum metallization is an advanced technological process that involves depositing a thin layer of metal (typically <a href="https://pl.wikipedia.org/wiki/Glin" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">aluminum</a>) on the surface of another material under high vacuum conditions. Unlike processes such as thermal spray metallization, which is commonly used in heavy industry for corrosion protection of large steel structures, the vacuum technique yields a perfectly smooth, mirror-like finish of high aesthetic value. The metallization itself in this version is extremely precise, providing the effect of luxurious gold, silver, or copper without the need to use these expensive materials in their entirety.</p>
+            
+            <h3 class="text-xl font-bold text-foreground pt-2">History and development of the technology</h3>
             <p>Although the application of thin metallic coatings has been known for decades, it was initially expensive and reserved for the optical or electronic industries. Over the years, the technology has become increasingly accessible. Today, vacuum metallization is standard in the production of elegant packaging. The development of machinery and modern lacquers has made this process not only faster but also significantly more environmentally friendly.</p>
           </div>
 
@@ -668,12 +724,12 @@ function getEnBeautyHtml(lang) {
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Metallization of plastic in packaging</h3>
-              <p>In the beauty industry, the metallization of plastic is most commonly used. Elements such as cream jar caps, lipstick cases, or atomizers are manufactured from lightweight polymers and then subjected to the metallization process. As a result, the packaging remains light and handy for the consumer, but visually presents itself as a top-shelf product.</p>
+              <p>In the beauty industry, the <a href="/${lang}/#about" class="text-accent hover:underline font-medium">metallization of plastic</a> is most commonly used. Elements such as cream jar caps, lipstick cases, or atomizers are manufactured from lightweight <a href="https://pl.wikipedia.org/wiki/Polimery" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">polymers</a> and then subjected to the metallization process. As a result, the packaging remains light and handy for the consumer, but visually presents itself as a top-shelf product.</p>
             </div>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Plastic coating and metallization</h3>
-              <p>To make the metallic coating durable and glossy, the metal deposition process alone is not enough. Proper lacquering of the plastic both before and after the metal layer is applied is crucial:</p>
+              <p>To make the metallic coating durable and glossy, the metal deposition process alone is not enough. Proper <a href="/${lang}/#plastic-painting" class="text-accent hover:underline font-medium">plastic painting</a> of the plastic both before and after the metal layer is applied is crucial:</p>
               <ul class="list-disc pl-5 space-y-2 mt-2">
                 <li><strong>Base coat:</strong> Smoothes the plastic surface, creating the perfect base for the aluminum layer.</li>
                 <li><strong>Top coat:</strong> Protects the thin metal layer from abrasion and allows for any color to be applied.</li>
@@ -736,13 +792,13 @@ function getEnBeautyHtml(lang) {
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Sustainable development and ecology</h3>
-              <p>It might seem that chemical processes do not go hand in hand with ecology. However, compared to solid metal elements, metallized plastic packaging is much lighter, which reduces the carbon footprint during transport. What's more, modern service facilities use UV-cured lacquers (free of volatile organic compounds), making the technology increasingly "green".</p>
+              <p>It might seem that chemical processes do not go hand in hand with ecology. However, compared to solid metal elements, metallized plastic packaging is much lighter, which reduces the <a href="https://pl.wikipedia.org/wiki/%5CSlad_w%C4%99glowy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">carbon footprint</a> during transport. What's more, modern service facilities use <a href="https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">UV rays</a> (free of volatile organic compounds), making the technology increasingly "green".</p>
             </div>
           </div>
 
           <div class="space-y-6">
             <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Examples of products with vacuum metallization</h2>
-            <p>This technology has found application in almost every segment of the beauty market. Poland is also a strong player on the European production map—for example, inquiries about services such as <a href="/${lang}/" class="text-accent hover:underline">vacuum metallization Józefów</a> and the STANIAX metallization plant, or other local production centers show that Polish companies represent an important base for international brands.</p>
+            <p>This technology has found application in almost every segment of the beauty market. Poland is also a strong player on the European production map—for example, inquiries about services such as <a href="/${lang}/#contact" class="text-accent hover:underline font-medium">vacuum metallization Józefów</a> and the STANIAX metallization plant, or other local production centers show that Polish companies represent an important base for international brands.</p>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Innovative cosmetics with metallization</h3>
@@ -766,12 +822,67 @@ function getEnBeautyHtml(lang) {
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Trends and predictions</h3>
-              <p>The future will likely bring an even stronger emphasis on eco-friendly solutions. The industry is aiming for coatings that do not interfere with the plastic recycling process. We will also see development toward special effects: holographic, chameleon (changing color depending on the angle), and matte metal coatings, which are currently gaining huge popularity among minimalist brands.</p>
+              <p>The future will likely bring an even stronger emphasis on eco-friendly solutions. The industry is aiming for coatings that do not interfere with the plastic <a href="https://pl.wikipedia.org/wiki/Recykling" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">recycling</a> process. We will also see development toward special effects: holographic, chameleon (changing color depending on the angle), and matte metal coatings, which are currently gaining huge popularity among minimalist brands.</p>
             </div>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Conclusions</h3>
               <p>Vacuum metallization has irreversibly changed the beauty industry. Replacing traditional metals, it has allowed for the mass production of visually exclusive packaging while maintaining lightweight properties and optimizing costs. The combination of precise coating deposition and advanced lacquering is now the key to the heart (and wallet) of the consumer who values design and high quality.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Frequently Asked Questions (Q&A)</h2>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">What is vacuum metallization and how does it differ from thermal spray metallization?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Vacuum metallization is the deposition of a very thin layer of metal (most commonly aluminum) on the surface of another material under high vacuum conditions. It results in a perfectly smooth, mirror-like coating of high aesthetic value. Thermal spray metallization, used mainly in heavy industry, serves primarily for corrosion protection and does not provide such a perfectly smooth, "jewelry-like" finish.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Why does the beauty industry most commonly metallize plastic instead of using solid metal?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Packaging elements (such as caps, lipstick cases, atomizers) are produced from lightweight polymers and then metallized to combine convenience and low weight with a premium look (gold, silver, copper). This design lowers costs, improves ergonomics, and reduces the carbon footprint of transport compared to heavier metal elements, while maintaining the luxurious visual effect.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">What role does lacquering play in the metallization process and packaging durability?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">The base coat smoothes the plastic surface and prepares it for uniform metal deposition. The top coat protects the thin metal layer from scratches, chemicals in cosmetics, and UV radiation, and allows for any color to be applied. This combination is responsible for both the "mirror effect" and high operational durability.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">How environmentally friendly is vacuum metallization and what about recycling?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Compared to solid metals, lighter metallized plastic packaging limits emissions during transport. In addition, modern UV-cured lacquers do not contain volatile organic compounds, making the process "green" compared to traditional solutions. The industry is also working intensively on coatings that do not disrupt plastic recycling to fit better into the circular economy.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Where is this technology most commonly used and what are examples of products?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">In makeup, you will find it in lipstick and lip gloss cases, as well as compacts and palettes with a mirror finish. It is also used in perfumery - for caps, stoppers, and atomizers, where it enables the creation of striking yet lightweight shapes. Even flexible packaging (such as tubes) can utilize flexible, metallized films. Poland is an important production hub in Europe, as evidenced by growing interest in metallization services in local centers.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main article body CTA Callout Block -->
+          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+            <h3 class="text-xl font-bold text-foreground mb-4">Create packaging that will delight your customers!</h3>
+            <p class="text-sm md:text-base mb-6 leading-relaxed">
+              Are you looking for a proven and experienced partner to turn your visions into a luxurious reality? At STANIAX Metallization Plant, we combine advanced technologies with a passion for perfection. We offer the highest quality vacuum metallization and precise lacquering that will set your cosmetics apart from the competition.
+            </p>
+            
+            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why partner with STANIAX?</h4>
+            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+              <li><strong>Premium quality guarantee:</strong> We provide perfectly smooth, mirror-like coatings of remarkable durability.</li>
+              <li><strong>Modern machinery park:</strong> We complete orders quickly, precisely, and with the environment in mind.</li>
+              <li><strong>Full personalization:</strong> We achieve an unlimited palette of colors and effects tailored to your brand identity.</li>
+            </ul>
+            
+            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Elevate the prestige of your products and catch the consumer's eye!</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/${lang}/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                Contact us and request a free quote for your project!
+                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
+              </a>
+              <a href="/${lang}/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Discover completed projects of the STANIAX Metallization Plant
+                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
+              </a>
             </div>
           </div>
         </article>
@@ -787,7 +898,7 @@ function getEnBeautyHtml(lang) {
     </div>
   </main>
 </div>
-  `
+  `;
 }
 
 // 4. Polish version (Beauty)
