@@ -147,7 +147,7 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                                     <div>
                                         <p className="text-white font-semibold mb-1">{t(lang, 'footerFactory')}</p>
                                         <p>JÓZEFÓW 05-420,</p>
-                                        <p>UL. WYSZYŃSKIEGO 116 A <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
+                                        <p>UL. WYSZYŃSKIEGO 116 A <a href="https://share.google/N7ybGPMOEDI3ZE31X" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
                                     </div>
                                 </div>
                             </div>

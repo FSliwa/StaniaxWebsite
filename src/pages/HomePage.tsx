@@ -2525,7 +2525,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                       className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
                     >
                       <iframe
-                        src="https://maps.google.com/maps?q=ul.+Wyszyńskiego+116A,+05-420+Józefów&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        src="https://maps.google.com/maps?q=Metalizacja+Próżniowa+Staniax+Sp.z+o.o.,+Kardynała+Stefana+Wyszyńskiego+116a,+05-420+Józefów&t=&z=13&ie=UTF8&iwloc=&output=embed"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
@@ -2578,7 +2578,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           ul. Wyszyńskiego 116A<br />
                           05-420 Józefów
                         </p>
-                        <a href="https://maps.google.com/?q=Wyszynskiego+116A+Jozefow" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
+                        <a href="https://share.google/N7ybGPMOEDI3ZE31X" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
                           {t(lang, 'mapaNawigacja')}
                         </a>
                       </div>
