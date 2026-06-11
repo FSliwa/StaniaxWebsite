@@ -240,9 +240,35 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
   const renderTextWithLinks = (textStr: string) => {
     if (!textStr) return null
     const regex = /\[([^\]]+)\]\(([^)]+)\)/g
-    const parts = []
+    const parts: (string | JSX.Element)[] = []
     let lastIndex = 0
     let match
+    
+    const renderBoldText = (str: string, baseKey: string | number) => {
+      if (!str) return []
+      const boldRegex = /\*\*([^*]+)\*\*/g
+      const result: (string | JSX.Element)[] = []
+      let lastIdx = 0
+      let matchBold
+      let keyCounter = 0
+      
+      while ((matchBold = boldRegex.exec(str)) !== null) {
+        const boldText = matchBold[1]
+        const idx = matchBold.index
+        
+        if (idx > lastIdx) {
+          result.push(str.substring(lastIdx, idx))
+        }
+        result.push(<strong key={`${baseKey}-bold-${keyCounter++}`} className="font-bold text-foreground">{boldText}</strong>)
+        lastIdx = boldRegex.lastIndex
+      }
+      
+      if (lastIdx < str.length) {
+        result.push(str.substring(lastIdx))
+      }
+      
+      return result
+    }
     
     while ((match = regex.exec(textStr)) !== null) {
       const label = match[1]
@@ -250,7 +276,7 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
       const index = match.index
       
       if (index > lastIndex) {
-        parts.push(textStr.substring(lastIndex, index))
+        parts.push(...renderBoldText(textStr.substring(lastIndex, index), index))
       }
       
       let isInternal = false
@@ -324,7 +350,7 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
     }
     
     if (lastIndex < textStr.length) {
-      parts.push(textStr.substring(lastIndex))
+      parts.push(...renderBoldText(textStr.substring(lastIndex), lastIndex))
     }
     
     return parts.length > 0 ? parts : textStr
