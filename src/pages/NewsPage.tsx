@@ -8,8 +8,17 @@ import { BigFooter } from '@/components/BigFooter'
 import { t, type Lang } from '@/lib/translations'
 import vacuumMetalizationChamber from '@/assets/vacuum_metalization_chamber.jpg'
 import newsAviationImage from '@/assets/news_aviation.jpg'
+import colorfulPackagingImage from '@/assets/colorful_packaging.png'
 
 const newsItemsPl = [
+  {
+    title: 'Metalizacja próżniowa rewolucjonizuje branżę beauty',
+    date: '11 czerwca 2026',
+    category: 'Artykuł',
+    excerpt: 'Branża kosmetyczna przechodzi prawdziwą rewolucję opakowaniową. Poznaj zalety metalizacji próżniowej i lakierowania tworzyw w segmencie beauty.',
+    image: colorfulPackagingImage,
+    path: '/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty'
+  },
   {
     title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
     date: '25 maja 2026',
@@ -53,6 +62,14 @@ const newsItemsPl = [
 ]
 
 const newsItemsEn = [
+  {
+    title: 'Vacuum Metallization Revolutionizes the Beauty Industry',
+    date: 'June 11, 2026',
+    category: 'Article',
+    excerpt: 'The cosmetics packaging market is undergoing a real revolution. Discover the benefits of vacuum metallization and plastic painting in the beauty segment.',
+    image: colorfulPackagingImage,
+    path: '/news/vacuum-metallization-revolutionizes-beauty-industry'
+  },
   {
     title: 'Modern Vacuum Metallization and Reflector Regeneration in Józefów',
     date: 'May 25, 2026',
