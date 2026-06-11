@@ -12,14 +12,6 @@ import colorfulPackagingImage from '@/assets/colorful_packaging.png'
 
 const newsItemsPl = [
   {
-    title: 'Metalizacja próżniowa rewolucjonizuje branżę beauty',
-    date: '11 czerwca 2026',
-    category: 'Artykuł',
-    excerpt: 'Branża kosmetyczna przechodzi prawdziwą rewolucję opakowaniową. Poznaj zalety metalizacji próżniowej i lakierowania tworzyw w segmencie beauty.',
-    image: colorfulPackagingImage,
-    path: '/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty'
-  },
-  {
     title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
     date: '25 maja 2026',
     category: 'Inwestycje',
@@ -36,12 +28,12 @@ const newsItemsPl = [
     path: '/news/partnerstwo-z-wiodacym-producentem-lotniczym'
   },
   {
-    title: 'Wprowadzenie Technologii Powłok Nanometrycznych',
-    date: '10 lipca 2025',
-    category: 'Innowacje',
-    excerpt: 'Jako pierwsi w regionie wdrożyliśmy zaawansowaną technologię nanometrycznych powłok metalicznych, oferującą bezprecedensową ochronę i trwałość.',
-    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
+    title: 'Metalizacja próżniowa rewolucjonizuje branżę beauty',
+    date: '11 czerwca 2026',
+    category: 'Artykuł',
+    excerpt: 'Branża kosmetyczna przechodzi prawdziwą rewolucję opakowaniową. Poznaj zalety metalizacji próżniowej i lakierowania tworzyw w segmencie beauty.',
+    image: colorfulPackagingImage,
+    path: '/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty'
   },
   {
     title: 'Nagroda Innowacyjności Przemysłowej 2025',
@@ -63,14 +55,6 @@ const newsItemsPl = [
 
 const newsItemsEn = [
   {
-    title: 'Vacuum Metallization Revolutionizes the Beauty Industry',
-    date: 'June 11, 2026',
-    category: 'Article',
-    excerpt: 'The cosmetics packaging market is undergoing a real revolution. Discover the benefits of vacuum metallization and plastic painting in the beauty segment.',
-    image: colorfulPackagingImage,
-    path: '/news/vacuum-metallization-revolutionizes-beauty-industry'
-  },
-  {
     title: 'Modern Vacuum Metallization and Reflector Regeneration in Józefów',
     date: 'May 25, 2026',
     category: 'Investments',
@@ -87,12 +71,12 @@ const newsItemsEn = [
     path: '/news/how-does-metallization-affect-material-performance'
   },
   {
-    title: 'Introduction of Nanometric Coatings Technology',
-    date: 'July 10, 2025',
-    category: 'Innovations',
-    excerpt: 'We are the first in the region to implement advanced nanometric metallic coating technology, offering unprecedented protection and durability.',
-    image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
+    title: 'Vacuum Metallization Revolutionizes the Beauty Industry',
+    date: 'June 11, 2026',
+    category: 'Article',
+    excerpt: 'The cosmetics packaging market is undergoing a real revolution. Discover the benefits of vacuum metallization and plastic painting in the beauty segment.',
+    image: colorfulPackagingImage,
+    path: '/news/vacuum-metallization-revolutionizes-beauty-industry'
   },
   {
     title: 'Expansion of the Quality Control Department',
