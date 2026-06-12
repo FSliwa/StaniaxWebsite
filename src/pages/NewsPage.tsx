@@ -157,7 +157,48 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
+
+    // Dynamic SEO Metadata updates
+    const originalTitle = document.title
+    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
+    
+    const pageTitle = lang === 'pl' 
+      ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX' 
+      : 'Knowledge Base & News - Vacuum Metallization | STANIAX'
+    const pageDesc = lang === 'pl'
+      ? 'Aktualności, poradniki i artykuły eksperckie na temat metalizacji próżniowej oraz lakierowania. Baza wiedzy o uszlachetnianiu powierzchni.'
+      : 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
+
+    document.title = pageTitle
+
+    const metaDesc = document.querySelector('meta[name="description"]')
+    if (metaDesc) {
+      metaDesc.setAttribute('content', pageDesc)
+    }
+
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) {
+      ogTitle.setAttribute('content', pageTitle)
+    }
+
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    if (ogDesc) {
+      ogDesc.setAttribute('content', pageDesc)
+    }
+
+    return () => {
+      document.title = originalTitle
+      if (metaDesc && originalDescription) {
+        metaDesc.setAttribute('content', originalDescription)
+      }
+      if (ogTitle) {
+        ogTitle.setAttribute('content', 'STANIAX - Metalizacja Próżniowa')
+      }
+      if (ogDesc) {
+        ogDesc.setAttribute('content', 'Profesjonalna metalizacja próżniowa, lakierowanie tworzyw i szkła.')
+      }
+    }
+  }, [lang])
 
   const homePath = lang === 'pl' ? '/' : `/${lang}`
 

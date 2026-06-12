@@ -273,7 +273,48 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
   useEffect(() => {
     setIsLoaded(true)
     window.scrollTo(0, 0)
-  }, [])
+
+    // Dynamic SEO Metadata updates
+    const originalTitle = document.title
+    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
+    
+    const pageTitle = lang === 'pl' 
+      ? 'Galeria Realizacji i Projektów Metalizacji | STANIAX' 
+      : 'Gallery of Completed Projects and Metallization | STANIAX'
+    const pageDesc = lang === 'pl'
+      ? 'Przeglądaj naszą galerię metalizacji próżniowej oraz precyzyjnego lakierowania tworzyw, szkła i metali. Zobacz zrealizowane projekty premium.'
+      : 'Explore our gallery of vacuum metallization and precision lacquering of plastics, glass, and metals. View completed premium projects.'
+
+    document.title = pageTitle
+
+    const metaDesc = document.querySelector('meta[name="description"]')
+    if (metaDesc) {
+      metaDesc.setAttribute('content', pageDesc)
+    }
+
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) {
+      ogTitle.setAttribute('content', pageTitle)
+    }
+
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    if (ogDesc) {
+      ogDesc.setAttribute('content', pageDesc)
+    }
+
+    return () => {
+      document.title = originalTitle
+      if (metaDesc && originalDescription) {
+        metaDesc.setAttribute('content', originalDescription)
+      }
+      if (ogTitle) {
+        ogTitle.setAttribute('content', 'STANIAX - Metalizacja Próżniowa')
+      }
+      if (ogDesc) {
+        ogDesc.setAttribute('content', 'Profesjonalna metalizacja próżniowa, lakierowanie tworzyw i szkła.')
+      }
+    }
+  }, [lang])
 
   const filteredImages = activeCategory === 'Wszystkie'
     ? galleryImages

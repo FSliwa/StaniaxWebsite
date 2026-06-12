@@ -73,11 +73,11 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
                     <div>
                         <p className="text-xs uppercase tracking-[0.5em] text-blue-600 font-semibold mb-4">{t(lang, 'bentoSubtitle')}</p>
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-gray-900 tracking-tighter leading-[0.95]">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-gray-900 tracking-tighter leading-[0.95]">
                             {t(lang, 'bentoTitle').split(/\si\s|&/).map((part, i, arr) => (
                                 <span key={i}>{part}{i < arr.length - 1 && <><br />{lang === 'pl' ? 'i' : lang === 'en' ? '&' : '&'} </>}</span>
                             ))}
-                        </h2>
+                        </h1>
                     </div>
                     <p className="text-base md:text-lg text-gray-500 max-w-md leading-relaxed md:text-right">
                         {t(lang, 'bentoDesc')}
