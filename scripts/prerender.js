@@ -1040,5 +1040,79 @@ function generateHomepageShells() {
 generateHomepageShells();
 
 
+// 8. Generate Category Shells for Gallery and News (/gallery, /news, and their EN/DE variants)
+function generateCategoryShells() {
+  const shells = [
+    {
+      subPath: 'gallery',
+      lang: 'pl',
+      title: 'Galeria Realizacji i Projektów Metalizacji | STANIAX',
+      desc: 'Przeglądaj naszą galerię metalizacji próżniowej oraz precyzyjnego lakierowania tworzyw, szkła i metali. Zobacz zrealizowane projekty premium.'
+    },
+    {
+      subPath: 'en/gallery',
+      lang: 'en',
+      title: 'Gallery of Completed Projects and Metallization | STANIAX',
+      desc: 'Explore our gallery of vacuum metallization and precision lacquering of plastics, glass, and metals. View completed premium projects.'
+    },
+    {
+      subPath: 'de/gallery',
+      lang: 'de',
+      title: 'Gallery of Completed Projects and Metallization | STANIAX',
+      desc: 'Explore our gallery of vacuum metallization and precision lacquering of plastics, glass, and metals. View completed premium projects.'
+    },
+    {
+      subPath: 'news',
+      lang: 'pl',
+      title: 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX',
+      desc: 'Aktualności, poradniki i artykuły eksperckie na temat metalizacji próżniowej oraz lakierowania. Baza wiedzy o uszlachetnianiu powierzchni.'
+    },
+    {
+      subPath: 'en/news',
+      lang: 'en',
+      title: 'Knowledge Base & News - Vacuum Metallization | STANIAX',
+      desc: 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
+    },
+    {
+      subPath: 'de/news',
+      lang: 'de',
+      title: 'Knowledge Base & News - Vacuum Metallization | STANIAX',
+      desc: 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
+    }
+  ];
+
+  shells.forEach(s => {
+    let html = baseHtml;
+    html = html.replace('<html lang="pl">', `<html lang="${s.lang}">`);
+    html = html.replace(/<title>[^<]*<\/title>/, '');
+    html = html.replace(/<meta name="description"[^>]*>/, '');
+    html = html.replace(/<meta property="og:title"[^>]*>/, '');
+    html = html.replace(/<meta property="og:description"[^>]*>/, '');
+    html = html.replace(/<meta property="og:type"[^>]*>/, '');
+
+    const metaTags = `
+    <title>${s.title}</title>
+    <meta name="description" content="${s.desc}" />
+    <meta property="og:title" content="${s.title}" />
+    <meta property="og:description" content="${s.desc}" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://www.staniax.pl/${s.subPath}" />
+    `;
+
+    html = html.replace('</head>', `${metaTags}</head>`);
+    
+    const targetDir = path.join(distDir, s.subPath);
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
+    console.log(`Successfully generated dist/${s.subPath}/index.html shell`);
+  });
+}
+
+generateCategoryShells();
+
+
+
 
 
