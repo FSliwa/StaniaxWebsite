@@ -678,7 +678,7 @@ const translations = {
     bazaWiedzyAppTitle: 'Anwendungen und verwandte Bearbeitungstechniken',
     bazaWiedzyAppDesc: 'Nicht alle Materialien und Geometrien ermöglichen eine Bearbeitung unter Hochvakuumbedingungen. In solchen Fällen ist es notwendig, verwandte Methoden anzuwenden, die eine gleichmäßige Verteilung des Materials auf Oberflächen mit ungewöhnlichen Formen ermöglichen. Aus diesem Grund bleibt die weit verbreitete Spritzmetallisierung ein Schlüsselelement unseres Angebots. Dank ihr sind wir in der Lage, dort ein perfektes Finish zu liefern, wo die traditionelle Bearbeitung an physikalische Grenzen stößt. Für die Beleuchtungsindustrie hingegen bleibt die präzise Reflektorregenerierung absolut entscheidend, da sie den idealen Einfallswinkel des Lichtstrahls garantiert.',
     bazaWiedzySummary: 'Zusammenfassend lässt sich sagen, dass die Metallisierung mehr als nur ein technischer Industrieprozess ist – sie ist die Kunst, Gegenständen ein neues, langlebiges und ästhetisches Leben einzuhauchen, dem wir unsere beruflichen Leidenschaften und Kompetenzen gewidmet haben.',
-    metaTitle: 'STANIAX - Vakuummetallisierung | Vakuum-Metallbedampfung',
+    metaTitle: 'STANIAX - Vakuummetallisierung | Vakuum-Metallbedampfung | Vakuumguss',
     metaDesc: 'Staniax bietet erstklassige Vakuummetallisierung und Vakuum-Metallbedampfung für Kunststoffe, Glas und Metalle. Entdecken Sie Vakuumguss Metall Alternativen!',
   },
 } as const

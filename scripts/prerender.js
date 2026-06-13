@@ -978,9 +978,9 @@ function generateHomepageShells() {
   `;
 
   const deMetaTags = `
-    <title>STANIAX - Vakuummetallisierung | Vakuum-Metallbedampfung</title>
+    <title>STANIAX - Vakuummetallisierung | Vakuum-Metallbedampfung | Vakuumguss</title>
     <meta name="description" content="Staniax bietet erstklassige Vakuummetallisierung und Vakuum-Metallbedampfung für Kunststoffe, Glas und Metalle. Entdecken Sie Vakuumguss Metall Alternativen!" />
-    <meta property="og:title" content="STANIAX - Vakuummetallisierung | Vakuum-Metallbedampfung" />
+    <meta property="og:title" content="STANIAX - Vakuummetallisierung | Vakuum-Metallbedampfung | Vakuumguss" />
     <meta property="og:description" content="Staniax bietet erstklassige Vakuummetallisierung und Vakuum-Metallbedampfung für Kunststoffe, Glas und Metalle. Entdecken Sie Vakuumguss Metall Alternativen!" />
     <meta property="og:type" content="website" />
   `;
