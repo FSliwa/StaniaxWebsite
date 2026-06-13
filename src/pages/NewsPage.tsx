@@ -161,6 +161,10 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
     // Dynamic SEO Metadata updates
     const originalTitle = document.title
     const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    const originalOgTitle = ogTitle?.getAttribute('content')
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    const originalOgDesc = ogDesc?.getAttribute('content')
     
     const pageTitle = lang === 'pl' 
       ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX' 
@@ -176,26 +180,44 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
       metaDesc.setAttribute('content', pageDesc)
     }
 
-    const ogTitle = document.querySelector('meta[property="og:title"]')
     if (ogTitle) {
       ogTitle.setAttribute('content', pageTitle)
     }
 
-    const ogDesc = document.querySelector('meta[property="og:description"]')
     if (ogDesc) {
       ogDesc.setAttribute('content', pageDesc)
     }
+
+    // Canonical link update
+    let canonical = document.querySelector('link[rel="canonical"]')
+    let createdCanonical = false
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.setAttribute('rel', 'canonical')
+      document.head.appendChild(canonical)
+      createdCanonical = true
+    }
+    const originalCanonical = canonical.getAttribute('href')
+    const canonicalUrl = `https://www.staniax.pl${lang === 'pl' ? '' : '/' + lang}/news`
+    canonical.setAttribute('href', canonicalUrl)
 
     return () => {
       document.title = originalTitle
       if (metaDesc && originalDescription) {
         metaDesc.setAttribute('content', originalDescription)
       }
-      if (ogTitle) {
-        ogTitle.setAttribute('content', 'STANIAX - Metalizacja Próżniowa')
+      if (ogTitle && originalOgTitle) {
+        ogTitle.setAttribute('content', originalOgTitle)
       }
-      if (ogDesc) {
-        ogDesc.setAttribute('content', 'Profesjonalna metalizacja próżniowa, lakierowanie tworzyw i szkła.')
+      if (ogDesc && originalOgDesc) {
+        ogDesc.setAttribute('content', originalOgDesc)
+      }
+      if (canonical) {
+        if (originalCanonical) {
+          canonical.setAttribute('href', originalCanonical)
+        } else if (createdCanonical) {
+          document.head.removeChild(canonical)
+        }
       }
     }
   }, [lang])

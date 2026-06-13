@@ -56,7 +56,7 @@ const articleContent = {
 
     sub22Title: 'Metalizacja próżniowa',
     sub22P1: 'Najbardziej zaawancowaną technologicznie odmianą uszlachetniania powierzchni jest ogólna metalizacja próżniowa (często utożsamiana z procesami [PVD – Physical Vapor Deposition](https://pl.wikipedia.org/wiki/Fizyczne_osadzanie_z_fazy_gazowej)). Cały proces odbywa się w specjalnych komorach, w których generowana jest wysoka próżnia. Aluminium, które stanowi powłokę, jest odparowywane termicznie, a następnie kondensuje na powierzchni rotujących detali. Nic dziwnego, że profesjonalne metalizowanie próżniowe całkowicie wyparło stare, chemiczne techniki galwaniczne. Dziś metalizacja próżniowa to synonim trwałości i ekologii.',
-    sub22P2: 'Na rynku działa wyspecjalizowana firma [Staniax- metalizacja próżniowa, metalizowanie lakierowanie tworzyw sztucznych](https://staniax.pl) to obszary, w których synergia procesów decyduje o ostatecznym sukcesie produktu. Przykładem lidera w tej dziedzinie, u którego nowatorskie podejście wyznaczyło nowe trendy w branży metalizacji próżniowej jest [Dariusz Staniak](http://www.metalizacje.pl/). Wyznacza on standardy jakości oraz wdraża do zakładu oprzyżądowanie zastępujące drogie zaawansowane parki maszynowym. Często jako kluczowy ośrodek kompetencji wymieniana jest regionalna metalizacja próżniowa Józefów, gdzie zakłady produkcyjne realizują najbardziej wymagające projekty. Gdy interesuje nas sprawdzona metalizacja próżniowa, czy lakierowanie tworzyw, wtedy warto stawiać na doświadczone podmioty,takie jak Staniax. To właśnie tam metalizacja próżniowa Dariusz Staniak metalizacja próżniowa Józefów w nowej odsłonie jako Staniax Sp. z o.o. udowadniają, że metalizowanie próżniowe aluminium podnosi jakosć detali na najwyższy poziom.',
+    sub22P2: 'Na rynku działa wyspecjalizowana firma [Staniax - metalizacja próżniowa, lakierowanie tworzyw](/) to obszary, w których synergia procesów decyduje o ostatecznym sukcesie produktu. Przykładem lidera w tej dziedzinie, u którego nowatorskie podejście wyznaczyło nowe trendy w branży metalizacji próżniowej jest [Dariusz Staniak](http://www.metalizacje.pl/). Wyznacza on standardy jakości oraz wdraża do zakładu oprzyżądowanie zastępujące drogie zaawansowane parki maszynowym. Często jako kluczowy ośrodek kompetencji wymieniana jest regionalna metalizacja próżniowa Józefów, gdzie zakłady produkcyjne realizują najbardziej wymagające projekty. Gdy interesuje nas sprawdzona metalizacja próżniowa, czy lakierowanie tworzyw, wtedy warto stawiać na doświadczone podmioty,takie jak Staniax. To właśnie tam metalizacja próżniowa Dariusz Staniak metalizacja próżniowa Józefów w nowej odsłonie jako Staniax Sp. z o.o. udowadniają, że metalizowanie próżniowe aluminium podnosi jakosć detali na najwyższy poziom.',
 
     sub23Title: 'Metalizacja ABS',
     sub23P1: 'Metalizacja [ABS (akrylonitryl-butadien-styren)](https://www.google.com/search?q=https://pl.wikipedia.org/wiki/Poli(akrylonitryl-co-butadien-co-styren)) to doskonały przykład połączenia zalet lekkich tworzyw sztucznych z parametrami metali. Tworzywo ABS idealnie nadaje się do procesów, w których wykonywana jest metalizacja plastiku metodą próżniową. Dzięki odpowiedniej strukturze chemicznej polimeru, próżniowa metalizacja ABS zapewnia doskonałą przyczepność nanoszonej warstwy aluminium. W efekcie końcowym metalizacja plastiku daje powłokę odporną na czynniki zewnętrzne i odpryski.',
@@ -97,7 +97,14 @@ const articleContent = {
     sec6Title: 'Wnioski i rekomendacje',
     sec6P1: 'Metalizacja próżniowa to bez wątpienia technologia przyszłości, która już dziś definiuje standardy nowoczesnej produkcji. Przekształcanie lekkich tworzyw w wysokowydajne komponenty o unikalnych właściwościach przy użyciu odparowywanego aluminium to jedyny słuszny kierunek rozwoju.',
     
-    quote: '"Dla przedsiębiorstw planujących wdrożenie tego procesu lub poszukujących podwykonawców, kluczowe powinno być precyzyjne określenie warunków pracy gotowego detalu. Wybór odpowiednich parametrów, jakie oferuje metalizacja próżniowa dla elementów z tworzyw sztucznych, zależy od wymagań trwałościowych oraz pożądanego efektu końcowego. Kompleksowa firma Staniax-metalizacja próżniowa, lakierowanie tworzyw to najlepszy partner biznesowy w procesie wdrażania nowoczesnych produktów na rynek. To właśnie tam ekspercka wiedza oraz technologie, które reprezentuje metalizacja próżniowa Dariusz Staniak mentor w przekstałconej nowej firme Staniax, jako lokalna metalizacja próżniowa Józefów, pozwalają osiągnąć najwyższą rynkową jakość. Inwestycja w zaawansowaną inżynierię powierzchni to sprawdzony sposób na podniesienie konkurencyjności produktów, redukcję kosztów materiałowych oraz spełnienie najwyższych oczekiwań rynku."'
+    quote: '"Dla przedsiębiorstw planujących wdrożenie tego procesu lub poszukujących podwykonawców, kluczowe powinno być precyzyjne określenie warunków pracy gotowego detalu. Wybór odpowiednich parametrów, jakie oferuje metalizacja próżniowa dla elementów z tworzyw sztucznych, zależy od wymagań trwałościowych oraz pożądanego efektu końcowego. Kompleksowa firma Staniax-metalizacja próżniowa, lakierowanie tworzyw to najlepszy partner biznesowy w procesie wdrażania nowoczesnych produktów na rynek. To właśnie tam ekspercka wiedza oraz technologie, które reprezentuje metalizacja próżniowa Dariusz Staniak mentor w przekstałconej nowej firme Staniax, jako lokalna metalizacja próżniowa Józefów, pozwalają osiągnąć najwyższą rynkową jakość. Inwestycja w zaawansowaną inżynierię powierzchni to sprawdzony sposób na podniesienie konkurencyjności produktów, redukcję kosztów materiałowych oraz spełnienie najwyższych oczekiwań rynku."',
+    ctaHeader: 'Zwiększ wydajność i trwałość swoich produktów!',
+    ctaText: 'Szukasz sprawdzonego i doświadczonego partnera do realizacji zaawansowanych powłok przemysłowych? W Zakładzie Metalizacji STANIAX łączymy nowoczesne technologie napylania z pasją do inżynierii precyzyjnej. Oferujemy profesjonalną metalizację próżniową elementów plastikowych i metalowych, które podniosą parametry użytkowe Twoich wyrobów.',
+    ctaWhyTitle: 'Dlaczego warto współpracować ze STANIAX?',
+    ctaWhy1: '**Gwarancja jakości premium:** Zapewniamy precyzyjnie osadzone powłoki metaliczne o wysokiej odporności i trwałości.',
+    ctaWhy2: '**Nowoczesny park maszynowy:** Realizujemy zlecenia szybko, powtarzalnie i z zachowaniem restrykcyjnych norm środowiskowych.',
+    ctaWhy3: '**Wsparcie inżynieryjne:** Pomagamy w doborze optymalnych parametrów procesu w zależności od warunków pracy gotowego elementu.',
+    ctaSubhead: 'Zoptymalizuj koszty produkcji i zyskaj przewagę technologiczną na rynku!'
   },
   en: {
     backToNews: 'Back to news',
@@ -129,7 +136,7 @@ const articleContent = {
     introTitle: 'Why are modern surface treatments revolutionizing component design?',
     tableTitle: 'How do substrates and applications compare?',
     p1: 'Modern manufacturing constantly seeks solutions that combine two key properties: high mechanical strength and flawless aesthetics. In a world where cost reduction and component weight optimization are priorities, traditional methods of producing bulky, solid alloy parts are giving way to modern surface engineering technologies. One of the most important processes in this field is advanced thin-film application. Today, professional vacuum coating and associated sputtering techniques are revolutionizing the approach to component design.',
-    p2: 'This surface treatment completely changes how we view part design in the automotive, cosmetics, packaging, and electronics industries. Thanks to it, lightweight polymers gain completely new physicochemical properties. When analyzing how the [metallization of plastic](https://www.google.com/search?q=https://staniax.pl/metalizacja-prozniowa/) modifies the external structure of parts, we see a massive increase in their performance. In this article, we will take a closer look at what this process actually entails, why aluminum vapor deposition has become a market standard, how vacuum metallization of plastic works, and how these technologies affect real material performance.',
+    p2: 'This surface treatment completely changes how we view part design in the automotive, cosmetics, packaging, and electronics industries. Thanks to it, lightweight polymers gain completely new physicochemical properties. When analyzing how the [metallization of plastic](/#about) modifies the external structure of parts, we see a massive increase in their performance. In this article, we will take a closer look at what this process actually entails, why aluminum vapor deposition has become a market standard, how vacuum metallization of plastic works, and how these technologies affect real material performance.',
     
     sec1Title: 'What does the coating process actually entail?',
     sec1P1: 'This advanced technological process involves applying a microscopic layer of conductive or reflective material (often a metal) onto the surface of another material, known as the substrate. This substrate can be other alloys as well as non-conductive materials. Nowadays, modern polymer plating alternatives play a key role, allowing heavy steel components to be replaced with lighter synthetic counterparts. Every industrial surface treatment aims to optimize production costs while maintaining a premium feel.',
@@ -140,11 +147,11 @@ const articleContent = {
     
     sub21Title: 'How does aluminum deposition work?',
     sub21P1: 'In a professional manufacturing facility, this process does not exist as a separate, traditional spray method—it is carried out exclusively using high-vacuum technology. Pure aluminum is vaporized and precisely deposited, layer by layer, on the modified substrate. Such vacuum aluminum coating allows for a perfect mirror effect that cannot be achieved by artisanal methods. Through this technique, components gain unique aesthetics and excellent performance parameters.',
-    sub21P2: 'This method is widely used in the automotive industry. That is where the professional [metallization of reflectors](https://www.google.com/search?q=https://staniax.pl/metalizacja-odblysnikow/) is of key importance. When headlights lose their efficiency, precise reflector recoating restores the original properties of the light beam. Every factory application is based on applying an aluminum layer inside a specialized chamber. Since the metallization of reflectors guarantees excellent light reflection, this directly translates to road safety. For the lighting sector, precise aluminum sputtering is the absolute foundation of operation.',
+    sub21P2: 'This method is widely used in the automotive industry. That is where the professional [metallization of reflectors](/#about) is of key importance. When headlights lose their efficiency, precise reflector recoating restores the original properties of the light beam. Every factory application is based on applying an aluminum layer inside a specialized chamber. Since the metallization of reflectors guarantees excellent light reflection, this directly translates to road safety. For the lighting sector, precise aluminum sputtering is the absolute foundation of operation.',
 
     sub22Title: 'What is Physical Vapor Deposition (PVD)?',
     sub22P1: 'The most technologically advanced type of surface refinement is general vacuum deposition (often identified with [Physical Vapor Deposition](https://en.wikipedia.org/wiki/Physical_vapor_deposition) or PVD processes). The entire procedure takes place in special chambers where a high vacuum is generated. The source material forming the coating is thermally evaporated and then condenses on the surface of rotating parts. Unsurprisingly, professional PVD has largely replaced older chemical electroplating techniques. Today, this process is synonymous with durability and ecology.',
-    sub22P2: 'The specialized company [Staniax - vacuum coating and plastic painting](https://staniax.pl/) operates effectively in this market. These are areas where process synergy determines the ultimate success of the product. An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is [Dariusz Staniak](https://www.google.com/search?q=https://staniax.pl/o-nas/). He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. Regional surface treatments in Józefów are often mentioned as a key competence center where manufacturing plants execute the most demanding projects. When seeking proven PVD or [polymer painting](https://www.google.com/search?q=https://staniax.pl/malowanie-tworzyw-sztucznych/), it is worth choosing experienced entities like Staniax. The techniques championed by Dariusz Staniak and the modernized Staniax Sp. z o.o. prove that aluminum vacuum deposition elevates part quality to the highest level.',
+    sub22P2: 'The specialized company [Staniax - vacuum coating and plastic painting](/) operates effectively in this market. These are areas where process synergy determines the ultimate success of the product. An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is [Dariusz Staniak](/#kim-jestesmy). He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. Regional surface treatments in Józefów are often mentioned as a key competence center where manufacturing plants execute the most demanding projects. When seeking proven PVD or [polymer painting](/#about), it is worth choosing experienced entities like Staniax. The techniques championed by Dariusz Staniak and the modernized Staniax Sp. z o.o. prove that aluminum vacuum deposition elevates part quality to the highest level.',
 
     sub23Title: 'How does ABS surface modification benefit manufacturers?',
     sub23P1: 'Modifying [ABS (acrylonitrile-butadiene-styrene)](https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene) is a perfect example of combining the benefits of lightweight synthetics with the robust properties of traditional elements. ABS is ideally suited for processes utilizing the vacuum metallization of plastic. Thanks to the polymer\'s specific chemical structure, the procedure ensures excellent adhesion of the applied aluminum layer. As a result, the treatment provides a coating highly resistant to external factors and chipping.',
@@ -185,7 +192,14 @@ const articleContent = {
     sec6Title: 'What are the final recommendations for enterprises?',
     sec6P1: 'Vacuum thin-film deposition is undoubtedly the technology of the future, defining the standards of modern production. Transforming lightweight polymers into high-performance components using vaporized aluminum is the definitive path forward.',
     
-    quote: '"For enterprises planning to implement this process or looking for subcontractors, precisely defining the working conditions of the finished part is crucial. The choice of appropriate parameters offered by the vacuum metallization of plastic elements depends on durability requirements and the desired final effect." The comprehensive company [Staniax - vacuum coating and plastic painting](https://www.google.com/search?q=https://staniax.pl/oferta/) stands out as an excellent business partner for launching modern products. It is there that expert knowledge and technologies—championed by Dariusz Staniak, a mentor within the newly transformed Staniax Sp. z o.o., operating as the premier local competence center in Józefów—enable clients to achieve the highest market quality. Investing in advanced surface engineering is a proven strategy to increase product competitiveness, reduce material costs, and meet the highest consumer expectations.'
+    quote: '"For enterprises planning to implement this process or looking for subcontractors, precisely defining the working conditions of the finished part is crucial. The choice of appropriate parameters offered by the vacuum metallization of plastic elements depends on durability requirements and the desired final effect." The comprehensive company [Staniax - vacuum coating and plastic painting](/#about) stands out as an excellent business partner for launching modern products. It is there that expert knowledge and technologies—championed by Dariusz Staniak, a mentor within the newly transformed Staniax Sp. z o.o., operating as the premier local competence center in Józefów—enable clients to achieve the highest market quality. Investing in advanced surface engineering is a proven strategy to increase product competitiveness, reduce material costs, and meet the highest consumer expectations.',
+    ctaHeader: 'Increase the performance and durability of your products!',
+    ctaText: 'Are you looking for a proven and experienced partner for advanced industrial coatings? At STANIAX Metallization Plant, we combine modern deposition technologies with a passion for precision engineering. We offer professional vacuum metallization of plastic and metal components that will elevate the performance parameters of your products.',
+    ctaWhyTitle: 'Why partner with STANIAX?',
+    ctaWhy1: '**Premium quality guarantee:** We ensure precisely deposited metallic coatings with high resistance and remarkable durability.',
+    ctaWhy2: '**Modern machinery park:** We complete orders quickly, repeatably, and with strict environmental standards in mind.',
+    ctaWhy3: '**Engineering support:** We assist in selecting optimal process parameters based on the working conditions of the finished component.',
+    ctaSubhead: 'Optimize production costs and gain a technological edge in the market!'
   }
 }
 
@@ -316,6 +330,10 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
     // SEO Meta updates
     const originalTitle = document.title
     const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    const originalOgTitle = ogTitle?.getAttribute('content')
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    const originalOgDesc = ogDesc?.getAttribute('content')
     
     document.title = text.metaTitle
     
@@ -324,29 +342,49 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
       metaDesc.setAttribute('content', text.metaDesc)
     }
     
-    const ogTitle = document.querySelector('meta[property="og:title"]')
     if (ogTitle) {
       ogTitle.setAttribute('content', text.metaTitle)
     }
     
-    const ogDesc = document.querySelector('meta[property="og:description"]')
     if (ogDesc) {
       ogDesc.setAttribute('content', text.metaOgDesc)
     }
+
+    // Canonical link update
+    let canonical = document.querySelector('link[rel="canonical"]')
+    let createdCanonical = false
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.setAttribute('rel', 'canonical')
+      document.head.appendChild(canonical)
+      createdCanonical = true
+    }
+    const originalCanonical = canonical.getAttribute('href')
+    const subPath = lang === 'pl' 
+      ? 'news/partnerstwo-z-wiodacym-producentem-lotniczym' 
+      : `${lang}/news/how-does-metallization-affect-material-performance`
+    canonical.setAttribute('href', `https://www.staniax.pl/${subPath}`)
 
     return () => {
       document.title = originalTitle
       if (metaDesc && originalDescription) {
         metaDesc.setAttribute('content', originalDescription)
       }
-      if (ogTitle) {
-        ogTitle.setAttribute('content', 'STANIAX - Metalizacja Próżniowa')
+      if (ogTitle && originalOgTitle) {
+        ogTitle.setAttribute('content', originalOgTitle)
       }
-      if (ogDesc) {
-        ogDesc.setAttribute('content', 'Profesjonalna metalizacja próżniowa, lakierowanie tworzyw i szkła.')
+      if (ogDesc && originalOgDesc) {
+        ogDesc.setAttribute('content', originalOgDesc)
+      }
+      if (canonical) {
+        if (originalCanonical) {
+          canonical.setAttribute('href', originalCanonical)
+        } else if (createdCanonical) {
+          document.head.removeChild(canonical)
+        }
       }
     }
-  }, [text])
+  }, [text, lang])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -825,6 +863,42 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
               </Link>
             </aside>
 
+          </div>
+
+          {/* Main article body CTA Callout Block */}
+          <div className="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500" />
+            <h3 className="text-xl font-bold text-foreground mb-4">{text.ctaHeader}</h3>
+            <p className="text-sm md:text-base mb-6 leading-relaxed">
+              {renderTextWithLinks(text.ctaText)}
+            </p>
+            
+            <h4 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h4>
+            <ul className="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+              <li>{renderTextWithLinks(text.ctaWhy1)}</li>
+              <li>{renderTextWithLinks(text.ctaWhy2)}</li>
+              <li>{renderTextWithLinks(text.ctaWhy3)}</li>
+            </ul>
+            
+            <p className="font-semibold text-foreground mb-6 text-sm md:text-base">{text.ctaSubhead}</p>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                to={lang === 'pl' ? '/#contact' : `/${lang}#contact`} 
+                onClick={scrollToContact}
+                className={cn(buttonVariants({ variant: 'default' }), "font-semibold")}
+              >
+                {lang === 'pl' ? 'Skontaktuj się z nami i poproś o darmową wycenę swojego projektu!' : 'Contact us and request a free quote for your project!'}
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+              <Link 
+                to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`}
+                className={cn(buttonVariants({ variant: 'outline' }), "font-semibold")}
+              >
+                {lang === 'pl' ? 'Poznaj wykonane projekty Zakładu Metalizacji STANIAX' : 'Discover completed projects of the STANIAX Metallization Plant'}
+                <ArrowUpRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </main>

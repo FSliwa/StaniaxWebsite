@@ -699,6 +699,67 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
     return text
   }
 
+  // Dynamic SEO Metadata updates
+  useEffect(() => {
+    const title = t(lang, 'metaTitle')
+    const description = t(lang, 'metaDesc')
+
+    const originalTitle = document.title
+    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    const originalOgTitle = ogTitle?.getAttribute('content')
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    const originalOgDesc = ogDesc?.getAttribute('content')
+    
+    document.title = title
+    
+    const metaDesc = document.querySelector('meta[name="description"]')
+    if (metaDesc) {
+      metaDesc.setAttribute('content', description)
+    }
+    
+    if (ogTitle) {
+      ogTitle.setAttribute('content', title)
+    }
+    
+    if (ogDesc) {
+      ogDesc.setAttribute('content', description)
+    }
+
+    // Canonical link update
+    let canonical = document.querySelector('link[rel="canonical"]')
+    let createdCanonical = false
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.setAttribute('rel', 'canonical')
+      document.head.appendChild(canonical)
+      createdCanonical = true
+    }
+    const originalCanonical = canonical.getAttribute('href')
+    const canonicalUrl = `https://www.staniax.pl${lang === 'pl' ? '' : '/' + lang}`
+    canonical.setAttribute('href', canonicalUrl)
+
+    return () => {
+      document.title = originalTitle
+      if (metaDesc && originalDescription) {
+        metaDesc.setAttribute('content', originalDescription)
+      }
+      if (ogTitle && originalOgTitle) {
+        ogTitle.setAttribute('content', originalOgTitle)
+      }
+      if (ogDesc && originalOgDesc) {
+        ogDesc.setAttribute('content', originalOgDesc)
+      }
+      if (canonical) {
+        if (originalCanonical) {
+          canonical.setAttribute('href', originalCanonical)
+        } else if (createdCanonical) {
+          document.head.removeChild(canonical)
+        }
+      }
+    }
+  }, [lang])
+
   // Scroll to hash section on mount or hash change
   useEffect(() => {
     const hash = location.hash

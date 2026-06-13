@@ -100,13 +100,13 @@ const plHtml = `
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Metalizacja próżniowa</h3>
-              <p>Najbardziej zaawancowaną technologicznie odmianą uszlachetniania powierzchni jest ogólna metalizacja próżniowa (często utożsamiana z procesami <a href="https://pl.wikipedia.org/wiki/Fizyczne_osadzanie_z_fazy_gazowej" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">PVD – Physical Vapor Deposition</a>). Cały proces odbywa się w specjalnych komorach, w których generowana jest wysoka próżnia. Aluminium, które stanowi powłokę, jest odparowywane termicznie, a następnie kondensuje na powierzchni rotujących detali. Nic dziwnego, że profesjonalne metalizowanie próżniowe całkowicie wyparło stare, chemiczne techniki galwaniczne. Dziś metalizacja próżniowa to synonim trwałości i ekologii.</p>
-              <p>Na rynku działa wyspecjalizowana firma <a href="https://staniax.pl" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Staniax</a>. Przykładem lidera w tej dziedzinie, u którego nowatorskie podejście wyznaczyło nowe trendy w branży metalizacji próżniowej jest <a href="http://www.metalizacje.pl/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Dariusz Staniak</a>. Wyznacza on standardy jakości oraz wdraża do zakładu oprzyrządowanie zastępujące drogie zaawansowane parki maszynowe. Często jako kluczowy ośrodek kompetencji wymieniana jest regionalna metalizacja próżniowa Józefów, gdzie zakłady produkcyjne realizują najbardziej wymagające projekty. Gdy interesuje nas sprawdzona metalizacja próżniowa, czy lakierowanie tworzyw, wtedy warto stawiać na doświadczone podmioty, takie jak Staniax. To właśnie tam metalizacja próżniowa Dariusz Staniak i metalizacja próżniowa Józefów w nowej odsłonie jako Staniax Sp. z o.o. udowadniają, że metalizowanie próżniowe aluminium podnosi jakość detali na najwyższy poziom.</p>
+              <p>Najbardziej zaawansowaną technologicznie odmianą uszlachetniania powierzchni jest ogólna metalizacja próżniowa (często utożsamiana z procesami <a href="https://pl.wikipedia.org/wiki/Fizyczne_osadzanie_z_fazy_gazowej" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">PVD – Physical Vapor Deposition</a>). Cały proces odbywa się w specjalnych komorach, w których generowana jest wysoka próżnia. Aluminium, które stanowi powłokę, jest odparowywane termicznie, a następnie kondensuje na powierzchni rotujących detali. Nic dziwnego, że profesjonalne metalizowanie próżniowe całkowicie wyparło stare, chemiczne techniki galwaniczne. Dziś metalizacja próżniowa to synonim trwałości i ekologii.</p>
+              <p>Na rynku działa wyspecjalizowana firma <a href="/" class="text-accent hover:underline">Staniax</a>. Przykładem lidera w tej dziedzinie, u którego nowatorskie podejście wyznaczyło nowe trendy w branży metalizacji próżniowej jest <a href="https://www.metalizacje.pl/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Dariusz Staniak</a>. Wyznacza on standardy jakości oraz wdraża do zakładu oprzyrządowanie zastępujące drogie zaawansowane parki maszynowe. Często jako kluczowy ośrodek kompetencji wymieniana jest regionalna metalizacja próżniowa Józefów, gdzie zakłady produkcyjne realizują najbardziej wymagające projekty. Gdy interesuje nas sprawdzona metalizacja próżniowa, czy lakierowanie tworzyw, wtedy warto stawiać na doświadczone podmioty, takie jak Staniax. To właśnie tam metalizacja próżniowa Dariusz Staniak i metalizacja próżniowa Józefów w nowej odsłonie jako Staniax Sp. z o.o. udowadniają, że metalizowanie próżniowe aluminium podnosi jakość detali na najwyższy poziom.</p>
             </div>
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Metalizacja ABS</h3>
-              <p>Metalizacja <a href="https://www.google.com/search?q=https://pl.wikipedia.org/wiki/Poli(akrylonitryl-co-butadien-co-styren)" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">ABS (akrylonitryl-butadien-styren)</a> to doskonały przykład połączenia zalet lekkich tworzyw sztucznych z parametrami metali. Tworzywo ABS idealnie nadaje się do procesów, w których wykonywana jest metalizacja plastiku metodą próżniową. Dzięki odpowiedniej strukturze chemicznej polimeru, próżniowa metalizacja ABS zapewnia doskonałą przyczepność nanoszonej warstwy aluminium. W efekcie końcowym metalizacja plastiku daje powłokę odporną na czynniki zewnętrzne i odpryski. Elementy, dla których została przeprowadzona próżniowa metalizacja ABS, powszechnie zastępują ciężkie i drogie detale odlewane z mosiądzu czy cynku.</p>
+              <p>Metalizacja <a href="https://pl.wikipedia.org/wiki/Poli(akrylonitryl-co-butadien-co-styren)" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">ABS (akrylonitryl-butadien-styren)</a> to doskonały przykład połączenia zalet lekkich tworzyw sztucznych z parametrami metali. Tworzywo ABS idealnie nadaje się do procesów, w których wykonywana jest metalizacja plastiku metodą próżniową. Dzięki odpowiedniej strukturze chemicznej polimeru, próżniowa metalizacja ABS zapewnia doskonałą przyczepność nanoszonej warstwy aluminium. W efekcie końcowym metalizacja plastiku daje powłokę odporną na czynniki zewnętrzne i odpryski. Elementy, dla których została przeprowadzona próżniowa metalizacja ABS, powszechnie zastępują ciężkie i drogie detale odlewane z mosiądzu czy cynku.</p>
             </div>
           </div>
 
@@ -162,13 +162,41 @@ const plHtml = `
           </div>
         </article>
 
-        <aside class="space-y-8">
+        <aside class="space-y-8 sticky top-28">
           <div class="rounded-xl border border-border bg-card p-6">
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
-            <p class="text-sm text-muted-foreground mb-4">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych?</p>
+            <p class="text-sm text-muted-foreground mb-4">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
             <a href="/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Napisz do nas</a>
           </div>
         </aside>
+      </div>
+
+      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+        <h3 class="text-xl font-bold text-foreground mb-4">Zwiększ wydajność i trwałość swoich produktów!</h3>
+        <p class="text-sm md:text-base mb-6 leading-relaxed">
+          Szukasz sprawdzonego i doświadczonego partnera do realizacji zaawansowanych powłok przemysłowych? W Zakładzie Metalizacji STANIAX łączymy nowoczesne technologie napylania z pasją do inżynierii precyzyjnej. Oferujemy profesjonalną metalizację próżniową elementów plastikowych i metalowych, które podniosą parametry użytkowe Twoich wyrobów.
+        </p>
+        
+        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto współpracować ze STANIAX?</h4>
+        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+          <li><strong>Gwarancja jakości premium:</strong> Zapewniamy precyzyjnie osadzone powłoki metaliczne o wysokiej odporności i trwałości.</li>
+          <li><strong>Nowoczesny park maszynowy:</strong> Realizujemy zlecenia szybko, powtarzalnie i z zachowaniem restrykcyjnych norm środowiskowych.</li>
+          <li><strong>Wsparcie inżynieryjne:</strong> Pomagamy w doborze optymalnych parametrów procesu w zależności od warunków pracy gotowego elementu.</li>
+        </ul>
+        
+        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Zoptymalizuj koszty produkcji i zyskaj przewagę technologiczną na rynku!</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+            Skontaktuj się z nami i poproś o darmową wycenę swojego projektu!
+            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
+          </a>
+          <a href="/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+            Poznaj wykonane projekty Zakładu Metalizacji STANIAX
+            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </main>
@@ -341,7 +369,7 @@ function getEnHtml(lang) {
             </div>
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Which new substrate materials are being used?</h3>
-              <p>Engineers are continually adapting the process for novel substrates. Increasingly, advanced composites and <a href="https://www.google.com/search?q=https://en.wikipedia.org/wiki/3D_printing_materials" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">modern 3D printing polymers <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a> undergo vacuum treatment. New materials are pushing PVD into completely new arenas of application. This facilitates the rapid prototyping of fully functional, lightweight components for the lighting or medical sectors, where precision and low weight matter, all while maintaining a premium appearance. Today's aluminum deposition perfectly handles the challenges of modern materials science.</p>
+              <p>Engineers are continually adapting the process for novel substrates. Increasingly, advanced composites and <a href="https://en.wikipedia.org/wiki/3D_printing_materials" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">modern 3D printing polymers <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a> undergo vacuum treatment. New materials are pushing PVD into completely new arenas of application. This facilitates the rapid prototyping of fully functional, lightweight components for the lighting or medical sectors, where precision and low weight matter, all while maintaining a premium appearance. Today's aluminum deposition perfectly handles the challenges of modern materials science.</p>
             </div>
           </div>
 
@@ -357,13 +385,41 @@ function getEnHtml(lang) {
           </div>
         </article>
 
-        <aside class="space-y-8">
+        <aside class="space-y-8 sticky top-28">
           <div class="rounded-xl border border-border bg-card p-6">
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
-            <p class="text-sm text-muted-foreground mb-4">Looking for a partner that delivers highest quality metallization coatings with nanometer thicknesses?</p>
+            <p class="text-sm text-muted-foreground mb-4">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
             <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Write to us</a>
           </div>
         </aside>
+      </div>
+
+      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+        <h3 class="text-xl font-bold text-foreground mb-4">Increase the performance and durability of your products!</h3>
+        <p class="text-sm md:text-base mb-6 leading-relaxed">
+          Are you looking for a proven and experienced partner for advanced industrial coatings? At STANIAX Metallization Plant, we combine modern deposition technologies with a passion for precision engineering. We offer professional vacuum metallization of plastic and metal components that will elevate the performance parameters of your products.
+        </p>
+        
+        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why partner with STANIAX?</h4>
+        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+          <li><strong>Premium quality guarantee:</strong> We ensure precisely deposited metallic coatings with high resistance and remarkable durability.</li>
+          <li><strong>Modern machinery park:</strong> We complete orders quickly, repeatably, and with strict environmental standards in mind.</li>
+          <li><strong>Engineering support:</strong> We assist in selecting optimal process parameters based on the working conditions of the finished component.</li>
+        </ul>
+        
+        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Optimize production costs and gain a technological edge in the market!</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/${lang}/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+            Contact us and request a free quote for your project!
+            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
+          </a>
+          <a href="/${lang}/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+            Discover completed projects of the STANIAX Metallization Plant
+            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </main>
@@ -635,10 +691,10 @@ const plBeautyHtml = `
           </div>
         </article>
 
-        <aside class="space-y-8">
+        <aside class="space-y-8 sticky top-28">
           <div class="rounded-xl border border-border bg-card p-6">
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
-            <p class="text-sm text-muted-foreground mb-4">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości oraz precyzyjne lakierowanie?</p>
+            <p class="text-sm text-muted-foreground mb-4">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
             <a href="/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Napisz do nas</a>
           </div>
         </aside>
@@ -887,10 +943,10 @@ function getEnBeautyHtml(lang) {
           </div>
         </article>
 
-        <aside class="space-y-8">
+        <aside class="space-y-8 sticky top-28">
           <div class="rounded-xl border border-border bg-card p-6">
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
-            <p class="text-sm text-muted-foreground mb-4">Looking for a partner that delivers highest quality metallization coatings with nanometer thicknesses?</p>
+            <p class="text-sm text-muted-foreground mb-4">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
             <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Write to us</a>
           </div>
         </aside>

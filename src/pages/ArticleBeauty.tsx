@@ -24,7 +24,7 @@ const articleContent = {
     copyTitle: 'Skopiuj link',
     printTitle: 'Drukuj artykuł',
     ctaTitle: 'Zbuduj z nami przewagę',
-    ctaDesc: 'Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości oraz precyzyjne lakierowanie kosmetyków? Skonsultuj się z naszymi ekspertami już dziś.',
+    ctaDesc: 'Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.',
     ctaBtn: 'Napisz do nas',
     backToNewsList: 'Powrót do aktualności',
     tableHeaders: ['Zastosowanie w Beauty', 'Główne tworzywa', 'Kluczowe zalety powłoki', 'Uzyskiwany efekt'],
@@ -40,7 +40,7 @@ const articleContent = {
     introTitle: 'Wprowadzenie do metalizacji próżniowej',
     tableTitle: 'Porównanie zastosowań metalizacji w opakowaniach kosmetycznych',
     
-    p1: 'Branża kosmetyczna to przestrzeń, w której liczy się nie tylko doskonały skład produktu, ale również jego opakowanie. Klienci coraz częściej kupują oczami, poszukując produktów premium, które zachwycają swoim wyglądem. W odpowiedzi na te potrzeby rynek opakowań kosmetycznych przechodzi prawdziwą rewolucję, a w jej centrum znajduje się [metalizacja próżniowa](https://staniax.pl/metalizacja-prozniowa/). W poniższym artykule przyjrzymy się, jak ta technologia zmienia oblicze współczesnych kosmetyków.',
+    p1: 'Branża kosmetyczna to przestrzeń, w której liczy się nie tylko doskonały skład produktu, ale również jego opakowanie. Klienci coraz częściej kupują oczami, poszukując produktów premium, które zachwycają swoim wyglądem. W odpowiedzi na te potrzeby rynek opakowań kosmetycznych przechodzi prawdziwą rewolucję, a w jej centrum znajduje się [metalizacja próżniowa](/#about). W poniższym artykule przyjrzymy się, jak ta technologia zmienia oblicze współczesnych kosmetyków.',
     p2: 'Aby zrozumieć fenomen nowoczesnych opakowań, warto najpierw zgłębić technologię, która za nimi stoi. Odpowiednio dobrane procesy produkcyjne, takie jak precyzyjna metalizacja i staranne lakierowanie, pozwalają osiągnąć niesamowite efekty wizualne na materiałach, które z natury nie przypominają szlachetnych kruszców.',
     
     sec1Title: 'Co to jest metalizacja próżniowa?',
@@ -52,10 +52,10 @@ const articleContent = {
     sec2P1: 'Opakowanie kosmetyku ma za zadanie chronić produkt i przyciągać wzrok. Technologie powlekania sprawiają, że lekkie materiały zyskują wygląd ciężkich, ekskluzywnych metali.',
     
     sub21Title: 'Metalizacja plastiku w opakowaniach',
-    sub21P1: 'W branży Beauty najczęściej stosowana jest [metalizacja plastiku](https://staniax.pl/metalizacja-plastiku/). Elementy takie jak zakrętki słoiczków z kremami, obudowy szminek czy atomizery, są produkowane z lekkich [polimerów](https://pl.wikipedia.org/wiki/Polimery), a następnie poddawane procesowi metalizacji. Dzięki temu opakowanie pozostaje lekkie i poręczne dla konsumenta, ale wizualnie prezentuje się jak produkt z najwyższej półki.',
+    sub21P1: 'W branży Beauty najczęściej stosowana jest [metalizacja plastiku](/#about). Elementy takie jak zakrętki słoiczków z kremami, obudowy szminek czy atomizery, są produkowane z lekkich [polimerów](https://pl.wikipedia.org/wiki/Polimery), a następnie poddawane procesowi metalizacji. Dzięki temu opakowanie pozostaje lekkie i poręczne dla konsumenta, ale wizualnie prezentuje się jak produkt z najwyższej półki.',
     
     sub22Title: 'Lakierowanie plastiku a metalizacja',
-    sub22P1: 'Aby powłoka metaliczna była trwała i błyszcząca, sam proces nakładania metalu to za mało. Kluczowe jest odpowiednie [lakierowanie plastiku](https://staniax.pl/lakierowanie-plastiku/) zarówno przed, jak i po nałożeniu warstwy metalu:',
+    sub22P1: 'Aby powłoka metaliczna była trwała i błyszcząca, sam proces nakładania metalu to za mało. Kluczowe jest odpowiednie [lakierowanie plastiku](/#about) zarówno przed, jak i po nałożeniu warstwy metalu:',
     sub22Bullet1: '**Lakier podkładowy (Base coat):** Wygładza powierzchnię plastiku, tworząc idealną bazę pod warstwę aluminium.',
     sub22Bullet2: '**Lakier nawierzchniowy (Top coat):** Chroni cienką warstwę metalu przed ścieraniem i pozwala na nadanie dowolnego koloru.',
     sub22P2: 'Odpowiednie lakierowanie w połączeniu z próżniowym nakładaniem metalu pozwala na osiągnięcie nieograniczonej palety barw -- od klasycznego złota, przez różowe złoto (rose gold), aż po metaliczne fiolety i błękity.',
@@ -76,7 +76,7 @@ const articleContent = {
     sub33P1: 'Mogłoby się wydawać, że procesy chemiczne nie idą w parze z ekologią. Jednak w porównaniu do litych elementów metalowych, metalizowane opakowania plastikowe są znacznie lżejsze, co zmniejsza [ślad węglowy](https://pl.wikipedia.org/wiki/%C5%9Alad_w%C4%99glowy) podczas transportu. Co więcej, nowoczesne zakłady usługowe stosują lakiery utwardzane [promieniami UV](https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe) (bez lotnych związków organicznych), co sprawia, że technologia staje się coraz bardziej "zielona".',
 
     sec4Title: 'Przykłady produktów z metalizacją próżniową',
-    sec4P1: 'Technologia ta znalazła zastosowanie w niemal każdym segmencie rynku beauty. Polska również jest silnym graczem na mapie europejskiej produkcji -- na przykład zapytania o usługi takie jak [metalizacja próżniowa Józefów](https://staniax.pl/kontakt/) i zakład metalizacji STANIAX, czy inne lokalne ośrodki produkcyjne pokazują, że polskie firmy stanowią ważne zaplecze dla międzynarodowych marek.',
+    sec4P1: 'Technologia ta znalazła zastosowanie w niemal każdym segmencie rynku beauty. Polska również jest silnym graczem na mapie europejskiej produkcji -- na przykład zapytania o usługi takie jak [metalizacja próżniowa Józefów](/#contact) i zakład metalizacji STANIAX, czy inne lokalne ośrodki produkcyjne pokazują, że polskie firmy stanowią ważne zaplecze dla międzynarodowych marek.',
     
     sub41Title: 'Innowacyjne kosmetyki z metalizowaniem',
     sub41P1: 'Na półkach drogerii bez trudu znajdziemy produkty, które wykorzystują tę technologię:',
@@ -134,7 +134,7 @@ const articleContent = {
     copyTitle: 'Copy link',
     printTitle: 'Print article',
     ctaTitle: 'Build your advantage with us',
-    ctaDesc: 'Are you looking for a partner who will deliver the highest quality metallization coatings and precise cosmetic lacquering? Consult our experts today.',
+    ctaDesc: 'Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.',
     ctaBtn: 'Write to us',
     backToNewsList: 'Back to news list',
     tableHeaders: ['Application in Beauty', 'Main Plastics', 'Key Coating Advantages', 'Achieved Effect'],
@@ -150,7 +150,7 @@ const articleContent = {
     introTitle: 'Introduction to Vacuum Metallization',
     tableTitle: 'Comparison of metallization applications in cosmetic packaging',
     
-    p1: 'The cosmetics industry is a space where not only the perfect composition of the product matters, but also its packaging. Customers increasingly buy with their eyes, looking for premium products that delight with their appearance. In response to these needs, the cosmetics packaging market is undergoing a real revolution, with [vacuum metallization](https://staniax.pl/metalizacja-prozniowa/) at its center. In this article, we examine how this technology, also known as **vacuum metalizing**, is changing the face of modern cosmetics.',
+    p1: 'The cosmetics industry is a space where not only the perfect composition of the product matters, but also its packaging. Customers increasingly buy with their eyes, looking for premium products that delight with their appearance. In response to these needs, the cosmetics packaging market is undergoing a real revolution, with [vacuum metallization](/#about) at its center. In this article, we examine how this technology, also known as **vacuum metalizing**, is changing the face of modern cosmetics.',
     p2: 'To understand the phenomenon of modern packaging, it is first worth exploring the technology behind it. Properly selected manufacturing processes, such as precise metallization inside a **metal vacuum** system and careful coating, allow for amazing visual effects on materials that do not naturally resemble precious metals.',
     
     sec1Title: 'What is vacuum metallization?',
@@ -162,10 +162,10 @@ const articleContent = {
     sec2P1: 'A cosmetic package is designed to protect the product and attract attention. Coating technologies ensure that lightweight materials gain the appearance of heavy, exclusive metals.',
     
     sub21Title: 'Metallization of plastic in packaging',
-    sub21P1: 'In the beauty industry, the [metallization of plastic](https://staniax.pl/metalizacja-plastiku/) is most commonly used. Elements such as cream jar caps, lipstick cases, or atomizers are manufactured from lightweight [polymers](https://pl.wikipedia.org/wiki/Polimery) and then subjected to the metallization process. As a result, the packaging remains light and handy for the consumer, but visually presents itself as a top-shelf product.',
+    sub21P1: 'In the beauty industry, the [metallization of plastic](/#about) is most commonly used. Elements such as cream jar caps, lipstick cases, or atomizers are manufactured from lightweight [polymers](https://pl.wikipedia.org/wiki/Polimery) and then subjected to the metallization process. As a result, the packaging remains light and handy for the consumer, but visually presents itself as a top-shelf product.',
     
     sub22Title: 'Plastic coating and metallization',
-    sub22P1: 'To make the metallic coating durable and glossy, the metal deposition process alone is not enough. Proper [plastic painting](https://staniax.pl/lakierowanie-plastiku/) both before and after the metal layer is applied is crucial:',
+    sub22P1: 'To make the metallic coating durable and glossy, the metal deposition process alone is not enough. Proper [plastic painting](/#about) both before and after the metal layer is applied is crucial:',
     sub22Bullet1: '**Base coat:** Smoothes the plastic surface, creating the perfect base for the aluminum layer.',
     sub22Bullet2: '**Top coat:** Protects the thin metal layer from abrasion and allows for any color to be applied.',
     sub22P2: 'Appropriate lacquering combined with vacuum metallization makes it possible to achieve an unlimited palette of colors—from classic gold, through rose gold, to metallic purples and blues.',
@@ -186,7 +186,7 @@ const articleContent = {
     sub33P1: 'It might seem that chemical processes do not go hand in hand with ecology. However, compared to solid metal elements, metallized plastic packaging is much lighter, which reduces the [carbon footprint](https://pl.wikipedia.org/wiki/%C5%9Alad_w%C4%99glowy) during transport. What\'s more, modern service facilities use lacquers cured by [UV rays](https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe) (free of volatile organic compounds), making the technology increasingly "green".',
 
     sec4Title: 'Examples of products with vacuum metallization',
-    sec4P1: 'This technology has found application in almost every segment of the beauty market. Poland is also a strong player on the European production map—for example, inquiries about services such as [vacuum metallization Józefów](https://staniax.pl/kontakt/) and the STANIAX metallization plant, or other local production centers show that Polish companies represent an important base for international brands.',
+    sec4P1: 'This technology has found application in almost every segment of the beauty market. Poland is also a strong player on the European production map—for example, inquiries about services such as [vacuum metallization Józefów](/#contact) and the STANIAX metallization plant, or other local production centers show that Polish companies represent an important base for international brands.',
     
     sub41Title: 'Innovative cosmetics with metallization',
     sub41P1: 'On drugstore shelves, we can easily find products that use this technology:',
@@ -364,6 +364,10 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
 
     const originalTitle = document.title
     const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    const originalOgTitle = ogTitle?.getAttribute('content')
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    const originalOgDesc = ogDesc?.getAttribute('content')
     
     document.title = text.metaTitle
     
@@ -372,29 +376,49 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
       metaDesc.setAttribute('content', text.metaDesc)
     }
     
-    const ogTitle = document.querySelector('meta[property="og:title"]')
     if (ogTitle) {
       ogTitle.setAttribute('content', text.metaTitle)
     }
     
-    const ogDesc = document.querySelector('meta[property="og:description"]')
     if (ogDesc) {
       ogDesc.setAttribute('content', text.metaOgDesc)
     }
+
+    // Canonical link update
+    let canonical = document.querySelector('link[rel="canonical"]')
+    let createdCanonical = false
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.setAttribute('rel', 'canonical')
+      document.head.appendChild(canonical)
+      createdCanonical = true
+    }
+    const originalCanonical = canonical.getAttribute('href')
+    const subPath = lang === 'pl' 
+      ? 'news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty' 
+      : `${lang}/news/vacuum-metallization-revolutionizes-beauty-industry`
+    canonical.setAttribute('href', `https://www.staniax.pl/${subPath}`)
 
     return () => {
       document.title = originalTitle
       if (metaDesc && originalDescription) {
         metaDesc.setAttribute('content', originalDescription)
       }
-      if (ogTitle) {
-        ogTitle.setAttribute('content', 'STANIAX - Metalizacja Próżniowa')
+      if (ogTitle && originalOgTitle) {
+        ogTitle.setAttribute('content', originalOgTitle)
       }
-      if (ogDesc) {
-        ogDesc.setAttribute('content', 'Profesjonalna metalizacja próżniowa, lakierowanie tworzyw i szkła.')
+      if (ogDesc && originalOgDesc) {
+        ogDesc.setAttribute('content', originalOgDesc)
+      }
+      if (canonical) {
+        if (originalCanonical) {
+          canonical.setAttribute('href', originalCanonical)
+        } else if (createdCanonical) {
+          document.head.removeChild(canonical)
+        }
       }
     }
-  }, [text])
+  }, [text, lang])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -753,46 +777,9 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
                   </div>
                 </div>
               </div>
-
-              {/* Main article body CTA Callout Block */}
-              <div className="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500" />
-                <h3 className="text-xl font-bold text-foreground mb-4">{text.ctaHeader}</h3>
-                <p className="text-sm md:text-base mb-6 leading-relaxed">
-                  {renderTextWithLinks(text.ctaText)}
-                </p>
-                
-                <h4 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h4>
-                <ul className="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-                  <li>{renderTextWithLinks(text.ctaWhy1)}</li>
-                  <li>{renderTextWithLinks(text.ctaWhy2)}</li>
-                  <li>{renderTextWithLinks(text.ctaWhy3)}</li>
-                </ul>
-                
-                <p className="font-semibold text-foreground mb-6 text-sm md:text-base">{text.ctaSubhead}</p>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link 
-                    to={lang === 'pl' ? '/#contact' : `/${lang}#contact`} 
-                    onClick={scrollToContact}
-                    className={cn(buttonVariants({ variant: 'default' }), "font-semibold")}
-                  >
-                    {lang === 'pl' ? 'Skontaktuj się z nami i poproś o darmową wycenę swojego projektu!' : 'Contact us and request a free quote for your project!'}
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                  <Link 
-                    to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`}
-                    className={cn(buttonVariants({ variant: 'outline' }), "font-semibold")}
-                  >
-                    {lang === 'pl' ? 'Poznaj wykonane projekty Zakładu Metalizacji STANIAX' : 'Discover completed projects of the STANIAX Metallization Plant'}
-                    <ArrowUpRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-
             </article>
 
-            <aside className="space-y-8">
+            <aside className="space-y-8 sticky top-28">
               
               <Card className="border border-border bg-card p-6">
                 <CardContent className="p-0 space-y-4">
@@ -852,6 +839,42 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
               </Link>
             </aside>
 
+          </div>
+
+          {/* Main article body CTA Callout Block */}
+          <div className="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500" />
+            <h3 className="text-xl font-bold text-foreground mb-4">{text.ctaHeader}</h3>
+            <p className="text-sm md:text-base mb-6 leading-relaxed">
+              {renderTextWithLinks(text.ctaText)}
+            </p>
+            
+            <h4 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h4>
+            <ul className="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+              <li>{renderTextWithLinks(text.ctaWhy1)}</li>
+              <li>{renderTextWithLinks(text.ctaWhy2)}</li>
+              <li>{renderTextWithLinks(text.ctaWhy3)}</li>
+            </ul>
+            
+            <p className="font-semibold text-foreground mb-6 text-sm md:text-base">{text.ctaSubhead}</p>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                to={lang === 'pl' ? '/#contact' : `/${lang}#contact`} 
+                onClick={scrollToContact}
+                className={cn(buttonVariants({ variant: 'default' }), "font-semibold")}
+              >
+                {lang === 'pl' ? 'Skontaktuj się z nami i poproś o darmową wycenę swojego projektu!' : 'Contact us and request a free quote for your project!'}
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+              <Link 
+                to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`}
+                className={cn(buttonVariants({ variant: 'outline' }), "font-semibold")}
+              >
+                {lang === 'pl' ? 'Poznaj wykonane projekty Zakładu Metalizacji STANIAX' : 'Discover completed projects of the STANIAX Metallization Plant'}
+                <ArrowUpRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </main>
