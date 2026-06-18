@@ -646,7 +646,8 @@ function getDeHtml(lang) {
 </div>
   `
 }
-\n\nfunction writePrerenderFile(subPath, titleMeta, htmlContent) {
+
+function writePrerenderFile(subPath, titleMeta, htmlContent) {
   let fileHtml = baseHtml;
   // Replace default title and metadata
   fileHtml = fileHtml.replace(/<title>[^<]*<\/title>/, '')
@@ -1428,7 +1429,8 @@ function getDeBeautyHtml(lang) {
 </div>
   `
 }
-\n\n// 4. Polish version (Beauty)
+
+// 4. Polish version (Beauty)
 writePrerenderFile('news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty', plBeautyMeta, plBeautyHtml)
 
 // 5. English version (Beauty)
