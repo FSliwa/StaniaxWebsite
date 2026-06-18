@@ -135,8 +135,8 @@ const articleContent = {
     
     introTitle: 'Why are modern surface treatments revolutionizing component design?',
     tableTitle: 'How do substrates and applications compare?',
-    p1: 'Modern manufacturing constantly seeks solutions that combine two key properties: high mechanical strength and flawless aesthetics. In a world where cost reduction and component weight optimization are priorities, traditional methods of producing bulky, solid alloy parts are giving way to modern surface engineering technologies. One of the most important processes in this field is advanced thin-film application. Today, professional vacuum coating and associated sputtering techniques are revolutionizing the approach to component design.',
-    p2: 'This surface treatment completely changes how we view part design in the automotive, cosmetics, packaging, and electronics industries. Thanks to it, lightweight polymers gain completely new physicochemical properties. When analyzing how the [metallization of plastic](/#about) modifies the external structure of parts, we see a massive increase in their performance. In this article, we will take a closer look at what this process actually entails, why aluminum vapor deposition has become a market standard, how vacuum metallization of plastic works, and how these technologies affect real material performance.',
+    p1: 'Modern manufacturing constantly seeks solutions that combine two key properties: high mechanical strength and flawless aesthetics. In a world where cost reduction and component weight optimization are priorities, traditional methods of producing bulky, solid alloy parts are giving way to modern surface engineering technologies. One of the most important processes in this field is advanced thin-film application. Today, professional **vacuum metalizing** and associated sputtering techniques are revolutionizing the approach to component design.',
+    p2: 'This surface treatment completely changes how we view part design in the automotive, cosmetics, packaging, and electronics industries. Thanks to it, lightweight polymers gain completely new physicochemical properties. When analyzing how the [metallization of plastic](/#about) inside a **metal vacuum** system modifies the external structure of parts, we see a massive increase in their performance. In this article, we will take a closer look at what this process actually entails, why aluminum vapor deposition has become a market standard, how vacuum metallization of plastic works, and how these technologies affect real material performance.',
     
     sec1Title: 'What does the coating process actually entail?',
     sec1P1: 'This advanced technological process involves applying a microscopic layer of conductive or reflective material (often a metal) onto the surface of another material, known as the substrate. This substrate can be other alloys as well as non-conductive materials. Nowadays, modern polymer plating alternatives play a key role, allowing heavy steel components to be replaced with lighter synthetic counterparts. Every industrial surface treatment aims to optimize production costs while maintaining a premium feel.',
@@ -150,7 +150,7 @@ const articleContent = {
     sub21P2: 'This method is widely used in the automotive industry. That is where the professional [metallization of reflectors](/#about) is of key importance. When headlights lose their efficiency, precise reflector recoating restores the original properties of the light beam. Every factory application is based on applying an aluminum layer inside a specialized chamber. Since the metallization of reflectors guarantees excellent light reflection, this directly translates to road safety. For the lighting sector, precise aluminum sputtering is the absolute foundation of operation.',
 
     sub22Title: 'What is Physical Vapor Deposition (PVD)?',
-    sub22P1: 'The most technologically advanced type of surface refinement is general vacuum deposition (often identified with [Physical Vapor Deposition](https://en.wikipedia.org/wiki/Physical_vapor_deposition) or PVD processes). The entire procedure takes place in special chambers where a high vacuum is generated. The source material forming the coating is thermally evaporated and then condenses on the surface of rotating parts. Unsurprisingly, professional PVD has largely replaced older chemical electroplating techniques. Today, this process is synonymous with durability and ecology.',
+    sub22P1: 'The most technologically advanced type of surface refinement is **vacuum metal deposition** (often identified with [Physical Vapor Deposition](https://en.wikipedia.org/wiki/Physical_vapor_deposition) or PVD processes). The entire procedure takes place in special chambers where a high vacuum is generated. The source material forming the coating is thermally evaporated and then condenses on the surface of rotating parts. Unsurprisingly, professional PVD has largely replaced older chemical electroplating techniques. Today, this process is synonymous with durability and ecology.',
     sub22P2: 'The specialized company [Staniax - vacuum coating and plastic painting](/) operates effectively in this market. These are areas where process synergy determines the ultimate success of the product. An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is [Dariusz Staniak](/#kim-jestesmy). He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. Regional surface treatments in Józefów are often mentioned as a key competence center where manufacturing plants execute the most demanding projects. When seeking proven PVD or [polymer painting](/#about), it is worth choosing experienced entities like Staniax. The techniques championed by Dariusz Staniak and the modernized Staniax Sp. z o.o. prove that aluminum vacuum deposition elevates part quality to the highest level.',
 
     sub23Title: 'How does ABS surface modification benefit manufacturers?',
@@ -187,7 +187,7 @@ const articleContent = {
     sub51P1: 'Modern developmental directions focus on the complete elimination of older, harmful chemical procedures in favor of fully ecological solutions. Breakthrough innovations allow for identical—and often superior—strength parameters with zero toxic wastewater emission. Modern control systems enable precise layer thickness adjustments down to individual nanometers. These technological leaps open doors for advanced photonics, electronics, and the production of modern lighting systems, where the metallization of reflectors remains paramount.',
 
     sub52Title: 'Which new substrate materials are being used?',
-    sub52P1: 'Engineers are continually adapting the process for novel substrates. Increasingly, advanced composites and [modern 3D printing polymers](https://www.google.com/search?q=https://en.wikipedia.org/wiki/3D_printing_materials) undergo vacuum treatment. New materials are pushing PVD into completely new arenas of application. This facilitates the rapid prototyping of fully functional, lightweight components for the lighting or medical sectors, where precision and low weight matter, all while maintaining a premium appearance. Today\'s aluminum deposition perfectly handles the challenges of modern materials science.',
+    sub52P1: 'Engineers are continually adapting the process for novel substrates. Increasingly, **vacuum casting metal** alternatives, advanced composites and [modern 3D printing polymers](https://www.google.com/search?q=https://en.wikipedia.org/wiki/3D_printing_materials) undergo vacuum treatment. New materials are pushing PVD into completely new arenas of application. This facilitates the rapid prototyping of fully functional, lightweight components for the lighting or medical sectors, where precision and low weight matter, all while maintaining a premium appearance. Today\'s aluminum deposition perfectly handles the challenges of modern materials science.',
 
     sec6Title: 'What are the final recommendations for enterprises?',
     sec6P1: 'Vacuum thin-film deposition is undoubtedly the technology of the future, defining the standards of modern production. Transforming lightweight polymers into high-performance components using vaporized aluminum is the definitive path forward.',
@@ -200,6 +200,101 @@ const articleContent = {
     ctaWhy2: '**Modern machinery park:** We complete orders quickly, repeatably, and with strict environmental standards in mind.',
     ctaWhy3: '**Engineering support:** We assist in selecting optimal process parameters based on the working conditions of the finished component.',
     ctaSubhead: 'Optimize production costs and gain a technological edge in the market!'
+  },
+  de: {
+    backToNews: 'Zurück zu Aktuelles',
+    backToHome: 'Zurück zur Startseite',
+    articleBadge: 'Artikel',
+    readTime: '5 Min. Lesezeit',
+    heading: 'Wie beeinflusst Metallisierung die Materialleistung? Entdecken Sie ihre Geheimnisse!',
+    lead: 'Entdecken Sie, wie Metallisierung die Materialleistung beeinflusst! Erfahren Sie mehr über ihre Arten und Anwendungen in verschiedenen Branchen. Lernen Sie mehr!',
+    imageAlt: 'Produktionshalle mit Vakuummetallisierungsmaschine und Fertigprodukten',
+    newsTitle: 'Aktuelles',
+    shareTitle: 'Artikel teilen',
+    copySuccess: 'Link zum Artikel wurde in die Zwischenablage kopiert!',
+    copyTitle: 'Link kopieren',
+    printTitle: 'Artikel drucken',
+    ctaTitle: 'Bauen Sie mit uns Ihren Vorsprung aus',
+    ctaDesc: 'Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.',
+    ctaBtn: 'Schreiben Sie uns',
+    backToNewsList: 'Zurück zur Übersicht',
+    tableHeaders: ['Anwendungsbereich im Vakuum', 'Hauptsubstrate', 'Hauptvorteile der Aluminiumbeschichtung', 'Typische Schichtdicken'],
+    tableRows: [
+      ['Reflektoren und Scheinwerfer', 'Polycarbonat, PPS, Metalle', 'Maximale Lichtreflexion, thermische Beständigkeit', 'Nanometer (0,01 - 0,1 µm)'],
+      ['Kunststoffkomponenten (ABS)', 'Polymere (ABS, PC, ABS/PC)', 'Chrom-/Aluminiumoptik, Gewichtsreduktion, niedriger Preis', 'Nanometer (im PVD-Prozess)'],
+      ['Verpackungen und Zierteile', 'Glas, PS, PP, ABS', 'Spiegeleffekt, Premium-Ästhetik, chemische Beständigkeit', 'Nanometer (0,01 - 0,1 µm)']
+    ],
+    metaTitle: "Wie beeinflusst Metallisierung die Materialleistung? | STANIAX",
+    metaDesc: 'Erfahren Sie, wie fortschrittliche Vakuummetallisierung, Kunststofflackierung und PVD-Prozesse die Festigkeit und Ästhetik von Materialien in der Luftfahrt beeinflussen.',
+    metaOgDesc: 'Erfahren Sie, wie fortschrittliche Vakuummetallisierung und PVD-Schutzschichten die Materialleistung in der Luftfahrtindustrie steigern.',
+    
+    introTitle: '',
+    tableTitle: '',
+    p1: 'Die moderne Fertigungsindustrie sucht ständig nach Lösungen, die zwei Eigenschaften verbinden: hohe mechanische Festigkeit und tadellose Ästhetik. In einer Welt, in der Kostenreduktion und Gewichtsoptimierung von Komponenten Priorität haben, weichen traditionelle Methoden zur Herstellung sperriger Vollmetallteile modernen Technologien der Oberflächentechnik. Einer der wichtigsten Prozesse in diesem Bereich is die moderne Metallisierung. Heute revolutionieren die professionelle Vakuummetallisierung und die damit verbundene Vakuum-Metallbedampfung den Ansatz beim Design von Details.',
+    p2: 'Der Prozess der Metallisierung verändert grundlegend die Art und Weise, wie wir das Design von Details in Branchen wie Automotive, Kosmetik, Verpackung oder Elektronik betrachten. Dank ihm gewinnen leichte Kunststoffe völlig neue physikochemische Eigenschaften. Wenn wir analysieren, wie die Metallisierung die äußere Struktur von Details modifiziert, sehen wir eine enorme Steigerung ihrer Leistung. In diesem Artikel werfen wir einen genaueren Blick darauf, was dieser Prozess genau ist, warum die Vakuummetallisierung von Aluminium zum Marktstandard geworden ist, wie die Kunststoffmetallisierung funktioniert und wie diese Technologien die reale Materialleistung beeinflussen.',
+    
+    sec1Title: 'Was ist Metallisierung?',
+    sec1P1: 'Die Metallisierung ist ein fortschrittlicher technologischer Prozess, bei dem eine dünne Metallschicht auf die Oberfläche eines anderen Materials, des sogenannten Substrats, aufgetragen wird. Dieses Substrat können sowohl andere Metalle als auch nichtmetallische Werkstoffe sein. Heutzutage spielt die moderne Kunststoffmetallisierung eine Schlüsselrolle, da sie es ermöglicht, sperrige Metallkomponenten durch leichtere Gegenstücke aus Polymeren zu ersetzen. Jede industrielle Metallisierung zielt darauf ab, die Produktionskosten zu optimieren und gleichzeitig Premium-Eigenschaften beizubehalten.',
+    sec1P2: 'Das Hauptziel der Metallisierung besteht darin, der veredelten Oberfläche spezifische Eigenschaften zu verleihen, die das jeweilige Material von Natur aus nicht besitzt. Dies kann elektrische Leitfähigkeit, Lichtreflexion oder Schutz vor äußeren Einflüssen sein. Da die moderne Metallisierung und die effiziente Vakuum-Metallbedampfung auf umweltfreundlichen und sauberen Technologien basieren, werden die Metallschichten ausschließlich in einem **Metallvakuum**-System unter Hochvakuumbedingungen aufgetragen. Dies stellt sicher, dass die Vakuummetallisierung eine perfekte Wiederholbarkeit der Beschichtungen garantiert, wie oft im Branchen-Forum [Elektroda.pl](https://www.elektroda.pl/) erwähnt wird. Sowohl die Kunststoffmetallisierung als auch die allgemeine Metallisierung harter Substrate verbessern die Gebrauchsparameter des fertigen Produkts erheblich.',
+
+    sec2Title: 'Arten der Metallisierung in der Vakuumtechnik',
+    sec2P1: 'Je nach den gewünschten Endeigenschaften des Produkts wählen Ingenieure die optimalen Parameter für die Oberflächenmodifikation. Der moderne Ansatz in diesem Industriesegment basiert vollständig auf hochgradig fortschrittlichen Prozessen, in denen die Vakuummetallisierung und die präzise Vakuum-Metallbedampfung unter Verwendung von Aluminium dominieren.',
+    
+    sub21Title: 'Aluminium-Metallisierung',
+    sub21P1: 'In einem professionellen Produktionsbetrieb existiert die Aluminium-Metallisierung nicht als eigenständiges, traditionelles Spritzverfahren – dieser Prozess wird ausschließlich in Hochvakuumtechnologie realisiert. Bei diesem Verfahren wird reines Aluminium verdampft und präzise, Schicht für Schicht, auf dem modifizierten Substrat abgeschieden. Eine solche Vakuum-Aluminiummetallisierung ermöglicht einen perfekten Spiegeleffekt, der mit handwerklichen Methoden nicht erreicht werden kann. Durch diesen Prozess der Aluminium-Metallisierung gewinnen die Elemente eine einzigartige Ästhetik und hervorragende Gebrauchsparameter.',
+    sub21P2: 'Diese Methode findet breite Anwendung in der Automobilindustrie. Genau dort ist die professionelle Reflektormetallisierung für Autos von entscheidender Bedeutung. Wenn Scheinwerfer ihre Leistungsfähigkeit verlieren, hilft eine präzise Reflektormetallisierung, die die ursprünglichen Eigenschaften des Lichtstrahls wiederherstellt. Jede werkseitige Reflektormetallisierung basiert auf dem Auftragen einer Aluminiumbeschichtung in der Kammer. Da die Reflektormetallisierung eine hervorragende Lichtreflexion garantiert, wirkt sich dieser Prozess direkt auf die Sicherheit im Straßenverkehr aus. Für die Beleuchtungsindustrie sind die Vakuum-Aluminiummetallisierung und die präzise Vakuummetallisierung das absolute Fundament der Tätigkeit.',
+
+    sub22Title: 'Vakuummetallisierung',
+    sub22P1: 'Die technologisch fortschrittlichste Variante der Oberflächenveredelung ist die allgemeine Vakuummetallisierung (oft mit [PVD – Physical Vapor Deposition](https://de.wikipedia.org/wiki/Physikalische_Gasphasenabscheidung) Prozessen gleichgesetzt). Der gesamte Prozess findet in speziellen Kammern statt, in denen ein Hochvakuum erzeugt wird. Das Aluminium, welches die Beschichtung bildet, wird thermisch verdampft und kondensiert anschließend auf der Oberfläche rotierender Details. Es ist kein Wunder, dass die professionelle Vakuum-Metallbedampfung alte, chemische Galvanotechniken vollständig verdrängt hat. Heute ist die Vakuummetallisierung ein Synonym für Langlebigkeit und Ökologie.',
+    sub22P2: 'Auf dem Markt ist das spezialisierte Unternehmen [Staniax - Vakuummetallisierung, Kunststofflackierung](/) tätig, in denen die Synergie der Prozesse über den endgültigen Erfolg des Produkts entscheidend ist. Ein Beispiel für einen Branchenführer, dessen innovativer Ansatz neue Trends im Bereich der Vakuummetallisierung gesetzt hat, ist [Dariusz Staniak](http://www.metalizacje.pl/). Er setzt Qualitätsstandards und führt in der Fabrik Vorrichtungen ein, die teure, hochentwickelte Maschinenparks ersetzen. Häufig wird die regionale Vakuummetallisierung Józefów als centrales Kompetenzzentrum genannt, in dem Produktionsbetriebe anspruchsvollste Projekte realisieren. Wenn wir an bewährter Vakuummetallisierung oder Kunststofflackierung interessiert sind, lohnt es sich, auf erfahrene Partner wie Staniax zu setzen. Genau dort beweisen die Vakuummetallisierung von Dariusz Staniak und die Vakuummetallisierung Józefów in der neuen Form als Staniax Sp. z o.o., dass die Vakuum-Metallbedampfung mit Aluminium die Qualität von Details auf das höchste Niveau hebt.',
+
+    sub23Title: 'ABS-Metallisierung',
+    sub23P1: 'Die Metallisierung von [ABS (Acrylnitril-Butadien-Styrol)](https://de.wikipedia.org/wiki/Acrylnitril-Butadien-Styrol-Copolymer) ist ein perfektes Beispiel für die Kombination der Vorteile leichter Kunststoffe mit den Eigenschaften von Metallen. ABS-Kunststoff eignet sich ideal für Prozesse, bei denen eine Kunststoffmetallisierung im Vakuumverfahren durchgeführt wird. Dank der passenden chemischen Struktur des Polymers gewährleistet die Vakuum-ABS-Metallisierung eine hervorragende Haftung der aufgetragenen Aluminiumschicht. Am Ende führt die Kunststoffmetallisierung zu einer Beschichtung, die gegen äußere Einflüsse und Abplatzer beständig ist.',
+    sub23P2: 'Komponenten, bei denen eine Vakuum-ABS-Metallisierung durchgeführt wurde, ersetzen häufig schwere und teure Gussdetails aus Messing oder Zink. Sie sind leicht, einfach im Spritzguss zu formen und sehen nach dem Prozess der Vakuummetallisierung identisch aus wie massives Metall. Sowohl die ABS-Metallisierung als auch die allgemeine Kunststoffmetallisierung mit Aluminium sind der Schlüssel zu modernem Design.',
+
+    sec3Title: 'Anwendung der Metallisierung in verschiedenen Branchen',
+    sec3P1: 'Die Vielseitigkeit, die die Vakuummetallisierung auszeichnet, sorgt dafür, dass wir ihr fast auf Schritt und Tritt begegnen – von Alltagsgegenständen bis hin zu hochmodernen Industriekomponenten.',
+    
+    sub31Title: 'Metallisierung von Kosmetikverpackungen',
+    sub31P1: 'Die visuelle Attraktivität eines Produkts im Verkaufsregal ist der Schlüssel zum Erfolg in der Beauty-Branche. Die Metallisierung von Kosmetikverpackungen spielt hier eine fundamentale Rolle. Parfümkappen, Lippenstifthülsen oder Cremetiegel werden mit glänzenden Aluminiumschichten überzogen. Eine perfekte Metallisierung von Verpackungen steigert das Prestige der Marke und positioniert das Produkt im Premiumsegment.',
+    sub31P2: 'Die Kosmetikmetallisierung (im Kontext ihrer Verpackungen) im weiten Sinne ist ein Bereich, in dem Ästhetik mit Langlebigkeit einhergehen muss. Da die Metallisierung von Kosmetikverpackungen die darin enthaltenen Substanzen vor Lichteinfall schützt, ermöglicht sie es, den Einsatz künstlicher Konservierungsstoffe zu reduzieren. Jede moderne Marke weiß, wie wichtig die ästhetische Metallisierung von Verpackungen und die globale Kosmetikmetallisierung sind. Wenn ein atemberaubendes Erscheinungsbild von Flakons das Ziel is, sucht die durch Vakuum-Metallbedampfung realisierte Metallisierung von Kosmetikverpackungen ihresgleichen. Zudem garantieren die Kosmetikmetallisierung und die präzise Metallisierung von Verpackungen die Beständigkeit gegen die in den Produkten enthaltenen Chemikalien.',
+
+    sub32Title: 'Alkoholverpackung-Metallisierung',
+    sub32P1: 'Das Segment der hochprozentigen Getränke, insbesondere Premium, setzt stark auf sensorisches Marketing. Eine anspruchsvolle Metallisierung von Alkoholprodukten, genauer gesagt von Luxusglasflaschen, Verschlüssen und Etiketten, ermöglicht es Marken, sich aus der Masse der Wettbewerber abzuheben. Die exklusive Metallisierung von Alkoholprodukten zieht in Clubs und in Verkaufsregalen die Blicke auf sich und glänzt mit metallischem Schimmer.',
+    sub32P2: 'Designer betonen oft, dass eine im Vakuumverfahren durchgeführte Metallisierung von Alkoholflaschen unbegrenzte Möglichkeiten bietet, die Beschichtungen mithilfe entsprechender Transparentlacke in Kupfer- oder Goldtöne einzufärben. Wenn eine Metallisierung auf der Flasche erscheint, gewinnen Alkohole den Status eines Sammlerprodukts. Jede Luxusmarke weiß, dass die Metallisierung von Alkoholflaschen (in Katalogen oft als Metallisierung Alkohole aufgeführt) eine bewährte Methode zur Produktdifferenzierung ist.',
+
+    sec4Title: 'Vorteile der Metallisierung für die Materialleistung',
+    sec4P1: 'Neben den offensichtlichen visuellen Vorteilen verändert dieser Prozess die technischen Parameter der modifizierten Komponenten grundlegend.',
+    
+    sub41Title: 'Erhöhte Verschleißfestigkeit',
+    sub41P1: 'Das Auftragen einer harten, lackgeschützten Aluminiumbeschichtung auf das Substrat erhöht dessen Beständigkeit gegen mechanische Beschädigungen und Abrieb drastisch. In der Maschinen- und Beleuchtungsindustrie wird die Vakuummetallisierung zum Schutz von Präzisionsdetails eingesetzt. Wenn eine dauerhafte Metallisierung das Ziel ist, können Schichten, die im Vakuumverfahren aufgetragen und mit einer entsprechenden Decklackierung kombiniert werden, die störungsfreie Betriebszeit von Komponenten um das Mehrfache verlängern. Sowohl die Kunststoffmetallisierung als auch die Veredelung von Glasoberflächen schaffen eine reibungsresistente Barriere.',
+
+    sub42Title: 'Schutz vor äußeren Einflüssen',
+    sub42P1: 'Oxidation und Oberflächenabbau sind die Hauptfeinde vieler Materialien. Die moderne Vakuummetallisierung unter Verwendung von Aluminium schafft eine äußerst dichte, mikroskopische Barriere, die den Zugang äußerer Faktoren zum Substrat blockiert. Dank der präzisen Abscheidung von Metallatomen in der Vakuumkammer haftet die erhaltene Beschichtung perfekt an der Oberfläche. Da es sich um eine professionelle Aluminium-Metallisierung handelt, gewinnt die Oberfläche eine vollständige Passivierung und einen hohen Schutzgrad. Dies ist eine weitaus langlebigere und homogenere Lösung als klassische, einschichtige Lackbeschichtungen.',
+
+    sub43Title: 'Ästhetik und Funktionalität',
+    sub43P1: 'Der Einsatz der Technologie der Vakuummetallisierung ermöglicht es, Komponenten mit komplexen Formen aus leichten Kunststoffen zu entwerfen und dem Endverbraucher gleichzeitig das Gefühl zu geben, ein Luxusprodukt zu nutzen. Da die Kunststoffmetallisierung und die präzise Vakuum-Metallbedampfung Ästhetik mit Funktionalität verbinden, dominiert diese Technologie in modernen Engineering-Projekten. Wenn es auf die Perfektion der Lichtreflexion ankommt, bleibt die Aluminium-Metallisierung in der Vakuumkammer konkurrenzlos.',
+
+    sec5Title: 'Zukunft der Metallisierung in verschiedenen Sektoren',
+    sec5P1: 'Diese Technologie entwickelt sich ständig weiter, um den strengen Umweltnormen und den steigenden Leistungsanforderungen des Marktes gerecht zu werden.',
+    
+    sub51Title: 'Innovationen in der Vakuummetallisierung',
+    sub51P1: 'Die heutigen Entwicklungsrichtungen konzentrieren sich auf die vollständige Eliminierung älterer, schädlicher chemischer Prozesse zugunsten vollkommen ökologischer Lösungen. Wegweisende Innovationen in der Vakuummetallisierung ermöglichen es, identische und oft sogar bessere Festigkeitsparameter der Beschichtungen bei null Emissionen giftiger Abwässer zu erzielen. Moderne Prozesssteuerungssysteme erlauben eine präzise Kontrolle der Schichtdicke im Bereich einzelner Nanometer. Diese technologischen Innovationen in der Vakuummetallisierung öffnen die Türen für hochentwickelte Photonik, Elektronik sowie die Herstellung moderner Beleuchtungssysteme, bei denen die Reflektormetallisierung eine Schlüsselrolle spielt.',
+
+    sub52Title: 'Neue Materialien in der Metallisierung',
+    sub52P1: 'Ingenieure arbeiten an der Anpassung des Prozesses an moderne Substrate. Immer häufiger werden hochentwickelte Verbundwerkstoffe und moderne 3D-Druckpolymere im Vakuumverfahren metallisiert. Neue Materialien sorgen dafür, dass die Vakuummetallisierung in völlig neue Anwendungsbereiche vordringt. Dies ermöglicht ein schnelles Prototyping voll funktionsfähiger, leichter Komponenten für die Beleuchtungs- oder Medizinindustrie, wo Präzision und geringes Gewicht bei Erhaltung der Metallästhetik zählen. Hier bietet auch die **Vakuumguss Metall**-Technologie hervorragende Entwicklungsansätze. Die heutige Vakuum-Aluminiummetallisierung meistert die Herausforderungen der modernen Materialwissenschaft hervorragend.',
+
+    sec6Title: 'Schlussfolgerungen und Empfehlungen',
+    sec6P1: 'Die Vakuummetallisierung ist zweifellos die Technologie der Zukunft, die schon heute die Standards der modernen Produktion definiert. Die Umwandlung leichter Kunststoffe in Hochleistungskomponenten mit einzigartigen Eigenschaften unter Verwendung von verdampftem Aluminium ist der einzig richtige Entwicklungsweg.',
+    
+    quote: '"Für Unternehmen, die die Einführung dieses Prozesses planen oder Subunternehmer suchen, sollte die präzise Definition der Arbeitsbedingungen des fertigen Details im Vordergrund stehen. Die Wahl der richtigen Parameter, die die Vakuummetallisierung für Kunststoffkomponenten bietet, hängt von den Haltbarkeitsanforderungen und dem gewünschten Endeffekt ab. Das Komplettunternehmen Staniax - Vakuummetallisierung, Kunststofflackierung ist der beste Geschäftspartner bei der Einführung moderner Produkte auf dem Markt. Genau dort ermöglichen das Expertenwissen und die Technologien der Vakuummetallisierung von Dariusz Staniak, Mentor im neu transformierten Unternehmen Staniax, als lokale Vakuummetallisierung Józefów, das Erreichen höchster Marktqualität. Die Investition in fortschrittliche Oberflächentechnik ist ein bewährter Weg, um die Wettbewerbsfähigkeit von Produkten zu steigern, Materialkosten zu senken und die höchsten Erwartungen des Marktes zu erfüllen."',
+    ctaHeader: 'Steigern Sie die Leistung und Haltbarkeit Ihrer Produkte!',
+    ctaText: 'Suchen Sie einen bewährten und erfahrenen Partner für hochentwickelte Industriebeschichtungen? Im STANIAX Metallisierungsbetrieb verbinden wir moderne Bedampfungstechnologien mit Leidenschaft für Präzisionstechnik. Wir bieten professionelle Vakuummetallisierung von Kunststoff- und Metallkomponenten, die die Leistungsparameter Ihrer Produkte steigern.',
+    ctaWhyTitle: 'Warum lohnt sich die Zusammenarbeit mit STANIAX?',
+    ctaWhy1: '**Premium-Qualitätsgarantie:** Wir sorgen für präzise abgeschiedene Metallbeschichtungen mit hoher Beständigkeit und Haltbarkeit.',
+    ctaWhy2: '**Moderner Maschinenpark:** Wir realisieren Aufträge schnell, wiederholbar und unter Einhaltung strenger Umweltnormen.',
+    ctaWhy3: '**Ingenieurtechnische Unterstützung:** Wir helfen bei der Auswahl optimaler Prozessparameter in Abhängigkeit von den Betriebsbedingungen der fertigen Komponente.',
+    ctaSubhead: 'Optimieren Sie die Produktionskosten und gewinnen Sie einen technologischen Vorsprung auf dem Markt!'
   }
 }
 
@@ -321,7 +416,7 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
     return parts.length > 0 ? parts : textStr
   }
 
-  const activeLang = lang === 'pl' ? 'pl' : 'en'
+  const activeLang = lang === 'pl' ? 'pl' : lang === 'de' ? 'de' : 'en'
   const text = articleContent[activeLang]
 
   useEffect(() => {
@@ -362,7 +457,9 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const originalCanonical = canonical.getAttribute('href')
     const subPath = lang === 'pl' 
       ? 'news/partnerstwo-z-wiodacym-producentem-lotniczym' 
-      : `${lang}/news/how-does-metallization-affect-material-performance`
+      : lang === 'de'
+      ? 'de/news/wie-beeinflusst-metallisierung-die-materialleistung'
+      : 'en/news/how-does-metallization-affect-material-performance'
     canonical.setAttribute('href', `https://www.staniax.pl/${subPath}`)
 
     return () => {
@@ -435,7 +532,7 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
   const languageLinks = [
     { flag: "🇵🇱", lang: "pl" as const, path: "/news/partnerstwo-z-wiodacym-producentem-lotniczym", label: "Polski" },
     { flag: "🇬🇧", lang: "en" as const, path: "/en/news/how-does-metallization-affect-material-performance", label: "English" },
-    { flag: "🇩🇪", lang: "de" as const, path: "/de/news/how-does-metallization-affect-material-performance", label: "Deutsch" },
+    { flag: "🇩🇪", lang: "de" as const, path: "/de/news/wie-beeinflusst-metallisierung-die-materialleistung", label: "Deutsch" },
   ]
 
   return (

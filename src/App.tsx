@@ -29,11 +29,11 @@ function App() {
           
           <Route path="/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="pl" />} />
           <Route path="/en/news/how-does-metallization-affect-material-performance" element={<ArticleAviation lang="en" />} />
-          <Route path="/de/news/how-does-metallization-affect-material-performance" element={<ArticleAviation lang="de" />} />
+          <Route path="/de/news/wie-beeinflusst-metallisierung-die-materialleistung" element={<ArticleAviation lang="de" />} />
 
           <Route path="/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty" element={<ArticleBeauty lang="pl" />} />
           <Route path="/en/news/vacuum-metallization-revolutionizes-beauty-industry" element={<ArticleBeauty lang="en" />} />
-          <Route path="/de/news/vacuum-metallization-revolutionizes-beauty-industry" element={<ArticleBeauty lang="de" />} />
+          <Route path="/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche" element={<ArticleBeauty lang="de" />} />
           
           <Route path="/gallery" element={<GalleryPage lang="pl" />} />
           <Route path="/en/gallery" element={<GalleryPage lang="en" />} />

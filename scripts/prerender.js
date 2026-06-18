@@ -261,8 +261,8 @@ function getEnHtml(lang) {
         <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
           <div class="space-y-6">
             <h2 class="text-xl md:text-2xl font-black text-foreground pt-2">Why are modern surface treatments revolutionizing component design?</h2>
-            <p>Modern manufacturing constantly seeks solutions that combine two key properties: high mechanical strength and flawless aesthetics. In a world where cost reduction and component weight optimization are priorities, traditional methods of producing bulky, solid alloy parts are giving way to modern surface engineering technologies. One of the most important processes in this field is advanced thin-film application. Today, professional vacuum coating and associated sputtering techniques are revolutionizing the approach to component design.</p>
-            <p>This surface treatment completely changes how we view part design in the automotive, cosmetics, packaging, and electronics industries. Thanks to it, lightweight polymers gain completely new physicochemical properties. When analyzing how the <a href="/${lang}/#vacuum-metallization" class="text-accent hover:underline font-medium">metallization of plastic</a> modifies the external structure of parts, we see a massive increase in their performance. In this article, we will take a closer look at what this process actually entails, why aluminum vapor deposition has become a market standard, how vacuum metallization of plastic works, and how these technologies affect real material performance.</p>
+            <p>Modern manufacturing constantly seeks solutions that combine two key properties: high mechanical strength and flawless aesthetics. In a world where cost reduction and component weight optimization are priorities, traditional methods of producing bulky, solid alloy parts are giving way to modern surface engineering technologies. One of the most important processes in this field is advanced thin-film application. Today, professional <strong class="font-bold text-foreground">vacuum metalizing</strong> and associated sputtering techniques are revolutionizing the approach to component design.</p>
+            <p>This surface treatment completely changes how we view part design in the automotive, cosmetics, packaging, and electronics industries. Thanks to it, lightweight polymers gain completely new physicochemical properties. When analyzing how the <a href="/${lang}/#vacuum-metallization" class="text-accent hover:underline font-medium">metallization of plastic</a> inside a <strong class="font-bold text-foreground">metal vacuum</strong> system modifies the external structure of parts, we see a massive increase in their performance. In this article, we will take a closer look at what this process actually entails, why aluminum vapor deposition has become a market standard, how vacuum metallization of plastic works, and how these technologies affect real material performance.</p>
           </div>
 
           <div class="space-y-4">
@@ -283,7 +283,7 @@ function getEnHtml(lang) {
 
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">What is Physical Vapor Deposition (PVD)?</h3>
-              <p>The most technologically advanced type of surface refinement is general vacuum deposition (often identified with <a href="https://en.wikipedia.org/wiki/Physical_vapor_deposition" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">Physical Vapor Deposition <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a> or PVD processes). The entire procedure takes place in special chambers where a high vacuum is generated. The source material forming the coating is thermally evaporated and then condenses on the surface of rotating parts. Unsurprisingly, professional PVD has largely replaced older chemical electroplating techniques. Today, this process is synonymous with durability and ecology.</p>
+              <p>The most technologically advanced type of surface refinement is <strong class="font-bold text-foreground">vacuum metal deposition</strong> (often identified with <a href="https://en.wikipedia.org/wiki/Physical_vapor_deposition" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">Physical Vapor Deposition <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a> or PVD processes). The entire procedure takes place in special chambers where a high vacuum is generated. The source material forming the coating is thermally evaporated and then condenses on the surface of rotating parts. Unsurprisingly, professional PVD has largely replaced older chemical electroplating techniques. Today, this process is synonymous with durability and ecology.</p>
               <p>The specialized company <a href="/${lang}/" class="text-accent hover:underline font-medium">Staniax - vacuum coating and plastic painting</a> operates effectively in this market. These are areas where process synergy determines the ultimate success of the product. An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is <a href="/${lang}/#kim-jestesmy" class="text-accent hover:underline font-medium">Dariusz Staniak</a>. He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. Regional surface treatments in Józefów are often mentioned as a key competence center where manufacturing plants execute the most demanding projects. When seeking proven PVD or <a href="/${lang}/#plastic-painting" class="text-accent hover:underline font-medium">polymer painting</a>, it is worth choosing experienced entities like Staniax. The techniques championed by Dariusz Staniak and the modernized Staniax Sp. z o.o. prove that aluminum vacuum deposition elevates part quality to the highest level.</p>
             </div>
 
@@ -369,7 +369,7 @@ function getEnHtml(lang) {
             </div>
             <div class="space-y-3 pl-4 border-l-2 border-accent/35">
               <h3 class="text-xl font-bold text-foreground">Which new substrate materials are being used?</h3>
-              <p>Engineers are continually adapting the process for novel substrates. Increasingly, advanced composites and <a href="https://en.wikipedia.org/wiki/3D_printing_materials" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">modern 3D printing polymers <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a> undergo vacuum treatment. New materials are pushing PVD into completely new arenas of application. This facilitates the rapid prototyping of fully functional, lightweight components for the lighting or medical sectors, where precision and low weight matter, all while maintaining a premium appearance. Today's aluminum deposition perfectly handles the challenges of modern materials science.</p>
+              <p>Engineers are continually adapting the process for novel substrates. Increasingly, <strong class="font-bold text-foreground">vacuum casting metal</strong> alternatives, advanced composites and <a href="https://en.wikipedia.org/wiki/3D_printing_materials" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">modern 3D printing polymers <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a> undergo vacuum treatment. New materials are pushing PVD into completely new arenas of application. This facilitates the rapid prototyping of fully functional, lightweight components for the lighting or medical sectors, where precision and low weight matter, all while maintaining a premium appearance. Today's aluminum deposition perfectly handles the challenges of modern materials science.</p>
             </div>
           </div>
 
@@ -428,7 +428,225 @@ function getEnHtml(lang) {
 }
 
 // Generate function
-function writePrerenderFile(subPath, titleMeta, htmlContent) {
+
+const deMeta = `
+    <title>Wie beeinflusst Metallisierung die Materialleistung? | STANIAX</title>
+    <meta name="description" content="Erfahren Sie, wie fortschrittliche Vakuummetallisierung, Kunststofflackierung und PVD-Prozesse die Festigkeit und Ästhetik von Materialien in der Luftfahrt beeinflussen." />
+    <meta property="og:title" content="Wie beeinflusst Metallisierung die Materialleistung? | STANIAX" />
+    <meta property="og:description" content="Erfahren Sie, wie fortschrittliche Vakuummetallisierung und PVD-Schutzschichten die Materialleistung in der Luftfahrtindustrie steigern." />
+    <meta property="og:type" content="article" />
+`
+
+function getDeHtml(lang) {
+  return `
+<div class="min-h-screen bg-background text-foreground font-sans">
+  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
+    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
+      <a href="/${lang}/news" class="group flex items-center gap-3 text-left">
+        <div class="leading-tight">
+          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
+          <span class="block text-lg font-black">Aktuelles</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3 sm:gap-6">
+        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
+          <a href="/${lang}/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">Über uns</a>
+          <a href="/${lang}/#about" class="text-muted-foreground hover:text-accent transition-colors">Angebot</a>
+          <a href="/${lang}/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projekte</a>
+          <a href="/${lang}/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galerie</a>
+          <a href="/${lang}/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
+        </nav>
+        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
+          Schreiben Sie uns
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20">
+    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artikel</span>
+        <span class="text-xs text-muted-foreground flex items-center gap-1">20. August 2025</span>
+        <span class="text-xs text-muted-foreground flex items-center gap-1">5 Min. Lesezeit</span>
+      </div>
+      
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
+        Wie beeinflusst Metallisierung die Materialleistung? Entdecken Sie ihre Geheimnisse!
+      </h1>
+      <p class="text-muted-foreground/80 text-base md:text-lg mb-8 max-w-3xl italic leading-relaxed">
+        Entdecken Sie, wie Metallisierung die Materialleistung beeinflusst! Erfahren Sie mehr über ihre Arten und Anwendungen in verschiedenen Branchen. Lernen Sie mehr!
+      </p>
+
+      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
+        <img src="${aviationImgUrl}" alt="Produktionshalle mit Vakuummetallisierungsmaschine und Fertigprodukten" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
+        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
+          <div class="space-y-6">
+            <p>Die moderne Fertigungsindustrie sucht ständig nach Lösungen, die zwei Eigenschaften verbinden: hohe mechanische Festigkeit und tadellose Ästhetik. In einer Welt, in der Kostenreduktion und Gewichtsoptimierung von Komponenten Priorität haben, weichen traditionelle Methoden zur Herstellung sperriger Vollmetallteile modernen Technologien der Oberflächentechnik. Einer der wichtigsten Prozesse in diesem Bereich ist die moderne Metallisierung. Heute revolutionieren die professionelle Vakuummetallisierung und die damit verbundene Vakuum-Metallbedampfung den Ansatz beim Design von Details.</p>
+            <p>Der Prozess der Metallisierung verändert grundlegend die Art und Weise, wie wir das Design von Details in Branchen wie Automotive, Kosmetik, Verpackung oder Elektronik betrachten. Dank ihm gewinnen leichte Kunststoffe völlig neue physikochemische Eigenschaften. Wenn wir analysieren, wie die Metallisierung die äußere Struktur von Details modifiziert, sehen wir eine enorme Steigerung ihrer Leistung. In diesem Artikel werfen wir einen genaueren Blick darauf, was dieser Prozess genau ist, warum die Vakuummetallisierung von Aluminium zum Marktstandard geworden ist, wie die Kunststoffmetallisierung funktioniert und wie diese Technologien die reale Materialleistung beeinflussen.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Was ist Metallisierung?</h2>
+            <p>Die Metallisierung ist ein fortschrittlicher technologischer Prozess, bei dem eine dünne Metallschicht auf die Oberfläche eines anderen Materials, des sogenannten Substrats, aufgetragen wird. Dieses Substrat können sowohl andere Metalle als auch nichtmetallische Werkstoffe sein. Heutzutage spielt die moderne Kunststoffmetallisierung eine Schlüsselrolle, da sie es ermöglicht, sperrige Metallkomponenten durch leichtere Gegenstücke aus Polymeren zu ersetzen. Jede industrielle Metallisierung zielt darauf ab, die Produktionskosten zu optimieren und gleichzeitig Premium-Eigenschaften beizubehalten.</p>
+            <p>Das Hauptziel der Metallisierung besteht darin, der veredelten Oberfläche spezifische Eigenschaften zu verleihen, die das jeweilige Material von Natur aus nicht besitzt. Dies kann elektrische Leitfähigkeit, Lichtreflexion oder Schutz vor äußeren Einflüssen sein. Da die moderne Metallisierung und die effiziente Vakuum-Metallbedampfung auf umweltfreundlichen und sauberen Technologien basieren, werden die Metallschichten ausschließlich in einem <strong class="font-bold text-foreground">Metallvakuum</strong>-System unter Hochvakuumbedingungen aufgetragen. Dies stellt sicher, dass die Vakuummetallisierung eine perfekte Wiederholbarkeit der Beschichtungen garantiert, wie oft im Branchen-Forum Elektroda.pl erwähnt wird. Sowohl die Kunststoffmetallisierung als auch die allgemeine Metallisierung harter Substrate verbessern die Gebrauchsparameter des fertigen Produkts erheblich.</p>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Arten der Metallisierung in der Vakuumtechnik</h2>
+            <p>Je nach den gewünschten Endeigenschaften des Produkts wählen Ingenieure die optimalen Parameter für die Oberflächenmodifikation. Der moderne Ansatz in diesem Industriesegment basiert vollständig auf hochgradig fortschrittlichen Prozessen, in denen die Vakuummetallisierung und die präzise Vakuum-Metallbedampfung unter Verwendung von Aluminium dominieren.</p>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Aluminium-Metallisierung</h3>
+              <p>In einem professionellen Produktionsbetrieb existiert die Aluminium-Metallisierung nicht als eigenständiges, traditionelles Spritzverfahren – dieser Prozess wird ausschließlich in Hochvakuumtechnologie realisiert. Bei diesem Verfahren wird reines Aluminium verdampft und präzise, Schicht für Schicht, auf dem modifizierten Substrat abgeschieden. Eine solche Vakuum-Aluminiummetallisierung ermöglicht einen perfekten Spiegeleffekt, der mit handwerklichen Methoden nicht erreicht werden kann. Durch diesen Prozess der Aluminium-Metallisierung gewinnen die Elemente eine einzigartige Ästhetik und hervorragende Gebrauchsparameter.</p>
+              <p>Diese Methode findet breite Anwendung in der Automobilindustrie. Genau dort ist die professionelle Reflektormetallisierung für Autos von entscheidender Bedeutung. Wenn Scheinwerfer ihre Leistungsfähigkeit verlieren, hilft eine präzise Reflektormetallisierung, die die ursprünglichen Eigenschaften des Lichtstrahls wiederherstellt. Jede werkseitige Reflektormetallisierung basiert auf dem Auftragen einer Aluminiumbeschichtung in der Kammer. Da die Reflektormetallisierung eine hervorragende Lichtreflexion garantiert, wirkt sich dieser Prozess direkt auf die Sicherheit im Straßenverkehr aus. Für die Beleuchtungsindustrie sind die Vakuum-Aluminiummetallisierung und die präzise Vakuummetallisierung das absolute Fundament der Tätigkeit.</p>
+            </div>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Vakuummetallisierung</h3>
+              <p>Die technologisch fortschrittlichste Variante der Oberflächenveredelung ist die allgemeine Vakuummetallisierung (oft mit PVD – Physical Vapor Deposition Prozessen gleichgesetzt). Der gesamte Prozess findet in speziellen Kammern statt, in denen ein Hochvakuum erzeugt wird. Das Aluminium, welches die Beschichtung bildet, wird thermisch verdampft und kondensiert anschließend auf der Oberfläche rotierender Details. Es ist kein Wunder, dass die professionelle Vakuum-Metallbedampfung alte, chemische Galvanotechniken vollständig verdrängt hat. Heute ist die Vakuummetallisierung ein Synonym für Langlebigkeit und Ökologie.</p>
+              <p>Auf dem Markt ist das spezialisierte Unternehmen Staniax - Vakuummetallisierung, Kunststofflackierung tätig, in denen die Synergie der Prozesse über den endgültigen Erfolg des Produkts entscheidend ist. Ein Beispiel für einen Branchenführer, dessen innovativer Ansatz neue Trends im Bereich der Vakuummetallisierung gesetzt hat, ist Dariusz Staniak. Er setzt Qualitätsstandards und führt in der Fabrik Vorrichtungen ein, die teure, hochentwickelte Maschinenparks ersetzen. Häufig wird die regionale Vakuummetallisierung Józefów als centrales Kompetenzzentrum genannt, in dem Produktionsbetriebe anspruchsvollste Projekte realisieren. Wenn wir an bewährter Vakuummetallisierung oder Kunststofflackierung interessiert sind, lohnt es sich, auf erfahrene Partner wie Staniax zu setzen. Genau dort beweisen die Vakuummetallisierung von Dariusz Staniak und die Vakuummetallisierung Józefów in der neuen Form als Staniax Sp. z o.o., dass die Vakuum-Metallbedampfung mit Aluminium die Qualität von Details auf das höchste Niveau hebt.</p>
+            </div>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">ABS-Metallisierung</h3>
+              <p>Die Metallisierung von ABS (Acrylnitril-Butadien-Styrol) ist ein perfektes Beispiel für die Kombination der Vorteile leichter Kunststoffe mit den Eigenschaften von Metallen. ABS-Kunststoff eignet sich ideal für Prozesse, bei denen eine Kunststoffmetallisierung im Vakuumverfahren durchgeführt wird. Dank der passenden chemischen Struktur des Polymers gewährleistet die Vakuum-ABS-Metallisierung eine hervorragende Haftung der aufgetragenen Aluminiumschicht. Am Ende führt die Kunststoffmetallisierung zu einer Beschichtung, die gegen äußere Einflüsse und Abplatzer beständig ist. Komponenten, bei denen eine Vakuum-ABS-Metallisierung durchgeführt wurde, ersetzen häufig schwere und teure Gussdetails aus Messing oder Zink.</p>
+            </div>
+          </div>
+
+          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
+            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
+              <thead>
+                <tr class="border-b border-border/80 bg-muted/40">
+                  <th class="p-4 font-bold text-foreground">Anwendungsbereich im Vakuum</th>
+                  <th class="p-4 font-bold text-foreground">Hauptsubstrate</th>
+                  <th class="p-4 font-bold text-foreground">Hauptvorteile der Aluminiumbeschichtung</th>
+                  <th class="p-4 font-bold text-foreground">Typische Schichtdicken</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60">
+                <tr>
+                  <td class="p-4 font-medium text-foreground">Reflektoren und Scheinwerfer</td>
+                  <td class="p-4">Polycarbonat, PPS, Metalle</td>
+                  <td class="p-4">Maximale Lichtreflexion, thermische Beständigkeit</td>
+                  <td class="p-4">Nanometer (0,01 - 0,1 µm)</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-medium text-foreground">Kunststoffkomponenten (ABS)</td>
+                  <td class="p-4">Polymere (ABS, PC, ABS/PC)</td>
+                  <td class="p-4">Chrom-/Aluminiumoptik, Gewichtsreduktion, niedriger Preis</td>
+                  <td class="p-4">Nanometer (im PVD-Prozess)</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-medium text-foreground">Verpackungen und Zierteile</td>
+                  <td class="p-4">Glas, PS, PP, ABS</td>
+                  <td class="p-4">Spiegeleffekt, Premium-Ästhetik, chemische Beständigkeit</td>
+                  <td class="p-4">Nanometer (0,01 - 0,1 µm)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Anwendung der Metallisierung in verschiedenen Branchen</h2>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Metallisierung von Kosmetikverpackungen</h3>
+              <p>Die visuelle Attraktivität eines Produkts im Verkaufsregal ist der Schlüssel zum Erfolg in der Beauty-Branche. Die Metallisierung von Kosmetikverpackungen spielt hier eine fundamentale Rolle. Parfümkappen, Lippenstifthülsen oder Cremetiegel werden mit glänzenden Aluminiumschichten überzogen. Eine perfekte Metallisierung von Verpackungen steigert das Prestige der Marke und positioniert das Produkt im Premiumsegment.</p>
+              <p>Die Kosmetikmetallisierung (im Kontext ihrer Verpackungen) im weiten Sinne ist ein Bereich, in dem Ästhetik mit Langlebigkeit einhergehen muss. Da die Metallisierung von Kosmetikverpackungen die darin enthaltenen Substanzen vor Lichteinfall schützt, ermöglicht sie es, den Einsatz künstlicher Konservierungsstoffe zu reduzieren. Jede moderne Marke weiß, wie wichtig die ästhetische Metallisierung von Verpackungen und die globale Kosmetikmetallisierung sind. Wenn ein atemberaubendes Erscheinungsbild von Flakons das Ziel ist, sucht die durch Vakuum-Metallbedampfung realisierte Metallisierung von Kosmetikverpackungen ihresgleichen. Zudem garantieren die Kosmetikmetallisierung und die präzise Metallisierung von Verpackungen die Beständigkeit gegen die in den Produkten enthaltenen Chemikalien.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Alkoholverpackung-Metallisierung</h3>
+              <p>Das Segment der hochprozentigen Getränke, insbesondere Premium, setzt stark auf sensorisches Marketing. Eine anspruchsvolle Metallisierung von Alkoholprodukten, genauer gesagt von Luxusglasflaschen, Verschlüssen und Etiketten, ermöglicht es Marken, sich aus der Masse der Wettbewerber abzuheben. Die exklusive Metallisierung von Alkoholprodukten zieht in Clubs und in Verkaufsregalen die Blicke auf sich und glänzt mit metallischem Schimmer.</p>
+              <p>Designer betonen oft, dass eine im Vakuumverfahren durchgeführte Metallisierung von Alkoholflaschen unbegrenzte Möglichkeiten bietet, die Beschichtungen mithilfe entsprechender Transparentlacke in Kupfer- oder Goldtöne einzufärben. Wenn eine Metallisierung auf der Flasche erscheint, gewinnen Alkohole den Status eines Sammlerprodukts. Jede Luxusmarke weiß, dass die Metallisierung von Alkoholflaschen (in Katalogen oft als Metallisierung Alkohole aufgeführt) eine bewährte Methode zur Produktdifferenzierung jest sprawdzonym sposobem na wyróżnienie produktu.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Vorteile der Metallisierung für die Materialleistung</h2>
+            <p>Erhöhte Verschleißfestigkeit, Schutz vor äußeren Einflüssen und die Verbindung von Ästhetik und Funktionalität sind die Hauptvorteile der PVD-Technologie in Vakuumkammern.</p>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Erhöhte Verschleißfestigkeit</h3>
+              <p>Das Auftragen einer harten, lackgeschützten Aluminiumbeschichtung auf das Substrat erhöht dessen Beständigkeit gegen mechanische Beschädigungen und Abrieb drastisch. In der Maschinen- und Beleuchtungsindustrie wird die Vakuummetallisierung zum Schutz von Präzisionsdetails eingesetzt. Wenn eine dauerhafte Metallisierung das Ziel ist, können Schichten, die im Vakuumverfahren aufgetragen und mit einer entsprechenden Decklackierung kombiniert werden, die störungsfreie Betriebszeit von Komponenten um das Mehrfache verlängern. Sowohl die Kunststoffmetallisierung als auch die Veredelung von Glasoberflächen schaffen eine reibungsresistente Barriere.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Schutz vor äußeren Einflüssen</h3>
+              <p>Oxidation und Oberflächenabbau sind die Hauptfeinde vieler Materialien. Die moderne Vakuummetallisierung unter Verwendung von Aluminium schafft eine äußerst dichte, mikroskopische Barriere, die den Zugang äußerer Faktoren zum Substrat blockiert. Dank der präzisen Abscheidung von Metallatomen in der Vakuumkammer haftet die erhaltene Beschichtung perfekt an der Oberfläche. Da es sich um eine professionelle Aluminium-Metallisierung handelt, gewinnt die Oberfläche eine vollständige Passivierung und einen hohen Schutzgrad. Dies ist eine weitaus langlebigere und homogenere Lösung als klassische, einschichtige Lackbeschichtungen.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Ästhetik und Funktionalität</h3>
+              <p>Der Einsatz der Technologie der Vakuummetallisierung ermöglicht es, Komponenten mit komplexen Formen aus leichten Kunststoffen zu entwerfen und dem Endverbraucher gleichzeitig das Gefühl zu geben, ein Luxusprodukt zu nutzen. Da die Kunststoffmetallisierung und die präzise Vakuum-Metallbedampfung Ästhetik mit Funktionalität verbinden, dominiert diese Technologie in modernen Engineering-Projekten. Wenn es auf die Perfektion der Lichtreflexion ankommt, bleibt die Aluminium-Metallisierung in der Vakuumkammer konkurrenzlos.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Zukunft der Metallisierung in verschiedenen Sektoren</h2>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Innovationen in der Vakuummetallisierung</h3>
+              <p>Die heutigen Entwicklungsrichtungen konzentrieren sich auf die vollständige Eliminierung älterer, schädlicher chemischer Prozesse zugunsten vollkommen ökologischer Lösungen. Wegweisende Innovationen in der Vakuummetallisierung ermöglichen es, identische und oft sogar bessere Festigkeitsparameter der Beschichtungen bei null Emissionen giftiger Abwässer zu erzielen. Moderne Prozesssteuerungssysteme erlauben eine präzise Kontrolle der Schichtdicke im Bereich einzelner Nanometer. Diese technologischen Innovationen in der Vakuummetallisierung öffnen die Türen für hochentwickelte Photonik, Elektronik sowie die Herstellung moderner Beleuchtungssysteme, bei denen die Reflektormetallisierung eine Schlüsselrolle spielt.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Neue Materialien in der Metallisierung</h3>
+              <p>Ingenieure arbeiten an der Anpassung des Prozesses an moderne Substrate. Immer häufiger werden hochentwickelte Verbundwerkstoffe und moderne 3D-Druckpolymere im Vakuumverfahren metallisiert. Neue Materialien sorgen dafür, dass die Vakuummetallisierung in völlig neue Anwendungsbereiche vordringt. Dies ermöglicht ein schnelles Prototyping voll funktionsfähiger, leichter Komponenten für die Beleuchtungs- oder Medizinindustrie, wo Präzision und geringes Gewicht bei Erhaltung der Metallästhetik zählen. Hier bietet auch die **Vakuumguss Metall**-Technologie hervorragende Entwicklungsansätze. Die heutige Vakuum-Aluminiummetallisierung meistert die Herausforderungen der modernen Materialwissenschaft hervorragend.</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Schlussfolgerungen und Empfehlungen</h2>
+            <p>Die Vakuummetallisierung ist zweifellos die Technologie der Zukunft, die schon heute die Standards der modernen Produktion definiert. Die Umwandlung leichter Kunststoffe in Hochleistungskomponenten mit einzigartigen Eigenschaften unter Verwendung von verdampftem Aluminium ist der einzig richtige Entwicklungsweg.</p>
+            <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-6 relative overflow-hidden group">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500" />
+              <div class="text-foreground italic leading-relaxed text-sm md:text-base">
+                "Für Unternehmen, die die Einführung dieses Prozesses planen oder Subunternehmer suchen, sollte die präzise Definition der Arbeitsbedingungen des fertigen Details im Vordergrund stehen. Die Wahl der richtigen Parameter, die die Vakuummetallisierung für Kunststoffkomponenten bietet, hängt von den Haltbarkeitsanforderungen und dem gewünschten Endeffekt ab. Das Komplettunternehmen Staniax - Vakuummetallisierung, Kunststofflackierung ist der beste Geschäftspartner bei der Einführung moderner Produkte auf dem Markt. Genau dort ermöglichen das Expertenwissen und die Technologien der Vakuummetallisierung von Dariusz Staniak, Mentor im neu transformierten Unternehmen Staniax, als lokale Vakuummetallisierung Józefów, das Erreichen höchster Marktqualität. Die Investition in fortschrittliche Oberflächentechnik is ein bewährter Weg, um die Wettbewerbsfähigkeit von Produkten zu steigern, Materialkosten zu senken und die höchsten Erwartungen des Marktes zu erfüllen."
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="space-y-8 sticky top-28">
+          <div class="rounded-xl border border-border bg-card p-6">
+            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
+            <p class="text-sm text-muted-foreground mb-4">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
+            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Schreiben Sie uns</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+        <h3 class="text-xl font-bold text-foreground mb-4">Steigern Sie die Leistung und Haltbarkeit Ihrer Produkte!</h3>
+        <p class="text-sm md:text-base mb-6 leading-relaxed">
+          Suchen Sie einen bewährten und erfahrenen Partner für hochentwickelte Industriebeschichtungen? Im STANIAX Metallisierungsbetrieb verbinden wir moderne Bedampfungstechnologien mit Leidenschaft für Präzisionstechnik. Wir bieten professionelle Vakuummetallisierung von Kunststoff- und Metallkomponenten, die die Leistungsparameter Ihrer Produkte steigern.
+        </p>
+        
+        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum lohnt sich die Zusammenarbeit mit STANIAX?</h4>
+        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+          <li><strong>Premium-Qualitätsgarantie:</strong> Wir sorgen für präzise abgeschiedene Metallbeschichtungen mit hoher Beständigkeit und Haltbarkeit.</li>
+          <li><strong>Moderner Maschinenpark:</strong> Wir realisieren Aufträge schnell, wiederholbar und unter Einhaltung strenger Umweltnormen.</li>
+          <li><strong>Ingenieurtechnische Unterstützung:</strong> Wir helfen bei der Auswahl optimaler Prozessparameter in Abhängigkeit von den Betriebsbedingungen der fertigen Komponente.</li>
+        </ul>
+        
+        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Zoptymalizuj koszty produkcji i zyskaj przewagę technologiczną na rynku!</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/${lang}/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+            Kontaktieren Sie uns für eine kostenlose Projektbewertung!
+            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
+          </a>
+          <a href="/${lang}/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+            Entdecken Sie unsere Galerie von STANIAX-Projekten
+            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+  `
+}
+\n\nfunction writePrerenderFile(subPath, titleMeta, htmlContent) {
   let fileHtml = baseHtml;
   // Replace default title and metadata
   fileHtml = fileHtml.replace(/<title>[^<]*<\/title>/, '')
@@ -456,7 +674,7 @@ writePrerenderFile('news/partnerstwo-z-wiodacym-producentem-lotniczym', plMeta, 
 writePrerenderFile('en/news/how-does-metallization-affect-material-performance', enMeta, getEnHtml('en'))
 
 // 3. German version
-writePrerenderFile('de/news/how-does-metallization-affect-material-performance', enMeta, getEnHtml('de'))
+writePrerenderFile('de/news/wie-beeinflusst-metallisierung-die-materialleistung', deMeta, getDeHtml('de'))
 // --- Beauty Article ---
 
 const plBeautyMeta = `
@@ -957,14 +1175,267 @@ function getEnBeautyHtml(lang) {
   `;
 }
 
-// 4. Polish version (Beauty)
+
+const deBeautyMeta = `
+    <title>Vakuummetallisierung in der Kosmetikbranche | STANIAX</title>
+    <meta name="description" content="Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren." />
+    <meta property="og:title" content="Vakuummetallisierung in der Kosmetikbranche | STANIAX" />
+    <meta property="og:description" content="Vakuummetallisierung revolutioniert die Kosmetikbranche. Erfahren Sie, warum führende Kosmetikmarken diese Technologie wählen." />
+    <meta property="og:type" content="article" />
+`
+
+function getDeBeautyHtml(lang) {
+  return `
+<div class="min-h-screen bg-background text-foreground font-sans">
+  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
+    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
+      <a href="/${lang}/news" class="group flex items-center gap-3 text-left">
+        <div class="leading-tight">
+          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
+          <span class="block text-lg font-black">Aktuelles</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3 sm:gap-6">
+        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
+          <a href="/${lang}/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">Über uns</a>
+          <a href="/${lang}/#about" class="text-muted-foreground hover:text-accent transition-colors">Angebot</a>
+          <a href="/${lang}/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projekte</a>
+          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galerie</a>
+          <a href="/${lang}/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
+        </nav>
+        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
+          Schreiben Sie uns
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20">
+    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artikel</span>
+        <span class="text-xs text-muted-foreground flex items-center gap-1">11. Juni 2026</span>
+        <span class="text-xs text-muted-foreground flex items-center gap-1">5 Min. Lesezeit</span>
+      </div>
+      
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
+        Vakuummetallisierung revolutioniert die Kosmetikbranche
+      </h1>
+      <p class="text-muted-foreground/80 text-base md:text-lg mb-8 max-w-3xl italic leading-relaxed">
+        Wie moderne Vakuummetallisierung und präzise Lackierung von Kunststoffen und Glas den Markt für Kosmetikverpackungen im Beauty-Segment revolutionieren?
+      </p>
+
+      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
+        <img src="${beautyImgUrl}" alt="Luxuriöse, metallisierte Kosmetikverpackungen in verschiedenen Farben mit Hochglanzeffekt" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
+        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
+          <div class="space-y-6">
+            <p>Die Kosmetikbranche ist ein Bereich, in dem nicht nur die perfekte Zusammensetzung des Produkts zählt, sondern auch seine Verpackung. Kunden kaufen immer häufiger mit den Augen und suchen nach Premium-Produkten, die durch ihr Aussehen begeistern. Als Reaktion auf diese Bedürfnisse durchläuft der Markt für Kosmetikverpackungen eine echte Revolution, in deren Zentrum die <a href="/${lang}/#about" class="text-accent hover:underline font-medium">Vakuummetallisierung</a> steht. In diesem Artikel untersuchen wir, wie diese Technologie – auch bekannt als <strong>Vakuummetallisierung</strong> – das Gesicht moderner Kosmetika verändert.</p>
+            
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Einführung in die Vakuummetallisierung</h2>
+            <p>Um das Phänomen moderner Verpackungen zu verstehen, lohnt es sich zunächst, die Technologie dahinter zu erforschen. Richtig gewählte Herstellungsprozesse wie präzise Metallisierung in einem <strong>Metallvakuum</strong>-System und sorgfältige Beschichtung ermöglichen erstaunliche visuelle Effekte auf Materialien, die von Natur aus nicht an Edelmetalle erinnern.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Was ist Vakuummetallisierung?</h2>
+            <p>Vakuummetallisierung ist ein fortschrittlicher technologischer Prozess – oft auch als <strong>Vakuum-Metallbedampfung</strong> bezeichnet –, bei dem unter Hochvakuumbedingungen eine dünne Metallschicht (typischerweise <a href="https://pl.wikipedia.org/wiki/Glin" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Aluminium</a>) auf der Oberfläche eines anderen Materials abgeschieden wird. Im Gegensatz zu Verfahren wie der thermischen Spritzmetallisierung, die hauptsächlich in der Schwerindustrie zum Korrosionsschutz großer Stahlkonstruktionen eingesetzt wird, liefert die Vakuumtechnik eine perfekt glatte, spiegelnde Oberfläche von hohem ästhetischem Wert. Die Metallisierung selbst ist in dieser Ausführung äußerst präzise und bietet den Effekt von luxuriösem Gold, Silber oder Kupfer, ohne dass diese teuren Materialien in ihrer Gesamtheit verwendet werden müssen.</p>
+            
+            <h3 class="text-xl font-bold text-foreground pt-2">Geschichte und Entwicklung der Technologie</h3>
+            <p>Obwohl das Auftragen dünner metallischer Schichten seit Jahrzehnten bekannt ist, war es anfangs teuer und der Optik- oder Elektronikindustrie vorbehalten. Im Laufe der Jahre wurde die Technologie immer zugänglicher. Heute ist die Vakuummetallisierung Standard bei der Herstellung eleganter Verpackungen. Die Entwicklung von Maschinen und modernen Lacken hat diesen Prozess nicht nur schneller, sondern auch deutlich umweltfreundlicher gemacht.</p>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Anwendung der Metallisierung in Kosmetika</h2>
+            <p>Eine Kosmetikverpackung soll das Produkt schützen und Aufmerksamkeit erregen. Beschichtungstechnologien sorgen dafür, dass leichte Materialien das Aussehen schwerer, exklusiver Metalle erhalten.</p>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Kunststoffmetallisierung in Verpackungen</h3>
+              <p>In der Beauty-Branche wird am häufigsten die <a href="/${lang}/#about" class="text-accent hover:underline font-medium">Kunststoffmetallisierung</a> eingesetzt. Elemente wie Kappen von Cremetiegeln, Lippenstiftgehäuse oder Zerstäuber werden aus leichten <a href="https://pl.wikipedia.org/wiki/Polimery" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Polymeren</a> hergestellt und anschließend dem Metallisierungsprozess unterzogen. Dadurch bleibt die Verpackung für den Verbraucher leicht und handlich, präsentiert sich visuell jedoch als Spitzenprodukt.</p>
+            </div>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Kunststofflackierung und Metallisierung</h3>
+              <p>Damit die metallische Beschichtung dauerhaft und glänzend ist, reicht der Metallabscheidungsprozess allein nicht aus. Eine fachgerechte <a href="/${lang}/#about" class="text-accent hover:underline font-medium">Kunststofflackierung</a> sowohl vor als auch nach dem Auftragen der Metallschicht ist entscheidend:</p>
+              <ul class="list-disc pl-5 space-y-2 mt-2">
+                <li><strong>Grundierung (Base coat):</strong> Glättet die Kunststoffoberfläche und bildet die perfekte Basis für die Aluminiumschicht.</li>
+                <li><strong>Decklack (Top coat):</strong> Schützt die dünne Metallschicht vor Abrieb und ermöglicht das Auftragen jeder beliebigen Farbe.</li>
+              </ul>
+              <p class="mt-3">Eine entsprechende Lackierung in Kombination mit der Vakuummetallisierung ermöglicht eine unbegrenzte Farbpalette – von klassischem Gold über Roségold bis hin zu metallischen Violett- und Blautönen.</p>
+            </div>
+          </div>
+
+          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
+            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
+              <thead>
+                <tr class="border-b border-border/80 bg-muted/40">
+                  <th class="p-4 font-bold text-foreground">Anwendung in Kosmetik</th>
+                  <th class="p-4 font-bold text-foreground">Hauptkunststoffe</th>
+                  <th class="p-4 font-bold text-foreground">Vorteile der Beschichtung</th>
+                  <th class="p-4 font-bold text-foreground">Erzielter Effekt</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60">
+                <tr>
+                  <td class="p-4 font-medium text-foreground">Lippenstifte & Lipglosse</td>
+                  <td class="p-4">ABS, PC, Polymere</td>
+                  <td class="p-4">Leichtbauweise, Beständigkeit gegen Kosmetikchemikalien</td>
+                  <td class="p-4">Spiegelchrom, Gold, Roségold</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-medium text-foreground">Kompaktpuder & Lidschattenpaletten</td>
+                  <td class="p-4">ABS, PS, PMMA</td>
+                  <td class="p-4">Exklusive Optik, Schutz vor Kratzern</td>
+                  <td class="p-4">Hochglanz, mattes Satin, Farben</td>
+                </tr>
+                <tr>
+                  <td class="p-4 font-medium text-foreground">Parfümverpackungen (Kappen)</td>
+                  <td class="p-4">PP, ABS, Legierungen</td>
+                  <td class="p-4">Präzision komplexer Formen, geringes Gewicht</td>
+                  <td class="p-4">Gold, Silber und farbige Oberflächen</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Vorteile der Vakuummetallisierung in der Kosmetikindustrie</h2>
+            <p>Der Einsatz dieser Technologie bringt eine Reihe von Vorteilen mit sich, die ihre wachsende Beliebtheit bei den größten Kosmetikmarken bestimmen.</p>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Ästhetik und modernes Design</h3>
+              <p>Der Hauptgrund, warum sich Hersteller für das Metallisieren entscheiden, ist die unübertroffene Ästhetik. Die Produkte erhalten einen Spiegelglanz, der in den Köpfen der Verbraucher unweigerlich mit Luxus und Prestige assoziiert wird. Dies ermöglicht es Marken, ihre Produkte im Premiumsegment zu positionieren.</p>
+            </div>
+            
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Erhöhte Produkthaltbarkeit</h3>
+              <p>Hochwertige Lacke, die als Decklack verwendet werden, machen die Metallisierung extrem widerstandsfähig gegen:</p>
+              <ul class="list-disc pl-5 space-y-2 mt-2">
+                <li>Mechanische Kratzer in Kosmetiktaschen oder Handtaschen.</li>
+                <li>Die Einwirkung von in den Kosmetika selbst enthaltenen Chemikalien (z. B. Öle, Alkohol).</li>
+                <li>UV-Strahlung, was das Verblassen der Verpackung verhindert.</li>
+              </ul>
+            </div>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Nachhaltige Entwicklung und Ökologie</h3>
+              <p>Es könnte den Anschein haben, dass chemische Prozesse nicht mit Ökologie einhergehen. Im Vergleich zu massiven Metallelementen sind metallisierte Kunststoffverpackungen jedoch viel leichter, was den CO2-Fußabdruck beim Transport reduziert. Darüber hinaus verwenden moderne Dienstleistungsbetriebe Lacke, die durch UV-Strahlen ausgehärtet werden (frei von flüchtigen organischen Verbindungen), was die technologie zunehmend "grüner" macht.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Beispiele für Produkte mit Vakuummetallisierung</h2>
+            <p>Diese Technologie hat in fast jedem Segment des Kosmetikmarktes Anwendung gefunden. Polen ist ebenfalls ein starker Akteur auf der europäischen Produktionskarte – beispielsweise zeigen Anfragen zu Dienstleistungen wie <a href="/${lang}/#contact" class="text-accent hover:underline font-medium">Vakuummetallisierung Józefów</a> und dem STANIAX-Metallisierungsbetrieb oder anderen lokalen Produktionszentren, dass polnische Unternehmen eine wichtige Basis für internationale Marken darstellen.</p>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Innovative Kosmetika mit Metallisierung</h3>
+              <p>In den Regalen der Drogerien finden wir leicht Produkte, die diese Technologie nutzen:</p>
+              <ul class="list-disc pl-5 space-y-2 mt-2">
+                <li><strong>Lippenstifte und Lipglosse:</strong> Glänzende, metallische Hüllen sind heute Standard bei führenden Make-up-Herstellern.</li>
+                <li><strong>Kompaktpuder und Lidschattenpaletten:</strong> Das spiegelnde Finish von Puder- oder Lidschattendosen zieht die Blicke auf sich und verleiht dem Produkt einen exklusiven Charakter.</li>
+                <li><strong>Parfümverpackungen, Cremetuben und Wimperntuschen:</strong> Sogar flexible Verpackungen können mit flexiblen, metallisierten Folien überzogen werden.</li>
+              </ul>
+            </div>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Anwendung in der Parfümerie</h3>
+              <p>In der Welt des Parfüms ist die Verpackung ebenso wichtig wie der Duft selbst. Parfümflakons bestehen meist aus Glas, aber ihre Kappen, Verschlüsse und Zerstäuber bestimmen den Charakter des Ganzen. Genau hier bewährt sich die Kunststoffmetallisierung am besten. Sie ermöglicht die Herstellung aufwendiger goldener oder silberner Kappen mit komplexen Formen, die zu schwer oder zu teuer wären, um sie aus reinem Metall herzustellen.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Zusammenfassung und Zukunft der Metallisierung in der Kosmetikindustrie</h2>
+            <p>Wie aktuelle Markttrends zeigen, werden sich die Technologien zur Oberflächenveredelung weiter entwickeln.</p>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Trends und Prognosen</h3>
+              <p>Die Zukunft wird wahrscheinlich einen noch stärkeren Fokus auf umweltfreundliche Lösungen bringen. Die Branche strebt Beschichtungen an, die den Recyclingprozess von Kunststoffen nicht beeinträchtigen. Wir werden auch eine Entwicklung hin zu Spezialeffekten beobachten: holografische Beschichtungen, Chamäleon-Effekte (Farbwechsel je nach Blickwinkel) und matte Metallbeschichtungen, die derzeit bei minimalistischen Marken stark an Beliebtheit gewinnen.</p>
+            </div>
+
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Schlussfolgerungen</h3>
+              <p>Die Vakuummetallisierung hat die Kosmetikindustrie unwiderruflich verändert. Durch den Ersatz traditioneller Metalle ermöglichte sie die Massenproduktion von optisch exklusiven Verpackungen bei gleichzeitiger Beibehaltung der Leichtigkeit und Kostenoptimierung. Die Kombination aus präziser Beschichtungsabscheidung und fortschrittlicher Lackierung ist heute der Schlüssel zum Herzen (und Geldbeutel) des Verbrauchers, der Wert auf Design und hohe Qualität legt.</p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Häufig gestellte Fragen (Q&A)</h2>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Was ist Vakuummetallisierung und wie unterscheidet sie sich von der thermischen Spritzmetallisierung?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Vakuummetallisierung ist die Abscheidung einer sehr dünnen Metallschicht (meist Aluminium) auf der Oberfläche eines anderen Materials unter Hochvakuumbedingungen. Sie führt zu einer perfekt glatten, spiegelnden Beschichtung von hohem ästhetischem Wert. Im Gegensatz zu Verfahren wie der thermischen Spritzmetallisierung oder dem <strong class="font-bold text-foreground">Vakuumguss Metall</strong> (einer Gussmethode) dient diese Vakuumtechnik in erster Linie der hochwertigen dekorativen Veredelung und erzeugt keine raue Oberfläche.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Warum metallisiert die Kosmetikindustrie am häufigsten Kunststoff, anstatt massives Metall zu verwenden?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Verpackungselemente (wie Kappen, Lippenstiftgehäuse, Zerstäuber) werden aus leichten Polymeren hergestellt und anschließend metallisiert, um Komfort und geringes Gewicht mit einer Premium-Optik (Gold, Silber, Kupfer) zu verbinden. Dieses Design senkt die Kosten, verbessert die Ergonomie und reduziert den CO2-Fußabdruck beim Transport im Vergleich zu schwereren Metallelementen, während der luxuriöse visuelle Effekt erhalten bleibt.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Welche Rolle spielt die Lackierung im Metallisierungsprozess und für die Haltbarkeit der Verpackung?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Die Grundierung (base coat) glättet die Kunststoffoberfläche und bereitet sie auf eine gleichmäßige Metallabscheidung vor. Der Decklack (top coat) schützt die dünne Metallschicht vor Kratzern, Kosmetikchemikalien und UV-Strahlung und ermöglicht das Auftragen jeder beliebigen Farbe. Diese Kombination sorgt sowohl für den „Spiegeleffekt“ als auch für eine hohe Strapazierfähigkeit im Gebrauch.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Wie umweltfreundlich ist die Vakuummetallisierung und wie steht es um das Recycling?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Im Vergleich zu massiven Metallen reduzieren leichtere metallisierte Kunststoffverpackungen die Emissionen beim Transport. Zudem enthalten moderne UV-härtende Lacke keine flüchtigen organischen Verbindungen, was das Verfahren im Vergleich zu herkömmlichen Lösungen umweltschonend macht. Die Industrie arbeitet zudem intensiv an Beschichtungen, die das Kunststoff-Recycling nicht beeinträchtigen, um sich besser in die Kreislaufwirtschaft einzufügen.</p>
+              </div>
+              <div class="space-y-2">
+                <h4 class="font-bold text-foreground">Wo wird diese Technologie am häufigsten eingesetzt und was sind Produktbeispiele?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Im Make-up-Bereich findet man sie in Lippenstift- und Lipgloss-Gehäusen sowie in Kompaktpudern und Paletten mit Spiegelfinish. Sie wird auch in der Parfümerie eingesetzt – für Kappen, Verschlüsse und Zerstäuber, wo sie die Gestaltung auffälliger und zugleich leichter Formen ermöglicht. Zudem können elastische Verpackungen (z.B. Tuben) von elastischen metallisierten Folien profitieren. Polen ist ein wichtiges Produktionszentrum in Europa, wie das wachsende Interesse an Metallisierungsdienstleistungen in lokalen Zentren belegt.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main article body CTA Callout Block -->
+          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+            <h3 class="text-xl font-bold text-foreground mb-4">Erstellen Sie Verpackungen, die Ihre Kunden begeistern werden!</h3>
+            <p class="text-sm md:text-base mb-6 leading-relaxed">
+              Suchen Sie einen bewährten und erfahrenen Partner, um Ihre Visionen in eine luxuriöse Realität umzusetzen? Im STANIAX Metallisierungsbetrieb verbinden wir fortschrittliche Technologien mit Leidenschaft für Perfektion. Wir bieten Vakuummetallisierung höchster Qualität und präzise Lackierung, mit denen sich Ihre Kosmetika von der Konkurrenz abheben.
+            </p>
+            
+            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum mit STANIAX zusammenarbeiten?</h4>
+            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+              <li><strong>Premium-Qualitätsgarantie:</strong> Wir sorgen für perfekt glatte, spiegelnde Beschichtungen von außergewöhnlicher Haltbarkeit.</li>
+              <li><strong>Moderner Maschinenpark:</strong> Wir führen Aufträge schnell, präzise und umweltschonend aus.</li>
+              <li><strong>Volle Personalisierung:</strong> Wir erzielen eine unbegrenzte Palette an Farben und Effekten, die auf Ihre Markenidentität abgestimmt sind.</li>
+            </ul>
+            
+            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Steigern Sie das Prestige Ihrer Produkte und ziehen Sie die Blicke der Verbraucher auf sich!</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/${lang}/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                Kontaktieren Sie uns für eine kostenlose Projektbewertung!
+                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
+              </a>
+              <a href="/${lang}/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Entdecken Sie unsere Galerie von STANIAX-Projekten
+                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <aside class="space-y-8 sticky top-28">
+          <div class="rounded-xl border border-border bg-card p-6">
+            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
+            <p class="text-sm text-muted-foreground mb-4">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
+            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Schreiben Sie uns</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</div>
+  `
+}
+\n\n// 4. Polish version (Beauty)
 writePrerenderFile('news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty', plBeautyMeta, plBeautyHtml)
 
 // 5. English version (Beauty)
 writePrerenderFile('en/news/vacuum-metallization-revolutionizes-beauty-industry', enBeautyMeta, getEnBeautyHtml('en'))
 
 // 6. German version (Beauty)
-writePrerenderFile('de/news/vacuum-metallization-revolutionizes-beauty-industry', enBeautyMeta, getEnBeautyHtml('de'))
+writePrerenderFile('de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche', deBeautyMeta, getDeBeautyHtml('de'))
 
 
 // 7. Generate Homepage Shells for PL (/), EN (/en), and DE (/de)

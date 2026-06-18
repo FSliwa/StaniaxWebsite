@@ -229,6 +229,116 @@ const articleContent = {
     ctaWhy2: '**Modern machinery park:** We complete orders quickly, precisely, and with the environment in mind.',
     ctaWhy3: '**Full personalization:** We achieve an unlimited palette of colors and effects tailored to your brand identity.',
     ctaSubhead: 'Elevate the prestige of your products and catch the consumer\'s eye!'
+  },
+  de: {
+    backToNews: 'Zurück zu Aktuelles',
+    backToHome: 'Zurück zur Startseite',
+    articleBadge: 'Artikel',
+    readTime: '5 Min. Lesezeit',
+    heading: 'Vakuummetallisierung revolutioniert die Kosmetikbranche',
+    lead: 'Wie moderne Vakuummetallisierung und präzise Lackierung von Kunststoffen und Glas den Markt für Kosmetikverpackungen im Beauty-Segment revolutionieren?',
+    imageAlt: 'Luxuriöse, metallisierte Kosmetikverpackungen in verschiedenen Farben mit Hochglanzeffekt',
+    newsTitle: 'Aktuelles',
+    shareTitle: 'Artikel teilen',
+    copySuccess: 'Link zum Artikel wurde in die Zwischenablage kopiert!',
+    copyTitle: 'Link kopieren',
+    printTitle: 'Artikel drucken',
+    ctaTitle: 'Bauen Sie mit uns Ihren Vorsprung aus',
+    ctaDesc: 'Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken lieeft? Konsultieren Sie noch heute unsere Experten.',
+    ctaBtn: 'Schreiben Sie uns',
+    backToNewsList: 'Zurück zur Übersicht',
+    tableHeaders: ['Anwendung in Kosmetik', 'Hauptkunststoffe', 'Vorteile der Beschichtung', 'Erzielter Effekt'],
+    tableRows: [
+      ['Lippenstifte & Lipglosse', 'ABS, PC, Polymere', 'Leichtbauweise, Beständigkeit gegen Kosmetikchemikalien', 'Spiegelchrom, Gold, Roségold'],
+      ['Kompaktpuder & Lidschattenpaletten', 'ABS, PS, PMMA', 'Exklusive Optik, Schutz vor Kratzern', 'Hochglanz, mattes Satin, Farben'],
+      ['Parfümverpackungen (Kappen)', 'PP, ABS, Legierungen', 'Präzision komplexer Formen, geringes Gewicht', 'Gold, Silber und farbige Oberflächen']
+    ],
+    metaTitle: "Vakuummetallisierung revolutioniert die Kosmetikbranche | STANIAX",
+    metaDesc: 'Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren.',
+    metaOgDesc: 'Vakuummetallisierung revolutioniert die Kosmetikbranche. Erfahren Sie, warum führende Kosmetikmarken diese Technologie wählen.',
+    
+    introTitle: 'Einführung in die Vakuummetallisierung',
+    tableTitle: 'Vergleich der Metallisierungsanwendungen in Kosmetikverpackungen',
+    
+    p1: 'Die Kosmetikbranche ist ein Bereich, in dem nicht nur die perfekte Zusammensetzung des Produkts zählt, sondern auch seine Verpackung. Kunden kaufen immer häufiger mit den Augen und suchen nach Premium-Produkten, die durch ihr Aussehen begeistern. Als Reaktion auf diese Bedürfnisse durchläuft der Markt für Kosmetikverpackungen eine echte Revolution, in deren Zentrum die [Vakuummetallisierung](/#about) steht. In diesem Artikel untersuchen wir, wie diese Technologie – auch bekannt als **Vakuummetallisierung** – das Gesicht moderner Kosmetika verändert.',
+    p2: 'Um das Phänomen moderner Verpackungen zu verstehen, lohnt es sich zunächst, die Technologie dahinter zu erforschen. Richtig gewählte Herstellungsprozesse wie präzise Metallisierung in einem **Metallvakuum**-System und sorgfältige Beschichtung ermöglichen erstaunliche visuelle Effekte auf Materialien, die von Natur aus nicht an Edelmetalle erinnern.',
+    
+    sec1Title: 'Was ist Vakuummetallisierung?',
+    sec1P1: 'Vakuummetallisierung ist ein fortschrittlicher technologischer Prozess – oft auch als **Vakuum-Metallbedampfung** bezeichnet –, bei dem unter Hochvakuumbedingungen eine dünne Metallschicht (typischerweise [Aluminium](https://pl.wikipedia.org/wiki/Glin)) auf der Oberfläche eines anderen Materials abgeschieden wird. Im Gegensatz zu Verfahren wie der thermischen Spritzmetallisierung, die hauptsächlich in der Schwerindustrie zum Korrosionsschutz großer Stahlkonstruktionen eingesetzt wird, liefert die Vakuumtechnik eine perfekt glatte, spiegelnde Oberfläche von hohem ästhetischem Wert. Die Metallisierung selbst ist in dieser Ausführung äußerst präzise und bietet den Effekt von luxuriösem Gold, Silber oder Kupfer, ohne dass diese teuren Materialien in ihrer Gesamtheit verwendet werden müssen.',
+    sec1SubTitle: 'Geschichte und Entwicklung der Technologie',
+    sec1P2: 'Obwohl das Auftragen dünner metallischer Schichten seit Jahrzehnten bekannt ist, war es anfangs teuer und der Optik- oder Elektronikindustrie vorbehalten. Im Laufe der Jahre wurde die Technologie immer zugänglicher. Heute ist die Vakuummetallisierung Standard bei der Herstellung eleganter Verpackungen. Die Entwicklung von Maschinen und modernen Lacken hat diesen Prozess nicht nur schneller, sondern auch deutlich umweltfreundlicher gemacht.',
+
+    sec2Title: 'Anwendung der Metallisierung in Kosmetika',
+    sec2P1: 'Eine Kosmetikverpackung soll das Produkt schützen und Aufmerksamkeit erregen. Beschichtungstechnologien sorgen dafür, dass leichte Materialien das Aussehen schwerer, exklusiver Metalle erhalten.',
+    
+    sub21Title: 'Kunststoffmetallisierung in Verpackungen',
+    sub21P1: 'In der Beauty-Branche wird am häufigsten die [Kunststoffmetallisierung](/#about) eingesetzt. Elemente wie Kappen von Cremetiegeln, Lippenstiftgehäuse oder Zerstäuber werden aus leichten [Polymeren](https://pl.wikipedia.org/wiki/Polimery) hergestellt und anschließend dem Metallisierungsprozess unterzogen. Dadurch bleibt die Verpackung für den Verbraucher leicht und handlich, präsentiert sich visuell jedoch als Spitzenprodukt.',
+    
+    sub22Title: 'Kunststofflackierung und Metallisierung',
+    sub22P1: 'Damit die metallische Beschichtung dauerhaft und glänzend ist, reicht der Metallabscheidungsprozess allein nicht aus. Eine fachgerechte [Kunststofflackierung](/#about) sowohl vor als auch nach dem Auftragen der Metallschicht ist entscheidend:',
+    sub22Bullet1: '**Grundierung (Base coat):** Glättet die Kunststoffoberfläche und bildet die perfekte Basis für die Aluminiumschicht.',
+    sub22Bullet2: '**Decklack (Top coat):** Schützt die dünne Metallschicht vor Abrieb und ermöglicht das Auftragen jeder beliebigen Farbe.',
+    sub22P2: 'Eine entsprechende Lackierung in Kombination mit der Vakuummetallisierung ermöglicht eine unbegrenzte Farbpalette – von klassischem Gold über Roségold bis hin zu metallischen Violett- und Blautönen.',
+
+    sec3Title: 'Vorteile der Vakuummetallisierung in der Kosmetikindustrie',
+    sec3P1: 'Der Einsatz dieser Technologie bringt eine Reihe von Vorteilen mit sich, die ihre wachsende Beliebtheit bei den größten Kosmetikmarken bestimmen.',
+    
+    sub31Title: 'Ästhetik und modernes Design',
+    sub31P1: 'Der Hauptgrund, warum sich Hersteller für das Metallisieren entscheiden, ist die unübertroffene Ästhetik. Die Produkte erhalten einen Spiegelglanz, der in den Köpfen der Verbraucher unweigerlich mit Luxus und Prestige assoziiert wird. Dies ermöglicht es Marken, ihre Produkte im Premiumsegment zu positionieren.',
+    
+    sub32Title: 'Erhöhte Produkthaltbarkeit',
+    sub32P1: 'Hochwertige Lacke, die als Decklack verwendet werden, machen die Metallisierung extrem widerstandsfähig gegen:',
+    sub32Bullet1: 'Mechanische Kratzer in Kosmetiktaschen oder Handtaschen.',
+    sub32Bullet2: 'Die Einwirkung von in den Kosmetika selbst enthaltenen Chemikalien (z. B. Öle, Alkohol).',
+    sub32Bullet3: 'UV-Strahlung, was das Verblassen der Verpackung verhindert.',
+
+    sub33Title: 'Nachhaltige Entwicklung und Ökologie',
+    sub33P1: 'Es könnte den Anschein haben, dass chemische Prozesse nicht mit Ökologie einhergehen. Im Vergleich zu massiven Metallelementen sind metallisierte Kunststoffverpackungen jedoch viel leichter, was den [CO2-Fußabdruck](https://pl.wikipedia.org/wiki/%C5%9Alad_w%C4%99glowy) beim Transport reduziert. Darüber hinaus verwenden moderne Dienstleistungsbetriebe Lacke, die durch [UV-Strahlen](https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe) ausgehärtet werden (frei von flüchtigen organischen Verbindungen), was die Technologie zunehmend "grüner" macht.',
+
+    sec4Title: 'Beispiele für Produkte mit Vakuummetallisierung',
+    sec4P1: 'Diese Technologie hat in fast jedem Segment des Kosmetikmarktes Anwendung gefunden. Polen ist ebenfalls ein starker Akteur auf der europäischen Produktionskarte – beispielsweise zeigen Anfragen zu Dienstleistungen wie [Vakuummetallisierung Józefów](/#contact) und dem STANIAX-Metallisierungsbetrieb oder anderen lokalen Produktionszentren, dass polnische Unternehmen eine wichtige Basis für internationale Marken darstellen.',
+    
+    sub41Title: 'Innovative Kosmetika mit Metallisierung',
+    sub41P1: 'In den Regalen der Drogerien finden wir leicht Produkte, die diese Technologie nutzen:',
+    sub41Bullet1: '**Lippenstifte und Lipglosse:** Glänzende, metallische Hüllen sind heute Standard bei führenden Make-up-Herstellern.',
+    sub41Bullet2: '**Kompaktpuder und Lidschattenpaletten:** Das spiegelnde Finish von Puder- oder Lidschattendosen zieht die Blicke auf sich und verleiht dem Produkt einen exklusiven Charakter.',
+    sub41Bullet3: '**Parfümverpackungen, Cremetuben und Wimperntuschen:** Sogar flexible Verpackungen können mit flexiblen, metallisierten Folien überzogen werden.',
+    
+    sub42Title: 'Anwendung in der Parfümerie',
+    sub42P1: 'In der Welt des Parfüms ist die Verpackung ebenso wichtig wie der Duft selbst. Parfümflakons bestehen meist aus Glas, aber ihre Kappen, Verschlüsse und Zerstäuber bestimmen den Charakter des Ganzen. Genau hier bewährt sich die Kunststoffmetallisierung am besten. Sie ermöglicht die Herstellung aufwendiger goldener oder silberner Kappen mit komplexen Formen, die zu schwer oder zu teuer wären, um sie aus reinem Metall herzustellen.',
+
+    sec5Title: 'Zusammenfassung und Zukunft der Metallisierung in der Kosmetikindustrie',
+    sec5P1: 'Wie aktuelle Markttrends zeigen, werden sich die Technologien zur Oberflächenveredelung weiter entwickeln.',
+    
+    sub51Title: 'Trends und Prognosen',
+    sub51P1: 'Die Zukunft wird wahrscheinlich einen noch stärkeren Fokus auf umweltfreundliche Lösungen bringen. Die Branche strebt Beschichtungen an, die den [Recyclingprozess](https://pl.wikipedia.org/wiki/Recykling) von Kunststoffen nicht beeinträchtigen. Wir werden auch eine Entwicklung hin zu Spezialeffekten beobachten: holografische Beschichtungen, Chamäleon-Effekte (Farbwechsel je nach Blickwinkel) und matte Metallbeschichtungen, die derzeit bei minimalistischen Marken stark an Beliebtheit gewinnen.',
+    
+    sub52Title: 'Schlussfolgerungen',
+    sub52P1: 'Die Vakuummetallisierung hat die Kosmetikindustrie unwiderruflich verändert. Durch den Ersatz traditioneller Metalle ermöglichte sie die Massenproduktion von optisch exklusiven Verpackungen bei gleichzeitiger Beibehaltung der Leichtigkeit und Kostenoptimierung. Die Kombination aus präziser Beschichtungsabscheidung und fortschrittlicher Lackierung ist heute der Schlüssel zum Herzen (und Geldbeutel) des Verbrauchers, der Wert auf Design und hohe Qualität legt.',
+
+    qaTitle: 'Häufig gestellte Fragen (Q&A)',
+    q1: 'Was ist Vakuummetallisierung und wie unterscheidet sie sich von der thermischen Spritzmetallisierung?',
+    a1: 'Vakuummetallisierung ist die Abscheidung einer sehr dünnen Metallschicht (meist Aluminium) auf der Oberfläche eines anderen Materials unter Hochvakuumbedingungen. Sie führt zu einer perfekt glatten, spiegelnden Beschichtung von hohem ästhetischem Wert. Im Gegensatz zu Verfahren wie der thermischen Spritzmetallisierung oder dem **Vakuumguss Metall** (einer Gussmethode) dient diese Vakuumtechnik in erster Linie der hochwertigen dekorativen Veredelung und erzeugt keine raue Oberfläche.',
+    
+    q2: 'Warum metallisiert die Kosmetikindustrie am häufigsten Kunststoff, anstatt massives Metall zu verwenden?',
+    a2: 'Verpackungselemente (wie Kappen, Lippenstiftgehäuse, Zerstäuber) werden aus leichten Polymeren hergestellt und anschließend metallisiert, um Komfort und geringes Gewicht mit einer Premium-Optik (Gold, Silber, Kupfer) zu verbinden. Dieses Design senkt die Kosten, verbessert die Ergonomie und reduziert den CO2-Fußabdruck beim Transport im Vergleich zu schwereren Metallelementen, während der luxuriöse visuelle Effekt erhalten bleibt.',
+    
+    q3: 'Welche Rolle spielt die Lackierung im Metallisierungsprozess und für die Haltbarkeit der Verpackung?',
+    a3: 'Die Grundierung (base coat) glättet die Kunststoffoberfläche und bereitet sie auf eine gleichmäßige Metallabscheidung vor. Der Decklack (top coat) schützt die dünne Metallschicht vor Kratzern, Kosmetikchemikalien und UV-Strahlung und ermöglicht das Auftragen jeder beliebigen Farbe. Diese Kombination sorgt sowohl für den „Spiegeleffekt“ als auch für eine hohe Strapazierfähigkeit im Gebrauch.',
+    
+    q4: 'Wie umweltfreundlich ist die Vakuummetallisierung und wie steht es um das Recycling?',
+    a4: 'Im Vergleich zu massiven Metallen reduzieren leichtere metallisierte Kunststoffverpackungen die Emissionen beim Transport. Zudem enthalten moderne UV-härtende Lacke keine flüchtigen organischen Verbindungen, was das Verfahren im Vergleich zu herkömmlichen Lösungen umweltschonend macht. Die Industrie arbeitet zudem intensiv an Beschichtungen, die das Kunststoff-Recycling nicht beeinträchtigen, um sich besser in die Kreislaufwirtschaft einzufügen.',
+    
+    q5: 'Wo wird diese Technologie am häufigsten eingesetzt und was sind Produktbeispiele?',
+    a5: 'Im Make-up-Bereich findet man sie in Lippenstift- und Lipgloss-Gehäusen sowie in Kompaktpudern und Paletten mit Spiegelfinish. Sie wird auch in der Parfümerie eingesetzt – für Kappen, Verschlüsse und Zerstäuber, wo sie die Gestaltung auffälliger und zugleich leichter Formen ermöglicht. Sogar flexible Verpackungen (wie Tuben) können flexible metallisierte Folien nutzen. Polen ist ein wichtiges Produktionszentrum in Europa, wie das wachsende Interesse an Metallisierungsdienstleistungen in lokalen Zentren belegt.',
+
+    ctaHeader: 'Erstellen Sie Verpackungen, die Ihre Kunden begeistern werden!',
+    ctaText: 'Suchen Sie einen bewährten und erfahrenen Partner, um Ihre Visionen in eine luxuriöse Realität umzusetzen? Im STANIAX Metallisierungsbetrieb verbinden wir fortschrittliche Technologien mit Leidenschaft für Perfektion. Wir bieten Vakuummetallisierung höchster Qualität und präzise Lackierung, mit denen sich Ihre Kosmetika von der Konkurrenz abheben.',
+    ctaWhyTitle: 'Warum mit STANIAX zusammenarbeiten?',
+    ctaWhy1: '**Premium-Qualitätsgarantie:** Wir sorgen für perfekt glatte, spiegelnde Beschichtungen von außergewöhnlicher Haltbarkeit.',
+    ctaWhy2: '**Moderner Maschinenpark:** Wir führen Aufträge schnell, präzise und umweltschonend aus.',
+    ctaWhy3: '**Volle Personalisierung:** Wir erzielen eine unbegrenzte Palette an Farben und Effekten, die auf Ihre Markenidentität abgestimmt sind.',
+    ctaSubhead: 'Steigern Sie das Prestige Ihrer Produkte und ziehen Sie die Blicke der Verbraucher auf sich!'
   }
 }
 
@@ -356,7 +466,7 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
     return parts.length > 0 ? parts : textStr
   }
 
-  const activeLang = lang === 'pl' ? 'pl' : 'en'
+  const activeLang = lang === 'pl' ? 'pl' : lang === 'de' ? 'de' : 'en'
   const text = articleContent[activeLang]
 
   useEffect(() => {
@@ -396,7 +506,9 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const originalCanonical = canonical.getAttribute('href')
     const subPath = lang === 'pl' 
       ? 'news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty' 
-      : `${lang}/news/vacuum-metallization-revolutionizes-beauty-industry`
+      : lang === 'de'
+      ? 'de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche'
+      : 'en/news/vacuum-metallization-revolutionizes-beauty-industry'
     canonical.setAttribute('href', `https://www.staniax.pl/${subPath}`)
 
     return () => {
@@ -469,7 +581,7 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
   const languageLinks = [
     { flag: "🇵🇱", lang: "pl" as const, path: "/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty", label: "Polski" },
     { flag: "🇬🇧", lang: "en" as const, path: "/en/news/vacuum-metallization-revolutionizes-beauty-industry", label: "English" },
-    { flag: "🇩🇪", lang: "de" as const, path: "/de/news/vacuum-metallization-revolutionizes-beauty-industry", label: "Deutsch" },
+    { flag: "🇩🇪", lang: "de" as const, path: "/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche", label: "Deutsch" },
   ]
 
   return (
