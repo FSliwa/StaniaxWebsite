@@ -9,8 +9,9 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const navigate = useNavigate()
 
     const scrollToSection = (sectionId: string) => {
-        if (window.location.pathname !== '/') {
-            window.location.href = `/#${sectionId}`
+        const homePath = lang === 'pl' ? '/' : `/${lang}`
+        if (window.location.pathname !== homePath && window.location.pathname !== `${homePath}/`) {
+            window.location.href = `${homePath}#${sectionId}`
         } else {
             const section = document.getElementById(sectionId)
             if (section) {
@@ -32,6 +33,8 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
         navigate(path)
     }
 
+    const homePath = lang === 'pl' ? '/' : `/${lang}`
+
     return (
         <footer className="bg-black text-white pt-24 pb-12 overflow-hidden">
             <div className="container mx-auto px-6 lg:px-12">
@@ -47,8 +50,8 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                             <div className="flex flex-wrap gap-4 mb-8">
                                 <MagneticButton 
                                     onClick={() => {
-                                        if (window.location.pathname !== '/') {
-                                            window.location.href = '/#contact'
+                                        if (window.location.pathname !== homePath && window.location.pathname !== `${homePath}/`) {
+                                            window.location.href = `${homePath}#contact`
                                         } else {
                                             const contactSection = document.getElementById('contact')
                                             if (contactSection) {
@@ -71,8 +74,8 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                                 </MagneticButton>
                                 <MagneticButton 
                                     onClick={() => {
-                                        if (window.location.pathname !== '/') {
-                                            window.location.href = '/#contact'
+                                        if (window.location.pathname !== homePath && window.location.pathname !== `${homePath}/`) {
+                                            window.location.href = `${homePath}#contact`
                                         } else {
                                             const contactSection = document.getElementById('contact')
                                             if (contactSection) {
@@ -122,14 +125,14 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                             <div>
                                 <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerServicesTitle')}</h4>
                                 <ul className="space-y-3">
-                                    <li><a href="/#kim-jestesmy" onClick={(e) => { e.preventDefault(); scrollToSection('kim-jestesmy'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerKimJestesmy')}</a></li>
-                                    <li><a href="/#vacuum-metallization" onClick={(e) => { e.preventDefault(); scrollToSection('vacuum-metallization'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc1')}</a></li>
-                                    <li><a href="/#plastic-painting" onClick={(e) => { e.preventDefault(); scrollToSection('plastic-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc2')}</a></li>
-                                    <li><a href="/#glass-painting" onClick={(e) => { e.preventDefault(); scrollToSection('glass-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc3')}</a></li>
-                                    <li><a href="/#reflectors" onClick={(e) => { e.preventDefault(); scrollToSection('reflectors'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc4')}</a></li>
-                                    <li><a href="/#spray-painting" onClick={(e) => { e.preventDefault(); scrollToSection('spray-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc5')}</a></li>
-                                    <li><Link to="/gallery" className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc6')}</Link></li>
-                                    <li><Link to="/news" className="hover:text-white transition-colors cursor-pointer">Aktualności</Link></li>
+                                    <li><a href={`${homePath}#kim-jestesmy`} onClick={(e) => { e.preventDefault(); scrollToSection('kim-jestesmy'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerKimJestesmy')}</a></li>
+                                    <li><a href={`${homePath}#vacuum-metallization`} onClick={(e) => { e.preventDefault(); scrollToSection('vacuum-metallization'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc1')}</a></li>
+                                    <li><a href={`${homePath}#plastic-painting`} onClick={(e) => { e.preventDefault(); scrollToSection('plastic-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc2')}</a></li>
+                                    <li><a href={`${homePath}#glass-painting`} onClick={(e) => { e.preventDefault(); scrollToSection('glass-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc3')}</a></li>
+                                    <li><a href={`${homePath}#reflectors`} onClick={(e) => { e.preventDefault(); scrollToSection('reflectors'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc4')}</a></li>
+                                    <li><a href={`${homePath}#spray-painting`} onClick={(e) => { e.preventDefault(); scrollToSection('spray-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc5')}</a></li>
+                                    <li><Link to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc6')}</Link></li>
+                                    <li><Link to={lang === 'pl' ? '/news' : `/${lang}/news`} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'aktualnosci')}</Link></li>
                                 </ul>
                             </div>
                         </div>

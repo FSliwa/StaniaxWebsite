@@ -21,7 +21,7 @@ const newsItemsPl = [
   },
   {
     title: 'Jak metalizacja wpływa na wydajność materiałów? Odkryj jej tajniki!',
-    date: '4 czerwca 2026',
+    date: '20 sierpnia 2025',
     category: 'Artykuł',
     excerpt: 'Odkryj, jak zaawansowana metalizacja próżniowa i powłoki ochronne PVD zwiększają wydajność materiałów w branży lotniczej. Poznaj szczegóły strategicznego partnerstwa!',
     image: newsAviationImage,
@@ -29,7 +29,7 @@ const newsItemsPl = [
   },
   {
     title: 'Metalizacja próżniowa rewolucjonizuje branżę beauty',
-    date: '11 czerwca 2026',
+    date: '20 sierpnia 2025',
     category: 'Artykuł',
     excerpt: 'Branża kosmetyczna przechodzi prawdziwą rewolucję opakowaniową. Poznaj zalety metalizacji próżniowej i lakierowania tworzyw w segmencie beauty.',
     image: colorfulPackagingImage,
@@ -64,7 +64,7 @@ const newsItemsEn = [
   },
   {
     title: 'How Metallization Affects Material Performance? Discover Its Secrets!',
-    date: 'June 4, 2026',
+    date: 'August 20, 2025',
     category: 'Article',
     excerpt: 'Discover how advanced vacuum metallization and PVD protective coatings increase material performance in the aerospace industry. Find out the details of our strategic partnership!',
     image: newsAviationImage,
@@ -72,7 +72,7 @@ const newsItemsEn = [
   },
   {
     title: 'Vacuum Metallization Revolutionizes the Beauty Industry',
-    date: 'June 11, 2026',
+    date: 'August 20, 2025',
     category: 'Article',
     excerpt: 'The cosmetics packaging market is undergoing a real revolution. Discover the benefits of vacuum metallization and plastic painting in the beauty segment.',
     image: colorfulPackagingImage,
@@ -99,6 +99,57 @@ const newsItemsEn = [
     date: 'May 18, 2025',
     category: 'Development',
     excerpt: 'Our team completed advanced training in new coating technologies and quality control, increasing the company\'s technical competencies.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
+  }
+]
+
+const newsItemsDe = [
+  {
+    title: 'Moderne Vakuummetallisierung und Reflektorregeneration in Józefów',
+    date: '25. Mai 2026',
+    category: 'Investitionen',
+    excerpt: 'Im Warschauer Zentrum von STANIAX wurde eine moderne technologische Linie in Betrieb genommen. Unsere Spezialität ist die präzise Vakuummetallisierung und Spritzlackierung von Kunststoff- und Metallteilen. Das Angebot des von Dariusz Staniak geleiteten Unternehmens (Vakuummetallisierung Dariusz Staniak) umfasst unter anderem die professionelle Reflektormetallisierung und die Metallisierung von Autoscheinwerfern. Wir führen auch fortschrittliche Dienstleistungen wie die Kunststoffmetallisierung und die allgemeine Vakuummetallisierung durch. Der neue Servicestützpunkt – Vakuummetallisierung Józefów – garantiert höchste Qualität der Spiegelbeschichtungen und deutlich kürzere Lieferzeiten.',
+    image: vacuumMetalizationChamber,
+    path: '#'
+  },
+  {
+    title: 'Wie beeinflusst Metallisierung die Materialleistung? Entdecken Sie ihre Geheimnisse!',
+    date: 'August 20, 2025',
+    category: 'Artikel',
+    excerpt: 'Erfahren Sie, wie fortschrittliche Vakuummetallisierung, Kunststofflackierung und PVD-Prozesse die Festigkeit und Ästhetik von Materialien in der Luftfahrt beeinflussen.',
+    image: newsAviationImage,
+    path: '/news/wie-beeinflusst-metallisierung-die-materialleistung'
+  },
+  {
+    title: 'Vakuummetallisierung revolutioniert die Kosmetikbranche',
+    date: 'August 20, 2025',
+    category: 'Artikel',
+    excerpt: 'Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren.',
+    image: colorfulPackagingImage,
+    path: '/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche'
+  },
+  {
+    title: 'Erweiterung der Qualitätskontrollabteilung',
+    date: '15. März 2025',
+    category: 'Qualität',
+    excerpt: 'Investition in modernste Messgeräte und Erweiterung des Forschungs- und Ingenieurteams zur Gewährleistung einer 100-prozentigen Wiederholbarkeit der Parameter.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
+  },
+  {
+    title: 'Industrieller Innovationspreis 2025',
+    date: '5. Juni 2025',
+    category: 'Auszeichnungen',
+    excerpt: 'STANIAX wurde mit dem prestigeträchtigen Industriellen Innovationspreis für seinen Beitrag zur Entwicklung ökologischer Metallisierungslösungen ausgezeichnet.',
+    image: 'https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?w=1200&h=800&fit=crop&crop=center',
+    path: '#'
+  },
+  {
+    title: 'Schulung für das Ingenieurteam',
+    date: '18. Mai 2025',
+    category: 'Entwicklung',
+    excerpt: 'Unser Team hat eine fortgeschrittene Schulung in neuen Beschichtungstechnologien und Qualitätskontrolle absolviert, um die technischen Kompetenzen des Unternehmens zu stärken.',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&crop=center',
     path: '#'
   }
@@ -140,6 +191,24 @@ const content = {
     visitUs: 'Visit our headquarters',
     backToHome: 'Back to home page',
     latestNews: 'Latest updates',
+  },
+  de: {
+    newsTitle: 'Aktuelles',
+    newsCenter: 'STANIAX News-Center',
+    newsDesc: 'Die neuesten Nachrichten über unsere Investitionen, Partnerschaften, Auszeichnungen und Innovationen, die die Richtung der Vakuummetallisierung vorgeben.',
+    featuredNews: 'Hervorgehobene News',
+    readMore: 'Mehr lesen',
+    fullArticle: 'Vollständiger Artikel',
+    otherNews: 'Archivierte Updates',
+    moreUpdates: 'Weitere STANIAX Updates',
+    backToTop: 'Nach oben',
+    newsletterTitle: 'STANIAX Newsletter',
+    newsletterHeading: 'Erfahren Sie als Erster von unseren Projekten',
+    newsletterDesc: 'Schließen Sie sich unseren Partnern an und erhalten Sie Informationen über technologische Produkteinführungen, Webinare und Fallstudien.',
+    contactTeam: 'Kontaktieren Sie das Team',
+    visitUs: 'Besuchen Sie unseren Hauptsitz',
+    backToHome: 'Zurück zur Startseite',
+    latestNews: 'Neueste Updates',
   }
 }
 
@@ -147,9 +216,9 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
   const navigate = useNavigate()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  const activeLang = lang === 'pl' ? 'pl' : 'en'
+  const activeLang = lang === 'pl' ? 'pl' : lang === 'de' ? 'de' : 'en'
   const text = content[activeLang]
-  const newsItems = lang === 'pl' ? newsItemsPl : newsItemsEn
+  const newsItems = lang === 'pl' ? newsItemsPl : lang === 'de' ? newsItemsDe : newsItemsEn
 
   const featuredArticle = newsItems[0]
   const secondaryArticles = newsItems.slice(1, 4)
