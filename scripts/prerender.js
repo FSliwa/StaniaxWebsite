@@ -1543,8 +1543,8 @@ function generateCategoryShells() {
     {
       subPath: 'de/gallery',
       lang: 'de',
-      title: 'Gallery of Completed Projects and Metallization | STANIAX',
-      desc: 'Explore our gallery of vacuum metallization and precision lacquering of plastics, glass, and metals. View completed premium projects.'
+      title: 'Galerie der Realisierungen und Metallisierungsprojekte | STANIAX',
+      desc: 'Entdecken Sie unsere Galerie der Vakuummetallisierung und der präzisen Lackierung von Kunststoffen, Glas und Metallen. Sehen Sie Premium-Projekte.'
     },
     {
       subPath: 'news',
@@ -1561,8 +1561,8 @@ function generateCategoryShells() {
     {
       subPath: 'de/news',
       lang: 'de',
-      title: 'Knowledge Base & News - Vacuum Metallization | STANIAX',
-      desc: 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
+      title: 'Wissensdatenbank & Aktuelles - Vakuummetallisierung | STANIAX',
+      desc: 'Aktuelles, Leitfäden und Expertenartikel über Vakuummetallisierung und Lackierung. Wissensdatenbank zur Oberflächenveredelung.'
     }
   ];
 

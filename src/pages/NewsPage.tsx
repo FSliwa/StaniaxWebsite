@@ -237,9 +237,13 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
     
     const pageTitle = lang === 'pl' 
       ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX' 
+      : lang === 'de'
+      ? 'Wissensdatenbank & Aktuelles - Vakuummetallisierung | STANIAX'
       : 'Knowledge Base & News - Vacuum Metallization | STANIAX'
     const pageDesc = lang === 'pl'
       ? 'Aktualności, poradniki i artykuły eksperckie na temat metalizacji próżniowej oraz lakierowania. Baza wiedzy o uszlachetnianiu powierzchni.'
+      : lang === 'de'
+      ? 'Aktuelles, Leitfäden und Expertenartikel über Vakuummetallisierung und Lackierung. Wissensdatenbank zur Oberflächenveredelung.'
       : 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
 
     document.title = pageTitle
