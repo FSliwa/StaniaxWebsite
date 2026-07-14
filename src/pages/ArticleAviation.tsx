@@ -902,66 +902,45 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
             </article>
 
             {/* Sidebar Column */}
-            <aside className="space-y-8 sticky top-28">
-              {/* Share Card */}
-              <Card className="border border-border/60 bg-card/50 backdrop-blur-md">
-                <CardContent className="p-6 space-y-4">
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-foreground">
-                    {text.shareTitle}
-                  </h4>
-                  <div className="flex gap-2">
-                    <Button 
-                      variant="outline" 
-                      size="icon" 
-                      onClick={handleShare}
-                      title={text.copyTitle}
-                    >
-                      <ShareNetwork className="w-4 h-4" />
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="icon" 
-                      onClick={() => window.print()}
-                      title={text.printTitle}
-                    >
-                      <Printer className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* STANIAX Callout */}
-              <Card className="border border-accent/20 bg-slate-950 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl -z-10" />
-                <CardContent className="p-6 space-y-4">
-                  <h4 className="text-xs uppercase tracking-[0.35em] text-accent font-semibold">
-                    {text.ctaTitle}
-                  </h4>
-                  <p className="text-sm text-white/80 leading-relaxed">
-                    {text.ctaDesc}
-                  </p>
-                  <Button 
-                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
-                    onClick={scrollToContact}
-                  >
-                    {text.ctaBtn}
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Return to News List */}
-              <Link 
-                to={newsPath}
-                className={cn(
-                  buttonVariants({ variant: 'outline' }),
-                  'w-full font-semibold group flex items-center justify-center gap-2'
-                )}
-              >
-                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-                {text.backToNewsList}
-              </Link>
-            </aside>
+             <aside className="space-y-8 sticky top-28">
+               
+               {/* CTA Panel */}
+               <div className="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+                 <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500" />
+                 <h4 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">
+                   {text.ctaTitle}
+                 </h4>
+                 <p className="text-sm text-muted-foreground/90 mb-6 leading-relaxed">
+                   {text.ctaDesc}
+                 </p>
+                 <Button 
+                   className="w-full font-semibold group/btn"
+                   onClick={scrollToContact}
+                 >
+                   {text.ctaBtn}
+                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                 </Button>
+               </div>
+ 
+               {/* Actions Panel */}
+               <div className="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+                 <button 
+                   onClick={handleShare}
+                   className="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1"
+                 >
+                   <ShareNetwork className="w-5 h-5 text-accent" />
+                   {text.copyTitle}
+                 </button>
+                 <button 
+                   onClick={() => window.print()}
+                   className="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1"
+                 >
+                   <Printer className="w-5 h-5 text-accent" />
+                   {text.printTitle}
+                 </button>
+               </div>
+ 
+             </aside>
 
           </div>
 

@@ -165,10 +165,27 @@ const plHtml = `
         </article>
 
         <aside class="space-y-8 sticky top-28">
-          <div class="rounded-xl border border-border bg-card p-6">
+          <!-- CTA Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
-            <p class="text-sm text-muted-foreground mb-4">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
-            <a href="/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Napisz do nas</a>
+            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
+            <a href="/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
+              Napisz do nas
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- Actions Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
+              Skopiuj link
+            </button>
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
+              Drukuj artykuł
+            </button>
           </div>
         </aside>
       </div>
@@ -390,10 +407,27 @@ function getEnHtml(lang) {
         </article>
 
         <aside class="space-y-8 sticky top-28">
-          <div class="rounded-xl border border-border bg-card p-6">
+          <!-- CTA Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
-            <p class="text-sm text-muted-foreground mb-4">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
-            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Write to us</a>
+            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
+            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
+              Write to us
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- Actions Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
+              Copy link
+            </button>
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
+              Print article
+            </button>
           </div>
         </aside>
       </div>
@@ -612,10 +646,27 @@ function getDeHtml(lang) {
         </article>
 
         <aside class="space-y-8 sticky top-28">
-          <div class="rounded-xl border border-border bg-card p-6">
+          <!-- CTA Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
-            <p class="text-sm text-muted-foreground mb-4">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
-            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Schreiben Sie uns</a>
+            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
+            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
+              Schreiben Sie uns
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- Actions Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
+              Link kopieren
+            </button>
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
+              Artikel drucken
+            </button>
           </div>
         </aside>
       </div>
@@ -926,10 +977,27 @@ const plBeautyHtml = `
         </article>
 
         <aside class="space-y-8 sticky top-28">
-          <div class="rounded-xl border border-border bg-card p-6">
+          <!-- CTA Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
-            <p class="text-sm text-muted-foreground mb-4">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
-            <a href="/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Napisz do nas</a>
+            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
+            <a href="/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
+              Napisz do nas
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- Actions Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
+              Skopiuj link
+            </button>
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
+              Drukuj artykuł
+            </button>
           </div>
         </aside>
       </div>
@@ -1180,10 +1248,27 @@ function getEnBeautyHtml(lang) {
         </article>
 
         <aside class="space-y-8 sticky top-28">
-          <div class="rounded-xl border border-border bg-card p-6">
+          <!-- CTA Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
-            <p class="text-sm text-muted-foreground mb-4">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
-            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Write to us</a>
+            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
+            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
+              Write to us
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- Actions Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
+              Copy link
+            </button>
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
+              Print article
+            </button>
           </div>
         </aside>
       </div>
@@ -1436,10 +1521,27 @@ function getDeBeautyHtml(lang) {
         </article>
 
         <aside class="space-y-8 sticky top-28">
-          <div class="rounded-xl border border-border bg-card p-6">
+          <!-- CTA Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
-            <p class="text-sm text-muted-foreground mb-4">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
-            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center bg-accent text-accent-foreground font-semibold py-2 px-4 rounded-md">Schreiben Sie uns</a>
+            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
+            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
+              Schreiben Sie uns
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+
+          <!-- Actions Panel -->
+          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
+              Link kopieren
+            </button>
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
+              Artikel drucken
+            </button>
           </div>
         </aside>
       </div>
@@ -1794,46 +1896,49 @@ function getReflectorsHtml(lang) {
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full font-semibold group/btn">
+            <a href="/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Napisz do nas
-            </button>
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
           </div>
           <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
             <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
               Skopiuj link
             </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
               Drukuj artykuł
             </button>
           </div>
-          <!-- Main article body CTA Callout Block -->
-          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h3 class="text-xl font-bold text-foreground mb-4">Zregeneruj reflektory i przywróć bezpieczeństwo na drodze!</h3>
-            <p class="text-sm md:text-base mb-6 leading-relaxed">
-              Szukasz sprawdzonego partnera, który przywróci Twoim lampom fabryczną sprawność? W Zakładzie Metalizacji STANIAX oferujemy profesjonalną regenerację odbłyśników metodą PVD oraz polerowanie kloszy z zabezpieczeniem UV. Skontaktuj się z nami już dziś!
-            </p>
-            
-            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto wybrać STANIAX?</h4>
-            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-              <li><strong>Trwałość do 5 lat:</strong> Warstwa aluminium nakładana w próżni (metodą PVD) gwarantuje fabryczne parametry odbicia światła.</li>
-              <li><strong>Krótki czas realizacji:</strong> Szybkie wykonanie zlecenia, w tym regeneracji wysyłkowej dla klientów z całej Polski.</li>
-              <li><strong>Oszczędność do 90%:</strong> Regeneracja jest wielokrotnie tańsza niż zakup nowych reflektorów OEM.</li>
-            </ul>
-            
-            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Przywróć pełną widoczność i zadbaj o bezpieczeństwo swoje oraz pasażerów!</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                Skontaktuj się z nami i przywróć blask swoim reflektorom!
-              </a>
-              <a href="/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-                Poznaj wykonane projekty Zakładu Metalizacji STANIAX
-              </a>
-            </div>
-          </div>
-
         </aside>
+      </div>
+
+      <!-- Main article body CTA Callout Block -->
+      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+        <h3 class="text-xl font-bold text-foreground mb-4">Zregeneruj reflektory i przywróć bezpieczeństwo na drodze!</h3>
+        <p class="text-sm md:text-base mb-6 leading-relaxed">
+          Szukasz sprawdzonego partnera, który przywróci Twoim lampom fabryczną sprawność? W Zakładzie Metalizacji STANIAX oferujemy profesjonalną regenerację odbłyśników metodą PVD oraz polerowanie kloszy z zabezpieczeniem UV. Skontaktuj się z nami już dziś!
+        </p>
+        
+        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto wybrać STANIAX?</h4>
+        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+          <li><strong>Trwałość do 5 lat:</strong> Warstwa aluminium nakładana w próżni (metodą PVD) gwarantuje fabryczne parametry odbicia światła.</li>
+          <li><strong>Krótki czas realizacji:</strong> Szybkie wykonanie zlecenia, w tym regeneracji wysyłkowej dla klientów z całej Polski.</li>
+          <li><strong>Oszczędność do 90%:</strong> Regeneracja jest wielokrotnie tańsza niż zakup nowych reflektorów OEM.</li>
+        </ul>
+        
+        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Przywróć pełną widoczność i zadbaj o bezpieczeństwo swoje oraz pasażerów!</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+            Skontaktuj się z nami i przywróć blask swoim reflektorom!
+          </a>
+          <a href="/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+            Poznaj wykonane projekty Zakładu Metalizacji STANIAX
+          </a>
+        </div>
       </div>
     </div>
   </main>
@@ -2053,46 +2158,49 @@ function getReflectorsHtml(lang) {
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full font-semibold group/btn">
+            <a href="/en#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Write to us
-            </button>
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
           </div>
           <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
             <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
               Copy link
             </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
               Print article
             </button>
           </div>
-          <!-- Main article body CTA Callout Block -->
-          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h3 class="text-xl font-bold text-foreground mb-4">Regenerate headlights and restore safety on the road!</h3>
-            <p class="text-sm md:text-base mb-6 leading-relaxed">
-              Looking for a reliable partner to restore your car lamps to factory efficiency? At the STANIAX Metallization Plant, we offer professional reflector regeneration using the PVD method and headlight lens polishing with UV protection. Contact us today!
-            </p>
-            
-            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why choose STANIAX?</h4>
-            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-              <li><strong>Up to 5 years durability:</strong> The aluminum layer deposited in vacuum (PVD method) guarantees factory light reflection parameters.</li>
-              <li><strong>Fast turnaround time:</strong> Quick execution of orders, including mail-order regeneration for clients across Poland.</li>
-              <li><strong>Up to 90% savings:</strong> Regeneration is many times cheaper than buying new OEM headlights.</li>
-            </ul>
-            
-            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Restore full visibility and ensure safety for yourself and your passengers!</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/en#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                Contact us and restore the shine of your headlights!
-              </a>
-              <a href="/en/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-                Discover completed projects of the STANIAX Metallization Plant
-              </a>
-            </div>
-          </div>
-
         </aside>
+      </div>
+
+      <!-- Main article body CTA Callout Block -->
+      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+        <h3 class="text-xl font-bold text-foreground mb-4">Regenerate headlights and restore safety on the road!</h3>
+        <p class="text-sm md:text-base mb-6 leading-relaxed">
+          Looking for a reliable partner to restore your car lamps to factory efficiency? At the STANIAX Metallization Plant, we offer professional reflector regeneration using the PVD method and headlight lens polishing with UV protection. Contact us today!
+        </p>
+        
+        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why choose STANIAX?</h4>
+        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+          <li><strong>Up to 5 years durability:</strong> The aluminum layer deposited in vacuum (PVD method) guarantees factory light reflection parameters.</li>
+          <li><strong>Fast turnaround time:</strong> Quick execution of orders, including mail-order regeneration for clients across Poland.</li>
+          <li><strong>Up to 90% savings:</strong> Regeneration is many times cheaper than buying new OEM headlights.</li>
+        </ul>
+        
+        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Restore full visibility and ensure safety for yourself and your passengers!</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/en#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+            Contact us and restore the shine of your headlights!
+          </a>
+          <a href="/en/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+            Discover completed projects of the STANIAX Metallization Plant
+          </a>
+        </div>
       </div>
     </div>
   </main>
@@ -2312,46 +2420,49 @@ function getReflectorsHtml(lang) {
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
             <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full font-semibold group/btn">
+            <a href="/de#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Kontakt
-            </button>
+              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
           </div>
           <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
             <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
               Link kopieren
             </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
+              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
               Artikel drucken
             </button>
           </div>
-          <!-- Main article body CTA Callout Block -->
-          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h3 class="text-xl font-bold text-foreground mb-4">Regenerieren Sie Scheinwerfer und stellen Sie die Sicherheit auf der Straße wieder her!</h3>
-            <p class="text-sm md:text-base mb-6 leading-relaxed">
-              Suchen Sie einen zuverlässigen Partner, der Ihre Autolampen wieder auf Fabrikleistung bringt? Im STANIAX-Metallisierungsbetrieb bieten wir eine professionelle Reflektorregeneration im PVD-Verfahren sowie das Polieren von Scheinwerferstreuscheiben mit UV-Schutz an. Kontaktieren Sie uns noch heute!
-            </p>
-            
-            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum STANIAX wählen?</h4>
-            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-              <li><strong>Haltbarkeit bis zu 5 Jahre:</strong> Die im Vakuum (PVD-Verfahren) aufgetragene Aluminiumschicht garantiert werkseitige Lichtreflexionsparameter.</li>
-              <li><strong>Schnelle Abwicklung:</strong> Rasche Auftragsabwicklung, einschließlich Versand-Regeneration für Kunden aus ganz Polen.</li>
-              <li><strong>Ersparnis bis zu 90%:</strong> Die Regeneration ist um ein Vielfaches günstiger als der Kauf neuer OEM-Scheinwerfer.</li>
-            </ul>
-            
-            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Stellen Sie die volle Sicht wieder her und sorgen Sie für die Sicherheit von Ihnen und Ihren Passagieren!</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/de#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                Kontaktieren Sie uns und bringen Sie Ihre Scheinwerfer zum Glänzen!
-              </a>
-              <a href="/de/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-                Entdecken Sie abgeschlossene Projekte des STANIAX Metallisierungswerks
-              </a>
-            </div>
-          </div>
-
         </aside>
+      </div>
+
+      <!-- Main article body CTA Callout Block -->
+      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+        <h3 class="text-xl font-bold text-foreground mb-4">Regenerieren Sie Scheinwerfer und stellen Sie die Sicherheit auf der Straße wieder her!</h3>
+        <p class="text-sm md:text-base mb-6 leading-relaxed">
+          Suchen Sie einen zuverlässigen Partner, der Ihre Autolampen wieder auf Fabrikleistung bringt? Im STANIAX-Metallisierungsbetrieb bieten wir eine professionelle Reflektorregeneration im PVD-Verfahren sowie das Polieren von Scheinwerferstreuscheiben mit UV-Schutz an. Kontaktieren Sie uns noch heute!
+        </p>
+        
+        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum STANIAX wählen?</h4>
+        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+          <li><strong>Haltbarkeit bis zu 5 Jahre:</strong> Die im Vakuum (PVD-Verfahren) aufgetragene Aluminiumschicht garantiert werkseitige Lichtreflexionsparameter.</li>
+          <li><strong>Schnelle Abwicklung:</strong> Rasche Auftragsabwicklung, einschließlich Versand-Regeneration für Kunden aus ganz Polen.</li>
+          <li><strong>Ersparnis bis zu 90%:</strong> Die Regeneration ist um ein Vielfaches günstiger als der Kauf neuer OEM-Scheinwerfer.</li>
+        </ul>
+        
+        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Stellen Sie die volle Sicht wieder her und sorgen Sie für die Sicherheit von Ihnen und Ihren Passagieren!</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/de#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+            Kontaktieren Sie uns und bringen Sie Ihre Scheinwerfer zum Glänzen!
+          </a>
+          <a href="/de/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+            Entdecken Sie abgeschlossene Projekte des STANIAX Metallisierungswerks
+          </a>
+        </div>
       </div>
     </div>
   </main>
