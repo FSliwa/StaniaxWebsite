@@ -903,11 +903,10 @@ export default function ArticleReflectors({ lang = 'pl' as Lang }: { lang?: Lang
                 <div className="space-y-6">
                   {text.faqItems.map((item, index) => (
                     <div key={index} className="space-y-2">
-                      <h3 className="text-lg font-bold text-foreground flex items-start gap-2">
-                        <span className="text-accent">Q:</span>
+                      <h4 className="font-bold text-foreground">
                         {item.q}
-                      </h3>
-                      <p className="text-muted-foreground pl-6 border-l border-border/40">
+                      </h4>
+                      <p className="text-sm pl-4 border-l border-accent/30">
                         {item.a}
                       </p>
                     </div>

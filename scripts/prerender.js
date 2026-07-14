@@ -1774,16 +1774,16 @@ function getReflectorsHtml(lang) {
             <h2 class="text-2xl md:text-3xl font-black text-foreground">Najczęstsze pytania o regenerację reflektorów (FAQ)</h2>
             <div class="space-y-6">
               <div class="space-y-2">
-                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Ile kosztuje regeneracja reflektorów?</h3>
-                <p class="text-muted-foreground pl-6 border-l border-border/40">Polerowanie klosza z nałożeniem powłoki UV to koszt 150–300 zł za lampę, a kompleksowa regeneracja z metalizacją odbłyśnika – 350–700 zł za sztukę. Dla porównania nowa lampa OEM kosztuje od 1 500 do ponad 5 000 zł.</p>
+                <h4 class="font-bold text-foreground">Ile kosztuje regeneracja reflektorów?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Polerowanie klosza z nałożeniem powłoki UV to koszt 150–300 zł za lampę, a kompleksowa regeneracja z metalizacją odbłyśnika – 350–700 zł za sztukę. Dla porównania nowa lampa OEM kosztuje od 1 500 do ponad 5 000 zł.</p>
               </div>
               <div class="space-y-2">
-                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Ile trwa regeneracja reflektorów?</h3>
-                <p class="text-muted-foreground pl-6 border-l border-border/40">Samo polerowanie klosza można wykonać w kilka godzin. Kompleksowa regeneracja z metalizacją odbłyśników trwa zwykle od 5 do 7 dni roboczych, w zależności od zakresu prac i technologii.</p>
+                <h4 class="font-bold text-foreground">Ile trwa regeneracja reflektorów?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Samo polerowanie klosza można wykonać w kilka godzin. Kompleksowa regeneracja z metalizacją odbłyśników trwa zwykle od 5 do 7 dni roboczych, w zależności od zakresu prac i technologii.</p>
               </div>
               <div class="space-y-2">
-                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Czy zmatowione reflektory przejdą przegląd techniczny?</h3>
-                <p class="text-muted-foreground pl-6 border-l border-border/40">Mocno zdegradowane klosze przepuszczają tylko 20–30% światła, co grozi negatywnym wynikiem badania technicznego, a nawet odmową dopuszczenia pojazdu do ruchu. Regeneracja przywraca parametry świecenia i pozwala uniknąć problemów na przeglądzie.</p>
+                <h4 class="font-bold text-foreground">Czy zmatowione reflektory przejdą przegląd techniczny?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Mocno zdegradowane klosze przepuszczają tylko 20–30% światła, co grozi negatywnym wynikiem badania technicznego, a nawet odmową dopuszczenia pojazdu do ruchu. Regeneracja przywraca parametry świecenia i pozwala uniknąć problemów na przeglądzie.</p>
               </div>
             </div>
           </div>
@@ -2033,16 +2033,16 @@ function getReflectorsHtml(lang) {
             <h2 class="text-2xl md:text-3xl font-black text-foreground">Frequently Asked Questions (FAQ)</h2>
             <div class="space-y-6">
               <div class="space-y-2">
-                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>How much does headlight regeneration cost?</h3>
-                <p class="text-muted-foreground pl-6 border-l border-border/40">Polishing the lens with UV coating costs 150–300 PLN per lamp, and comprehensive regeneration with reflector metallization is 350–700 PLN per piece. For comparison, a new OEM lamp costs from 1,500 to over 5,000 PLN.</p>
+                <h4 class="font-bold text-foreground">How much does headlight regeneration cost?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Polishing the lens with UV coating costs 150–300 PLN per lamp, and comprehensive regeneration with reflector metallization is 350–700 PLN per piece. For comparison, a new OEM lamp costs from 1,500 to over 5,000 PLN.</p>
               </div>
               <div class="space-y-2">
-                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>How long does headlight regeneration take?</h3>
-                <p class="text-muted-foreground pl-6 border-l border-border/40">Lens polishing alone can be done in a few hours. Comprehensive regeneration with reflector metallization usually takes 5 to 7 business days, depending on the scope of work and technology.</p>
+                <h4 class="font-bold text-foreground">How long does headlight regeneration take?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Lens polishing alone can be done in a few hours. Comprehensive regeneration with reflector metallization usually takes 5 to 7 business days, depending on the scope of work and technology.</p>
               </div>
               <div class="space-y-2">
-                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Will cloudy headlights pass a technical inspection?</h3>
-                <p class="text-muted-foreground pl-6 border-l border-border/40">Heavily degraded lenses transmit only 20–30% of light, which risks a negative technical inspection result, or even refusal to allow the vehicle to be driven. Regeneration restores lighting parameters and helps avoid problems during inspection.</p>
+                <h4 class="font-bold text-foreground">Will cloudy headlights pass a technical inspection?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Heavily degraded lenses transmit only 20–30% of light, which risks a negative technical inspection result, or even refusal to allow the vehicle to be driven. Regeneration restores lighting parameters and helps avoid problems during inspection.</p>
               </div>
             </div>
           </div>
@@ -2292,16 +2292,16 @@ function getReflectorsHtml(lang) {
             <h2 class="text-2xl md:text-3xl font-black text-foreground">Häufig gestellte Fragen (FAQ)</h2>
             <div class="space-y-6">
               <div class="space-y-2">
-                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Wie viel kostet die Scheinwerfer-Regeneration?</h3>
-                <p class="text-muted-foreground pl-6 border-l border-border/40">Das Polieren der Streuscheibe mit UV-Beschichtung kostet 150–300 PLN pro Lampe, eine umfassende Regeneration mit Reflektormetallisierung 350–700 PLN pro Stück. Im Vergleich dazu kostet ein neuer OEM-Scheinwerfer ab 1.500 bis über 5.000 PLN.</p>
+                <h4 class="font-bold text-foreground">Wie viel kostet die Scheinwerfer-Regeneration?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Das Polieren der Streuscheibe mit UV-Beschichtung kostet 150–300 PLN pro Lampe, eine umfassende Regeneration mit Reflektormetallisierung 350–700 PLN pro Stück. Im Vergleich dazu kostet ein neuer OEM-Scheinwerfer ab 1.500 bis über 5.000 PLN.</p>
               </div>
               <div class="space-y-2">
-                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Wie lange dauert die Scheinwerfer-Regeneration?</h3>
-                <p class="text-muted-foreground pl-6 border-l border-border/40">Das reine Polieren der Streuscheibe kann in wenigen Stunden erledigt werden. Eine umfassende Regeneration mit Reflektormetallisierung dauert in der Regel 5 bis 7 Werktage, je nach Arbeitsaufwand und Technologie.</p>
+                <h4 class="font-bold text-foreground">Wie lange dauert die Scheinwerfer-Regeneration?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Das reine Polieren der Streuscheibe kann in wenigen Stunden erledigt werden. Eine umfassende Regeneration mit Reflektormetallisierung dauert in der Regel 5 bis 7 Werktage, je nach Arbeitsaufwand und Technologie.</p>
               </div>
               <div class="space-y-2">
-                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Bestehen erblindete Scheinwerfer die Hauptuntersuchung?</h3>
-                <p class="text-muted-foreground pl-6 border-l border-border/40">Stark degradierte Streuscheiben lassen nur 20–30 % des Lichts durch, was zu einer nicht bestandenen Hauptuntersuchung oder sogar zum Entzug der Straßenzulassung führen kann. Die Regeneration stellt die Lichtwerte wieder her und vermeidet Probleme bei der HU.</p>
+                <h4 class="font-bold text-foreground">Bestehen erblindete Scheinwerfer die Hauptuntersuchung?</h4>
+                <p class="text-sm pl-4 border-l border-accent/30">Stark degradierte Streuscheiben lassen nur 20–30 % des Lichts durch, was zu einer nicht bestandenen Hauptuntersuchung oder sogar zum Entzug der Straßenzulassung führen kann. Die Regeneration stellt die Lichtwerte wieder her und vermeidet Probleme bei der HU.</p>
               </div>
             </div>
           </div>
