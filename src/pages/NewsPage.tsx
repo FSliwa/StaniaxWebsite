@@ -13,20 +13,20 @@ import newReflectorsImage from '@/assets/odblysniki-nowe-1.jpeg'
 
 const newsItemsPl = [
   {
-    title: 'Regeneracja odbłyśników i reflektorów samochodowych – poradnik kierowcy',
-    date: '10 czerwca 2026',
-    category: 'Artykuł',
-    excerpt: 'Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić.',
-    image: newReflectorsImage,
-    path: '/news/regeneracja-odblysnikow-reflektorow-samochodowych'
-  },
-  {
     title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
     date: '25 maja 2026',
     category: 'Inwestycje',
     excerpt: 'W warszawskim centrum STANIAX uruchomiona została nowoczesna linia technologiczna. Naszą specjalnością jest precyzyjna metalizacja próżniowa oraz metalizacja natryskowa elementów z tworzyw i metali. W ofercie firmy, którą prowadzi Dariusz Staniak (metalizacja próżniowa Dariusz Staniak), znajduje się m.in. profesjonalna metalizacja odbłyśnika oraz metalizacja odbłyśników samochodowych. Wdrażamy także zaawansowane usługi takie jak metalizacja plastiku i ogólne metalizowanie próżniowe. Nowy punkt usługowy – metalizacja próżniowa Józefów – gwarantuje najwyższą jakość powłok lustrzanych i znacznie krótszy czas realizacji zamówień.',
     image: vacuumMetalizationChamber,
     path: '#'
+  },
+  {
+    title: 'Regeneracja odbłyśników i reflektorów samochodowych – poradnik kierowcy',
+    date: '10 czerwca 2026',
+    category: 'Artykuł',
+    excerpt: 'Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić.',
+    image: newReflectorsImage,
+    path: '/news/regeneracja-odblysnikow-reflektorow-samochodowych'
   },
   {
     title: 'Jak metalizacja wpływa na wydajność materiałów? Odkryj jej tajniki!',
@@ -56,20 +56,20 @@ const newsItemsPl = [
 
 const newsItemsEn = [
   {
-    title: 'Regeneration of Reflectors and Car Headlights – Driver\'s Guide',
-    date: 'June 10, 2026',
-    category: 'Article',
-    excerpt: 'Reflector regeneration using the PVD method and headlight polishing. Prices from 150 PLN, durability up to 5 years. Check when to restore and when to replace.',
-    image: newReflectorsImage,
-    path: '/en/news/reflector-regeneration-and-headlight-polishing'
-  },
-  {
     title: 'Modern Vacuum Metallization and Reflector Regeneration in Józefów',
     date: 'May 25, 2026',
     category: 'Investments',
     excerpt: 'A modern technological line has been launched at the Warsaw center of STANIAX. Our specialty is precise vacuum metallization and spray coating of plastic and metal parts. The company\'s offer, run by Dariusz Staniak (vacuum metallization Dariusz Staniak), includes professional reflector metallization and automotive reflector metallization. We also implement advanced services such as plastic metallization and general vacuum metallization. The new service point — vacuum metallization Józefów — guarantees the highest quality of mirror coatings and significantly shorter order execution times.',
     image: vacuumMetalizationChamber,
     path: '#'
+  },
+  {
+    title: 'Regeneration of Reflectors and Car Headlights – Driver\'s Guide',
+    date: 'June 10, 2026',
+    category: 'Article',
+    excerpt: 'Reflector regeneration using the PVD method and headlight polishing. Prices from 150 PLN, durability up to 5 years. Check when to restore and when to replace.',
+    image: newReflectorsImage,
+    path: '/en/news/reflector-regeneration-and-headlight-polishing'
   },
   {
     title: 'How Metallization Affects Material Performance? Discover Its Secrets!',
@@ -107,20 +107,20 @@ const newsItemsEn = [
 
 const newsItemsDe = [
   {
-    title: 'Regeneration von Scheinwerfern und Reflektoren – Ratgeber für Fahrer',
-    date: '10. Juni 2026',
-    category: 'Artikel',
-    excerpt: 'Regeneration von Reflektoren mittels PVD-Methode und Polieren von Scheinwerfern. Preise ab 150 PLN, Haltbarkeit bis zu 5 Jahre. Wann regenerieren und wann ersetzen.',
-    image: newReflectorsImage,
-    path: '/de/news/scheinwerfer-reflektoren-regeneration-und-polieren'
-  },
-  {
     title: 'Moderne Vakuummetallisierung und Reflektorregeneration in Józefów',
     date: '25. Mai 2026',
     category: 'Investitionen',
     excerpt: 'Im Warschauer Zentrum von STANIAX wurde eine moderne technologische Linie in Betrieb genommen. Unsere Spezialität ist die präzise Vakuummetallisierung und Spritzlackierung von Kunststoff- und Metallteilen. Das Angebot des von Dariusz Staniak geleiteten Unternehmens (Vakuummetallisierung Dariusz Staniak) umfasst unter anderem die professionelle Reflektormetallisierung und die Metallisierung von Autoscheinwerfern. Wir führen auch fortschrittliche Dienstleistungen wie die Kunststoffmetallisierung und die allgemeine Vakuummetallisierung durch. Der neue Servicestützpunkt – Vakuummetallisierung Józefów – garantiert höchste Qualität der Spiegelbeschichtungen und deutlich kürzere Lieferzeiten.',
     image: vacuumMetalizationChamber,
     path: '#'
+  },
+  {
+    title: 'Regeneration von Scheinwerfern und Reflektoren – Ratgeber für Fahrer',
+    date: '10. Juni 2026',
+    category: 'Artikel',
+    excerpt: 'Regeneration von Reflektoren mittels PVD-Methode und Polieren von Scheinwerfern. Preise ab 150 PLN, Haltbarkeit bis zu 5 Jahre. Wann regenerieren und wann ersetzen.',
+    image: newReflectorsImage,
+    path: '/de/news/scheinwerfer-reflektoren-regeneration-und-polieren'
   },
   {
     title: 'Wie beeinflusst Metallisierung die Materialleistung? Entdecken Sie ihre Geheimnisse!',
