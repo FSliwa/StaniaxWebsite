@@ -26,6 +26,13 @@ const articleContent = {
     ctaTitle: 'Zbuduj z nami przewagę',
     ctaDesc: 'Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.',
     ctaBtn: 'Napisz do nas',
+    ctaHeader: 'Zregeneruj reflektory i przywróć bezpieczeństwo na drodze!',
+    ctaText: 'Szukasz sprawdzonego partnera, który przywróci Twoim lampom fabryczną sprawność? W Zakładzie Metalizacji STANIAX oferujemy profesjonalną regenerację odbłyśników metodą PVD oraz polerowanie kloszy z zabezpieczeniem UV. Skontaktuj się z nami już dziś!',
+    ctaWhyTitle: 'Dlaczego warto wybrać STANIAX?',
+    ctaWhy1: '**Trwałość do 5 lat:** Warstwa aluminium nakładana w próżni (metodą PVD) gwarantuje fabryczne parametry odbicia światła.',
+    ctaWhy2: '**Krótki czas realizacji:** Szybkie wykonanie zlecenia, w tym regeneracji wysyłkowej dla klientów z całej Polski.',
+    ctaWhy3: '**Oszczędność do 90%:** Regeneracja jest wielokrotnie tańsza niż zakup nowych reflektorów OEM.',
+    ctaSubhead: 'Przywróć pełną widoczność i zadbaj o bezpieczeństwo swoje oraz pasażerów!',
     backToNewsList: 'Powrót do aktualności',
     tableTitle: 'Polerowanie klosza, regeneracja wnętrza czy wymiana lampy – co wybrać?',
     tableHeaders: ['Metoda', 'Koszt (za szt.)', 'Trwałość efektu', 'Zakres'],
@@ -126,6 +133,13 @@ const articleContent = {
     ctaTitle: 'Build your advantage with us',
     ctaDesc: 'Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.',
     ctaBtn: 'Write to us',
+    ctaHeader: 'Regenerate headlights and restore safety on the road!',
+    ctaText: 'Looking for a reliable partner to restore your car lamps to factory efficiency? At the STANIAX Metallization Plant, we offer professional reflector regeneration using the PVD method and headlight lens polishing with UV protection. Contact us today!',
+    ctaWhyTitle: 'Why choose STANIAX?',
+    ctaWhy1: '**Up to 5 years durability:** The aluminum layer deposited in vacuum (PVD method) guarantees factory light reflection parameters.',
+    ctaWhy2: '**Fast turnaround time:** Quick execution of orders, including mail-order regeneration for clients across Poland.',
+    ctaWhy3: '**Up to 90% savings:** Regeneration is many times cheaper than buying new OEM headlights.',
+    ctaSubhead: 'Restore full visibility and ensure safety for yourself and your passengers!',
     backToNewsList: 'Back to news list',
     tableTitle: 'Lens polishing, interior regeneration, or lamp replacement – what to choose?',
     tableHeaders: ['Method', 'Cost (per pc)', 'Durability of effect', 'Scope'],
@@ -226,6 +240,13 @@ const articleContent = {
     ctaTitle: 'Bauen Sie mit uns Ihren Vorsprung aus',
     ctaDesc: 'Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.',
     ctaBtn: 'Schreiben Sie uns',
+    ctaHeader: 'Regenerieren Sie Scheinwerfer und stellen Sie die Sicherheit auf der Straße wieder her!',
+    ctaText: 'Suchen Sie einen zuverlässigen Partner, der Ihre Autolampen wieder auf Fabrikleistung bringt? Im STANIAX-Metallisierungsbetrieb bieten wir eine professionelle Reflektorregeneration im PVD-Verfahren sowie das Polieren von Scheinwerferstreuscheiben mit UV-Schutz an. Kontaktieren Sie uns noch heute!',
+    ctaWhyTitle: 'Warum STANIAX wählen?',
+    ctaWhy1: '**Haltbarkeit bis zu 5 Jahre:** Die im Vakuum (PVD-Verfahren) aufgetragene Aluminiumschicht garantiert werkseitige Lichtreflexionsparameter.',
+    ctaWhy2: '**Schnelle Abwicklung:** Rasche Auftragsabwicklung, einschließlich Versand-Regeneration für Kunden aus ganz Polen.',
+    ctaWhy3: '**Ersparnis bis zu 90%:** Die Regeneration ist um ein Vielfaches günstiger als der Kauf neuer OEM-Scheinwerfer.',
+    ctaSubhead: 'Stellen Sie die volle Sicht wieder her und sorgen Sie für die Sicherheit von Ihnen und Ihren Passagieren!',
     backToNewsList: 'Zurück zur Übersicht',
     tableTitle: 'Polieren der Streuscheibe, Innenregeneration oder Scheinwerfertausch – was wählen?',
     tableHeaders: ['Methode', 'Kosten (pro Stk.)', 'Haltbarkeit des Effekts', 'Umfang'],
@@ -937,6 +958,42 @@ export default function ArticleReflectors({ lang = 'pl' as Lang }: { lang?: Lang
 
             </aside>
             
+          </div>
+
+          {/* Main article body CTA Callout Block */}
+          <div className="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500" />
+            <h3 className="text-xl font-bold text-foreground mb-4">{text.ctaHeader}</h3>
+            <p className="text-sm md:text-base mb-6 leading-relaxed">
+              {renderTextWithLinks(text.ctaText)}
+            </p>
+            
+            <h4 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h4>
+            <ul className="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+              <li>{renderTextWithLinks(text.ctaWhy1)}</li>
+              <li>{renderTextWithLinks(text.ctaWhy2)}</li>
+              <li>{renderTextWithLinks(text.ctaWhy3)}</li>
+            </ul>
+            
+            <p className="font-semibold text-foreground mb-6 text-sm md:text-base">{text.ctaSubhead}</p>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                to={lang === 'pl' ? '/#contact' : `/${lang}#contact`} 
+                onClick={scrollToContact}
+                className={cn(buttonVariants({ variant: 'default' }), "font-semibold")}
+              >
+                {lang === 'pl' ? 'Skontaktuj się z nami i przywróć blask swoim reflektorom!' : 'Contact us and restore the shine of your headlights!'}
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+              <Link 
+                to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`}
+                className={cn(buttonVariants({ variant: 'outline' }), "font-semibold")}
+              >
+                {lang === 'pl' ? 'Poznaj wykonane projekty Zakładu Metalizacji STANIAX' : 'Discover completed projects of the STANIAX Metallization Plant'}
+                <ArrowUpRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
           </div>
 
         </div>

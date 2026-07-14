@@ -1806,6 +1806,33 @@ function getReflectorsHtml(lang) {
               Drukuj artykuł
             </button>
           </div>
+          <!-- Main article body CTA Callout Block -->
+          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+            <h3 class="text-xl font-bold text-foreground mb-4">Zregeneruj reflektory i przywróć bezpieczeństwo na drodze!</h3>
+            <p class="text-sm md:text-base mb-6 leading-relaxed">
+              Szukasz sprawdzonego partnera, który przywróci Twoim lampom fabryczną sprawność? W Zakładzie Metalizacji STANIAX oferujemy profesjonalną regenerację odbłyśników metodą PVD oraz polerowanie kloszy z zabezpieczeniem UV. Skontaktuj się z nami już dziś!
+            </p>
+            
+            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto wybrać STANIAX?</h4>
+            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+              <li><strong>Trwałość do 5 lat:</strong> Warstwa aluminium nakładana w próżni (metodą PVD) gwarantuje fabryczne parametry odbicia światła.</li>
+              <li><strong>Krótki czas realizacji:</strong> Szybkie wykonanie zlecenia, w tym regeneracji wysyłkowej dla klientów z całej Polski.</li>
+              <li><strong>Oszczędność do 90%:</strong> Regeneracja jest wielokrotnie tańsza niż zakup nowych reflektorów OEM.</li>
+            </ul>
+            
+            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Przywróć pełną widoczność i zadbaj o bezpieczeństwo swoje oraz pasażerów!</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                Skontaktuj się z nami i przywróć blask swoim reflektorom!
+              </a>
+              <a href="/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Poznaj wykonane projekty Zakładu Metalizacji STANIAX
+              </a>
+            </div>
+          </div>
+
         </aside>
       </div>
     </div>
@@ -2038,6 +2065,33 @@ function getReflectorsHtml(lang) {
               Print article
             </button>
           </div>
+          <!-- Main article body CTA Callout Block -->
+          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+            <h3 class="text-xl font-bold text-foreground mb-4">Regenerate headlights and restore safety on the road!</h3>
+            <p class="text-sm md:text-base mb-6 leading-relaxed">
+              Looking for a reliable partner to restore your car lamps to factory efficiency? At the STANIAX Metallization Plant, we offer professional reflector regeneration using the PVD method and headlight lens polishing with UV protection. Contact us today!
+            </p>
+            
+            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why choose STANIAX?</h4>
+            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+              <li><strong>Up to 5 years durability:</strong> The aluminum layer deposited in vacuum (PVD method) guarantees factory light reflection parameters.</li>
+              <li><strong>Fast turnaround time:</strong> Quick execution of orders, including mail-order regeneration for clients across Poland.</li>
+              <li><strong>Up to 90% savings:</strong> Regeneration is many times cheaper than buying new OEM headlights.</li>
+            </ul>
+            
+            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Restore full visibility and ensure safety for yourself and your passengers!</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/en#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                Contact us and restore the shine of your headlights!
+              </a>
+              <a href="/en/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Discover completed projects of the STANIAX Metallization Plant
+              </a>
+            </div>
+          </div>
+
         </aside>
       </div>
     </div>
@@ -2270,6 +2324,33 @@ function getReflectorsHtml(lang) {
               Artikel drucken
             </button>
           </div>
+          <!-- Main article body CTA Callout Block -->
+          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+            <h3 class="text-xl font-bold text-foreground mb-4">Regenerieren Sie Scheinwerfer und stellen Sie die Sicherheit auf der Straße wieder her!</h3>
+            <p class="text-sm md:text-base mb-6 leading-relaxed">
+              Suchen Sie einen zuverlässigen Partner, der Ihre Autolampen wieder auf Fabrikleistung bringt? Im STANIAX-Metallisierungsbetrieb bieten wir eine professionelle Reflektorregeneration im PVD-Verfahren sowie das Polieren von Scheinwerferstreuscheiben mit UV-Schutz an. Kontaktieren Sie uns noch heute!
+            </p>
+            
+            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum STANIAX wählen?</h4>
+            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
+              <li><strong>Haltbarkeit bis zu 5 Jahre:</strong> Die im Vakuum (PVD-Verfahren) aufgetragene Aluminiumschicht garantiert werkseitige Lichtreflexionsparameter.</li>
+              <li><strong>Schnelle Abwicklung:</strong> Rasche Auftragsabwicklung, einschließlich Versand-Regeneration für Kunden aus ganz Polen.</li>
+              <li><strong>Ersparnis bis zu 90%:</strong> Die Regeneration ist um ein Vielfaches günstiger als der Kauf neuer OEM-Scheinwerfer.</li>
+            </ul>
+            
+            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Stellen Sie die volle Sicht wieder her und sorgen Sie für die Sicherheit von Ihnen und Ihren Passagieren!</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/de#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+                Kontaktieren Sie uns und bringen Sie Ihre Scheinwerfer zum Glänzen!
+              </a>
+              <a href="/de/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
+                Entdecken Sie abgeschlossene Projekte des STANIAX Metallisierungswerks
+              </a>
+            </div>
+          </div>
+
         </aside>
       </div>
     </div>
