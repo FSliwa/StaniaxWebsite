@@ -284,9 +284,13 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
     
     const pageTitle = lang === 'pl' 
       ? 'Galeria Realizacji i Projektów Metalizacji | STANIAX' 
+      : lang === 'de'
+      ? 'Galerie der Realisierungen und Metallisierungsprojekte | STANIAX'
       : 'Gallery of Completed Projects and Metallization | STANIAX'
     const pageDesc = lang === 'pl'
       ? 'Przeglądaj naszą galerię metalizacji próżniowej oraz precyzyjnego lakierowania tworzyw, szkła i metali. Zobacz zrealizowane projekty premium.'
+      : lang === 'de'
+      ? 'Entdecken Sie unsere Galerie der Vakuummetallisierung und der präzisen Lackierung von Kunststoffen, Glas und Metallen. Sehen Sie Premium-Projekte.'
       : 'Explore our gallery of vacuum metallization and precision lacquering of plastics, glass, and metals. View completed premium projects.'
 
     document.title = pageTitle

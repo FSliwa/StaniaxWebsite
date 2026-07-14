@@ -236,8 +236,8 @@ const translations = {
     bazaWiedzyAppTitle: 'Zastosowania i pokrewne techniki obróbki',
     bazaWiedzyAppDesc: 'Nie wszystkie materiały i geometrie pozwalają na obróbkę w warunkach wysokiej próżni. W takich przypadkach konieczne jest zastosowanie metod pokrewnych, które pozwalają na równomierne rozłożenie materiału na powierzchniach o nietypowych kształtach. Z tego powodu powszechnie stosowana metalizacja natryskowa pozostaje kluczowym elementem naszej oferty. Dzięki niej, jesteśmy w stanie dostarczyć doskonałe wykończenie tam, gdzie tradycyjna obróbka napotyka na ograniczenia fizyczne. Natomiast dla branży oświetleniowej absolutnie kluczowa pozostaje precyzyjna regeneracja odbłyśników, która zapewnia idealny kąt padania wiązki światła.',
     bazaWiedzySummary: 'Podsumowując, metalizacja to coś więcej niż tylko techniczny proces przemysłowy – to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia, której poświęciliśmy nasze zawodowe pasje i kompetencje.',
-    metaTitle: 'STANIAX - Metalizacja Próżniowa | Lakierowanie Tworzyw, Szkła i Metali',
-    metaDesc: 'Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw sztucznych, szkła i detali. Najwyższa jakość wykończenia. Sprawdź naszą galerię realizacji!',
+    metaTitle: 'STANIAX - Metalizacja Próżniowa i Lakierowanie Tworzyw',
+    metaDesc: 'Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw sztucznych, szkła i detali. Najwyższa jakość wykończenia. Zobacz realizacje!',
   },
 
   en: {
@@ -457,8 +457,8 @@ const translations = {
     bazaWiedzyAppTitle: 'Applications and related treatment techniques',
     bazaWiedzyAppDesc: 'Not all materials and geometries allow for processing under high vacuum conditions. In such cases, it is necessary to use related methods that allow for even distribution of material on surfaces with unusual shapes. For this reason, commonly used spray metallization remains a key element of our offer. Thanks to it, we are able to deliver a perfect finish where traditional processing faces physical limitations. On the other hand, for the lighting industry, precise reflector regeneration remains absolutely crucial, ensuring the ideal angle of the light beam.',
     bazaWiedzySummary: 'In conclusion, metallization is more than just a technical industrial process – it is the art of giving objects a new, durable, and aesthetic life, to which we have dedicated our professional passions and competencies.',
-    metaTitle: 'STANIAX - Vacuum Metalizing | Vacuum Metal Deposition',
-    metaDesc: 'Staniax offers premium vacuum metalizing and vacuum metal deposition services for plastics, glass, and metals. Explore vacuum casting metal alternatives!',
+    metaTitle: 'STANIAX - Vacuum Metalizing & PVD Deposition',
+    metaDesc: 'Staniax offers premium vacuum metalizing and PVD coating services for plastics, glass, and metals. Explore our completed projects!',
   },
 
   de: {
@@ -678,8 +678,8 @@ const translations = {
     bazaWiedzyAppTitle: 'Anwendungen und verwandte Bearbeitungstechniken',
     bazaWiedzyAppDesc: 'Nicht alle Materialien und Geometrien ermöglichen eine Bearbeitung unter Hochvakuumbedingungen. In solchen Fällen ist es notwendig, verwandte Methoden anzuwenden, die eine gleichmäßige Verteilung des Materials auf Oberflächen mit ungewöhnlichen Formen ermöglichen. Aus diesem Grund bleibt die weit verbreitete Spritzmetallisierung ein Schlüsselelement unseres Angebots. Dank ihr sind wir in der Lage, dort ein perfektes Finish zu liefern, wo die traditionelle Bearbeitung an physikalische Grenzen stößt. Für die Beleuchtungsindustrie hingegen bleibt die präzise Reflektorregenerierung absolut entscheidend, da sie den idealen Einfallswinkel des Lichtstrahls garantiert.',
     bazaWiedzySummary: 'Zusammenfassend lässt sich sagen, dass die Metallisierung mehr als nur ein technischer Industrieprozess ist – sie ist die Kunst, Gegenständen ein neues, langlebiges und ästhetisches Leben einzuhauchen, dem wir unsere beruflichen Leidenschaften und Kompetenzen gewidmet haben.',
-    metaTitle: 'STANIAX - Vakuummetallisierung | Vakuum-Metallbedampfung | Vakuumguss',
-    metaDesc: 'Staniax bietet erstklassige Vakuummetallisierung und Vakuum-Metallbedampfung für Kunststoffe, Glas und Metalle. Entdecken Sie Vakuumguss Metall Alternativen!',
+    metaTitle: 'STANIAX - Vakuummetallisierung & PVD Beschichtung',
+    metaDesc: 'Staniax bietet erstklassige Vakuummetallisierung und PVD-Beschichtung für Kunststoffe, Glas und Metalle. Sehen Sie sich unsere Realisierungen an!',
   },
 } as const
 

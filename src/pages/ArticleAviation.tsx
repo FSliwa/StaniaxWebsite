@@ -129,7 +129,7 @@ const articleContent = {
       ['Synthetic components (ABS)', 'Polymers (ABS, PC, ABS/PC)', 'Chrome/aluminum appearance, weight reduction, cost-efficiency', 'Nanometers (in PVD process)'],
       ['Packaging and decorative details', 'Glass, PS, PP, ABS', 'Mirror effect, premium aesthetics, chemical resistance', 'Nanometers (0.01 - 0.1 µm)']
     ],
-    metaTitle: "How Surface Treatments Affect Material Performance? | STANIAX",
+    metaTitle: "Surface Treatments & Material Performance | STANIAX",
     metaDesc: 'Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries.',
     metaOgDesc: 'Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries.',
     
@@ -224,8 +224,8 @@ const articleContent = {
       ['Kunststoffkomponenten (ABS)', 'Polymere (ABS, PC, ABS/PC)', 'Chrom-/Aluminiumoptik, Gewichtsreduktion, niedriger Preis', 'Nanometer (im PVD-Prozess)'],
       ['Verpackungen und Zierteile', 'Glas, PS, PP, ABS', 'Spiegeleffekt, Premium-Ästhetik, chemische Beständigkeit', 'Nanometer (0,01 - 0,1 µm)']
     ],
-    metaTitle: "Wie beeinflusst Metallisierung die Materialleistung? | STANIAX",
-    metaDesc: 'Erfahren Sie, wie fortschrittliche Vakuummetallisierung, Kunststofflackierung und PVD-Prozesse die Festigkeit und Ästhetik von Materialien in der Luftfahrt beeinflussen.',
+    metaTitle: "Metallisierung & Materialleistung | STANIAX",
+    metaDesc: 'Erfahren Sie, wie Vakuummetallisierung und PVD-Prozesse die Festigkeit von Materialien in der Luftfahrt beeinflussen.',
     metaOgDesc: 'Erfahren Sie, wie fortschrittliche Vakuummetallisierung und PVD-Schutzschichten die Materialleistung in der Luftfahrtindustrie steigern.',
     
     introTitle: '',

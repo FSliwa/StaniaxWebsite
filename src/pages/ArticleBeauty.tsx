@@ -143,7 +143,7 @@ const articleContent = {
       ['Compacts & eyeshadow palettes', 'ABS, PS, PMMA', 'Exclusive look, protection against scratches', 'High gloss, matte satin, colors'],
       ['Perfume packaging (caps)', 'PP, ABS, alloys', 'Precision of complex shapes, low weight', 'Gold, silver, and colored finishes']
     ],
-    metaTitle: "Vacuum Metallization Revolutionizes the Beauty Industry | STANIAX",
+    metaTitle: "Vacuum Metallization in Beauty Industry | STANIAX",
     metaDesc: 'Discover how vacuum metallization and precise plastic painting revolutionize cosmetic packaging in the beauty segment.',
     metaOgDesc: 'Vacuum metallization is revolutionizing the beauty industry. Learn why leading cosmetics brands choose this technology.',
     
@@ -253,7 +253,7 @@ const articleContent = {
       ['Kompaktpuder & Lidschattenpaletten', 'ABS, PS, PMMA', 'Exklusive Optik, Schutz vor Kratzern', 'Hochglanz, mattes Satin, Farben'],
       ['Parfümverpackungen (Kappen)', 'PP, ABS, Legierungen', 'Präzision komplexer Formen, geringes Gewicht', 'Gold, Silber und farbige Oberflächen']
     ],
-    metaTitle: "Vakuummetallisierung revolutioniert die Kosmetikbranche | STANIAX",
+    metaTitle: "Vakuummetallisierung in der Kosmetikbranche | STANIAX",
     metaDesc: 'Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren.',
     metaOgDesc: 'Die PVD-Veredelung revolutioniert die Kosmetikbranche. Erfahren Sie, warum führende Kosmetikmarken diese Technologie wählen.',
     

@@ -207,9 +207,9 @@ const plHtml = `
 
 // English/German texts
 const enMeta = `
-    <title>How Surface Treatments Affect Material Performance? | STANIAX</title>
+    <title>Surface Treatments & Material Performance | STANIAX</title>
     <meta name="description" content="Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries." />
-    <meta property="og:title" content="How Surface Treatments Affect Material Performance? | STANIAX" />
+    <meta property="og:title" content="Surface Treatments & Material Performance | STANIAX" />
     <meta property="og:description" content="Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries." />
     <meta property="og:type" content="article" />
 `
@@ -434,9 +434,9 @@ function getEnHtml(lang) {
 // Generate function
 
 const deMeta = `
-    <title>Wie beeinflusst Metallisierung die Materialleistung? | STANIAX</title>
-    <meta name="description" content="Erfahren Sie, wie fortschrittliche Vakuummetallisierung, Kunststofflackierung und PVD-Prozesse die Festigkeit und Ästhetik von Materialien in der Luftfahrt beeinflussen." />
-    <meta property="og:title" content="Wie beeinflusst Metallisierung die Materialleistung? | STANIAX" />
+    <title>Metallisierung & Materialleistung | STANIAX</title>
+    <meta name="description" content="Erfahren Sie, wie Vakuummetallisierung und PVD-Prozesse die Festigkeit von Materialien in der Luftfahrt beeinflussen." />
+    <meta property="og:title" content="Metallisierung & Materialleistung | STANIAX" />
     <meta property="og:description" content="Erfahren Sie, wie fortschrittliche Vakuummetallisierung und PVD-Schutzschichten die Materialleistung in der Luftfahrtindustrie steigern." />
     <meta property="og:type" content="article" />
 `
@@ -661,6 +661,13 @@ function writePrerenderFile(subPath, titleMeta, htmlContent) {
   fileHtml = fileHtml.replace(/<meta property="og:title"[^>]*>/, '')
   fileHtml = fileHtml.replace(/<meta property="og:description"[^>]*>/, '')
   fileHtml = fileHtml.replace(/<meta property="og:type"[^>]*>/, '')
+  
+  // Update lang attribute based on path
+  if (subPath.startsWith('en/') || subPath.includes('/en/')) {
+    fileHtml = fileHtml.replace('<html lang="pl">', '<html lang="en">')
+  } else if (subPath.startsWith('de/') || subPath.includes('/de/')) {
+    fileHtml = fileHtml.replace('<html lang="pl">', '<html lang="de">')
+  }
   
   // Inject canonical URL link element to avoid duplicate content indexing issues
   const canonicalLink = `\n    <link rel="canonical" href="https://www.staniax.pl/${subPath}" />\n`;
@@ -932,9 +939,9 @@ const plBeautyHtml = `
 `
 
 const enBeautyMeta = `
-    <title>Vacuum Metallization Revolutionizes the Beauty Industry | STANIAX</title>
+    <title>Vacuum Metallization in Beauty Industry | STANIAX</title>
     <meta name="description" content="Discover how vacuum metallization and precise plastic painting revolutionize cosmetic packaging in the beauty segment." />
-    <meta property="og:title" content="Vacuum Metallization Revolutionizes the Beauty Industry | STANIAX" />
+    <meta property="og:title" content="Vacuum Metallization in Beauty Industry | STANIAX" />
     <meta property="og:description" content="Vacuum metallization is revolutionizing the beauty industry. Learn why leading cosmetics brands choose this technology." />
     <meta property="og:type" content="article" />
 `
@@ -1452,21 +1459,851 @@ writePrerenderFile('en/news/vacuum-metallization-revolutionizes-beauty-industry'
 writePrerenderFile('de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche', deBeautyMeta, getDeBeautyHtml('de'))
 
 
+const plReflectorsMeta = `
+    <title>Regeneracja odbłyśników i reflektorów – metody i ceny | STANIAX</title>
+    <meta name="description" content="Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić." />
+    <meta property="og:title" content="Regeneracja odbłyśników i reflektorów – metody i ceny | STANIAX" />
+    <meta property="og:description" content="Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić." />
+    <meta property="og:type" content="article" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ile kosztuje regeneracja reflektorów?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Polerowanie klosza z nałożeniem powłoki UV to koszt 150–300 zł za lampę, a kompleksowa regeneracja z metalizacją odbłyśnika – 350–700 zł za sztukę. Dla porównania nowa lampa OEM kosztuje od 1 500 do ponad 5 000 zł."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ile trwa regeneracja reflektorów?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Samo polerowanie klosza można wykonać w kilka godzin. Kompleksowa regeneracja z metalizacją odbłyśników trwa zwykle od 5 do 7 dni roboczych, w zależności od zakresu prac i technologii."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy zmatowione reflektory przejdą przegląd techniczny?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mocno zdegradowane klosze przepuszczają tylko 20–30% światła, co grozi negatywnym wynik badania technicznego, a nawet odmową dopuszczenia pojazdu do ruchu. Regeneracja przywraca parametry świecenia i pozwala uniknąć problemów na przeglądzie."
+          }
+        }
+      ]
+    }
+    </script>
+`
+
+const enReflectorsMeta = `
+    <title>Reflector Regeneration and Headlight Polishing | STANIAX</title>
+    <meta name="description" content="Reflector regeneration using the PVD method and headlight polishing. Prices from 150 PLN, durability up to 5 years. Check when to restore and when to replace." />
+    <meta property="og:title" content="Reflector Regeneration and Headlight Polishing | STANIAX" />
+    <meta property="og:description" content="Reflector regeneration using the PVD method and headlight polishing. Prices from 150 PLN, durability up to 5 years. Check when to restore and when to replace." />
+    <meta property="og:type" content="article" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does headlight regeneration cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Polishing the lens with UV coating costs 150–300 PLN per lamp, and comprehensive regeneration with reflector metallization is 350–700 PLN per piece. For comparison, a new OEM lamp costs from 1,500 to over 5,000 PLN."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does headlight regeneration take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lens polishing alone can be done in a few hours. Comprehensive regeneration with reflector metallization usually takes 5 to 7 business days, depending on the scope of work and technology."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will cloudy headlights pass a technical inspection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Heavily degraded lenses transmit only 20–30% of light, which risks a negative technical inspection result, or even refusal to allow the vehicle to be driven. Regeneration restores lighting parameters and helps avoid problems during inspection."
+          }
+        }
+      ]
+    }
+    </script>
+`
+
+const deReflectorsMeta = `
+    <title>Reflektoren Regeneration und Scheinwerfer Polieren | STANIAX</title>
+    <meta name="description" content="Reflektoren Regeneration mit der PVD-Methode und Scheinwerfer Polieren. Preise ab 150 PLN, Haltbarkeit bis zu 5 Jahre. Wann regenerieren oder ersetzen." />
+    <meta property="og:title" content="Reflektoren Regeneration und Scheinwerfer Polieren | STANIAX" />
+    <meta property="og:description" content="Reflektoren Regeneration mit der PVD-Methode und Scheinwerfer Polieren. Preise ab 150 PLN, Haltbarkeit bis zu 5 Jahre. Wann regenerieren oder ersetzen." />
+    <meta property="og:type" content="article" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie viel kostet die Scheinwerfer-Regeneration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Das Polieren der Streuscheibe mit UV-Beschichtung kostet 150–300 PLN pro Lampe, eine umfassende Regeneration mit Reflektormetallisierung 350–700 PLN pro Stück. Im Vergleich dazu kostet ein neuer OEM-Scheinwerfer ab 1.500 bis über 5.000 PLN."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert die Scheinwerfer-Regeneration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Das reine Polieren der Streuscheibe kann in wenigen Stunden erledigt werden. Eine umfassende Regeneration mit Reflektormetallisierung dauert in der Regel 5 bis 7 Werktage, je nach Arbeitsaufwand und Technologie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bestehen erblindete Scheinwerfer die Hauptuntersuchung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stark degradierte Streuscheiben lassen nur 20–30 % des Lichts durch, was zu einer nicht bestandenen Hauptuntersuchung oder sogar zum Entzug der Straßenzulassung führen kann. Die Regeneration stellt die Lichtwerte wieder her und vermeidet Probleme bei der HU."
+          }
+        }
+      ]
+    }
+    </script>
+`
+
+function getReflectorsHtml(lang) {
+  if (lang === 'pl') {
+    return `
+<div class="min-h-screen bg-background text-foreground font-sans">
+  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
+    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
+      <a href="/news" class="group flex items-center gap-3 text-left">
+        <div class="leading-tight">
+          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
+          <span class="block text-lg font-black">Aktualności</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3 sm:gap-6">
+        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
+          <a href="/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">O nas</a>
+          <a href="/#about" class="text-muted-foreground hover:text-accent transition-colors">Oferta</a>
+          <a href="/#projects" class="text-muted-foreground hover:text-accent transition-colors">Realizacje</a>
+          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galeria</a>
+          <a href="/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="/news/regeneracja-odblysnikow-reflektorow-samochodowych" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-100 scale-110">🇵🇱</a>
+          <a href="/en/news/reflector-regeneration-and-headlight-polishing" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇬🇧</a>
+          <a href="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇩🇪</a>
+        </div>
+        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
+          Kontakt
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20">
+    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
+      <div class="max-w-3xl">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artykuł</span>
+          <span class="text-xs text-muted-foreground flex items-center gap-1">10 czerwca 2026</span>
+          <span class="text-xs text-muted-foreground flex items-center gap-1">6 min czytania</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
+          Regeneracja odbłyśników i reflektorów samochodowych – poradnik kierowcy i oferta STANIAX
+        </h1>
+        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
+          Reflektory w każdym samochodzie pełnią podwójną rolę: zapewniają bezpieczeństwo jazdy i wpływają na estetykę pojazdu. Gdy tracą przejrzystość, widoczność na drodze spada drasticznie. W tym poradniku wyjaśniamy, kiedy i jak przeprowadzić regenerację, jakie metody przynoszą trwałe efekty, a także dlaczego STANIAX jest partnerem, po którego sięgają warsztaty i producenci lamp samochodowych w całej Polsce.
+        </p>
+      </div>
+
+      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
+        <img src="/src/assets/odblysniki-nowe-1.jpeg" alt="Zregenerowane odbłyśniki reflektorów samochodowych po metalizacji próżniowej PVD" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
+        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
+          <div class="space-y-6">
+            <h2 class="text-xl md:text-2xl font-black text-foreground pt-2">Regeneracja odbłyśników i reflektorów – szybka odpowiedź na najczęstsze pytania</h2>
+            <p>Jeśli zauważasz, że reflektory i odbłyśniki lamp przeciwmgielnych w Twoim aucie świecą słabiej niż kiedyś, mają żółtawy odcień lub dostałeś uwagę na przeglądzie technicznym – to sygnał, że pora na regenerację. Zmatowienie reflektorów może prowadzić do odmowy dopuszczenia pojazdu do ruchu, więc nie warto zwlekać. Polerowanie reflektorów poprawia ich wygląd i funkcjonalność, a regeneracja odbłyśników w reflektorach może zwiększyć ich wydajność nawet o 100%.</p>
+            <p>Regeneracja odbłyśników lamp samochodowych obejmuje kilka zakresów: polerowanie klosza – usunięcie zmatowień i mikrorys z zewnętrznej powierzchni; regenerację odbłyśników – odnowienie warstwy refleksyjnej wewnątrz lampy; oraz uszczelnienie i zabezpieczenie UV – ochrona przed ponownym matowieniem.</p>
+            <p>Poprawa widoczności jest odczuwalna od razu, a koszt zaczyna się od ok. 150–300 zł za polerowanie klosza; pełna regeneracja z metalizacją odbłyśnika to 350–700 zł – wciąż wielokrotnie mniej niż zakup nowych lamp, gdzie np. reflektory bi xenon potrafią kosztować kilka tysięcy złotych za sztukę. Regeneracja reflektorów przywraca im pełną sprawność za ułamek ceny. W STANIAX specjalizujemy się w regeneracji odbłyśników metodami przemysłowymi – metalizacją próżniową PVD i metalizacją natryskową – co daje trwalszy efekt niż amatorskie polerowanie w garażu.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Dlaczego reflektory ulegają zmatowieniu i tracą dawny blask?</h2>
+            <p>Od końca lat 90. większość reflektorów wykonana jest z poliwęglanu, a nie ze szkła. Poliwęglan jest lekki i odporny na uderzenia, ale podatny na degradację – szczególnie pod wpływem promieni słonecznych. Fabryczna warstwa ochronna, o grubości zaledwie 15–25 mikrometrów, z czasem ulega degradacji, wystawiając tworzywo na bezpośredni kontakt z promieniowaniem UV.</p>
+            <p>Te czynniki prowadzą do stopniowego niszczenia klosza:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-1">
+              <li>reflektory matowieją przez działanie promieni UV, które rozkładają strukturę poliwęglanu i tworzą chromofory – związki barwiące nadające żółty odcień,</li>
+              <li>kwaśne deszcze i sól drogowa uszkadzają lampy samochodowe, wżerając się w mikropęknięcia,</li>
+              <li>drobne kamyczki i piasek z drogi powodują mechaniczne zarysowania powierzchni,</li>
+              <li>warunki atmosferyczne i cykliczne zmiany temperatury przyspieszają utlenianie.</li>
+            </ul>
+            <p>Zmatowienie reflektorów pogarsza widoczność podczas jazdy – badania AAA wykazały, że mocno zdegradowane klosze przepuszczają tylko 20–30% światła w porównaniu z nowymi. W nowoczesnych lampach bi xenon, bi led i Full LED zmatowienie klosza i utrata odbicia przez odbłyśnik szczególnie mocno obniżają parametry świecenia – a to prosta droga do negatywnego wyniku badania technicznego. Matowe reflektory pogarszają bezpieczeństwo Twoje i innych użytkowników ruchu, bo skracają realny zasięg snopa światła.</p>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Regeneracja reflektorów – zakres prac i możliwe metody</h2>
+            <p>Regeneracja reflektorów może oznaczać tylko polerowanie klosza albo kompleksową odnowę wnętrza lampy – warto jasno rozróżyć te dwa podejścia, bo ich skuteczność i cena są zupełnie różne.</p>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Polerowanie reflektorów</h3>
+              <p>Podstawowa usługa to polerowanie reflektorów: zewnętrzna odnowa klosza polegająca na usunięciu zmatowień, mikrorys i nałożeniu warstwy ochronnej UV. Zmatowiałe klosze są idealnym kandydatem do takiej renowacji – o ile wnętrze lampy jest w dobrym stanie.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Kompleksowa naprawa</h3>
+              <p>Kompleksowa naprawa reflektorów samochodowych obejmuje: demontaż lampy z samochodu, rozklejenie obudowy, czyszczenie wnętrza, regenerację odbłyśników (metalizację próżniową), ewentualną wymianę uszczelek i ponowne sklejenie. Regeneracja odbłyśników podnosi jakość wiązki światła, przywracając parametry zbliżone do fabrycznych. Czas regeneracji reflektorów wynosi od 5 do 7 dni roboczych – w zależności od zakresu prac i technologii.</p>
+              <p>W STANIAX najczęściej pracujemy na samych odbłyśnikach dostarczonych przez warsztaty lub producentów, stosując metalizację próżniową PVD dla uzyskania efektu lustrzanego i długiej żywotności powłoki. Zakres regeneracji zależy od stanu lamp – płytkie zarysowania wymagają innego podejścia niż przepalone odbłyśniki czy lampy zalane wodą. Dlatego ich regeneracja zawsze powinna zaczynać się od oceny specjalisty.</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Polerowanie lamp krok po kroku – jak przywrócić przejrzystość klosza</h2>
+            <p>Polerowanie lamp to zadanie, które przy odpowiednim przygotowaniu wymaga staranności, ale jest wykonalne nawet w warunkach garażowych. Polerowanie reflektorów można wykonać w kilka godzin, a efekt bezpośrednio przekłada się na lepszą widoczność. Poniżej znajdziesz opis poszczególnych etapów.</p>
+            <p><strong>Potrzebne narzędzia i materiały:</strong></p>
+            <ul class="list-disc pl-6 mb-6 space-y-1">
+              <li>taśma malarska do zabezpieczenia lakieru wokół lamp,</li>
+              <li>papiery ścierne wodne (gradacja 800, 1200, 2000, 3000) lub krążki ścierne,</li>
+              <li>polerka orbitalna lub wkrętarka z nasadką, gąbki polerskie,</li>
+              <li>pasta polerska do tworzyw (zestawy do renowacji zawierają papiery ścierne i pastę polerską),</li>
+              <li>środek odtłuszczający, lakier bezbarwny z filtrem UV.</li>
+            </ul>
+            <p><strong>Etapy polerowania:</strong></p>
+            <p>1. <strong>Przygotowanie lamp</strong> – dokładne umycie klosza, odtłuszczanie powierzchni, zabezpieczenie lakieru wokół reflektora taśmą.</p>
+            <p>2. <strong>Szlifowanie na mokro</strong> – użyj papieru ściernego o gradacji 800 do 3000, zaczynając od najgrubszego. Ruchy poziome i pionowe, by uniknąć kierunkowych rys. Kontroluj temperaturę – nie przegrzewaj poliwęglanu.</p>
+            <p>3. <strong>Polerowanie właściwe</strong> – niska prędkość polerki, umiarkowany docisk, praca partiami. Polerowanie reflektorów zwiększa ich przezroczystość i jasność już na tym etapie.</p>
+            <p>4. <strong>Zabezpieczenie UV</strong> – polerowanie reflektorów wymaga nałożenia nowej powłoki zabezpieczającej. Lakierowanie reflektorów tworzy nową, twardą powłokę ochronną, która zapobiega ponownemu matowieniu. Zabezpiecz reflektory powłoką UV po polerowaniu – bez tego efekt zniknie w ciągu kilku miesięcy.</p>
+            <p>Samo polerowanie z nałożeniem filtra UV kosztuje od 150 do 300 zł za lampę. Polerowanie poprawia widoczność na drodze o kilkanaście metrów – różnica jest zauważalna zwłaszcza nocą. Pamiętaj jednak, że polerowanie klosza bez demontażu lampy to rozwiązanie szybkie, ale nie zawsze wystarczające – jeśli odbłyśnik w środku jest wypalony lub skorodowany, samo czyszczenie zewnętrzne nie pomoże.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Przygotowanie lamp do kompleksowej regeneracji odbłyśników</h2>
+            <p>Regeneracja odbłyśnika wymaga wyjęcia lampy z pojazdu i rozklejenia obudowy – to zazwyczaj wykonuje wyspecjalizowany warsztat, a STANIAX zajmuje się częścią powierzchniową odbłyśnika: metalizacją i powłokami.</p>
+            <p><strong>Jak warsztat lub klient B2B powinien przygotować elementy do wysyłki:</strong></p>
+            <ul class="list-disc pl-6 mb-6 space-y-1">
+              <li>demontaż reflektorów z auta – przygotowanie lamp zaczyna się od ostrożnego wyjęcia kompletnych lamp,</li>
+              <li>rozklejenie obudowy i wyjęcie odbłyśników z wnętrza,</li>
+              <li>usunięcie resztek starego kleju i zanieczyszczeń,</li>
+              <li>zabezpieczenie delikatnych miejsc przed uszkodzeniami mechanicznymi (unikać kontaktu z ostrymi elementami).</li>
+            </ul>
+            <p>Odbłyśniki nie powinny być wcześniej polerowane mechanicznie – uszkadza to ich geometrię i utrudnia poprawną metalizację próżniową. Powierzchnia odbłyśników jest przez STANIAX dodatkowo oczyszczana i przygotowywana: oczyszczenie z poprzedniej metalizacji wraz ze szlifowaniem powierzchni wewnętrznej, odtłuszczanie, nałożenie farby podkładowej, jeśli wymaga tego dany system. Wysyłka powinna wyglądać następująco: sztywne kartony, oddzielne zabezpieczenie każdego odbłyśnika folią bąbelkową, opis auta/modelu/rocznika – dzięki temu unikamy pomyłek. Wymiana reflektorów jest konieczna przy poważnych uszkodzeniach strukturalnych – ale to rzadkość; większość starych lamp da się skutecznie odnowić.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Profesjonalna regeneracja odbłyśników w STANIAX – metalizacja próżniowa i natryskowa</h2>
+            <p>Odbłyśnik to serce reflektora – kształtuje snop światła i decyduje o jakości oświetlenia. Jego wypalenie powoduje drastyczny spadek skuteczności nawet przy nowych żarówkach czy modułach LED. Regeneracja reflektorów zwiększa ich żywotność i poprawia bezpieczeństwo, przywracając odpowiednią ilość odbijanego światła.</p>
+            <p>Metalizacja próżniowa (PVD) polega na odparowaniu aluminium w komorze próżniowej i nanoszeniu ultracienkiej, równomiernej warstwy na powierzchni odbłyśnika. Efekt lustrzany jest porównywalny z fabrycznym, a współczynnik odbicia sięga ponad 85%. Koszt regeneracji z metalizacją próżniową wynosi około 350–700 zł za sztukę – wciąż wielokrotnie mniej niż nowa lampa.</p>
+            <p>Metalizacja natryskowa stanowi alternatywę dla niektórych serii detali, gdy wymagana jest grubsza lub specyficzna powłoka. STANIAX stosuje przemysłowe systemy lakiernicze i powłoki ochronne UV, dzięki czemu regenerowane odbłyśniki są odporne na temperaturę pracy reflektora oraz wilgoć. Ta usługa jest kierowana głównie do warsztatów, lakierni i producentów komponentów oświetleniowych, ale pośrednio korzystają na niej kierowcy, których lampy odzyskują fabryczne parametry i atrakcyjny wygląd.</p>
+          </div>
+
+          <h3 class="text-lg md:text-xl font-bold text-foreground mb-3 mt-8">Polerowanie klosza, regeneracja wnętrza czy wymiana lampy – co wybrać?</h3>
+          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
+            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
+              <thead>
+                <tr class="border-b border-border/80 bg-muted/40">
+                  <th class="p-4 font-bold text-foreground">Metoda</th>
+                  <th class="p-4 font-bold text-foreground">Koszt (za szt.)</th>
+                  <th class="p-4 font-bold text-foreground">Trwałość efektu</th>
+                  <th class="p-4 font-bold text-foreground">Zakres</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60">
+                <tr class="hover:bg-muted/10 transition-colors">
+                  <td class="p-4 font-medium text-foreground">Polerowanie klosza</td>
+                  <td class="p-4">150–300 zł</td>
+                  <td class="p-4">1–2 sezony</td>
+                  <td class="p-4">tylko zewnętrzna powierzchnia</td>
+                </tr>
+                <tr class="hover:bg-muted/10 transition-colors">
+                  <td class="p-4 font-medium text-foreground">Kompleksowa regeneracja</td>
+                  <td class="p-4">350–700 zł</td>
+                  <td class="p-4">3–5 lat</td>
+                  <td class="p-4">klosz + odbłyśnik + uszczelki</td>
+                </tr>
+                <tr class="hover:bg-muted/10 transition-colors">
+                  <td class="p-4 font-medium text-foreground">Nowa lampa (OEM)</td>
+                  <td class="p-4">1 500–5 000+ zł</td>
+                  <td class="p-4">fabryczna</td>
+                  <td class="p-4">cały komplet</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Modernizacja oświetlenia – montaż soczewek bi LED, bi xenon i tuning lamp</h2>
+            <p>Regeneracja to nie tylko naprawa – to też okazja do modernizacji oświetlenia, szczególnie w starszych modelach z reflektorami halogenowymi. Zamiast po prostu przywracać dawny blask, można poprawić parametry światła.</p>
+            <p>Montaż soczewek bi led to coraz popularniejszy kierunek: soczewki bi led zapewniają lepiej skupiony snop światła, równomierne oświetlenie poboczy i niski pobór energii w porównaniu z klasycznymi żarówkami. Montaż soczewek Bi-LED podnosi jakość oświetlenia, a montaż projektorów LED zwiększa jasność oświetlenia o 100%. Tuning lamp zwiększa zasięg świateł w nocy – różnica jest odczuwalna zwłaszcza na drogach pozamiejskich.</p>
+            <p>Rozwiązania xenon i bi xenon pozostają nadal popularną alternatywą, choć rynek stopniowo przechodzi na technologię LED. Warto wiedzieć, że adaptacja lamp z UK wymaga przestawienia strumienia światła – to ważne przy imporcie samochodu z Wysp. Zamontowanie soczewek wymaga prawidłowego ustawienia linii odcięcia i dopasowania do przepisów, by nie oślepiać innych kierowców i innych użytkowników drogi. Dlatego montaż soczewek bi led należy powierzać wyspecjalizowanym warsztatom.</p>
+            <p>Inne formy tuningu lamp – malowanie wnętrza reflektora, montaż ringów LED, dodatki DRL – mogą nadać autu nowoczesny wygląd. STANIAX jako lakiernia przemysłowa zapewnia wysokiej jakości lakierowanie dekoracyjne elementów wewnętrznych i zewnętrznych, podobnie jak w przypadku szyb i ramek lamp.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Zabezpieczenie lamp po regeneracji – folia PPF, powłoki UV i lakierowanie</h2>
+            <p>Sama renowacja to połowa sukcesu – trwałość efektu zależy od zabezpieczenia na kolejne lata.</p>
+            <p>Folia PPF to jedno z najskuteczniejszych zabezpieczeń kloszy reflektorów. Chroni reflektory przed uszkodzeniami zewnętrznymi – kamieniami, zarysowaniami i promieniowaniem UV. Profesjonalne oklejanie folią jest praktycznie niewidoczne, a trwałość sięga 5–10 lat.</p>
+            <p>Alternatywą są profesjonalne lakiery bezbarwne z filtrami UV, stosowane w lakierniach i przez STANIAX na elementach dekoracyjnych. Odnowione reflektory przekładają się na lepszą widoczność na drodze, a odpowiednie zabezpieczenie utrzymuje ten efekt. W zastosowaniach przemysłowych i dla producentów lamp STANIAX oferuje powłoki ochronne UV nakładane natryskowo, zapewniające wysoką odporność chemiczną i mechaniczną przy zachowaniu przejrzystości.</p>
+            <p>Po regeneracji nie zaniedbuj regularnego mycia lamp łagodnymi środkami i okresowej kontroli szczelności – woda wewnątrz reflektora szybko zniszczy nawet świeżo zregenerowane odbłyśniki. Unikaj agresywnych produktów chemicznych podczas szlifowania i czyszczenia, a auto parkuj w miarę możliwości w cieniu lub garażu.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Regeneracja reflektorów a bezpieczeństwo i opłacalność</h2>
+            <p>Sprawne reflektory to dłuższa widoczność przed pojazdem, lepsze doświetlenie krawędzi jezdni i więcej czasu na reakcję w sytuacjach awaryjnych. Polerowanie poprawia widoczność na drodze, a kompleksowa regeneracja z metalizacją przywraca parametry bliskie fabrycznym – co bezpośrednio przekłada się na bezpieczeństwo jazdy wszystkich użytkowników drogi.</p>
+            <p>Aspekt ekonomiczny jest równie istotny: regeneracja reflektorów samochodowych (zwłaszcza z metalizacją odbłyśników) jest wielokrotnie tańsza niż zakup nowych lamp, a jednocześnie wydłuża ich żywotność o kolejne lata. Naprawa zamiast wymiany oznacza też mniejszą ilość odpadów – bardziej odpowiedzialne podejście do eksploatacji samochodu.</p>
+            <p>W przypadku flot firmowych – aut dostawczych i służbowych – regularna renowacja lamp znacząco obniża koszty serwisu. Zanim zdecydujesz się na kosztowną wymianę kompletnej lampy, skonsultuj się z profesjonalistami współpracującymi ze STANIAX.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">STANIAX – partner B2B w regeneracji odbłyśników i obróbce powierzchni lamp</h2>
+            <p>STANIAX to specjalista dla klientów biznesowych: producentów lamp, warsztatów samochodowych, lakierni i firm z branży automotive. Nasze główne kompetencje obejmują metalizację próżniową PVD odbłyśników i elementów dekoracyjnych, metalizację natryskową, lakierowanie tworzyw sztucznych, metali i szkła oraz nakładanie farb podkładowych i powłok ochronnych UV o długiej żywotności.</p>
+            <p>Kładziemy nacisk na efekty lustrzane, wysoką estetykę powierzchni, powtarzalność serii i trwałość powłok – szczególnie istotne dla producentów reflektorów, lusterek i elementów wnętrz samochodów. Nasze doświadczenie obejmuje realizacje dla branży automotive: odbłyśniki do reflektorów halogenowych i bi xenon, elementy dekoracyjne kokpitów, osłony i ramki lamp – zawsze zgodnie z wymaganiami jakościowymi na poziomie OEM.</p>
+            <p>If you run a workshop, paint shop, or lighting component manufacturing company and are looking for a partner for reflector regeneration, finish of series car lamps, or special projects related to metallization and decorative painting – skontaktuj się z nami. Wspólnie znajdziemy rozwiązanie dopasowane do Twoich potrzeb produkcyjnych.</p>
+          </div>
+
+          <div class="space-y-6 pt-6 border-t border-border/80">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground">Najczęstsze pytania o regenerację reflektorów (FAQ)</h2>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Ile kosztuje regeneracja reflektorów?</h3>
+                <p class="text-muted-foreground pl-6 border-l border-border/40">Polerowanie klosza z nałożeniem powłoki UV to koszt 150–300 zł za lampę, a kompleksowa regeneracja z metalizacją odbłyśnika – 350–700 zł za sztukę. Dla porównania nowa lampa OEM kosztuje od 1 500 do ponad 5 000 zł.</p>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Ile trwa regeneracja reflektorów?</h3>
+                <p class="text-muted-foreground pl-6 border-l border-border/40">Samo polerowanie klosza można wykonać w kilka godzin. Kompleksowa regeneracja z metalizacją odbłyśników trwa zwykle od 5 do 7 dni roboczych, w zależności od zakresu prac i technologii.</p>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Czy zmatowione reflektory przejdą przegląd techniczny?</h3>
+                <p class="text-muted-foreground pl-6 border-l border-border/40">Mocno zdegradowane klosze przepuszczają tylko 20–30% światła, co grozi negatywnym wynikiem badania technicznego, a nawet odmową dopuszczenia pojazdu do ruchu. Regeneracja przywraca parametry świecenia i pozwala uniknąć problemów na przeglądzie.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="space-y-8 sticky top-28">
+          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
+            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
+            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full font-semibold group/btn">
+              Napisz do nas
+            </button>
+          </div>
+          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              Skopiuj link
+            </button>
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              Drukuj artykuł
+            </button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+  } else if (lang === 'en') {
+    return `
+<div class="min-h-screen bg-background text-foreground font-sans">
+  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
+    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
+      <a href="/en/news" class="group flex items-center gap-3 text-left">
+        <div class="leading-tight">
+          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
+          <span class="block text-lg font-black">News</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3 sm:gap-6">
+        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
+          <a href="/en/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">About Us</a>
+          <a href="/en/#about" class="text-muted-foreground hover:text-accent transition-colors">Offer</a>
+          <a href="/en/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projects</a>
+          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Gallery</a>
+          <a href="/en/#contact" class="text-muted-foreground hover:text-accent transition-colors">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="/news/regeneracja-odblysnikow-reflektorow-samochodowych" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇵🇱</a>
+          <a href="/en/news/reflector-regeneration-and-headlight-polishing" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-100 scale-110">🇬🇧</a>
+          <a href="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇩🇪</a>
+        </div>
+        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
+          Contact Us
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20">
+    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
+      <div class="max-w-3xl">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Article</span>
+          <span class="text-xs text-muted-foreground flex items-center gap-1">June 10, 2026</span>
+          <span class="text-xs text-muted-foreground flex items-center gap-1">6 min read</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
+          Regeneration of Reflectors and Car Headlights – Driver's Guide and STANIAX Offer
+        </h1>
+        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
+          Headlights in every car serve a double role: they ensure driving safety and affect the vehicle's aesthetics. When they lose clarity, road visibility drops drastically. In this guide, we explain when and how to carry out regeneration, which methods bring durable effects, and why STANIAX is the partner chosen by workshops and manufacturers of car lamps all over Poland.
+        </p>
+      </div>
+
+      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
+        <img src="/src/assets/odblysniki-nowe-1.jpeg" alt="Restored car headlight reflectors after PVD vacuum metallization" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
+        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
+          <div class="space-y-6">
+            <h2 class="text-xl md:text-2xl font-black text-foreground pt-2">Reflector and headlight regeneration – quick answers to the most common questions</h2>
+            <p>If you notice that the headlights and fog light reflectors in your car shine weaker than before, have a yellowish tint, or you received a remark during the technical inspection – it is a signal that it is time for regeneration. Clouding of headlights can lead to refusal of vehicle registration, so it is not worth waiting. Polishing headlights improves their appearance and functionality, and regenerating reflectors in headlights can increase their efficiency by up to 100%.</p>
+            <p>Car headlight reflector regeneration includes several scopes: lens polishing – removing cloudiness and micro-scratches from the outer surface; reflector regeneration – restoring the reflective layer inside the lamp; and sealing and UV protection – protecting against re-clouding.</p>
+            <p>Improvement in visibility is felt immediately, and the cost starts from about 150–300 PLN for lens polishing; full regeneration with reflector metallization is 350–700 PLN – still many times less than buying new lamps, where, for example, bi-xenon headlights can cost several thousand PLN each. Reflector regeneration restores full efficiency at a fraction of the price. At STANIAX, we specialize in reflector regeneration using industrial methods – vacuum PVD metallization and spray metallization – which yields a more durable effect than amateur polishing in a garage.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Why do headlights become cloudy and lose their former shine?</h2>
+            <p>Since the late 1990s, most headlights have been made of polycarbonate, not glass. Polycarbonate is lightweight and impact-resistant, but susceptible to degradation – especially under the influence of sunlight. The factory protective layer, with a thickness of only 15–25 micrometers, degrades over time, exposing the plastic to direct UV radiation.</p>
+            <p>These factors lead to the gradual destruction of the lens:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-1">
+              <li>headlights become cloudy due to UV rays, which break down the polycarbonate structure and create chromophores – coloring compounds that give a yellow tint,</li>
+              <li>acid rain and road salt damage car lamps, eating into micro-cracks,</li>
+              <li>small stones and road sand cause mechanical scratches on the surface,</li>
+              <li>weather conditions and cyclic temperature changes accelerate oxidation.</li>
+            </ul>
+            <p>Headlight clouding degrades visibility while driving – AAA studies showed that heavily degraded lenses transmit only 20–30% of light compared to new ones. In modern bi-xenon, bi-led, and Full LED lamps, lens clouding and reflector reflectivity loss particularly lower the light output parameters – which is a direct route to a negative technical inspection result. Cloudy headlights compromise your safety and that of other road users because they shorten the actual range of the light beam.</p>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Reflector regeneration – scope of work and possible methods</h2>
+            <p>Reflector regeneration can mean just lens polishing or a comprehensive renewal of the lamp's interior – it is worth distinguishing between these two approaches because their effectiveness and price are completely different.</p>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Headlight polishing</h3>
+              <p>The basic service is headlight polishing: an external lens restoration consisting of removing cloudiness, micro-scratches, and applying a protective UV layer. Cloudy lenses are perfect candidates for such reno – as long as the lamp interior is in good condition.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Comprehensive repair</h3>
+              <p>Comprehensive car headlight repair includes: dismantling the lamp from the car, unsealing the housing, cleaning the interior, reflector regeneration (vacuum metallization), optional gasket replacement, and resealing. Reflector regeneration improves the quality of the light beam, restoring parameters close to factory specifications. The headlight regeneration time is 5 to 7 business days – depending on the scope of work and technology.</p>
+              <p>At STANIAX, we usually work on the reflectors themselves supplied by workshops or manufacturers, using vacuum PVD metallization to obtain a mirror effect and long coating lifetime. The scope of regeneration depends on the condition of the lamps – shallow scratches require a different approach than burned reflectors or lamps flooded with water. Therefore, their regeneration should always begin with an expert assessment.</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Step-by-step lamp polishing – how to restore lens clarity</h2>
+            <p>Headlight polishing is a task that, with proper preparation, requires diligence but is doable even in garage conditions. Headlight polishing can be done in a few hours, and the effect directly translates to better visibility. Below you will find a description of the individual stages.</p>
+            <p><strong>Needed tools and materials:</strong></p>
+            <ul class="list-disc pl-6 mb-6 space-y-1">
+              <li>masking tape to protect the paint around the lamps,</li>
+              <li>wet sandpaper (grades 800, 1200, 2000, 3000) or sanding discs,</li>
+              <li>orbital polisher or drill with adapter, polishing sponges,</li>
+              <li>polishing compound for plastics (restoration kits contain sandpaper and polishing paste),</li>
+              <li>degreasing agent, clear coat with UV filter.</li>
+            </ul>
+            <p><strong>Polishing steps:</strong></p>
+            <p>1. <strong>Preparation of lamps</strong> – thorough cleaning of the lens, degreasing the surface, protecting the paint around the headlight with tape.</p>
+            <p>2. <strong>Wet sanding</strong> – use 800 to 3000 grit sandpaper, starting with the coarsest. Horizontal and vertical movements to avoid directional scratches. Control temperature – do not overheat polycarbonate.</p>
+            <p>3. <strong>Actual polishing</strong> – low polisher speed, moderate pressure, work in sections. Polishing headlights increases their transparency and brightness already at this stage.</p>
+            <p>4. <strong>UV protection</strong> – polishing headlights requires applying a new protective coating. Headlight painting creates a new, hard protective layer that prevents re-clouding. Protect headlights with a UV coating after polishing – without it, the effect will disappear within a few months.</p>
+            <p>Polishing alone with a UV filter costs 150 to 300 PLN per lamp. Polishing improves road visibility by several meters – the difference is noticeable especially at night. Remember, however, that lens polishing without dismantling the lamp is a quick solution but not always sufficient – if the reflector inside is burned or corroded, simple external cleaning will not help.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Preparing lamps for comprehensive reflector regeneration</h2>
+            <p>Reflector regeneration requires removing the lamp from the vehicle and unsealing the housing – this is usually done by a specialized workshop, while STANIAX handles the surface part of the reflector: metallization and coatings.</p>
+            <p><strong>How B2B clients and workshops should prepare elements for shipping:</strong></p>
+            <ul class="list-disc pl-6 mb-6 space-y-1">
+              <li>dismantling headlights from the car – preparing lamps starts with carefully removing complete lamps,</li>
+              <li>unsealing the housing and removing the reflectors from the inside,</li>
+              <li>removing remains of old adhesive and dirt,</li>
+              <li>protecting delicate spots against mechanical damage (avoid contact with sharp objects).</li>
+            </ul>
+            <p>Reflectors should not be mechanically polished beforehand – this damages their geometry and makes correct vacuum metallization difficult. The surface of the reflectors is additionally cleaned and prepared by STANIAX: removal of previous metallization along with sanding the inner surface, degreasing, and applying primer paint if required by the given system. Shipping should look like this: rigid cardboard boxes, individual protection of each reflector with bubble wrap, and descriptions of vehicle/model/year – thanks to this we avoid mistakes. Reflector replacement is necessary for severe structural damage – but this is rare; most old lamps can be effectively restored.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Professional reflector regeneration at STANIAX – vacuum and spray metallization</h2>
+            <p>The reflector is the heart of the headlight – it shapes the beam of light and determines lighting quality. Its burnout causes a drastic drop in efficiency even with new light bulbs or LED modules. Reflector regeneration increases their lifetime and improves safety, restoring the proper amount of reflected light.</p>
+            <p>Vacuum metallization (PVD) consists in evaporating aluminum in a vacuum chamber and applying an ultra-thin, even layer to the reflector surface. The mirror effect is comparable to the factory finish, and the reflection coefficient reaches over 85%. The cost of regeneration with vacuum metallization is about 350–700 PLN per piece – still many times less than a new lamp.</p>
+            <p>Spray metallization is an alternative for some series of details when a thicker or specific coating is required. STANIAX uses industrial coating systems and UV protective coatings, making regenerated reflectors resistant to headlight operating temperatures and moisture. This service is aimed primarily at workshops, paint shops, and lighting component manufacturers, but drivers indirectly benefit from it as their lamps regain factory parameters and an attractive appearance.</p>
+          </div>
+
+          <h3 class="text-lg md:text-xl font-bold text-foreground mb-3 mt-8">Lens polishing, interior regeneration, or lamp replacement – what to choose?</h3>
+          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
+            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
+              <thead>
+                <tr class="border-b border-border/80 bg-muted/40">
+                  <th class="p-4 font-bold text-foreground">Method</th>
+                  <th class="p-4 font-bold text-foreground">Cost (per pc)</th>
+                  <th class="p-4 font-bold text-foreground">Durability of effect</th>
+                  <th class="p-4 font-bold text-foreground">Scope</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60">
+                <tr class="hover:bg-muted/10 transition-colors">
+                  <td class="p-4 font-medium text-foreground">Lens polishing</td>
+                  <td class="p-4">150–300 PLN</td>
+                  <td class="p-4">1–2 seasons</td>
+                  <td class="p-4">only outer surface</td>
+                </tr>
+                <tr class="hover:bg-muted/10 transition-colors">
+                  <td class="p-4 font-medium text-foreground">Comprehensive regeneration</td>
+                  <td class="p-4">350–700 PLN</td>
+                  <td class="p-4">3–5 years</td>
+                  <td class="p-4">lens + reflector + gaskets</td>
+                </tr>
+                <tr class="hover:bg-muted/10 transition-colors">
+                  <td class="p-4 font-medium text-foreground">New lamp (OEM)</td>
+                  <td class="p-4">1,500–5,000+ PLN</td>
+                  <td class="p-4">factory</td>
+                  <td class="p-4">complete assembly</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Lighting modernization – mounting of bi-LED, bi-xenon lenses and lamp tuning</h2>
+            <p>Regeneration is not just repair – it is also an opportunity to modernize the lighting, especially in older models with halogen headlights. Instead of just restoring the former shine, light parameters can be improved.</p>
+            <p>Mounting bi-led lenses is an increasingly popular direction: bi-led lenses provide a better-focused beam of light, even illumination of road edges, and low energy consumption compared to classic bulbs. Installing bi-LED lenses raises lighting quality, and mounting LED projectors increases light brightness by 100%. Lamp tuning increases headlight range at night – the difference is felt especially on out-of-town roads.</p>
+            <p>Xenon and bi-xenon solutions remain a popular alternative, although the market is gradually shifting to LED technology. It is worth knowing that adapting UK lamps requires changing the light beam direction – this is important when importing a car from the UK. Installing lenses requires correct alignment of the cutoff line and adaptation to regulations so as not to blind other drivers and other road users. Therefore, mounting bi-led lenses should be entrusted to specialized workshops.</p>
+            <p>Other forms of lamp tuning – painting the interior of the reflector, mounting LED rings, DRL additions – can give the car a modern look. STANIAX as an industrial paint shop provides high-quality decorative painting of internal and external elements, similar to window and lamp frame painting.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Protecting lamps after regeneration – PPF film, UV coatings and painting</h2>
+            <p>Restoration alone is half the success – the durability of the effect depends on protection for the following years.</p>
+            <p>PPF film is one of the most effective protections for headlight lenses. It protects headlights against external damage – stones, scratches, and UV radiation. Professional wrapping with film is practically invisible, and the durability reaches 5–10 years.</p>
+            <p>An alternative is professional clear coats with UV filters, used in paint shops and by STANIAX on decorative elements. Restored headlights translate to better road visibility, and appropriate protection maintains this effect. In industrial applications and for lamp manufacturers, STANIAX offers UV protective coatings applied by spraying, providing high chemical and mechanical resistance while maintaining transparency.</p>
+            <p>After regeneration, do not neglect regular washing of the lamps with mild agents and periodic checks of sealing – water inside the headlight will quickly destroy even freshly regenerated reflectors. Avoid aggressive chemical products during sanding and cleaning, and park the car in the shade or garage if possible.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Reflector regeneration: safety and profitability</h2>
+            <p>Working headlights mean longer visibility in front of the vehicle, better illumination of road edges, and more time to react in emergency situations. Polishing improves road visibility, and comprehensive regeneration with metallization restores parameters close to factory specifications – which directly translates to the driving safety of all road users.</p>
+            <p>The economic aspect is equally important: car reflector regeneration (especially with reflector metallization) is many times cheaper than buying new lamps, while extending their life for years to come. Repair instead of replacement also means less waste – a more responsible approach to car operation.</p>
+            <p>In the case of company fleets – delivery and service cars – regular lamp restoration significantly lowers maintenance costs. Before you decide on an expensive replacement of a complete lamp, consult with professionals cooperating with STANIAX.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">STANIAX – B2B partner in reflector regeneration and lamp surface treatment</h2>
+            <p>STANIAX is a specialist for business clients: lamp manufacturers, car workshops, paint shops, and automotive companies. Our core competencies include vacuum PVD metallization of reflectors and decorative elements, spray metallization, painting of plastics, metals, and glass, and application of primers and long-life UV protective coatings.</p>
+            <p>We focus on mirror effects, high surface aesthetics, series repeatability, and coating durability – particularly important for manufacturers of headlights, mirrors, and car interior elements. Our experience includes projects for the automotive industry: reflectors for halogen and bi-xenon headlights, decorative dashboard elements, covers and lamp frames – always in accordance with OEM-level quality requirements.</p>
+            <p>If you run a workshop, paint shop, or lighting component manufacturing company and are looking for a partner for reflector regeneration, finish of series car lamps, or special projects related to metallization and decorative painting – contact us. Together we will find a solution tailored to your production needs.</p>
+          </div>
+
+          <div class="space-y-6 pt-6 border-t border-border/80">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground">Frequently Asked Questions (FAQ)</h2>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>How much does headlight regeneration cost?</h3>
+                <p class="text-muted-foreground pl-6 border-l border-border/40">Polishing the lens with UV coating costs 150–300 PLN per lamp, and comprehensive regeneration with reflector metallization is 350–700 PLN per piece. For comparison, a new OEM lamp costs from 1,500 to over 5,000 PLN.</p>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>How long does headlight regeneration take?</h3>
+                <p class="text-muted-foreground pl-6 border-l border-border/40">Lens polishing alone can be done in a few hours. Comprehensive regeneration with reflector metallization usually takes 5 to 7 business days, depending on the scope of work and technology.</p>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Will cloudy headlights pass a technical inspection?</h3>
+                <p class="text-muted-foreground pl-6 border-l border-border/40">Heavily degraded lenses transmit only 20–30% of light, which risks a negative technical inspection result, or even refusal to allow the vehicle to be driven. Regeneration restores lighting parameters and helps avoid problems during inspection.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="space-y-8 sticky top-28">
+          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
+            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
+            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full font-semibold group/btn">
+              Write to us
+            </button>
+          </div>
+          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              Copy link
+            </button>
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              Print article
+            </button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+  } else if (lang === 'de') {
+    return `
+<div class="min-h-screen bg-background text-foreground font-sans">
+  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
+    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
+      <a href="/de/news" class="group flex items-center gap-3 text-left">
+        <div class="leading-tight">
+          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
+          <span class="block text-lg font-black">Aktuelles</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3 sm:gap-6">
+        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
+          <a href="/de/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">Über uns</a>
+          <a href="/de/#about" class="text-muted-foreground hover:text-accent transition-colors">Angebot</a>
+          <a href="/de/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projekte</a>
+          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galerie</a>
+          <a href="/de/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="/news/regeneracja-odblysnikow-reflektorow-samochodowych" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇵🇱</a>
+          <a href="/en/news/reflector-regeneration-and-headlight-polishing" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇬🇧</a>
+          <a href="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-100 scale-110">🇩🇪</a>
+        </div>
+        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
+          Kontakt
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20">
+    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
+      <div class="max-w-3xl">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artikel</span>
+          <span class="text-xs text-muted-foreground flex items-center gap-1">10. Juni 2026</span>
+          <span class="text-xs text-muted-foreground flex items-center gap-1">6 Min. Lesezeit</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
+          Regeneration von Scheinwerfern und Reflektoren – Ratgeber für Fahrer und STANIAX Angebot
+        </h1>
+        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
+          Scheinwerfer erfüllen in jedem Auto eine doppelte Rolle: Sie sorgen für Fahrsicherheit und beeinflussen die Ästhetik des Fahrzeugs. Wenn sie an Klarheit verlieren, sinkt die Sicht auf der Straße drastisch. In diesem Ratgeber erklären wir, wann und wie eine Regeneration durchgeführt werden sollte, welche Methoden dauerhafte Effekte erzielen und warum STANIAX der Partner ist, auf den Werkstätten und Scheinwerferhersteller in ganz Polen zurückgreifen.
+        </p>
+      </div>
+
+      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
+        <img src="/src/assets/odblysniki-nowe-1.jpeg" alt="Restaurierte Autoscheinwerfer-Reflektoren nach PVD-Vakuummetallisierung" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
+        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
+          <div class="space-y-6">
+            <h2 class="text-xl md:text-2xl font-black text-foreground pt-2">Regeneration von Scheinwerfern und Reflektoren – schnelle Antworten auf die häufigsten Fragen</h2>
+            <p>Wenn Sie bemerken, dass die Scheinwerfer und Nebelscheinwerfer-Reflektoren in Ihrem Auto schwächer als gewöhnlich leuchten, einen gelblichen Ton haben oder Sie beim TÜV eine Anmerkung erhalten haben – dann ist es Zeit für eine Regeneration. Ein Erblinden der Scheinwerfer kann dazu führen, dass das Fahrzeug nicht mehr zugelassen wird, weshalb man nicht zögern sollte. Das Polieren der Scheinwerfer verbessert deren Aussehen und Funktion, und die Regeneration der Scheinwerferreflektoren kann deren Leistung um bis zu 100 % steigern.</p>
+            <p>Die Regeneration von Scheinwerfern umfasst mehrere Bereiche: das Polieren der Streuscheibe – die Entfernung von Trübungen und Mikrokratzern von der äußeren Oberfläche; die Reflektoren Regeneration – das Erneuern der reflektierenden Schicht im Inneren der Lampe; sowie das Abdichten und der UV-Schutz – zum Schutz vor erneutem Erblinden.</p>
+            <p>Die Verbesserung der Sicht ist sofort spürbar und die Kosten beginnen bei ca. 150–300 PLN für das Polieren der Streuscheibe; eine vollständige Regeneration mit Reflektormetallisierung kostet 350–700 PLN – immer noch ein Vielfaches weniger als der Kauf neuer Lampen, bei denen beispielsweise Bi-Xenon-Scheinwerfer mehrere tausend PLN pro Stück kosten können. Die Scheinwerfer-Regeneration stellt die volle Leistung zu einem Bruchteil des Preises wieder her. Bei STANIAX spezialisieren wir uns auf die Reflektoren Regeneration mit industriellen Methoden – Vakuummetallisierung PVD und Spritzmetallisierung –, was eine dauerhaftere Wirkung hat als Amateurpolieren in der Garage.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Warum erblinden Scheinwerfer und verlieren ihren alten Glanz?</h2>
+            <p>Seit Ende der 90er Jahre bestehen die meisten Scheinwerfer aus Polycarbonat statt aus Glas. Polycarbonat ist leicht und schlagfest, aber anfällig für Degradation – insbesondere unter Sonneneinstrahlung. Die werkseitige Schutzschicht mit einer Dicke von nur 15–25 Mikrometern baut sich mit der Zeit ab und setzt den Kunststoff direkter UV-Strahlung aus.</p>
+            <p>Diese Faktoren führen zur allmählichen Zerstörung der Streuscheibe:</p>
+            <ul class="list-disc pl-6 mb-6 space-y-1">
+              <li>Scheinwerfer erblinden durch UV-Strahlen, die die Polycarbonatstruktur abbauen und Chromophore bilden – verfärbende Verbindungen, die einen Gelbstich verursachen,</li>
+              <li>saurer Regen und Streusalz beschädigen Autoscheinwerfer, indem sie sich in Mikrorisse fressen,</li>
+              <li>feine Steinchen und Straßensand auf der Oberfläche,</li>
+              <li>Witterungseinflüsse und zyklische Temperaturwechsel beschleunigen die Oxidation.</li>
+            </ul>
+            <p>Erblindete Scheinwerfer verschlechtern die Sicht beim Fahren – AAA-Studien zeigten, dass stark degradierte Streuscheiben im Vergleich zu neuen nur 20–30 % des Lichts durchlassen. Bei modernen Bi-Xenon-, Bi-LED- und Full-LED-Scheinwerfern senken Streuscheibentrübung und Reflektor-Reflexionsverlust die Lichtleistungsparameter besonders stark – was ein direkter Weg zu einer nicht bestandenen Hauptuntersuchung ist. Matte Scheinwerfer gefährden Ihre Sicherheit und die anderer Verkehrsteilnehmer, da sie die tatsächliche Reichweite des Lichtkegels verkürzen.</p>
+          </div>
+
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Scheinwerfer-Regeneration – Leistungsumfang und mögliche Methoden</h2>
+            <p>Die Scheinwerfer-Regeneration kann nur das Polieren der Streuscheibe oder eine umfassende Erneuerung des Lampeninneren bedeuten – es lohnt sich, zwischen diesen beiden Ansätzen klar zu unterscheiden, da sich Wirksamkeit und Preis stark unterscheiden.</p>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Scheinwerfer polieren</h3>
+              <p>Der Basisservice ist das Polieren der Scheinwerfer: Eine äußere Erneuerung der Streuscheibe, die die Entfernung von Trübungen, Mikrokratzern und das Auftragen einer UV-Schutzschicht umfasst. Matte Streuscheiben sind ideale Kandidaten für eine solche Renovierung – sofern das Lampeninnere in gutem Zustand ist.</p>
+            </div>
+            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
+              <h3 class="text-xl font-bold text-foreground">Umfassende Reparatur</h3>
+              <p>Die umfassende Scheinwerferreparatur umfasst: Demontage der Lampe aus dem Auto, Öffnen des Gehäuses, Reinigung des Innenraums, Reflektoren Regeneration (Vakuummetallisierung), eventuellen Dichtungsaustausch und erneutes Verkleben. Die Reflektoren Regeneration erhöht die Qualität des Lichtstrahls und stellt dem Werkzustand nahekommende Parameter wieder her. Die Dauer der Scheinwerfer-Regeneration beträgt 5 bis 7 Werktage – je nach Leistungsumfang und Technologie.</p>
+              <p>Bei STANIAX arbeiten wir meist an Reflektoren, die von Werkstätten oder Herstellern geliefert werden. Wir verwenden die Vakuum-PVD-Metallisierung für einen Spiegeleffekt und eine lange Haltbarkeit der Beschichtung. Der Umfang der Regeneration hängt vom Zustand der Lampen ab – flache Kratzer erfordern einen anderen Ansatz als verbrannte Reflektoren oder mit Wasser überflutete Lampen. Daher sollte die Regeneration immer mit einer fachmännischen Bewertung beginnen.</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Scheinwerfer polieren Schritt für Schritt – so stellen Sie die Klarheit der Streuscheibe wieder her</h2>
+            <p>Das Polieren von Scheinwerfern ist eine Aufgabe, die bei entsprechender Vorbereitung Sorgfalt erfordert, aber auch unter Garagenbedingungen machbar ist. Das Scheinwerferpolieren lässt sich in wenigen Stunden erledigen, und die Wirkung spiegelt sich direkt in einer besseren Sicht wider. Nachfolgend finden Sie eine Beschreibung der einzelnen Phasen.</p>
+            <p><strong>Benötigte Werkzeuge und Materialien:</strong></p>
+            <ul class="list-disc pl-6 mb-6 space-y-1">
+              <li>Malerband zum Schutz des Lacks um die Lampen herum,</li>
+              <li>Nassschleifpapier (Körnung 800, 1200, 2000, 3000) oder Schleifscheiben,</li>
+              <li>Exzenterpolierer oder Akkuschrauber mit Aufsatz, Polierschwämme,</li>
+              <li>Polierpaste für Kunststoffe (Renovierungssets enthalten Schleifpapier und Polierpaste),</li>
+              <li>Entfettungsmittel, Klarlack mit UV-Filter.</li>
+            </ul>
+            <p><strong>Schritte zum Polieren:</strong></p>
+            <p>1. <strong>Vorbereitung der Lampen</strong> – gründliche Reinigung der Streuscheibe, Entfetten der Oberfläche, Schutz des Lacks um den Scheinwerfer herum mit Klebeband.</p>
+            <p>2. <strong>Nassschleifen</strong> – verwenden Sie Schleifpapier mit der Kürnung 800 bis 3000, beginnend mit dem gröbsten. Horizontale und vertikale Bewegungen, um Richtungskratzer zu vermeiden. Kontrollieren Sie die Temperatur – Polycarbonat nicht überhitzen.</p>
+            <p>3. <strong>Eigentliches Polieren</strong> – niedrige Polierergeschwindigkeit, mäßiger Druck, arbeiten in Abschnitten. Das Scheinwerferpolieren erhöht die Transparenz und Helligkeit bereits in dieser Phase.</p>
+            <p>4. <strong>UV-Schutz</strong> – Scheinwerferpolieren erfordert das Auftragen einer neuen Schutzbeschichtung. Das Lackieren von Scheinwerfern erzeugt eine neue, harte Schutzschicht, die ein erneutes Erblinden verhindert. Schützen Sie die Scheinwerfer nach dem Polieren mit einer UV-Beschichtung – ohne diese verschwindet der Effekt innerhalb weniger Monate.</p>
+            <p>Das reine Polieren mit einem UV-Filter kostet 150 bis 300 PLN pro Lampe. Das Polieren verbessert die Sichtbarkeit auf der Straße um einige Meter – der Unterschied macht sich besonders nachts bemerkbar. Denken Sie jedoch daran, dass das Polieren der Streuscheibe ohne Demontage der Lampe eine schnelle Lösung, aber nicht immer ausreichend ist – wenn der Reflektor im Inneren verbrannt oder korrodiert ist, hilft eine einfache Außenreinigung nicht.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Lampenvorbereitung für die umfassende Reflektoren Regeneration</h2>
+            <p>Die Reflektoren Regeneration erfordert den Ausbau der Lampe aus dem Fahrzeug und das Lösen des Gehäuses – dies wird normalerweise von einer Fachwerkstatt durchgeführt, während STANIAX den Oberflächenteil des Reflektors übernimmt: Metallisierung und Beschichtungen.</p>
+            <p><strong>Wie B2B-Kunden und Werkstätten Elemente für den Versand vorbereiten sollten:</strong></p>
+            <ul class="list-disc pl-6 mb-6 space-y-1">
+              <li>Demontage der Scheinwerfer aus dem Auto – die Lampenvorbereitung beginnt mit dem vorsichtigen Ausbau der kompletten Scheinwerfer,</li>
+              <li>Öffnen des Gehäuses und Entnehmen der Reflektoren aus dem Inneren,</li>
+              <li>Entfernen von Resten des alten Klebers und Schmutz,</li>
+              <li>Schutz empfindlicher Stellen vor mechanischer Beschädigung (Kontakt mit scharfen Gegenständen vermeiden).</li>
+            </ul>
+            <p>Reflektoren sollten vorher nicht mechanisch poliert werden – dies beschädigt ihre Geometrie und erschwert eine korrekte Vakuummetallisierung. Die Oberfläche der Reflektoren wird von STANIAX zusätzlich gereinigt und vorbereitet: Entfernung der vorherigen Metallisierung zusammen mit dem Schleifen der Innenfläche, Entfetten und Auftragen einer Grundierung, falls das jeweilige System dies erfordert. Der Versand sollte wie folgt aussehen: feste Kartons, einzelner Schutz jedes Reflektors mit Luftpolsterfolie, Beschreibung von Auto/Modell/Baujahr – so vermeiden wir Fehler. Ein Austausch der Scheinwerfer ist nur bei schwerwiegenden strukturellen Schäden erforderlich – was jedoch selten vorkommt; die meisten alten Lampen lassen sich erfolgreich erneuern.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Professionelle Reflektoren Regeneration bei STANIAX – Vakuum- und Spritzmetallisierung</h2>
+            <p>Der Reflektor ist das Herzstück des Scheinwerfers – er formt den Lichtkegel und entscheidet über die Lichtqualität. Sein Ausbrennen führt zu einem drastischen Leistungsabfall, selbst bei neuen Glühbirnen oder LED-Modulen. Die Reflektoren Regeneration erhöht deren Lebensdauer und verbessert die Sicherheit, indem sie die richtige Menge an reflektiertem Licht wiederherstellt.</p>
+            <p>Die Vakuummetallisierung (PVD) besteht darin, Aluminium in einer Vakuumkammer zu verdampfen und eine ultradünne, gleichmäßige Schicht auf die Reflektoroberfläche aufzutragen. Der Spiegeleffekt ist mit der Werksausführung vergleichbar, und der Reflexionsgrad liegt bei über 85%. Die Kosten für die Regeneration mit Vakuummetallisierung betragen ca. 350–700 PLN pro Stück – immer noch um ein Vielfaches weniger als ein neuer Scheinwerfer.</p>
+            <p>Die Spritzmetallisierung stellt eine Alternative für bestimmte Serien von Details dar, wenn eine dickere oder spezifische Beschichtung erforderlich ist. STANIAX setzt industrielle Lacksysteme und UV-Schutzlacke ein, wodurch regenerierte Reflektoren unempfindlich gegen Scheinwerferbetriebstemperaturen und Feuchtigkeit sind. Diese Dienstleistung richtet sich in erster Linie an Werkstätten, Lackierereien und Hersteller von Beleuchtungskomponenten, aber Autofahrer profitieren indirekt davon, da ihre Scheinwerfer wieder Werksparameter und ein attraktives Aussehen erhalten.</p>
+          </div>
+
+          <h3 class="text-lg md:text-xl font-bold text-foreground mb-3 mt-8">Polieren der Streuscheibe, Innenregeneration oder Scheinwerfertausch – was wählen?</h3>
+          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
+            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
+              <thead>
+                <tr class="border-b border-border/80 bg-muted/40">
+                  <th class="p-4 font-bold text-foreground">Methode</th>
+                  <th class="p-4 font-bold text-foreground">Kosten (pro Stk.)</th>
+                  <th class="p-4 font-bold text-foreground">Haltbarkeit des Effekts</th>
+                  <th class="p-4 font-bold text-foreground">Umfang</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border/60">
+                <tr class="hover:bg-muted/10 transition-colors">
+                  <td class="p-4 font-medium text-foreground">Streuscheibe polieren</td>
+                  <td class="p-4">150–300 PLN</td>
+                  <td class="p-4">1–2 Saisons</td>
+                  <td class="p-4">nur äußere Oberfläche</td>
+                </tr>
+                <tr class="hover:bg-muted/10 transition-colors">
+                  <td class="p-4 font-medium text-foreground">Umfassende Regeneration</td>
+                  <td class="p-4">350–700 PLN</td>
+                  <td class="p-4">3–5 Jahre</td>
+                  <td class="p-4">Streuscheibe + Reflektor + Dichtungen</td>
+                </tr>
+                <tr class="hover:bg-muted/10 transition-colors">
+                  <td class="p-4 font-medium text-foreground">Neuer Scheinwerfer (OEM)</td>
+                  <td class="p-4">1.500–5.000+ PLN</td>
+                  <td class="p-4">werkseitig</td>
+                  <td class="p-4">komplettes Set</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Beleuchtungsmodernisierung – Montage von Bi-LED-, Bi-Xenon-Linsen und Scheinwerfer-Tuning</h2>
+            <p>Die Regeneration ist nicht nur Reparatur – sie ist auch eine Gelegenheit, die Beleuchtung zu modernisieren, insbesondere bei älteren Modellen mit Halogenscheinwerfern. Anstatt nur den alten Glanz wiederherzustellen, können die Lichtparameter verbessert werden.</p>
+            <p>Die Montage von Bi-LED-Linsen wird immer beliebter: Bi-LED-Linsen sorgen für einen besser fokussierten Lichtkegel, eine gleichmäßige Ausleuchtung des Fahrbahnrandes und einen geringen Energieverbrauch im Vergleich zu klassischen Glühbirnen. Der Einbau von Bi-LED-Linsen erhöht die Lichtqualität, und die Montage von LED-Projektoren steigert die Helligkeit um 100%. Das Scheinwerfer-Tuning vergrößert die Leuchtweite bei Nacht – der Unterschied ist besonders auf Landstraßen spürbar.</p>
+            <p>Xenon- und Bi-Xenon-Lösungen bleiben eine beliebte Alternative, obwohl sich der Markt allmählich auf LED-Technik verlagert. Es ist gut zu wissen, dass die Anpassung von Scheinwerfern aus UK das Verstellen des Lichtstrahls erfordert – das ist wichtig beim Import eines Autos aus Großbritannien. Die Montage von Linsen erfordert eine korrekte Einstellung der Hell-Dunkel-Grenze und die Anpassung an die Vorschriften, um andere Autofahrer und andere Verkehrsteilnehmer nicht zu blenden. Daher sollte die Montage von Bi-LED-Linsen Fachwerkstätten anvertraut werden.</p>
+            <p>Andere Formen des Scheinwerfer-Tunings – Lackieren des Scheinwerferinnenraums, Montage von LED-Ringen, DRL-Ergänzungen – können dem Auto einen modernen Look verleihen. STANIAX als Industrielackiererei bietet hochwertiges dekoratives Lackieren von Innen- und Außenelementen, ähnlich wie bei Glas- und Scheinwerferrahmenlackierungen.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Schutz der Lampen nach der Regeneration – PPF-Folie, UV-Beschichtungen und Lackieren</h2>
+            <p>Die reinen Renovierungskosten sind nur der halbe Erfolg – die Haltbarkeit des Effekts hängt vom Schutz für die kommenden Jahre ab.</p>
+            <p>PPF-Folie ist einer der wirksamsten Schutze für Scheinwerferstreuscheiben. Sie schützt die Scheinwerfer vor äußeren Schäden – Steinen, Kratzern und UV-Strahlung. Professionelles Folieren ist praktisch unsichtbar, und die Haltbarkeit beträgt 5–10 Jahre.</p>
+            <p>Eine Alternative sind professionelle Klarlacke mit UV-Filtern, die in Lackierereien und von STANIAX auf dekorativen Elementen verwendet werden. Erneuerte Scheinwerfer bedeuten eine bessere Sicht auf der Straße, und ein entsprechender Schutz erhält diesen Effekt. Für industrielle Anwendungen und Scheinwerferhersteller bietet STANIAX im Spritzverfahren aufgetragene UV-Schutzlacke an, die eine hohe chemische und mechanische Beständigkeit bei gleichzeitiger Transparenz bieten.</p>
+            <p>Vernachlässigen Sie nach der Regeneration nicht das regelmäßige Reinigen der Scheinwerfer mit milden Mitteln und die regelmäßige Dichtheitskontrolle – Wasser im Scheinwerfer zerstört auch frisch regenerierte Reflektoren schnell. Vermeiden Sie aggressive chemische Produkte beim Schleifen und Reinigen und parken Sie das Auto nach Möglichkeit im Schatten oder in einer Garage.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Scheinwerfer-Regeneration: Sicherheit und Rentabilität</h2>
+            <p>Funktionstüchtige Scheinwerfer bedeuten eine größere Sichtweite vor dem Fahrzeug, eine bessere Ausleuchtung des Fahrbahnrandes und mehr Zeit zum Reagieren in Notsituationen. Das Polieren verbessert die Sicht auf der Straße, und eine umfassende Regeneration mit Metallisierung stellt Parameter nahe am Werkzustand wieder her – was sich direkt auf die Fahrsicherheit aller Verkehrsteilnehmer auswirkt.</p>
+            <p>Der wirtschaftliche Aspekt ist ebenso wichtig: Die Scheinwerfer-Regeneration (insbesondere mit Reflektoren Regeneration) is um ein Vielfaches günstiger als der Kauf neuer Scheinwerfer und verlängert gleichzeitig deren Lebensdauer für die kommenden Jahre. Eine Reparatur statt eines Austauschs bedeutet auch weniger Abfall – ein verantwortungsvollerer Umgang mit dem Fahrzeugbetrieb.</p>
+            <p>Bei Firmenflotten – Liefer- und Dienstwagen – senkt eine regelmäßige Scheinwerferrenovierung die Wartungskosten erheblich. Bevor Sie sich für einen teuren Austausch eines kompletten Scheinwerfers entscheiden, wenden Sie sich an die mit STANIAX kooperierenden Fachleute.</p>
+          </div>
+
+          <div class="space-y-4">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">STANIAX – B2B-Partner bei der Reflektoren Regeneration und Scheinwerfer-Oberflächenbehandlung</h2>
+            <p>STANIAX ist ein Spezialist für Geschäftskunden: Scheinwerferhersteller, Kfz-Werkstätten, Lackierereien und Automotive-Unternehmen. Zu unseren Kernkompetenzen gehören die Vakuum-PVD-Metallisierung von Reflektoren und Dekorelementen, die Spritzmetallisierung, das Lackieren von Kunststoffen, Metallen und Glas sowie das Auftragen von Grundierungen und langlebigen UV-Schutzlacken.</p>
+            <p>Wir legen Wert auf Spiegeleffekte, hohe Oberflächenästhetik, Serienwiederholbarkeit und Haltbarkeit der Beschichtung – besonders wichtig für Hersteller von Scheinwerfern, Spiegeln und Autoinnenraumteilen. Unsere Erfahrung umfasst Projekte für die Automotive-Branche: Reflektoren für Halogen- und Bi-Xenon-Scheinwerfer, dekorative Cockpitelemente, Abdeckungen und Scheinwerferrahmen – immer in Übereinstimmung mit Qualitätsanforderungen auf OEM-Niveau.</p>
+            <p>Wenn Sie eine Werkstatt, eine Lackiererei oder einen Hersteller von Beleuchtungskomponenten betreiben und einen Partner für die Reflektoren Regeneration, die Veredelung von Serien-Autoscheinwerfern oder Spezialprojekte im Bereich Metallisierung und dekorativer Lackierung suchen – kontaktieren Sie uns. Gemeinsam finden wir eine auf Ihre Produktionsbedürfnisse zugeschnittene Lösung.</p>
+          </div>
+
+          <div class="space-y-6 pt-6 border-t border-border/80">
+            <h2 class="text-2xl md:text-3xl font-black text-foreground">Häufig gestellte Fragen (FAQ)</h2>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Wie viel kostet die Scheinwerfer-Regeneration?</h3>
+                <p class="text-muted-foreground pl-6 border-l border-border/40">Das Polieren der Streuscheibe mit UV-Beschichtung kostet 150–300 PLN pro Lampe, eine umfassende Regeneration mit Reflektormetallisierung 350–700 PLN pro Stück. Im Vergleich dazu kostet ein neuer OEM-Scheinwerfer ab 1.500 bis über 5.000 PLN.</p>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Wie lange dauert die Scheinwerfer-Regeneration?</h3>
+                <p class="text-muted-foreground pl-6 border-l border-border/40">Das reine Polieren der Streuscheibe kann in wenigen Stunden erledigt werden. Eine umfassende Regeneration mit Reflektormetallisierung dauert in der Regel 5 bis 7 Werktage, je nach Arbeitsaufwand und Technologie.</p>
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-foreground flex items-start gap-2"><span class="text-accent">Q:</span>Bestehen erblindete Scheinwerfer die Hauptuntersuchung?</h3>
+                <p class="text-muted-foreground pl-6 border-l border-border/40">Stark degradierte Streuscheiben lassen nur 20–30 % des Lichts durch, was zu einer nicht bestandenen Hauptuntersuchung oder sogar zum Entzug der Straßenzulassung führen kann. Die Regeneration stellt die Lichtwerte wieder her und vermeidet Probleme bei der HU.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="space-y-8 sticky top-28">
+          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
+            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
+            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
+            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full font-semibold group/btn">
+              Kontakt
+            </button>
+          </div>
+          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              Link kopieren
+            </button>
+            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
+              Artikel drucken
+            </button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+  }
+}
+
+// 7. Polish version (Reflectors)
+writePrerenderFile('news/regeneracja-odblysnikow-reflektorow-samochodowych', plReflectorsMeta, getReflectorsHtml('pl'))
+
+// 8. English version (Reflectors)
+writePrerenderFile('en/news/reflector-regeneration-and-headlight-polishing', enReflectorsMeta, getReflectorsHtml('en'))
+
+// 9. German version (Reflectors)
+writePrerenderFile('de/news/scheinwerfer-reflektoren-regeneration-und-polieren', deReflectorsMeta, getReflectorsHtml('de'))
+
+
 // 7. Generate Homepage Shells for PL (/), EN (/en), and DE (/de)
 function generateHomepageShells() {
   const enMetaTags = `
-    <title>STANIAX - Vacuum Metalizing | Vacuum Metal Deposition</title>
-    <meta name="description" content="Staniax offers premium vacuum metalizing and vacuum metal deposition services for plastics, glass, and metals. Explore vacuum casting metal alternatives!" />
-    <meta property="og:title" content="STANIAX - Vacuum Metalizing | Vacuum Metal Deposition" />
-    <meta property="og:description" content="Staniax offers premium vacuum metalizing and vacuum metal deposition services for plastics, glass, and metals. Explore vacuum casting metal alternatives!" />
+    <title>STANIAX - Vacuum Metalizing & PVD Deposition</title>
+    <meta name="description" content="Staniax offers premium vacuum metalizing and PVD coating services for plastics, glass, and metals. Explore our completed projects!" />
+    <meta property="og:title" content="STANIAX - Vacuum Metalizing & PVD Deposition" />
+    <meta property="og:description" content="Staniax offers premium vacuum metalizing and PVD coating services for plastics, glass, and metals. Explore our completed projects!" />
     <meta property="og:type" content="website" />
   `;
 
   const deMetaTags = `
-    <title>STANIAX - Vakuummetallisierung | Vakuum-Metallbedampfung | Vakuumguss</title>
-    <meta name="description" content="Staniax bietet erstklassige Vakuummetallisierung und Vakuum-Metallbedampfung für Kunststoffe, Glas und Metalle. Entdecken Sie Vakuumguss Metall Alternativen!" />
-    <meta property="og:title" content="STANIAX - Vakuummetallisierung | Vakuum-Metallbedampfung | Vakuumguss" />
-    <meta property="og:description" content="Staniax bietet erstklassige Vakuummetallisierung und Vakuum-Metallbedampfung für Kunststoffe, Glas und Metalle. Entdecken Sie Vakuumguss Metall Alternativen!" />
+    <title>STANIAX - Vakuummetallisierung & PVD Beschichtung</title>
+    <meta name="description" content="Staniax bietet erstklassige Vakuummetallisierung und PVD-Beschichtung für Kunststoffe, Glas und Metalle. Sehen Sie sich unsere Realisierungen an!" />
+    <meta property="og:title" content="STANIAX - Vakuummetallisierung & PVD Beschichtung" />
+    <meta property="og:description" content="Staniax bietet erstklassige Vakuummetallisierung und PVD-Beschichtung für Kunststoffe, Glas und Metalle. Sehen Sie sich unsere Realisierungen an!" />
     <meta property="og:type" content="website" />
   `;
 
@@ -1475,18 +2312,20 @@ function generateHomepageShells() {
   const deCanonical = `\n    <link rel="canonical" href="https://www.staniax.pl/de" />\n`;
 
   // 1. Update PL (main index.html in dist)
-  let plHtml = baseHtml;
-  plHtml = plHtml.replace(/<title>[^<]*<\/title>/, '<title>STANIAX - Metalizacja Próżniowa | Lakierowanie Tworzyw, Szkła i Metali</title>');
-  plHtml = plHtml.replace(/<meta name="description"[^>]*>/, '<meta name="description" content="Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw sztucznych, szkła i detali. Najwyższa jakość wykończenia. Sprawdź naszą galerię realizacji!" />');
+  let plHtml = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
+  plHtml = plHtml.replace(/<title>[^<]*<\/title>/, '<title>STANIAX - Metalizacja Próżniowa i Lakierowanie Tworzyw</title>');
+  plHtml = plHtml.replace(/<meta name="description"[^>]*>/, '<meta name="description" content="Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw sztucznych, szkła i detali. Zobacz realizacje!" />');
   
-  if (!plHtml.includes('rel="canonical"')) {
-    plHtml = plHtml.replace('</head>', `${plCanonical}</head>`);
-  }
+  plHtml = plHtml.replace('</head>', `${plCanonical}</head>`);
+  
+  // Inject a screen-reader-only H1 for SEO bots that do not execute JS
+  plHtml = plHtml.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">STANIAX - Metalizacja Próżniowa i Lakierowanie Tworzyw</h1></div>`);
+  
   fs.writeFileSync(indexPath, plHtml, 'utf-8');
-  console.log('Successfully injected canonical link and verified metadata in dist/index.html');
+  console.log('Successfully injected canonical link, metadata, and H1 in dist/index.html');
 
   // 2. Create EN homepage shell (dist/en/index.html)
-  let enHtml = baseHtml;
+  let enHtml = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
   enHtml = enHtml.replace('<html lang="pl">', '<html lang="en">');
   enHtml = enHtml.replace(/<title>[^<]*<\/title>/, '');
   enHtml = enHtml.replace(/<meta name="description"[^>]*>/, '');
@@ -1496,15 +2335,17 @@ function generateHomepageShells() {
   enHtml = enHtml.replace(/<meta name="keywords"[^>]*>/, '<meta name="keywords" content="vacuum metalizing, vacuum metal deposition, vacuum casting metal, metal vacuum, plastic painting, glass painting, staniax, metallization" />');
   enHtml = enHtml.replace('</head>', `${enMetaTags}${enCanonical}</head>`);
   
+  enHtml = enHtml.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">STANIAX - Vacuum Metalizing</h1></div>`);
+
   const enDir = path.join(distDir, 'en');
   if (!fs.existsSync(enDir)) {
     fs.mkdirSync(enDir, { recursive: true });
   }
   fs.writeFileSync(path.join(enDir, 'index.html'), enHtml, 'utf-8');
-  console.log('Successfully generated dist/en/index.html homepage shell');
+  console.log('Successfully generated dist/en/index.html homepage shell with H1');
 
   // 3. Create DE homepage shell (dist/de/index.html)
-  let deHtml = baseHtml;
+  let deHtml = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
   deHtml = deHtml.replace('<html lang="pl">', '<html lang="de">');
   deHtml = deHtml.replace(/<title>[^<]*<\/title>/, '');
   deHtml = deHtml.replace(/<meta name="description"[^>]*>/, '');
@@ -1514,12 +2355,14 @@ function generateHomepageShells() {
   deHtml = deHtml.replace(/<meta name="keywords"[^>]*>/, '<meta name="keywords" content="Vakuummetallisierung, Vakuum-Metallbedampfung, Vakuumguss Metall, Metallvakuum, Kunststofflackierung, Glaslackierung, staniax, metallisierung" />');
   deHtml = deHtml.replace('</head>', `${deMetaTags}${deCanonical}</head>`);
   
+  deHtml = deHtml.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">STANIAX - Vakuummetallisierung</h1></div>`);
+
   const deDir = path.join(distDir, 'de');
   if (!fs.existsSync(deDir)) {
     fs.mkdirSync(deDir, { recursive: true });
   }
   fs.writeFileSync(path.join(deDir, 'index.html'), deHtml, 'utf-8');
-  console.log('Successfully generated dist/de/index.html homepage shell');
+  console.log('Successfully generated dist/de/index.html homepage shell with H1');
 }
 
 generateHomepageShells();
@@ -1561,13 +2404,13 @@ function generateCategoryShells() {
     {
       subPath: 'de/news',
       lang: 'de',
-      title: 'Wissensdatenbank & Aktuelles - Vakuummetallisierung | STANIAX',
+      title: 'Aktuelles zur Vakuummetallisierung | STANIAX',
       desc: 'Aktuelles, Leitfäden und Expertenartikel über Vakuummetallisierung und Lackierung. Wissensdatenbank zur Oberflächenveredelung.'
     }
   ];
 
   shells.forEach(s => {
-    let html = baseHtml;
+    let html = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
     html = html.replace('<html lang="pl">', `<html lang="${s.lang}">`);
     html = html.replace(/<title>[^<]*<\/title>/, '');
     html = html.replace(/<meta name="description"[^>]*>/, '');
@@ -1585,6 +2428,9 @@ function generateCategoryShells() {
     `;
 
     html = html.replace('</head>', `${metaTags}</head>`);
+    
+    // Inject a screen-reader-only H1 for SEO bots that do not execute JS
+    html = html.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">${s.title}</h1></div>`);
     
     const targetDir = path.join(distDir, s.subPath);
     if (!fs.existsSync(targetDir)) {

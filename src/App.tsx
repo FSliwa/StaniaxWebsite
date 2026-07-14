@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
-import React, { Suspense, lazy } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import React, { Suspense, lazy, useEffect } from 'react'
 import { ScrollProgress } from './components/ui/ScrollProgress';
 
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -7,8 +7,22 @@ const NewsPage = lazy(() => import('./pages/NewsPage'))
 const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 const ArticleAviation = lazy(() => import('./pages/ArticleAviation'))
 const ArticleBeauty = lazy(() => import('./pages/ArticleBeauty'))
+const ArticleReflectors = lazy(() => import('./pages/ArticleReflectors'))
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path.startsWith('/en')) {
+      document.documentElement.lang = 'en';
+    } else if (path.startsWith('/de')) {
+      document.documentElement.lang = 'de';
+    } else {
+      document.documentElement.lang = 'pl';
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <ScrollProgress />
@@ -34,6 +48,10 @@ function App() {
           <Route path="/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty" element={<ArticleBeauty lang="pl" />} />
           <Route path="/en/news/vacuum-metallization-revolutionizes-beauty-industry" element={<ArticleBeauty lang="en" />} />
           <Route path="/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche" element={<ArticleBeauty lang="de" />} />
+          
+          <Route path="/news/regeneracja-odblysnikow-reflektorow-samochodowych" element={<ArticleReflectors lang="pl" />} />
+          <Route path="/en/news/reflector-regeneration-and-headlight-polishing" element={<ArticleReflectors lang="en" />} />
+          <Route path="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" element={<ArticleReflectors lang="de" />} />
           
           <Route path="/gallery" element={<GalleryPage lang="pl" />} />
           <Route path="/en/gallery" element={<GalleryPage lang="en" />} />

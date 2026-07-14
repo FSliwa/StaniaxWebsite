@@ -9,8 +9,17 @@ import { t, type Lang } from '@/lib/translations'
 import vacuumMetalizationChamber from '@/assets/vacuum_metalization_chamber.jpg'
 import newsAviationImage from '@/assets/news_aviation.jpg'
 import colorfulPackagingImage from '@/assets/colorful_packaging.png'
+import newReflectorsImage from '@/assets/odblysniki-nowe-1.jpeg'
 
 const newsItemsPl = [
+  {
+    title: 'Regeneracja odbłyśników i reflektorów samochodowych – poradnik kierowcy',
+    date: '10 czerwca 2026',
+    category: 'Artykuł',
+    excerpt: 'Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić.',
+    image: newReflectorsImage,
+    path: '/news/regeneracja-odblysnikow-reflektorow-samochodowych'
+  },
   {
     title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
     date: '25 maja 2026',
@@ -36,14 +45,6 @@ const newsItemsPl = [
     path: '/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty'
   },
   {
-    title: 'Nagroda Innowacyjności Przemysłowej 2025',
-    date: '5 czerwca 2025',
-    category: 'Nagrody',
-    excerpt: 'STANIAX został uhonorowany prestiżową Nagrodą Innowacyjności Przemysłowej za wkład w rozwój ekologicznych rozwiązań metalizacyjnych.',
-    image: 'https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
-  },
-  {
     title: 'Szkolenia dla Zespołu Inżynieryjnego',
     date: '18 maja 2025',
     category: 'Rozwój',
@@ -54,6 +55,14 @@ const newsItemsPl = [
 ]
 
 const newsItemsEn = [
+  {
+    title: 'Regeneration of Reflectors and Car Headlights – Driver\'s Guide',
+    date: 'June 10, 2026',
+    category: 'Article',
+    excerpt: 'Reflector regeneration using the PVD method and headlight polishing. Prices from 150 PLN, durability up to 5 years. Check when to restore and when to replace.',
+    image: newReflectorsImage,
+    path: '/en/news/reflector-regeneration-and-headlight-polishing'
+  },
   {
     title: 'Modern Vacuum Metallization and Reflector Regeneration in Józefów',
     date: 'May 25, 2026',
@@ -87,14 +96,6 @@ const newsItemsEn = [
     path: '#'
   },
   {
-    title: 'Industrial Innovation Award 2025',
-    date: 'June 5, 2025',
-    category: 'Awards',
-    excerpt: 'STANIAX has been honored with the prestigious Industrial Innovation Award for its contribution to the development of ecological metallization solutions.',
-    image: 'https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
-  },
-  {
     title: 'Training for the Engineering Team',
     date: 'May 18, 2025',
     category: 'Development',
@@ -105,6 +106,14 @@ const newsItemsEn = [
 ]
 
 const newsItemsDe = [
+  {
+    title: 'Regeneration von Scheinwerfern und Reflektoren – Ratgeber für Fahrer',
+    date: '10. Juni 2026',
+    category: 'Artikel',
+    excerpt: 'Regeneration von Reflektoren mittels PVD-Methode und Polieren von Scheinwerfern. Preise ab 150 PLN, Haltbarkeit bis zu 5 Jahre. Wann regenerieren und wann ersetzen.',
+    image: newReflectorsImage,
+    path: '/de/news/scheinwerfer-reflektoren-regeneration-und-polieren'
+  },
   {
     title: 'Moderne Vakuummetallisierung und Reflektorregeneration in Józefów',
     date: '25. Mai 2026',
@@ -135,14 +144,6 @@ const newsItemsDe = [
     category: 'Qualität',
     excerpt: 'Investition in modernste Messgeräte und Erweiterung des Forschungs- und Ingenieurteams zur Gewährleistung einer 100-prozentigen Wiederholbarkeit der Parameter.',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
-  },
-  {
-    title: 'Industrieller Innovationspreis 2025',
-    date: '5. Juni 2025',
-    category: 'Auszeichnungen',
-    excerpt: 'STANIAX wurde mit dem prestigeträchtigen Industriellen Innovationspreis für seinen Beitrag zur Entwicklung ökologischer Metallisierungslösungen ausgezeichnet.',
-    image: 'https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?w=1200&h=800&fit=crop&crop=center',
     path: '#'
   },
   {
@@ -238,7 +239,7 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const pageTitle = lang === 'pl' 
       ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX' 
       : lang === 'de'
-      ? 'Wissensdatenbank & Aktuelles - Vakuummetallisierung | STANIAX'
+      ? 'Aktuelles zur Vakuummetallisierung | STANIAX'
       : 'Knowledge Base & News - Vacuum Metallization | STANIAX'
     const pageDesc = lang === 'pl'
       ? 'Aktualności, poradniki i artykuły eksperckie na temat metalizacji próżniowej oraz lakierowania. Baza wiedzy o uszlachetnianiu powierzchni.'

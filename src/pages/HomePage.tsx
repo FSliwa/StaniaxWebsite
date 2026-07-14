@@ -1256,7 +1256,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
             )}
           >
             <div className="flex flex-col items-start">
-              <button
+              <div
                 onClick={() => {
                   const lenis = (window as any).lenis
                   if (lenis) {
@@ -1265,10 +1265,18 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     window.scrollTo({ top: 0, behavior: 'smooth' })
                   }
                 }}
-                className="group text-left flex items-start gap-3 sm:gap-4"
+                className="group text-left flex items-start gap-3 sm:gap-4 cursor-pointer"
+                role="button"
+                tabIndex={0}
                 aria-label="Przewiń na górę"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
               >
-                <span
+                <div
                   className={cn(
                     'text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter transition-colors duration-500 shrink-0',
                     isMenuOpen
@@ -1281,8 +1289,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                   )}
                 >
                   STANIAX
-                </span>
-                <span
+                </div>
+                <div
                   className={cn(
                     'hidden sm:flex flex-col justify-center tracking-wide uppercase transition-colors duration-500 leading-none',
                     isMenuOpen
@@ -1294,10 +1302,10 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           : 'text-slate-500/70'
                   )}
                 >
-                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight whitespace-nowrap">Systemy metalizacji próżniowej</span>
-                 <span className="text-xl sm:text-2xl lg:text-3xl font-medium leading-tight mt-0.5">Lakierowanie tworzyw / szkła / metali</span>
-                </span>
-              </button>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight whitespace-nowrap m-0 p-0">Systemy metalizacji próżniowej</h1>
+                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium leading-tight mt-0.5 m-0 p-0">Lakierowanie tworzyw / szkła / metali</h2>
+                </div>
+              </div>
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
                 <div className="flex items-center gap-2">
                   {languageLinks.map((l) => (
