@@ -195,7 +195,7 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
 
                     <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-xs font-mono text-gray-500 uppercase tracking-widest border-t border-white/5 pt-8">
                         <p>&copy; {currentYear} STANIAX Sp.&nbsp;z&nbsp;o.o. All rights reserved.</p>
-                        <p>DESIGNED & DEVELOPED BY FILIP ŚLIWA</p>
+                        <p>Wdrożenie strony i <a href="https://ai-seo-company.pl" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline">Optymalizacja SEO</a> wykonane przez <a href="https://ai-seo-company.pl" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline">AI SEO COMPANY</a></p>
                     </div>
                 </div>
 
