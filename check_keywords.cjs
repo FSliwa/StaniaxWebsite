@@ -5,41 +5,42 @@ const keywords = [
   'vacuum',
   'regeneration',
   'metalizacja próżniowa',
-  'metalizowanie próżniowe',
-  'metalizacja plastiku',
-  'vakuumbeschichtung',
+  'metalizacja tworzyw',
+  'vakuummetallisierung',
   'metallization',
   'vacuum metallization',
-  'vacuum metalizing',
   'metalizacja',
-  'metalizacja próżniowa cennik',
+  'staniax',
   'metalizacja tworzyw sztucznych',
-  'metalizacja tworzyw sztucznych cennik',
-  'metalizacja plastików cennik',
-  'metalizacja próżniowa aluminium',
-  'metalizacja aluminium'
+  'metalizacja próżniowa dariusz staniak',
+  'metalizacja próżniowa tworzyw sztucznych',
+  'metalizacja aluminium',
+  'metalizacja dariusz staniak',
+  'regeneracja lamp samochodowych',
+  'regeneracja reflektorów',
+  'regeneracja lamp',
+  'naprawa lamp samochodowych',
+  'regeneracja odbłyśników'
 ];
 
-function getAllFiles(dirPath, arrayOfFiles) {
-  let currentFiles = fs.readdirSync(dirPath)
-  arrayOfFiles = arrayOfFiles || []
-  currentFiles.forEach(function(file) {
-    if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-      arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
-    } else {
-      arrayOfFiles.push(path.join(__dirname, dirPath, "/", file))
-    }
-  })
-  return arrayOfFiles
-}
-
-const allfiles = getAllFiles('src').filter(f => f.endsWith('.ts') || f.endsWith('.tsx'));
+const filesToScan = [
+  'src/lib/translations.ts',
+  'src/pages/HomePage.tsx',
+  'src/pages/ArticleAviation.tsx',
+  'src/pages/ArticleBeauty.tsx',
+  'src/pages/ArticleReflectors.tsx',
+  'src/pages/NewsPage.tsx',
+  'src/pages/GalleryPage.tsx'
+];
 
 const results = {};
-keywords.forEach(kw => results[kw] = false);
 
-allfiles.forEach(file => {
-  const content = fs.readFileSync(file, 'utf-8').toLowerCase();
+keywords.forEach(kw => {
+  results[kw] = false;
+});
+
+filesToScan.forEach(file => {
+  const content = fs.readFileSync(path.join(__dirname, file), 'utf-8').toLowerCase();
   keywords.forEach(kw => {
     if (content.includes(kw.toLowerCase())) {
       results[kw] = true;
@@ -47,4 +48,7 @@ allfiles.forEach(file => {
   });
 });
 
-console.log(JSON.stringify(results, null, 2));
+console.log("Znalezione na stronie:");
+keywords.forEach(kw => {
+  console.log(`- ${kw}: ${results[kw] ? 'TAK' : 'NIE'}`);
+});
