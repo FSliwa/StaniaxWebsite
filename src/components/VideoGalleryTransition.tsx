@@ -202,7 +202,7 @@ export function VideoGalleryTransition({ lang = 'pl' as Lang }: { lang?: Lang })
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.37 }}
                         className="col-span-1 row-span-1 rounded-[20px] overflow-hidden shadow-lg group"
                     >
-                        <img src={bentoTile3} alt="Reflektory" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                        <img src={bentoTile3} alt={lang === 'pl' ? "Regeneracja lamp samochodowych" : "Reflektory"} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                     </motion.div>
 
                 </div>

@@ -3,6 +3,8 @@ export type Lang = 'pl' | 'en' | 'de'
 const translations = {
   pl: {
     // Nav & Header
+    navHeaderLine1: 'Systemy metalizacji próżniowej',
+    navHeaderLine2: 'Lakierowanie tworzyw / szkła / metali',
     kontakt: 'Kontakt',
     oStaniax: 'O STANIAX',
     oferta: 'Oferta',
@@ -21,7 +23,7 @@ const translations = {
 
     // Bento grid
     bentoSubtitle: 'STANIAX Sp. z o.o.',
-    bentoTitle: 'Metalizacja i Lakierowanie',
+    bentoTitle: 'Metalizacja, Lakierowanie i Regeneracja Lamp Samochodowych',
     bentoDesc: 'Perfekcyjne powłoki metaliczne i lakiernicze. Ponad 25 lat doświadczenia w metalizacji próżniowej.',
     wycenProjekt: 'Wyceń Projekt',
     latDoswiadczenia: 'LAT DOŚWIADCZENIA',
@@ -236,11 +238,13 @@ const translations = {
     bazaWiedzyAppTitle: 'Zastosowania i pokrewne techniki obróbki',
     bazaWiedzyAppDesc: 'Nie wszystkie materiały i geometrie pozwalają na obróbkę w warunkach wysokiej próżni. W takich przypadkach konieczne jest zastosowanie metod pokrewnych, które pozwalają na równomierne rozłożenie materiału na powierzchniach o nietypowych kształtach. Z tego powodu powszechnie stosowana metalizacja natryskowa pozostaje kluczowym elementem naszej oferty. Dzięki niej, jesteśmy w stanie dostarczyć doskonałe wykończenie tam, gdzie tradycyjna obróbka napotyka na ograniczenia fizyczne. Natomiast dla branży oświetleniowej absolutnie kluczowa pozostaje precyzyjna regeneracja odbłyśników, która zapewnia idealny kąt padania wiązki światła.',
     bazaWiedzySummary: 'Podsumowując, metalizacja to coś więcej niż tylko techniczny proces przemysłowy – to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia, której poświęciliśmy nasze zawodowe pasje i kompetencje.',
-    metaTitle: 'STANIAX - Metalizacja Próżniowa i Lakierowanie Tworzyw',
-    metaDesc: 'Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw sztucznych, szkła i detali. Najwyższa jakość wykończenia. Zobacz realizacje!',
+    metaTitle: 'STANIAX - Metalizacja Próżniowa, Lakierowanie, Regeneracja Lamp Samochodowych',
+    metaDesc: 'Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw, szkła oraz regeneracja lamp samochodowych. Zobacz realizacje!',
   },
 
   en: {
+    navHeaderLine1: 'Vacuum metallizing systems',
+    navHeaderLine2: 'Painting of plastics / glass / metals',
     kontakt: 'Contact',
     oStaniax: 'ABOUT STANIAX',
     oferta: 'Services',
@@ -462,6 +466,8 @@ const translations = {
   },
 
   de: {
+    navHeaderLine1: 'Vakuummetallisierungssysteme',
+    navHeaderLine2: 'Lackierung von Kunststoffen / Glas / Metallen',
     kontakt: 'Kontakt',
     oStaniax: 'ÜBER STANIAX',
     oferta: 'Leistungen',

@@ -448,7 +448,7 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                   {text.newsCenter}
                 </h1>
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
-                  {text.newsDesc}
+                  <strong>{pageTitle.split('|')[0].trim()}</strong> - {text.newsDesc}
                 </p>
               </div>
               <Card className="border border-border/60 bg-card/80 backdrop-blur-xl">
@@ -469,9 +469,9 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                     <Clock className="h-3.5 w-3.5" />
                     <span>{featuredArticle.date}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground/90">
+                  <div className="text-sm text-muted-foreground/90">
                     {featuredArticle.excerpt}
-                  </p>
+                  </div>
                   {featuredArticle.path && featuredArticle.path !== '#' ? (
                     <Link 
                       to={getArticlePath(featuredArticle.path)} 

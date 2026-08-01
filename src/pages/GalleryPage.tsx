@@ -433,8 +433,7 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
             </h1>
             
             <p className="text-lg sm:text-xl text-gray-500 max-w-2xl leading-relaxed font-light">
-              Odkryj perfekcję metalizacji próżniowej. Każdy projekt to unikalne połączenie 
-              precyzji inżynieryjnej i artystycznej wizji.
+              <strong>Galeria realizacji i projektów metalizacji</strong> – odkryj perfekcję metalizacji próżniowej. Każdy projekt to unikalne połączenie precyzji inżynieryjnej i artystycznej wizji.
             </p>
           </motion.div>
         </div>

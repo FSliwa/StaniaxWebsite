@@ -1302,8 +1302,8 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                           : 'text-slate-500/70'
                   )}
                 >
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight whitespace-nowrap m-0 p-0">Systemy metalizacji próżniowej</h1>
-                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-medium leading-tight mt-0.5 m-0 p-0">Lakierowanie tworzyw / szkła / metali</h2>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight whitespace-nowrap m-0 p-0">{t(lang, 'navHeaderLine1')}</div>
+                 <div className="text-xl sm:text-2xl lg:text-3xl font-medium leading-tight mt-0.5 m-0 p-0">{t(lang, 'navHeaderLine2')}</div>
                 </div>
               </div>
               <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
