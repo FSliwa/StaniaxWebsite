@@ -2578,7 +2578,7 @@ function generateCategoryShells() {
     {
       subPath: 'de/gallery',
       lang: 'de',
-      title: 'Galerie der Realisierungen und Metallisierungsprojekte | STANIAX',
+      title: 'Galerie der Metallisierungsprojekte | STANIAX',
       desc: 'Entdecken Sie unsere Galerie der Vakuummetallisierung und der präzisen Lackierung von Kunststoffen, Glas und Metallen. Sehen Sie Premium-Projekte.'
     },
     {
@@ -2621,8 +2621,29 @@ function generateCategoryShells() {
 
     html = html.replace('</head>', `${metaTags}</head>`);
     
+    let extraNav = '';
+    if (s.subPath.includes('news')) {
+      const plLinks = `
+        <a href="/news/partnerstwo-z-wiodacym-producentem-lotniczym">Lotnictwo</a>
+        <a href="/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty">Beauty</a>
+        <a href="/news/regeneracja-odblysnikow-reflektorow-samochodowych">Reflektory</a>
+      `;
+      const enLinks = `
+        <a href="/en/news/how-does-metallization-affect-material-performance">Aviation</a>
+        <a href="/en/news/vacuum-metallization-revolutionizes-beauty-industry">Beauty</a>
+        <a href="/en/news/reflector-regeneration-and-headlight-polishing">Reflectors</a>
+      `;
+      const deLinks = `
+        <a href="/de/news/wie-beeinflusst-metallisierung-die-materialleistung">Aviation</a>
+        <a href="/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche">Beauty</a>
+        <a href="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren">Reflectors</a>
+      `;
+      const links = s.lang === 'pl' ? plLinks : s.lang === 'en' ? enLinks : deLinks;
+      extraNav = `<nav style="display:none">${links}</nav>`;
+    }
+    
     // Inject a screen-reader-only H1 for SEO bots that do not execute JS
-    html = html.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">${s.title}</h1></div>`);
+    html = html.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">${s.title}</h1>${extraNav}</div>`);
     
     const targetDir = path.join(distDir, s.subPath);
     if (!fs.existsSync(targetDir)) {

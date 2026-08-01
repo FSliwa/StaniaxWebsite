@@ -24,7 +24,7 @@ const translations = {
     // Bento grid
     bentoSubtitle: 'STANIAX Sp. z o.o.',
     bentoTitle: 'Metalizacja, Lakierowanie i Regeneracja Lamp Samochodowych',
-    bentoDesc: 'Perfekcyjne powłoki metaliczne i lakiernicze. Ponad 25 lat doświadczenia w metalizacji próżniowej.',
+    bentoDesc: 'Perfekcyjne powłoki metaliczne i lakiernicze. Oferujemy usługi takie jak profesjonalna metalizacja, lakierowanie oraz regeneracja lamp samochodowych. Ponad 25 lat doświadczenia.',
     wycenProjekt: 'Wyceń Projekt',
     latDoswiadczenia: 'LAT DOŚWIADCZENIA',
     zrealizowanychProjektow: 'ZREALIZOWANYCH PROJEKTÓW',
@@ -262,7 +262,7 @@ const translations = {
 
     bentoSubtitle: 'STANIAX Sp. z o.o.',
     bentoTitle: 'Vacuum Metalizing & PVD Deposition',
-    bentoDesc: 'Perfect metallic and paint coatings for industry. Over 25 years of experience in vacuum metallization.',
+    bentoDesc: 'Perfect metallic and paint coatings for industry. We specialize in Vacuum Metalizing & PVD Deposition. Over 25 years of experience in the market.',
     wycenProjekt: 'Get a Quote',
     latDoswiadczenia: 'YEARS OF EXPERIENCE',
     zrealizowanychProjektow: 'COMPLETED PROJECTS',
@@ -485,7 +485,7 @@ const translations = {
 
     bentoSubtitle: 'STANIAX Sp. z o.o.',
     bentoTitle: 'Vakuumbeschichtung & PVD Beschichtung',
-    bentoDesc: 'Perfekte metallische und Lackbeschichtungen für die Industrie. Über 25 Jahre Erfahrung in der Vakuummetallisierung.',
+    bentoDesc: 'Perfekte metallische und Lackbeschichtungen für die Industrie. Wir bieten professionelle Vakuumbeschichtung & PVD Beschichtung. Über 25 Jahre Erfahrung.',
     wycenProjekt: 'Angebot anfordern',
     latDoswiadczenia: 'JAHRE ERFAHRUNG',
     zrealizowanychProjektow: 'ABGESCHLOSSENE PROJEKTE',

@@ -285,7 +285,7 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const pageTitle = lang === 'pl' 
       ? 'Galeria Realizacji i Projektów Metalizacji | STANIAX' 
       : lang === 'de'
-      ? 'Galerie der Realisierungen und Metallisierungsprojekte | STANIAX'
+      ? 'Galerie der Metallisierungsprojekte | STANIAX'
       : 'Gallery of Completed Projects and Metallization | STANIAX'
     const pageDesc = lang === 'pl'
       ? 'Przeglądaj naszą galerię metalizacji próżniowej oraz precyzyjnego lakierowania tworzyw, szkła i metali. Zobacz zrealizowane projekty premium.'
