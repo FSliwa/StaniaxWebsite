@@ -225,17 +225,6 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
   const secondaryArticles = newsItems.slice(1, 4)
   const moreArticles = newsItems.slice(4)
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-
-    // Dynamic SEO Metadata updates
-    const originalTitle = document.title
-    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
-    const ogTitle = document.querySelector('meta[property="og:title"]')
-    const originalOgTitle = ogTitle?.getAttribute('content')
-    const ogDesc = document.querySelector('meta[property="og:description"]')
-    const originalOgDesc = ogDesc?.getAttribute('content')
-    
     const pageTitle = lang === 'pl' 
       ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX' 
       : lang === 'de'
@@ -246,6 +235,17 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
       : lang === 'de'
       ? 'Aktuelles, Leitfäden und Expertenartikel über Vakuummetallisierung und Lackierung. Wissensdatenbank zur Oberflächenveredelung.'
       : 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+
+    // Dynamic SEO Metadata updates
+    const originalTitle = document.title
+    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    const originalOgTitle = ogTitle?.getAttribute('content')
+    const ogDesc = document.querySelector('meta[property="og:description"]')
+    const originalOgDesc = ogDesc?.getAttribute('content')
 
     document.title = pageTitle
 
