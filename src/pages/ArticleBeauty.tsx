@@ -235,8 +235,8 @@ const articleContent = {
     backToHome: 'Zurück zur Startseite',
     articleBadge: 'Artikel',
     readTime: '5 Min. Lesezeit',
-    heading: 'Vakuummetallisierung revolutioniert die Kosmetikbranche',
-    lead: 'Vakuummetallisierung revolutioniert die Kosmetikbranche. Wie die PVD-Oberflächenveredelung und präzise Lackierung von Kunststoffen und Glas den Markt für Kosmetikverpackungen in diesem Segment verändern?',
+    heading: 'PVD-Beschichtung revolutioniert die Kosmetikbranche',
+    lead: 'PVD-Beschichtung revolutioniert die Kosmetikbranche. Wie die PVD-Oberflächenveredelung und präzise Lackierung von Kunststoffen und Glas den Markt für Kosmetikverpackungen in diesem Segment verändern?',
     imageAlt: 'Luxuriöse, metallisierte Kosmetikverpackungen in verschiedenen Farben mit Hochglanzeffekt',
     newsTitle: 'Aktuelles',
     shareTitle: 'Artikel teilen',
@@ -253,7 +253,7 @@ const articleContent = {
       ['Kompaktpuder & Lidschattenpaletten', 'ABS, PS, PMMA', 'Exklusive Optik, Schutz vor Kratzern', 'Hochglanz, mattes Satin, Farben'],
       ['Parfümverpackungen (Kappen)', 'PP, ABS, Legierungen', 'Präzision komplexer Formen, geringes Gewicht', 'Gold, Silber und farbige Oberflächen']
     ],
-    metaTitle: "Vakuummetallisierung in der Kosmetikbranche | STANIAX",
+    metaTitle: "PVD-Beschichtung revolutioniert die Kosmetikbranche | STANIAX",
     metaDesc: 'Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren.',
     metaOgDesc: 'Die PVD-Veredelung revolutioniert die Kosmetikbranche. Erfahren Sie, warum führende Kosmetikmarken diese Technologie wählen.',
     

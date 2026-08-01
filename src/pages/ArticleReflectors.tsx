@@ -41,7 +41,7 @@ const articleContent = {
       ['Kompleksowa regeneracja', '350–700 zł', '3–5 lat', 'klosz + odbłyśnik + uszczelki'],
       ['Nowa lampa (OEM)', '1 500–5 000+ zł', 'fabryczna', 'cały komplet']
     ],
-    metaTitle: "Regeneracja odbłyśników i reflektorów – metody i ceny | STANIAX",
+    metaTitle: "Regeneracja Odbłyśników i Reflektorów | STANIAX",
     metaDesc: 'Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić.',
     metaOgDesc: 'Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić.',
     

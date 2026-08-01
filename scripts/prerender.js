@@ -1280,9 +1280,9 @@ function getEnBeautyHtml(lang) {
 
 
 const deBeautyMeta = `
-    <title>Vakuummetallisierung in der Kosmetikbranche | STANIAX</title>
+    <title>PVD-Beschichtung revolutioniert die Kosmetikbranche | STANIAX</title>
     <meta name="description" content="Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren." />
-    <meta property="og:title" content="Vakuummetallisierung in der Kosmetikbranche | STANIAX" />
+    <meta property="og:title" content="PVD-Beschichtung revolutioniert die Kosmetikbranche | STANIAX" />
     <meta property="og:description" content="Vakuummetallisierung revolutioniert die Kosmetikbranche. Erfahren Sie, warum führende Kosmetikmarken diese Technologie wählen." />
     <meta property="og:type" content="article" />
 `
@@ -1562,9 +1562,9 @@ writePrerenderFile('de/news/vakuummetallisierung-revolutioniert-die-kosmetikbran
 
 
 const plReflectorsMeta = `
-    <title>Regeneracja odbłyśników i reflektorów – metody i ceny | STANIAX</title>
+    <title>Regeneracja Odbłyśników i Reflektorów | STANIAX</title>
     <meta name="description" content="Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić." />
-    <meta property="og:title" content="Regeneracja odbłyśników i reflektorów – metody i ceny | STANIAX" />
+    <meta property="og:title" content="Regeneracja Odbłyśników i Reflektorów | STANIAX" />
     <meta property="og:description" content="Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić." />
     <meta property="og:type" content="article" />
     <script type="application/ld+json">
@@ -2643,7 +2643,7 @@ function generateCategoryShells() {
     }
     
     // Inject a screen-reader-only H1 for SEO bots that do not execute JS
-    html = html.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">${s.title}</h1>${extraNav}</div>`);
+    html = html.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">${s.title}</h1><p style="display:none">${s.title}</p>${extraNav}</div>`);
     
     const targetDir = path.join(distDir, s.subPath);
     if (!fs.existsSync(targetDir)) {
