@@ -123,7 +123,7 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                         {/* Column 1: Services */}
                         <div className="space-y-8">
                             <div>
-                                <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerServicesTitle')}</h4>
+                                <h3 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerServicesTitle')}</h3>
                                 <ul className="space-y-3">
                                     <li><a href={`${homePath}#kim-jestesmy`} onClick={(e) => { e.preventDefault(); scrollToSection('kim-jestesmy'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerKimJestesmy')}</a></li>
                                     <li><a href={`${homePath}#vacuum-metallization`} onClick={(e) => { e.preventDefault(); scrollToSection('vacuum-metallization'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc1')}</a></li>
@@ -140,7 +140,7 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                         {/* Column 2: Addresses */}
                         <div className="space-y-8">
                             <div>
-                                <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerAddressTitle')}</h4>
+                                <h3 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerAddressTitle')}</h3>
                                 <div className="space-y-6">
                                     <div>
                                         <p className="text-white font-semibold mb-1">{t(lang, 'footerHQ')}</p>
@@ -159,7 +159,7 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                         {/* Column 3: Contact & Hours */}
                         <div className="space-y-8">
                             <div>
-                                <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerContactTitle')}</h4>
+                                <h3 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerContactTitle')}</h3>
                                 <motion.div
                                     animate={{ scale: [1, 1.05, 1], textShadow: ["0 0 0px rgba(59,130,246,0)", "0 0 10px rgba(59,130,246,0.5)", "0 0 0px rgba(59,130,246,0)"] }}
                                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -172,7 +172,7 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                             </div>
 
                             <div>
-                                <h4 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerHoursTitle')}</h4>
+                                <h3 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerHoursTitle')}</h3>
                                 <p className="mb-1">{t(lang, 'footerHoursWeekday')}</p>
                                 <p>{t(lang, 'footerHoursWeekend')}</p>
                             </div>

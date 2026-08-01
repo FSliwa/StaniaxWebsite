@@ -397,7 +397,7 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                 STANIAX
               </span>
               <span className="block text-xl font-black text-gray-900 tracking-tight">
-                Galeria
+                {lang === 'pl' ? 'Galeria' : lang === 'de' ? 'Galerie' : 'Gallery'}
               </span>
             </div>
           </Link>
@@ -406,7 +406,7 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
             className="group inline-flex items-center gap-3 px-6 py-3 bg-gray-100 hover:bg-gray-200 border border-gray-200 hover:border-blue-300 text-gray-900 font-medium rounded-full transition-all duration-500"
           >
             <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
-            <span className="hidden sm:inline">Strona główna</span>
+            <span className="hidden sm:inline">{lang === 'pl' ? 'Strona główna' : lang === 'de' ? 'Startseite' : 'Home page'}</span>
           </Link>
         </div>
       </header>
@@ -422,18 +422,21 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 border border-blue-200 mb-8">
               <Sparkle className="w-4 h-4 text-blue-600" weight="fill" />
-              <span className="text-xs uppercase tracking-[0.3em] text-blue-700 font-semibold">Nasze realizacje</span>
+              <span className="text-xs uppercase tracking-[0.3em] text-blue-700 font-semibold">{lang === 'pl' ? 'Nasze realizacje' : lang === 'de' ? 'Unsere Projekte' : 'Our projects'}</span>
             </div>
             
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-gray-900 tracking-tighter mb-8 leading-[0.9]">
-              <span className="block">GALERIA</span>
+              <span className="block">{lang === 'pl' ? 'GALERIA ' : lang === 'de' ? 'GALERIE ' : 'PROJECTS '}</span>
               <span className="block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 bg-clip-text text-transparent">
-                REALIZACJI
+                {lang === 'pl' ? 'REALIZACJI' : lang === 'de' ? 'DER PROJEKTE' : 'GALLERY'}
               </span>
             </h1>
             
             <p className="text-lg sm:text-xl text-gray-500 max-w-2xl leading-relaxed font-light">
-              <strong>Galeria realizacji i projektów metalizacji</strong> – odkryj perfekcję metalizacji próżniowej. Każdy projekt to unikalne połączenie precyzji inżynieryjnej i artystycznej wizji.
+              <strong>{lang === 'pl' ? 'Galeria realizacji i projektów metalizacji' : lang === 'de' ? 'Galerie der Metallisierungsprojekte' : 'Gallery of Completed Projects and Metallization'}</strong> 
+              {lang === 'pl' ? ' – odkryj perfekcję metalizacji próżniowej. Każdy projekt to unikalne połączenie precyzji inżynieryjnej i artystycznej wizji.' : 
+               lang === 'de' ? ' – entdecken Sie die Perfektion der Vakuummetallisierung. Jedes Projekt ist eine einzigartige Kombination aus technischer Präzision und künstlerischer Vision.' :
+               ' – discover the perfection of vacuum metallization. Each project is a unique combination of engineering precision and artistic vision.'}
             </p>
           </motion.div>
         </div>
@@ -652,6 +655,35 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* SEO Bottom Section for Text/Paragraphs and internal links */}
+      <section className="bg-white py-12 border-t border-gray-100">
+        <div className="container mx-auto px-6 lg:px-12 text-sm text-gray-500 space-y-4 max-w-4xl">
+          <h3 className="text-lg font-semibold text-gray-900">
+            {lang === 'pl' ? 'Nasze projekty i realizacje metalizacji próżniowej' : 
+             lang === 'de' ? 'Unsere Projekte und Vakuummetallisierungsarbeiten' : 
+             'Our Projects and Vacuum Metallization Works'}
+          </h3>
+          <p>
+            {lang === 'pl' ? 'W powyższej galerii prezentujemy wybrane realizacje z zakresu metalizacji próżniowej oraz malowania przemysłowego. Nasze powłoki lustrzane i dekoracyjne znajdują zastosowanie w różnorodnych projektach komercyjnych. Zobacz pełną ' : 
+             lang === 'de' ? 'In der obigen Galerie präsentieren wir ausgewählte Projekte im Bereich der Vakuummetallisierung und industriellen Lackierung. Unsere Spiegel- und Dekorativbeschichtungen finden Anwendung in verschiedenen kommerziellen Projekten. Sehen Sie sich unser vollständiges ' :
+             'In the gallery above, we present selected projects in the field of vacuum metallization and industrial painting. Our mirror and decorative coatings are used in various commercial projects. See our full '}
+             <Link to={lang === 'pl' ? '/' : `/${lang}`} className="text-blue-600 hover:underline">{lang === 'pl' ? 'Ofertę na Stronie Głównej' : lang === 'de' ? 'Angebot auf der Startseite' : 'Offer on the Home Page'}</Link>
+             {lang === 'pl' ? ', aby dowiedzieć się więcej o możliwościach technologicznych zakładu.' : 
+              lang === 'de' ? ', um mehr über die technologischen Möglichkeiten des Werks zu erfahren.' :
+              ', to learn more about the technological capabilities of the plant.'}
+          </p>
+          <p>
+            {lang === 'pl' ? 'Każdy detal opuszczający nasz park maszynowy przechodzi rygorystyczne testy jakości. Odwiedź naszą sekcję ' : 
+             lang === 'de' ? 'Jedes Detail, das unseren Maschinenpark verlässt, durchläuft strenge Qualitätstests. Besuchen Sie unseren Bereich ' :
+             'Every detail leaving our machine park undergoes rigorous quality testing. Visit our section '}
+             <Link to={lang === 'pl' ? '/news' : `/${lang}/news`} className="text-blue-600 hover:underline">{lang === 'pl' ? 'Aktualności' : lang === 'de' ? 'Aktuelles' : 'News'}</Link>
+             {lang === 'pl' ? ', by przeczytać branżowe artykuły o procesach PVD i technologiach powłokowych.' : 
+              lang === 'de' ? ', um Branchenartikel über PVD-Prozesse und Beschichtungstechnologien zu lesen.' :
+              ', to read industry articles about PVD processes and coating technologies.'}
+          </p>
+        </div>
+      </section>
 
       <BigFooter lang={lang} />
     </div>

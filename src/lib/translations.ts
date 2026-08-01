@@ -238,7 +238,7 @@ const translations = {
     bazaWiedzyAppTitle: 'Zastosowania i pokrewne techniki obróbki',
     bazaWiedzyAppDesc: 'Nie wszystkie materiały i geometrie pozwalają na obróbkę w warunkach wysokiej próżni. W takich przypadkach konieczne jest zastosowanie metod pokrewnych, które pozwalają na równomierne rozłożenie materiału na powierzchniach o nietypowych kształtach. Z tego powodu powszechnie stosowana metalizacja natryskowa pozostaje kluczowym elementem naszej oferty. Dzięki niej, jesteśmy w stanie dostarczyć doskonałe wykończenie tam, gdzie tradycyjna obróbka napotyka na ograniczenia fizyczne. Natomiast dla branży oświetleniowej absolutnie kluczowa pozostaje precyzyjna regeneracja odbłyśników, która zapewnia idealny kąt padania wiązki światła.',
     bazaWiedzySummary: 'Podsumowując, metalizacja to coś więcej niż tylko techniczny proces przemysłowy – to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia, której poświęciliśmy nasze zawodowe pasje i kompetencje.',
-    metaTitle: 'STANIAX - Metalizacja Próżniowa, Lakierowanie, Regeneracja Lamp Samochodowych',
+    metaTitle: 'Metalizacja Próżniowa, Lakierowanie, Regeneracja Lamp | STANIAX',
     metaDesc: 'Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw, szkła oraz regeneracja lamp samochodowych. Zobacz realizacje!',
   },
 
@@ -261,7 +261,7 @@ const translations = {
     przewinDalej: 'Scroll down',
 
     bentoSubtitle: 'STANIAX Sp. z o.o.',
-    bentoTitle: 'Metallization & Painting',
+    bentoTitle: 'Vacuum Metalizing & PVD Deposition',
     bentoDesc: 'Perfect metallic and paint coatings for industry. Over 25 years of experience in vacuum metallization.',
     wycenProjekt: 'Get a Quote',
     latDoswiadczenia: 'YEARS OF EXPERIENCE',
@@ -484,7 +484,7 @@ const translations = {
     przewinDalej: 'Weiter scrollen',
 
     bentoSubtitle: 'STANIAX Sp. z o.o.',
-    bentoTitle: 'Metallisierung & Lackierung',
+    bentoTitle: 'Vakuumbeschichtung & PVD Beschichtung',
     bentoDesc: 'Perfekte metallische und Lackbeschichtungen für die Industrie. Über 25 Jahre Erfahrung in der Vakuummetallisierung.',
     wycenProjekt: 'Angebot anfordern',
     latDoswiadczenia: 'JAHRE ERFAHRUNG',

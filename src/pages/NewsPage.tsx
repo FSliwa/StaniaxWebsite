@@ -239,7 +239,7 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const pageTitle = lang === 'pl' 
       ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX' 
       : lang === 'de'
-      ? 'Aktuelles zur Vakuummetallisierung | STANIAX'
+      ? 'Aktuelles zur Vakuumbeschichtung | STANIAX'
       : 'Knowledge Base & News - Vacuum Metallization | STANIAX'
     const pageDesc = lang === 'pl'
       ? 'Aktualności, poradniki i artykuły eksperckie na temat metalizacji próżniowej oraz lakierowania. Baza wiedzy o uszlachetnianiu powierzchni.'
@@ -445,7 +445,9 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                   {text.latestNews}
                 </span>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
-                  {text.newsCenter}
+                  {lang === 'pl' ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa' : 
+                   lang === 'de' ? 'Aktuelles zur Vakuumbeschichtung' : 
+                   'Knowledge Base & News - Vacuum Metallization'}
                 </h1>
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
                   <strong>{pageTitle.split('|')[0].trim()}</strong> - {text.newsDesc}
@@ -691,6 +693,34 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                 </Button>
               </div>
             </div>
+          </div>
+        </section>
+        {/* SEO Bottom Section for Text/Paragraphs rules */}
+        <section className="bg-background py-12 border-t border-border/40">
+          <div className="container mx-auto px-6 lg:px-12 text-sm text-muted-foreground space-y-4 max-w-4xl">
+            <h3 className="text-lg font-semibold text-foreground">
+              {lang === 'pl' ? 'Oficjalne Centrum Wiedzy - STANIAX' : 
+               lang === 'de' ? 'Offizielles STANIAX News-Center' : 
+               'Official STANIAX Knowledge Base'}
+            </h3>
+            <p>
+              {lang === 'pl' ? 'Witaj w naszej oficjalnej Bazie Wiedzy STANIAX. Znajdziesz tutaj najnowsze informacje, aktualności z życia firmy oraz eksperckie artykuły z dziedziny zaawansowanej obróbki powierzchniowej. Piszemy o takich technologiach jak metalizacja próżniowa, lakierowanie tworzyw, metali i szkła, a także innowacyjne powłoki PVD. Zapoznaj się z naszą pełną ' : 
+               lang === 'de' ? 'Willkommen in der offiziellen Wissensdatenbank von STANIAX. Hier finden Sie die neuesten Informationen, Unternehmensnachrichten und Expertenartikel aus dem Bereich der modernen Oberflächenbehandlung. Wir schreiben über Technologien wie Vakuumbeschichtung, Lackierung von Kunststoffen, Metallen und Glas sowie innovative PVD-Beschichtungen. Erfahren Sie mehr über unser ' :
+               'Welcome to the official STANIAX Knowledge Base. Here you will find the latest information, company news, and expert articles in the field of advanced surface treatment. We write about technologies such as vacuum metalizing & PVD deposition, lacquering of plastics, metals, and glass, as well as innovative PVD coatings. Explore our complete '}
+               <Link to={lang === 'pl' ? '/' : `/${lang}`} className="text-accent hover:underline font-medium">{lang === 'pl' ? 'Ofertą (Strona Główna)' : lang === 'de' ? 'Angebot (Startseite)' : 'Offer (Home Page)'}</Link>
+               {lang === 'pl' ? '. Nasze wpisy mają na celu edukować naszych klientów i partnerów biznesowych w zakresie optymalizacji procesów produkcyjnych i wykorzystania nowoczesnych metod uszlachetniania produktów w różnych branżach przemysłowych.' : 
+                lang === 'de' ? '. Unsere Beiträge zielen darauf ab, unsere Kunden und Geschäftspartner über die Optimierung von Produktionsprozessen und den Einsatz moderner Methoden zur Produktveredelung in verschiedenen Industriezweigen aufzuklären.' :
+                '. Our posts aim to educate our clients and business partners on optimizing production processes and using modern product refinement methods in various industrial sectors.'}
+            </p>
+            <p>
+              {lang === 'pl' ? 'Dzięki naszym artykułom poznasz tajniki regeneracji odbłyśników, innowacje w opakowaniach dla branży beauty oraz sposoby na zwiększenie trwałości komponentów technicznych. Zobacz także nasze zrealizowane projekty przechodząc do sekcji ' : 
+               lang === 'de' ? 'Durch unsere Artikel erfahren Sie die Geheimnisse der Reflektor-Regeneration, Innovationen bei Verpackungen für die Beauty-Branche und Wege zur Erhöhung der Haltbarkeit von technischen Komponenten. Sehen Sie sich auch unsere abgeschlossenen Projekte an, indem Sie zum Bereich ' :
+               'Through our articles, you will learn the secrets of reflector regeneration, innovations in packaging for the beauty industry, and ways to increase the durability of technical components. View our completed projects by visiting the '}
+               <Link to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`} className="text-accent hover:underline font-medium">{lang === 'pl' ? 'Galerii Realizacji' : lang === 'de' ? 'Galerie' : 'Gallery'}</Link>
+               {lang === 'pl' ? '. Zachęcamy do regularnego odwiedzania naszej strony, aby być na bieżąco z trendami, nowościami rynkowymi oraz osiągnięciami firmy STANIAX - Twojego zaufanego partnera w dziedzinie powłok lustrzanych i dekoracyjnych.' : 
+                lang === 'de' ? '. Wir laden Sie ein, unsere Website regelmäßig zu besuchen, um über Trends, Markteuigkeiten und die Erfolge von STANIAX - Ihrem zuverlässigen Partner im Bereich Spiegel- und Dekorativbeschichtungen - auf dem Laufenden zu bleiben.' :
+                '. We invite you to visit our website regularly to stay up-to-date with trends, market news, and the achievements of STANIAX - your trusted partner in mirror and decorative coatings.'}
+            </p>
           </div>
         </section>
       </main>
