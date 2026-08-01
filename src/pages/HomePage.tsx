@@ -2558,7 +2558,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                 <div className="space-y-12">
                   {/* Map 1: Siedziba */}
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">{t(lang, 'siedziba')}</h4>
+                    <p className="text-xl font-bold uppercase tracking-wider text-gray-700">{t(lang, 'siedziba')}</p>
                     <motion.div
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -2582,7 +2582,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
                   {/* Map 2: Zakład Usługowy */}
                   <div className="space-y-4">
-                    <h4 className="text-xl font-bold uppercase tracking-wider text-gray-700">{t(lang, 'zakladUslugowy')}</h4>
+                    <p className="text-xl font-bold uppercase tracking-wider text-gray-700">{t(lang, 'zakladUslugowy')}</p>
                     <motion.div
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -2620,7 +2620,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <MapPin className="w-6 h-6 text-white" weight="bold" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">SIEDZIBA</h3>
+                        <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">SIEDZIBA</p>
                         <p className="text-lg font-bold text-gray-900 leading-relaxed">
                           ul. Grzybowska 5A<br />
                           00-132 Warszawa
@@ -2639,7 +2639,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <Factory className="w-6 h-6 text-white" weight="bold" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'zakladUslugowy')}</h3>
+                        <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'zakladUslugowy')}</p>
                         <p className="text-lg font-bold text-gray-900 leading-relaxed">
                           ul. Wyszyńskiego 116A<br />
                           05-420 Józefów
@@ -2661,7 +2661,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <Phone className="w-6 h-6 text-white" weight="bold" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'telefonLabel')}</h3>
+                        <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'telefonLabel')}</p>
                         <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
                           +48 882 488 844
                         </p>
@@ -2682,7 +2682,7 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                         <EnvelopeSimple className="w-6 h-6 text-white" weight="bold" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'emailLabel')}</h3>
+                        <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'emailLabel')}</p>
                         <a href="mailto:metalizacja@staniax.pl" className="block text-lg font-bold text-gray-900 break-all hover:text-blue-700 transition-colors">
                           metalizacja@staniax.pl
                         </a>

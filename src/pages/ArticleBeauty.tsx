@@ -253,7 +253,7 @@ const articleContent = {
       ['Kompaktpuder & Lidschattenpaletten', 'ABS, PS, PMMA', 'Exklusive Optik, Schutz vor Kratzern', 'Hochglanz, mattes Satin, Farben'],
       ['Parfümverpackungen (Kappen)', 'PP, ABS, Legierungen', 'Präzision komplexer Formen, geringes Gewicht', 'Gold, Silber und farbige Oberflächen']
     ],
-    metaTitle: "PVD-Beschichtung revolutioniert die Kosmetikbranche | STANIAX",
+    metaTitle: "PVD-Beschichtung in der Kosmetikbranche | STANIAX",
     metaDesc: 'Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren.',
     metaOgDesc: 'Die PVD-Veredelung revolutioniert die Kosmetikbranche. Erfahren Sie, warum führende Kosmetikmarken diese Technologie wählen.',
     
@@ -897,7 +897,7 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
             <aside className="space-y-8 sticky top-28">
               
               {/* CTA Panel */}
-              <div className="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
+              <aside data-nosnippet="true" role="complementary" className="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500" />
                 <h4 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">
                   {text.ctaTitle}
@@ -912,7 +912,7 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
                   {text.ctaBtn}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </Button>
-              </div>
+              </aside>
 
               {/* Actions Panel */}
               <div className="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">

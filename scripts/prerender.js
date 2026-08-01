@@ -1280,9 +1280,9 @@ function getEnBeautyHtml(lang) {
 
 
 const deBeautyMeta = `
-    <title>PVD-Beschichtung revolutioniert die Kosmetikbranche | STANIAX</title>
+    <title>PVD-Beschichtung in der Kosmetikbranche | STANIAX</title>
     <meta name="description" content="Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren." />
-    <meta property="og:title" content="PVD-Beschichtung revolutioniert die Kosmetikbranche | STANIAX" />
+    <meta property="og:title" content="PVD-Beschichtung in der Kosmetikbranche | STANIAX" />
     <meta property="og:description" content="Vakuummetallisierung revolutioniert die Kosmetikbranche. Erfahren Sie, warum führende Kosmetikmarken diese Technologie wählen." />
     <meta property="og:type" content="article" />
 `
@@ -2511,7 +2511,7 @@ function generateHomepageShells() {
   plHtml = plHtml.replace('</head>', `${plCanonical}</head>`);
   
   // Inject a screen-reader-only H1 for SEO bots that do not execute JS
-  plHtml = plHtml.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">STANIAX - Metalizacja Próżniowa i Lakierowanie Tworzyw</h1></div>`);
+  plHtml = plHtml.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">STANIAX - Profesjonalna Metalizacja Próżniowa i Lakierowanie Tworzyw</h1></div>`);
   
   fs.writeFileSync(indexPath, plHtml, 'utf-8');
   console.log('Successfully injected canonical link, metadata, and H1 in dist/index.html');
@@ -2527,7 +2527,7 @@ function generateHomepageShells() {
   enHtml = enHtml.replace(/<meta name="keywords"[^>]*>/, '<meta name="keywords" content="vacuum metalizing, vacuum metal deposition, vacuum casting metal, metal vacuum, plastic painting, glass painting, staniax, metallization" />');
   enHtml = enHtml.replace('</head>', `${enMetaTags}${enCanonical}</head>`);
   
-  enHtml = enHtml.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">STANIAX - Vacuum Metalizing</h1></div>`);
+  enHtml = enHtml.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">STANIAX - Professional Vacuum Metalizing</h1></div>`);
 
   const enDir = path.join(distDir, 'en');
   if (!fs.existsSync(enDir)) {
@@ -2547,7 +2547,7 @@ function generateHomepageShells() {
   deHtml = deHtml.replace(/<meta name="keywords"[^>]*>/, '<meta name="keywords" content="Vakuummetallisierung, Vakuum-Metallbedampfung, Vakuumguss Metall, Metallvakuum, Kunststofflackierung, Glaslackierung, staniax, metallisierung" />');
   deHtml = deHtml.replace('</head>', `${deMetaTags}${deCanonical}</head>`);
   
-  deHtml = deHtml.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">STANIAX - Vakuummetallisierung</h1></div>`);
+  deHtml = deHtml.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">STANIAX - Professionelle Vakuummetallisierung</h1></div>`);
 
   const deDir = path.join(distDir, 'de');
   if (!fs.existsSync(deDir)) {
@@ -2643,7 +2643,7 @@ function generateCategoryShells() {
     }
     
     // Inject a screen-reader-only H1 for SEO bots that do not execute JS
-    html = html.replace('<div id="root"></div>', `<div id="root"><h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;">${s.title}</h1><p style="display:none">${s.title}</p>${extraNav}</div>`);
+    html = html.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">${s.title}</h1><p class="sr-only">${s.title}</p>${extraNav}</div>`);
     
     const targetDir = path.join(distDir, s.subPath);
     if (!fs.existsSync(targetDir)) {

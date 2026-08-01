@@ -421,13 +421,16 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
             className="max-w-4xl"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 border border-blue-200 mb-8">
-              <Sparkle className="w-4 h-4 text-blue-600" weight="fill" />
-              <span className="text-xs uppercase tracking-[0.3em] text-blue-700 font-semibold">{lang === 'pl' ? 'Nasze realizacje' : lang === 'de' ? 'Unsere Projekte' : 'Our projects'}</span>
+              <Link to="/news" className="absolute inset-0 z-10 opacity-0" aria-label="Aktualności STANIAX"></Link>
+              <Sparkle className="w-4 h-4 text-blue-600 relative z-20" weight="fill" />
+              <span className="text-xs uppercase tracking-[0.3em] text-blue-700 font-semibold relative z-20">{lang === 'pl' ? 'Nasze realizacje' : lang === 'de' ? 'Unsere Projekte' : 'Our projects'}</span>
             </div>
             
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-gray-900 tracking-tighter mb-8 leading-[0.9]">
-              <span className="block">{lang === 'pl' ? 'GALERIA ' : lang === 'de' ? 'GALERIE ' : 'PROJECTS '}</span>
-              <span className="block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 bg-clip-text text-transparent">
+            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-gray-900 tracking-tighter mb-8 leading-[0.9] relative">
+              <Link to="/" className="absolute inset-0 z-10 opacity-0" aria-label="Strona Główna STANIAX"></Link>
+              <span className="sr-only">{lang === 'pl' ? 'Profesjonalna metalizacja próżniowa i lakierowanie tworzyw - ' : lang === 'de' ? 'Professionelle Vakuummetallisierung und Kunststofflackierung - ' : 'Professional vacuum metallization and plastic painting - '}</span>
+              <span className="block relative z-20">{lang === 'pl' ? 'GALERIA ' : lang === 'de' ? 'GALERIE ' : 'PROJECTS '}</span>
+              <span className="block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 bg-clip-text text-transparent relative z-20">
                 {lang === 'pl' ? 'REALIZACJI' : lang === 'de' ? 'DER PROJEKTE' : 'GALLERY'}
               </span>
             </h1>
