@@ -8,6 +8,7 @@ const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 const ArticleAviation = lazy(() => import('./pages/ArticleAviation'))
 const ArticleBeauty = lazy(() => import('./pages/ArticleBeauty'))
 const ArticleReflectors = lazy(() => import('./pages/ArticleReflectors'))
+const LegalPage = lazy(() => import('./pages/LegalPage'))
 
 function App() {
   const location = useLocation();
@@ -41,7 +42,7 @@ function App() {
           <Route path="/en/news" element={<NewsPage lang="en" />} />
           <Route path="/de/news" element={<NewsPage lang="de" />} />
           
-          <Route path="/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="pl" />} />
+          <Route path="/news/jak-metalizacja-wplywa-na-wydajnosc-materialow" element={<ArticleAviation lang="pl" />} />
           <Route path="/en/news/how-does-metallization-affect-material-performance" element={<ArticleAviation lang="en" />} />
           <Route path="/de/news/wie-beeinflusst-metallisierung-die-materialleistung" element={<ArticleAviation lang="de" />} />
 
@@ -56,6 +57,19 @@ function App() {
           <Route path="/gallery" element={<GalleryPage lang="pl" />} />
           <Route path="/en/gallery" element={<GalleryPage lang="en" />} />
           <Route path="/de/gallery" element={<GalleryPage lang="de" />} />
+
+          {/* Dokumenty prawne — slugi muszą pokrywać się z LEGAL_SLUGS w src/lib/legal.ts */}
+          <Route path="/polityka-prywatnosci" element={<LegalPage doc="privacy" lang="pl" />} />
+          <Route path="/en/privacy-policy" element={<LegalPage doc="privacy" lang="en" />} />
+          <Route path="/de/datenschutzerklaerung" element={<LegalPage doc="privacy" lang="de" />} />
+
+          <Route path="/polityka-cookies" element={<LegalPage doc="cookies" lang="pl" />} />
+          <Route path="/en/cookie-policy" element={<LegalPage doc="cookies" lang="en" />} />
+          <Route path="/de/cookie-richtlinie" element={<LegalPage doc="cookies" lang="de" />} />
+
+          <Route path="/regulamin" element={<LegalPage doc="terms" lang="pl" />} />
+          <Route path="/en/terms" element={<LegalPage doc="terms" lang="en" />} />
+          <Route path="/de/agb" element={<LegalPage doc="terms" lang="de" />} />
         </Routes>
       </Suspense>
     </>

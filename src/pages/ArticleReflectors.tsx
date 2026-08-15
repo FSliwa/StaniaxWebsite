@@ -903,9 +903,9 @@ export default function ArticleReflectors({ lang = 'pl' as Lang }: { lang?: Lang
                 <div className="space-y-6">
                   {text.faqItems.map((item, index) => (
                     <div key={index} className="space-y-2">
-                      <h4 className="font-bold text-foreground">
+                      <h3 className="font-bold text-foreground">
                         {item.q}
-                      </h4>
+                      </h3>
                       <p className="text-sm pl-4 border-l border-accent/30">
                         {item.a}
                       </p>
@@ -922,9 +922,9 @@ export default function ArticleReflectors({ lang = 'pl' as Lang }: { lang?: Lang
               {/* CTA Panel */}
               <aside data-nosnippet="true" role="complementary" className="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500" />
-                <h4 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">
                   {text.ctaTitle}
-                </h4>
+                </h3>
                 <p className="text-sm text-muted-foreground/90 mb-6 leading-relaxed">
                   {text.ctaDesc}
                 </p>
@@ -967,7 +967,7 @@ export default function ArticleReflectors({ lang = 'pl' as Lang }: { lang?: Lang
               {renderTextWithLinks(text.ctaText)}
             </p>
             
-            <h4 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h4>
+            <h3 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h3>
             <ul className="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
               <li>{renderTextWithLinks(text.ctaWhy1)}</li>
               <li>{renderTextWithLinks(text.ctaWhy2)}</li>

@@ -1572,9 +1572,9 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{t(lang, 'bazaWiedzyWhyTitle')}</h3>
                     <p className="text-gray-300 mb-6">
                       {renderTextWithBold('bazaWiedzyWhyDesc', {
-                        pl: 'metalizacja próżniowa dariusz staniak',
-                        en: 'vacuum metallization company Dariusz Staniak',
-                        de: 'Vakuummetallisierungsfirma Dariusz Staniak'
+                        pl: 'Dariusz Staniak',
+                        en: 'Dariusz Staniak',
+                        de: 'Dariusz Staniak'
                       }, true)}
                     </p>
                   </div>
@@ -1592,9 +1592,9 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{t(lang, 'bazaWiedzyLocTitle')}</h3>
                     <p className="text-blue-100 mb-6">
                       {renderTextWithBold('bazaWiedzyLocDesc', {
-                        pl: 'metalizacja próżniowa józefów',
-                        en: 'vacuum metallization Józefów',
-                        de: 'Vakuummetallisierung Józefów'
+                        pl: 'Józefowie pod Warszawą',
+                        en: 'Józefów near Warsaw',
+                        de: 'Józefów bei Warschau'
                       }, true)}
                     </p>
                   </div>
@@ -2532,6 +2532,21 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
                     {isSubmitting ? 'Wysyłanie...' : t(lang, 'wyslijZapytanie')}
                   </Button>
                 </div>
+
+                {/* Klauzula informacyjna z art. 13 RODO. Świadomie BEZ checkboxa
+                    zgody: podstawą przetwarzania jest art. 6 ust. 1 lit. b/f,
+                    a nie zgoda. Checkbox byłby potrzebny dopiero przy
+                    wykorzystaniu danych do celów marketingowych. */}
+                <p className="mt-6 text-xs leading-relaxed text-gray-500">
+                  {t(lang, 'formRodoClause')}{' '}
+                  <a
+                    href={lang === 'pl' ? '/polityka-prywatnosci' : lang === 'de' ? '/de/datenschutzerklaerung' : '/en/privacy-policy'}
+                    className="underline underline-offset-2 hover:text-gray-700"
+                  >
+                    {t(lang, 'privacyPolicyLink')}
+                  </a>
+                  .
+                </p>
               </div>
 
             </div>

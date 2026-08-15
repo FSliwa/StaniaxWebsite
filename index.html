@@ -1,55 +1,43 @@
 <!DOCTYPE html>
 <html lang="pl">
   <head>
-    <!-- Google tag (gtag.js) - Optimized/Lazy loaded to improve LCP and TBT -->
+    <!--
+      Consent Mode v2 — stan domyślny. Musi wykonać się PRZED jakimkolwiek
+      skryptem Google. Samego gtag.js nie ładujemy tutaj: robi to dopiero
+      src/lib/consent.ts po wyraźnej zgodzie użytkownika (art. 398 Prawa
+      komunikacji elektronicznej wymaga zgody uprzedniej).
+    -->
     <script>
-      (function() {
-        var initialized = false;
-        function initGtag() {
-          if (initialized) return;
-          initialized = true;
-          
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = "https://www.googletagmanager.com/gtag/js?id=G-K4E0LDH848";
-          document.head.appendChild(script);
-          
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', 'G-K4E0LDH848');
-        }
-        
-        var interactionEvents = ['mouseover', 'keydown', 'touchstart', 'scroll', 'click'];
-        function triggerGtag() {
-          initGtag();
-          interactionEvents.forEach(function(event) {
-            window.removeEventListener(event, triggerGtag, { passive: true });
-          });
-        }
-        
-        interactionEvents.forEach(function(event) {
-          window.addEventListener(event, triggerGtag, { passive: true });
-        });
-        
-        window.addEventListener('load', function() {
-          setTimeout(initGtag, 3500);
-        });
-      })();
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Metalizacja Próżniowa i Lakierowanie - STANIAX</title>
-    <meta name="description" content="Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw sztucznych, szkła i detali. Najwyższa jakość wykończenia. Sprawdź naszą galerię realizacji!" />
-    <meta name="keywords" content="metalizacja, metalizacja próżniowa, lakierowanie tworzyw, staniax, lakierowanie szkła, lakierowanie uv, powłoki lustrzane, powłoki chromowe, metalizacja dekoracyjna" />
-    <meta name="author" content="Staniax" />
-    <meta property="og:title" content="STANIAX - Metalizacja Próżniowa" />
-    <meta property="og:description" content="Profesjonalna metalizacja próżniowa, lakierowanie tworzyw i szkła." />
+    <title>Metalizacja próżniowa tworzyw sztucznych | STANIAX</title>
+    <meta name="description" content="Metalizacja próżniowa tworzyw sztucznych, lakierowanie i regeneracja lamp samochodowych. Zakład STANIAX w Józefowie pod Warszawą – zobacz nasze realizacje." />
+    <meta name="author" content="STANIAX Sp. z o.o." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta property="og:site_name" content="STANIAX" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:title" content="Metalizacja próżniowa tworzyw sztucznych | STANIAX" />
+    <meta property="og:description" content="Metalizacja próżniowa tworzyw sztucznych, lakierowanie i regeneracja lamp samochodowych. Zakład STANIAX w Józefowie pod Warszawą." />
     <meta property="og:type" content="website" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
+    <meta property="og:url" content="https://www.staniax.pl/" />
+    <meta property="og:image" content="https://www.staniax.pl/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Metalizacja próżniowa tworzyw sztucznych | STANIAX" />
+    <meta name="twitter:description" content="Metalizacja próżniowa tworzyw sztucznych, lakierowanie i regeneracja lamp samochodowych. Zakład STANIAX w Józefowie pod Warszawą." />
+    <meta name="twitter:image" content="https://www.staniax.pl/og-image.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

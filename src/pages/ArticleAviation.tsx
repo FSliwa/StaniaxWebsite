@@ -41,37 +41,37 @@ const articleContent = {
     introTitle: '',
     tableTitle: '',
     p1: 'Współczesny przemysł produkcyjny nieustannie poszukuje rozwiązań, które łączą w sobie dwie kluczowe cechy: wysoką wytrzymałość mechaniczną oraz nienaganną estetykę. W świecie, w którym redukcja kosztów i optymalizacja wagi komponentów stają się priorytetem, tradycyjne metody wytwarzania gabaratowych, w pełni metalowych elementów ustępują miejsca nowoczesnym technologiom inżynierii powierzchni. Jednym z najważniejszych procesów w tej dziedzinie jest nowoczesna metalizacja. Obecnie to właśnie profesjonalna metalizacja próżniowa oraz powiązane z nia metalizowanie próżniowe rewolucjonizują podejście do projektowania detali.',
-    p2: 'Proces, jakim jest metalizacja, całkowicie zmienia sposób, w jaki postrzegamy projektowanie detali w branży motoryzacyjnej, kosmetycznej, opakowaniowej czy elektronicznej. Dzięki niemu lekkie tworzywa sztuczne zyskują zupełnie nowe właściwości fizykochemiczne. Gdy analizujemy, jak metalizacja modyfikuje strukturę zewnętrzną detali, widzimy ogromny wzrost ich wydajności. W tym artykule przyjrzymy się bliżej, czym dokładnie jest ten proces, dalczego metalizacja próżniowa aluminium stała się standardem rynkowym, jak działa metalizacja plastiku i jak te technologie wpływają na realną wydajność materiałów.',
+    p2: 'Metalizacja zmienia sposób, w jaki projektuje się detale w branży motoryzacyjnej, kosmetycznej, opakowaniowej czy elektronicznej. Lekkie tworzywa sztuczne zyskują dzięki niej właściwości, których same z siebie nie mają — od przewodnictwa po odbijalność światła. W tym artykule wyjaśniamy, na czym polega ten proces, dlaczego metalizacja aluminium w warunkach próżni stała się standardem rynkowym i jak przekłada się to na realną wydajność materiałów.',
     
     sec1Title: 'Co to jest metalizacja?',
     sec1P1: 'Metalizacja to zaawansowany proces technologiczny polegający na nakładaniu cienkiej warstwy metalu na powierzchnię innego materiału, zwanego podłożem (substratem). Podłożem tym mogą być zarówno inne metale, jak i materiały niemetaliczne. W dzisiejszych czasach kluczową rolę odgrywa nowoczesna metalizacja plastiku, która pozwala zastąpić gabarytowe komponenty metalowe lżejszymi odpowiednikami z polimerów. Każda przemysłowa metalizacja ma na celu optymalizację kosztów produkcji przy zachowaniu cech premium.',
-    sec1P2: 'Głównym celem, jaki stawia przed sobą metalizacja, jest nadanie uszlachetnianej powierzchni specyficznych właściwości, których dany materiał naturalnie nie posiada. Może to być przewodnictwo elektryczne, refleksyjność światła czy ochrona przed czynnikami zewnętrznymi. Ponieważ współczesna metalizacja oraz wydajne metalizowanie próżniowe opierają się na ekologicznych i czystych technologiach, warstwy metaliczne nanoszone są wyłącznie w warunkach wysokiej próżni. To sprawia, że metalizacja próżniowa gwarantuje idealną powtarzalność powłok, o czym często wspomina branżowe forum techniczne [Elektroda.pl](https://www.elektroda.pl/). Zarówno metalizacja plastiku, jak i ogólna metalizacja podłoży twardych, znacząco podnoszą parametry użytkowe gotowego produktu.',
+    sec1P2: 'Celem procesu jest nadanie uszlachetnianej powierzchni właściwości, których dany materiał naturalnie nie posiada: przewodnictwa elektrycznego, refleksyjności światła czy ochrony przed czynnikami zewnętrznymi. Warstwy metaliczne nanosi się w warunkach wysokiej próżni, dzięki czemu technologia jest czysta środowiskowo i daje wysoką powtarzalność powłok — temat regularnie wraca na branżowym forum [Elektroda.pl](https://www.elektroda.pl/). Dotyczy to zarówno detali z tworzyw sztucznych, jak i podłoży twardych.',
 
     sec2Title: 'Rodzaje metalizacji w technologii próżniowej',
     sec2P1: 'W zależności od pożądanych właściwości końcowych produktu, inżynierowie wybierają optymalne parametry modyfikacji powierzchni. Nowoczesne podejście w tym segmencie przemysłu całkowicie opiera się na procesach o wysokim stopniu zaawansowania, w których króluje metalizacja próżniowa oraz precyzyjne metalizowanie próżniowe przy użyciu aluminium.',
     
     sub21Title: 'Metalizacja aluminium',
     sub21P1: 'W profesjonalnym zakładzie produkcyjnym metalizacja aluminium nie istnieje jako osobna, tradycyjna metoda natryskowa – proces ten jest realizowany wyłącznie w technologii wysokiej próżni. W procesie tym czyste aluminium jest odparowywane i precyzyjnie, warstwa po warstwie, osadzane na modyfikowanym podłożu. Taka próżniowa metalizacja aluminium pozwala na uzyskanie idealnego, lustrzanego efektu, którego nie da się osiągnąć metodami rzemieślniczymi. Poprzez proces, jakim jest metalizacja aluminium, elementy zyskują unikalną estetykę i doskonałe parametry użytkowe.',
-    sub21P2: 'Metoda ta znajduje szerokie zastosowanie w motoryzacji. To właśnie tam kluczowe znaczenie ma profesjonalna metalizacja odbłyśników samochodowych. Kiedy reflektory tracą swoją sprawność, ratunkiem jest precyzyjna metalizacja odbłyśnika, która przywraca pierwotne właściwości strumienia światła. Każda fabryczna metalizacja odbłyśników opiera się na nanoszeniu powłoki aluminiowej w komorze. Ponieważ metalizacja odbłyśnika gwarantuje znakomite odbicie światła, proces ten bezpośrednio przekłada się na bezpieczeństwo na drogach. Dla przemysłu oświetleniowego próżniowa metalizacja aluminium oraz precyzyjna metalizacja próżniowa to absolutny fundament działania.',
+    sub21P2: 'Metoda ta znajduje szerokie zastosowanie w motoryzacji, gdzie kluczowe znaczenie ma metalizacja odbłyśników samochodowych. Kiedy reflektory tracą sprawność, ratunkiem bywa regeneracja odbłyśnika, która przywraca pierwotne właściwości strumienia światła. Proces opiera się na nanoszeniu powłoki aluminiowej w komorze próżniowej — dzięki wysokiej odbijalności przekłada się on bezpośrednio na bezpieczeństwo na drodze. Dla przemysłu oświetleniowego metalizacja aluminium pozostaje fundamentem produkcji.',
 
     sub22Title: 'Metalizacja próżniowa',
-    sub22P1: 'Najbardziej zaawancowaną technologicznie odmianą uszlachetniania powierzchni jest ogólna metalizacja próżniowa (często utożsamiana z procesami [PVD – Physical Vapor Deposition](https://pl.wikipedia.org/wiki/Fizyczne_osadzanie_z_fazy_gazowej)). Cały proces odbywa się w specjalnych komorach, w których generowana jest wysoka próżnia. Aluminium, które stanowi powłokę, jest odparowywane termicznie, a następnie kondensuje na powierzchni rotujących detali. Nic dziwnego, że profesjonalne metalizowanie próżniowe całkowicie wyparło stare, chemiczne techniki galwaniczne. Dziś metalizacja próżniowa to synonim trwałości i ekologii.',
-    sub22P2: 'Na rynku działa wyspecjalizowana firma [Staniax - metalizacja próżniowa, lakierowanie tworzyw](/) to obszary, w których synergia procesów decyduje o ostatecznym sukcesie produktu. Przykładem lidera w tej dziedzinie, u którego nowatorskie podejście wyznaczyło nowe trendy w branży metalizacji próżniowej jest [Dariusz Staniak](http://www.metalizacje.pl/). Wyznacza on standardy jakości oraz wdraża do zakładu oprzyżądowanie zastępujące drogie zaawansowane parki maszynowym. Często jako kluczowy ośrodek kompetencji wymieniana jest regionalna metalizacja próżniowa Józefów, gdzie zakłady produkcyjne realizują najbardziej wymagające projekty. Gdy interesuje nas sprawdzona metalizacja próżniowa, czy lakierowanie tworzyw, wtedy warto stawiać na doświadczone podmioty,takie jak Staniax. To właśnie tam metalizacja próżniowa Dariusz Staniak metalizacja próżniowa Józefów w nowej odsłonie jako Staniax Sp. z o.o. udowadniają, że metalizowanie próżniowe aluminium podnosi jakosć detali na najwyższy poziom.',
+    sub22P1: 'Najbardziej zaawansowaną technologicznie odmianą uszlachetniania powierzchni jest metalizacja próżniowa (utożsamiana z procesami [PVD – Physical Vapor Deposition](https://pl.wikipedia.org/wiki/Fizyczne_osadzanie_z_fazy_gazowej)). Cały proces odbywa się w specjalnych komorach, w których generowana jest wysoka próżnia. Aluminium stanowiące powłokę jest odparowywane termicznie, a następnie kondensuje na powierzchni rotujących detali. Dzięki temu technologia ta w wielu zastosowaniach wyparła starsze, chemiczne techniki galwaniczne — dziś jest synonimem trwałości i rozwiązania przyjaznego środowisku.',
+    sub22P2: 'Metalizacja próżniowa i lakierowanie tworzyw to obszary, w których synergia procesów decyduje o ostatecznym sukcesie produktu — na tym skupia się [Staniax](/). Przykładem lidera, którego nowatorskie podejście wyznaczyło trendy w branży, jest [Dariusz Staniak](http://www.metalizacje.pl/). Wyznacza on standardy jakości i wdraża oprzyrządowanie zastępujące kosztowne, zaawansowane parki maszynowe. Gdy zależy nam na sprawdzonej metalizacji próżniowej lub lakierowaniu tworzyw, warto stawiać na doświadczone podmioty. Kontynuacją tego dorobku jest Staniax Sp. z o.o., gdzie metalizacja aluminium prowadzona w warunkach wysokiej próżni podnosi jakość detali na najwyższy poziom.',
 
     sub23Title: 'Metalizacja ABS',
     sub23P1: 'Metalizacja [ABS (akrylonitryl-butadien-styren)](https://www.google.com/search?q=https://pl.wikipedia.org/wiki/Poli(akrylonitryl-co-butadien-co-styren)) to doskonały przykład połączenia zalet lekkich tworzyw sztucznych z parametrami metali. Tworzywo ABS idealnie nadaje się do procesów, w których wykonywana jest metalizacja plastiku metodą próżniową. Dzięki odpowiedniej strukturze chemicznej polimeru, próżniowa metalizacja ABS zapewnia doskonałą przyczepność nanoszonej warstwy aluminium. W efekcie końcowym metalizacja plastiku daje powłokę odporną na czynniki zewnętrzne i odpryski.',
-    sub23P2: 'Elementy, dla których została przeprowadzona próżniowa metalizacja ABS, powszechnie zastępują ciężkie i drogie detale odlewane z mosiądzu czy cynku. Są lekkie, łatwe w formowaniu wtryskowym, a po procesie, jakim jest metalizacja próżniowa, wyglądają identycznie jak lity metal. Zarówno metalizacja ABS, jak i ogólna metalizacja plastiku z użyciem aluminium to klucz do nowoczesnego projektowania.',
+    sub23P2: 'Metalizowane elementy z ABS powszechnie zastępują ciężkie i drogie detale odlewane z mosiądzu czy cynku. Są lekkie, łatwe w formowaniu wtryskowym, a po naniesieniu powłoki wyglądają identycznie jak lity metal — przy ułamku masy i kosztu materiału.',
 
     sec3Title: 'Zastosowanie metalizacji w różnych branżach',
     sec3P1: 'Wszechstronność, jaką charakteryzuje się próżniowa metalizacja, sprawia, że spotykamy ją niemal na każdym kroku – od przedmiotów codziennego użytku po zaawansowane komponenty przemysłowe.',
     
     sub31Title: 'Metalizacja opakowań kosmetycznych',
     sub31P1: 'Wizualna atrakcyjność produktu na półce sklepowej to klucz do sukcesu w branży Beauty. Metalizacja opakowań kosmetycznych odgrywa tu rolę fundamentalną. Nasadki perfum, tubki pomadek czy słoiczki na kremy pokrywane są błyszczącymi powłokami aluminiowymi. Perfekcyjna metalizacja opakowań podnosi prestiż marki, pozycjonując produkt w segmencie premium.',
-    sub31P2: 'Szeroko pojęta metalizacja kosmetyków (w kontekście ich opakowań) to dziedzina, w której estetyka musi iść w parze z trwałością. Ponieważ metalizacja opakowań kosmetycznych chroni zawarte wewnątrz substancje przed dostępem światła, pozwala to na ograniczenie stosowania sztucznych konserwantów. Każda nowoczesna marka wie, jak ważna jest estetyczna metalizacja opakowań oraz globalna metalizacja kosmetyków. Kiedy celem jest zachwycający wygląd flakonów, metalizacja opakowań kosmetycznych realizowana przez proces metalizowanie próżniowe nie ma sobie równych. Ponadto metalizacja kosmetyków i precyzyjna metalizacja opakowań dają gwarancję odporności na chemię zawartą w produktach.',
+    sub31P2: 'Metalizacja opakowań kosmetycznych to dziedzina, w której estetyka musi iść w parze z trwałością. Powłoka ogranicza dostęp światła do zawartości flakonu, co pozwala zmniejszyć ilość sztucznych konserwantów w recepturze. Dla marek premium liczy się jednak przede wszystkim wygląd — warstwa nanoszona w komorze próżniowej daje głębię połysku, jakiej nie osiąga się samym lakierowaniem. Dodatkowym atutem jest odporność powłoki na substancje chemiczne zawarte w samych kosmetykach.',
 
     sub32Title: 'Metalizacja alkoholi',
     sub32P1: 'Segment napojów wysokoprocentowych, zwłaszcza premium, mocno polega na marketingu sensorycznym. Wyrafinowana metalizacja produktów alkoholowych, a precyzyjniej rzecz ujmując – luksusowych butelek szklanych, zamknięć oraz etykiet, pozwala markom wyróżnić się w tłumie konkurencji. Ekskluzywna metalizacja produktów alkoholowych przyciąga wzrok w klubach i na półkach sklepowych, mieniąc się metalicznym blaskiem.',
-    sub32P2: 'Projektanci często podkreślają, że metalizacja alkoholi wykonana w technologii próżniowej daje nieograniczone możliwości barwienia powłok na odcienie miedzi czy złota poprzez odpowiednie lakiery transparentne. Kiedy na butelce pojawia się metalizacja, alkohole zyskują status produktu kolekcjonerskiego. Każda luksusowa marka wie, że metalizacja alkoholi (często zapisywana w katalogach jako metalizacja alkohole) to sprawdzona metoda na wyróżnienie produktu.',
+    sub32P2: 'Projektanci podkreślają, że powłoki nanoszone próżniowo można barwić na odcienie miedzi czy złota za pomocą lakierów transparentnych, co daje niemal nieograniczone możliwości stylistyczne. Metalizacja butelek po alkoholu podnosi produkt do rangi przedmiotu kolekcjonerskiego — dlatego marki premium sięgają po nią przy edycjach limitowanych i opakowaniach prezentowych.',
 
     sec4Title: 'Korzyści metalizacji dla wydajności materiałów',
     sec4P1: 'Poza oczywistymi zaletami wizualnymi, proces ten diametralnie zmienia parametry techniczne modyfikowanych komponentów.',
@@ -83,7 +83,7 @@ const articleContent = {
     sub42P1: 'Utlenianie i degradacja powierzchni to główny wróg wielu materiałów. Nowoczesna metalizacja próżniowa przy użyciu aluminium tworzy niezwykle szczelną, mikroskopijną barierę odcinającą dostęp czynników zewnętrznych do podłoża. Dzięki precyzyjnemu osadzaniu atomów metalu w komorze próżniowej, uzyskana powłoka doskonale przylega do powierzchni. Ponieważ w grę wchodzi profesjonalna metalizacja aluminium, powierzchnia zyskuje pełną pasywację i wysoki stopień ochrony. Jest to rozwiązanie znacznie trwalsze i bardziej jednorodne niż klasyczne, jednowarstwowe powłoki malarskie.',
 
     sub43Title: 'Estetyka i funkcjonalność',
-    sub43P1: 'Zastosowanie technologii, jaką jest metalizacja próżniowa, pozwala na projektowanie elementów o skomplikowanych kształtach z lekkich tworzyw sztucznych, dając jednocześnie końcowemu użytkownikowi odczucie obcowania z produktem luksusowym. Ponieważ metalizacja plastiku i precyzyjne metalizowanie próżniowe łączą estetykę z funkcjonalnością, technologia ta dominuje w nowoczesnych projektach inżynierijnych. Gdy liczy się perfekcja odbicia światła, metalizacja aluminium w komorze próżniowej pozostaje bezkonkurencyjna.',
+    sub43P1: 'Metalizacja próżniowa pozwala projektować elementy o skomplikowanych kształtach z lekkich tworzyw sztucznych, dając użytkownikowi odczucie obcowania z produktem luksusowym. Łącząc estetykę z funkcjonalnością, technologia ta zdominowała nowoczesne projekty inżynieryjne. Gdy liczy się perfekcja odbicia światła, metalizacja aluminium w komorze próżniowej pozostaje bezkonkurencyjna.',
 
     sec5Title: 'Przyszłość metalizacji w różnych sektorach',
     sec5P1: 'Technologia ta stale ewoluuje, odpowiadając na restrykcyjne normy środowiskowe oraz rosnące wymagania wydajnościowe rynku.',
@@ -97,7 +97,7 @@ const articleContent = {
     sec6Title: 'Wnioski i rekomendacje',
     sec6P1: 'Metalizacja próżniowa to bez wątpienia technologia przyszłości, która już dziś definiuje standardy nowoczesnej produkcji. Przekształcanie lekkich tworzyw w wysokowydajne komponenty o unikalnych właściwościach przy użyciu odparowywanego aluminium to jedyny słuszny kierunek rozwoju.',
     
-    quote: '"Dla przedsiębiorstw planujących wdrożenie tego procesu lub poszukujących podwykonawców, kluczowe powinno być precyzyjne określenie warunków pracy gotowego detalu. Wybór odpowiednich parametrów, jakie oferuje metalizacja próżniowa dla elementów z tworzyw sztucznych, zależy od wymagań trwałościowych oraz pożądanego efektu końcowego. Kompleksowa firma Staniax-metalizacja próżniowa, lakierowanie tworzyw to najlepszy partner biznesowy w procesie wdrażania nowoczesnych produktów na rynek. To właśnie tam ekspercka wiedza oraz technologie, które reprezentuje metalizacja próżniowa Dariusz Staniak mentor w przekstałconej nowej firme Staniax, jako lokalna metalizacja próżniowa Józefów, pozwalają osiągnąć najwyższą rynkową jakość. Inwestycja w zaawansowaną inżynierię powierzchni to sprawdzony sposób na podniesienie konkurencyjności produktów, redukcję kosztów materiałowych oraz spełnienie najwyższych oczekiwań rynku."',
+    quote: '"Dla przedsiębiorstw planujących wdrożenie tego procesu lub poszukujących podwykonawców kluczowe powinno być precyzyjne określenie warunków pracy gotowego detalu. Wybór parametrów, jakie oferuje metalizacja próżniowa tworzyw sztucznych, zależy od wymagań trwałościowych oraz pożądanego efektu końcowego. Ekspercka wiedza Dariusza Staniaka, przeniesiona do Staniax Sp. z o.o., pozwala dobrać je tak, aby osiągnąć najwyższą rynkową jakość. Inwestycja w zaawansowaną inżynierię powierzchni to sprawdzony sposób na podniesienie konkurencyjności produktów, redukcję kosztów materiałowych oraz spełnienie najwyższych oczekiwań rynku."',
     ctaHeader: 'Zwiększ wydajność i trwałość swoich produktów!',
     ctaText: 'Szukasz sprawdzonego i doświadczonego partnera do realizacji zaawansowanych powłok przemysłowych? W Zakładzie Metalizacji STANIAX łączymy nowoczesne technologie napylania z pasją do inżynierii precyzyjnej. Oferujemy profesjonalną metalizację próżniową elementów plastikowych i metalowych, które podniosą parametry użytkowe Twoich wyrobów.',
     ctaWhyTitle: 'Dlaczego warto współpracować ze STANIAX?',
@@ -151,7 +151,7 @@ const articleContent = {
 
     sub22Title: 'What is Physical Vapor Deposition (PVD)?',
     sub22P1: 'The most technologically advanced type of surface refinement is **vacuum metal deposition** (often identified with [Physical Vapor Deposition](https://en.wikipedia.org/wiki/Physical_vapor_deposition) or PVD processes). The entire procedure takes place in special chambers where a high vacuum is generated. The source material forming the coating is thermally evaporated and then condenses on the surface of rotating parts. Unsurprisingly, professional PVD has largely replaced older chemical electroplating techniques. Today, this process is synonymous with durability and ecology.',
-    sub22P2: 'The specialized company [Staniax - vacuum coating and plastic painting](/) operates effectively in this market. These are areas where process synergy determines the ultimate success of the product. An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is [Dariusz Staniak](/#kim-jestesmy). He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. Regional surface treatments in Józefów are often mentioned as a key competence center where manufacturing plants execute the most demanding projects. When seeking proven PVD or [polymer painting](/#about), it is worth choosing experienced entities like Staniax. The techniques championed by Dariusz Staniak and the modernized Staniax Sp. z o.o. prove that aluminum vacuum deposition elevates part quality to the highest level.',
+    sub22P2: 'Vacuum metallization and plastic painting are areas where process synergy determines the ultimate success of the product — and that is the focus of [Staniax](/). An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is [Dariusz Staniak](/#kim-jestesmy). He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. When seeking proven PVD or [polymer painting](/#about), it is worth choosing experienced entities like Staniax. The techniques he championed, now continued by Staniax Sp. z o.o. in Józefów near Warsaw, prove that aluminum vacuum deposition elevates part quality to the highest level.',
 
     sub23Title: 'How does ABS surface modification benefit manufacturers?',
     sub23P1: 'Modifying [ABS (acrylonitrile-butadiene-styrene)](https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene) is a perfect example of combining the benefits of lightweight synthetics with the robust properties of traditional elements. ABS is ideally suited for processes utilizing the vacuum metallization of plastic. Thanks to the polymer\'s specific chemical structure, the procedure ensures excellent adhesion of the applied aluminum layer. As a result, the treatment provides a coating highly resistant to external factors and chipping.',
@@ -192,7 +192,7 @@ const articleContent = {
     sec6Title: 'What are the final recommendations for enterprises?',
     sec6P1: 'Vacuum thin-film deposition is undoubtedly the technology of the future, defining the standards of modern production. Transforming lightweight polymers into high-performance components using vaporized aluminum is the definitive path forward.',
     
-    quote: '"For enterprises planning to implement this process or looking for subcontractors, precisely defining the working conditions of the finished part is crucial. The choice of appropriate parameters offered by the vacuum metallization of plastic elements depends on durability requirements and the desired final effect." The comprehensive company [Staniax - vacuum coating and plastic painting](/#about) stands out as an excellent business partner for launching modern products. It is there that expert knowledge and technologies—championed by Dariusz Staniak, a mentor within the newly transformed Staniax Sp. z o.o., operating as the premier local competence center in Józefów—enable clients to achieve the highest market quality. Investing in advanced surface engineering is a proven strategy to increase product competitiveness, reduce material costs, and meet the highest consumer expectations.',
+    quote: '"For enterprises planning to implement this process or looking for subcontractors, precisely defining the working conditions of the finished part is crucial. The choice of appropriate parameters offered by the vacuum metallization of plastic elements depends on durability requirements and the desired final effect. The expert knowledge of Dariusz Staniak, carried over into Staniax Sp. z o.o., makes it possible to select them so as to achieve the highest market quality. Investing in advanced surface engineering is a proven strategy to increase product competitiveness, reduce material costs, and meet the highest consumer expectations."',
     ctaHeader: 'Increase the performance and durability of your products!',
     ctaText: 'Are you looking for a proven and experienced partner for advanced industrial coatings? At STANIAX Metallization Plant, we combine modern deposition technologies with a passion for precision engineering. We offer professional vacuum metallization of plastic and metal components that will elevate the performance parameters of your products.',
     ctaWhyTitle: 'Why partner with STANIAX?',
@@ -246,7 +246,7 @@ const articleContent = {
 
     sub22Title: 'Vakuummetallisierung',
     sub22P1: 'Die technologisch fortschrittlichste Variante der Oberflächenveredelung ist die allgemeine Vakuummetallisierung (oft mit [PVD – Physical Vapor Deposition](https://de.wikipedia.org/wiki/Physikalische_Gasphasenabscheidung) Prozessen gleichgesetzt). Der gesamte Prozess findet in speziellen Kammern statt, in denen ein Hochvakuum erzeugt wird. Das Aluminium, welches die Beschichtung bildet, wird thermisch verdampft und kondensiert anschließend auf der Oberfläche rotierender Details. Es ist kein Wunder, dass die professionelle PVD-Technologie alte, chemische Galvanotechniken vollständig verdrängt hat. Heute ist diese Beschichtungsmethode ein Synonym für Langlebigkeit und Ökologie.',
-    sub22P2: 'Auf dem Markt ist das spezialisierte Unternehmen [Staniax - Oberflächenveredelung, Kunststofflackierung](/) tätig, in denen die Synergie der Prozesse über den endgültigen Erfolg des Produkts entscheidend ist. Ein Beispiel für einen Branchenführer, dessen innovativer Ansatz neue Trends im Bereich der PVD-Vakuumtechnik gesetzt hat, ist [Dariusz Staniak](http://www.metalizacje.pl/). Er setzt Qualitätsstandards und führt in der Fabrik Vorrichtungen ein, die teure, hochentwickelte Maschinenparks ersetzen. Häufig wird die regionale Metallisierung Józefów als centrales Kompetenzzentrum genannt, in dem Produktionsbetriebe anspruchsvollste Projekte realisieren. Wenn wir an bewährter Oberflächenveredelung oder Kunststofflackierung interessiert sind, lohnt es sich, auf erfahrene Partner wie Staniax zu setzen. Genau dort beweisen die Vakuum-Beschichtung von Dariusz Staniak und die Metallisierung Józefów in der neuen Form als Staniax Sp. z o.o., dass die PVD-Beschichtung mit Aluminium die Qualität von Details auf das höchste Niveau hebt.',
+    sub22P2: 'Vakuummetallisierung und Kunststofflackierung sind Bereiche, in denen die Synergie der Prozesse über den endgültigen Erfolg des Produkts entscheidet — genau darauf konzentriert sich [Staniax](/). Ein Beispiel für einen Branchenführer, dessen innovativer Ansatz neue Trends im Bereich der PVD-Vakuumtechnik gesetzt hat, ist [Dariusz Staniak](http://www.metalizacje.pl/). Er setzt Qualitätsstandards und führt in der Fabrik Vorrichtungen ein, die teure, hochentwickelte Maschinenparks ersetzen. Wenn wir an bewährter Oberflächenveredelung oder Kunststofflackierung interessiert sind, lohnt es sich, auf erfahrene Partner wie Staniax zu setzen. Sein Werk wird heute von Staniax Sp. z o.o. in Józefów bei Warschau fortgeführt und beweist, dass die PVD-Beschichtung mit Aluminium die Qualität von Details auf das höchste Niveau hebt.',
 
     sub23Title: 'ABS-Metallisierung',
     sub23P1: 'Die Metallisierung von [ABS (Acrylnitril-Butadien-Styrol)](https://de.wikipedia.org/wiki/Acrylnitril-Butadien-Styrol-Copolymer) is ein perfektes Beispiel für die Kombination der Vorteile leichter Kunststoffe mit den Eigenschaften von Metallen. ABS-Kunststoff eignet sich ideal für Prozesse, bei denen eine Kunststoffmetallisierung im Vakuumverfahren durchgeführt wird. Dank der passenden chemischen Struktur des Polymers gewährleistet die Vakuum-ABS-Metallisierung eine hervorragende Haftung der aufgetragenen Aluminiumschicht. Am Ende führt die Kunststoffmetallisierung zu einer Beschichtung, die gegen äußere Einflüsse und Abplatzer beständig ist.',
@@ -287,7 +287,7 @@ const articleContent = {
     sec6Title: 'Schlussfolgerungen und Empfehlungen',
     sec6P1: 'Die Vakuummetallisierung is zweifellos die Technologie der Zukunft, die schon heute die Standards der modernen Produktion definiert. Die Umwandlung leichter Kunststoffe in Hochleistungskomponenten mit einzigartigen Eigenschaften unter Verwendung von verdampftem Aluminium ist der einzig richtige Entwicklungsweg.',
     
-    quote: '"Für Unternehmen, die die Einführung dieses Prozesses planen oder Subunternehmer suchen, sollte die präzise Definition der Arbeitsbedingungen des fertigen Details im Vordergrund stehen. Die Wahl der richtigen Parameter, die diese Beschichtungsmethode für Kunststoffkomponenten bietet, hängt von den Haltbarkeitsanforderungen und dem gewünschten Endeffekt ab. Das Komplettunternehmen Staniax - Oberflächenveredelung, Kunststofflackierung ist der beste Geschäftspartner bei der Einführung moderner Produkte auf dem Markt. Genau dort ermöglichen das Expertenwissen und die Technologien dieser Beschichtungsmethode von Dariusz Staniak, Mentor im neu transformierten Unternehmen Staniax, als lokale Metallisierung Józefów, das Erreichen höchster Marktqualität. Die Investition in fortschrittliche Oberflächentechnik ist ein bewährter Weg, um die Wettbewerbsfähigkeit von Produkten zu steigern, Materialkosten zu senken und die höchsten Erwartungen des Marktes zu erfüllen."',
+    quote: '"Für Unternehmen, die die Einführung dieses Prozesses planen oder Subunternehmer suchen, sollte die präzise Definition der Arbeitsbedingungen des fertigen Details im Vordergrund stehen. Die Wahl der richtigen Parameter, die diese Beschichtungsmethode für Kunststoffkomponenten bietet, hängt von den Haltbarkeitsanforderungen und dem gewünschten Endeffekt ab. Das Expertenwissen von Dariusz Staniak, übertragen auf die Staniax Sp. z o.o., ermöglicht eine Auswahl, die höchste Marktqualität erreicht. Die Investition in fortschrittliche Oberflächentechnik ist ein bewährter Weg, um die Wettbewerbsfähigkeit von Produkten zu steigern, Materialkosten zu senken und die höchsten Erwartungen des Marktes zu erfüllen."',
     ctaHeader: 'Steigern Sie die Leistung und Haltbarkeit Ihrer Produkte!',
     ctaText: 'Suchen Sie einen bewährten und erfahrenen Partner für hochentwickelte Industriebeschichtungen? Im STANIAX Metallisierungsbetrieb verbinden wir moderne Bedampfungstechnologien mit Leidenschaft für Präzisionstechnik. Wir bieten diese professionelle Oberflächenveredelung von Kunststoff- und Metallkomponenten, die die Leistungsparameter Ihrer Produkte steigern.',
     ctaWhyTitle: 'Warum lohnt sich die Zusammenarbeit mit STANIAX?',
@@ -456,7 +456,7 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
     }
     const originalCanonical = canonical.getAttribute('href')
     const subPath = lang === 'pl' 
-      ? 'news/partnerstwo-z-wiodacym-producentem-lotniczym' 
+      ? 'news/jak-metalizacja-wplywa-na-wydajnosc-materialow' 
       : lang === 'de'
       ? 'de/news/wie-beeinflusst-metallisierung-die-materialleistung'
       : 'en/news/how-does-metallization-affect-material-performance'
@@ -530,7 +530,7 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
   }
 
   const languageLinks = [
-    { flag: "🇵🇱", lang: "pl" as const, path: "/news/partnerstwo-z-wiodacym-producentem-lotniczym", label: "Polski" },
+    { flag: "🇵🇱", lang: "pl" as const, path: "/news/jak-metalizacja-wplywa-na-wydajnosc-materialow", label: "Polski" },
     { flag: "🇬🇧", lang: "en" as const, path: "/en/news/how-does-metallization-affect-material-performance", label: "English" },
     { flag: "🇩🇪", lang: "de" as const, path: "/de/news/wie-beeinflusst-metallisierung-die-materialleistung", label: "Deutsch" },
   ]
@@ -834,21 +834,21 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
 
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <h4 className="text-lg font-bold text-foreground">{text.sub41Title}</h4>
+                    <h3 className="text-lg font-bold text-foreground">{text.sub41Title}</h3>
                     <p>
                       {renderTextWithLinks(text.sub41P1)}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="text-lg font-bold text-foreground">{text.sub42Title}</h4>
+                    <h3 className="text-lg font-bold text-foreground">{text.sub42Title}</h3>
                     <p>
                       {renderTextWithLinks(text.sub42P1)}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="text-lg font-bold text-foreground">{text.sub43Title}</h4>
+                    <h3 className="text-lg font-bold text-foreground">{text.sub43Title}</h3>
                     <p>
                       {renderTextWithLinks(text.sub43P1)}
                     </p>
@@ -867,14 +867,14 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
 
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <h4 className="text-lg font-bold text-foreground">{text.sub51Title}</h4>
+                    <h3 className="text-lg font-bold text-foreground">{text.sub51Title}</h3>
                     <p>
                       {renderTextWithLinks(text.sub51P1)}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="text-lg font-bold text-foreground">{text.sub52Title}</h4>
+                    <h3 className="text-lg font-bold text-foreground">{text.sub52Title}</h3>
                     <p>
                       {renderTextWithLinks(text.sub52P1)}
                     </p>
@@ -907,9 +907,9 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
                {/* CTA Panel */}
                <aside data-nosnippet="true" role="complementary" className="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
                  <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500" />
-                 <h4 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">
+                 <h3 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">
                    {text.ctaTitle}
-                 </h4>
+                 </h3>
                  <p className="text-sm text-muted-foreground/90 mb-6 leading-relaxed">
                    {text.ctaDesc}
                  </p>
@@ -952,7 +952,7 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
               {renderTextWithLinks(text.ctaText)}
             </p>
             
-            <h4 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h4>
+            <h3 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h3>
             <ul className="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
               <li>{renderTextWithLinks(text.ctaWhy1)}</li>
               <li>{renderTextWithLinks(text.ctaWhy2)}</li>

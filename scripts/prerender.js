@@ -1,6 +1,17 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import {
+  ROUTE_GROUPS,
+  findRoute,
+  hreflangTags,
+  url as absUrl,
+  organizationLd,
+  webSiteLd,
+  breadcrumbLd,
+  articleLd
+} from './seo.js'
+import { renderShells } from './render-shells.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -15,12 +26,128 @@ if (!fs.existsSync(indexPath)) {
 
 const baseHtml = fs.readFileSync(indexPath, 'utf-8')
 
+// Rendered up-front, while dist/ still holds the untouched Vite output whose
+// SPA fallback can serve every client-side route.
+const SHELL_ROUTES = [
+  ROUTE_GROUPS.home.pl, ROUTE_GROUPS.home.en, ROUTE_GROUPS.home.de,
+  ROUTE_GROUPS.gallery.pl, ROUTE_GROUPS.gallery.en, ROUTE_GROUPS.gallery.de,
+  ROUTE_GROUPS.news.pl, ROUTE_GROUPS.news.en, ROUTE_GROUPS.news.de,
+  ROUTE_GROUPS.privacy.pl, ROUTE_GROUPS.privacy.en, ROUTE_GROUPS.privacy.de,
+  ROUTE_GROUPS.cookies.pl, ROUTE_GROUPS.cookies.en, ROUTE_GROUPS.cookies.de,
+  ROUTE_GROUPS.terms.pl, ROUTE_GROUPS.terms.en, ROUTE_GROUPS.terms.de
+]
+const renderedShells = await renderShells(distDir, SHELL_ROUTES)
+
+// Breadcrumb labels per language, used for both shells and articles.
+const CRUMB = {
+  pl: { home: 'Strona główna', news: 'Aktualności', gallery: 'Galeria' },
+  en: { home: 'Home', news: 'News', gallery: 'Gallery' },
+  de: { home: 'Startseite', news: 'Aktuelles', gallery: 'Galerie' }
+}
+
+// Structured data appropriate to the page type, keyed by route group.
+function structuredDataFor(group, lang, subPath) {
+  const c = CRUMB[lang] || CRUMB.pl
+  const homeUrl = absUrl(ROUTE_GROUPS.home[lang])
+  if (group === 'home') return organizationLd() + webSiteLd()
+
+  const crumbs = [{ name: c.home, url: homeUrl }]
+  if (group === 'gallery') {
+    crumbs.push({ name: c.gallery, url: absUrl(subPath) })
+  } else if (group === 'news') {
+    crumbs.push({ name: c.news, url: absUrl(subPath) })
+  } else {
+    crumbs.push({ name: c.news, url: absUrl(ROUTE_GROUPS.news[lang]) })
+    crumbs.push({ name: ARTICLE_META[group]?.[lang]?.headline ?? '', url: absUrl(subPath) })
+  }
+
+  let ld = breadcrumbLd(crumbs)
+  const meta = ARTICLE_META[group]?.[lang]
+  if (meta) {
+    ld += articleLd({
+      headline: meta.headline,
+      description: meta.description,
+      image: meta.image,
+      canonical: absUrl(subPath),
+      lang,
+      datePublished: meta.datePublished
+    })
+  }
+  return ld
+}
+
 const assetsDir = path.join(distDir, 'assets')
 const files = fs.readdirSync(assetsDir)
 const aviationImgFile = files.find(f => f.startsWith('news_aviation-') && f.endsWith('.jpg'))
 const aviationImgUrl = aviationImgFile ? `/assets/${aviationImgFile}` : '/assets/news_aviation.jpg'
 const beautyImgFile = files.find(f => f.startsWith('colorful_packaging-') && f.endsWith('.png'))
 const beautyImgUrl = beautyImgFile ? `/assets/${beautyImgFile}` : '/assets/colorful_packaging.png'
+const reflectorsImgFile = files.find(f => f.startsWith('odblysniki-nowe-1-') && /\.(jpe?g|JPE?G)$/.test(f))
+const reflectorsImgUrl = reflectorsImgFile ? `/assets/${reflectorsImgFile}` : '/assets/odblysniki-nowe-1.jpeg'
+
+// Feeds the Article JSON-LD emitted for each pre-rendered article.
+const ARTICLE_META = {
+  aviation: {
+    pl: {
+      headline: 'Jak metalizacja wpływa na wydajność materiałów?',
+      description: 'Jak metalizacja próżniowa, lakierowanie tworzyw i procesy PVD wpływają na wytrzymałość i estetykę materiałów w lotnictwie.',
+      image: aviationImgUrl,
+      datePublished: '2025-08-20'
+    },
+    en: {
+      headline: 'Surface Treatments & Material Performance',
+      description: 'How vacuum metallization and PVD protective coatings increase material performance in the aerospace industry.',
+      image: aviationImgUrl,
+      datePublished: '2025-08-20'
+    },
+    de: {
+      headline: 'Wie beeinflusst Metallisierung die Materialleistung?',
+      description: 'Wie Vakuummetallisierung, Kunststofflackierung und PVD-Prozesse Festigkeit und Ästhetik von Materialien in der Luftfahrt beeinflussen.',
+      image: aviationImgUrl,
+      datePublished: '2025-08-20'
+    }
+  },
+  beauty: {
+    pl: {
+      headline: 'Metalizacja próżniowa rewolucjonizuje branżę beauty',
+      description: 'Zalety metalizacji próżniowej i lakierowania tworzyw w segmencie opakowań kosmetycznych.',
+      image: beautyImgUrl,
+      datePublished: '2025-08-20'
+    },
+    en: {
+      headline: 'Vacuum Metallization Revolutionizes the Beauty Industry',
+      description: 'The benefits of vacuum metallization and plastic painting in the cosmetics packaging segment.',
+      image: beautyImgUrl,
+      datePublished: '2025-08-20'
+    },
+    de: {
+      headline: 'Vakuummetallisierung revolutioniert die Kosmetikbranche',
+      description: 'Wie Vakuummetallisierung und präzise Kunststofflackierung Kosmetikverpackungen revolutionieren.',
+      image: beautyImgUrl,
+      datePublished: '2025-08-20'
+    }
+  },
+  reflectors: {
+    pl: {
+      headline: 'Regeneracja odbłyśników i reflektorów samochodowych',
+      description: 'Regeneracja odbłyśników metodą PVD i polerowanie reflektorów — kiedy regenerować, a kiedy wymienić lampę.',
+      image: reflectorsImgUrl,
+      datePublished: '2026-06-10'
+    },
+    en: {
+      headline: 'Reflector Regeneration and Headlight Polishing',
+      description: 'Reflector regeneration using the PVD method and headlight polishing — when to restore and when to replace.',
+      image: reflectorsImgUrl,
+      datePublished: '2026-06-10'
+    },
+    de: {
+      headline: 'Regeneration von Scheinwerfern und Reflektoren',
+      description: 'Regeneration von Reflektoren mittels PVD-Methode und Polieren von Scheinwerfern.',
+      image: reflectorsImgUrl,
+      datePublished: '2026-06-10'
+    }
+  }
+}
 
 // Polish texts
 const plMeta = `
@@ -168,7 +295,7 @@ const plHtml = `
           <!-- CTA Panel -->
           <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h3>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
             <a href="/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Napisz do nas
@@ -197,7 +324,7 @@ const plHtml = `
           Szukasz sprawdzonego i doświadczonego partnera do realizacji zaawansowanych powłok przemysłowych? W Zakładzie Metalizacji STANIAX łączymy nowoczesne technologie napylania z pasją do inżynierii precyzyjnej. Oferujemy profesjonalną metalizację próżniową elementów plastikowych i metalowych, które podniosą parametry użytkowe Twoich wyrobów.
         </p>
         
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto współpracować ze STANIAX?</h4>
+        <h3 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto współpracować ze STANIAX?</h3>
         <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
           <li><strong>Gwarancja jakości premium:</strong> Zapewniamy precyzyjnie osadzone powłoki metaliczne o wysokiej odporności i trwałości.</li>
           <li><strong>Nowoczesny park maszynowy:</strong> Realizujemy zlecenia szybko, powtarzalnie i z zachowaniem restrykcyjnych norm środowiskowych.</li>
@@ -410,7 +537,7 @@ function getEnHtml(lang) {
           <!-- CTA Panel -->
           <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h3>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
             <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Write to us
@@ -439,7 +566,7 @@ function getEnHtml(lang) {
           Are you looking for a proven and experienced partner for advanced industrial coatings? At STANIAX Metallization Plant, we combine modern deposition technologies with a passion for precision engineering. We offer professional vacuum metallization of plastic and metal components that will elevate the performance parameters of your products.
         </p>
         
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why partner with STANIAX?</h4>
+        <h3 class="font-bold text-foreground mb-3 text-sm md:text-base">Why partner with STANIAX?</h3>
         <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
           <li><strong>Premium quality guarantee:</strong> We ensure precisely deposited metallic coatings with high resistance and remarkable durability.</li>
           <li><strong>Modern machinery park:</strong> We complete orders quickly, repeatably, and with strict environmental standards in mind.</li>
@@ -649,7 +776,7 @@ function getDeHtml(lang) {
           <!-- CTA Panel -->
           <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h3>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
             <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Schreiben Sie uns
@@ -678,7 +805,7 @@ function getDeHtml(lang) {
           Suchen Sie einen bewährten und erfahrenen Partner für hochentwickelte Industriebeschichtungen? Im STANIAX Metallisierungsbetrieb verbinden wir moderne Bedampfungstechnologien mit Leidenschaft für Präzisionstechnik. Wir bieten diese professionelle Oberflächenveredelung von Kunststoff- und Metallkomponenten, die die Leistungsparameter Ihrer Produkte steigern.
         </p>
         
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum lohnt sich die Zusammenarbeit mit STANIAX?</h4>
+        <h3 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum lohnt sich die Zusammenarbeit mit STANIAX?</h3>
         <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
           <li><strong>Premium-Qualitätsgarantie:</strong> Wir sorgen für präzise abgeschiedene Metallbeschichtungen mit hoher Beständigkeit und Haltbarkeit.</li>
           <li><strong>Moderner Maschinenpark:</strong> Wir realisieren Aufträge schnell, wiederholbar und unter Einhaltung strenger Umweltnormen.</li>
@@ -722,8 +849,13 @@ function writePrerenderFile(subPath, titleMeta, htmlContent) {
   
   // Inject canonical URL link element to avoid duplicate content indexing issues
   const canonicalLink = `\n    <link rel="canonical" href="https://www.staniax.pl/${subPath}" />\n`;
-  
-  fileHtml = fileHtml.replace('</head>', `${titleMeta}${canonicalLink}</head>`)
+
+  // Translated siblings + schema.org data, resolved from the shared route table.
+  const route = findRoute(subPath)
+  const alternates = route ? hreflangTags(route.group) : ''
+  const structured = route ? structuredDataFor(route.group, route.lang, subPath) : ''
+
+  fileHtml = fileHtml.replace('</head>', `${titleMeta}${canonicalLink}${alternates}${structured}</head>`)
   fileHtml = fileHtml.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${htmlContent.trim()}</div>`)
   
   const targetPath = path.join(distDir, subPath)
@@ -733,7 +865,7 @@ function writePrerenderFile(subPath, titleMeta, htmlContent) {
 }
 
 // 1. Polish version
-writePrerenderFile('news/partnerstwo-z-wiodacym-producentem-lotniczym', plMeta, plHtml)
+writePrerenderFile('news/jak-metalizacja-wplywa-na-wydajnosc-materialow', plMeta, plHtml)
 
 // 2. English version
 writePrerenderFile('en/news/how-does-metallization-affect-material-performance', enMeta, getEnHtml('en'))
@@ -925,23 +1057,23 @@ const plBeautyHtml = `
             <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Często zadawane pytania (Q&A)</h2>
             <div class="space-y-6">
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Czym jest metalizacja próżniowa i czym różni się od metalizacji natryskowej?</h4>
+                <h3 class="font-bold text-foreground">Czym jest metalizacja próżniowa i czym różni się od metalizacji natryskowej?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Metalizacja próżniowa to osadzanie bardzo cienkiej warstwy metalu (najczęściej aluminium) na powierzchni innego materiału w warunkach wysokiej próżni. Daje idealnie gładką, lustrzaną powłokę o wysokiej wartości estetycznej. Metalizacja natryskowa, stosowana głównie w przemyśle ciężkim, służy przede wszystkim ochronie antykorozyjnej i nie zapewnia tak perfekcyjnie gładkiego, „biżuteryjnego” wykończenia.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Dlaczego w branży Beauty najczęściej metalizuje się plastik zamiast używać litego metalu?</h4>
+                <h3 class="font-bold text-foreground">Dlaczego w branży Beauty najczęściej metalizuje się plastik zamiast używać litego metalu?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Elementy opakowań (np. zakrętki, obudowy szminek, atomizery) produkuje się z lekkich polimerów, a następnie metalizuje, by połączyć wygodę i niską masę z wyglądem premium (złoto, srebro, miedź). Taka konstrukcja obniża koszty, poprawia ergonomię i zmniejsza ślad węglowy transportu w porównaniu z cięższymi elementami metalowymi, a jednocześnie zachowuje luksusowy efekt wizualny.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Jaką rolę pełni lakierowanie w procesie metalizacji i trwałości opakowań?</h4>
+                <h3 class="font-bold text-foreground">Jaką rolę pełni lakierowanie w procesie metalizacji i trwałości opakowań?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Lakier podkładowy (base coat) wygładza powierzchnię plastiku i przygotowuje ją do równomiernego osadzania metalu. Lakier nawierzchniowy (top coat) zabezpiecza cienką warstwę metalu przed zarysowaniami, działaniem chemikaliów z kosmetyków oraz promieniowaniem UV, a także pozwala nadać dowolny kolor. To połączenie odpowiada zarówno za „efekt lustra”, jak i dużą odporność użytkową.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Na ile metalizacja próżniowa jest przyjazna środowisku i co z recyklingiem?</h4>
+                <h3 class="font-bold text-foreground">Na ile metalizacja próżniowa jest przyjazna środowisku i co z recyklingiem?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">W porównaniu z litymi metalami lżejsze, metalizowane opakowania plastikowe ograniczają emisje podczas transportu. Dodatkowo nowoczesne lakiery utwardzane promieniami UV nie zawierają lotnych związków organicznych, co czyni proces „zielonym” w porównaniu z tradycyjnymi rozwiązaniami. Branża intensywnie pracuje też nad powłokami, które nie zakłócają recyklingu plastiku, aby jeszcze lepiej wpisać się w gospodarkę obiegu zamkniętego.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Gdzie najczęściej wykorzystuje się tę technologię i jakie są przykłady produktów?</h4>
+                <h3 class="font-bold text-foreground">Gdzie najczęściej wykorzystuje się tę technologię i jakie są przykłady produktów?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">W makijażu spotkamy ją w oprawkach szminek i błyszczyków oraz w kompaktach i paletach z lustrzanym wykończeniem. Sprawdza się także w perfumerii - przy nasadkach, korkach i atomizerach, gdzie umożliwia tworzenie efektownych, a zarazem lekkich form. Nawet elastyczne opakowania (np. tubki) mogą korzystać z elastycznych, metalizowanych folii. Polska jest istotnym zapleczem produkcyjnym w Europie, o czym świadczy rosnące zainteresowanie usługami metalizacji w lokalnych ośrodkach.</p>
               </div>
             </div>
@@ -954,7 +1086,7 @@ const plBeautyHtml = `
               Szukasz sprawdzonego i doświadczonego partnera, który zamieni Twoje wizje w luksusową rzeczywistość? W Zakładzie Metalizacji STANIAX łączymy zaawansowane technologie z pasją do perfekcji. Oferujemy najwyższej jakości metalizację próżniową oraz precyzyjne lakierowanie, które wyróżnią Twoje kosmetyki na tle konkurencji.
             </p>
             
-            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto współpracować ze STANIAX?</h4>
+            <h3 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto współpracować ze STANIAX?</h3>
             <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
               <li><strong>Gwarancja jakości premium:</strong> Zapewniamy idealnie gładkie, lustrzane powłoki o niezwykłej trwałości.</li>
               <li><strong>Nowoczesny park maszynowy:</strong> Realizujemy zlecenia szybko, precyzyjnie i z myślą o środowisku.</li>
@@ -980,7 +1112,7 @@ const plBeautyHtml = `
           <!-- CTA Panel -->
           <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h3>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
             <a href="/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Napisz do nas
@@ -1195,23 +1327,23 @@ function getEnBeautyHtml(lang) {
             <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Frequently Asked Questions (Q&A)</h2>
             <div class="space-y-6">
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">What is vacuum metallization and how does it differ from thermal spray metallization?</h4>
+                <h3 class="font-bold text-foreground">What is vacuum metallization and how does it differ from thermal spray metallization?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Vacuum metallization is the deposition of a very thin layer of metal (most commonly aluminum) on the surface of another material under high vacuum conditions. It results in a perfectly smooth, mirror-like coating of high aesthetic value. Unlike processes such as thermal spray metallization or <strong>vacuum casting metal</strong> (which is a molding method), this vacuum technique serves primarily for high-end decorative finishes and does not yield a rough surface.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Why does the beauty industry most commonly metallize plastic instead of using solid metal?</h4>
+                <h3 class="font-bold text-foreground">Why does the beauty industry most commonly metallize plastic instead of using solid metal?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Packaging elements (such as caps, lipstick cases, atomizers) are produced from lightweight polymers and then metallized to combine convenience and low weight with a premium look (gold, silver, copper). This design lowers costs, improves ergonomics, and reduces the carbon footprint of transport compared to heavier metal elements, while maintaining the luxurious visual effect.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">What role does lacquering play in the metallization process and packaging durability?</h4>
+                <h3 class="font-bold text-foreground">What role does lacquering play in the metallization process and packaging durability?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">The base coat smoothes the plastic surface and prepares it for uniform metal deposition. The top coat protects the thin metal layer from scratches, chemicals in cosmetics, and UV radiation, and allows for any color to be applied. This combination is responsible for both the "mirror effect" and high operational durability.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">How environmentally friendly is vacuum metallization and what about recycling?</h4>
+                <h3 class="font-bold text-foreground">How environmentally friendly is vacuum metallization and what about recycling?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Compared to solid metals, lighter metallized plastic packaging limits emissions during transport. In addition, modern UV-cured lacquers do not contain volatile organic compounds, making the process "green" compared to traditional solutions. The industry is also working intensively on coatings that do not disrupt plastic recycling to fit better into the circular economy.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Where is this technology most commonly used and what are examples of products?</h4>
+                <h3 class="font-bold text-foreground">Where is this technology most commonly used and what are examples of products?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">In makeup, you will find it in lipstick and lip gloss cases, as well as compacts and palettes with a mirror finish. It is also used in perfumery - for caps, stoppers, and atomizers, where it enables the creation of striking yet lightweight shapes. Even flexible packaging (such as tubes) can utilize flexible, metallized films. Poland is an important production hub in Europe, as evidenced by growing interest in metallization services in local centers.</p>
               </div>
             </div>
@@ -1225,7 +1357,7 @@ function getEnBeautyHtml(lang) {
               Are you looking for a proven and experienced partner to turn your visions into a luxurious reality? At STANIAX Metallization Plant, we combine advanced technologies with a passion for perfection. We offer the highest quality vacuum metallization and precise lacquering that will set your cosmetics apart from the competition.
             </p>
             
-            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why partner with STANIAX?</h4>
+            <h3 class="font-bold text-foreground mb-3 text-sm md:text-base">Why partner with STANIAX?</h3>
             <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
               <li><strong>Premium quality guarantee:</strong> We provide perfectly smooth, mirror-like coatings of remarkable durability.</li>
               <li><strong>Modern machinery park:</strong> We complete orders quickly, precisely, and with the environment in mind.</li>
@@ -1251,7 +1383,7 @@ function getEnBeautyHtml(lang) {
           <!-- CTA Panel -->
           <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h3>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
             <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Write to us
@@ -1468,23 +1600,23 @@ function getDeBeautyHtml(lang) {
             <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Häufig gestellte Fragen (Q&A)</h2>
             <div class="space-y-6">
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Was ist Vakuummetallisierung und wie unterscheidet sie sich von der thermischen Spritzmetallisierung?</h4>
+                <h3 class="font-bold text-foreground">Was ist Vakuummetallisierung und wie unterscheidet sie sich von der thermischen Spritzmetallisierung?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Die Dünnschichtabscheidung im Vakuum ist die Abscheidung einer sehr dünnen Metallschicht (meist Aluminium) auf der Oberfläche eines anderen Materials unter Hochvakuumbedingungen. Sie führt zu einer perfekt glatten, spiegelnden Beschichtung von hohem ästhetischem Wert. Im Gegensatz zu Verfahren wie der thermischen Spritzmetallisierung, dem **Vakuumguss** oder **Vakuumguss Metall** (einer Gussmethode) dient diese Vakuumtechnik in erster Linie der hochwertigen dekorativen Veredelung und erzeugt keine raue Oberfläche.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Warum metallisiert die Kosmetikindustrie am häufigsten Kunststoff, anstatt massives Metall zu verwenden?</h4>
+                <h3 class="font-bold text-foreground">Warum metallisiert die Kosmetikindustrie am häufigsten Kunststoff, anstatt massives Metall zu verwenden?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Verpackungselemente (wie Kappen, Lippenstiftgehäuse, Zerstäuber) werden aus leichten Polymeren hergestellt und anschließend metallisiert, um Komfort und geringes Gewicht mit einer Premium-Optik (Gold, Silber, Kupfer) zu verbinden. Im Vergleich zu massiven Metallteilen oder Elementen aus dem **Vakuumguss** (bzw. **Vakuumguss Metall**) senkt dieses Design die Kosten, verbessert die Ergonomie und reduziert den CO2-Fußabdruck beim Transport im Vergleich zu schwereren Metallelementen, während der luxuriöse visuelle Effekt erhalten bleibt.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Welche Rolle spielt die Lackierung im Metallisierungsprozess und für die Haltbarkeit der Verpackung?</h4>
+                <h3 class="font-bold text-foreground">Welche Rolle spielt die Lackierung im Metallisierungsprozess und für die Haltbarkeit der Verpackung?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Die Grundierung (base coat) glättet die Kunststoffoberfläche und bereitet sie auf eine gleichmäßige Metallabscheidung vor. Der Decklack (top coat) schützt die dünne Metallschicht vor Kratzern, Kosmetikchemikalien und UV-Strahlung und ermöglicht das Auftragen jeder beliebigen Farbe. Diese Kombination sorgt sowohl für den „Spiegeleffekt“ als auch für eine hohe Strapazierfähigkeit im Gebrauch.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Wie umweltfreundlich ist die Vakuummetallisierung und wie steht es um das Recycling?</h4>
+                <h3 class="font-bold text-foreground">Wie umweltfreundlich ist die Vakuummetallisierung und wie steht es um das Recycling?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Im Vergleich zu massiven Metallen reduzieren leichtere metallisierte Kunststoffverpackungen die Emissionen beim Transport. Zudem enthalten moderne UV-härtende Lacke keine flüchtigen organischen Verbindungen, was das Verfahren im Vergleich zu herkömmlichen Lösungen umweltschonend macht. Die Industrie arbeitet zudem intensiv an Beschichtungen, die das Kunststoff-Recycling nicht beeinträchtigen, um sich besser in die Kreislaufwirtschaft einzufügen.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Wo wird diese Technologie am häufigsten eingesetzt und was sind Produktbeispiele?</h4>
+                <h3 class="font-bold text-foreground">Wo wird diese Technologie am häufigsten eingesetzt und was sind Produktbeispiele?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Im Make-up-Bereich findet man sie in Lippenstift- und Lipgloss-Gehäusen sowie in Kompaktpudern und Paletten mit Spiegelfinish. Sie wird auch in der Parfümerie eingesetzt – für Kappen, Verschlüsse und Zerstäuber, wo sie die Gestaltung auffälliger und zugleich leichter Formen ermöglicht. Zudem können elastische Verpackungen (z.B. Tuben) von elastischen metallisierten Folien profitieren. Polen ist ein wichtiges Produktionszentrum in Europa, wie das wachsende Interesse an Metallisierungsdienstleistungen in lokalen Zentren belegt.</p>
               </div>
             </div>
@@ -1498,7 +1630,7 @@ function getDeBeautyHtml(lang) {
               Suchen Sie einen bewährten und erfahrenen Partner, um Ihre Visionen in eine luxuriöse Reality umzusetzen? Im STANIAX Metallisierungsbetrieb verbinden wir fortschrittliche Technologien mit Leidenschaft für Perfektion. Wir bieten diese professionelle Oberflächenveredelung und präzise Lackierung, mit denen sich Ihre Kosmetika von der Konkurrenz abheben.
             </p>
             
-            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum mit STANIAX zusammenarbeiten?</h4>
+            <h3 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum mit STANIAX zusammenarbeiten?</h3>
             <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
               <li><strong>Premium-Qualitätsgarantie:</strong> Wir sorgen für perfekt glatte, spiegelnde Beschichtungen von außergewöhnlicher Haltbarkeit.</li>
               <li><strong>Moderner Maschinenpark:</strong> Wir führen Aufträge schnell, präzise und umweltschonend aus.</li>
@@ -1524,7 +1656,7 @@ function getDeBeautyHtml(lang) {
           <!-- CTA Panel -->
           <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h3>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
             <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Schreiben Sie uns
@@ -1876,15 +2008,15 @@ function getReflectorsHtml(lang) {
             <h2 class="text-2xl md:text-3xl font-black text-foreground">Najczęstsze pytania o regenerację reflektorów (FAQ)</h2>
             <div class="space-y-6">
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Ile kosztuje regeneracja reflektorów?</h4>
+                <h3 class="font-bold text-foreground">Ile kosztuje regeneracja reflektorów?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Polerowanie klosza z nałożeniem powłoki UV to koszt 150–300 zł za lampę, a kompleksowa regeneracja z metalizacją odbłyśnika – 350–700 zł za sztukę. Dla porównania nowa lampa OEM kosztuje od 1 500 do ponad 5 000 zł.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Ile trwa regeneracja reflektorów?</h4>
+                <h3 class="font-bold text-foreground">Ile trwa regeneracja reflektorów?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Samo polerowanie klosza można wykonać w kilka godzin. Kompleksowa regeneracja z metalizacją odbłyśników trwa zwykle od 5 do 7 dni roboczych, w zależności od zakresu prac i technologii.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Czy zmatowione reflektory przejdą przegląd techniczny?</h4>
+                <h3 class="font-bold text-foreground">Czy zmatowione reflektory przejdą przegląd techniczny?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Mocno zdegradowane klosze przepuszczają tylko 20–30% światła, co grozi negatywnym wynikiem badania technicznego, a nawet odmową dopuszczenia pojazdu do ruchu. Regeneracja przywraca parametry świecenia i pozwala uniknąć problemów na przeglądzie.</p>
               </div>
             </div>
@@ -1894,7 +2026,7 @@ function getReflectorsHtml(lang) {
         <aside class="space-y-8 sticky top-28">
           <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h3>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
             <a href="/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Napisz do nas
@@ -1922,7 +2054,7 @@ function getReflectorsHtml(lang) {
           Szukasz sprawdzonego partnera, który przywróci Twoim lampom fabryczną sprawność? W Zakładzie Metalizacji STANIAX oferujemy profesjonalną regenerację odbłyśników metodą PVD oraz polerowanie kloszy z zabezpieczeniem UV. Skontaktuj się z nami już dziś!
         </p>
         
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto wybrać STANIAX?</h4>
+        <h3 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto wybrać STANIAX?</h3>
         <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
           <li><strong>Trwałość do 5 lat:</strong> Warstwa aluminium nakładana w próżni (metodą PVD) gwarantuje fabryczne parametry odbicia światła.</li>
           <li><strong>Krótki czas realizacji:</strong> Szybkie wykonanie zlecenia, w tym regeneracji wysyłkowej dla klientów z całej Polski.</li>
@@ -2138,15 +2270,15 @@ function getReflectorsHtml(lang) {
             <h2 class="text-2xl md:text-3xl font-black text-foreground">Frequently Asked Questions (FAQ)</h2>
             <div class="space-y-6">
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">How much does headlight regeneration cost?</h4>
+                <h3 class="font-bold text-foreground">How much does headlight regeneration cost?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Polishing the lens with UV coating costs 150–300 PLN per lamp, and comprehensive regeneration with reflector metallization is 350–700 PLN per piece. For comparison, a new OEM lamp costs from 1,500 to over 5,000 PLN.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">How long does headlight regeneration take?</h4>
+                <h3 class="font-bold text-foreground">How long does headlight regeneration take?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Lens polishing alone can be done in a few hours. Comprehensive regeneration with reflector metallization usually takes 5 to 7 business days, depending on the scope of work and technology.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Will cloudy headlights pass a technical inspection?</h4>
+                <h3 class="font-bold text-foreground">Will cloudy headlights pass a technical inspection?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Heavily degraded lenses transmit only 20–30% of light, which risks a negative technical inspection result, or even refusal to allow the vehicle to be driven. Regeneration restores lighting parameters and helps avoid problems during inspection.</p>
               </div>
             </div>
@@ -2156,7 +2288,7 @@ function getReflectorsHtml(lang) {
         <aside class="space-y-8 sticky top-28">
           <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h3>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
             <a href="/en#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Write to us
@@ -2184,7 +2316,7 @@ function getReflectorsHtml(lang) {
           Looking for a reliable partner to restore your car lamps to factory efficiency? At the STANIAX Metallization Plant, we offer professional reflector regeneration using the PVD method and headlight lens polishing with UV protection. Contact us today!
         </p>
         
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why choose STANIAX?</h4>
+        <h3 class="font-bold text-foreground mb-3 text-sm md:text-base">Why choose STANIAX?</h3>
         <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
           <li><strong>Up to 5 years durability:</strong> The aluminum layer deposited in vacuum (PVD method) guarantees factory light reflection parameters.</li>
           <li><strong>Fast turnaround time:</strong> Quick execution of orders, including mail-order regeneration for clients across Poland.</li>
@@ -2400,15 +2532,15 @@ function getReflectorsHtml(lang) {
             <h2 class="text-2xl md:text-3xl font-black text-foreground">Häufig gestellte Fragen (FAQ)</h2>
             <div class="space-y-6">
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Wie viel kostet die Scheinwerfer-Regeneration?</h4>
+                <h3 class="font-bold text-foreground">Wie viel kostet die Scheinwerfer-Regeneration?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Das Polieren der Streuscheibe mit UV-Beschichtung kostet 150–300 PLN pro Lampe, eine umfassende Regeneration mit Reflektormetallisierung 350–700 PLN pro Stück. Im Vergleich dazu kostet ein neuer OEM-Scheinwerfer ab 1.500 bis über 5.000 PLN.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Wie lange dauert die Scheinwerfer-Regeneration?</h4>
+                <h3 class="font-bold text-foreground">Wie lange dauert die Scheinwerfer-Regeneration?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Das reine Polieren der Streuscheibe kann in wenigen Stunden erledigt werden. Eine umfassende Regeneration mit Reflektormetallisierung dauert in der Regel 5 bis 7 Werktage, je nach Arbeitsaufwand und Technologie.</p>
               </div>
               <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Bestehen erblindete Scheinwerfer die Hauptuntersuchung?</h4>
+                <h3 class="font-bold text-foreground">Bestehen erblindete Scheinwerfer die Hauptuntersuchung?</h3>
                 <p class="text-sm pl-4 border-l border-accent/30">Stark degradierte Streuscheiben lassen nur 20–30 % des Lichts durch, was zu einer nicht bestandenen Hauptuntersuchung oder sogar zum Entzug der Straßenzulassung führen kann. Die Regeneration stellt die Lichtwerte wieder her und vermeidet Probleme bei der HU.</p>
               </div>
             </div>
@@ -2418,7 +2550,7 @@ function getReflectorsHtml(lang) {
         <aside class="space-y-8 sticky top-28">
           <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
             <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
+            <h3 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h3>
             <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
             <a href="/de#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
               Kontakt
@@ -2446,7 +2578,7 @@ function getReflectorsHtml(lang) {
           Suchen Sie einen zuverlässigen Partner, der Ihre Autolampen wieder auf Fabrikleistung bringt? Im STANIAX-Metallisierungsbetrieb bieten wir eine professionelle Reflektorregeneration im PVD-Verfahren sowie das Polieren von Scheinwerferstreuscheiben mit UV-Schutz an. Kontaktieren Sie uns noch heute!
         </p>
         
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum STANIAX wählen?</h4>
+        <h3 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum STANIAX wählen?</h3>
         <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
           <li><strong>Haltbarkeit bis zu 5 Jahre:</strong> Die im Vakuum (PVD-Verfahren) aufgetragene Aluminiumschicht garantiert werkseitige Lichtreflexionsparameter.</li>
           <li><strong>Schnelle Abwicklung:</strong> Rasche Auftragsabwicklung, einschließlich Versand-Regeneration für Kunden aus ganz Polen.</li>
@@ -2481,182 +2613,189 @@ writePrerenderFile('en/news/reflector-regeneration-and-headlight-polishing', enR
 writePrerenderFile('de/news/scheinwerfer-reflektoren-regeneration-und-polieren', deReflectorsMeta, getReflectorsHtml('de'))
 
 
-// 7. Generate Homepage Shells for PL (/), EN (/en), and DE (/de)
-function generateHomepageShells() {
-  const enMetaTags = `
-    <title>STANIAX - Vacuum Metalizing & PVD Deposition</title>
-    <meta name="description" content="Staniax offers premium vacuum metalizing and PVD coating services for plastics, glass, and metals. Explore our completed projects!" />
-    <meta property="og:title" content="STANIAX - Vacuum Metalizing & PVD Deposition" />
-    <meta property="og:description" content="Staniax offers premium vacuum metalizing and PVD coating services for plastics, glass, and metals. Explore our completed projects!" />
-    <meta property="og:type" content="website" />
-  `;
 
-  const deMetaTags = `
-    <title>STANIAX - Vakuummetallisierung & PVD Beschichtung</title>
-    <meta name="description" content="Staniax bietet erstklassige Vakuummetallisierung und PVD-Beschichtung für Kunststoffe, Glas und Metalle. Sehen Sie sich unsere Realisierungen an!" />
-    <meta property="og:title" content="STANIAX - Vakuummetallisierung & PVD Beschichtung" />
-    <meta property="og:description" content="Staniax bietet erstklassige Vakuummetallisierung und PVD-Beschichtung für Kunststoffe, Glas und Metalle. Sehen Sie sich unsere Realisierungen an!" />
-    <meta property="og:type" content="website" />
-  `;
+// 7. Generate shells for the non-article routes (home / gallery / news, x3 languages).
+//    Body markup comes from the headless-Chrome pass above, so what a crawler
+//    receives matches what a visitor sees.
+const SHELL_META = {
+  '': {
+    lang: 'pl',
+    title: 'Metalizacja próżniowa tworzyw sztucznych | STANIAX',
+    desc: 'Metalizacja próżniowa tworzyw sztucznych, lakierowanie i regeneracja lamp samochodowych. Zakład STANIAX w Józefowie pod Warszawą – zobacz nasze realizacje.'
+  },
+  en: {
+    lang: 'en',
+    title: 'Vacuum Metallization of Plastics | STANIAX',
+    desc: 'Vacuum metallization of plastics, precision coating and automotive headlight regeneration. The STANIAX plant near Warsaw – see our projects.'
+  },
+  de: {
+    lang: 'de',
+    title: 'Vakuummetallisierung von Kunststoffen | STANIAX',
+    desc: 'Vakuummetallisierung von Kunststoffen, Präzisionslackierung und Regeneration von Fahrzeugscheinwerfern. Das STANIAX-Werk bei Warschau – unsere Projekte.'
+  },
+  gallery: {
+    lang: 'pl',
+    title: 'Galeria realizacji – metalizacja próżniowa | STANIAX',
+    desc: 'Galeria realizacji STANIAX: metalizacja próżniowa tworzyw sztucznych, powłoki lustrzane, lakierowanie szkła i detali oraz regeneracja odbłyśników.'
+  },
+  'en/gallery': {
+    lang: 'en',
+    title: 'Project Gallery – Vacuum Metallization | STANIAX',
+    desc: 'STANIAX project gallery: vacuum metallization of plastics, mirror coatings, glass and component painting, and reflector regeneration.'
+  },
+  'de/gallery': {
+    lang: 'de',
+    title: 'Projektgalerie – Vakuummetallisierung | STANIAX',
+    desc: 'STANIAX-Projektgalerie: Vakuummetallisierung von Kunststoffen, Spiegelbeschichtungen, Glas- und Detaillackierung sowie Reflektorregeneration.'
+  },
+  news: {
+    lang: 'pl',
+    title: 'Baza wiedzy: metalizacja próżniowa | STANIAX',
+    desc: 'Poradniki i artykuły eksperckie o metalizacji próżniowej, lakierowaniu tworzyw oraz regeneracji lamp samochodowych i odbłyśników.'
+  },
+  'en/news': {
+    lang: 'en',
+    title: 'Knowledge Base: Vacuum Metallization | STANIAX',
+    desc: 'Guides and expert articles on vacuum metallization, plastic coating, and the regeneration of car headlights and reflectors.'
+  },
+  'de/news': {
+    lang: 'de',
+    title: 'Wissensbasis: Vakuummetallisierung | STANIAX',
+    desc: 'Leitfäden und Expertenartikel zu Vakuummetallisierung, Kunststofflackierung sowie Regeneration von Scheinwerfern und Reflektoren.'
+  },
 
-  const plCanonical = `\n    <link rel="canonical" href="https://www.staniax.pl/" />\n`;
-  const enCanonical = `\n    <link rel="canonical" href="https://www.staniax.pl/en" />\n`;
-  const deCanonical = `\n    <link rel="canonical" href="https://www.staniax.pl/de" />\n`;
-
-  // 1. Update PL (main index.html in dist)
-  let plHtml = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
-  plHtml = plHtml.replace(/<title>[^<]*<\/title>/, '<title>STANIAX - Metalizacja Próżniowa i Lakierowanie Tworzyw</title>');
-  plHtml = plHtml.replace(/<meta name="description"[^>]*>/, '<meta name="description" content="Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw sztucznych, szkła i detali. Zobacz realizacje!" />');
-  
-  plHtml = plHtml.replace('</head>', `${plCanonical}</head>`);
-  
-  // Inject a screen-reader-only H1 for SEO bots that do not execute JS
-  plHtml = plHtml.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">STANIAX - Profesjonalna Metalizacja Próżniowa i Lakierowanie Tworzyw</h1></div>`);
-  
-  fs.writeFileSync(indexPath, plHtml, 'utf-8');
-  console.log('Successfully injected canonical link, metadata, and H1 in dist/index.html');
-
-  // 2. Create EN homepage shell (dist/en/index.html)
-  let enHtml = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
-  enHtml = enHtml.replace('<html lang="pl">', '<html lang="en">');
-  enHtml = enHtml.replace(/<title>[^<]*<\/title>/, '');
-  enHtml = enHtml.replace(/<meta name="description"[^>]*>/, '');
-  enHtml = enHtml.replace(/<meta property="og:title"[^>]*>/, '');
-  enHtml = enHtml.replace(/<meta property="og:description"[^>]*>/, '');
-  enHtml = enHtml.replace(/<meta property="og:type"[^>]*>/, '');
-  enHtml = enHtml.replace(/<meta name="keywords"[^>]*>/, '<meta name="keywords" content="vacuum metalizing, vacuum metal deposition, vacuum casting metal, metal vacuum, plastic painting, glass painting, staniax, metallization" />');
-  enHtml = enHtml.replace('</head>', `${enMetaTags}${enCanonical}</head>`);
-  
-  enHtml = enHtml.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">STANIAX - Professional Vacuum Metalizing</h1></div>`);
-
-  const enDir = path.join(distDir, 'en');
-  if (!fs.existsSync(enDir)) {
-    fs.mkdirSync(enDir, { recursive: true });
+  // Dokumenty prawne. Tytuły i opisy muszą być identyczne z metaTitle/metaDesc
+  // w src/lib/legal.ts — inaczej klient nadpisze to, co zaindeksował crawler.
+  'polityka-prywatnosci': {
+    lang: 'pl',
+    title: 'Polityka prywatności | STANIAX',
+    desc: 'Informacja o przetwarzaniu danych osobowych w serwisie staniax.pl: administrator, cele, podstawy prawne, odbiorcy danych i przysługujące prawa.'
+  },
+  'en/privacy-policy': {
+    lang: 'en',
+    title: 'Privacy policy | STANIAX',
+    desc: 'How staniax.pl processes personal data: controller, purposes, legal bases, recipients and the rights available to you.'
+  },
+  'de/datenschutzerklaerung': {
+    lang: 'de',
+    title: 'Datenschutzerklärung | STANIAX',
+    desc: 'Wie staniax.pl personenbezogene Daten verarbeitet: Verantwortlicher, Zwecke, Rechtsgrundlagen, Empfänger und Ihre Rechte.'
+  },
+  'polityka-cookies': {
+    lang: 'pl',
+    title: 'Polityka cookies | STANIAX',
+    desc: 'Jakich plików cookies używa serwis staniax.pl, które wymagają zgody i jak w każdej chwili zmienić lub wycofać swoją decyzję.'
+  },
+  'en/cookie-policy': {
+    lang: 'en',
+    title: 'Cookie policy | STANIAX',
+    desc: 'Which cookies staniax.pl uses, which require consent and how to change or withdraw your choice at any time.'
+  },
+  'de/cookie-richtlinie': {
+    lang: 'de',
+    title: 'Cookie-Richtlinie | STANIAX',
+    desc: 'Welche Cookies staniax.pl verwendet, welche eine Einwilligung erfordern und wie Sie Ihre Wahl jederzeit ändern.'
+  },
+  'regulamin': {
+    lang: 'pl',
+    title: 'Regulamin serwisu | STANIAX',
+    desc: 'Zasady korzystania z serwisu staniax.pl: zakres usług świadczonych drogą elektroniczną, wymagania techniczne i tryb reklamacji.'
+  },
+  'en/terms': {
+    lang: 'en',
+    title: 'Terms of service | STANIAX',
+    desc: 'Rules for using staniax.pl: scope of electronic services, technical requirements and the complaints procedure.'
+  },
+  'de/agb': {
+    lang: 'de',
+    title: 'AGB | STANIAX',
+    desc: 'Regeln für die Nutzung von staniax.pl: Umfang der elektronischen Dienste, technische Anforderungen und Beschwerdeverfahren.'
   }
-  fs.writeFileSync(path.join(enDir, 'index.html'), enHtml, 'utf-8');
-  console.log('Successfully generated dist/en/index.html homepage shell with H1');
-
-  // 3. Create DE homepage shell (dist/de/index.html)
-  let deHtml = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
-  deHtml = deHtml.replace('<html lang="pl">', '<html lang="de">');
-  deHtml = deHtml.replace(/<title>[^<]*<\/title>/, '');
-  deHtml = deHtml.replace(/<meta name="description"[^>]*>/, '');
-  deHtml = deHtml.replace(/<meta property="og:title"[^>]*>/, '');
-  deHtml = deHtml.replace(/<meta property="og:description"[^>]*>/, '');
-  deHtml = deHtml.replace(/<meta property="og:type"[^>]*>/, '');
-  deHtml = deHtml.replace(/<meta name="keywords"[^>]*>/, '<meta name="keywords" content="Vakuummetallisierung, Vakuum-Metallbedampfung, Vakuumguss Metall, Metallvakuum, Kunststofflackierung, Glaslackierung, staniax, metallisierung" />');
-  deHtml = deHtml.replace('</head>', `${deMetaTags}${deCanonical}</head>`);
-  
-  deHtml = deHtml.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">STANIAX - Professionelle Vakuummetallisierung</h1></div>`);
-
-  const deDir = path.join(distDir, 'de');
-  if (!fs.existsSync(deDir)) {
-    fs.mkdirSync(deDir, { recursive: true });
-  }
-  fs.writeFileSync(path.join(deDir, 'index.html'), deHtml, 'utf-8');
-  console.log('Successfully generated dist/de/index.html homepage shell with H1');
 }
 
-generateHomepageShells();
+function generateShells() {
+  for (const [subPath, meta] of Object.entries(SHELL_META)) {
+    const route = findRoute(subPath)
+    const canonical = absUrl(subPath)
 
+    let html = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '')
+    html = html.replace('<html lang="pl">', `<html lang="${meta.lang}">`)
+    html = html.replace(/<title>[^<]*<\/title>/, '')
+    html = html.replace(/<meta name="description"[^>]*>/, '')
+    html = html.replace(/<meta property="og:title"[^>]*>/, '')
+    html = html.replace(/<meta property="og:description"[^>]*>/, '')
+    html = html.replace(/<meta property="og:type"[^>]*>/, '')
+    html = html.replace(/<meta property="og:url"[^>]*>/, '')
+    html = html.replace(/<meta name="twitter:title"[^>]*>/, '')
+    html = html.replace(/<meta name="twitter:description"[^>]*>/, '')
 
-// 8. Generate Category Shells for Gallery and News (/gallery, /news, and their EN/DE variants)
-function generateCategoryShells() {
-  const shells = [
-    {
-      subPath: 'gallery',
-      lang: 'pl',
-      title: 'Galeria Realizacji i Projektów Metalizacji | STANIAX',
-      desc: 'Przeglądaj naszą galerię metalizacji próżniowej oraz precyzyjnego lakierowania tworzyw, szkła i metali. Zobacz zrealizowane projekty premium.'
-    },
-    {
-      subPath: 'en/gallery',
-      lang: 'en',
-      title: 'Gallery of Completed Projects and Metallization | STANIAX',
-      desc: 'Explore our gallery of vacuum metallization and precision lacquering of plastics, glass, and metals. View completed premium projects.'
-    },
-    {
-      subPath: 'de/gallery',
-      lang: 'de',
-      title: 'Galerie der Metallisierungsprojekte | STANIAX',
-      desc: 'Entdecken Sie unsere Galerie der Vakuummetallisierung und der präzisen Lackierung von Kunststoffen, Glas und Metallen. Sehen Sie Premium-Projekte.'
-    },
-    {
-      subPath: 'news',
-      lang: 'pl',
-      title: 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX',
-      desc: 'Aktualności, poradniki i artykuły eksperckie na temat metalizacji próżniowej oraz lakierowania. Baza wiedzy o uszlachetnianiu powierzchni.'
-    },
-    {
-      subPath: 'en/news',
-      lang: 'en',
-      title: 'Knowledge Base & News - Vacuum Metallization | STANIAX',
-      desc: 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
-    },
-    {
-      subPath: 'de/news',
-      lang: 'de',
-      title: 'Aktuelles zur Vakuummetallisierung | STANIAX',
-      desc: 'Aktuelles, Leitfäden und Expertenartikel über Vakuummetallisierung und Lackierung. Wissensdatenbank zur Oberflächenveredelung.'
-    }
-  ];
-
-  shells.forEach(s => {
-    let html = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
-    html = html.replace('<html lang="pl">', `<html lang="${s.lang}">`);
-    html = html.replace(/<title>[^<]*<\/title>/, '');
-    html = html.replace(/<meta name="description"[^>]*>/, '');
-    html = html.replace(/<meta property="og:title"[^>]*>/, '');
-    html = html.replace(/<meta property="og:description"[^>]*>/, '');
-    html = html.replace(/<meta property="og:type"[^>]*>/, '');
-
+    const localeMap = { pl: 'pl_PL', en: 'en_GB', de: 'de_DE' }
     const metaTags = `
-    <title>${s.title}</title>
-    <meta name="description" content="${s.desc}" />
-    <meta property="og:title" content="${s.title}" />
-    <meta property="og:description" content="${s.desc}" />
+    <title>${meta.title}</title>
+    <meta name="description" content="${meta.desc}" />
+    <meta property="og:title" content="${meta.title}" />
+    <meta property="og:description" content="${meta.desc}" />
     <meta property="og:type" content="website" />
-    <link rel="canonical" href="https://www.staniax.pl/${s.subPath}" />
-    `;
+    <meta property="og:url" content="${canonical}" />
+    <meta property="og:locale" content="${localeMap[meta.lang]}" />
+    <meta name="twitter:title" content="${meta.title}" />
+    <meta name="twitter:description" content="${meta.desc}" />
+    <link rel="canonical" href="${canonical}" />
+`
+    const alternates = route ? hreflangTags(route.group) : ''
+    const structured = route ? structuredDataFor(route.group, route.lang, subPath) : ''
+    html = html.replace('</head>', `${metaTags}${alternates}${structured}</head>`)
 
-    html = html.replace('</head>', `${metaTags}</head>`);
-    
-    let extraNav = '';
-    if (s.subPath.includes('news')) {
-      const plLinks = `
-        <a href="/news/partnerstwo-z-wiodacym-producentem-lotniczym">Lotnictwo</a>
-        <a href="/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty">Beauty</a>
-        <a href="/news/regeneracja-odblysnikow-reflektorow-samochodowych">Reflektory</a>
-      `;
-      const enLinks = `
-        <a href="/en/news/how-does-metallization-affect-material-performance">Aviation</a>
-        <a href="/en/news/vacuum-metallization-revolutionizes-beauty-industry">Beauty</a>
-        <a href="/en/news/reflector-regeneration-and-headlight-polishing">Reflectors</a>
-      `;
-      const deLinks = `
-        <a href="/de/news/wie-beeinflusst-metallisierung-die-materialleistung">Aviation</a>
-        <a href="/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche">Beauty</a>
-        <a href="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren">Reflectors</a>
-      `;
-      const links = s.lang === 'pl' ? plLinks : s.lang === 'en' ? enLinks : deLinks;
-      extraNav = `<nav style="display:none">${links}</nav>`;
+    const body = renderedShells.get(subPath)
+    if (body) {
+      html = html.replace('<div id="root"></div>', `<div id="root">${body}</div>`)
+    } else {
+      console.warn(`[prerender] no rendered body for /${subPath} - shipping empty root`)
     }
-    
-    // Inject a screen-reader-only H1 for SEO bots that do not execute JS
-    html = html.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">${s.title}</h1><p class="sr-only">${s.title}</p>${extraNav}</div>`);
-    
-    const targetDir = path.join(distDir, s.subPath);
-    if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true });
-    }
-    fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
-    console.log(`Successfully generated dist/${s.subPath}/index.html shell`);
-  });
+
+    const targetDir = subPath ? path.join(distDir, subPath) : distDir
+    fs.mkdirSync(targetDir, { recursive: true })
+    fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8')
+    console.log(`Successfully generated ${subPath ? `dist/${subPath}` : 'dist'}/index.html`)
+  }
 }
 
-generateCategoryShells();
+generateShells();
 
+// 8. Sitemap generated from the same route table as the pages themselves, so it
+//    can no longer drift out of sync (the previous hand-written file was missing
+//    the Polish aviation article entirely).
+function generateSitemap() {
+  const today = new Date().toISOString().slice(0, 10)
+  const priority = { home: '1.0', gallery: '0.8', news: '0.8', privacy: '0.2', cookies: '0.2', terms: '0.2' }
 
+  const entries = []
+  for (const [group, langs] of Object.entries(ROUTE_GROUPS)) {
+    for (const [lang, subPath] of Object.entries(langs)) {
+      const alternates = Object.entries(langs)
+        .map(([l, p]) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${absUrl(p)}" />`)
+        .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${absUrl(langs.pl)}" />`)
+        .join('\n')
+      entries.push(
+        `  <url>\n` +
+          `    <loc>${absUrl(subPath)}</loc>\n` +
+          `    <lastmod>${today}</lastmod>\n` +
+          `    <changefreq>${group === 'home' || group === 'news' ? 'weekly' : 'monthly'}</changefreq>\n` +
+          `    <priority>${priority[group] ?? (lang === 'pl' ? '0.7' : '0.6')}</priority>\n` +
+          `${alternates}\n` +
+          `  </url>`
+      )
+    }
+  }
 
+  const xml =
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
+    `${entries.join('\n')}\n` +
+    `</urlset>\n`
 
+  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), xml, 'utf-8')
+  console.log(`Successfully generated dist/sitemap.xml (${entries.length} URLs)`)
+}
 
+generateSitemap();

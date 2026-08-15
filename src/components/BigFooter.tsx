@@ -3,10 +3,18 @@ import { ArrowUpRight } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import { t, type Lang } from '@/lib/translations'
+import { openSettings } from '@/lib/consent'
+
+const LEGAL_HREFS = {
+    pl: { privacy: '/polityka-prywatnosci', cookies: '/polityka-cookies', terms: '/regulamin' },
+    en: { privacy: '/en/privacy-policy', cookies: '/en/cookie-policy', terms: '/en/terms' },
+    de: { privacy: '/de/datenschutzerklaerung', cookies: '/de/cookie-richtlinie', terms: '/de/agb' }
+} as const
 
 export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const currentYear = new Date().getFullYear()
     const navigate = useNavigate()
+    const legalHref = (doc: 'privacy' | 'cookies' | 'terms') => LEGAL_HREFS[lang][doc]
 
     const scrollToSection = (sectionId: string) => {
         const homePath = lang === 'pl' ? '/' : `/${lang}`
@@ -193,9 +201,42 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                     </motion.div>
 
 
+                    {/* Dane rejestrowe wymagane od spółki z o.o. na stronie internetowej
+                        (art. 206 § 1 KSH). Brak któregokolwiek elementu jest zagrożony
+                        grzywną na podstawie art. 595 § 1 KSH. */}
+                    <div className="mt-8 border-t border-white/5 pt-8 text-xs font-mono text-gray-500 tracking-wide">
+                        <p className="uppercase text-gray-400 mb-2">{t(lang, 'footerLegalDataTitle')}</p>
+                        <p className="leading-relaxed">
+                            STANIAX Sp. z o.o., ul. Grzybowska 5A, 00-132 Warszawa · {t(lang, 'footerCourt')} ·
+                            KRS 0001182026 · NIP 5253052509 · REGON 542156053 · {t(lang, 'footerShareCapital')}: 150 000 PLN
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+                            <a href={legalHref('privacy')} className="hover:text-white transition-colors underline underline-offset-4">
+                                {t(lang, 'privacyPolicyLink')}
+                            </a>
+                            <a href={legalHref('cookies')} className="hover:text-white transition-colors underline underline-offset-4">
+                                {t(lang, 'cookiePolicyLink')}
+                            </a>
+                            <a href={legalHref('terms')} className="hover:text-white transition-colors underline underline-offset-4">
+                                {t(lang, 'termsLink')}
+                            </a>
+                            {/* Wycofanie zgody musi być równie łatwe jak jej udzielenie (art. 7 ust. 3 RODO). */}
+                            <button
+                                type="button"
+                                onClick={openSettings}
+                                className="hover:text-white transition-colors underline underline-offset-4"
+                            >
+                                {t(lang, 'cookieSettings')}
+                            </button>
+                        </div>
+                    </div>
+
                     <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-xs font-mono text-gray-500 uppercase tracking-widest border-t border-white/5 pt-8">
                         <p>&copy; {currentYear} STANIAX Sp.&nbsp;z&nbsp;o.o. All rights reserved.</p>
-                        <p>Wdrożenie strony i <a href="https://ai-seo-company.pl" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline">Optymalizacja SEO</a> wykonane przez <a href="https://ai-seo-company.pl" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline">AI SEO COMPANY</a></p>
+                        {/* Link do wykonawcy powtarza się na każdej podstronie, więc musi być
+                            oznaczony jako sponsorowany. rel="noopener noreferrer" nie powstrzymuje
+                            przekazywania PageRank — robi to dopiero nofollow/sponsored. */}
+                        <p>Wdrożenie strony i optymalizacja SEO wykonane przez <a href="https://ai-seo-company.pl" target="_blank" rel="nofollow sponsored noopener noreferrer" className="hover:text-white transition-colors underline">AI SEO COMPANY</a></p>
                     </div>
                 </div>
 

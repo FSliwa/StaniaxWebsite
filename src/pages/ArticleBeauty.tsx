@@ -76,7 +76,7 @@ const articleContent = {
     sub33P1: 'Mogłoby się wydawać, że procesy chemiczne nie idą w parze z ekologią. Jednak w porównaniu do litych elementów metalowych, metalizowane opakowania plastikowe są znacznie lżejsze, co zmniejsza [ślad węglowy](https://pl.wikipedia.org/wiki/%C5%9Alad_w%C4%99glowy) podczas transportu. Co więcej, nowoczesne zakłady usługowe stosują lakiery utwardzane [promieniami UV](https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe) (bez lotnych związków organicznych), co sprawia, że technologia staje się coraz bardziej "zielona".',
 
     sec4Title: 'Przykłady produktów z metalizacją próżniową',
-    sec4P1: 'Technologia ta znalazła zastosowanie w niemal każdym segmencie rynku beauty. Polska również jest silnym graczem na mapie europejskiej produkcji -- na przykład zapytania o usługi takie jak [metalizacja próżniowa Józefów](/#contact) i zakład metalizacji STANIAX, czy inne lokalne ośrodki produkcyjne pokazują, że polskie firmy stanowią ważne zaplecze dla międzynarodowych marek.',
+    sec4P1: 'Technologia ta znalazła zastosowanie w niemal każdym segmencie rynku beauty. Polska jest przy tym silnym graczem na mapie europejskiej produkcji — [zakład metalizacji STANIAX](/#contact) w Józefowie pod Warszawą i inne lokalne ośrodki produkcyjne stanowią ważne zaplecze dla międzynarodowych marek kosmetycznych.',
     
     sub41Title: 'Innowacyjne kosmetyki z metalizowaniem',
     sub41P1: 'Na półkach drogerii bez trudu znajdziemy produkty, które wykorzystują tę technologię:',
@@ -186,7 +186,7 @@ const articleContent = {
     sub33P1: 'It might seem that chemical processes do not go hand in hand with ecology. However, compared to solid metal elements, metallized plastic packaging is much lighter, which reduces the [carbon footprint](https://pl.wikipedia.org/wiki/%C5%9Alad_w%C4%99glowy) during transport. What\'s more, modern service facilities use lacquers cured by [UV rays](https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe) (free of volatile organic compounds), making the technology increasingly "green".',
 
     sec4Title: 'Examples of products with vacuum metallization',
-    sec4P1: 'This technology has found application in almost every segment of the beauty market. Poland is also a strong player on the European production map—for example, inquiries about services such as [vacuum metallization Józefów](/#contact) and the STANIAX metallization plant, or other local production centers show that Polish companies represent an important base for international brands.',
+    sec4P1: 'This technology has found application in almost every segment of the beauty market. Poland is also a strong player on the European production map — the [STANIAX metallization plant](/#contact) in Józefów near Warsaw, along with other local production centres, forms an important base for international cosmetics brands.',
     
     sub41Title: 'Innovative cosmetics with metallization',
     sub41P1: 'On drugstore shelves, we can easily find products that use this technology:',
@@ -296,7 +296,7 @@ const articleContent = {
     sub33P1: 'Es könnte den Anschein haben, dass chemische Prozesse nicht mit Ökologie einhergehen. Im Vergleich zu massiven Metallelementen sind metallisierte Kunststoffverpackungen jedoch viel leichter, was den [CO2-Fußabdruck](https://pl.wikipedia.org/wiki/%C5%9Alad_w%C4%99glowy) beim Transport reduziert. Darüber hinaus verwenden moderne Dienstleistungsbetriebe Lacke, die durch [UV-Strahlen](https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe) ausgehärtet werden (frei von flüchtigen organischen Verbindungen), was die Technologie zunehmend "grüner" macht.',
 
     sec4Title: 'Beispiele für Produkte mit PVD-Finish',
-    sec4P1: 'Diese Technologie hat in fast jedem Segment des Kosmetikmarktes Anwendung gefunden. Polen ist ebenfalls ein starker Akteur auf der europäischen Produktionskarte – beispielsweise zeigen Anfragen zu Dienstleistungen wie [Metallisierung Józefów](/#contact) und dem STANIAX-Metallisierungsbetrieb oder anderen lokalen Produktionszentren, dass polnische Unternehmen eine wichtige Basis für internationale Marken darstellen.',
+    sec4P1: 'Diese Technologie hat in fast jedem Segment des Kosmetikmarktes Anwendung gefunden. Polen ist ebenfalls ein starker Akteur auf der europäischen Produktionskarte – der [STANIAX-Metallisierungsbetrieb](/#contact) in Józefów bei Warschau und andere lokale Produktionszentren bilden eine wichtige Basis für internationale Kosmetikmarken.',
     
     sub41Title: 'Innovative Kosmetika mit Metallisierung',
     sub41P1: 'In den Regalen der Drogerien finden wir leicht Produkte, die diese Technologie nutzen:',
@@ -871,23 +871,23 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
                 
                 <div className="space-y-6">
                   <div className="space-y-2">
-                    <h4 className="font-bold text-foreground">{text.q1}</h4>
+                    <h3 className="font-bold text-foreground">{text.q1}</h3>
                     <p className="text-sm pl-4 border-l border-accent/30">{text.a1}</p>
                   </div>
                   <div className="space-y-2">
-                    <h4 className="font-bold text-foreground">{text.q2}</h4>
+                    <h3 className="font-bold text-foreground">{text.q2}</h3>
                     <p className="text-sm pl-4 border-l border-accent/30">{text.a2}</p>
                   </div>
                   <div className="space-y-2">
-                    <h4 className="font-bold text-foreground">{text.q3}</h4>
+                    <h3 className="font-bold text-foreground">{text.q3}</h3>
                     <p className="text-sm pl-4 border-l border-accent/30">{text.a3}</p>
                   </div>
                   <div className="space-y-2">
-                    <h4 className="font-bold text-foreground">{text.q4}</h4>
+                    <h3 className="font-bold text-foreground">{text.q4}</h3>
                     <p className="text-sm pl-4 border-l border-accent/30">{text.a4}</p>
                   </div>
                   <div className="space-y-2">
-                    <h4 className="font-bold text-foreground">{text.q5}</h4>
+                    <h3 className="font-bold text-foreground">{text.q5}</h3>
                     <p className="text-sm pl-4 border-l border-accent/30">{text.a5}</p>
                   </div>
                 </div>
@@ -899,9 +899,9 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
               {/* CTA Panel */}
               <aside data-nosnippet="true" role="complementary" className="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500" />
-                <h4 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-foreground mb-4">
                   {text.ctaTitle}
-                </h4>
+                </h3>
                 <p className="text-sm text-muted-foreground/90 mb-6 leading-relaxed">
                   {text.ctaDesc}
                 </p>
@@ -944,7 +944,7 @@ function ArticleBeauty({ lang = 'pl' as Lang }: { lang?: Lang }) {
               {renderTextWithLinks(text.ctaText)}
             </p>
             
-            <h4 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h4>
+            <h3 className="font-bold text-foreground mb-3 text-sm md:text-base">{text.ctaWhyTitle}</h3>
             <ul className="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
               <li>{renderTextWithLinks(text.ctaWhy1)}</li>
               <li>{renderTextWithLinks(text.ctaWhy2)}</li>

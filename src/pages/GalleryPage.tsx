@@ -123,7 +123,178 @@ import gallery113 from '@/assets/gallery/gallery-113.jpg'
 import gallery114 from '@/assets/gallery/gallery-114.jpg'
 import gallery115 from '@/assets/gallery/gallery-115.jpg'
 
-const galleryImages = [
+// Opisy zdjęć, dla których nie napisano indywidualnego tekstu. Rotacja wariantów
+// zastępuje wcześniejszy szablon "<Kategoria> - metalizacja realizacja <N>",
+// który powtarzał tę samą frazę 95 razy w treści i w atrybutach alt.
+const ALT_VARIANTS: Record<string, Record<Lang, string[]>> = {
+  'Złoto': {
+    pl: [
+      'Złota powłoka lustrzana na detalu z tworzywa',
+      'Element wykończony powłoką w kolorze złota',
+      'Złote wykończenie komponentu po metalizacji próżniowej',
+      'Detal ze złotą powłoką dekoracyjną',
+      'Złocista powierzchnia po obróbce próżniowej',
+      'Złota powłoka na elemencie serii produkcyjnej',
+      'Ciepły złoty połysk na detalu z tworzywa',
+      'Złote wykończenie opakowania kosmetycznego',
+      'Element ze złotą powłoką o wysokim połysku',
+      'Złota metalizacja drobnego komponentu',
+      'Detal w odcieniu szampańskiego złota',
+      'Złota powłoka na akcesorium dekoracyjnym'
+    ],
+    en: [
+      'Gold mirror coating on a plastic component',
+      'Part finished with a gold-toned coating',
+      'Gold finish on a vacuum-metallized component',
+      'Component with a decorative gold coating',
+      'Golden surface after vacuum processing',
+      'Gold coating on a production-series part',
+      'Warm gold gloss on a plastic detail',
+      'Gold finish on cosmetic packaging',
+      'Part with a high-gloss gold coating',
+      'Gold metallization of a small component',
+      'Detail in a champagne gold shade',
+      'Gold coating on a decorative accessory'
+    ],
+    de: [
+      'Spiegelnde Goldschicht auf einem Kunststoffteil',
+      'Goldfarben veredeltes Bauteil',
+      'Goldfinish nach der Vakuummetallisierung',
+      'Dekoratives Detail in Gold',
+      'Goldene Oberfläche aus der Vakuumkammer',
+      'Serienbauteil in Goldoptik',
+      'Warmer Goldglanz auf einem Formteil',
+      'Kosmetikverpackung mit Goldveredelung',
+      'Hochglänzendes Gold auf einem Bauteil',
+      'Goldmetallisiertes Kleinbauteil',
+      'Farbton Champagnergold',
+      'Zieraccessoire in Goldausführung'
+    ]
+  },
+  'Chrom': {
+    pl: [
+      'Chromowa powłoka lustrzana na detalu',
+      'Element z wykończeniem chromowym',
+      'Srebrzysta powłoka po metalizacji próżniowej',
+      'Detal z chromowym efektem lustra',
+      'Chromowane wykończenie komponentu technicznego',
+      'Powłoka chromowa o wysokim połysku',
+      'Srebrny detal po obróbce w komorze próżniowej',
+      'Chromowana listwa ozdobna',
+      'Element z satynowym wykończeniem srebrnym',
+      'Chromowa powierzchnia odbijająca światło',
+      'Detal z tworzywa z powłoką chromową',
+      'Chromowane wykończenie elementu seryjnego'
+    ],
+    en: [
+      'Mirror-bright chrome on a moulded part',
+      'Chrome-finished component',
+      'Silver surface produced by vacuum metallization',
+      'Mirror effect achieved in chrome',
+      'Technical component finished in chrome',
+      'High-gloss chrome detail',
+      'Silver part after vacuum-chamber processing',
+      'Chrome-plated decorative trim',
+      'Satin silver surface treatment',
+      'Reflective chrome surface',
+      'Chrome-metallized plastic housing',
+      'Series part with chrome finish'
+    ],
+    de: [
+      'Verchromte Spiegelbeschichtung auf einem Bauteil',
+      'Bauteil mit Chromfinish',
+      'Silberne Beschichtung nach der Vakuummetallisierung',
+      'Bauteil mit verchromtem Spiegeleffekt',
+      'Chromfinish an einem technischen Bauteil',
+      'Hochglänzende Chrombeschichtung',
+      'Silbernes Detail nach Bearbeitung in der Vakuumkammer',
+      'Verchromte Zierleiste',
+      'Bauteil mit satiniertem Silberfinish',
+      'Verchromte, lichtreflektierende Oberfläche',
+      'Kunststoffteil mit Chrombeschichtung',
+      'Chromfinish an einem Serienbauteil'
+    ]
+  },
+  'Dekoracyjne': {
+    pl: [
+      'Dekoracyjna powłoka barwna na detalu',
+      'Element z wielobarwnym wykończeniem',
+      'Kolorowa powłoka dekoracyjna po metalizacji',
+      'Detal z efektem barwnej powłoki',
+      'Dekoracyjne wykończenie z przejściem kolorów',
+      'Element z powłoką w odcieniach niebieskiego',
+      'Barwna powłoka dekoracyjna na komponencie',
+      'Detal z powłoką o efekcie tęczowym',
+      'Dekoracyjna powierzchnia z połyskiem barwnym',
+      'Element wykończony powłoką fioletową',
+      'Kolorowe wykończenie detalu z tworzywa',
+      'Dekoracyjna powłoka z metalicznym refleksem'
+    ],
+    en: [
+      'Coloured decorative finish on a moulded part',
+      'Multicoloured surface treatment',
+      'Colour decoration applied after metallization',
+      'Tinted metallic effect on a housing',
+      'Decorative gradient across the surface',
+      'Component tinted in shades of blue',
+      'Vivid decorative colour layer',
+      'Iridescent surface treatment',
+      'Coloured sheen on a decorative element',
+      'Violet-tinted metallic surface',
+      'Colour-finished plastic detail',
+      'Decorative layer with metallic reflection'
+    ],
+    de: [
+      'Farbig dekoriertes Formteil',
+      'Mehrfarbiges Oberflächenfinish',
+      'Farbdekor nach der Metallisierung aufgebracht',
+      'Getönter Metalliceffekt auf einem Gehäuse',
+      'Dekorfinish mit Farbverlauf',
+      'Bauteil in Blautönen veredelt',
+      'Kräftige dekorative Farbschicht',
+      'Schillernde Oberflächenveredelung',
+      'Farbiger Glanz auf einem Zierelement',
+      'Violett getönte Metalloberfläche',
+      'Farbveredeltes Kunststoffdetail',
+      'Dekorschicht mit metallischem Reflex'
+    ]
+  }
+}
+
+// Tłumaczenia opisów napisanych ręcznie dla pierwszych 20 zdjęć.
+const ALT_TRANSLATIONS: Record<string, { en: string; de: string }> = {
+  'Złote elementy kosmetyczne — metalizacja próżniowa': { en: 'Gold cosmetic components — vacuum metallization', de: 'Goldene Kosmetikbauteile — Vakuummetallisierung' },
+  'Złote powłoki na opakowaniach perfumeryjnych': { en: 'Gold coatings on perfume packaging', de: 'Goldbeschichtungen auf Parfümverpackungen' },
+  'Złote nakrętki premium — seria produkcyjna': { en: 'Premium gold caps — production series', de: 'Premium-Goldverschlüsse — Serienfertigung' },
+  'Złota metalizacja detali dekoracyjnych': { en: 'Gold metallization of decorative parts', de: 'Goldmetallisierung dekorativer Teile' },
+  'Złote wykończenie elementów seryjnych': { en: 'Gold finish on series components', de: 'Goldfinish an Serienbauteilen' },
+  'Złota powłoka próżniowa na komponentach': { en: 'Gold vacuum coating on components', de: 'Goldene Vakuumbeschichtung auf Bauteilen' },
+  'Złote akcesoria — metalizacja lustrzana': { en: 'Gold accessories — mirror metallization', de: 'Goldene Accessoires — Spiegelmetallisierung' },
+  'Subtelne złote wykończenie powierzchni': { en: 'Subtle gold surface finish', de: 'Dezentes goldenes Oberflächenfinish' },
+  'Chromowana rzeźba — powłoka lustrzana': { en: 'Chrome-plated sculpture — mirror coating', de: 'Verchromte Skulptur — Spiegelbeschichtung' },
+  'Chromowane detale z głębokim połyskiem': { en: 'Chrome details with deep gloss', de: 'Verchromte Details mit tiefem Glanz' },
+  'Chromowane komponenty przemysłowe': { en: 'Chrome-plated industrial components', de: 'Verchromte Industriebauteile' },
+  'Srebrna metalizacja próżniowa elementów': { en: 'Silver vacuum metallization of parts', de: 'Silberne Vakuummetallisierung von Bauteilen' },
+  'Chromowane wykończenie w wysokim połysku': { en: 'High-gloss chrome finish', de: 'Hochglänzendes Chromfinish' },
+  'Chromowane osłony i listwy ozdobne': { en: 'Chrome covers and decorative trims', de: 'Verchromte Abdeckungen und Zierleisten' },
+  'Chromowana powierzchnia — efekt lustra': { en: 'Chrome surface — mirror effect', de: 'Verchromte Oberfläche — Spiegeleffekt' },
+  'Chromowane powłoki na częściach technicznych': { en: 'Chrome coatings on technical parts', de: 'Chrombeschichtungen auf technischen Teilen' },
+  'Dekoracyjne powłoki kolorowe — fiolet i niebieski': { en: 'Decorative colour coatings — violet and blue', de: 'Dekorative Farbbeschichtungen — Violett und Blau' },
+  'Wielobarwna metalizacja dekoracyjna': { en: 'Multicoloured decorative metallization', de: 'Mehrfarbige dekorative Metallisierung' },
+  'Dekoracyjne wykończenie z akcentami kolorowymi': { en: 'Decorative finish with colour accents', de: 'Dekorfinish mit Farbakzenten' },
+  'Dekoracyjna powłoka z efektem kolorystycznym': { en: 'Decorative coating with a colour effect', de: 'Dekorbeschichtung mit Farbeffekt' }
+}
+
+function altFor(image: { alt?: string; category: string }, index: number, lang: Lang): string {
+  if (image.alt) {
+    if (lang === 'pl') return image.alt
+    return ALT_TRANSLATIONS[image.alt]?.[lang] ?? image.alt
+  }
+  const variants = ALT_VARIANTS[image.category]?.[lang] ?? ALT_VARIANTS['Złoto'][lang]
+  return variants[index % variants.length]
+}
+
+const galleryImages: { src: string; alt?: string; category: string }[] = [
   // Złoto (8) — ciepłe, złotawe tony dominujące w centrum zdjęcia
   { src: gallery01, alt: 'Złote elementy kosmetyczne — metalizacja próżniowa', category: 'Złoto' },
   { src: gallery02, alt: 'Złote powłoki na opakowaniach perfumeryjnych', category: 'Złoto' },
@@ -149,101 +320,101 @@ const galleryImages = [
   { src: gallery13, alt: 'Wielobarwna metalizacja dekoracyjna', category: 'Dekoracyjne' },
   { src: gallery14, alt: 'Dekoracyjne wykończenie z akcentami kolorowymi', category: 'Dekoracyjne' },
   { src: gallery15, alt: 'Dekoracyjna powłoka z efektem kolorystycznym', category: 'Dekoracyjne' },
-  { src: gallery21, alt: 'Chrom - metalizacja realizacja 21', category: 'Chrom' },
-  { src: gallery22, alt: 'Złoto - metalizacja realizacja 22', category: 'Złoto' },
-  { src: gallery23, alt: 'Złoto - metalizacja realizacja 23', category: 'Złoto' },
-  { src: gallery24, alt: 'Złoto - metalizacja realizacja 24', category: 'Złoto' },
-  { src: gallery25, alt: 'Dekoracyjne - metalizacja realizacja 25', category: 'Dekoracyjne' },
-  { src: gallery26, alt: 'Chrom - metalizacja realizacja 26', category: 'Chrom' },
-  { src: gallery27, alt: 'Złoto - metalizacja realizacja 27', category: 'Złoto' },
-  { src: gallery28, alt: 'Chrom - metalizacja realizacja 28', category: 'Chrom' },
-  { src: gallery29, alt: 'Dekoracyjne - metalizacja realizacja 29', category: 'Dekoracyjne' },
-  { src: gallery30, alt: 'Dekoracyjne - metalizacja realizacja 30', category: 'Dekoracyjne' },
-  { src: gallery31, alt: 'Dekoracyjne - metalizacja realizacja 31', category: 'Dekoracyjne' },
-  { src: gallery32, alt: 'Złoto - metalizacja realizacja 32', category: 'Złoto' },
-  { src: gallery33, alt: 'Dekoracyjne - metalizacja realizacja 33', category: 'Dekoracyjne' },
-  { src: gallery34, alt: 'Dekoracyjne - metalizacja realizacja 34', category: 'Dekoracyjne' },
-  { src: gallery35, alt: 'Chrom - metalizacja realizacja 35', category: 'Chrom' },
-  { src: gallery36, alt: 'Chrom - metalizacja realizacja 36', category: 'Chrom' },
-  { src: gallery37, alt: 'Złoto - metalizacja realizacja 37', category: 'Złoto' },
-  { src: gallery38, alt: 'Dekoracyjne - metalizacja realizacja 38', category: 'Złoto' },
-  { src: gallery39, alt: 'Chrom - metalizacja realizacja 39', category: 'Chrom' },
-  { src: gallery40, alt: 'Chrom - metalizacja realizacja 40', category: 'Chrom' },
-  { src: gallery41, alt: 'Chrom - metalizacja realizacja 41', category: 'Chrom' },
-  { src: gallery42, alt: 'Dekoracyjne - metalizacja realizacja 42', category: 'Dekoracyjne' },
-  { src: gallery43, alt: 'Dekoracyjne - metalizacja realizacja 43', category: 'Dekoracyjne' },
-  { src: gallery44, alt: 'Chrom - metalizacja realizacja 44', category: 'Chrom' },
-  { src: gallery45, alt: 'Chrom - metalizacja realizacja 45', category: 'Chrom' },
-  { src: gallery46, alt: 'Dekoracyjne - metalizacja realizacja 46', category: 'Dekoracyjne' },
-  { src: gallery47, alt: 'Dekoracyjne - metalizacja realizacja 47', category: 'Dekoracyjne' },
-  { src: gallery48, alt: 'Złoto - metalizacja realizacja 48', category: 'Złoto' },
-  { src: gallery49, alt: 'Chrom - metalizacja realizacja 49', category: 'Chrom' },
-  { src: gallery50, alt: 'Dekoracyjne - metalizacja realizacja 50', category: 'Dekoracyjne' },
-  { src: gallery51, alt: 'Złoto - metalizacja realizacja 51', category: 'Złoto' },
-  { src: gallery52, alt: 'Dekoracyjne - metalizacja realizacja 52', category: 'Dekoracyjne' },
-  { src: gallery53, alt: 'Dekoracyjne - metalizacja realizacja 53', category: 'Dekoracyjne' },
-  { src: gallery54, alt: 'Dekoracyjne - metalizacja realizacja 54', category: 'Złoto' },
-  { src: gallery55, alt: 'Chrom - metalizacja realizacja 55', category: 'Chrom' },
-  { src: gallery56, alt: 'Złoto - metalizacja realizacja 56', category: 'Złoto' },
-  { src: gallery57, alt: 'Złoto - metalizacja realizacja 57', category: 'Złoto' },
-  { src: gallery58, alt: 'Chrom - metalizacja realizacja 58', category: 'Chrom' },
-  { src: gallery59, alt: 'Złoto - metalizacja realizacja 59', category: 'Złoto' },
-  { src: gallery60, alt: 'Złoto - metalizacja realizacja 60', category: 'Złoto' },
-  { src: gallery61, alt: 'Dekoracyjne - metalizacja realizacja 61', category: 'Dekoracyjne' },
-  { src: gallery62, alt: 'Chrom - metalizacja realizacja 62', category: 'Chrom' },
-  { src: gallery63, alt: 'Dekoracyjne - metalizacja realizacja 63', category: 'Dekoracyjne' },
-  { src: gallery64, alt: 'Złoto - metalizacja realizacja 64', category: 'Złoto' },
-  { src: gallery65, alt: 'Chrom - metalizacja realizacja 65', category: 'Chrom' },
-  { src: gallery66, alt: 'Chrom - metalizacja realizacja 66', category: 'Chrom' },
-  { src: gallery67, alt: 'Dekoracyjne - metalizacja realizacja 67', category: 'Dekoracyjne' },
-  { src: gallery68, alt: 'Dekoracyjne - metalizacja realizacja 68', category: 'Złoto' },
-  { src: gallery69, alt: 'Chrom - metalizacja realizacja 69', category: 'Chrom' },
-  { src: gallery70, alt: 'Chrom - metalizacja realizacja 70', category: 'Chrom' },
-  { src: gallery71, alt: 'Złoto - metalizacja realizacja 71', category: 'Złoto' },
-  { src: gallery72, alt: 'Dekoracyjne - metalizacja realizacja 72', category: 'Złoto' },
-  { src: gallery73, alt: 'Chrom - metalizacja realizacja 73', category: 'Chrom' },
-  { src: gallery74, alt: 'Złoto - metalizacja realizacja 74', category: 'Złoto' },
-  { src: gallery75, alt: 'Dekoracyjne - metalizacja realizacja 75', category: 'Dekoracyjne' },
-  { src: gallery76, alt: 'Chrom - metalizacja realizacja 76', category: 'Chrom' },
-  { src: gallery77, alt: 'Chrom - metalizacja realizacja 77', category: 'Chrom' },
-  { src: gallery78, alt: 'Dekoracyjne - metalizacja realizacja 78', category: 'Dekoracyjne' },
-  { src: gallery79, alt: 'Chrom - metalizacja realizacja 79', category: 'Chrom' },
-  { src: gallery80, alt: 'Złoto - metalizacja realizacja 80', category: 'Złoto' },
-  { src: gallery81, alt: 'Złoto - metalizacja realizacja 81', category: 'Złoto' },
-  { src: gallery82, alt: 'Dekoracyjne - metalizacja realizacja 82', category: 'Złoto' },
-  { src: gallery83, alt: 'Dekoracyjne - metalizacja realizacja 83', category: 'Dekoracyjne' },
-  { src: gallery84, alt: 'Chrom - metalizacja realizacja 84', category: 'Chrom' },
-  { src: gallery85, alt: 'Dekoracyjne - metalizacja realizacja 85', category: 'Dekoracyjne' },
-  { src: gallery86, alt: 'Dekoracyjne - metalizacja realizacja 86', category: 'Dekoracyjne' },
-  { src: gallery87, alt: 'Złoto - metalizacja realizacja 87', category: 'Złoto' },
-  { src: gallery88, alt: 'Złoto - metalizacja realizacja 88', category: 'Złoto' },
-  { src: gallery89, alt: 'Dekoracyjne - metalizacja realizacja 89', category: 'Dekoracyjne' },
-  { src: gallery90, alt: 'Złoto - metalizacja realizacja 90', category: 'Złoto' },
-  { src: gallery91, alt: 'Złoto - metalizacja realizacja 91', category: 'Złoto' },
-  { src: gallery92, alt: 'Złoto - metalizacja realizacja 92', category: 'Złoto' },
-  { src: gallery93, alt: 'Chrom - metalizacja realizacja 93', category: 'Chrom' },
-  { src: gallery94, alt: 'Chrom - metalizacja realizacja 94', category: 'Chrom' },
-  { src: gallery95, alt: 'Chrom - metalizacja realizacja 95', category: 'Chrom' },
-  { src: gallery96, alt: 'Dekoracyjne - metalizacja realizacja 96', category: 'Dekoracyjne' },
-  { src: gallery97, alt: 'Chrom - metalizacja realizacja 97', category: 'Chrom' },
-  { src: gallery98, alt: 'Złoto - metalizacja realizacja 98', category: 'Złoto' },
-  { src: gallery99, alt: 'Chrom - metalizacja realizacja 99', category: 'Chrom' },
-  { src: gallery100, alt: 'Złoto - metalizacja realizacja 100', category: 'Złoto' },
-  { src: gallery101, alt: 'Złoto - metalizacja realizacja 101', category: 'Złoto' },
-  { src: gallery102, alt: 'Chrom - metalizacja realizacja 102', category: 'Chrom' },
-  { src: gallery103, alt: 'Dekoracyjne - metalizacja realizacja 103', category: 'Złoto' },
-  { src: gallery104, alt: 'Złoto - metalizacja realizacja 104', category: 'Złoto' },
-  { src: gallery105, alt: 'Dekoracyjne - metalizacja realizacja 105', category: 'Dekoracyjne' },
-  { src: gallery106, alt: 'Chrom - metalizacja realizacja 106', category: 'Chrom' },
-  { src: gallery107, alt: 'Złoto - metalizacja realizacja 107', category: 'Złoto' },
-  { src: gallery108, alt: 'Dekoracyjne - metalizacja realizacja 108', category: 'Dekoracyjne' },
-  { src: gallery109, alt: 'Dekoracyjne - metalizacja realizacja 109', category: 'Dekoracyjne' },
-  { src: gallery110, alt: 'Złoto - metalizacja realizacja 110', category: 'Złoto' },
-  { src: gallery111, alt: 'Złoto - metalizacja realizacja 111', category: 'Złoto' },
-  { src: gallery112, alt: 'Chrom - metalizacja realizacja 112', category: 'Chrom' },
-  { src: gallery113, alt: 'Chrom - metalizacja realizacja 113', category: 'Chrom' },
-  { src: gallery114, alt: 'Chrom - metalizacja realizacja 114', category: 'Chrom' },
-  { src: gallery115, alt: 'Złoto - metalizacja realizacja 115', category: 'Złoto' },
+  { src: gallery21, category: 'Chrom' },
+  { src: gallery22, category: 'Złoto' },
+  { src: gallery23, category: 'Złoto' },
+  { src: gallery24, category: 'Złoto' },
+  { src: gallery25, category: 'Dekoracyjne' },
+  { src: gallery26, category: 'Chrom' },
+  { src: gallery27, category: 'Złoto' },
+  { src: gallery28, category: 'Chrom' },
+  { src: gallery29, category: 'Dekoracyjne' },
+  { src: gallery30, category: 'Dekoracyjne' },
+  { src: gallery31, category: 'Dekoracyjne' },
+  { src: gallery32, category: 'Złoto' },
+  { src: gallery33, category: 'Dekoracyjne' },
+  { src: gallery34, category: 'Dekoracyjne' },
+  { src: gallery35, category: 'Chrom' },
+  { src: gallery36, category: 'Chrom' },
+  { src: gallery37, category: 'Złoto' },
+  { src: gallery38, category: 'Złoto' },
+  { src: gallery39, category: 'Chrom' },
+  { src: gallery40, category: 'Chrom' },
+  { src: gallery41, category: 'Chrom' },
+  { src: gallery42, category: 'Dekoracyjne' },
+  { src: gallery43, category: 'Dekoracyjne' },
+  { src: gallery44, category: 'Chrom' },
+  { src: gallery45, category: 'Chrom' },
+  { src: gallery46, category: 'Dekoracyjne' },
+  { src: gallery47, category: 'Dekoracyjne' },
+  { src: gallery48, category: 'Złoto' },
+  { src: gallery49, category: 'Chrom' },
+  { src: gallery50, category: 'Dekoracyjne' },
+  { src: gallery51, category: 'Złoto' },
+  { src: gallery52, category: 'Dekoracyjne' },
+  { src: gallery53, category: 'Dekoracyjne' },
+  { src: gallery54, category: 'Złoto' },
+  { src: gallery55, category: 'Chrom' },
+  { src: gallery56, category: 'Złoto' },
+  { src: gallery57, category: 'Złoto' },
+  { src: gallery58, category: 'Chrom' },
+  { src: gallery59, category: 'Złoto' },
+  { src: gallery60, category: 'Złoto' },
+  { src: gallery61, category: 'Dekoracyjne' },
+  { src: gallery62, category: 'Chrom' },
+  { src: gallery63, category: 'Dekoracyjne' },
+  { src: gallery64, category: 'Złoto' },
+  { src: gallery65, category: 'Chrom' },
+  { src: gallery66, category: 'Chrom' },
+  { src: gallery67, category: 'Dekoracyjne' },
+  { src: gallery68, category: 'Złoto' },
+  { src: gallery69, category: 'Chrom' },
+  { src: gallery70, category: 'Chrom' },
+  { src: gallery71, category: 'Złoto' },
+  { src: gallery72, category: 'Złoto' },
+  { src: gallery73, category: 'Chrom' },
+  { src: gallery74, category: 'Złoto' },
+  { src: gallery75, category: 'Dekoracyjne' },
+  { src: gallery76, category: 'Chrom' },
+  { src: gallery77, category: 'Chrom' },
+  { src: gallery78, category: 'Dekoracyjne' },
+  { src: gallery79, category: 'Chrom' },
+  { src: gallery80, category: 'Złoto' },
+  { src: gallery81, category: 'Złoto' },
+  { src: gallery82, category: 'Złoto' },
+  { src: gallery83, category: 'Dekoracyjne' },
+  { src: gallery84, category: 'Chrom' },
+  { src: gallery85, category: 'Dekoracyjne' },
+  { src: gallery86, category: 'Dekoracyjne' },
+  { src: gallery87, category: 'Złoto' },
+  { src: gallery88, category: 'Złoto' },
+  { src: gallery89, category: 'Dekoracyjne' },
+  { src: gallery90, category: 'Złoto' },
+  { src: gallery91, category: 'Złoto' },
+  { src: gallery92, category: 'Złoto' },
+  { src: gallery93, category: 'Chrom' },
+  { src: gallery94, category: 'Chrom' },
+  { src: gallery95, category: 'Chrom' },
+  { src: gallery96, category: 'Dekoracyjne' },
+  { src: gallery97, category: 'Chrom' },
+  { src: gallery98, category: 'Złoto' },
+  { src: gallery99, category: 'Chrom' },
+  { src: gallery100, category: 'Złoto' },
+  { src: gallery101, category: 'Złoto' },
+  { src: gallery102, category: 'Chrom' },
+  { src: gallery103, category: 'Złoto' },
+  { src: gallery104, category: 'Złoto' },
+  { src: gallery105, category: 'Dekoracyjne' },
+  { src: gallery106, category: 'Chrom' },
+  { src: gallery107, category: 'Złoto' },
+  { src: gallery108, category: 'Dekoracyjne' },
+  { src: gallery109, category: 'Dekoracyjne' },
+  { src: gallery110, category: 'Złoto' },
+  { src: gallery111, category: 'Złoto' },
+  { src: gallery112, category: 'Chrom' },
+  { src: gallery113, category: 'Chrom' },
+  { src: gallery114, category: 'Chrom' },
+  { src: gallery115, category: 'Złoto' },
 ]
 
 const categories = ['Wszystkie', 'Złoto', 'Chrom', 'Dekoracyjne']
@@ -282,16 +453,18 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
     const ogDesc = document.querySelector('meta[property="og:description"]')
     const originalOgDesc = ogDesc?.getAttribute('content')
     
-    const pageTitle = lang === 'pl' 
-      ? 'Galeria Realizacji i Projektów Metalizacji | STANIAX' 
+    // Must stay identical to SHELL_META['gallery'] in scripts/prerender.js —
+    // otherwise the client overwrites the pre-rendered title Google indexed.
+    const pageTitle = lang === 'pl'
+      ? 'Galeria realizacji – metalizacja próżniowa | STANIAX'
       : lang === 'de'
-      ? 'Galerie der Metallisierungsprojekte | STANIAX'
-      : 'Gallery of Completed Projects and Metallization | STANIAX'
+      ? 'Projektgalerie – Vakuummetallisierung | STANIAX'
+      : 'Project Gallery – Vacuum Metallization | STANIAX'
     const pageDesc = lang === 'pl'
-      ? 'Przeglądaj naszą galerię metalizacji próżniowej oraz precyzyjnego lakierowania tworzyw, szkła i metali. Zobacz zrealizowane projekty premium.'
+      ? 'Galeria realizacji STANIAX: metalizacja próżniowa tworzyw sztucznych, powłoki lustrzane, lakierowanie szkła i detali oraz regeneracja odbłyśników.'
       : lang === 'de'
-      ? 'Entdecken Sie unsere Galerie der Vakuummetallisierung und der präzisen Lackierung von Kunststoffen, Glas und Metallen. Sehen Sie Premium-Projekte.'
-      : 'Explore our gallery of vacuum metallization and precision lacquering of plastics, glass, and metals. View completed premium projects.'
+      ? 'STANIAX-Projektgalerie: Vakuummetallisierung von Kunststoffen, Spiegelbeschichtungen, Glas- und Detaillackierung sowie Reflektorregeneration.'
+      : 'STANIAX project gallery: vacuum metallization of plastics, mirror coatings, glass and component painting, and reflector regeneration.'
 
     document.title = pageTitle
 
@@ -420,18 +593,25 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-4xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 border border-blue-200 mb-8">
-              <Link to="/news" className="absolute inset-0 z-10 opacity-0" aria-label="Aktualności STANIAX"></Link>
-              <Sparkle className="w-4 h-4 text-blue-600 relative z-20" weight="fill" />
-              <span className="text-xs uppercase tracking-[0.3em] text-blue-700 font-semibold relative z-20">{lang === 'pl' ? 'Nasze realizacje' : lang === 'de' ? 'Unsere Projekte' : 'Our projects'}</span>
-            </div>
-            
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-gray-900 tracking-tighter mb-8 leading-[0.9] relative">
-              <Link to="/" className="absolute inset-0 z-10 opacity-0" aria-label="Strona Główna STANIAX"></Link>
-              <span className="sr-only">{lang === 'pl' ? 'Profesjonalna metalizacja próżniowa i lakierowanie tworzyw - ' : lang === 'de' ? 'Professionelle Vakuummetallisierung und Kunststofflackierung - ' : 'Professional vacuum metallization and plastic painting - '}</span>
-              <span className="block relative z-20">{lang === 'pl' ? 'GALERIA ' : lang === 'de' ? 'GALERIE ' : 'PROJECTS '}</span>
-              <span className="block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 bg-clip-text text-transparent relative z-20">
+            <Link
+              to={lang === 'pl' ? '/news' : `/${lang}/news`}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 border border-blue-200 mb-8 transition-colors hover:bg-blue-200"
+            >
+              <Sparkle className="w-4 h-4 text-blue-600" weight="fill" />
+              <span className="text-xs uppercase tracking-[0.3em] text-blue-700 font-semibold">{lang === 'pl' ? 'Nasze realizacje' : lang === 'de' ? 'Unsere Projekte' : 'Our projects'}</span>
+            </Link>
+
+            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black text-gray-900 tracking-tighter mb-8 leading-[0.9]">
+              <span className="block">{lang === 'pl' ? 'GALERIA ' : lang === 'de' ? 'GALERIE ' : 'PROJECTS '}</span>
+              <span className="block bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 bg-clip-text text-transparent">
                 {lang === 'pl' ? 'REALIZACJI' : lang === 'de' ? 'DER PROJEKTE' : 'GALLERY'}
+              </span>
+              <span className="mt-5 block text-xl font-semibold leading-snug tracking-tight text-gray-600 sm:text-2xl lg:text-3xl">
+                {lang === 'pl'
+                  ? 'Metalizacja próżniowa i lakierowanie tworzyw sztucznych'
+                  : lang === 'de'
+                    ? 'Vakuummetallisierung und Lackierung von Kunststoffen'
+                    : 'Vacuum metallization and plastic coating'}
               </span>
             </h1>
             
@@ -524,7 +704,7 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                   {/* Image */}
                   <img
                     src={image.src}
-                    alt={image.alt}
+                    alt={altFor(image, index, lang)}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
@@ -546,7 +726,7 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                       <span className="w-1.5 h-1.5 rounded-full bg-black/30" />
                       {image.category}
                     </span>
-                    <p className="mt-3 text-white/80 text-sm font-medium hidden sm:block">{image.alt}</p>
+                    <p className="mt-3 text-white/80 text-sm font-medium hidden sm:block">{altFor(image, index, lang)}</p>
                   </div>
                   
                   {/* Corner accent */}
@@ -616,7 +796,7 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
             >
               <img
                 src={filteredImages[selectedImage].src}
-                alt={filteredImages[selectedImage].alt}
+                alt={altFor(filteredImages[selectedImage], selectedImage, lang)}
                 className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl shadow-black/50"
               />
               
@@ -626,7 +806,7 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                   {filteredImages[selectedImage].category}
                 </span>
                 <span className="text-white/40 text-sm">
-                  {filteredImages[selectedImage].alt}
+                  {altFor(filteredImages[selectedImage], selectedImage, lang)}
                 </span>
               </div>
             </motion.div>
@@ -662,11 +842,11 @@ function GalleryPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
       {/* SEO Bottom Section for Text/Paragraphs and internal links */}
       <section className="bg-white py-12 border-t border-gray-100">
         <div className="container mx-auto px-6 lg:px-12 text-sm text-gray-500 space-y-4 max-w-4xl">
-          <h3 className="text-lg font-semibold text-gray-900">
-            {lang === 'pl' ? 'Nasze projekty i realizacje metalizacji próżniowej' : 
+          <h2 className="text-lg font-semibold text-gray-900">
+            {lang === 'pl' ? 'Nasze projekty i realizacje metalizacji próżniowej' :
              lang === 'de' ? 'Unsere Projekte und Vakuummetallisierungsarbeiten' : 
              'Our Projects and Vacuum Metallization Works'}
-          </h3>
+          </h2>
           <p>
             {lang === 'pl' ? 'W powyższej galerii prezentujemy wybrane realizacje z zakresu metalizacji próżniowej oraz malowania przemysłowego. Nasze powłoki lustrzane i dekoracyjne znajdują zastosowanie w różnorodnych projektach komercyjnych. Zobacz pełną ' : 
              lang === 'de' ? 'In der obigen Galerie präsentieren wir ausgewählte Projekte im Bereich der Vakuummetallisierung und industriellen Lackierung. Unsere Spiegel- und Dekorativbeschichtungen finden Anwendung in verschiedenen kommerziellen Projekten. Sehen Sie sich unser vollständiges ' :

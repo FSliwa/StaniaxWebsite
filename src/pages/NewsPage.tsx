@@ -16,7 +16,7 @@ const newsItemsPl = [
     title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
     date: '25 maja 2026',
     category: 'Inwestycje',
-    excerpt: 'W warszawskim centrum STANIAX uruchomiona została nowoczesna linia technologiczna. Naszą specjalnością jest precyzyjna metalizacja próżniowa oraz metalizacja natryskowa elementów z tworzyw i metali. W ofercie firmy, którą prowadzi Dariusz Staniak (metalizacja próżniowa Dariusz Staniak), znajduje się m.in. profesjonalna metalizacja odbłyśnika oraz metalizacja odbłyśników samochodowych. Wdrażamy także zaawansowane usługi takie jak metalizacja plastiku i ogólne metalizowanie próżniowe. Nowy punkt usługowy – metalizacja próżniowa Józefów – gwarantuje najwyższą jakość powłok lustrzanych i znacznie krótszy czas realizacji zamówień.',
+    excerpt: 'W centrum technologicznym STANIAX uruchomiliśmy nową linię produkcyjną. Naszą specjalnością jest precyzyjna metalizacja próżniowa oraz metalizacja natryskowa elementów z tworzyw sztucznych i metali. Pod okiem Dariusza Staniaka rozwijamy również regenerację odbłyśników samochodowych i metalizację detali z plastiku. Nowa linia pozwala nam utrzymać powtarzalną jakość powłok lustrzanych przy wyraźnie krótszym czasie realizacji zamówień.',
     image: vacuumMetalizationChamber,
     path: '#'
   },
@@ -34,7 +34,7 @@ const newsItemsPl = [
     category: 'Artykuł',
     excerpt: 'Odkryj, jak zaawansowana metalizacja próżniowa i powłoki ochronne PVD zwiększają wydajność materiałów w branży lotniczej. Poznaj szczegóły strategicznego partnerstwa!',
     image: newsAviationImage,
-    path: '/news/partnerstwo-z-wiodacym-producentem-lotniczym'
+    path: '/news/jak-metalizacja-wplywa-na-wydajnosc-materialow'
   },
   {
     title: 'Metalizacja próżniowa rewolucjonizuje branżę beauty',
@@ -59,7 +59,7 @@ const newsItemsEn = [
     title: 'Modern Vacuum Metallization and Reflector Regeneration in Józefów',
     date: 'May 25, 2026',
     category: 'Investments',
-    excerpt: 'A modern technological line has been launched at the Warsaw center of STANIAX. Our specialty is precise vacuum metallization and spray coating of plastic and metal parts. The company\'s offer, run by Dariusz Staniak (vacuum metallization Dariusz Staniak), includes professional reflector metallization and automotive reflector metallization. We also implement advanced services such as plastic metallization and general vacuum metallization. The new service point — vacuum metallization Józefów — guarantees the highest quality of mirror coatings and significantly shorter order execution times.',
+    excerpt: 'We have commissioned a new production line at the STANIAX technology centre. Our specialty is precise vacuum metallization and spray coating of plastic and metal parts. Under the guidance of Dariusz Staniak we are also expanding automotive reflector regeneration and the metallization of plastic components. The new line lets us hold repeatable mirror-coating quality with markedly shorter lead times.',
     image: vacuumMetalizationChamber,
     path: '#'
   },
@@ -77,7 +77,7 @@ const newsItemsEn = [
     category: 'Article',
     excerpt: 'Discover how advanced vacuum metallization and PVD protective coatings increase material performance in the aerospace industry. Find out the details of our strategic partnership!',
     image: newsAviationImage,
-    path: '/news/how-does-metallization-affect-material-performance'
+    path: '/en/news/how-does-metallization-affect-material-performance'
   },
   {
     title: 'Vacuum Metallization Revolutionizes the Beauty Industry',
@@ -85,7 +85,7 @@ const newsItemsEn = [
     category: 'Article',
     excerpt: 'The cosmetics packaging market is undergoing a real revolution. Discover the benefits of vacuum metallization and plastic painting in the beauty segment.',
     image: colorfulPackagingImage,
-    path: '/news/vacuum-metallization-revolutionizes-beauty-industry'
+    path: '/en/news/vacuum-metallization-revolutionizes-beauty-industry'
   },
   {
     title: 'Expansion of the Quality Control Department',
@@ -110,7 +110,7 @@ const newsItemsDe = [
     title: 'Moderne Vakuummetallisierung und Reflektorregeneration in Józefów',
     date: '25. Mai 2026',
     category: 'Investitionen',
-    excerpt: 'Im Warschauer Zentrum von STANIAX wurde eine moderne technologische Linie in Betrieb genommen. Unsere Spezialität ist die präzise Vakuummetallisierung und Spritzlackierung von Kunststoff- und Metallteilen. Das Angebot des von Dariusz Staniak geleiteten Unternehmens (Vakuummetallisierung Dariusz Staniak) umfasst unter anderem die professionelle Reflektormetallisierung und die Metallisierung von Autoscheinwerfern. Wir führen auch fortschrittliche Dienstleistungen wie die Kunststoffmetallisierung und die allgemeine Vakuummetallisierung durch. Der neue Servicestützpunkt – Vakuummetallisierung Józefów – garantiert höchste Qualität der Spiegelbeschichtungen und deutlich kürzere Lieferzeiten.',
+    excerpt: 'Im Technologiezentrum von STANIAX haben wir eine neue Produktionslinie in Betrieb genommen. Unsere Spezialität ist die präzise Vakuummetallisierung und Spritzbeschichtung von Kunststoff- und Metallteilen. Unter der Leitung von Dariusz Staniak bauen wir zudem die Regeneration von Fahrzeugreflektoren und die Metallisierung von Kunststoffdetails aus. Die neue Linie sichert eine gleichbleibende Qualität der Spiegelbeschichtungen bei deutlich kürzeren Lieferzeiten.',
     image: vacuumMetalizationChamber,
     path: '#'
   },
@@ -128,7 +128,7 @@ const newsItemsDe = [
     category: 'Artikel',
     excerpt: 'Erfahren Sie, wie fortschrittliche Vakuummetallisierung, Kunststofflackierung und PVD-Prozesse die Festigkeit und Ästhetik von Materialien in der Luftfahrt beeinflussen.',
     image: newsAviationImage,
-    path: '/news/wie-beeinflusst-metallisierung-die-materialleistung'
+    path: '/de/news/wie-beeinflusst-metallisierung-die-materialleistung'
   },
   {
     title: 'Vakuummetallisierung revolutioniert die Kosmetikbranche',
@@ -136,7 +136,7 @@ const newsItemsDe = [
     category: 'Artikel',
     excerpt: 'Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren.',
     image: colorfulPackagingImage,
-    path: '/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche'
+    path: '/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche'
   },
   {
     title: 'Erweiterung der Qualitätskontrollabteilung',
@@ -225,16 +225,18 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
   const secondaryArticles = newsItems.slice(1, 4)
   const moreArticles = newsItems.slice(4)
 
-    const pageTitle = lang === 'pl' 
-      ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX' 
+    // Must stay identical to SHELL_META['news'] in scripts/prerender.js —
+    // otherwise the client overwrites the pre-rendered title Google indexed.
+    const pageTitle = lang === 'pl'
+      ? 'Baza wiedzy: metalizacja próżniowa | STANIAX'
       : lang === 'de'
-      ? 'Aktuelles zur Vakuumbeschichtung | STANIAX'
-      : 'Knowledge Base & News - Vacuum Metallization | STANIAX'
+      ? 'Wissensbasis: Vakuummetallisierung | STANIAX'
+      : 'Knowledge Base: Vacuum Metallization | STANIAX'
     const pageDesc = lang === 'pl'
-      ? 'Aktualności, poradniki i artykuły eksperckie na temat metalizacji próżniowej oraz lakierowania. Baza wiedzy o uszlachetnianiu powierzchni.'
+      ? 'Poradniki i artykuły eksperckie o metalizacji próżniowej, lakierowaniu tworzyw oraz regeneracji lamp samochodowych i odbłyśników.'
       : lang === 'de'
-      ? 'Aktuelles, Leitfäden und Expertenartikel über Vakuummetallisierung und Lackierung. Wissensdatenbank zur Oberflächenveredelung.'
-      : 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
+      ? 'Leitfäden und Expertenartikel zu Vakuummetallisierung, Kunststofflackierung sowie Regeneration von Scheinwerfern und Reflektoren.'
+      : 'Guides and expert articles on vacuum metallization, plastic coating, and the regeneration of car headlights and reflectors.'
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -298,9 +300,13 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
 
   const homePath = lang === 'pl' ? '/' : `/${lang}`
 
+  // Ścieżki w newsItems* zapisujemy BEZ prefiksu języka — dokłada go ta funkcja.
+  // Warunek `startsWith` chroni przed podwójnym prefiksem (/en/en/news/...),
+  // gdyby ktoś zapisał ścieżkę już z prefiksem.
   const getArticlePath = (basePath: string) => {
     if (basePath === '#') return '#'
     if (lang === 'pl') return basePath
+    if (basePath.startsWith(`/${lang}/`)) return basePath
     return `/${lang}${basePath}`
   }
 
@@ -450,13 +456,13 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                    'Knowledge Base & News - Vacuum Metallization'}
                 </h1>
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
-                  <strong>{pageTitle.split('|')[0].trim()}</strong> - {text.newsDesc}
+                  {text.newsDesc}
                 </p>
               </div>
               <Card className="border border-border/60 bg-card/80 backdrop-blur-xl">
                 <CardHeader className="space-y-3">
                   <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">{text.featuredNews}</p>
-                  <CardTitle className="text-2xl font-black leading-tight">
+                  <CardTitle as="h2" className="text-2xl font-black leading-tight">
                     {featuredArticle.path && featuredArticle.path !== '#' ? (
                       <Link to={getArticlePath(featuredArticle.path)} className="hover:text-accent transition-colors">
                         {featuredArticle.title}
@@ -695,18 +701,17 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
             </div>
           </div>
         </section>
-        {/* SEO Bottom Section for Text/Paragraphs rules */}
         <section className="bg-background py-12 border-t border-border/40">
           <div className="container mx-auto px-6 lg:px-12 text-sm text-muted-foreground space-y-4 max-w-4xl">
             <h3 className="text-lg font-semibold text-foreground">
-              {lang === 'pl' ? 'Oficjalne Centrum Wiedzy - STANIAX' : 
-               lang === 'de' ? 'Offizielles STANIAX News-Center' : 
-               'Official STANIAX Knowledge Base'}
+              {lang === 'pl' ? 'Czego szukać w naszej bazie wiedzy' :
+               lang === 'de' ? 'Was Sie in unserer Wissensbasis finden' :
+               'What you will find in our knowledge base'}
             </h3>
             <p>
-              {lang === 'pl' ? 'Witaj w naszej oficjalnej stronie: Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX. Znajdziesz tutaj najnowsze informacje, aktualności z życia firmy oraz eksperckie artykuły z dziedziny zaawansowanej obróbki powierzchniowej. Piszemy o takich technologiach jak metalizacja próżniowa, lakierowanie tworzyw, metali i szkła, a także innowacyjne powłoki PVD. Zapoznaj się z naszą pełną ' : 
-               lang === 'de' ? 'Willkommen im Bereich Aktuelles zur Vakuumbeschichtung | STANIAX. Hier finden Sie die neuesten Informationen, Unternehmensnachrichten und Expertenartikel aus dem Bereich der modernen Oberflächenbehandlung. Wir schreiben über Technologien wie Vakuumbeschichtung, Lackierung von Kunststoffen, Metallen und Glas sowie innovative PVD-Beschichtungen. Erfahren Sie mehr über unser ' :
-               'Welcome to the Knowledge Base & News - Vacuum Metallization | STANIAX. Here you will find the latest information, company news, and expert articles in the field of advanced surface treatment. We write about technologies such as vacuum metalizing & PVD deposition, lacquering of plastics, metals, and glass, as well as innovative PVD coatings. Explore our complete '}
+              {lang === 'pl' ? 'Zbieramy tu materiały o metalizacji próżniowej, lakierowaniu tworzyw, metali i szkła oraz powłokach PVD. Publikujemy aktualności z zakładu i artykuły techniczne wyjaśniające, jak dobrać proces do konkretnego detalu — od wyboru podłoża po parametry powłoki. Pełny zakres usług opisujemy w ' :
+               lang === 'de' ? 'Hier sammeln wir Material zu Vakuummetallisierung, Lackierung von Kunststoffen, Metallen und Glas sowie zu PVD-Beschichtungen. Wir veröffentlichen Neuigkeiten aus dem Werk und technische Artikel dazu, wie sich der passende Prozess für ein konkretes Bauteil auswählen lässt. Den vollen Leistungsumfang beschreiben wir im ' :
+               'Here we collect material on vacuum metallization, the coating of plastics, metals and glass, and PVD layers. We publish news from the plant and technical articles on how to match a process to a specific part — from substrate choice to coating parameters. Our full range of services is described in the '}
                <Link to={lang === 'pl' ? '/' : `/${lang}`} className="text-accent hover:underline font-medium">{lang === 'pl' ? 'Ofertą (Strona Główna)' : lang === 'de' ? 'Angebot (Startseite)' : 'Offer (Home Page)'}</Link>
                {lang === 'pl' ? '. Nasze wpisy mają na celu edukować naszych klientów i partnerów biznesowych w zakresie optymalizacji procesów produkcyjnych i wykorzystania nowoczesnych metod uszlachetniania produktów w różnych branżach przemysłowych.' : 
                 lang === 'de' ? '. Unsere Beiträge zielen darauf ab, unsere Kunden und Geschäftspartner über die Optimierung von Produktionsprozessen und den Einsatz moderner Methoden zur Produktveredelung in verschiedenen Industriezweigen aufzuklären.' :
@@ -717,9 +722,9 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                lang === 'de' ? 'Durch unsere Artikel erfahren Sie die Geheimnisse der Reflektor-Regeneration, Innovationen bei Verpackungen für die Beauty-Branche und Wege zur Erhöhung der Haltbarkeit von technischen Komponenten. Sehen Sie sich auch unsere abgeschlossenen Projekte an, indem Sie zum Bereich ' :
                'Through our articles, you will learn the secrets of reflector regeneration, innovations in packaging for the beauty industry, and ways to increase the durability of technical components. View our completed projects by visiting the '}
                <Link to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`} className="text-accent hover:underline font-medium">{lang === 'pl' ? 'Galerii Realizacji' : lang === 'de' ? 'Galerie' : 'Gallery'}</Link>
-               {lang === 'pl' ? '. Zachęcamy do regularnego odwiedzania naszej strony, aby być na bieżąco z trendami, nowościami rynkowymi oraz osiągnięciami firmy STANIAX - Twojego zaufanego partnera w dziedzinie powłok lustrzanych i dekoracyjnych.' : 
-                lang === 'de' ? '. Wir laden Sie ein, unsere Website regelmäßig zu besuchen, um über Trends, Markteuigkeiten und die Erfolge von STANIAX - Ihrem zuverlässigen Partner im Bereich Spiegel- und Dekorativbeschichtungen - auf dem Laufenden zu bleiben.' :
-                '. We invite you to visit our website regularly to stay up-to-date with trends, market news, and the achievements of STANIAX - your trusted partner in mirror and decorative coatings.'}
+               {lang === 'pl' ? ', gdzie pokazujemy efekty poszczególnych technologii na rzeczywistych detalach.' :
+                lang === 'de' ? ', wo wir die Ergebnisse der einzelnen Technologien an realen Bauteilen zeigen.' :
+                ', where we show the results of each technology on real parts.'}
             </p>
           </div>
         </section>
