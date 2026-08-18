@@ -60,4 +60,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-<url><loc>{{12.result.target_url}}</loc><lastmod>{{formatDate(now; NaN; NaN)}}</lastmod></url></urlset>
+<url><loc>{{12.result.target_url}}</loc><lastmod>{{formatDate(now; NaN; NaN)}}</lastmod></url><url><loc>{{12.result.target_url}}</loc><lastmod>{{formatDate(now; NaN; NaN)}}</lastmod></url></urlset>
