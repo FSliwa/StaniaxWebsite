@@ -452,6 +452,28 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
                   <strong>{pageTitle.split('|')[0].trim()}</strong> - {text.newsDesc}
                 </p>
+                {/* Widoczne wejście do pełnej biblioteki artykułów — wcześniej
+                    jedyna droga prowadziła przez menu-hamburger lub stopkę. */}
+                <Button
+                  size="lg"
+                  className="font-semibold"
+                  onClick={() => {
+                    const target = document.getElementById('biblioteka')
+                    if (!target) return
+                    const start = window.scrollY
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    // Płynny scroll wymaga klatek animacji; karty w tle ich nie
+                    // dostają. Jeśli po 400 ms nie ruszyliśmy, doskakujemy od razu.
+                    window.setTimeout(() => {
+                      if (Math.abs(window.scrollY - start) < 40) target.scrollIntoView()
+                    }, 400)
+                  }}
+                >
+                  {lang === 'pl' ? 'Przeglądaj bibliotekę artykułów' :
+                   lang === 'de' ? 'Artikelbibliothek durchsuchen' :
+                   'Browse the article library'}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
               </div>
               <Card className="border border-border/60 bg-card/80 backdrop-blur-xl">
                 <CardHeader className="space-y-3">
@@ -494,7 +516,7 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
           </div>
         </section>
 
-        <section className="py-12 lg:py-16 border-y border-border/60">
+        <section id="biblioteka" className="py-12 lg:py-16 border-y border-border/60">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid gap-12 lg:grid-cols-[1.3fr_0.9fr]">
               <Card className="overflow-hidden border-0 shadow-2xl h-full flex flex-col">
