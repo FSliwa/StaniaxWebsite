@@ -11,7 +11,7 @@ import newsAviationImage from '@/assets/news_aviation.jpg'
 import colorfulPackagingImage from '@/assets/colorful_packaging.png'
 import newReflectorsImage from '@/assets/odblysniki-nowe-1.jpeg'
 
-const newsItemsPl = [
+export const newsItemsPl = [
   {
     title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
     date: '25 maja 2026',
@@ -54,7 +54,7 @@ const newsItemsPl = [
   }
 ]
 
-const newsItemsEn = [
+export const newsItemsEn = [
   {
     title: 'Modern Vacuum Metallization and Reflector Regeneration in Józefów',
     date: 'May 25, 2026',
@@ -105,7 +105,7 @@ const newsItemsEn = [
   }
 ]
 
-const newsItemsDe = [
+export const newsItemsDe = [
   {
     title: 'Moderne Vakuummetallisierung und Reflektorregeneration in Józefów',
     date: '25. Mai 2026',
@@ -304,6 +304,9 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
     return `/${lang}${basePath}`
   }
 
+  // Slugi musza pokrywac sie z trasami w App.tsx.
+  const libraryPath = lang === 'pl' ? '/news/biblioteka' : lang === 'de' ? '/de/news/bibliothek' : '/en/news/library'
+
   const languageLinks = [
     { flag: "🇵🇱", lang: "pl" as const, path: "/news", label: "Polski" },
     { flag: "🇬🇧", lang: "en" as const, path: "/en/news", label: "English" },
@@ -452,28 +455,17 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
                   <strong>{pageTitle.split('|')[0].trim()}</strong> - {text.newsDesc}
                 </p>
-                {/* Widoczne wejście do pełnej biblioteki artykułów — wcześniej
-                    jedyna droga prowadziła przez menu-hamburger lub stopkę. */}
-                <Button
-                  size="lg"
-                  className="font-semibold"
-                  onClick={() => {
-                    const target = document.getElementById('biblioteka')
-                    if (!target) return
-                    const start = window.scrollY
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                    // Płynny scroll wymaga klatek animacji; karty w tle ich nie
-                    // dostają. Jeśli po 400 ms nie ruszyliśmy, doskakujemy od razu.
-                    window.setTimeout(() => {
-                      if (Math.abs(window.scrollY - start) < 40) target.scrollIntoView()
-                    }, 400)
-                  }}
+                {/* Wejscie do pelnej biblioteki artykulow - osobna podstrona.
+                    Wczesniej przycisk tylko przewijal do sekcji ponizej. */}
+                <Link
+                  to={libraryPath}
+                  className={cn(buttonVariants({ size: 'lg' }), 'font-semibold w-fit')}
                 >
                   {lang === 'pl' ? 'Przeglądaj bibliotekę artykułów' :
                    lang === 'de' ? 'Artikelbibliothek durchsuchen' :
                    'Browse the article library'}
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                </Link>
               </div>
               <Card className="border border-border/60 bg-card/80 backdrop-blur-xl">
                 <CardHeader className="space-y-3">

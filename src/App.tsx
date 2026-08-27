@@ -4,6 +4,7 @@ import { ScrollProgress } from './components/ui/ScrollProgress';
 
 const HomePage = lazy(() => import('./pages/HomePage'))
 const NewsPage = lazy(() => import('./pages/NewsPage'))
+const ArticleLibraryPage = lazy(() => import('./pages/ArticleLibraryPage'))
 const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 const ArticleAviation = lazy(() => import('./pages/ArticleAviation'))
 const ArticleBeauty = lazy(() => import('./pages/ArticleBeauty'))
@@ -40,6 +41,11 @@ function App() {
           <Route path="/news" element={<NewsPage lang="pl" />} />
           <Route path="/en/news" element={<NewsPage lang="en" />} />
           <Route path="/de/news" element={<NewsPage lang="de" />} />
+
+          {/* Biblioteka artykulow - slugi musza pokrywac sie z libraryPath w NewsPage */}
+          <Route path="/news/biblioteka" element={<ArticleLibraryPage lang="pl" />} />
+          <Route path="/en/news/library" element={<ArticleLibraryPage lang="en" />} />
+          <Route path="/de/news/bibliothek" element={<ArticleLibraryPage lang="de" />} />
           
           <Route path="/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="pl" />} />
           <Route path="/en/news/how-does-metallization-affect-material-performance" element={<ArticleAviation lang="en" />} />
