@@ -11,7 +11,7 @@ import newsAviationImage from '@/assets/news_aviation.jpg'
 import colorfulPackagingImage from '@/assets/colorful_packaging.png'
 import newReflectorsImage from '@/assets/odblysniki-nowe-1.jpeg'
 
-const newsItemsPl = [
+export const newsItemsPl = [
   {
     title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
     date: '25 maja 2026',
@@ -54,7 +54,7 @@ const newsItemsPl = [
   }
 ]
 
-const newsItemsEn = [
+export const newsItemsEn = [
   {
     title: 'Modern Vacuum Metallization and Reflector Regeneration in Józefów',
     date: 'May 25, 2026',
@@ -105,7 +105,7 @@ const newsItemsEn = [
   }
 ]
 
-const newsItemsDe = [
+export const newsItemsDe = [
   {
     title: 'Moderne Vakuummetallisierung und Reflektorregeneration in Józefów',
     date: '25. Mai 2026',
@@ -304,6 +304,9 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
     return `/${lang}${basePath}`
   }
 
+  // Slugi musza pokrywac sie z trasami w App.tsx.
+  const libraryPath = lang === 'pl' ? '/news/biblioteka' : lang === 'de' ? '/de/news/bibliothek' : '/en/news/library'
+
   const languageLinks = [
     { flag: "🇵🇱", lang: "pl" as const, path: "/news", label: "Polski" },
     { flag: "🇬🇧", lang: "en" as const, path: "/en/news", label: "English" },
@@ -452,6 +455,17 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
                   <strong>{pageTitle.split('|')[0].trim()}</strong> - {text.newsDesc}
                 </p>
+                {/* Wejscie do pelnej biblioteki artykulow - osobna podstrona.
+                    Wczesniej przycisk tylko przewijal do sekcji ponizej. */}
+                <Link
+                  to={libraryPath}
+                  className={cn(buttonVariants({ size: 'lg' }), 'font-semibold w-fit')}
+                >
+                  {lang === 'pl' ? 'Przeglądaj bibliotekę artykułów' :
+                   lang === 'de' ? 'Artikelbibliothek durchsuchen' :
+                   'Browse the article library'}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </div>
               <Card className="border border-border/60 bg-card/80 backdrop-blur-xl">
                 <CardHeader className="space-y-3">
@@ -494,7 +508,7 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
           </div>
         </section>
 
-        <section className="py-12 lg:py-16 border-y border-border/60">
+        <section id="biblioteka" className="py-12 lg:py-16 border-y border-border/60">
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid gap-12 lg:grid-cols-[1.3fr_0.9fr]">
               <Card className="overflow-hidden border-0 shadow-2xl h-full flex flex-col">
