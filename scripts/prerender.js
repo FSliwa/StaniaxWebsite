@@ -2598,6 +2598,26 @@ function generateCategoryShells() {
       lang: 'de',
       title: 'Aktuelles zur Vakuummetallisierung | STANIAX',
       desc: 'Aktuelles, Leitfäden und Expertenartikel über Vakuummetallisierung und Lackierung. Wissensdatenbank zur Oberflächenveredelung.'
+    },
+    // Biblioteka artykulow. Bez tych wpisow strony dostaja HTML strony glownej
+    // (rewrite /(.*) w vercel.json) razem z jej canonicalem -> brak indeksacji.
+    {
+      subPath: 'news/biblioteka',
+      lang: 'pl',
+      title: 'Biblioteka artykułów | STANIAX',
+      desc: 'Wszystkie artykuły i aktualności STANIAX w jednym miejscu — poradniki techniczne, nowości z branży metalizacji próżniowej i wiadomości z zakładu.'
+    },
+    {
+      subPath: 'en/news/library',
+      lang: 'en',
+      title: 'Article library | STANIAX',
+      desc: 'All STANIAX articles and news in one place — technical guides, vacuum metallization industry updates and news from our plant.'
+    },
+    {
+      subPath: 'de/news/bibliothek',
+      lang: 'de',
+      title: 'Artikelbibliothek | STANIAX',
+      desc: 'Alle STANIAX-Artikel und Neuigkeiten an einem Ort — technische Ratgeber, Updates aus der Vakuummetallisierung und Nachrichten aus dem Werk.'
     }
   ];
 
