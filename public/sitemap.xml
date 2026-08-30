@@ -59,4 +59,4 @@
     <loc>https://www.staniax.pl/de/news/scheinwerfer-reflektoren-regeneration-und-polieren</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url><url><loc>https://www.staniax.pl/news/biblioteka</loc><changefreq>weekly</changefreq><priority>0.6</priority></url><url><loc>https://www.staniax.pl/en/news/library</loc><changefreq>weekly</changefreq><priority>0.6</priority></url><url><loc>https://www.staniax.pl/de/news/bibliothek</loc><changefreq>weekly</changefreq><priority>0.6</priority></url></urlset>
+  </url><url><loc>https://www.staniax.pl/news/biblioteka</loc><changefreq>weekly</changefreq><priority>0.6</priority></url><url><loc>https://www.staniax.pl/en/news/library</loc><changefreq>weekly</changefreq><priority>0.6</priority></url><url><loc>https://www.staniax.pl/de/news/bibliothek</loc><changefreq>weekly</changefreq><priority>0.6</priority></url><url><loc>{{12.result.target_url}}</loc><lastmod>{{formatDate(now; NaN; NaN)}}</lastmod></url></urlset>
