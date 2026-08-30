@@ -2680,3 +2680,61 @@ generateCategoryShells();
 
 
 
+
+
+// ---------------------------------------------------------------------------
+// Walidacja sitemapy — ostatni krok builda.
+//
+// Zewnetrzny scenariusz automatyzacji dopisuje do public/sitemap.xml wpisy
+// z niepodstawionymi zmiennymi szablonu, np.:
+//   <url><loc>{{12.result.target_url}}</loc><lastmod>{{formatDate(...)}}</lastmod></url>
+// Google czyta je jako znieksztalcone adresy i raportuje bledy sitemapy.
+//
+// Ten krok sanityzuje plik JUZ PO skopiowaniu go przez Vite do dist/, wiec
+// produkcja pozostaje czysta niezaleznie od tego, co trafi do repozytorium.
+// Build nie jest przerywany - problem jest naprawiany i glosno raportowany.
+function validateSitemap() {
+  const sitemapPath = path.join(distDir, 'sitemap.xml')
+  if (!fs.existsSync(sitemapPath)) {
+    console.warn('[sitemap] brak dist/sitemap.xml - pomijam walidacje')
+    return
+  }
+
+  const original = fs.readFileSync(sitemapPath, 'utf-8')
+  const problems = []
+
+  // 1. Usun cale bloki <url> zawierajace niepodstawiony szablon {{...}}
+  let cleaned = original.replace(
+    /\s*<url>(?:(?!<\/url>)[\s\S])*?\{\{[\s\S]*?<\/url>/g,
+    (block) => {
+      const loc = (block.match(/<loc>([\s\S]*?)<\/loc>/) || [])[1] || '(brak <loc>)'
+      problems.push(`niepodstawiony szablon: ${loc.trim()}`)
+      return ''
+    }
+  )
+
+  // 2. Usun wpisy, ktorych <loc> nie jest bezwzglednym adresem tej domeny
+  cleaned = cleaned.replace(
+    /\s*<url>(?:(?!<\/url>)[\s\S])*?<\/url>/g,
+    (block) => {
+      const loc = ((block.match(/<loc>([\s\S]*?)<\/loc>/) || [])[1] || '').trim()
+      if (loc.startsWith('https://www.staniax.pl')) return block
+      problems.push(`adres spoza domeny lub pusty: ${loc || '(pusty)'}`)
+      return ''
+    }
+  )
+
+  if (problems.length === 0) {
+    const count = (cleaned.match(/<loc>/g) || []).length
+    console.log(`[sitemap] OK - ${count} adresow, brak problemow`)
+    return
+  }
+
+  fs.writeFileSync(sitemapPath, cleaned, 'utf-8')
+  const count = (cleaned.match(/<loc>/g) || []).length
+  console.warn(`[sitemap] usunieto ${problems.length} wadliwych wpisow, zostalo ${count} adresow:`)
+  problems.forEach((p) => console.warn(`  - ${p}`))
+  console.warn('[sitemap] przyczyna lezy poza tym repo (zewnetrzna automatyzacja) - napraw zrodlo')
+}
+
+validateSitemap();
