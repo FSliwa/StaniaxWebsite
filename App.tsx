@@ -1,0 +1,75 @@
+import { Routes, Route, useLocation } from 'react-router-dom'
+import React, { Suspense, lazy, useEffect } from 'react'
+import { ScrollProgress } from './components/ui/ScrollProgress';
+
+const HomePage = lazy(() => import('./pages/HomePage'))
+const NewsPage = lazy(() => import('./pages/NewsPage'))
+const ArticleLibraryPage = lazy(() => import('./pages/ArticleLibraryPage'))
+const GalleryPage = lazy(() => import('./pages/GalleryPage'))
+const ArticleAviation = lazy(() => import('./pages/ArticleAviation'))
+const ArticleBeauty = lazy(() => import('./pages/ArticleBeauty'))
+const ArticleReflectors = lazy(() => import('./pages/ArticleReflectors'))
+const ArticleVacuumPrice = lazy(() => import('./pages/ArticleVacuumPrice'))
+
+function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path.startsWith('/en')) {
+      document.documentElement.lang = 'en';
+    } else if (path.startsWith('/de')) {
+      document.documentElement.lang = 'de';
+    } else {
+      document.documentElement.lang = 'pl';
+    }
+  }, [location.pathname]);
+
+  return (
+    <>
+      <ScrollProgress />
+      <Suspense fallback={
+        <div className="h-screen w-screen bg-black flex flex-col items-center justify-center text-white font-mono gap-4">
+          <div className="w-12 h-12 rounded-full border-4 border-t-blue-500 border-gray-800 animate-spin" />
+          <span className="text-xs uppercase tracking-widest text-gray-500">STANIAX</span>
+        </div>
+      }>
+        <Routes>
+          <Route path="/" element={<HomePage lang="pl" />} />
+          <Route path="/en" element={<HomePage lang="en" />} />
+          <Route path="/de" element={<HomePage lang="de" />} />
+          
+          <Route path="/news" element={<NewsPage lang="pl" />} />
+          <Route path="/en/news" element={<NewsPage lang="en" />} />
+          <Route path="/de/news" element={<NewsPage lang="de" />} />
+
+          {/* Biblioteka artykulow - slugi musza pokrywac sie z libraryPath w NewsPage */}
+          <Route path="/news/biblioteka" element={<ArticleLibraryPage lang="pl" />} />
+          <Route path="/en/news/library" element={<ArticleLibraryPage lang="en" />} />
+          <Route path="/de/news/bibliothek" element={<ArticleLibraryPage lang="de" />} />
+          
+          <Route path="/news/partnerstwo-z-wiodacym-producentem-lotniczym" element={<ArticleAviation lang="pl" />} />
+          <Route path="/en/news/how-does-metallization-affect-material-performance" element={<ArticleAviation lang="en" />} />
+          <Route path="/de/news/wie-beeinflusst-metallisierung-die-materialleistung" element={<ArticleAviation lang="de" />} />
+
+          <Route path="/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty" element={<ArticleBeauty lang="pl" />} />
+          <Route path="/en/news/vacuum-metallization-revolutionizes-beauty-industry" element={<ArticleBeauty lang="en" />} />
+          <Route path="/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche" element={<ArticleBeauty lang="de" />} />
+          
+          <Route path="/news/regeneracja-odblysnikow-reflektorow-samochodowych" element={<ArticleReflectors lang="pl" />} />
+          <Route path="/en/news/reflector-regeneration-and-headlight-polishing" element={<ArticleReflectors lang="en" />} />
+          <Route path="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" element={<ArticleReflectors lang="de" />} />
+          
+          {/* Artykul tylko w wersji PL */}
+          <Route path="/news/metalizacja-prozniowa-cena" element={<ArticleVacuumPrice lang="pl" />} />
+
+          <Route path="/gallery" element={<GalleryPage lang="pl" />} />
+          <Route path="/en/gallery" element={<GalleryPage lang="en" />} />
+          <Route path="/de/gallery" element={<GalleryPage lang="de" />} />
+        </Routes>
+      </Suspense>
+    </>
+  )
+}
+
+export default App
