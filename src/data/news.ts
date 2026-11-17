@@ -1,8 +1,12 @@
+import { BLOG_POSTS } from './blog-posts'
+
 export type NewsImageKey =
   | 'vacuumChamber'
   | 'newsAviation'
   | 'colorfulPackaging'
   | 'newReflectors'
+  | 'plasticPainting'
+  | 'vacuumPart'
   | 'externalUnsplash'
 
 export interface NewsItemData {
@@ -17,8 +21,21 @@ export interface NewsItemData {
   path: string
 }
 
+/** Artykuły z src/data/blog-posts (tylko PL) — dodawane automatycznie na górę listy. */
+const BLOG_NEWS_ITEMS_PL: NewsItemData[] = BLOG_POSTS.map((post) => ({
+  title: post.heading,
+  date: post.displayDate,
+  category: post.category,
+  excerpt: post.excerpt,
+  homeSummary: post.homeSummary,
+  ctaLabel: post.ctaLabel,
+  imageKey: post.image,
+  path: post.slug,
+}))
+
 export const NEWS_ITEMS_BY_LANG: Record<'pl' | 'en' | 'de', NewsItemData[]> = {
   pl: [
+    ...BLOG_NEWS_ITEMS_PL,
     {
       title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
       date: '25 maja 2026',

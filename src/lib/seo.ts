@@ -28,6 +28,8 @@ export interface PageSeoConfig {
   ogType?: "website" | "article";
   ogImage?: string;
   noindex?: boolean;
+  /** Strona istnieje tylko w jednym języku (PL) — hreflang tylko dla pl + x-default. */
+  singleLanguage?: boolean;
   breadcrumbs?: BreadcrumbItem[];
   faq?: FaqSchemaItem[];
   serviceSchema?: {
@@ -350,7 +352,7 @@ export function applySeoHead(config: PageSeoConfig) {
   document.head
     .querySelectorAll('link[rel="alternate"][hreflang]')
     .forEach((n) => n.remove());
-  if (!config.noindex) {
+  if (!config.noindex && !config.singleLanguage) {
     const hreflangs: Array<{ hreflang: string; href: string }> = [
       { hreflang: "pl", href: normalizeUrl(config.alternates.pl) },
       { hreflang: "en", href: normalizeUrl(config.alternates.en) },

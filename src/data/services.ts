@@ -6,6 +6,7 @@ import { SERVICES_DE } from './services-de'
 import { COMPARISON_ORDER, COMPARISON_SLUGS } from './comparisons'
 import { SUBSTRATE_ORDER, SUBSTRATE_SLUGS } from './substrates'
 import { LOCAL_WARSAW_SLUGS, PRICING_SLUGS } from './specialty-pages'
+import { BLOG_POST_SLUGS } from './blog-posts/slugs'
 
 export * from './services-types'
 
@@ -153,6 +154,9 @@ export const STATIC_ROUTE_EQUIVALENTS: Array<Record<Lang, string>> = [
   ...SUBSTRATE_ORDER.map((id) => SUBSTRATE_SLUGS[id]),
   { pl: '/polityka-prywatnosci', en: '/en/privacy-policy', de: '/de/datenschutz' },
   { pl: '/polityka-cookies', en: '/en/cookie-policy', de: '/de/cookie-richtlinie' },
+  // Artykuły tylko po polsku: przełącznik EN/DE prowadzi do listy aktualności.
+  // (hreflang dla tych stron emitowany jest tylko dla PL — patrz singleLanguage w seo.ts)
+  ...BLOG_POST_SLUGS.map((slug) => ({ pl: slug, en: '/en/news', de: '/de/news' })),
 ]
 
 export function resolveLanguageAlternates(pathname: string): Record<Lang, string> {

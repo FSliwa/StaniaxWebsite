@@ -15,17 +15,7 @@ import {
   NEWS_PAGE_CONTENT,
   type NewsImageKey,
 } from "@/data/news";
-import vacuumMetalizationChamber from "@/assets/vacuum_metalization_chamber.jpg";
-import newsAviationImage from "@/assets/news_aviation.jpg";
-import colorfulPackagingImage from "@/assets/colorful_packaging.png";
-import newReflectorsImage from "@/assets/odblysniki-nowe-1.jpeg";
-
-const NEWS_IMAGES: Record<Exclude<NewsImageKey, "externalUnsplash">, string> = {
-  vacuumChamber: vacuumMetalizationChamber,
-  newsAviation: newsAviationImage,
-  colorfulPackaging: colorfulPackagingImage,
-  newReflectors: newReflectorsImage,
-};
+import { NEWS_IMAGES } from '@/lib/newsImages'
 
 const mapNewsItems = (lang: "pl" | "en" | "de") =>
   NEWS_ITEMS_BY_LANG[lang].map((item) => ({

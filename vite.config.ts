@@ -15,6 +15,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          if (id.includes('src/data/blog-posts/')) return 'data-blog'
           if (id.includes('src/data/services-')) return 'data-services'
           if (id.includes('src/data/comparisons') || id.includes('src/data/substrates')) {
             return 'data-solutions'

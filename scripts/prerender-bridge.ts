@@ -15,6 +15,7 @@ export {
 export { translations, type Lang } from '../src/lib/translations'
 export { LEGAL_DATA } from '../src/data/legal'
 export { AVIATION_ARTICLE, BEAUTY_ARTICLE, REFLECTORS_ARTICLE } from '../src/data/articles'
+export { BLOG_POSTS } from '../src/data/blog-posts'
 export {
   NEWS_ITEMS_BY_LANG,
   NEWS_PAGE_CONTENT,

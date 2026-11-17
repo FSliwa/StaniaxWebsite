@@ -59,6 +59,10 @@
    - PL: https://www.staniax.pl/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty
    - EN: https://www.staniax.pl/en/news/vacuum-metallization-revolutionizes-beauty-industry
    - DE: https://www.staniax.pl/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche
+4. **Plastic Parts Painting — Methods, Surface Preparation & Coating Selection (Lakierowanie tworzyw sztucznych, PL only):**
+   - PL: https://www.staniax.pl/news/lakierowanie-tworzyw-sztucznych
+5. **PVD Coating — Thermal Evaporation vs. Sputtering in Vacuum Metallization (Powłoka PVD: naparowanie a sputtering, PL only):**
+   - PL: https://www.staniax.pl/news/powloka-pvd-sputtering-roznice
 
 ## Pricing, Interactive Calculator & Local Production Hub (PL / EN / DE)
 1. **Headlight Reflector Restoration Pricing & Calculator (from 150 PLN / unit, 24-month warranty):**

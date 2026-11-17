@@ -51,6 +51,8 @@ const NEWS_IMAGE_PREFIXES = {
   newsAviation: "news_aviation",
   colorfulPackaging: "colorful_packaging",
   newReflectors: "odblysniki-nowe-1",
+  plasticPainting: "lakierowanie-tworzyw-1",
+  vacuumPart: "vacuum-metalization",
 };
 
 async function loadBridgeData() {
@@ -2489,6 +2491,143 @@ function renderArticleReflectors(lang, currentPath, bridge, resolveAsset) {
   return { seoConfig, bodyHtml };
 }
 
+/* Artykuły z src/data/blog-posts (generowane ze .docx przez scripts/docx-to-article.mjs) */
+function renderBlogArticle(post, bridge, resolveAsset) {
+  const { SERVICE_SLUGS, SERVICES, resolveLanguageAlternates } = bridge;
+  const labels = getLayoutLabels("pl");
+  const heroImg = resolveAsset(NEWS_IMAGE_PREFIXES[post.image]);
+  const linkResolver = createArticleLinkResolver("pl", bridge);
+  const opts = { linkResolver };
+  const md = (t) => renderInlineMarkdown(t, opts);
+  const servicePath = post.serviceId ? SERVICE_SLUGS[post.serviceId].pl : null;
+  const serviceName = post.serviceId
+    ? SERVICES[post.serviceId].locales.pl.navLabel
+    : null;
+  const breadcrumbs = [
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: "Aktualności", path: labels.serviceLinks.news },
+    { name: post.heading, path: post.slug },
+  ];
+
+  const renderBlock = (b) => {
+    switch (b.type) {
+      case "h2":
+        return `<h2 id="${escapeHtml(b.id)}" class="text-2xl lg:text-3xl font-black text-slate-950 pt-4">${escapeHtml(b.text)}</h2>`;
+      case "h3":
+        return `<h3 class="text-xl font-bold text-slate-950">${escapeHtml(b.text)}</h3>`;
+      case "p":
+        return `<p class="leading-relaxed text-slate-700">${md(b.text)}</p>`;
+      case "ul":
+        return `<ul class="list-disc pl-6 space-y-2 text-slate-700">${b.items.map((i) => `<li>${md(i)}</li>`).join("")}</ul>`;
+      case "table":
+        return `
+    <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white my-4">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead class="bg-slate-100"><tr>${b.headers.map((h) => `<th class="p-3 font-bold text-slate-950 border-b border-slate-200">${escapeHtml(h)}</th>`).join("")}</tr></thead>
+        <tbody>${b.rows.map((row) => `<tr class="border-b border-slate-100">${row.map((c) => `<td class="p-3 text-slate-700">${md(c)}</td>`).join("")}</tr>`).join("")}</tbody>
+      </table>
+    </div>`;
+      default:
+        return "";
+    }
+  };
+
+  const toc = post.blocks.filter((b) => b.type === "h2");
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml(breadcrumbs)}
+  <article class="container mx-auto max-w-4xl px-6 py-10 space-y-6">
+    <header class="space-y-4">
+      <p class="text-xs font-bold uppercase tracking-widest text-blue-700">${escapeHtml(post.category)} · ${escapeHtml(post.datePublished)} · ${escapeHtml(post.readTime)}</p>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(post.heading)}</h1>
+      <p class="text-lg text-slate-700 leading-relaxed">${md(post.lead)}</p>
+      ${renderArticleAuthorBoxHtml("pl", post.datePublished, post.dateModified)}
+      ${
+        servicePath
+          ? `<div class="rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm font-semibold text-slate-900">Szukasz wyceny usługi? <a href="${escapeHtml(servicePath)}" class="text-blue-700 underline font-bold">Przejdź do strony usługi: ${escapeHtml(serviceName)} →</a></div>`
+          : ""
+      }
+      <img src="${escapeHtml(heroImg)}" alt="${escapeHtml(post.imageAlt)}" ${imgSizeAttrs(heroImg)} class="w-full h-80 object-cover rounded-2xl border border-slate-200" />
+    </header>
+
+    ${
+      toc.length
+        ? `<nav aria-label="Spis treści" class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+      <p class="text-sm font-bold uppercase tracking-wider text-slate-950 mb-3">Spis treści</p>
+      <ol class="list-decimal pl-6 space-y-1 text-sm">${toc.map((h) => `<li><a href="#${escapeHtml(h.id)}" class="text-blue-700 hover:underline">${escapeHtml(h.text)}</a></li>`).join("")}${post.faq.length ? `<li><a href="#faq" class="text-blue-700 hover:underline">${escapeHtml(post.faqTitle || "Najczęściej zadawane pytania")}</a></li>` : ""}</ol>
+    </nav>`
+        : ""
+    }
+
+    ${post.blocks.map(renderBlock).join("\n    ")}
+
+    ${
+      post.faq.length
+        ? `<section class="space-y-4">
+      <h2 id="faq" class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(post.faqTitle || "Najczęściej zadawane pytania")}</h2>
+      ${post.faq
+        .map(
+          (f) => `
+      <div class="rounded-xl border border-slate-200 p-5 space-y-2">
+        <h3 class="text-lg font-bold text-slate-950">${escapeHtml(f.q)}</h3>
+        <p class="text-sm text-slate-700 leading-relaxed">${md(f.a)}</p>
+      </div>`,
+        )
+        .join("")}
+    </section>`
+        : ""
+    }
+
+    ${
+      post.related.length
+        ? `<section class="space-y-2">
+      <h2 class="text-xl font-black text-slate-950">Powiązane artykuły</h2>
+      <ul class="list-disc pl-6 space-y-1">${post.related.map((r) => `<li><a href="${escapeHtml(r.url)}" class="text-blue-700 underline">${escapeHtml(r.label)}</a></li>`).join("")}</ul>
+    </section>`
+        : ""
+    }
+
+    ${
+      post.sources.length
+        ? `<section class="space-y-2">
+      <h2 class="text-base font-bold text-slate-950">Źródła</h2>
+      <ul class="list-disc pl-6 space-y-1 text-sm">${post.sources.map((r) => `<li>${md(`[${r.label}](${r.url})`)}</li>`).join("")}</ul>
+    </section>`
+        : ""
+    }
+
+    ${
+      post.closingCta
+        ? `<section class="rounded-2xl border border-slate-200 bg-slate-50 p-6 space-y-3">
+      <p class="text-slate-900 leading-relaxed">${md(post.closingCta)}</p>
+      <p><a href="/#contact" class="text-sm font-bold text-blue-700 underline">Wyślij zapytanie →</a></p>
+    </section>`
+        : ""
+    }
+  </article>`;
+
+  const seoConfig = {
+    lang: "pl",
+    path: post.slug,
+    title: post.metaTitle,
+    description: post.metaDescription,
+    ogType: "article",
+    alternates: resolveLanguageAlternates(post.slug),
+    singleLanguage: true,
+    breadcrumbs,
+    faq: post.faq.map((f) => ({ q: stripMarkdown(f.q), a: stripMarkdown(f.a) })),
+    articleSchema: {
+      headline: post.heading,
+      description: post.metaDescription,
+      datePublished: post.datePublished,
+      dateModified: post.dateModified,
+      image: heroImg,
+    },
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
 function renderGalleryPage(lang, currentPath, bridge, galleryItems) {
   const { SERVICE_SLUGS, resolveLanguageAlternates } = bridge;
   const labels = getLayoutLabels(lang);
@@ -2761,7 +2900,7 @@ function injectHtmlDocument(
       `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`,
     );
 
-    if (!seoConfig.noindex && seoConfig.alternates) {
+    if (!seoConfig.noindex && !seoConfig.singleLanguage && seoConfig.alternates) {
       const xDefPath =
         seoConfig.alternates.xDefault || seoConfig.alternates.pl || "/";
       headTags.push(
@@ -2840,17 +2979,20 @@ function writeRouteHtml(routePath, htmlContent) {
 function buildUrlSetXml(entries, bridge) {
   const { normalizeUrl } = bridge;
   const urlsXml = entries
-    .map(({ path: p, priority, changefreq, alternates }) => {
+    .map(({ path: p, priority, changefreq, alternates, lastmod, singleLanguage }) => {
       const xDef = alternates.xDefault || alternates.pl || "/";
-      return `  <url>
-    <loc>${escapeHtml(normalizeUrl(p))}</loc>
-    <lastmod>${LASTMOD}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
+      const hreflangXml = singleLanguage
+        ? ""
+        : `
     <xhtml:link rel="alternate" hreflang="pl" href="${escapeHtml(normalizeUrl(alternates.pl))}" />
     <xhtml:link rel="alternate" hreflang="en" href="${escapeHtml(normalizeUrl(alternates.en))}" />
     <xhtml:link rel="alternate" hreflang="de" href="${escapeHtml(normalizeUrl(alternates.de))}" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeHtml(normalizeUrl(xDef))}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeHtml(normalizeUrl(xDef))}" />`;
+      return `  <url>
+    <loc>${escapeHtml(normalizeUrl(p))}</loc>
+    <lastmod>${lastmod || LASTMOD}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>${hreflangXml}
   </url>`;
     })
     .join("\n");
@@ -2945,6 +3087,15 @@ function generateSitemaps(bridge) {
       priority: "0.7",
       changefreq: "monthly",
       alternates: reflectorsGroup,
+    })),
+    // Artykuły z src/data/blog-posts (tylko PL)
+    ...bridge.BLOG_POSTS.map((post) => ({
+      path: post.slug,
+      priority: "0.7",
+      changefreq: "monthly",
+      alternates: { pl: post.slug, en: post.slug, de: post.slug },
+      singleLanguage: true,
+      lastmod: post.dateModified,
     })),
   ];
 
@@ -3132,6 +3283,11 @@ async function run() {
       resolveAsset,
     );
     routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  for (const post of bridge.BLOG_POSTS) {
+    const { seoConfig, bodyHtml } = renderBlogArticle(post, bridge, resolveAsset);
+    routes.push({ path: post.slug, lang: "pl", seoConfig, bodyHtml });
   }
 
   for (const lang of ["pl", "en", "de"]) {

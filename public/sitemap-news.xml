@@ -121,4 +121,16 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://www.staniax.pl/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.staniax.pl/news/regeneracja-odblysnikow-reflektorow-samochodowych" />
   </url>
+  <url>
+    <loc>https://www.staniax.pl/news/lakierowanie-tworzyw-sztucznych</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.staniax.pl/news/powloka-pvd-sputtering-roznice</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

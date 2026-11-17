@@ -5,6 +5,7 @@ import { SERVICE_ORDER, SERVICE_SLUGS } from './data/services'
 import { COMPARISON_ORDER, COMPARISON_SLUGS } from './data/comparisons'
 import { SUBSTRATE_ORDER, SUBSTRATE_SLUGS } from './data/substrates'
 import { PRICING_SLUGS, LOCAL_WARSAW_SLUGS } from './data/specialty-pages'
+import { BLOG_POST_SLUGS } from './data/blog-posts/slugs'
 import type { Lang } from './lib/translations'
 
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -27,6 +28,7 @@ const GalleryPage = lazy(() => import('./pages/GalleryPage'))
 const ArticleAviation = lazy(() => import('./pages/ArticleAviation'))
 const ArticleBeauty = lazy(() => import('./pages/ArticleBeauty'))
 const ArticleReflectors = lazy(() => import('./pages/ArticleReflectors'))
+const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage'))
 const LegalPage = lazy(() => import('./pages/LegalPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
@@ -137,6 +139,11 @@ function App() {
           <Route path="/news/regeneracja-odblysnikow-reflektorow-samochodowych" element={<ArticleReflectors lang="pl" />} />
           <Route path="/en/news/reflector-regeneration-and-headlight-polishing" element={<ArticleReflectors lang="en" />} />
           <Route path="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" element={<ArticleReflectors lang="de" />} />
+
+          {/* Artykuły z plików .docx (src/data/blog-posts) — tylko PL */}
+          {BLOG_POST_SLUGS.map((slug) => (
+            <Route key={slug} path={slug} element={<BlogArticlePage slug={slug} />} />
+          ))}
 
           <Route path="/gallery" element={<GalleryPage lang="pl" />} />
           <Route path="/en/gallery" element={<GalleryPage lang="en" />} />
