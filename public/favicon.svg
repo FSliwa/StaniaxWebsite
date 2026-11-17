@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="STANIAX Logo">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="55%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.55" />
+      <stop offset="50%" stop-color="#e2e8f0" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.65" />
+    </linearGradient>
+    <linearGradient id="chromeTop" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="45%" stop-color="#cbd5e1" />
+      <stop offset="100%" stop-color="#60a5fa" />
+    </linearGradient>
+    <linearGradient id="blueBottom" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="55%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect x="14" y="14" width="484" height="484" rx="98" fill="none" stroke="url(#rimGrad)" stroke-width="6" />
+  <!-- Geometric precision ribbon 'S' representing vacuum metallization layers -->
+  <path d="M 358 138 H 196 C 148 138 118 168 118 214 C 118 260 152 284 214 292 L 298 302 C 322 305 334 316 334 334 C 334 352 320 364 296 364 H 134 L 106 420 H 302 C 362 420 398 386 398 332 C 398 282 362 254 298 246 L 214 236 C 190 233 178 223 178 206 C 178 190 192 180 216 180 H 332 Z" fill="url(#chromeTop)" />
+  <!-- Accent vacuum beam slash -->
+  <path d="M 106 420 H 302 C 362 420 398 386 398 332 C 398 308 388 288 370 274 L 288 364 H 134 Z" fill="url(#blueBottom)" opacity="0.92" />
+  <circle cx="378" cy="148" r="14" fill="#3b82f6" />
+</svg>

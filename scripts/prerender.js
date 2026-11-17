@@ -1,2662 +1,3217 @@
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import fs from "fs";
+import path from "path";
+import { fileURLToPath, pathToFileURL } from "url";
+import * as esbuild from "esbuild";
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-const distDir = path.join(__dirname, '../dist')
-const indexPath = path.join(distDir, 'index.html')
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, "..");
+const distDir = path.join(rootDir, "dist");
+const publicDir = path.join(rootDir, "public");
+const indexPath = path.join(distDir, "index.html");
 
 if (!fs.existsSync(indexPath)) {
-  console.error('Error: dist/index.html not found. Run npm run build first.')
-  process.exit(1)
+  console.error("Error: dist/index.html not found. Run vite build first.");
+  process.exit(1);
 }
 
-const baseHtml = fs.readFileSync(indexPath, 'utf-8')
+const LASTMOD = "2026-11-15";
 
-const assetsDir = path.join(distDir, 'assets')
-const files = fs.readdirSync(assetsDir)
-const aviationImgFile = files.find(f => f.startsWith('news_aviation-') && f.endsWith('.jpg'))
-const aviationImgUrl = aviationImgFile ? `/assets/${aviationImgFile}` : '/assets/news_aviation.jpg'
-const beautyImgFile = files.find(f => f.startsWith('colorful_packaging-') && f.endsWith('.png'))
-const beautyImgUrl = beautyImgFile ? `/assets/${beautyImgFile}` : '/assets/colorful_packaging.png'
+const HERO_IMAGE_PREFIXES = {
+  reflectorsHero: "odblysniki-nowe-1",
+  vacuumHero: "vacuum_metalization_chamber",
+  plasticMetaHero: "colorful_packaging",
+  plasticPaintHero: "lakierowanie-tworzyw-1",
+  glassPaintHero: "lakierowanie-szkla-1",
+  sprayPaintHero: "lakierowanie-natryskowe-1",
+};
 
-// Polish texts
-const plMeta = `
-    <title>Jak metalizacja wpływa na wydajność materiałów? | STANIAX</title>
-    <meta name="description" content="Odkryj, jak zaawansowana metalizacja próżniowa, lakierowanie tworzyw i procesy PVD wpływają na wytrzymałość i estetykę materiałów w lotnictwie." />
-    <meta property="og:title" content="Jak metalizacja wpływa na wydajność materiałów? | STANIAX" />
-    <meta property="og:description" content="Odkryj, jak zaawansowana metalizacja próżniowa i powłoki ochronne PVD zwiększają wydajność materiałów w branży lotniczej." />
-    <meta property="og:type" content="article" />
-`
+const CASE_STUDY_IMAGE_PREFIXES = {
+  reflectors1: "odblysniki-nowe-1",
+  reflectors2: "odblysniki-nowe-2",
+  automotiveAfter: "automotive-after",
+  vacuumChamber: "vacuum_metalization_chamber",
+  vacuumPart: "vacuum-metalization",
+  packagingAfter: "packaging-after",
+  colorfulPackaging: "colorful_packaging",
+  plasticPaint1: "lakierowanie-tworzyw-1",
+  plasticPaint2: "lakierowanie-tworzyw-2",
+  plasticPaint3: "lakierowanie-tworzyw-3",
+  glassPaint1: "lakierowanie-szkla-1",
+  glassPaint2: "lakierowanie-szkla-2",
+  glassPaint3: "lakierowanie-szkla-3",
+  sprayPaint1: "lakierowanie-natryskowe-1",
+  sprayPaint2: "lakierowanie-natryskowe-2",
+  sprayPaint3: "lakierowanie-natryskowe-3",
+  industrialAfter: "industrial-after",
+};
 
-const plHtml = `
-<div class="min-h-screen bg-background text-foreground font-sans">
-  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-      <a href="/news" class="group flex items-center gap-3 text-left">
-        <div class="leading-tight">
-          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
-          <span class="block text-lg font-black">Aktualności</span>
-        </div>
-      </a>
-      <div class="flex items-center gap-3 sm:gap-6">
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-          <a href="/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">O STANIAX</a>
-          <a href="/#about" class="text-muted-foreground hover:text-accent transition-colors">Oferta</a>
-          <a href="/#projects" class="text-muted-foreground hover:text-accent transition-colors">Realizacje</a>
-          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galeria</a>
-          <a href="/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
-        </nav>
-        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
-          Skontaktuj się
-        </button>
-      </div>
-    </div>
-  </header>
+const NEWS_IMAGE_PREFIXES = {
+  vacuumChamber: "vacuum_metalization_chamber",
+  newsAviation: "news_aviation",
+  colorfulPackaging: "colorful_packaging",
+  newReflectors: "odblysniki-nowe-1",
+};
 
-  <main class="pt-28 pb-20">
-    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
-      <div class="max-w-3xl">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artykuł</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">20 sierpnia 2025</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">5 min czytania</span>
-        </div>
-        
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-          Jak metalizacja wpływa na wydajność materiałów? Odkryj jej tajniki!
-        </h1>
-        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
-          Odkryj, jak metalizacja wpływa na wydajność materiałów! Dowiedz się o jej rodzajach i zastosowaniach w różnych branżach. Naucz się więcej!
-        </p>
-      </div>
-
-      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="${aviationImgUrl}" alt="Hala produkcyjna z maszyną do metalizacji próżniowej i gotowymi wyrobami" class="w-full h-full object-cover" />
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
-        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <div class="space-y-6">
-            <p>Współczesny przemysł produkcyjny nieustannie poszukuje rozwiązań, które łączą w sobie dwie kluczowe cechy: wysoką wytrzymałość mechaniczną oraz nienaganną estetykę. W świecie, w którym redukcja kosztów i optymalizacja wagi komponentów stają się priorytetem, tradycyjne metody wytwarzania gabaratowych, w pełni metalowych elementów ustępują miejsca nowoczesnym technologiom inżynierii powierzchni. Jednym z najważniejszych procesów w tej dziedzinie jest nowoczesna metalizacja. Obecnie to właśnie profesjonalna metalizacja próżniowa oraz powiązane z nia metalizowanie próżniowe rewolucjonizują podejście do projektowania detali.</p>
-            <p>Proces, jakim jest metalizacja, całkowicie zmienia sposób, w jaki postrzegamy projektowanie detali w branży motoryzacyjnej, kosmetycznej, opakowaniowej czy elektronicznej. Dzięki niemu lekkie tworzywa sztuczne zyskują zupełnie nowe właściwości fizykochemiczne. Gdy analizujemy, jak metalizacja modyfikuje strukturę zewnętrzną detali, widzimy ogromny wzrost ich wydajności. W tym artykule przyjrzymy się bliżej, czym dokładnie jest ten proces, dlaczego metalizacja próżniowa aluminium stała się standardem rynkowym, jak działa metalizacja plastiku i jak te technologie wpływają na realną wydajność materiałów.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Co to jest metalizacja?</h2>
-            <p>Metalizacja to zaawansowany proces technologiczny polegający na nakładaniu cienkiej warstwy metalu na powierzchnię innego materiału, zwanego podłożem (substratem). Podłożem tym mogą być zarówno inne metale, jak i materiały niemetaliczne. W dzisiejszych czasach kluczową rolę odgrywa nowoczesna metalizacja plastiku, która pozwala zastąpić gabarytowe komponenty metalowe lżejszymi odpowiednikami z polimerów. Każda przemysłowa metalizacja ma na celu optymalizację kosztów produkcji przy zachowaniu cech premium.</p>
-            <p>Głównym celem, jaki stawia przed sobą metalizacja, jest nadanie uszlachetnianej powierzchni specyficznych właściwości, których dany materiał naturalnie nie posiada. Może to być przewodnictwo elektryczne, refleksyjność światła czy ochrona przed czynnikami zewnętrznymi. Ponieważ współczesna metalizacja oraz wydajne metalizowanie próżniowe opierają się na ekologicznych i czystych technologiach, warstwy metaliczne nanoszone są wyłącznie w warunkach wysokiej próżni. To sprawia, że metalizacja próżniowa gwarantuje idealną powtarzalność powłok, o czym często wspomina branżowe forum techniczne <a href="https://www.elektroda.pl" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Elektroda.pl</a>. Zarówno metalizacja plastiku, jak i ogólna metalizacja podłoży twardych, znacząco podnoszą parametry użytkowe gotowego produktu.</p>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Rodzaje metalizacji w technologii próżniowej</h2>
-            <p>W zależności od pożądanych właściwości końcowych produktu, inżynierowie wybierają optymalne parametry modyfikacji powierzchni. Nowoczesne podejście w tym segmencie przemysłu całkowicie opiera się na procesach o wysokim stopniu zaawansowania, w których króluje metalizacja próżniowa oraz precyzyjne metalizowanie próżniowe przy użyciu aluminium.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Metalizacja aluminium</h3>
-              <p>W profesjonalnym zakładzie produkcyjnym metalizacja aluminium nie istnieje jako osobna, tradycyjna metoda natryskowa – proces ten jest realizowany wyłącznie w technologii wysokiej próżni. W procesie tym czyste aluminium jest odparowywane i precyzyjnie, warstwa po warstwie, osadzane na modyfikowanym podłożu. Taka próżniowa metalizacja aluminium pozwala na uzyskanie idealnego, lustrzanego efektu, którego nie da się osiągnąć metodami rzemieślniczymi. Poprzez proces, jakim jest metalizacja aluminium, elementy zyskują unikalną estetykę i doskonałe parametry użytkowe.</p>
-              <p>Metoda ta znajduje szerokie zastosowanie w motoryzacji. To właśnie tam kluczowe znaczenie ma profesjonalna metalizacja odbłyśników samochodowych. Kiedy reflektory tracą swoją sprawność, ratunkiem jest precyzyjna metalizacja odbłyśnika, która przywraca pierwotne właściwości strumienia światła. Każda fabryczna metalizacja odbłyśników opiera się na nanoszeniu powłoki aluminiowej w komorze. Ponieważ metalizacja odbłyśnika gwarantuje znakomite odbicie światła, proces ten bezpośrednio przekłada się na bezpieczeństwo na drogach. Dla przemysłu oświetleniowego próżniowa metalizacja aluminium oraz precyzyjna metalizacja próżniowa to absolutny fundament działania.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Metalizacja próżniowa</h3>
-              <p>Najbardziej zaawansowaną technologicznie odmianą uszlachetniania powierzchni jest ogólna metalizacja próżniowa (często utożsamiana z procesami <a href="https://pl.wikipedia.org/wiki/Fizyczne_osadzanie_z_fazy_gazowej" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">PVD – Physical Vapor Deposition</a>). Cały proces odbywa się w specjalnych komorach, w których generowana jest wysoka próżnia. Aluminium, które stanowi powłokę, jest odparowywane termicznie, a następnie kondensuje na powierzchni rotujących detali. Nic dziwnego, że profesjonalne metalizowanie próżniowe całkowicie wyparło stare, chemiczne techniki galwaniczne. Dziś metalizacja próżniowa to synonim trwałości i ekologii.</p>
-              <p>Na rynku działa wyspecjalizowana firma <a href="/" class="text-accent hover:underline">Staniax</a>. Przykładem lidera w tej dziedzinie, u którego nowatorskie podejście wyznaczyło nowe trendy w branży metalizacji próżniowej jest <a href="https://www.metalizacje.pl/" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Dariusz Staniak</a>. Wyznacza on standardy jakości oraz wdraża do zakładu oprzyrządowanie zastępujące drogie zaawansowane parki maszynowe. Często jako kluczowy ośrodek kompetencji wymieniana jest regionalna metalizacja próżniowa Józefów, gdzie zakłady produkcyjne realizują najbardziej wymagające projekty. Gdy interesuje nas sprawdzona metalizacja próżniowa, czy lakierowanie tworzyw, wtedy warto stawiać na doświadczone podmioty, takie jak Staniax. To właśnie tam metalizacja próżniowa Dariusz Staniak i metalizacja próżniowa Józefów w nowej odsłonie jako Staniax Sp. z o.o. udowadniają, że metalizowanie próżniowe aluminium podnosi jakość detali na najwyższy poziom.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Metalizacja ABS</h3>
-              <p>Metalizacja <a href="https://pl.wikipedia.org/wiki/Poli(akrylonitryl-co-butadien-co-styren)" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">ABS (akrylonitryl-butadien-styren)</a> to doskonały przykład połączenia zalet lekkich tworzyw sztucznych z parametrami metali. Tworzywo ABS idealnie nadaje się do procesów, w których wykonywana jest metalizacja plastiku metodą próżniową. Dzięki odpowiedniej strukturze chemicznej polimeru, próżniowa metalizacja ABS zapewnia doskonałą przyczepność nanoszonej warstwy aluminium. W efekcie końcowym metalizacja plastiku daje powłokę odporną na czynniki zewnętrzne i odpryski. Elementy, dla których została przeprowadzona próżniowa metalizacja ABS, powszechnie zastępują ciężkie i drogie detale odlewane z mosiądzu czy cynku.</p>
-            </div>
-          </div>
-
-          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
-            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
-              <thead>
-                <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Obszar zastosowania w próżni</th>
-                  <th class="p-4 font-bold text-foreground">Główne podłoża</th>
-                  <th class="p-4 font-bold text-foreground">Kluczowe zalety powłoki aluminiowej</th>
-                  <th class="p-4 font-bold text-foreground">Typowe grubości powłoki</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60">
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Odbłyśniki i reflektory</td>
-                  <td class="p-4">Poliwęglan, PPS, metale</td>
-                  <td class="p-4">Maksymalny refleks światła, odporność termiczna</td>
-                  <td class="p-4">Nanometry (0,01 - 0,1 µm)</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Komponenty z tworzyw (ABS)</td>
-                  <td class="p-4">Polimery (ABS, PC, ABS/PC)</td>
-                  <td class="p-4">Wygląd chromu/aluminium, redukcja wagi, niska cena</td>
-                  <td class="p-4">Nanometry (w procesie PVD)</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Opakowania i detale ozdobne</td>
-                  <td class="p-4">Szkło, PS, PP, ABS</td>
-                  <td class="p-4">Efekt lustra, estetyka premium, odporność chemiczna</td>
-                  <td class="p-4">Nanometry (0,01 - 0,1 µm)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Zastosowanie metalizacji w różnych branżach</h2>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Metalizacja opakowań kosmetycznych</h3>
-              <p>Wizualna atrakcyjność produktu na półce sklepowej to klucz do sukcesu w branży Beauty. Metalizacja opakowań kosmetycznych odgrywa tu rolę fundamentalną. Nasadki perfum, tubki pomadek czy słoiczki na kremy pokrywane są błyszczącymi powłokami aluminiowymi. Perfekcyjna metalizacja opakowań podnosi prestiż marki, pozycjonując produkt w segmencie premium.</p>
-              <p>Szeroko pojęta metalizacja kosmetyków to dziedzina, w której estetyka musi iść w parze z trwałością. Ponieważ metalizacja opakowań kosmetycznych chroni zawarte wewnątrz substancje przed dostępem światła, pozwala to na ograniczenie stosowania sztucznych konserwantów. Kiedy celem jest zachwycający wygląd flakonów, metalizacja opakowań kosmetycznych realizowana przez proces metalizowanie próżniowe nie ma sobie równych.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Metalizacja alkoholi</h3>
-              <p>Segment napojów wysokoprocentowych, zwłaszcza premium, mocno polega na marketingu sensorycznym. Wyrafinowana metalizacja produktów alkoholowych, a precyzyjniej rzecz ujmując – luksusowych butelek szklanych, zamknięć oraz etykiet, pozwala markom wyróżnić się w tłumie konkurencji. Ekskluzywna metalizacja produktów alkoholowych przyciąga wzrok w klubach i na półkach sklepowych, mieniąc się metalicznym blaskiem.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Korzyści metalizacji dla wydajności materiałów</h2>
-            <p>Zwiększona odporność na zużycie, ochrona przed czynnikami zewnętrznymi oraz połączenie estetyki z funkcjonalnością to kluczowe zalety technologii PVD w komorach próżniowych.</p>
-          </div>
-        </article>
-
-        <aside class="space-y-8 sticky top-28">
-          <!-- CTA Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
-            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
-            <a href="/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
-              Napisz do nas
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-          </div>
-
-          <!-- Actions Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
-              Skopiuj link
-            </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
-              Drukuj artykuł
-            </button>
-          </div>
-        </aside>
-      </div>
-
-      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-        <h3 class="text-xl font-bold text-foreground mb-4">Zwiększ wydajność i trwałość swoich produktów!</h3>
-        <p class="text-sm md:text-base mb-6 leading-relaxed">
-          Szukasz sprawdzonego i doświadczonego partnera do realizacji zaawansowanych powłok przemysłowych? W Zakładzie Metalizacji STANIAX łączymy nowoczesne technologie napylania z pasją do inżynierii precyzyjnej. Oferujemy profesjonalną metalizację próżniową elementów plastikowych i metalowych, które podniosą parametry użytkowe Twoich wyrobów.
-        </p>
-        
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto współpracować ze STANIAX?</h4>
-        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-          <li><strong>Gwarancja jakości premium:</strong> Zapewniamy precyzyjnie osadzone powłoki metaliczne o wysokiej odporności i trwałości.</li>
-          <li><strong>Nowoczesny park maszynowy:</strong> Realizujemy zlecenia szybko, powtarzalnie i z zachowaniem restrykcyjnych norm środowiskowych.</li>
-          <li><strong>Wsparcie inżynieryjne:</strong> Pomagamy w doborze optymalnych parametrów procesu w zależności od warunków pracy gotowego elementu.</li>
-        </ul>
-        
-        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Zoptymalizuj koszty produkcji i zyskaj przewagę technologiczną na rynku!</p>
-        
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-            Skontaktuj się z nami i poproś o darmową wycenę swojego projektu!
-            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
-          </a>
-          <a href="/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-            Poznaj wykonane projekty Zakładu Metalizacji STANIAX
-            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-`
-
-// English/German texts
-const enMeta = `
-    <title>Surface Treatments & Material Performance | STANIAX</title>
-    <meta name="description" content="Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries." />
-    <meta property="og:title" content="Surface Treatments & Material Performance | STANIAX" />
-    <meta property="og:description" content="Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries." />
-    <meta property="og:type" content="article" />
-`
-
-function getEnHtml(lang) {
-  return `
-<div class="min-h-screen bg-background text-foreground font-sans">
-  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-      <a href="/${lang}/news" class="group flex items-center gap-3 text-left">
-        <div class="leading-tight">
-          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
-          <span class="block text-lg font-black">News</span>
-        </div>
-      </a>
-      <div class="flex items-center gap-3 sm:gap-6">
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-          <a href="/${lang}/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">About Us</a>
-          <a href="/${lang}/#about" class="text-muted-foreground hover:text-accent transition-colors">Offer</a>
-          <a href="/${lang}/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projects</a>
-          <a href="/${lang}/gallery" class="text-muted-foreground hover:text-accent transition-colors">Gallery</a>
-          <a href="/${lang}/#contact" class="text-muted-foreground hover:text-accent transition-colors">Contact</a>
-        </nav>
-        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
-          Contact Us
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="pt-28 pb-20">
-    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
-      <div class="max-w-3xl">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Article</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">August 20, 2025</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">5 min read</span>
-        </div>
-        
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-          How Surface Treatments Affect Material Performance? Discover Metallization!
-        </h1>
-        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
-          Discover how advanced PVD protective coatings and vacuum deposition increase material performance across industries. Find out the details of our strategic partnership!
-        </p>
-      </div>
-
-      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="${aviationImgUrl}" alt="Production hall with a vacuum metallization machine and finished products" class="w-full h-full object-cover" />
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
-        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <div class="space-y-6">
-            <h2 class="text-xl md:text-2xl font-black text-foreground pt-2">Why are modern surface treatments revolutionizing component design?</h2>
-            <p>Modern manufacturing constantly seeks solutions that combine two key properties: high mechanical strength and flawless aesthetics. In a world where cost reduction and component weight optimization are priorities, traditional methods of producing bulky, solid alloy parts are giving way to modern surface engineering technologies. One of the most important processes in this field is advanced thin-film application. Today, professional <strong class="font-bold text-foreground">vacuum metalizing</strong> and associated sputtering techniques are revolutionizing the approach to component design.</p>
-            <p>This surface treatment completely changes how we view part design in the automotive, cosmetics, packaging, and electronics industries. Thanks to it, lightweight polymers gain completely new physicochemical properties. When analyzing how the <a href="/${lang}/#vacuum-metallization" class="text-accent hover:underline font-medium">metallization of plastic</a> inside a <strong class="font-bold text-foreground">metal vacuum</strong> system modifies the external structure of parts, we see a massive increase in their performance. In this article, we will take a closer look at what this process actually entails, why aluminum vapor deposition has become a market standard, how vacuum metallization of plastic works, and how these technologies affect real material performance.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What does the coating process actually entail?</h2>
-            <p>This advanced technological process involves applying a microscopic layer of conductive or reflective material (often a metal) onto the surface of another material, known as the substrate. This substrate can be other alloys as well as non-conductive materials. Nowadays, modern polymer plating alternatives play a key role, allowing heavy steel components to be replaced with lighter synthetic counterparts. Every industrial surface treatment aims to optimize production costs while maintaining a premium feel.</p>
-            <p>The main goal of the process is to give the treated surface specific properties that the material does not naturally possess, such as electrical conductivity, light reflectivity, or protection against external factors. Since modern efficient vacuum deposition relies on ecological and clean technologies, these thin films are applied exclusively under high-vacuum conditions. This guarantees ideal repeatability of coatings, a topic frequently discussed on industry forums like <a href="https://www.elektroda.pl/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">Elektroda.pl <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a>. Both the metallization of plastic and the general coating of hard substrates significantly improve the functional parameters of the finished product.</p>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What are the main types of thin-film deposition in vacuum technology?</h2>
-            <p>Depending on the desired final properties of the product, engineers choose the optimal surface modification parameters. The modern approach in this industry segment is fully based on high-tech processes dominated by PVD and precise aluminum vacuum deposition.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">How does aluminum deposition work?</h3>
-              <p>In a professional manufacturing facility, this process does not exist as a separate, traditional spray method—it is carried out exclusively using high-vacuum technology. Pure aluminum is vaporized and precisely deposited, layer by layer, on the modified substrate. Such vacuum aluminum coating allows for a perfect mirror effect that cannot be achieved by artisanal methods. Through this technique, components gain unique aesthetics and excellent performance parameters.</p>
-              <p>This method is widely used in the automotive industry. That is where the professional <a href="/${lang}/#reflectors" class="text-accent hover:underline font-medium">metallization of reflectors</a> is of key importance. When headlights lose their efficiency, precise reflector recoating restores the original properties of the light beam. Every factory application is based on applying an aluminum layer inside a specialized chamber. Since the metallization of reflectors guarantees excellent light reflection, this directly translates to road safety. For the lighting sector, precise aluminum sputtering is the absolute foundation of operation.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">What is Physical Vapor Deposition (PVD)?</h3>
-              <p>The most technologically advanced type of surface refinement is <strong class="font-bold text-foreground">vacuum metal deposition</strong> (often identified with <a href="https://en.wikipedia.org/wiki/Physical_vapor_deposition" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">Physical Vapor Deposition <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a> or PVD processes). The entire procedure takes place in special chambers where a high vacuum is generated. The source material forming the coating is thermally evaporated and then condenses on the surface of rotating parts. Unsurprisingly, professional PVD has largely replaced older chemical electroplating techniques. Today, this process is synonymous with durability and ecology.</p>
-              <p>The specialized company <a href="/${lang}/" class="text-accent hover:underline font-medium">Staniax - vacuum coating and plastic painting</a> operates effectively in this market. These are areas where process synergy determines the ultimate success of the product. An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is <a href="/${lang}/#kim-jestesmy" class="text-accent hover:underline font-medium">Dariusz Staniak</a>. He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. Regional surface treatments in Józefów are often mentioned as a key competence center where manufacturing plants execute the most demanding projects. When seeking proven PVD or <a href="/${lang}/#plastic-painting" class="text-accent hover:underline font-medium">polymer painting</a>, it is worth choosing experienced entities like Staniax. The techniques championed by Dariusz Staniak and the modernized Staniax Sp. z o.o. prove that aluminum vacuum deposition elevates part quality to the highest level.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">How does ABS surface modification benefit manufacturers?</h3>
-              <p>Modifying <a href="https://en.wikipedia.org/wiki/Acrylonitrile_butadiene_styrene" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">ABS (acrylonitrile-butadiene-styrene) <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a> is a perfect example of combining the benefits of lightweight synthetics with the robust properties of traditional elements. ABS is ideally suited for processes utilizing the vacuum metallization of plastic. Thanks to the polymer's specific chemical structure, the procedure ensures excellent adhesion of the applied aluminum layer. As a result, the treatment provides a coating highly resistant to external factors and chipping.</p>
-              <p>Parts that have undergone this advanced ABS refinement commonly replace heavy and expensive components cast from brass or zinc. They are lightweight, easy to injection mold, and after the deposition process, they look identical to solid alloys. This strategy is vital to modern design.</p>
-            </div>
-          </div>
-
-          <h3 class="text-lg md:text-xl font-bold text-foreground mb-3 mt-8">How do substrates and applications compare?</h3>
-          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
-            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
-              <thead>
-                <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Area of Application</th>
-                  <th class="p-4 font-bold text-foreground">Main Substrates</th>
-                  <th class="p-4 font-bold text-foreground">Key Advantages of Aluminum Coating</th>
-                  <th class="p-4 font-bold text-foreground">Typical Coating Thicknesses</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60">
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Reflectors and headlights</td>
-                  <td class="p-4">Polycarbonate, PPS, alloys</td>
-                  <td class="p-4">Maximum light reflection, thermal resistance</td>
-                  <td class="p-4">Nanometers (0.01 - 0.1 µm)</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Synthetic components (ABS)</td>
-                  <td class="p-4">Polymers (ABS, PC, ABS/PC)</td>
-                  <td class="p-4">Chrome/aluminum appearance, weight reduction, cost-efficiency</td>
-                  <td class="p-4">Nanometers (in PVD process)</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Packaging and decorative details</td>
-                  <td class="p-4">Glass, PS, PP, ABS</td>
-                  <td class="p-4">Mirror effect, premium aesthetics, chemical resistance</td>
-                  <td class="p-4">Nanometers (0.01 - 0.1 µm)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">In which industries are these surface applications most common?</h2>
-            <p>The versatility of this surface treatment means we encounter it at almost every step—from everyday objects to advanced industrial components.</p>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">How is cosmetic packaging refined?</h3>
-              <p>The visual appeal of a product on the store shelf is the key to success in the beauty industry. The metallization of plastic components for cosmetic packaging plays a fundamental role here. Perfume caps, lipstick tubes, or cream jars are covered with shiny aluminum films. Perfect aesthetic refinement raises the prestige of the brand, positioning the product in the premium segment.</p>
-              <p>Broadly understood cosmetic surface engineering is a field where aesthetics must go hand in hand with durability. Since treating these containers protects internal substances from light, it allows for a reduction in artificial preservatives. When stunning bottle aesthetics are the goal, vacuum metallization of plastic has no equal. Moreover, these precise coatings guarantee resistance to the chemicals contained in the products.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Why is premium alcoholic beverage packaging coated?</h3>
-              <p>The spirits segment, especially premium brands, relies heavily on sensory marketing. Sophisticated surface finishing of luxury glass bottles, closures, and labels allows brands to stand out in a crowded market. Exclusive decorative coatings attract attention in clubs and on store shelves, shimmering with brilliance.</p>
-              <p>Designers emphasize that vacuum-deposited layers offer unlimited coloring options in copper or gold shades using appropriate transparent varnishes. When a reflective finish appears on a bottle, the beverage acquires collector's item status. Every luxury brand knows that this decorative application is a proven method for product differentiation.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What are the tangible benefits for material performance?</h2>
-            <p>Beyond the obvious visual advantages, this process radically enhances the technical parameters of the modified components.</p>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">How does it increase wear resistance?</h3>
-              <p>Applying a hard, lacquer-protected aluminum film onto a substrate drastically increases its resistance to mechanical damage and abrasion. In the machinery and lighting industries, PVD protects precise details. When durability is the goal, vacuum-applied layers combined with an appropriate top coat can extend a component's trouble-free operation several times over. Both treated synthetics and glass surfaces create a robust, friction-resistant barrier.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">How does it protect against external factors?</h3>
-              <p>Oxidation and surface degradation are primary enemies of many materials. Modern aluminum deposition creates an extremely tight, microscopic barrier that blocks environmental access to the substrate. Thanks to the precise positioning of atoms in the vacuum chamber, the resulting film adheres perfectly. With professional application, the surface achieves full passivation and high-grade protection, providing a far more durable and homogeneous solution than classic single-layer paints.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">How does it blend aesthetics and functionality?</h3>
-              <p>Utilizing advanced deposition technology allows engineers to design complex shapes from lightweight polymers while giving the end-user the tactile experience of a luxury good. Because vacuum metallization of plastic combines aesthetics with functionality, it dominates modern engineering designs. When perfect light reflection is critical, aluminum deposition in a vacuum chamber remains unmatched.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What does the future hold for surface engineering?</h2>
-            <p>This technology is constantly evolving, responding to strict environmental standards and growing performance requirements.</p>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">What innovations are emerging in vacuum deposition?</h3>
-              <p>Modern developmental directions focus on the complete elimination of older, harmful chemical procedures in favor of fully ecological solutions. Breakthrough innovations allow for identical—and often superior—strength parameters with zero toxic wastewater emission. Modern control systems enable precise layer thickness adjustments down to individual nanometers. These technological leaps open doors for advanced photonics, electronics, and the production of modern lighting systems, where the metallization of reflectors remains paramount.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Which new substrate materials are being used?</h3>
-              <p>Engineers are continually adapting the process for novel substrates. Increasingly, <strong class="font-bold text-foreground">vacuum casting metal</strong> alternatives, advanced composites and <a href="https://en.wikipedia.org/wiki/3D_printing_materials" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:underline font-medium">modern 3D printing polymers <svg class="inline-block w-4 h-4 ml-0.5" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg></a> undergo vacuum treatment. New materials are pushing PVD into completely new arenas of application. This facilitates the rapid prototyping of fully functional, lightweight components for the lighting or medical sectors, where precision and low weight matter, all while maintaining a premium appearance. Today's aluminum deposition perfectly handles the challenges of modern materials science.</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What are the final recommendations for enterprises?</h2>
-            <p>Vacuum thin-film deposition is undoubtedly the technology of the future, defining the standards of modern production. Transforming lightweight polymers into high-performance components using vaporized aluminum is the definitive path forward.</p>
-            <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-6 relative overflow-hidden group">
-              <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500" />
-              <div class="text-foreground italic leading-relaxed text-sm md:text-base">
-                "For enterprises planning to implement this process or looking for subcontractors, precisely defining the working conditions of the finished part is crucial. The choice of appropriate parameters offered by the vacuum metallization of plastic elements depends on durability requirements and the desired final effect." The comprehensive company <a href="/${lang}/#about" class="text-accent hover:underline font-medium">Staniax - vacuum coating and plastic painting</a> stands out as an excellent business partner for launching modern products. It is there that expert knowledge and technologies—championed by Dariusz Staniak, a mentor within the newly transformed Staniax Sp. z o.o., operating as the premier local competence center in Józefów—enable clients to achieve the highest market quality. Investing in advanced surface engineering is a proven strategy to increase product competitiveness, reduce material costs, and meet the highest consumer expectations.
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <aside class="space-y-8 sticky top-28">
-          <!-- CTA Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
-            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
-            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
-              Write to us
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-          </div>
-
-          <!-- Actions Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
-              Copy link
-            </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
-              Print article
-            </button>
-          </div>
-        </aside>
-      </div>
-
-      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-        <h3 class="text-xl font-bold text-foreground mb-4">Increase the performance and durability of your products!</h3>
-        <p class="text-sm md:text-base mb-6 leading-relaxed">
-          Are you looking for a proven and experienced partner for advanced industrial coatings? At STANIAX Metallization Plant, we combine modern deposition technologies with a passion for precision engineering. We offer professional vacuum metallization of plastic and metal components that will elevate the performance parameters of your products.
-        </p>
-        
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why partner with STANIAX?</h4>
-        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-          <li><strong>Premium quality guarantee:</strong> We ensure precisely deposited metallic coatings with high resistance and remarkable durability.</li>
-          <li><strong>Modern machinery park:</strong> We complete orders quickly, repeatably, and with strict environmental standards in mind.</li>
-          <li><strong>Engineering support:</strong> We assist in selecting optimal process parameters based on the working conditions of the finished component.</li>
-        </ul>
-        
-        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Optimize production costs and gain a technological edge in the market!</p>
-        
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/${lang}/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-            Contact us and request a free quote for your project!
-            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
-          </a>
-          <a href="/${lang}/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-            Discover completed projects of the STANIAX Metallization Plant
-            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-  `
-}
-
-// Generate function
-
-const deMeta = `
-    <title>Metallisierung & Materialleistung | STANIAX</title>
-    <meta name="description" content="Erfahren Sie, wie Vakuummetallisierung und PVD-Prozesse die Festigkeit von Materialien in der Luftfahrt beeinflussen." />
-    <meta property="og:title" content="Metallisierung & Materialleistung | STANIAX" />
-    <meta property="og:description" content="Erfahren Sie, wie fortschrittliche Vakuummetallisierung und PVD-Schutzschichten die Materialleistung in der Luftfahrtindustrie steigern." />
-    <meta property="og:type" content="article" />
-`
-
-function getDeHtml(lang) {
-  return `
-<div class="min-h-screen bg-background text-foreground font-sans">
-  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-      <a href="/${lang}/news" class="group flex items-center gap-3 text-left">
-        <div class="leading-tight">
-          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
-          <span class="block text-lg font-black">Aktuelles</span>
-        </div>
-      </a>
-      <div class="flex items-center gap-3 sm:gap-6">
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-          <a href="/${lang}/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">Über uns</a>
-          <a href="/${lang}/#about" class="text-muted-foreground hover:text-accent transition-colors">Angebot</a>
-          <a href="/${lang}/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projekte</a>
-          <a href="/${lang}/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galerie</a>
-          <a href="/${lang}/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
-        </nav>
-        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
-          Schreiben Sie uns
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="pt-28 pb-20">
-    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
-      <div class="max-w-3xl">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artikel</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">20. August 2025</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">5 Min. Lesezeit</span>
-        </div>
-        
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-          Wie beeinflusst Metallisierung die Materialleistung? Entdecken Sie ihre Geheimnisse!
-        </h1>
-        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
-          Entdecken Sie, wie Metallisierung die Materialleistung beeinflusst! Erfahren Sie mehr über ihre Arten und Anwendungen in verschiedenen Branchen. Lernen Sie mehr!
-        </p>
-      </div>
-
-      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="${aviationImgUrl}" alt="Produktionshalle mit Vakuummetallisierungsmaschine und Fertigprodukten" class="w-full h-full object-cover" />
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
-        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <div class="space-y-6">
-            <p>Die moderne Fertigungsindustrie sucht ständig nach Lösungen, die zwei Eigenschaften verbinden: hohe mechanische Festigkeit und tadellose Ästhetik. In einer Welt, in der Kostenreduktion und Gewichtsoptimierung von Komponenten Priorität haben, weichen traditionelle Methoden zur Herstellung sperriger Vollmetallteile modernen Technologien der Oberflächentechnik. Einer der wichtigsten Prozesse in diesem Bereich ist die moderne Metallisierung. Heute revolutionieren die professionelle Vakuummetallisierung und die damit verbundene Vakuum-Metallbedampfung den Ansatz beim Design von Details.</p>
-            <p>Der Prozess der Metallisierung verändert grundlegend die Art und Weise, wie wir das Design von Details in Branchen wie Automotive, Kosmetik, Verpackung oder Elektronik betrachten. Dank ihm gewinnen leichte Kunststoffe völlig neue physikochemische Eigenschaften. Wenn wir analysieren, wie die Metallisierung die äußere Struktur von Details modifiziert, sehen wir eine enorme Steigerung ihrer Leistung. In diesem Artikel werfen wir einen genaueren Blick darauf, was dieser Prozess genau ist, warum die Beschichtung von Aluminium zum Marktstandard geworden ist, wie die Kunststoffmetallisierung funktioniert und wie diese Technologien die reale Materialleistung beeinflussen.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Was ist Metallisierung?</h2>
-            <p>Die Metallisierung is ein fortschrittlicher technologischer Prozess, bei dem eine dünne Metallschicht auf die Oberfläche eines anderen Materials, des sogenannten Substrats, aufgetragen wird. Dieses Substrat können sowohl andere Metalle als auch nichtmetallische Werkstoffe sein. Heutzutage spielt die moderne Kunststoffmetallisierung eine Schlüsselrolle, da sie es ermöglicht, sperrige Metallkomponenten durch leichtere Gegenstücke aus Polymeren zu ersetzen. Dies ist eine hervorragende Alternative zu Verfahren wie dem **Vakuumguss** (insbesondere **Vakuumguss Metall**). Jede industrielle Metallisierung zielt darauf ab, die Produktionskosten zu optimieren und gleichzeitig Premium-Eigenschaften beizubehalten.</p>
-            <p>Das Hauptziel der Metallisierung besteht darin, der veredelten Oberfläche spezifische Eigenschaften zu verleihen, die das jeweilige Material von Natur aus nicht besitzt. Dies kann elektrische Leitfähigkeit, Lichtreflexion oder Schutz vor äußeren Einflüssen sein. Da die moderne Metallisierung und die effiziente Vakuum-Metallbedampfung auf umweltfreundlichen und sauberen Technologien basieren, werden die Metallschichten ausschließlich in einem <strong class="font-bold text-foreground">Metallvakuum</strong>-System unter Hochvakuumbedingungen aufgetragen. Dies stellt sicher, dass die Vakuummetallisierung eine perfekte Wiederholbarkeit der Beschichtungen garantiert, wie oft im Branchen-Forum Elektroda.pl erwähnt wird. Sowohl die Kunststoffmetallisierung als auch die allgemeine Metallisierung harter Substrate verbessern die Gebrauchsparameter des fertigen Produkts erheblich.</p>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Arten der Metallisierung in der Vakuumtechnik</h2>
-            <p>Je nach den gewünschten Endeigenschaften des Produkts wählen Ingenieure die optimalen Parameter für die Oberflächenmodifikation. Der moderne Ansatz in diesem Industriesegment basiert vollständig auf hochgradig fortschrittlichen Prozessen, in denen dieses Verfahren und die präzise Bedampfung unter Verwendung von Aluminium dominieren.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Aluminium-Metallisierung</h3>
-              <p>In einem professionellen Produktionsbetrieb existiert die Aluminium-Metallisierung nicht als eigenständiges, traditionelles Spritzverfahren – dieser Prozess wird ausschließlich in Hochvakuumtechnologie realisiert. Bei diesem Verfahren wird reines Aluminium verdampft und präzise, Schicht für Schicht, auf dem modifizierten Substrat abgeschieden. Eine solche Vakuum-Aluminiummetallisierung ermöglicht einen perfekten Spiegeleffekt, der mit handwerklichen Methoden nicht erreicht werden kann. Durch diesen Prozess der Aluminium-Metallisierung gewinnen die Elemente eine einzigartige Ästhetik und hervorragende Gebrauchsparameter.</p>
-              <p>Diese Methode findet breite Anwendung in der Automobilindustrie. Genau dort ist die professionelle Reflektormetallisierung für Autos von entscheidender Bedeutung. Wenn Scheinwerfer ihre Leistungsfähigkeit verlieren, hilft eine präzise Reflektormetallisierung, die die ursprünglichen Eigenschaften des Lichtstrahls wiederherstellt. Jede werkseitige Reflektormetallisierung basiert auf dem Auftragen einer Aluminiumbeschichtung in der Kammer. Da die Reflektormetallisierung eine hervorragende Lichtreflexion garantiert, wirkt sich dieser Prozess direkt auf die Sicherheit im Straßenverkehr aus. Für die Beleuchtungsindustrie sind die Vakuum-Aluminiummetallisierung und diese präzise Oberflächenveredelung das absolute Fundament der Tätigkeit.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Vakuummetallisierung</h3>
-              <p>Die technologisch fortschrittlichste Variante der Oberflächenveredelung ist die allgemeine Vakuummetallisierung (oft mit [PVD – Physical Vapor Deposition](https://de.wikipedia.org/wiki/Physikalische_Gasphasenabscheidung) Prozessen gleichgesetzt). Der gesamte Prozess findet in speziellen Kammern statt, in denen ein Hochvakuum erzeugt wird. Das Aluminium, welches die Beschichtung bildet, wird thermisch verdampft und kondensiert anschließend auf der Oberfläche rotierender Details. Es ist kein Wunder, dass die professionelle PVD-Technologie alte, chemische Galvanotechniken vollständig verdrängt hat. Heute ist diese Beschichtungsmethode ein Synonym für Langlebigkeit und Ökologie.</p>
-              <p>Auf dem Markt ist das spezialisierte Unternehmen [Staniax - Oberflächenveredelung, Kunststofflackierung](/) tätig, in denen die Synergie der Prozesse über den endgültigen Erfolg des Produkts entscheidend ist. Ein Beispiel für einen Branchenführer, dessen innovativer Ansatz neue Trends im Bereich der PVD-Vakuumtechnik gesetzt hat, ist [Dariusz Staniak](http://www.metalizacje.pl/). Er setzt Qualitätsstandards und führt in der Fabrik Vorrichtungen ein, die teure, hochentwickelte Maschinenparks ersetzen. Häufig wird die regionale Metallisierung Józefów als centrales Kompetenzzentrum genannt, in dem Produktionsbetriebe anspruchsvollste Projekte realisieren. Wenn wir an bewährter Oberflächenveredelung oder Kunststofflackierung interessiert sind, lohnt es sich, auf erfahrene Partner wie Staniax zu setzen. Genau dort beweisen die Vakuum-Beschichtung von Dariusz Staniak und die Metallisierung Józefów in der neuen Form als Staniax Sp. z o.o., dass die PVD-Beschichtung mit Aluminium die Qualität von Details auf das höchste Niveau hebt.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">ABS-Metallisierung</h3>
-              <p>Die Metallisierung von ABS (Acrylnitril-Butadien-Styrol) ist ein perfektes Beispiel für die Kombination der Vorteile leichter Kunststoffe mit den Eigenschaften von Metallen. ABS-Kunststoff eignet sich ideal für Prozesse, bei denen eine Kunststoffmetallisierung im Vakuumverfahren durchgeführt wird. Dank der passenden chemischen Struktur des Polymers gewährleistet die Vakuum-ABS-Metallisierung eine hervorragende Haftung der aufgetragenen Aluminiumschicht. Am Ende führt die Kunststoffmetallisierung zu einer Beschichtung, die gegen äußere Einflüsse und Abplatzer beständig ist. Komponenten, bei denen eine Vakuum-ABS-Metallisierung durchgeführt wurde, ersetzen häufig schwere und teure Gussdetails aus Messing oder Zink.</p>
-            </div>
-          </div>
-
-          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
-            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
-              <thead>
-                <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Anwendungsbereich im Vakuum</th>
-                  <th class="p-4 font-bold text-foreground">Hauptsubstrate</th>
-                  <th class="p-4 font-bold text-foreground">Hauptvorteile der Aluminiumbeschichtung</th>
-                  <th class="p-4 font-bold text-foreground">Typische Schichtdicken</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60">
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Reflektoren und Scheinwerfer</td>
-                  <td class="p-4">Polycarbonat, PPS, Metalle</td>
-                  <td class="p-4">Maximale Lichtreflexion, thermische Beständigkeit</td>
-                  <td class="p-4">Nanometer (0,01 - 0,1 µm)</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Kunststoffkomponenten (ABS)</td>
-                  <td class="p-4">Polymere (ABS, PC, ABS/PC)</td>
-                  <td class="p-4">Chrom-/Aluminiumoptik, Gewichtsreduktion, niedriger Preis</td>
-                  <td class="p-4">Nanometer (im PVD-Prozess)</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Verpackungen und Zierteile</td>
-                  <td class="p-4">Glas, PS, PP, ABS</td>
-                  <td class="p-4">Spiegeleffekt, Premium-Ästhetik, chemische Beständigkeit</td>
-                  <td class="p-4">Nanometer (0,01 - 0,1 µm)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Anwendung der Metallisierung in verschiedenen Branchen</h2>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Metallisierung von Kosmetikverpackungen</h3>
-              <p>Die visuelle Attraktivität eines Produkts im Verkaufsregal ist der Schlüssel zum Erfolg in der Beauty-Branche. Die Metallisierung von Kosmetikverpackungen spielt hier eine fundamentale Rolle. Parfümkappen, Lippenstifthülsen oder Cremetiegel werden mit glänzenden Aluminiumschichten überzogen. Eine perfekte Metallisierung von Verpackungen steigert das Prestige der Marke und positioniert das Produkt im Premiumsegment.</p>
-              <p>Die Kosmetikmetallisierung (im Kontext ihrer Verpackungen) im weiten Sinne ist ein Bereich, in dem Ästhetik mit Langlebigkeit einhergehen muss. Da die Metallisierung von Kosmetikverpackungen die darin enthaltenen Substanzen vor Lichteinfall schützt, ermöglicht sie es, den Einsatz künstlicher Konservierungsstoffe zu reduzieren. Jede moderne Marke weiß, wie wichtig die ästhetische Metallisierung von Verpackungen und die globale Kosmetikmetallisierung sind. Wenn ein atemberaubendes Erscheinungsbild von Flakons das Ziel ist, sucht die durch Vakuum-Metallbedampfung realisierte Metallisierung von Kosmetikverpackungen ihresgleichen. Zudem garantieren die Kosmetikmetallisierung und die präzise Metallisierung von Verpackungen die Beständigkeit gegen die in den Produkten enthaltenen Chemikalien.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Alkoholverpackung-Metallisierung</h3>
-              <p>Das Segment der hochprozentigen Getränke, insbesondere Premium, setzt stark auf sensorisches Marketing. Eine anspruchsvolle Metallisierung von Alkoholprodukten, genauer gesagt von Luxusglasflaschen, Verschlüssen und Etiketten, ermöglicht es Marken, sich aus der Masse der Wettbewerber abzuheben. Die exklusive Metallisierung von Alkoholprodukten zieht in Clubs und in Verkaufsregalen die Blicke auf sich und glänzt mit metallischem Schimmer.</p>
-              <p>Designer betonen oft, dass eine im Vakuumverfahren durchgeführte Metallisierung von Alkoholflaschen unbegrenzte Möglichkeiten bietet, die Beschichtungen mithilfe entsprechender Transparentlacke in Kupfer- oder Goldtöne einzufärben. Wenn eine Metallisierung auf der Flasche erscheint, gewinnen Alkohole den Status eines Sammlerprodukts. Jede Luxusmarke weiß, dass die Metallisierung von Alkoholflaschen (in Katalogen oft als Metallisierung Alkohole aufgeführt) eine bewährte Methode zur Produktdifferenzierung jest sprawdzonym sposobem na wyróżnienie produktu.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Vorteile der Metallisierung für die Materialleistung</h2>
-            <p>Erhöhte Verschleißfestigkeit, Schutz vor äußeren Einflüssen und die Verbindung von Ästhetik und Funktionalität sind die Hauptvorteile der PVD-Technologie in Vakuumkammern.</p>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Erhöhte Verschleißfestigkeit</h3>
-              <p>Das Auftragen einer harten, lackgeschützten Aluminiumbeschichtung auf das Substrat erhöht dessen Beständigkeit gegen mechanische Beschädigungen und Abrieb drastisch. In der Maschinen- und Beleuchtungsindustrie wird die Vakuummetallisierung zum Schutz von Präzisionsdetails eingesetzt. Wenn eine dauerhafte Metallisierung das Ziel ist, können Schichten, die im Vakuumverfahren aufgetragen und mit einer entsprechenden Decklackierung kombiniert werden, die störungsfreie Betriebszeit von Komponenten um das Mehrfache verlängern. Sowohl die Kunststoffmetallisierung als auch die Veredelung von Glasoberflächen schaffen eine reibungsresistente Barriere.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Schutz vor äußeren Einflüssen</h3>
-              <p>Oxidation und Oberflächenabbau sind die Hauptfeinde vieler Materialien. Die moderne Vakuummetallisierung unter Verwendung von Aluminium schafft eine äußerst dichte, mikroskopische Barriere, die den Zugang äußerer Faktoren zum Substrat blockiert. Dank der präzisen Abscheidung von Metallatomen in der Vakuumkammer haftet die erhaltene Beschichtung perfekt an der Oberfläche. Da es sich um eine professionelle Aluminium-Metallisierung handelt, gewinnt die Oberfläche eine vollständige Passivierung und einen hohen Schutzgrad. Dies ist eine weitaus langlebigere und homogenere Lösung als klassische, einschichtige Lackbeschichtungen.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Ästhetik und Funktionalität</h3>
-              <p>Der Einsatz der Technologie der Vakuummetallisierung ermöglicht es, Komponenten mit komplexen Formen aus leichten Kunststoffen zu entwerfen und dem Endverbraucher gleichzeitig das Gefühl zu geben, ein Luxusprodukt zu nutzen. Da die Kunststoffmetallisierung und die präzise Vakuum-Metallbedampfung Ästhetik mit Funktionalität verbinden, dominiert diese Technologie in modernen Engineering-Projekten. Wenn es auf die Perfektion der Lichtreflexion ankommt, bleibt die Aluminium-Metallisierung in der Vakuumkammer konkurrenzlos.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Zukunft der Metallisierung in verschiedenen Sektoren</h2>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Innovationen in der Vakuummetallisierung</h3>
-              <p>Die heutigen Entwicklungsrichtungen konzentrieren sich auf die vollständige Eliminierung älterer, schädlicher chemischer Prozesse zugunsten vollkommen ökologischer Lösungen. Wegweisende Innovationen in der Vakuummetallisierung ermöglichen es, identische und oft sogar bessere Festigkeitsparameter der Beschichtungen bei null Emissionen giftiger Abwässer zu erzielen. Moderne Prozesssteuerungssysteme erlauben eine präzise Kontrolle der Schichtdicke im Bereich einzelner Nanometer. Diese technologischen Innovationen in der Vakuummetallisierung öffnen die Türen für hochentwickelte Photonik, Elektronik sowie die Herstellung moderner Beleuchtungssysteme, bei denen die Reflektormetallisierung eine Schlüsselrolle spielt.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Neue Materialien in der Metallisierung</h3>
-              <p>Ingenieure arbeiten an der Anpassung des Prozesses an moderne Substrate. Immer häufiger werden hochentwickelte Verbundwerkstoffe und moderne 3D-Druckpolymere im Vakuumverfahren metallisiert. Neue Materialien sorgen dafür, dass diese Beschichtungsmethode in völlig neue Anwendungsbereiche vordringt. Dies ermöglicht ein schnelles Prototyping voll funktionsfähiger, leichter Komponenten für die Beleuchtungs- oder Medizinindustrie, wo Präzision und geringes Gewicht bei Erhaltung der Metallästhetik zählen. Hier bietet auch die **Vakuumguss Metall**-Technologie hervorragende Entwicklungsansätze, weshalb **Vakuumguss** oft als komplementäre Methode evaluiert wird. Die heutige Vakuum-Aluminiummetallisierung meistert die Herausforderungen der modernen Materialwissenschaft hervorragend.</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Schlussfolgerungen und Empfehlungen</h2>
-            <p>Die Vakuummetallisierung is zweifellos die Technologie der Zukunft, die schon heute die Standards der modernen Produktion definiert. Die Umwandlung leichter Kunststoffe in Hochleistungskomponenten mit einzigartigen Eigenschaften unter Verwendung von verdampftem Aluminium ist der einzig richtige Entwicklungsweg.</p>
-            <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-6 relative overflow-hidden group">
-              <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500" />
-              <div class="text-foreground italic leading-relaxed text-sm md:text-base">
-                "Für Unternehmen, die die Einführung dieses Prozesses planen oder Subunternehmer suchen, sollte die präzise Definition der Arbeitsbedingungen des fertigen Details im Vordergrund stehen. Die Wahl der richtigen Parameter, die diese Beschichtungsmethode für Kunststoffkomponenten bietet, hängt von den Haltbarkeitsanforderungen und dem gewünschten Endeffekt ab. Das Komplettunternehmen Staniax - Oberflächenveredelung, Kunststofflackierung ist der beste Geschäftspartner bei der Einführung moderner Produkte auf dem Markt. Genau dort ermöglichen das Expertenwissen und die Technologien dieser Beschichtungsmethode von Dariusz Staniak, Mentor im neu transformierten Unternehmen Staniax, als lokale Metallisierung Józefów, das Erreichen höchster Marktqualität. Die Investition in fortschrittliche Oberflächentechnik ist ein bewährter Weg, um die Wettbewerbsfähigkeit von Produkten zu steigern, Materialkosten zu senken und die höchsten Erwartungen des Marktes zu erfüllen."
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <aside class="space-y-8 sticky top-28">
-          <!-- CTA Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
-            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
-            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
-              Schreiben Sie uns
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-          </div>
-
-          <!-- Actions Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
-              Link kopieren
-            </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
-              Artikel drucken
-            </button>
-          </div>
-        </aside>
-      </div>
-
-      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-        <h3 class="text-xl font-bold text-foreground mb-4">Steigern Sie die Leistung und Haltbarkeit Ihrer Produkte!</h3>
-        <p class="text-sm md:text-base mb-6 leading-relaxed">
-          Suchen Sie einen bewährten und erfahrenen Partner für hochentwickelte Industriebeschichtungen? Im STANIAX Metallisierungsbetrieb verbinden wir moderne Bedampfungstechnologien mit Leidenschaft für Präzisionstechnik. Wir bieten diese professionelle Oberflächenveredelung von Kunststoff- und Metallkomponenten, die die Leistungsparameter Ihrer Produkte steigern.
-        </p>
-        
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum lohnt sich die Zusammenarbeit mit STANIAX?</h4>
-        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-          <li><strong>Premium-Qualitätsgarantie:</strong> Wir sorgen für präzise abgeschiedene Metallbeschichtungen mit hoher Beständigkeit und Haltbarkeit.</li>
-          <li><strong>Moderner Maschinenpark:</strong> Wir realisieren Aufträge schnell, wiederholbar und unter Einhaltung strenger Umweltnormen.</li>
-          <li><strong>Ingenieurtechnische Unterstützung:</strong> Wir helfen bei der Auswahl optimaler Prozessparameter in Abhängigkeit von den Betriebsbedingungen der fertigen Komponente.</li>
-        </ul>
-        
-        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Zoptymalizuj koszty produkcji i zyskaj przewagę technologiczną na rynku!</p>
-        
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/${lang}/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-            Kontaktieren Sie uns für eine kostenlose Projektbewertung!
-            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
-          </a>
-          <a href="/${lang}/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-            Entdecken Sie unsere Galerie von STANIAX-Projekten
-            <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-  `
-}
-
-function writePrerenderFile(subPath, titleMeta, htmlContent) {
-  let fileHtml = baseHtml;
-  // Replace default title and metadata
-  fileHtml = fileHtml.replace(/<title>[^<]*<\/title>/, '')
-  fileHtml = fileHtml.replace(/<meta name="description"[^>]*>/, '')
-  fileHtml = fileHtml.replace(/<meta property="og:title"[^>]*>/, '')
-  fileHtml = fileHtml.replace(/<meta property="og:description"[^>]*>/, '')
-  fileHtml = fileHtml.replace(/<meta property="og:type"[^>]*>/, '')
-  
-  // Update lang attribute based on path
-  if (subPath.startsWith('en/') || subPath.includes('/en/')) {
-    fileHtml = fileHtml.replace('<html lang="pl">', '<html lang="en">')
-  } else if (subPath.startsWith('de/') || subPath.includes('/de/')) {
-    fileHtml = fileHtml.replace('<html lang="pl">', '<html lang="de">')
+async function loadBridgeData() {
+  const bridgeEntry = path.join(__dirname, "prerender-bridge.ts");
+  const tmpOut = path.join(__dirname, ".prerender-bridge.bundle.mjs");
+  try {
+    await esbuild.build({
+      entryPoints: [bridgeEntry],
+      bundle: true,
+      platform: "node",
+      format: "esm",
+      outfile: tmpOut,
+      logLevel: "silent",
+    });
+    return await import(`${pathToFileURL(tmpOut).href}?t=${Date.now()}`);
+  } finally {
+    if (fs.existsSync(tmpOut)) {
+      fs.unlinkSync(tmpOut);
+    }
   }
-  
-  // Inject canonical URL link element to avoid duplicate content indexing issues
-  const canonicalLink = `\n    <link rel="canonical" href="https://www.staniax.pl/${subPath}" />\n`;
-  
-  fileHtml = fileHtml.replace('</head>', `${titleMeta}${canonicalLink}</head>`)
-  fileHtml = fileHtml.replace(/<div id="root">[\s\S]*?<\/div>/, `<div id="root">${htmlContent.trim()}</div>`)
-  
-  const targetPath = path.join(distDir, subPath)
-  fs.mkdirSync(targetPath, { recursive: true })
-  fs.writeFileSync(path.join(targetPath, 'index.html'), fileHtml, 'utf-8')
-  console.log(`Successfully pre-rendered article to ${targetPath}/index.html`)
 }
 
-// 1. Polish version
-writePrerenderFile('news/partnerstwo-z-wiodacym-producentem-lotniczym', plMeta, plHtml)
+function createAssetResolver(assetsDir) {
+  const assetFiles = fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : [];
+  const mediaRegex = /\.(jpe?g|png|webp|mp4|svg)$/i;
 
-// 2. English version
-writePrerenderFile('en/news/how-does-metallization-affect-material-performance', enMeta, getEnHtml('en'))
-
-// 3. German version
-writePrerenderFile('de/news/wie-beeinflusst-metallisierung-die-materialleistung', deMeta, getDeHtml('de'))
-// --- Beauty Article ---
-
-const plBeautyMeta = `
-    <title>Metalizacja próżniowa rewolucjonizuje branżę beauty | STANIAX</title>
-    <meta name="description" content="Dowiedz się, jak metalizacja próżniowa i precyzyjne lakierowanie tworzyw rewolucjonizują opakowania kosmetyczne w segmencie beauty." />
-    <meta property="og:title" content="Metalizacja próżniowa rewolucjonizuje branżę beauty | STANIAX" />
-    <meta property="og:description" content="Metalizacja próżniowa rewolucjonizuje branżę beauty. Dowiedz się, dlaczego czołowe marki kosmetyczne wybierają tę technologię." />
-    <meta property="og:type" content="article" />
-`
-
-const plBeautyHtml = `
-<div class="min-h-screen bg-background text-foreground font-sans">
-  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-      <a href="/news" class="group flex items-center gap-3 text-left">
-        <div class="leading-tight">
-          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
-          <span class="block text-lg font-black">Aktualności</span>
-        </div>
-      </a>
-      <div class="flex items-center gap-3 sm:gap-6">
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-          <a href="/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">O STANIAX</a>
-          <a href="/#about" class="text-muted-foreground hover:text-accent transition-colors">Oferta</a>
-          <a href="/#projects" class="text-muted-foreground hover:text-accent transition-colors">Realizacje</a>
-          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galeria</a>
-          <a href="/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
-        </nav>
-        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
-          Skontaktuj się
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="pt-28 pb-20">
-    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
-      <div class="max-w-3xl">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artykuł</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">20 sierpnia 2025</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">5 min czytania</span>
-        </div>
-        
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-          Metalizacja próżniowa rewolucjonizuje branżę beauty
-        </h1>
-        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
-          Jak nowoczesna metalizacja próżniowa oraz precyzyjne lakierowanie tworzyw i szkła rewolucjonizują rynek opakowań kosmetycznych w segmencie beauty?
-        </p>
-      </div>
-
-      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="${beautyImgUrl}" alt="Luksusowe, metalizowane opakowania kosmetyczne w różnych kolorach z lustrzanym połyskiem" class="w-full h-full object-cover" />
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
-        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <div class="space-y-6">
-            <p>Branża kosmetyczna to przestrzeń, w której liczy się nie tylko doskonały skład produktu, ale również jego opakowanie. Klienci coraz częściej kupują oczami, poszukując produktów premium, które zachwycają swoim wyglądem. W odpowiedzi na te potrzeby rynek opakowań kosmetycznych przechodzi prawdziwą rewolucję, a w jej centrum znajduje się <a href="/#vacuum-metallization" class="text-accent hover:underline font-medium">metalizacja próżniowa</a>. W poniższym artykule przyjrzymy się, jak ta technologia zmienia oblicze współczesnych kosmetyków.</p>
-            
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Wprowadzenie do metalizacji próżniowej</h2>
-            <p>Aby zrozumieć fenomen nowoczesnych opakowań, warto najpierw zgłębić technologię, która za nimi stoi. Odpowiednio dobrane procesy produkcyjne, takie jak precyzyjna metalizacja i staranne lakierowanie, pozwalają osiągnąć niesamowite efekty wizualne na materiałach, które z natury nie przypominają szlachetnych kruszców.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Co to jest metalizacja próżniowa?</h2>
-            <p>Metalizacja próżniowa to zaawansowany proces technologiczny polegający na osadzaniu cienkiej warstwy metalu (najczęściej <a href="https://pl.wikipedia.org/wiki/Glin" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">aluminium</a>) na powierzchni innego materiału w warunkach wysokiej próżni. W przeciwieństwie do procesów takich jak metalizacja natryskowa, która jest powszechnie stosowana w przemyśle ciężkim w celu ochrony antykorozyjnej dużych konstrukcji stalowych, technika próżniowa pozwala na uzyskanie idealnie gładkiej, lustrzanej powłoki o wysokich walorach estetycznych. Sama metalizacja w tym wydaniu jest niezwykle precyzyjna, dając efekt luksusowego złota, srebra czy miedzi bez konieczności używania tych drogich materiałów w całości.</p>
-            
-            <h3 class="text-xl font-bold text-foreground pt-2">Historia i rozwój technologii</h3>
-            <p>Choć nakładanie cienkich powłok metalicznych znane jest od dziesięcioleci, to początkowo proces ten był drogi i zarezerwowany dla przemysłu optycznego czy elektronicznego. Z biegiem lat technologia stawała się coraz bardziej dostępna. Obecnie metalizowanie próżniowe to standard w produkcji eleganckich opakowań. Rozwój maszyn oraz nowoczesnych lakierów sprawił, że proces ten stał się nie tylko szybszy, ale i znacznie bardziej przyjazny dla środowiska.</p>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Zastosowanie metalizacji w kosmetykach</h2>
-            <p>Opakowanie kosmetyku ma za zadanie chronić produkt i przyciągać wzrok. Technologie powlekania sprawiają, że lekkie materiały zyskują wygląd ciężkich, ekskluzywnych metali.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Metalizacja plastiku w opakowaniach</h3>
-              <p>W branży Beauty najczęściej stosowana jest <a href="/#about" class="text-accent hover:underline font-medium">metalizacja plastiku</a>. Elementy takie jak zakrętki słoiczków z kremami, obudowy szminek czy atomizery, są produkowane z lekkich <a href="https://pl.wikipedia.org/wiki/Polimery" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">polimerów</a>, a następnie poddawane procesowi metalizacji. Dzięki temu opakowanie pozostaje lekkie i poręczne dla konsumenta, ale wizualnie prezentuje się jak produkt z najwyższej półki.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Lakierowanie plastiku a metalizacja</h3>
-              <p>Aby powłoka metaliczna była trwała i błyszcząca, sam proces nakładania metalu to za mało. Kluczowe jest odpowiednie <a href="/#plastic-painting" class="text-accent hover:underline font-medium">lakierowanie plastiku</a> zarówno przed, jak i po nałożeniu warstwy metalu:</p>
-              <ul class="list-disc pl-5 space-y-2 mt-2">
-                <li><strong>Lakier podkładowy (Base coat):</strong> Wygładza powierzchnię plastiku, tworząc idealną bazę pod warstwę aluminium.</li>
-                <li><strong>Lakier nawierzchniowy (Top coat):</strong> Chroni cienką warstwę metalu przed ścieraniem i pozwala na nadanie dowolnego koloru.</li>
-              </ul>
-              <p class="mt-3">Odpowiednie lakierowanie w połączeniu z próżniowym nakładaniem metalu pozwala na osiągnięcie nieograniczonej palety barw -- od klasycznego złota, przez różowe złoto (rose gold), aż po metaliczne fiolety i błękity.</p>
-            </div>
-          </div>
-
-          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
-            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
-              <thead>
-                <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Zastosowanie w Beauty</th>
-                  <th class="p-4 font-bold text-foreground">Główne tworzywa</th>
-                  <th class="p-4 font-bold text-foreground">Kluczowe zalety powłoki</th>
-                  <th class="p-4 font-bold text-foreground">Uzyskiwany efekt</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60">
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Szminki i błyszczyki</td>
-                  <td class="p-4">ABS, PC, polimery</td>
-                  <td class="p-4">Lekkość konstrukcji, odporność na chemię kosmetyczną</td>
-                  <td class="p-4">Lustrzany chrom, złoto, rose gold</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Kompakty i palety cieni</td>
-                  <td class="p-4">ABS, PS, PMMA</td>
-                  <td class="p-4">Ekskluzywny wygląd, ochrona przed zarysowaniem</td>
-                  <td class="p-4">Wysoki połysk, matowa satyna, kolory</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Opakowania perfum (korki)</td>
-                  <td class="p-4">PP, ABS, metale</td>
-                  <td class="p-4">Precyzja skomplikowanych kształtów, niska waga</td>
-                  <td class="p-4">Złote, srebrne i kolorowe wykończenie</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Korzyści płynące z metalizacji próżniowej w branży Beauty</h2>
-            <p>Zastosowanie tej technologii niesie za sobą szereg benefitów, które decydują o jej rosnącej popularności wśród największych marek kosmetycznych.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Estetyka i nowoczesny design</h3>
-              <p>Głównym powodem, dla którego producenci decydują się na metalizowanie, jest niezrównana estetyka. Produkty zyskują lustrzany połysk, który w świadomości konsumentów nieodłącznie kojarzy się z luksusem i prestiżem. To pozwala markom na pozycjonowanie swoich produktów w segmencie premium.</p>
-            </div>
-            
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Zwiększona trwałość produktów</h3>
-              <p>Wysokiej jakości lakiery stosowane jako warstwa wierzchnia sprawiają, że metalizacja jest niezwykle odporna na:</p>
-              <ul class="list-disc pl-5 space-y-2 mt-2">
-                <li>Zarysowania mechaniczne w kosmetyczce czy torebce.</li>
-                <li>Działanie substancji chemicznych zawartych w samych kosmetykach (np. olejki, alkohol).</li>
-                <li>Promieniowanie UV, co zapobiega blaknięciu opakowań.</li>
-              </ul>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Zrównoważony rozwój i ekologia</h3>
-              <p>Mogłoby się wydawać, że procesy chemiczne nie idą w parze z ekologią. Jednak w porównaniu do litych elementów metalowych, metalizowane opakowania plastikowe są znacznie lżejsze, co zmniejsza <a href="https://pl.wikipedia.org/wiki/%C5%9Alad_w%C4%99glowy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">ślad węglowy</a> podczas transportu. Co więcej, nowoczesne zakłady usługowe stosują lakiery utwardzane <a href="https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">promieniami UV</a> (bez lotnych związków organicznych), co sprawia, że technologia staje się coraz bardziej "zielona".</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Przykłady produktów z metalizacją próżniową</h2>
-            <p>Technologia ta znalazła zastosowanie w niemal każdym segmencie rynku beauty. Polska również jest silnym graczem na mapie europejskiej produkcji -- na przykład zapytania o usługi takie jak <a href="/#contact" class="text-accent hover:underline font-medium">metalizacja próżniowa Józefów</a> i zakład metalizacji STANIAX, czy inne lokalne ośrodki produkcyjne pokazują, że polskie firmy stanowią ważne zaplecze dla międzynarodowych marek.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Innowacyjne kosmetyki z metalizowaniem</h3>
-              <p>Na półkach drogerii bez trudu znajdziemy produkty, które wykorzystują tę technologię:</p>
-              <ul class="list-disc pl-5 space-y-2 mt-2">
-                <li><strong>Szminki i błyszczyki:</strong> Błyszczące, metaliczne oprawki to dziś standard u czołowych producentów makijażu.</li>
-                <li><strong>Kompakty i palety cieni:</strong> Lustrzane wykończenie kasetek na pudry czy cienie przyciąga wzrok i nadaje produktowi ekskluzywny charakter.</li>
-                <li><strong>Opakowania perfumów, tubki z kremami i maskarami:</strong> Nawet elastyczne opakowania mogą być pokryte elastycznymi, metalizowanymi foliami.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Podsumowanie i przyszłość metalizacji w branży Beauty</h2>
-            <p>Jak pokazują obecne tendencje rynkowe, technologie uszlachetniania powierzchni będą nadal ewoluować.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Trendy i przewidywania</h3>
-              <p>Przyszłość przyniesie prawdopodobnie jeszcze mocniejszy nacisk na rozwiązania proekologiczne. Branża dąży do stosowania powłok, które nie zakłócają procesu <a href="https://pl.wikipedia.org/wiki/Recykling" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">recyklingu</a> plastiku. Będziemy również obserwować rozwój w kierunku efektów specjalnych: powłok holograficznych, kameleonowych (zmieniających kolor pod kątem) oraz matowych metali, które aktualnie zyskują ogromną popularność wśród minimalistycznych marek.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Wnioski</h3>
-              <p>Metalizacja próżniowa bezpowrotnie zmieniła branżę Beauty. Zastępując tradycyjne metale, pozwoliła na masową produkcję ekskluzywnych wizualnie opakowań przy jednoczesnym zachowaniu lekkości i optymalizacji kosztów. Połączenie precyzyjnego osadzania powłok i zaawansowanego lakierowania to dziś klucz do serca (i portfela) konsumenta ceniącego design i wysoką jakość.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Często zadawane pytania (Q&A)</h2>
-            <div class="space-y-6">
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Czym jest metalizacja próżniowa i czym różni się od metalizacji natryskowej?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Metalizacja próżniowa to osadzanie bardzo cienkiej warstwy metalu (najczęściej aluminium) na powierzchni innego materiału w warunkach wysokiej próżni. Daje idealnie gładką, lustrzaną powłokę o wysokiej wartości estetycznej. Metalizacja natryskowa, stosowana głównie w przemyśle ciężkim, służy przede wszystkim ochronie antykorozyjnej i nie zapewnia tak perfekcyjnie gładkiego, „biżuteryjnego” wykończenia.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Dlaczego w branży Beauty najczęściej metalizuje się plastik zamiast używać litego metalu?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Elementy opakowań (np. zakrętki, obudowy szminek, atomizery) produkuje się z lekkich polimerów, a następnie metalizuje, by połączyć wygodę i niską masę z wyglądem premium (złoto, srebro, miedź). Taka konstrukcja obniża koszty, poprawia ergonomię i zmniejsza ślad węglowy transportu w porównaniu z cięższymi elementami metalowymi, a jednocześnie zachowuje luksusowy efekt wizualny.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Jaką rolę pełni lakierowanie w procesie metalizacji i trwałości opakowań?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Lakier podkładowy (base coat) wygładza powierzchnię plastiku i przygotowuje ją do równomiernego osadzania metalu. Lakier nawierzchniowy (top coat) zabezpiecza cienką warstwę metalu przed zarysowaniami, działaniem chemikaliów z kosmetyków oraz promieniowaniem UV, a także pozwala nadać dowolny kolor. To połączenie odpowiada zarówno za „efekt lustra”, jak i dużą odporność użytkową.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Na ile metalizacja próżniowa jest przyjazna środowisku i co z recyklingiem?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">W porównaniu z litymi metalami lżejsze, metalizowane opakowania plastikowe ograniczają emisje podczas transportu. Dodatkowo nowoczesne lakiery utwardzane promieniami UV nie zawierają lotnych związków organicznych, co czyni proces „zielonym” w porównaniu z tradycyjnymi rozwiązaniami. Branża intensywnie pracuje też nad powłokami, które nie zakłócają recyklingu plastiku, aby jeszcze lepiej wpisać się w gospodarkę obiegu zamkniętego.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Gdzie najczęściej wykorzystuje się tę technologię i jakie są przykłady produktów?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">W makijażu spotkamy ją w oprawkach szminek i błyszczyków oraz w kompaktach i paletach z lustrzanym wykończeniem. Sprawdza się także w perfumerii - przy nasadkach, korkach i atomizerach, gdzie umożliwia tworzenie efektownych, a zarazem lekkich form. Nawet elastyczne opakowania (np. tubki) mogą korzystać z elastycznych, metalizowanych folii. Polska jest istotnym zapleczem produkcyjnym w Europie, o czym świadczy rosnące zainteresowanie usługami metalizacji w lokalnych ośrodkach.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h3 class="text-xl font-bold text-foreground mb-4">Stwórz opakowania, które zachwycą Twoich klientów!</h3>
-            <p class="text-sm md:text-base mb-6 leading-relaxed">
-              Szukasz sprawdzonego i doświadczonego partnera, który zamieni Twoje wizje w luksusową rzeczywistość? W Zakładzie Metalizacji STANIAX łączymy zaawansowane technologie z pasją do perfekcji. Oferujemy najwyższej jakości metalizację próżniową oraz precyzyjne lakierowanie, które wyróżnią Twoje kosmetyki na tle konkurencji.
-            </p>
-            
-            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto współpracować ze STANIAX?</h4>
-            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-              <li><strong>Gwarancja jakości premium:</strong> Zapewniamy idealnie gładkie, lustrzane powłoki o niezwykłej trwałości.</li>
-              <li><strong>Nowoczesny park maszynowy:</strong> Realizujemy zlecenia szybko, precyzyjnie i z myślą o środowisku.</li>
-              <li><strong>Pełna personalizacja:</strong> Osiągamy nieograniczoną paletę barw i efektów dopasowanych do tożsamości Twojej marki.</li>
-            </ul>
-            
-            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Podnieś prestiż swoich produktów i przyciągnij wzrok konsumentów!</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                Skontaktuj się z nami i poproś o darmową wycenę swojego projektu!
-                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
-              </a>
-              <a href="/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-                Poznaj wykonane projekty Zakładu Metalizacji STANIAX
-                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <aside class="space-y-8 sticky top-28">
-          <!-- CTA Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
-            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
-            <a href="/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
-              Napisz do nas
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-          </div>
-
-          <!-- Actions Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
-              Skopiuj link
-            </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
-              Drukuj artykuł
-            </button>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </main>
-</div>
-`
-
-const enBeautyMeta = `
-    <title>Vacuum Metallization in Beauty Industry | STANIAX</title>
-    <meta name="description" content="Discover how vacuum metallization and precise plastic painting revolutionize cosmetic packaging in the beauty segment." />
-    <meta property="og:title" content="Vacuum Metallization in Beauty Industry | STANIAX" />
-    <meta property="og:description" content="Vacuum metallization is revolutionizing the beauty industry. Learn why leading cosmetics brands choose this technology." />
-    <meta property="og:type" content="article" />
-`
-
-function getEnBeautyHtml(lang) {
-  return `
-<div class="min-h-screen bg-background text-foreground font-sans">
-  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-      <a href="/${lang}/news" class="group flex items-center gap-3 text-left">
-        <div class="leading-tight">
-          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
-          <span class="block text-lg font-black">News</span>
-        </div>
-      </a>
-      <div class="flex items-center gap-3 sm:gap-6">
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-          <a href="/${lang}/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">About Us</a>
-          <a href="/${lang}/#about" class="text-muted-foreground hover:text-accent transition-colors">Offer</a>
-          <a href="/${lang}/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projects</a>
-          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Gallery</a>
-          <a href="/${lang}/#contact" class="text-muted-foreground hover:text-accent transition-colors">Contact</a>
-        </nav>
-        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
-          Contact Us
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="pt-28 pb-20">
-    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
-      <div class="max-w-3xl">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Article</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">August 20, 2025</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">5 min read</span>
-        </div>
-        
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-          Vacuum Metallization Revolutionizes the Beauty Industry
-        </h1>
-        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
-          How modern vacuum metallization and precise plastic and glass painting are revolutionizing the cosmetics packaging market in the beauty segment?
-        </p>
-      </div>
-
-      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="${beautyImgUrl}" alt="Luxurious metallized cosmetic packaging in various colors with a mirror-like finish" class="w-full h-full object-cover" />
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
-        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <div class="space-y-6">
-            <p>The cosmetics industry is a space where not only the perfect composition of the product matters, but also its packaging. Customers increasingly buy with their eyes, looking for premium products that delight with their appearance. In response to these needs, the cosmetics packaging market is undergoing a real revolution, with <a href="/${lang}/#vacuum-metallization" class="text-accent hover:underline font-medium">vacuum metallization</a> at its center. In this article, we examine how this technology, also known as <strong>vacuum metalizing</strong>, is changing the face of modern cosmetics.</p>
-            
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Introduction to Vacuum Metallization</h2>
-            <p>To understand the phenomenon of modern packaging, it is first worth exploring the technology behind it. Properly selected manufacturing processes, such as precise metallization inside a <strong>metal vacuum</strong> system and careful coating, allow for amazing visual effects on materials that do not naturally resemble precious metals.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">What is vacuum metallization?</h2>
-            <p>Vacuum metallization is an advanced technological process—often referred to as <strong>vacuum metal deposition</strong>—that involves depositing a thin layer of metal (typically <a href="https://pl.wikipedia.org/wiki/Glin" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">aluminum</a>) on the surface of another material under high vacuum conditions. Unlike processes such as thermal spray metallization, which is commonly used in heavy industry for corrosion protection of large steel structures, the vacuum technique yields a perfectly smooth, mirror-like finish of high aesthetic value. The metallization itself in this version is extremely precise, providing the effect of luxurious gold, silver, or copper without the need to use these expensive materials in their entirety.</p>
-            
-            <h3 class="text-xl font-bold text-foreground pt-2">History and development of the technology</h3>
-            <p>Although the application of thin metallic coatings has been known for decades, it was initially expensive and reserved for the optical or electronic industries. Over the years, the technology has become increasingly accessible. Today, vacuum metallization is standard in the production of elegant packaging. The development of machinery and modern lacquers has made this process not only faster but also significantly more environmentally friendly.</p>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Application of metallization in cosmetics</h2>
-            <p>A cosmetic package is designed to protect the product and attract attention. Coating technologies ensure that lightweight materials gain the appearance of heavy, exclusive metals.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Metallization of plastic in packaging</h3>
-              <p>In the beauty industry, the <a href="/${lang}/#about" class="text-accent hover:underline font-medium">metallization of plastic</a> is most commonly used. Elements such as cream jar caps, lipstick cases, or atomizers are manufactured from lightweight <a href="https://pl.wikipedia.org/wiki/Polimery" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">polymers</a> and then subjected to the metallization process. As a result, the packaging remains light and handy for the consumer, but visually presents itself as a top-shelf product.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Plastic coating and metallization</h3>
-              <p>To make the metallic coating durable and glossy, the metal deposition process alone is not enough. Proper <a href="/${lang}/#plastic-painting" class="text-accent hover:underline font-medium">plastic painting</a> of the plastic both before and after the metal layer is applied is crucial:</p>
-              <ul class="list-disc pl-5 space-y-2 mt-2">
-                <li><strong>Base coat:</strong> Smoothes the plastic surface, creating the perfect base for the aluminum layer.</li>
-                <li><strong>Top coat:</strong> Protects the thin metal layer from abrasion and allows for any color to be applied.</li>
-              </ul>
-              <p class="mt-3">Appropriate lacquering combined with vacuum metallization makes it possible to achieve an unlimited palette of colors—from classic gold, through rose gold, to metallic purples and blues.</p>
-            </div>
-          </div>
-
-          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
-            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
-              <thead>
-                <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Application in Beauty</th>
-                  <th class="p-4 font-bold text-foreground">Main Plastics</th>
-                  <th class="p-4 font-bold text-foreground">Key Coating Advantages</th>
-                  <th class="p-4 font-bold text-foreground">Achieved Effect</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60">
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Lipsticks & lip glosses</td>
-                  <td class="p-4">ABS, PC, polymers</td>
-                  <td class="p-4">Lightweight construction, resistance to cosmetic chemicals</td>
-                  <td class="p-4">Mirror chrome, gold, rose gold</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Compacts & eyeshadow palettes</td>
-                  <td class="p-4">ABS, PS, PMMA</td>
-                  <td class="p-4">Exclusive look, protection against scratches</td>
-                  <td class="p-4">High gloss, matte satin, colors</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Perfume packaging (caps)</td>
-                  <td class="p-4">PP, ABS, alloys</td>
-                  <td class="p-4">Precision of complex shapes, low weight</td>
-                  <td class="p-4">Gold, silver, and colored finishes</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Benefits of vacuum metallization in the beauty industry</h2>
-            <p>The use of this technology brings a number of benefits that determine its growing popularity among the largest cosmetic brands.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Aesthetics and modern design</h3>
-              <p>The main reason manufacturers choose to metallize is the unmatched aesthetics. Products gain a mirror shine, which is associated with luxury and prestige in consumers' minds. This allows brands to position their products in the premium segment.</p>
-            </div>
-            
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Increased product durability</h3>
-              <p>High-quality lacquers used as a top coat make the metallization extremely resistant to:</p>
-              <ul class="list-disc pl-5 space-y-2 mt-2">
-                <li>Mechanical scratches in makeup bags or purses.</li>
-                <li>The action of chemicals contained in the cosmetics themselves (e.g. oils, alcohol).</li>
-                <li>UV radiation, which prevents the packaging from fading.</li>
-              </ul>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Sustainable development and ecology</h3>
-              <p>It might seem that chemical processes do not go hand in hand with ecology. However, compared to solid metal elements, metallized plastic packaging is much lighter, which reduces the <a href="https://pl.wikipedia.org/wiki/%5CSlad_w%C4%99glowy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">carbon footprint</a> during transport. What's more, modern service facilities use <a href="https://pl.wikipedia.org/wiki/Promieniowanie_ultrafioletowe" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">UV rays</a> (free of volatile organic compounds), making the technology increasingly "green".</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Examples of products with vacuum metallization</h2>
-            <p>This technology has found application in almost every segment of the beauty market. Poland is also a strong player on the European production map—for example, inquiries about services such as <a href="/${lang}/#contact" class="text-accent hover:underline font-medium">vacuum metallization Józefów</a> and the STANIAX metallization plant, or other local production centers show that Polish companies represent an important base for international brands.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Innovative cosmetics with metallization</h3>
-              <p>On drugstore shelves, we can easily find products that use this technology:</p>
-              <ul class="list-disc pl-5 space-y-2 mt-2">
-                <li><strong>Lipsticks and lip glosses:</strong> Shiny, metallic cases are standard among leading makeup manufacturers today.</li>
-                <li><strong>Compacts and eyeshadow palettes:</strong> The mirror finish of powder or eyeshadow cases catches the eye and gives the product an exclusive character.</li>
-                <li><strong>Perfume packaging, cream tubes, and mascaras:</strong> Even flexible packaging can be covered with flexible, metallized films.</li>
-              </ul>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Application in perfumery</h3>
-              <p>In the world of perfume, packaging is just as important as the scent itself. Perfume bottles are usually made of glass, but their caps, stoppers, and atomizers define the character of the whole. This is where plastic metallization works best, allowing for the creation of intricate gold or silver caps with complex shapes that would be too heavy or too expensive to make from pure metal.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Summary and future of metallization in the beauty industry</h2>
-            <p>As current market trends show, surface refinement technologies will continue to evolve.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Trends and predictions</h3>
-              <p>The future will likely bring an even stronger emphasis on eco-friendly solutions. The industry is aiming for coatings that do not interfere with the plastic <a href="https://pl.wikipedia.org/wiki/Recykling" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">recycling</a> process. We will also see development toward special effects: holographic, chameleon (changing color depending on the angle), and matte metal coatings, which are currently gaining huge popularity among minimalist brands.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Conclusions</h3>
-              <p>Vacuum metallization has irreversibly changed the beauty industry. Replacing traditional metals, it has allowed for the mass production of visually exclusive packaging while maintaining lightweight properties and optimizing costs. The combination of precise coating deposition and advanced lacquering is now the key to the heart (and wallet) of the consumer who values design and high quality.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Frequently Asked Questions (Q&A)</h2>
-            <div class="space-y-6">
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">What is vacuum metallization and how does it differ from thermal spray metallization?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Vacuum metallization is the deposition of a very thin layer of metal (most commonly aluminum) on the surface of another material under high vacuum conditions. It results in a perfectly smooth, mirror-like coating of high aesthetic value. Unlike processes such as thermal spray metallization or <strong>vacuum casting metal</strong> (which is a molding method), this vacuum technique serves primarily for high-end decorative finishes and does not yield a rough surface.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Why does the beauty industry most commonly metallize plastic instead of using solid metal?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Packaging elements (such as caps, lipstick cases, atomizers) are produced from lightweight polymers and then metallized to combine convenience and low weight with a premium look (gold, silver, copper). This design lowers costs, improves ergonomics, and reduces the carbon footprint of transport compared to heavier metal elements, while maintaining the luxurious visual effect.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">What role does lacquering play in the metallization process and packaging durability?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">The base coat smoothes the plastic surface and prepares it for uniform metal deposition. The top coat protects the thin metal layer from scratches, chemicals in cosmetics, and UV radiation, and allows for any color to be applied. This combination is responsible for both the "mirror effect" and high operational durability.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">How environmentally friendly is vacuum metallization and what about recycling?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Compared to solid metals, lighter metallized plastic packaging limits emissions during transport. In addition, modern UV-cured lacquers do not contain volatile organic compounds, making the process "green" compared to traditional solutions. The industry is also working intensively on coatings that do not disrupt plastic recycling to fit better into the circular economy.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Where is this technology most commonly used and what are examples of products?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">In makeup, you will find it in lipstick and lip gloss cases, as well as compacts and palettes with a mirror finish. It is also used in perfumery - for caps, stoppers, and atomizers, where it enables the creation of striking yet lightweight shapes. Even flexible packaging (such as tubes) can utilize flexible, metallized films. Poland is an important production hub in Europe, as evidenced by growing interest in metallization services in local centers.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Main article body CTA Callout Block -->
-          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h3 class="text-xl font-bold text-foreground mb-4">Create packaging that will delight your customers!</h3>
-            <p class="text-sm md:text-base mb-6 leading-relaxed">
-              Are you looking for a proven and experienced partner to turn your visions into a luxurious reality? At STANIAX Metallization Plant, we combine advanced technologies with a passion for perfection. We offer the highest quality vacuum metallization and precise lacquering that will set your cosmetics apart from the competition.
-            </p>
-            
-            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why partner with STANIAX?</h4>
-            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-              <li><strong>Premium quality guarantee:</strong> We provide perfectly smooth, mirror-like coatings of remarkable durability.</li>
-              <li><strong>Modern machinery park:</strong> We complete orders quickly, precisely, and with the environment in mind.</li>
-              <li><strong>Full personalization:</strong> We achieve an unlimited palette of colors and effects tailored to your brand identity.</li>
-            </ul>
-            
-            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Elevate the prestige of your products and catch the consumer's eye!</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/${lang}/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                Contact us and request a free quote for your project!
-                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
-              </a>
-              <a href="/${lang}/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-                Discover completed projects of the STANIAX Metallization Plant
-                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <aside class="space-y-8 sticky top-28">
-          <!-- CTA Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
-            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
-            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
-              Write to us
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-          </div>
-
-          <!-- Actions Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
-              Copy link
-            </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
-              Print article
-            </button>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </main>
-</div>
-  `;
+  return function resolveAsset(prefix) {
+    const match = assetFiles.find(
+      (file) => file.startsWith(`${prefix}-`) && mediaRegex.test(file),
+    );
+    if (!match) {
+      throw new Error(
+        `Missing bundled media asset in dist/assets for prefix "${prefix}"`,
+      );
+    }
+    return `/assets/${match}`;
+  };
 }
 
-
-const deBeautyMeta = `
-    <title>PVD-Beschichtung in der Kosmetikbranche | STANIAX</title>
-    <meta name="description" content="Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren." />
-    <meta property="og:title" content="PVD-Beschichtung in der Kosmetikbranche | STANIAX" />
-    <meta property="og:description" content="Vakuummetallisierung revolutioniert die Kosmetikbranche. Erfahren Sie, warum führende Kosmetikmarken diese Technologie wählen." />
-    <meta property="og:type" content="article" />
-`
-
-function getDeBeautyHtml(lang) {
-  return `
-<div class="min-h-screen bg-background text-foreground font-sans">
-  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-      <a href="/${lang}/news" class="group flex items-center gap-3 text-left">
-        <div class="leading-tight">
-          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
-          <span class="block text-lg font-black">Aktuelles</span>
-        </div>
-      </a>
-      <div class="flex items-center gap-3 sm:gap-6">
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-          <a href="/${lang}/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">Über uns</a>
-          <a href="/${lang}/#about" class="text-muted-foreground hover:text-accent transition-colors">Angebot</a>
-          <a href="/${lang}/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projekte</a>
-          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galerie</a>
-          <a href="/${lang}/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
-        </nav>
-        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
-          Schreiben Sie uns
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="pt-28 pb-20">
-    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
-      <div class="max-w-3xl">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artikel</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">20. August 2025</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">5 Min. Lesezeit</span>
-        </div>
-        
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-          Vakuummetallisierung revolutioniert die Kosmetikbranche
-        </h1>
-        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
-          Wie die PVD-Oberflächenveredelung und präzise Lackierung von Kunststoffen und Glas den Markt für Kosmetikverpackungen im Beauty-Segment revolutionieren?
-        </p>
-      </div>
-
-      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="${beautyImgUrl}" alt="Luxuriöse, metallisierte Kosmetikverpackungen in verschiedenen Farben mit Hochglanzeffekt" class="w-full h-full object-cover" />
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
-        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <div class="space-y-6">
-            <p>Die Kosmetikbranche ist ein Bereich, in dem nicht nur die perfekte Zusammensetzung des Produkts zählt, sondern auch seine Verpackung. Kunden kaufen immer häufiger mit den Augen und suchen nach Premium-Produkten, die durch ihr Aussehen begeistern. Als Reaktion auf diese Bedürfnisse durchläuft der Markt für Kosmetikverpackungen eine echte Revolution, in deren Zentrum die <a href="/${lang}/#about" class="text-accent hover:underline font-medium">Vakuummetallisierung</a> steht. In diesem Artikel untersuchen wir, wie diese Technologie – auch bekannt als <strong>PVD-Beschichtung</strong> – das Gesicht moderner Kosmetika verändert.</p>
-            
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Einführung in die Vakuummetallisierung</h2>
-            <p>Um das Phänomen moderner Verpackungen zu verstehen, lohnt es sich zunächst, die Technologie dahinter zu erforschen. Richtig gewählte Herstellungsprozesse wie präzise Metallisierung in einem <strong>Metallvakuum</strong>-System und sorgfältige Beschichtung ermöglichen erstaunliche visuelle Effekte auf Materialien, die von Natur aus nicht an Edelmetalle erinnern.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Was ist Vakuummetallisierung?</h2>
-            <p>Vakuummetallisierung ist ein fortschrittlicher technologischer Prozess – oft auch als <strong>Vakuum-Metallbedampfung</strong> bezeichnet –, bei dem unter Hochvakuumbedingungen eine dünne Metallschicht (typischerweise <a href="https://pl.wikipedia.org/wiki/Glin" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Aluminium</a>) auf der Oberfläche eines anderen Materials abgeschieden wird. Im Gegensatz zu Verfahren wie der thermischen Spritzmetallisierung, dem **Vakuumguss** (oder **Vakuumguss Metall**), liefert die Vakuumtechnik eine perfekt glatte, spiegelnde Oberfläche von hohem ästhetischem Wert. Die Metallisierung selbst ist in dieser Ausführung äußerst präzise und bietet den Zierteilen und Kappen das Aussehen von Gold, Silber oder Kupfer, ohne dass diese teuren Materialien in ihrer Gesamtheit verwendet werden müssen.</p>
-            
-            <h3 class="text-xl font-bold text-foreground pt-2">Geschichte und Entwicklung der Technologie</h3>
-            <p>Obwohl das Auftragen dünner metallischer Schichten seit Jahrzehnten bekannt ist, war es anfangs teuer und der Optik- oder Elektronikindustrie vorbehalten. Im Laufe der Jahre wurde die Technologie immer zugänglicher. Heute ist dieses Beschichtungsverfahren Standard bei der Herstellung eleganter Verpackungen. Die Entwicklung von Maschinen und modernen Lacken hat diesen Prozess nicht nur schneller, sondern auch deutlich umweltfreundlicher gemacht.</p>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Anwendung der Metallisierung in Kosmetika</h2>
-            <p>Eine Kosmetikverpackung soll das Produkt schützen und Aufmerksamkeit erregen. Beschichtungstechnologien sorgen dafür, dass leichte Materialien das Aussehen schwerer, exklusiver Metalle erhalten.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Kunststoffmetallisierung in Verpackungen</h3>
-              <p>In der Beauty-Branche wird am häufigsten die <a href="/${lang}/#about" class="text-accent hover:underline font-medium">Kunststoffmetallisierung</a> eingesetzt. Elemente wie Kappen von Cremetiegeln, Lippenstiftgehäuse oder Zerstäuber werden aus leichten <a href="https://pl.wikipedia.org/wiki/Polimery" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Polymeren</a> hergestellt und anschließend dem Metallisierungsprozess unterzogen. Dadurch bleibt die Verpackung für den Verbraucher leicht und handlich, präsentiert sich visuell jedoch als Spitzenprodukt.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Kunststofflackierung und Metallisierung</h3>
-              <p>Damit die metallische Beschichtung dauerhaft und glänzend ist, reicht der Metallabscheidungsprozess allein nicht aus. Eine fachgerechte <a href="/${lang}/#about" class="text-accent hover:underline font-medium">Kunststofflackierung</a> sowohl vor als auch nach dem Auftragen der Metallschicht ist entscheidend:</p>
-              <ul class="list-disc pl-5 space-y-2 mt-2">
-                <li><strong>Grundierung (Base coat):</strong> Glättet die Kunststoffoberfläche und bildet die perfekte Basis für die Aluminiumschicht.</li>
-                <li><strong>Decklack (Top coat):</strong> Schützt die dünne Metallschicht vor Abrieb und ermöglicht das Auftragen jeder beliebigen Farbe.</li>
-              </ul>
-              <p class="mt-3">Eine entsprechende Lackierung in Kombination mit der Vakuummetallisierung ermöglicht eine unbegrenzte Farbpalette – von klassischem Gold über Roségold bis hin zu metallischen Violett- und Blautönen.</p>
-            </div>
-          </div>
-
-          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
-            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
-              <thead>
-                <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Anwendung in Kosmetik</th>
-                  <th class="p-4 font-bold text-foreground">Hauptkunststoffe</th>
-                  <th class="p-4 font-bold text-foreground">Vorteile der Beschichtung</th>
-                  <th class="p-4 font-bold text-foreground">Erzielter Effekt</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60">
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Lippenstifte & Lipglosse</td>
-                  <td class="p-4">ABS, PC, Polymere</td>
-                  <td class="p-4">Leichtbauweise, Beständigkeit gegen Kosmetikchemikalien</td>
-                  <td class="p-4">Spiegelchrom, Gold, Roségold</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Kompaktpuder & Lidschattenpaletten</td>
-                  <td class="p-4">ABS, PS, PMMA</td>
-                  <td class="p-4">Exklusive Optik, Schutz vor Kratzern</td>
-                  <td class="p-4">Hochglanz, mattes Satin, Farben</td>
-                </tr>
-                <tr>
-                  <td class="p-4 font-medium text-foreground">Parfümverpackungen (Kappen)</td>
-                  <td class="p-4">PP, ABS, Legierungen</td>
-                  <td class="p-4">Präzision komplexer Formen, geringes Gewicht</td>
-                  <td class="p-4">Gold, Silber und farbige Oberflächen</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Vorteile der Vakuummetallisierung in der Kosmetikindustrie</h2>
-            <p>Der Einsatz dieser Technologie bringt eine Reihe von Vorteilen mit sich, die ihre wachsende Beliebtheit bei den größten Kosmetikmarken bestimmen.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Ästhetik und modernes Design</h3>
-              <p>Der Hauptgrund, warum sich Hersteller für das Metallisieren entscheiden, ist die unübertroffene Ästhetik. Die Produkte erhalten einen Spiegelglanz, der in den Köpfen der Verbraucher unweigerlich mit Luxus und Prestige assoziiert wird. Dies ermöglicht es Marken, ihre Produkte im Premiumsegment zu positionieren.</p>
-            </div>
-            
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Erhöhte Produkthaltbarkeit</h3>
-              <p>Hochwertige Lacke, die als Decklack verwendet werden, machen die Metallisierung extrem widerstandsfähig gegen:</p>
-              <ul class="list-disc pl-5 space-y-2 mt-2">
-                <li>Mechanische Kratzer in Kosmetiktaschen oder Handtaschen.</li>
-                <li>Die Einwirkung von in den Kosmetika selbst enthaltenen Chemikalien (z. B. Öle, Alkohol).</li>
-                <li>UV-Strahlung, was das Verblassen der Verpackung verhindert.</li>
-              </ul>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Nachhaltige Entwicklung und Ökologie</h3>
-              <p>Es könnte den Anschein haben, dass chemische Prozesse nicht mit Ökologie einhergehen. Im Vergleich zu massiven Metallelementen sind metallisierte Kunststoffverpackungen jedoch viel leichter, was den CO2-Fußabdruck beim Transport reduziert. Darüber hinaus verwenden moderne Dienstleistungsbetriebe Lacke, die durch UV-Strahlen ausgehärtet werden (frei von flüchtigen organischen Verbindungen), was die technologie zunehmend "grüner" macht.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Beispiele für Produkte mit PVD-Finish</h2>
-            <p>Diese Technologie hat in fast jedem Segment des Kosmetikmarktes Anwendung gefunden. Polen ist ebenfalls ein starker Akteur auf der europäischen Produktionskarte – beispielsweise zeigen Anfragen zu Dienstleistungen wie <a href="/${lang}/#contact" class="text-accent hover:underline font-medium">Metallisierung Józefów</a> und dem STANIAX-Metallisierungsbetrieb oder anderen lokalen Produktionszentren, dass polnische Unternehmen eine wichtige Basis für internationale Marken darstellen.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Innovative Kosmetika mit Metallisierung</h3>
-              <p>In den Regalen der Drogerien finden wir leicht Produkte, die diese Technologie nutzen:</p>
-              <ul class="list-disc pl-5 space-y-2 mt-2">
-                <li><strong>Lippenstifte und Lipglosse:</strong> Glänzende, metallische Hüllen sind heute Standard bei führenden Make-up-Herstellern.</li>
-                <li><strong>Kompaktpuder und Lidschattenpaletten:</strong> Das spiegelnde Finish von Puder- oder Lidschattendosen zieht die Blicke auf sich und verleiht dem Produkt einen exklusiven Charakter.</li>
-                <li><strong>Parfümverpackungen, Cremetuben und Wimperntuschen:</strong> Sogar flexible Verpackungen können mit flexiblen, metallisierten Folien überzogen werden.</li>
-              </ul>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Anwendung in der Parfümerie</h3>
-              <p>In der Welt des Parfüms ist die Verpackung ebenso wichtig wie der Duft selbst. Parfümflakons bestehen meist aus Glas, aber ihre Kappen, Verschlüsse und Zerstäuber bestimmen den Charakter des Ganzen. Genau hier bewährt sich die Kunststoffmetallisierung am besten. Sie ermöglicht die Herstellung aufwendiger goldener oder silberner Kappen mit komplexen Formen, die zu schwer oder zu teuer wären, um sie aus reinem Metall herzustellen.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Zusammenfassung und Zukunft der Metallisierung in der Kosmetikindustrie</h2>
-            <p>Wie aktuelle Markttrends zeigen, werden sich die Technologien zur Oberflächenveredelung weiter entwickeln.</p>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Trends und Prognosen</h3>
-              <p>Die Zukunft wird wahrscheinlich einen noch stärkeren Fokus auf umweltfreundliche Lösungen bringen. Die Branche strebt Beschichtungen an, die den Recyclingprozess von Kunststoffen nicht beeinträchtigen. Wir werden auch eine Entwicklung hin zu Spezialeffekten beobachten: holografische Beschichtungen, Chamäleon-Effekte (Farbwechsel je nach Blickwinkel) und matte Metallbeschichtungen, die derzeit bei minimalistischen Marken stark an Beliebtheit gewinnen.</p>
-            </div>
-
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Schlussfolgerungen</h3>
-              <p>Dieses Veredelungsverfahren hat die Kosmetikindustrie unwiderruflich verändert. Durch den Ersatz traditioneller Metalle ermöglichte sie die Massenproduktion von optisch exklusiven Verpackungen bei gleichzeitiger Beibehaltung der Leichtigkeit und Kostenoptimierung. Die Kombination aus präziser Beschichtungsabscheidung und fortschrittlicher Lackierung ist heute der Schlüssel zum Herzen (und Geldbeutel) des Verbrauchers, der Wert auf Design und hohe Qualität legt.</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Häufig gestellte Fragen (Q&A)</h2>
-            <div class="space-y-6">
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Was ist Vakuummetallisierung und wie unterscheidet sie sich von der thermischen Spritzmetallisierung?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Die Dünnschichtabscheidung im Vakuum ist die Abscheidung einer sehr dünnen Metallschicht (meist Aluminium) auf der Oberfläche eines anderen Materials unter Hochvakuumbedingungen. Sie führt zu einer perfekt glatten, spiegelnden Beschichtung von hohem ästhetischem Wert. Im Gegensatz zu Verfahren wie der thermischen Spritzmetallisierung, dem **Vakuumguss** oder **Vakuumguss Metall** (einer Gussmethode) dient diese Vakuumtechnik in erster Linie der hochwertigen dekorativen Veredelung und erzeugt keine raue Oberfläche.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Warum metallisiert die Kosmetikindustrie am häufigsten Kunststoff, anstatt massives Metall zu verwenden?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Verpackungselemente (wie Kappen, Lippenstiftgehäuse, Zerstäuber) werden aus leichten Polymeren hergestellt und anschließend metallisiert, um Komfort und geringes Gewicht mit einer Premium-Optik (Gold, Silber, Kupfer) zu verbinden. Im Vergleich zu massiven Metallteilen oder Elementen aus dem **Vakuumguss** (bzw. **Vakuumguss Metall**) senkt dieses Design die Kosten, verbessert die Ergonomie und reduziert den CO2-Fußabdruck beim Transport im Vergleich zu schwereren Metallelementen, während der luxuriöse visuelle Effekt erhalten bleibt.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Welche Rolle spielt die Lackierung im Metallisierungsprozess und für die Haltbarkeit der Verpackung?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Die Grundierung (base coat) glättet die Kunststoffoberfläche und bereitet sie auf eine gleichmäßige Metallabscheidung vor. Der Decklack (top coat) schützt die dünne Metallschicht vor Kratzern, Kosmetikchemikalien und UV-Strahlung und ermöglicht das Auftragen jeder beliebigen Farbe. Diese Kombination sorgt sowohl für den „Spiegeleffekt“ als auch für eine hohe Strapazierfähigkeit im Gebrauch.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Wie umweltfreundlich ist die Vakuummetallisierung und wie steht es um das Recycling?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Im Vergleich zu massiven Metallen reduzieren leichtere metallisierte Kunststoffverpackungen die Emissionen beim Transport. Zudem enthalten moderne UV-härtende Lacke keine flüchtigen organischen Verbindungen, was das Verfahren im Vergleich zu herkömmlichen Lösungen umweltschonend macht. Die Industrie arbeitet zudem intensiv an Beschichtungen, die das Kunststoff-Recycling nicht beeinträchtigen, um sich besser in die Kreislaufwirtschaft einzufügen.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Wo wird diese Technologie am häufigsten eingesetzt und was sind Produktbeispiele?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Im Make-up-Bereich findet man sie in Lippenstift- und Lipgloss-Gehäusen sowie in Kompaktpudern und Paletten mit Spiegelfinish. Sie wird auch in der Parfümerie eingesetzt – für Kappen, Verschlüsse und Zerstäuber, wo sie die Gestaltung auffälliger und zugleich leichter Formen ermöglicht. Zudem können elastische Verpackungen (z.B. Tuben) von elastischen metallisierten Folien profitieren. Polen ist ein wichtiges Produktionszentrum in Europa, wie das wachsende Interesse an Metallisierungsdienstleistungen in lokalen Zentren belegt.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Main article body CTA Callout Block -->
-          <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h3 class="text-xl font-bold text-foreground mb-4">Erstellen Sie Verpackungen, die Ihre Kunden begeistern werden!</h3>
-            <p class="text-sm md:text-base mb-6 leading-relaxed">
-              Suchen Sie einen bewährten und erfahrenen Partner, um Ihre Visionen in eine luxuriöse Reality umzusetzen? Im STANIAX Metallisierungsbetrieb verbinden wir fortschrittliche Technologien mit Leidenschaft für Perfektion. Wir bieten diese professionelle Oberflächenveredelung und präzise Lackierung, mit denen sich Ihre Kosmetika von der Konkurrenz abheben.
-            </p>
-            
-            <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum mit STANIAX zusammenarbeiten?</h4>
-            <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-              <li><strong>Premium-Qualitätsgarantie:</strong> Wir sorgen für perfekt glatte, spiegelnde Beschichtungen von außergewöhnlicher Haltbarkeit.</li>
-              <li><strong>Moderner Maschinenpark:</strong> Wir führen Aufträge schnell, präzise und umweltschonend aus.</li>
-              <li><strong>Volle Personalisierung:</strong> Wir erzielen eine unbegrenzte Palette an Farben und Alterserscheinungen, die auf Ihre Markenidentität abgestimmt sind.</li>
-            </ul>
-            
-            <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Steigern Sie das Prestige Ihrer Produkte und ziehen Sie die Blicke der Verbraucher auf sich!</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a href="/${lang}/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-                Kontaktieren Sie uns für eine kostenlose Projektbewertung!
-                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M221.66 133.66l-72 72a8 8 0 0 1-11.32-11.32L196.69 136H40a8 8 0 0 1 0-16h156.69l-58.35-58.34a8 8 0 0 1 11.32-11.32l72 72a8 8 0 0 1 0 11.32z"/></svg>
-              </a>
-              <a href="/${lang}/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-                Entdecken Sie unsere Galerie von STANIAX-Projekten
-                <svg class="ml-2 w-4 h-4" viewBox="0 0 256 256"><path fill="currentColor" d="M200 64v104a8 8 0 0 1-16 0V83.31L73.37 193.94a8 8 0 1 1-11.31-11.31L172.69 72H88a8 8 0 0 1 0-16h104a8 8 0 0 1 8 8Z"/></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <aside class="space-y-8 sticky top-28">
-          <!-- CTA Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
-            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
-            <a href="/${lang}/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
-              Schreiben Sie uns
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-          </div>
-
-          <!-- Actions Panel -->
-          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
-              Link kopieren
-            </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
-              Artikel drucken
-            </button>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </main>
-</div>
-  `
-}
-
-// 4. Polish version (Beauty)
-writePrerenderFile('news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty', plBeautyMeta, plBeautyHtml)
-
-// 5. English version (Beauty)
-writePrerenderFile('en/news/vacuum-metallization-revolutionizes-beauty-industry', enBeautyMeta, getEnBeautyHtml('en'))
-
-// 6. German version (Beauty)
-writePrerenderFile('de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche', deBeautyMeta, getDeBeautyHtml('de'))
-
-
-const plReflectorsMeta = `
-    <title>Regeneracja Odbłyśników i Reflektorów | STANIAX</title>
-    <meta name="description" content="Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić." />
-    <meta property="og:title" content="Regeneracja Odbłyśników i Reflektorów | STANIAX" />
-    <meta property="og:description" content="Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić." />
-    <meta property="og:type" content="article" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Ile kosztuje regeneracja reflektorów?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Polerowanie klosza z nałożeniem powłoki UV to koszt 150–300 zł za lampę, a kompleksowa regeneracja z metalizacją odbłyśnika – 350–700 zł za sztukę. Dla porównania nowa lampa OEM kosztuje od 1 500 do ponad 5 000 zł."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Ile trwa regeneracja reflektorów?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Samo polerowanie klosza można wykonać w kilka godzin. Kompleksowa regeneracja z metalizacją odbłyśników trwa zwykle od 5 do 7 dni roboczych, w zależności od zakresu prac i technologii."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Czy zmatowione reflektory przejdą przegląd techniczny?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Mocno zdegradowane klosze przepuszczają tylko 20–30% światła, co grozi negatywnym wynik badania technicznego, a nawet odmową dopuszczenia pojazdu do ruchu. Regeneracja przywraca parametry świecenia i pozwala uniknąć problemów na przeglądzie."
+function readImageDimensionsFromFile(filePath) {
+  try {
+    const buf = fs.readFileSync(filePath);
+    if (
+      buf.length >= 24 &&
+      buf[0] === 0x89 &&
+      buf[1] === 0x50 &&
+      buf[2] === 0x4e &&
+      buf[3] === 0x47
+    ) {
+      return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+    }
+    if (
+      buf.length >= 30 &&
+      buf.toString("ascii", 0, 4) === "RIFF" &&
+      buf.toString("ascii", 8, 12) === "WEBP"
+    ) {
+      const chunk = buf.toString("ascii", 12, 16);
+      if (chunk === "VP8X" && buf.length >= 30) {
+        return {
+          width: 1 + buf.readUIntLE(24, 3),
+          height: 1 + buf.readUIntLE(27, 3),
+        };
+      }
+      if (chunk === "VP8 " && buf.length >= 30) {
+        return {
+          width: buf.readUInt16LE(26) & 0x3fff,
+          height: buf.readUInt16LE(28) & 0x3fff,
+        };
+      }
+      if (chunk === "VP8L" && buf.length >= 25) {
+        const bits = buf.readUInt32LE(21);
+        return {
+          width: (bits & 0x3fff) + 1,
+          height: ((bits >> 14) & 0x3fff) + 1,
+        };
+      }
+    }
+    if (buf.length >= 4 && buf[0] === 0xff && buf[1] === 0xd8) {
+      let offset = 2;
+      while (offset + 4 < buf.length) {
+        if (buf[offset] !== 0xff) {
+          offset++;
+          continue;
+        }
+        while (offset < buf.length && buf[offset] === 0xff) offset++;
+        if (offset >= buf.length) break;
+        const marker = buf[offset++];
+        if (marker === 0xd8 || marker === 0xd9 || (marker >= 0xd0 && marker <= 0xd7)) {
+          continue;
+        }
+        if (offset + 2 > buf.length) break;
+        const segLen = buf.readUInt16BE(offset);
+        if (
+          (marker >= 0xc0 && marker <= 0xc3) ||
+          (marker >= 0xc5 && marker <= 0xc7) ||
+          (marker >= 0xc9 && marker <= 0xcb) ||
+          (marker >= 0xcd && marker <= 0xcf)
+        ) {
+          if (offset + 7 <= buf.length) {
+            return {
+              width: buf.readUInt16BE(offset + 3),
+              height: buf.readUInt16BE(offset + 5),
+            };
           }
         }
-      ]
+        offset += segLen;
+      }
     }
-    </script>
-`
-
-const enReflectorsMeta = `
-    <title>Reflector Regeneration and Headlight Polishing | STANIAX</title>
-    <meta name="description" content="Reflector regeneration using the PVD method and headlight polishing. Prices from 150 PLN, durability up to 5 years. Check when to restore and when to replace." />
-    <meta property="og:title" content="Reflector Regeneration and Headlight Polishing | STANIAX" />
-    <meta property="og:description" content="Reflector regeneration using the PVD method and headlight polishing. Prices from 150 PLN, durability up to 5 years. Check when to restore and when to replace." />
-    <meta property="og:type" content="article" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much does headlight regeneration cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Polishing the lens with UV coating costs 150–300 PLN per lamp, and comprehensive regeneration with reflector metallization is 350–700 PLN per piece. For comparison, a new OEM lamp costs from 1,500 to over 5,000 PLN."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does headlight regeneration take?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Lens polishing alone can be done in a few hours. Comprehensive regeneration with reflector metallization usually takes 5 to 7 business days, depending on the scope of work and technology."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Will cloudy headlights pass a technical inspection?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Heavily degraded lenses transmit only 20–30% of light, which risks a negative technical inspection result, or even refusal to allow the vehicle to be driven. Regeneration restores lighting parameters and helps avoid problems during inspection."
-          }
-        }
-      ]
-    }
-    </script>
-`
-
-const deReflectorsMeta = `
-    <title>Reflektoren Regeneration und Scheinwerfer Polieren | STANIAX</title>
-    <meta name="description" content="Reflektoren Regeneration mit der PVD-Methode und Scheinwerfer Polieren. Preise ab 150 PLN, Haltbarkeit bis zu 5 Jahre. Wann regenerieren oder ersetzen." />
-    <meta property="og:title" content="Reflektoren Regeneration und Scheinwerfer Polieren | STANIAX" />
-    <meta property="og:description" content="Reflektoren Regeneration mit der PVD-Methode und Scheinwerfer Polieren. Preise ab 150 PLN, Haltbarkeit bis zu 5 Jahre. Wann regenerieren oder ersetzen." />
-    <meta property="og:type" content="article" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Wie viel kostet die Scheinwerfer-Regeneration?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Das Polieren der Streuscheibe mit UV-Beschichtung kostet 150–300 PLN pro Lampe, eine umfassende Regeneration mit Reflektormetallisierung 350–700 PLN pro Stück. Im Vergleich dazu kostet ein neuer OEM-Scheinwerfer ab 1.500 bis über 5.000 PLN."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Wie lange dauert die Scheinwerfer-Regeneration?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Das reine Polieren der Streuscheibe kann in wenigen Stunden erledigt werden. Eine umfassende Regeneration mit Reflektormetallisierung dauert in der Regel 5 bis 7 Werktage, je nach Arbeitsaufwand und Technologie."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Bestehen erblindete Scheinwerfer die Hauptuntersuchung?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Stark degradierte Streuscheiben lassen nur 20–30 % des Lichts durch, was zu einer nicht bestandenen Hauptuntersuchung oder sogar zum Entzug der Straßenzulassung führen kann. Die Regeneration stellt die Lichtwerte wieder her und vermeidet Probleme bei der HU."
-          }
-        }
-      ]
-    }
-    </script>
-`
-
-function getReflectorsHtml(lang) {
-  if (lang === 'pl') {
-    return `
-<div class="min-h-screen bg-background text-foreground font-sans">
-  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-      <a href="/news" class="group flex items-center gap-3 text-left">
-        <div class="leading-tight">
-          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
-          <span class="block text-lg font-black">Aktualności</span>
-        </div>
-      </a>
-      <div class="flex items-center gap-3 sm:gap-6">
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-          <a href="/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">O nas</a>
-          <a href="/#about" class="text-muted-foreground hover:text-accent transition-colors">Oferta</a>
-          <a href="/#projects" class="text-muted-foreground hover:text-accent transition-colors">Realizacje</a>
-          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galeria</a>
-          <a href="/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
-        </nav>
-        <div class="flex items-center gap-2">
-          <a href="/news/regeneracja-odblysnikow-reflektorow-samochodowych" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-100 scale-110">🇵🇱</a>
-          <a href="/en/news/reflector-regeneration-and-headlight-polishing" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇬🇧</a>
-          <a href="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇩🇪</a>
-        </div>
-        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
-          Kontakt
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="pt-28 pb-20">
-    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
-      <div class="max-w-3xl">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artykuł</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">10 czerwca 2026</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">6 min czytania</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-          Regeneracja odbłyśników i reflektorów samochodowych – poradnik kierowcy i oferta STANIAX
-        </h1>
-        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
-          Reflektory w każdym samochodzie pełnią podwójną rolę: zapewniają bezpieczeństwo jazdy i wpływają na estetykę pojazdu. Gdy tracą przejrzystość, widoczność na drodze spada drasticznie. W tym poradniku wyjaśniamy, kiedy i jak przeprowadzić regenerację, jakie metody przynoszą trwałe efekty, a także dlaczego STANIAX jest partnerem, po którego sięgają warsztaty i producenci lamp samochodowych w całej Polsce.
-        </p>
-      </div>
-
-      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="/src/assets/odblysniki-nowe-1.jpeg" alt="Zregenerowane odbłyśniki reflektorów samochodowych po metalizacji próżniowej PVD" class="w-full h-full object-cover" />
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
-        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <div class="space-y-6">
-            <h2 class="text-xl md:text-2xl font-black text-foreground pt-2">Regeneracja odbłyśników i reflektorów – szybka odpowiedź na najczęstsze pytania</h2>
-            <p>Jeśli zauważasz, że reflektory i odbłyśniki lamp przeciwmgielnych w Twoim aucie świecą słabiej niż kiedyś, mają żółtawy odcień lub dostałeś uwagę na przeglądzie technicznym – to sygnał, że pora na regenerację. Zmatowienie reflektorów może prowadzić do odmowy dopuszczenia pojazdu do ruchu, więc nie warto zwlekać. Polerowanie reflektorów poprawia ich wygląd i funkcjonalność, a regeneracja odbłyśników w reflektorach może zwiększyć ich wydajność nawet o 100%.</p>
-            <p>Regeneracja odbłyśników lamp samochodowych obejmuje kilka zakresów: polerowanie klosza – usunięcie zmatowień i mikrorys z zewnętrznej powierzchni; regenerację odbłyśników – odnowienie warstwy refleksyjnej wewnątrz lampy; oraz uszczelnienie i zabezpieczenie UV – ochrona przed ponownym matowieniem.</p>
-            <p>Poprawa widoczności jest odczuwalna od razu, a koszt zaczyna się od ok. 150–300 zł za polerowanie klosza; pełna regeneracja z metalizacją odbłyśnika to 350–700 zł – wciąż wielokrotnie mniej niż zakup nowych lamp, gdzie np. reflektory bi xenon potrafią kosztować kilka tysięcy złotych za sztukę. Regeneracja reflektorów przywraca im pełną sprawność za ułamek ceny. W STANIAX specjalizujemy się w regeneracji odbłyśników metodami przemysłowymi – metalizacją próżniową PVD i metalizacją natryskową – co daje trwalszy efekt niż amatorskie polerowanie w garażu.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Dlaczego reflektory ulegają zmatowieniu i tracą dawny blask?</h2>
-            <p>Od końca lat 90. większość reflektorów wykonana jest z poliwęglanu, a nie ze szkła. Poliwęglan jest lekki i odporny na uderzenia, ale podatny na degradację – szczególnie pod wpływem promieni słonecznych. Fabryczna warstwa ochronna, o grubości zaledwie 15–25 mikrometrów, z czasem ulega degradacji, wystawiając tworzywo na bezpośredni kontakt z promieniowaniem UV.</p>
-            <p>Te czynniki prowadzą do stopniowego niszczenia klosza:</p>
-            <ul class="list-disc pl-6 mb-6 space-y-1">
-              <li>reflektory matowieją przez działanie promieni UV, które rozkładają strukturę poliwęglanu i tworzą chromofory – związki barwiące nadające żółty odcień,</li>
-              <li>kwaśne deszcze i sól drogowa uszkadzają lampy samochodowe, wżerając się w mikropęknięcia,</li>
-              <li>drobne kamyczki i piasek z drogi powodują mechaniczne zarysowania powierzchni,</li>
-              <li>warunki atmosferyczne i cykliczne zmiany temperatury przyspieszają utlenianie.</li>
-            </ul>
-            <p>Zmatowienie reflektorów pogarsza widoczność podczas jazdy – badania AAA wykazały, że mocno zdegradowane klosze przepuszczają tylko 20–30% światła w porównaniu z nowymi. W nowoczesnych lampach bi xenon, bi led i Full LED zmatowienie klosza i utrata odbicia przez odbłyśnik szczególnie mocno obniżają parametry świecenia – a to prosta droga do negatywnego wyniku badania technicznego. Matowe reflektory pogarszają bezpieczeństwo Twoje i innych użytkowników ruchu, bo skracają realny zasięg snopa światła.</p>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Regeneracja reflektorów – zakres prac i możliwe metody</h2>
-            <p>Regeneracja reflektorów może oznaczać tylko polerowanie klosza albo kompleksową odnowę wnętrza lampy – warto jasno rozróżyć te dwa podejścia, bo ich skuteczność i cena są zupełnie różne.</p>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Polerowanie reflektorów</h3>
-              <p>Podstawowa usługa to polerowanie reflektorów: zewnętrzna odnowa klosza polegająca na usunięciu zmatowień, mikrorys i nałożeniu warstwy ochronnej UV. Zmatowiałe klosze są idealnym kandydatem do takiej renowacji – o ile wnętrze lampy jest w dobrym stanie.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Kompleksowa naprawa</h3>
-              <p>Kompleksowa naprawa reflektorów samochodowych obejmuje: demontaż lampy z samochodu, rozklejenie obudowy, czyszczenie wnętrza, regenerację odbłyśników (metalizację próżniową), ewentualną wymianę uszczelek i ponowne sklejenie. Regeneracja odbłyśników podnosi jakość wiązki światła, przywracając parametry zbliżone do fabrycznych. Czas regeneracji reflektorów wynosi od 5 do 7 dni roboczych – w zależności od zakresu prac i technologii.</p>
-              <p>W STANIAX najczęściej pracujemy na samych odbłyśnikach dostarczonych przez warsztaty lub producentów, stosując metalizację próżniową PVD dla uzyskania efektu lustrzanego i długiej żywotności powłoki. Zakres regeneracji zależy od stanu lamp – płytkie zarysowania wymagają innego podejścia niż przepalone odbłyśniki czy lampy zalane wodą. Dlatego ich regeneracja zawsze powinna zaczynać się od oceny specjalisty.</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Polerowanie lamp krok po kroku – jak przywrócić przejrzystość klosza</h2>
-            <p>Polerowanie lamp to zadanie, które przy odpowiednim przygotowaniu wymaga staranności, ale jest wykonalne nawet w warunkach garażowych. Polerowanie reflektorów można wykonać w kilka godzin, a efekt bezpośrednio przekłada się na lepszą widoczność. Poniżej znajdziesz opis poszczególnych etapów.</p>
-            <p><strong>Potrzebne narzędzia i materiały:</strong></p>
-            <ul class="list-disc pl-6 mb-6 space-y-1">
-              <li>taśma malarska do zabezpieczenia lakieru wokół lamp,</li>
-              <li>papiery ścierne wodne (gradacja 800, 1200, 2000, 3000) lub krążki ścierne,</li>
-              <li>polerka orbitalna lub wkrętarka z nasadką, gąbki polerskie,</li>
-              <li>pasta polerska do tworzyw (zestawy do renowacji zawierają papiery ścierne i pastę polerską),</li>
-              <li>środek odtłuszczający, lakier bezbarwny z filtrem UV.</li>
-            </ul>
-            <p><strong>Etapy polerowania:</strong></p>
-            <p>1. <strong>Przygotowanie lamp</strong> – dokładne umycie klosza, odtłuszczanie powierzchni, zabezpieczenie lakieru wokół reflektora taśmą.</p>
-            <p>2. <strong>Szlifowanie na mokro</strong> – użyj papieru ściernego o gradacji 800 do 3000, zaczynając od najgrubszego. Ruchy poziome i pionowe, by uniknąć kierunkowych rys. Kontroluj temperaturę – nie przegrzewaj poliwęglanu.</p>
-            <p>3. <strong>Polerowanie właściwe</strong> – niska prędkość polerki, umiarkowany docisk, praca partiami. Polerowanie reflektorów zwiększa ich przezroczystość i jasność już na tym etapie.</p>
-            <p>4. <strong>Zabezpieczenie UV</strong> – polerowanie reflektorów wymaga nałożenia nowej powłoki zabezpieczającej. Lakierowanie reflektorów tworzy nową, twardą powłokę ochronną, która zapobiega ponownemu matowieniu. Zabezpiecz reflektory powłoką UV po polerowaniu – bez tego efekt zniknie w ciągu kilku miesięcy.</p>
-            <p>Samo polerowanie z nałożeniem filtra UV kosztuje od 150 do 300 zł za lampę. Polerowanie poprawia widoczność na drodze o kilkanaście metrów – różnica jest zauważalna zwłaszcza nocą. Pamiętaj jednak, że polerowanie klosza bez demontażu lampy to rozwiązanie szybkie, ale nie zawsze wystarczające – jeśli odbłyśnik w środku jest wypalony lub skorodowany, samo czyszczenie zewnętrzne nie pomoże.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Przygotowanie lamp do kompleksowej regeneracji odbłyśników</h2>
-            <p>Regeneracja odbłyśnika wymaga wyjęcia lampy z pojazdu i rozklejenia obudowy – to zazwyczaj wykonuje wyspecjalizowany warsztat, a STANIAX zajmuje się częścią powierzchniową odbłyśnika: metalizacją i powłokami.</p>
-            <p><strong>Jak warsztat lub klient B2B powinien przygotować elementy do wysyłki:</strong></p>
-            <ul class="list-disc pl-6 mb-6 space-y-1">
-              <li>demontaż reflektorów z auta – przygotowanie lamp zaczyna się od ostrożnego wyjęcia kompletnych lamp,</li>
-              <li>rozklejenie obudowy i wyjęcie odbłyśników z wnętrza,</li>
-              <li>usunięcie resztek starego kleju i zanieczyszczeń,</li>
-              <li>zabezpieczenie delikatnych miejsc przed uszkodzeniami mechanicznymi (unikać kontaktu z ostrymi elementami).</li>
-            </ul>
-            <p>Odbłyśniki nie powinny być wcześniej polerowane mechanicznie – uszkadza to ich geometrię i utrudnia poprawną metalizację próżniową. Powierzchnia odbłyśników jest przez STANIAX dodatkowo oczyszczana i przygotowywana: oczyszczenie z poprzedniej metalizacji wraz ze szlifowaniem powierzchni wewnętrznej, odtłuszczanie, nałożenie farby podkładowej, jeśli wymaga tego dany system. Wysyłka powinna wyglądać następująco: sztywne kartony, oddzielne zabezpieczenie każdego odbłyśnika folią bąbelkową, opis auta/modelu/rocznika – dzięki temu unikamy pomyłek. Wymiana reflektorów jest konieczna przy poważnych uszkodzeniach strukturalnych – ale to rzadkość; większość starych lamp da się skutecznie odnowić.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Profesjonalna regeneracja odbłyśników w STANIAX – metalizacja próżniowa i natryskowa</h2>
-            <p>Odbłyśnik to serce reflektora – kształtuje snop światła i decyduje o jakości oświetlenia. Jego wypalenie powoduje drastyczny spadek skuteczności nawet przy nowych żarówkach czy modułach LED. Regeneracja reflektorów zwiększa ich żywotność i poprawia bezpieczeństwo, przywracając odpowiednią ilość odbijanego światła.</p>
-            <p>Metalizacja próżniowa (PVD) polega na odparowaniu aluminium w komorze próżniowej i nanoszeniu ultracienkiej, równomiernej warstwy na powierzchni odbłyśnika. Efekt lustrzany jest porównywalny z fabrycznym, a współczynnik odbicia sięga ponad 85%. Koszt regeneracji z metalizacją próżniową wynosi około 350–700 zł za sztukę – wciąż wielokrotnie mniej niż nowa lampa.</p>
-            <p>Metalizacja natryskowa stanowi alternatywę dla niektórych serii detali, gdy wymagana jest grubsza lub specyficzna powłoka. STANIAX stosuje przemysłowe systemy lakiernicze i powłoki ochronne UV, dzięki czemu regenerowane odbłyśniki są odporne na temperaturę pracy reflektora oraz wilgoć. Ta usługa jest kierowana głównie do warsztatów, lakierni i producentów komponentów oświetleniowych, ale pośrednio korzystają na niej kierowcy, których lampy odzyskują fabryczne parametry i atrakcyjny wygląd.</p>
-          </div>
-
-          <h3 class="text-lg md:text-xl font-bold text-foreground mb-3 mt-8">Polerowanie klosza, regeneracja wnętrza czy wymiana lampy – co wybrać?</h3>
-          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
-            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
-              <thead>
-                <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Metoda</th>
-                  <th class="p-4 font-bold text-foreground">Koszt (za szt.)</th>
-                  <th class="p-4 font-bold text-foreground">Trwałość efektu</th>
-                  <th class="p-4 font-bold text-foreground">Zakres</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60">
-                <tr class="hover:bg-muted/10 transition-colors">
-                  <td class="p-4 font-medium text-foreground">Polerowanie klosza</td>
-                  <td class="p-4">150–300 zł</td>
-                  <td class="p-4">1–2 sezony</td>
-                  <td class="p-4">tylko zewnętrzna powierzchnia</td>
-                </tr>
-                <tr class="hover:bg-muted/10 transition-colors">
-                  <td class="p-4 font-medium text-foreground">Kompleksowa regeneracja</td>
-                  <td class="p-4">350–700 zł</td>
-                  <td class="p-4">3–5 lat</td>
-                  <td class="p-4">klosz + odbłyśnik + uszczelki</td>
-                </tr>
-                <tr class="hover:bg-muted/10 transition-colors">
-                  <td class="p-4 font-medium text-foreground">Nowa lampa (OEM)</td>
-                  <td class="p-4">1 500–5 000+ zł</td>
-                  <td class="p-4">fabryczna</td>
-                  <td class="p-4">cały komplet</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Modernizacja oświetlenia – montaż soczewek bi LED, bi xenon i tuning lamp</h2>
-            <p>Regeneracja to nie tylko naprawa – to też okazja do modernizacji oświetlenia, szczególnie w starszych modelach z reflektorami halogenowymi. Zamiast po prostu przywracać dawny blask, można poprawić parametry światła.</p>
-            <p>Montaż soczewek bi led to coraz popularniejszy kierunek: soczewki bi led zapewniają lepiej skupiony snop światła, równomierne oświetlenie poboczy i niski pobór energii w porównaniu z klasycznymi żarówkami. Montaż soczewek Bi-LED podnosi jakość oświetlenia, a montaż projektorów LED zwiększa jasność oświetlenia o 100%. Tuning lamp zwiększa zasięg świateł w nocy – różnica jest odczuwalna zwłaszcza na drogach pozamiejskich.</p>
-            <p>Rozwiązania xenon i bi xenon pozostają nadal popularną alternatywą, choć rynek stopniowo przechodzi na technologię LED. Warto wiedzieć, że adaptacja lamp z UK wymaga przestawienia strumienia światła – to ważne przy imporcie samochodu z Wysp. Zamontowanie soczewek wymaga prawidłowego ustawienia linii odcięcia i dopasowania do przepisów, by nie oślepiać innych kierowców i innych użytkowników drogi. Dlatego montaż soczewek bi led należy powierzać wyspecjalizowanym warsztatom.</p>
-            <p>Inne formy tuningu lamp – malowanie wnętrza reflektora, montaż ringów LED, dodatki DRL – mogą nadać autu nowoczesny wygląd. STANIAX jako lakiernia przemysłowa zapewnia wysokiej jakości lakierowanie dekoracyjne elementów wewnętrznych i zewnętrznych, podobnie jak w przypadku szyb i ramek lamp.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Zabezpieczenie lamp po regeneracji – folia PPF, powłoki UV i lakierowanie</h2>
-            <p>Sama renowacja to połowa sukcesu – trwałość efektu zależy od zabezpieczenia na kolejne lata.</p>
-            <p>Folia PPF to jedno z najskuteczniejszych zabezpieczeń kloszy reflektorów. Chroni reflektory przed uszkodzeniami zewnętrznymi – kamieniami, zarysowaniami i promieniowaniem UV. Profesjonalne oklejanie folią jest praktycznie niewidoczne, a trwałość sięga 5–10 lat.</p>
-            <p>Alternatywą są profesjonalne lakiery bezbarwne z filtrami UV, stosowane w lakierniach i przez STANIAX na elementach dekoracyjnych. Odnowione reflektory przekładają się na lepszą widoczność na drodze, a odpowiednie zabezpieczenie utrzymuje ten efekt. W zastosowaniach przemysłowych i dla producentów lamp STANIAX oferuje powłoki ochronne UV nakładane natryskowo, zapewniające wysoką odporność chemiczną i mechaniczną przy zachowaniu przejrzystości.</p>
-            <p>Po regeneracji nie zaniedbuj regularnego mycia lamp łagodnymi środkami i okresowej kontroli szczelności – woda wewnątrz reflektora szybko zniszczy nawet świeżo zregenerowane odbłyśniki. Unikaj agresywnych produktów chemicznych podczas szlifowania i czyszczenia, a auto parkuj w miarę możliwości w cieniu lub garażu.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Regeneracja reflektorów a bezpieczeństwo i opłacalność</h2>
-            <p>Sprawne reflektory to dłuższa widoczność przed pojazdem, lepsze doświetlenie krawędzi jezdni i więcej czasu na reakcję w sytuacjach awaryjnych. Polerowanie poprawia widoczność na drodze, a kompleksowa regeneracja z metalizacją przywraca parametry bliskie fabrycznym – co bezpośrednio przekłada się na bezpieczeństwo jazdy wszystkich użytkowników drogi.</p>
-            <p>Aspekt ekonomiczny jest równie istotny: regeneracja reflektorów samochodowych (zwłaszcza z metalizacją odbłyśników) jest wielokrotnie tańsza niż zakup nowych lamp, a jednocześnie wydłuża ich żywotność o kolejne lata. Naprawa zamiast wymiany oznacza też mniejszą ilość odpadów – bardziej odpowiedzialne podejście do eksploatacji samochodu.</p>
-            <p>W przypadku flot firmowych – aut dostawczych i służbowych – regularna renowacja lamp znacząco obniża koszty serwisu. Zanim zdecydujesz się na kosztowną wymianę kompletnej lampy, skonsultuj się z profesjonalistami współpracującymi ze STANIAX.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">STANIAX – partner B2B w regeneracji odbłyśników i obróbce powierzchni lamp</h2>
-            <p>STANIAX to specjalista dla klientów biznesowych: producentów lamp, warsztatów samochodowych, lakierni i firm z branży automotive. Nasze główne kompetencje obejmują metalizację próżniową PVD odbłyśników i elementów dekoracyjnych, metalizację natryskową, lakierowanie tworzyw sztucznych, metali i szkła oraz nakładanie farb podkładowych i powłok ochronnych UV o długiej żywotności.</p>
-            <p>Kładziemy nacisk na efekty lustrzane, wysoką estetykę powierzchni, powtarzalność serii i trwałość powłok – szczególnie istotne dla producentów reflektorów, lusterek i elementów wnętrz samochodów. Nasze doświadczenie obejmuje realizacje dla branży automotive: odbłyśniki do reflektorów halogenowych i bi xenon, elementy dekoracyjne kokpitów, osłony i ramki lamp – zawsze zgodnie z wymaganiami jakościowymi na poziomie OEM.</p>
-            <p>If you run a workshop, paint shop, or lighting component manufacturing company and are looking for a partner for reflector regeneration, finish of series car lamps, or special projects related to metallization and decorative painting – skontaktuj się z nami. Wspólnie znajdziemy rozwiązanie dopasowane do Twoich potrzeb produkcyjnych.</p>
-          </div>
-
-          <div class="space-y-6 pt-6 border-t border-border/80">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground">Najczęstsze pytania o regenerację reflektorów (FAQ)</h2>
-            <div class="space-y-6">
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Ile kosztuje regeneracja reflektorów?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Polerowanie klosza z nałożeniem powłoki UV to koszt 150–300 zł za lampę, a kompleksowa regeneracja z metalizacją odbłyśnika – 350–700 zł za sztukę. Dla porównania nowa lampa OEM kosztuje od 1 500 do ponad 5 000 zł.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Ile trwa regeneracja reflektorów?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Samo polerowanie klosza można wykonać w kilka godzin. Kompleksowa regeneracja z metalizacją odbłyśników trwa zwykle od 5 do 7 dni roboczych, w zależności od zakresu prac i technologii.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Czy zmatowione reflektory przejdą przegląd techniczny?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Mocno zdegradowane klosze przepuszczają tylko 20–30% światła, co grozi negatywnym wynikiem badania technicznego, a nawet odmową dopuszczenia pojazdu do ruchu. Regeneracja przywraca parametry świecenia i pozwala uniknąć problemów na przeglądzie.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <aside class="space-y-8 sticky top-28">
-          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Zbuduj z nami przewagę</h4>
-            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Szukasz partnera, który dostarczy powłoki metalizacyjne najwyższej jakości o grubościach nanometrycznych? Skonsultuj się z naszymi ekspertami już dziś.</p>
-            <a href="/#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
-              Napisz do nas
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-          </div>
-          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
-              Skopiuj link
-            </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
-              Drukuj artykuł
-            </button>
-          </div>
-        </aside>
-      </div>
-
-      <!-- Main article body CTA Callout Block -->
-      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-        <h3 class="text-xl font-bold text-foreground mb-4">Zregeneruj reflektory i przywróć bezpieczeństwo na drodze!</h3>
-        <p class="text-sm md:text-base mb-6 leading-relaxed">
-          Szukasz sprawdzonego partnera, który przywróci Twoim lampom fabryczną sprawność? W Zakładzie Metalizacji STANIAX oferujemy profesjonalną regenerację odbłyśników metodą PVD oraz polerowanie kloszy z zabezpieczeniem UV. Skontaktuj się z nami już dziś!
-        </p>
-        
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Dlaczego warto wybrać STANIAX?</h4>
-        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-          <li><strong>Trwałość do 5 lat:</strong> Warstwa aluminium nakładana w próżni (metodą PVD) gwarantuje fabryczne parametry odbicia światła.</li>
-          <li><strong>Krótki czas realizacji:</strong> Szybkie wykonanie zlecenia, w tym regeneracji wysyłkowej dla klientów z całej Polski.</li>
-          <li><strong>Oszczędność do 90%:</strong> Regeneracja jest wielokrotnie tańsza niż zakup nowych reflektorów OEM.</li>
-        </ul>
-        
-        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Przywróć pełną widoczność i zadbaj o bezpieczeństwo swoje oraz pasażerów!</p>
-        
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-            Skontaktuj się z nami i przywróć blask swoim reflektorom!
-          </a>
-          <a href="/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-            Poznaj wykonane projekty Zakładu Metalizacji STANIAX
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-`;
-  } else if (lang === 'en') {
-    return `
-<div class="min-h-screen bg-background text-foreground font-sans">
-  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-      <a href="/en/news" class="group flex items-center gap-3 text-left">
-        <div class="leading-tight">
-          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
-          <span class="block text-lg font-black">News</span>
-        </div>
-      </a>
-      <div class="flex items-center gap-3 sm:gap-6">
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-          <a href="/en/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">About Us</a>
-          <a href="/en/#about" class="text-muted-foreground hover:text-accent transition-colors">Offer</a>
-          <a href="/en/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projects</a>
-          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Gallery</a>
-          <a href="/en/#contact" class="text-muted-foreground hover:text-accent transition-colors">Contact</a>
-        </nav>
-        <div class="flex items-center gap-2">
-          <a href="/news/regeneracja-odblysnikow-reflektorow-samochodowych" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇵🇱</a>
-          <a href="/en/news/reflector-regeneration-and-headlight-polishing" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-100 scale-110">🇬🇧</a>
-          <a href="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇩🇪</a>
-        </div>
-        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
-          Contact Us
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="pt-28 pb-20">
-    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
-      <div class="max-w-3xl">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Article</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">June 10, 2026</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">6 min read</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-          Regeneration of Reflectors and Car Headlights – Driver's Guide and STANIAX Offer
-        </h1>
-        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
-          Headlights in every car serve a double role: they ensure driving safety and affect the vehicle's aesthetics. When they lose clarity, road visibility drops drastically. In this guide, we explain when and how to carry out regeneration, which methods bring durable effects, and why STANIAX is the partner chosen by workshops and manufacturers of car lamps all over Poland.
-        </p>
-      </div>
-
-      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="/src/assets/odblysniki-nowe-1.jpeg" alt="Restored car headlight reflectors after PVD vacuum metallization" class="w-full h-full object-cover" />
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
-        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <div class="space-y-6">
-            <h2 class="text-xl md:text-2xl font-black text-foreground pt-2">Reflector and headlight regeneration – quick answers to the most common questions</h2>
-            <p>If you notice that the headlights and fog light reflectors in your car shine weaker than before, have a yellowish tint, or you received a remark during the technical inspection – it is a signal that it is time for regeneration. Clouding of headlights can lead to refusal of vehicle registration, so it is not worth waiting. Polishing headlights improves their appearance and functionality, and regenerating reflectors in headlights can increase their efficiency by up to 100%.</p>
-            <p>Car headlight reflector regeneration includes several scopes: lens polishing – removing cloudiness and micro-scratches from the outer surface; reflector regeneration – restoring the reflective layer inside the lamp; and sealing and UV protection – protecting against re-clouding.</p>
-            <p>Improvement in visibility is felt immediately, and the cost starts from about 150–300 PLN for lens polishing; full regeneration with reflector metallization is 350–700 PLN – still many times less than buying new lamps, where, for example, bi-xenon headlights can cost several thousand PLN each. Reflector regeneration restores full efficiency at a fraction of the price. At STANIAX, we specialize in reflector regeneration using industrial methods – vacuum PVD metallization and spray metallization – which yields a more durable effect than amateur polishing in a garage.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Why do headlights become cloudy and lose their former shine?</h2>
-            <p>Since the late 1990s, most headlights have been made of polycarbonate, not glass. Polycarbonate is lightweight and impact-resistant, but susceptible to degradation – especially under the influence of sunlight. The factory protective layer, with a thickness of only 15–25 micrometers, degrades over time, exposing the plastic to direct UV radiation.</p>
-            <p>These factors lead to the gradual destruction of the lens:</p>
-            <ul class="list-disc pl-6 mb-6 space-y-1">
-              <li>headlights become cloudy due to UV rays, which break down the polycarbonate structure and create chromophores – coloring compounds that give a yellow tint,</li>
-              <li>acid rain and road salt damage car lamps, eating into micro-cracks,</li>
-              <li>small stones and road sand cause mechanical scratches on the surface,</li>
-              <li>weather conditions and cyclic temperature changes accelerate oxidation.</li>
-            </ul>
-            <p>Headlight clouding degrades visibility while driving – AAA studies showed that heavily degraded lenses transmit only 20–30% of light compared to new ones. In modern bi-xenon, bi-led, and Full LED lamps, lens clouding and reflector reflectivity loss particularly lower the light output parameters – which is a direct route to a negative technical inspection result. Cloudy headlights compromise your safety and that of other road users because they shorten the actual range of the light beam.</p>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Reflector regeneration – scope of work and possible methods</h2>
-            <p>Reflector regeneration can mean just lens polishing or a comprehensive renewal of the lamp's interior – it is worth distinguishing between these two approaches because their effectiveness and price are completely different.</p>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Headlight polishing</h3>
-              <p>The basic service is headlight polishing: an external lens restoration consisting of removing cloudiness, micro-scratches, and applying a protective UV layer. Cloudy lenses are perfect candidates for such reno – as long as the lamp interior is in good condition.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Comprehensive repair</h3>
-              <p>Comprehensive car headlight repair includes: dismantling the lamp from the car, unsealing the housing, cleaning the interior, reflector regeneration (vacuum metallization), optional gasket replacement, and resealing. Reflector regeneration improves the quality of the light beam, restoring parameters close to factory specifications. The headlight regeneration time is 5 to 7 business days – depending on the scope of work and technology.</p>
-              <p>At STANIAX, we usually work on the reflectors themselves supplied by workshops or manufacturers, using vacuum PVD metallization to obtain a mirror effect and long coating lifetime. The scope of regeneration depends on the condition of the lamps – shallow scratches require a different approach than burned reflectors or lamps flooded with water. Therefore, their regeneration should always begin with an expert assessment.</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Step-by-step lamp polishing – how to restore lens clarity</h2>
-            <p>Headlight polishing is a task that, with proper preparation, requires diligence but is doable even in garage conditions. Headlight polishing can be done in a few hours, and the effect directly translates to better visibility. Below you will find a description of the individual stages.</p>
-            <p><strong>Needed tools and materials:</strong></p>
-            <ul class="list-disc pl-6 mb-6 space-y-1">
-              <li>masking tape to protect the paint around the lamps,</li>
-              <li>wet sandpaper (grades 800, 1200, 2000, 3000) or sanding discs,</li>
-              <li>orbital polisher or drill with adapter, polishing sponges,</li>
-              <li>polishing compound for plastics (restoration kits contain sandpaper and polishing paste),</li>
-              <li>degreasing agent, clear coat with UV filter.</li>
-            </ul>
-            <p><strong>Polishing steps:</strong></p>
-            <p>1. <strong>Preparation of lamps</strong> – thorough cleaning of the lens, degreasing the surface, protecting the paint around the headlight with tape.</p>
-            <p>2. <strong>Wet sanding</strong> – use 800 to 3000 grit sandpaper, starting with the coarsest. Horizontal and vertical movements to avoid directional scratches. Control temperature – do not overheat polycarbonate.</p>
-            <p>3. <strong>Actual polishing</strong> – low polisher speed, moderate pressure, work in sections. Polishing headlights increases their transparency and brightness already at this stage.</p>
-            <p>4. <strong>UV protection</strong> – polishing headlights requires applying a new protective coating. Headlight painting creates a new, hard protective layer that prevents re-clouding. Protect headlights with a UV coating after polishing – without it, the effect will disappear within a few months.</p>
-            <p>Polishing alone with a UV filter costs 150 to 300 PLN per lamp. Polishing improves road visibility by several meters – the difference is noticeable especially at night. Remember, however, that lens polishing without dismantling the lamp is a quick solution but not always sufficient – if the reflector inside is burned or corroded, simple external cleaning will not help.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Preparing lamps for comprehensive reflector regeneration</h2>
-            <p>Reflector regeneration requires removing the lamp from the vehicle and unsealing the housing – this is usually done by a specialized workshop, while STANIAX handles the surface part of the reflector: metallization and coatings.</p>
-            <p><strong>How B2B clients and workshops should prepare elements for shipping:</strong></p>
-            <ul class="list-disc pl-6 mb-6 space-y-1">
-              <li>dismantling headlights from the car – preparing lamps starts with carefully removing complete lamps,</li>
-              <li>unsealing the housing and removing the reflectors from the inside,</li>
-              <li>removing remains of old adhesive and dirt,</li>
-              <li>protecting delicate spots against mechanical damage (avoid contact with sharp objects).</li>
-            </ul>
-            <p>Reflectors should not be mechanically polished beforehand – this damages their geometry and makes correct vacuum metallization difficult. The surface of the reflectors is additionally cleaned and prepared by STANIAX: removal of previous metallization along with sanding the inner surface, degreasing, and applying primer paint if required by the given system. Shipping should look like this: rigid cardboard boxes, individual protection of each reflector with bubble wrap, and descriptions of vehicle/model/year – thanks to this we avoid mistakes. Reflector replacement is necessary for severe structural damage – but this is rare; most old lamps can be effectively restored.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Professional reflector regeneration at STANIAX – vacuum and spray metallization</h2>
-            <p>The reflector is the heart of the headlight – it shapes the beam of light and determines lighting quality. Its burnout causes a drastic drop in efficiency even with new light bulbs or LED modules. Reflector regeneration increases their lifetime and improves safety, restoring the proper amount of reflected light.</p>
-            <p>Vacuum metallization (PVD) consists in evaporating aluminum in a vacuum chamber and applying an ultra-thin, even layer to the reflector surface. The mirror effect is comparable to the factory finish, and the reflection coefficient reaches over 85%. The cost of regeneration with vacuum metallization is about 350–700 PLN per piece – still many times less than a new lamp.</p>
-            <p>Spray metallization is an alternative for some series of details when a thicker or specific coating is required. STANIAX uses industrial coating systems and UV protective coatings, making regenerated reflectors resistant to headlight operating temperatures and moisture. This service is aimed primarily at workshops, paint shops, and lighting component manufacturers, but drivers indirectly benefit from it as their lamps regain factory parameters and an attractive appearance.</p>
-          </div>
-
-          <h3 class="text-lg md:text-xl font-bold text-foreground mb-3 mt-8">Lens polishing, interior regeneration, or lamp replacement – what to choose?</h3>
-          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
-            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
-              <thead>
-                <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Method</th>
-                  <th class="p-4 font-bold text-foreground">Cost (per pc)</th>
-                  <th class="p-4 font-bold text-foreground">Durability of effect</th>
-                  <th class="p-4 font-bold text-foreground">Scope</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60">
-                <tr class="hover:bg-muted/10 transition-colors">
-                  <td class="p-4 font-medium text-foreground">Lens polishing</td>
-                  <td class="p-4">150–300 PLN</td>
-                  <td class="p-4">1–2 seasons</td>
-                  <td class="p-4">only outer surface</td>
-                </tr>
-                <tr class="hover:bg-muted/10 transition-colors">
-                  <td class="p-4 font-medium text-foreground">Comprehensive regeneration</td>
-                  <td class="p-4">350–700 PLN</td>
-                  <td class="p-4">3–5 years</td>
-                  <td class="p-4">lens + reflector + gaskets</td>
-                </tr>
-                <tr class="hover:bg-muted/10 transition-colors">
-                  <td class="p-4 font-medium text-foreground">New lamp (OEM)</td>
-                  <td class="p-4">1,500–5,000+ PLN</td>
-                  <td class="p-4">factory</td>
-                  <td class="p-4">complete assembly</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Lighting modernization – mounting of bi-LED, bi-xenon lenses and lamp tuning</h2>
-            <p>Regeneration is not just repair – it is also an opportunity to modernize the lighting, especially in older models with halogen headlights. Instead of just restoring the former shine, light parameters can be improved.</p>
-            <p>Mounting bi-led lenses is an increasingly popular direction: bi-led lenses provide a better-focused beam of light, even illumination of road edges, and low energy consumption compared to classic bulbs. Installing bi-LED lenses raises lighting quality, and mounting LED projectors increases light brightness by 100%. Lamp tuning increases headlight range at night – the difference is felt especially on out-of-town roads.</p>
-            <p>Xenon and bi-xenon solutions remain a popular alternative, although the market is gradually shifting to LED technology. It is worth knowing that adapting UK lamps requires changing the light beam direction – this is important when importing a car from the UK. Installing lenses requires correct alignment of the cutoff line and adaptation to regulations so as not to blind other drivers and other road users. Therefore, mounting bi-led lenses should be entrusted to specialized workshops.</p>
-            <p>Other forms of lamp tuning – painting the interior of the reflector, mounting LED rings, DRL additions – can give the car a modern look. STANIAX as an industrial paint shop provides high-quality decorative painting of internal and external elements, similar to window and lamp frame painting.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Protecting lamps after regeneration – PPF film, UV coatings and painting</h2>
-            <p>Restoration alone is half the success – the durability of the effect depends on protection for the following years.</p>
-            <p>PPF film is one of the most effective protections for headlight lenses. It protects headlights against external damage – stones, scratches, and UV radiation. Professional wrapping with film is practically invisible, and the durability reaches 5–10 years.</p>
-            <p>An alternative is professional clear coats with UV filters, used in paint shops and by STANIAX on decorative elements. Restored headlights translate to better road visibility, and appropriate protection maintains this effect. In industrial applications and for lamp manufacturers, STANIAX offers UV protective coatings applied by spraying, providing high chemical and mechanical resistance while maintaining transparency.</p>
-            <p>After regeneration, do not neglect regular washing of the lamps with mild agents and periodic checks of sealing – water inside the headlight will quickly destroy even freshly regenerated reflectors. Avoid aggressive chemical products during sanding and cleaning, and park the car in the shade or garage if possible.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Reflector regeneration: safety and profitability</h2>
-            <p>Working headlights mean longer visibility in front of the vehicle, better illumination of road edges, and more time to react in emergency situations. Polishing improves road visibility, and comprehensive regeneration with metallization restores parameters close to factory specifications – which directly translates to the driving safety of all road users.</p>
-            <p>The economic aspect is equally important: car reflector regeneration (especially with reflector metallization) is many times cheaper than buying new lamps, while extending their life for years to come. Repair instead of replacement also means less waste – a more responsible approach to car operation.</p>
-            <p>In the case of company fleets – delivery and service cars – regular lamp restoration significantly lowers maintenance costs. Before you decide on an expensive replacement of a complete lamp, consult with professionals cooperating with STANIAX.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">STANIAX – B2B partner in reflector regeneration and lamp surface treatment</h2>
-            <p>STANIAX is a specialist for business clients: lamp manufacturers, car workshops, paint shops, and automotive companies. Our core competencies include vacuum PVD metallization of reflectors and decorative elements, spray metallization, painting of plastics, metals, and glass, and application of primers and long-life UV protective coatings.</p>
-            <p>We focus on mirror effects, high surface aesthetics, series repeatability, and coating durability – particularly important for manufacturers of headlights, mirrors, and car interior elements. Our experience includes projects for the automotive industry: reflectors for halogen and bi-xenon headlights, decorative dashboard elements, covers and lamp frames – always in accordance with OEM-level quality requirements.</p>
-            <p>If you run a workshop, paint shop, or lighting component manufacturing company and are looking for a partner for reflector regeneration, finish of series car lamps, or special projects related to metallization and decorative painting – contact us. Together we will find a solution tailored to your production needs.</p>
-          </div>
-
-          <div class="space-y-6 pt-6 border-t border-border/80">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground">Frequently Asked Questions (FAQ)</h2>
-            <div class="space-y-6">
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">How much does headlight regeneration cost?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Polishing the lens with UV coating costs 150–300 PLN per lamp, and comprehensive regeneration with reflector metallization is 350–700 PLN per piece. For comparison, a new OEM lamp costs from 1,500 to over 5,000 PLN.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">How long does headlight regeneration take?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Lens polishing alone can be done in a few hours. Comprehensive regeneration with reflector metallization usually takes 5 to 7 business days, depending on the scope of work and technology.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Will cloudy headlights pass a technical inspection?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Heavily degraded lenses transmit only 20–30% of light, which risks a negative technical inspection result, or even refusal to allow the vehicle to be driven. Regeneration restores lighting parameters and helps avoid problems during inspection.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <aside class="space-y-8 sticky top-28">
-          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Build your advantage with us</h4>
-            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Are you looking for a partner who will deliver the highest quality metallization coatings with nanometric thicknesses? Consult our experts today.</p>
-            <a href="/en#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
-              Write to us
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-          </div>
-          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
-              Copy link
-            </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
-              Print article
-            </button>
-          </div>
-        </aside>
-      </div>
-
-      <!-- Main article body CTA Callout Block -->
-      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-        <h3 class="text-xl font-bold text-foreground mb-4">Regenerate headlights and restore safety on the road!</h3>
-        <p class="text-sm md:text-base mb-6 leading-relaxed">
-          Looking for a reliable partner to restore your car lamps to factory efficiency? At the STANIAX Metallization Plant, we offer professional reflector regeneration using the PVD method and headlight lens polishing with UV protection. Contact us today!
-        </p>
-        
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Why choose STANIAX?</h4>
-        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-          <li><strong>Up to 5 years durability:</strong> The aluminum layer deposited in vacuum (PVD method) guarantees factory light reflection parameters.</li>
-          <li><strong>Fast turnaround time:</strong> Quick execution of orders, including mail-order regeneration for clients across Poland.</li>
-          <li><strong>Up to 90% savings:</strong> Regeneration is many times cheaper than buying new OEM headlights.</li>
-        </ul>
-        
-        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Restore full visibility and ensure safety for yourself and your passengers!</p>
-        
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/en#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-            Contact us and restore the shine of your headlights!
-          </a>
-          <a href="/en/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-            Discover completed projects of the STANIAX Metallization Plant
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-`;
-  } else if (lang === 'de') {
-    return `
-<div class="min-h-screen bg-background text-foreground font-sans">
-  <header class="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-    <div class="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-      <a href="/de/news" class="group flex items-center gap-3 text-left">
-        <div class="leading-tight">
-          <span class="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">STANIAX</span>
-          <span class="block text-lg font-black">Aktuelles</span>
-        </div>
-      </a>
-      <div class="flex items-center gap-3 sm:gap-6">
-        <nav class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-          <a href="/de/#kim-jestesmy" class="text-muted-foreground hover:text-accent transition-colors">Über uns</a>
-          <a href="/de/#about" class="text-muted-foreground hover:text-accent transition-colors">Angebot</a>
-          <a href="/de/#projects" class="text-muted-foreground hover:text-accent transition-colors">Projekte</a>
-          <a href="/gallery" class="text-muted-foreground hover:text-accent transition-colors">Galerie</a>
-          <a href="/de/#contact" class="text-muted-foreground hover:text-accent transition-colors">Kontakt</a>
-        </nav>
-        <div class="flex items-center gap-2">
-          <a href="/news/regeneracja-odblysnikow-reflektorow-samochodowych" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇵🇱</a>
-          <a href="/en/news/reflector-regeneration-and-headlight-polishing" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-50 hover:opacity-90">🇬🇧</a>
-          <a href="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" class="text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative opacity-100 scale-110">🇩🇪</a>
-        </div>
-        <button class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 font-semibold text-xs sm:text-sm px-3 sm:px-4">
-          Kontakt
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main class="pt-28 pb-20">
-    <div class="container mx-auto max-w-6xl px-6 lg:px-12">
-      <div class="max-w-3xl">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-foreground">Artikel</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">10. Juni 2026</span>
-          <span class="text-xs text-muted-foreground flex items-center gap-1">6 Min. Lesezeit</span>
-        </div>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-4">
-          Regeneration von Scheinwerfern und Reflektoren – Ratgeber für Fahrer und STANIAX Angebot
-        </h1>
-        <p class="text-muted-foreground/80 text-base md:text-lg mb-8 italic leading-relaxed">
-          Scheinwerfer erfüllen in jedem Auto eine doppelte Rolle: Sie sorgen für Fahrsicherheit und beeinflussen die Ästhetik des Fahrzeugs. Wenn sie an Klarheit verlieren, sinkt die Sicht auf der Straße drastisch. In diesem Ratgeber erklären wir, wann und wie eine Regeneration durchgeführt werden sollte, welche Methoden dauerhafte Effekte erzielen und warum STANIAX der Partner ist, auf den Werkstätten und Scheinwerferhersteller in ganz Polen zurückgreifen.
-        </p>
-      </div>
-
-      <div class="relative w-full h-[30vh] sm:h-[45vh] min-h-[250px] rounded-[32px] overflow-hidden mb-12 border border-border/40">
-        <img src="/src/assets/odblysniki-nowe-1.jpeg" alt="Restaurierte Autoscheinwerfer-Reflektoren nach PVD-Vakuummetallisierung" class="w-full h-full object-cover" />
-      </div>
-
-      <div class="grid gap-12 lg:grid-cols-[1fr_320px] items-start">
-        <article class="space-y-8 text-muted-foreground leading-relaxed text-base md:text-lg">
-          <div class="space-y-6">
-            <h2 class="text-xl md:text-2xl font-black text-foreground pt-2">Regeneration von Scheinwerfern und Reflektoren – schnelle Antworten auf die häufigsten Fragen</h2>
-            <p>Wenn Sie bemerken, dass die Scheinwerfer und Nebelscheinwerfer-Reflektoren in Ihrem Auto schwächer als gewöhnlich leuchten, einen gelblichen Ton haben oder Sie beim TÜV eine Anmerkung erhalten haben – dann ist es Zeit für eine Regeneration. Ein Erblinden der Scheinwerfer kann dazu führen, dass das Fahrzeug nicht mehr zugelassen wird, weshalb man nicht zögern sollte. Das Polieren der Scheinwerfer verbessert deren Aussehen und Funktion, und die Regeneration der Scheinwerferreflektoren kann deren Leistung um bis zu 100 % steigern.</p>
-            <p>Die Regeneration von Scheinwerfern umfasst mehrere Bereiche: das Polieren der Streuscheibe – die Entfernung von Trübungen und Mikrokratzern von der äußeren Oberfläche; die Reflektoren Regeneration – das Erneuern der reflektierenden Schicht im Inneren der Lampe; sowie das Abdichten und der UV-Schutz – zum Schutz vor erneutem Erblinden.</p>
-            <p>Die Verbesserung der Sicht ist sofort spürbar und die Kosten beginnen bei ca. 150–300 PLN für das Polieren der Streuscheibe; eine vollständige Regeneration mit Reflektormetallisierung kostet 350–700 PLN – immer noch ein Vielfaches weniger als der Kauf neuer Lampen, bei denen beispielsweise Bi-Xenon-Scheinwerfer mehrere tausend PLN pro Stück kosten können. Die Scheinwerfer-Regeneration stellt die volle Leistung zu einem Bruchteil des Preises wieder her. Bei STANIAX spezialisieren wir uns auf die Reflektoren Regeneration mit industriellen Methoden – Vakuummetallisierung PVD und Spritzmetallisierung –, was eine dauerhaftere Wirkung hat als Amateurpolieren in der Garage.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Warum erblinden Scheinwerfer und verlieren ihren alten Glanz?</h2>
-            <p>Seit Ende der 90er Jahre bestehen die meisten Scheinwerfer aus Polycarbonat statt aus Glas. Polycarbonat ist leicht und schlagfest, aber anfällig für Degradation – insbesondere unter Sonneneinstrahlung. Die werkseitige Schutzschicht mit einer Dicke von nur 15–25 Mikrometern baut sich mit der Zeit ab und setzt den Kunststoff direkter UV-Strahlung aus.</p>
-            <p>Diese Faktoren führen zur allmählichen Zerstörung der Streuscheibe:</p>
-            <ul class="list-disc pl-6 mb-6 space-y-1">
-              <li>Scheinwerfer erblinden durch UV-Strahlen, die die Polycarbonatstruktur abbauen und Chromophore bilden – verfärbende Verbindungen, die einen Gelbstich verursachen,</li>
-              <li>saurer Regen und Streusalz beschädigen Autoscheinwerfer, indem sie sich in Mikrorisse fressen,</li>
-              <li>feine Steinchen und Straßensand auf der Oberfläche,</li>
-              <li>Witterungseinflüsse und zyklische Temperaturwechsel beschleunigen die Oxidation.</li>
-            </ul>
-            <p>Erblindete Scheinwerfer verschlechtern die Sicht beim Fahren – AAA-Studien zeigten, dass stark degradierte Streuscheiben im Vergleich zu neuen nur 20–30 % des Lichts durchlassen. Bei modernen Bi-Xenon-, Bi-LED- und Full-LED-Scheinwerfern senken Streuscheibentrübung und Reflektor-Reflexionsverlust die Lichtleistungsparameter besonders stark – was ein direkter Weg zu einer nicht bestandenen Hauptuntersuchung ist. Matte Scheinwerfer gefährden Ihre Sicherheit und die anderer Verkehrsteilnehmer, da sie die tatsächliche Reichweite des Lichtkegels verkürzen.</p>
-          </div>
-
-          <div class="space-y-6">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Scheinwerfer-Regeneration – Leistungsumfang und mögliche Methoden</h2>
-            <p>Die Scheinwerfer-Regeneration kann nur das Polieren der Streuscheibe oder eine umfassende Erneuerung des Lampeninneren bedeuten – es lohnt sich, zwischen diesen beiden Ansätzen klar zu unterscheiden, da sich Wirksamkeit und Preis stark unterscheiden.</p>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Scheinwerfer polieren</h3>
-              <p>Der Basisservice ist das Polieren der Scheinwerfer: Eine äußere Erneuerung der Streuscheibe, die die Entfernung von Trübungen, Mikrokratzern und das Auftragen einer UV-Schutzschicht umfasst. Matte Streuscheiben sind ideale Kandidaten für eine solche Renovierung – sofern das Lampeninnere in gutem Zustand ist.</p>
-            </div>
-            <div class="space-y-3 pl-4 border-l-2 border-accent/35">
-              <h3 class="text-xl font-bold text-foreground">Umfassende Reparatur</h3>
-              <p>Die umfassende Scheinwerferreparatur umfasst: Demontage der Lampe aus dem Auto, Öffnen des Gehäuses, Reinigung des Innenraums, Reflektoren Regeneration (Vakuummetallisierung), eventuellen Dichtungsaustausch und erneutes Verkleben. Die Reflektoren Regeneration erhöht die Qualität des Lichtstrahls und stellt dem Werkzustand nahekommende Parameter wieder her. Die Dauer der Scheinwerfer-Regeneration beträgt 5 bis 7 Werktage – je nach Leistungsumfang und Technologie.</p>
-              <p>Bei STANIAX arbeiten wir meist an Reflektoren, die von Werkstätten oder Herstellern geliefert werden. Wir verwenden die Vakuum-PVD-Metallisierung für einen Spiegeleffekt und eine lange Haltbarkeit der Beschichtung. Der Umfang der Regeneration hängt vom Zustand der Lampen ab – flache Kratzer erfordern einen anderen Ansatz als verbrannte Reflektoren oder mit Wasser überflutete Lampen. Daher sollte die Regeneration immer mit einer fachmännischen Bewertung beginnen.</p>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Scheinwerfer polieren Schritt für Schritt – so stellen Sie die Klarheit der Streuscheibe wieder her</h2>
-            <p>Das Polieren von Scheinwerfern ist eine Aufgabe, die bei entsprechender Vorbereitung Sorgfalt erfordert, aber auch unter Garagenbedingungen machbar ist. Das Scheinwerferpolieren lässt sich in wenigen Stunden erledigen, und die Wirkung spiegelt sich direkt in einer besseren Sicht wider. Nachfolgend finden Sie eine Beschreibung der einzelnen Phasen.</p>
-            <p><strong>Benötigte Werkzeuge und Materialien:</strong></p>
-            <ul class="list-disc pl-6 mb-6 space-y-1">
-              <li>Malerband zum Schutz des Lacks um die Lampen herum,</li>
-              <li>Nassschleifpapier (Körnung 800, 1200, 2000, 3000) oder Schleifscheiben,</li>
-              <li>Exzenterpolierer oder Akkuschrauber mit Aufsatz, Polierschwämme,</li>
-              <li>Polierpaste für Kunststoffe (Renovierungssets enthalten Schleifpapier und Polierpaste),</li>
-              <li>Entfettungsmittel, Klarlack mit UV-Filter.</li>
-            </ul>
-            <p><strong>Schritte zum Polieren:</strong></p>
-            <p>1. <strong>Vorbereitung der Lampen</strong> – gründliche Reinigung der Streuscheibe, Entfetten der Oberfläche, Schutz des Lacks um den Scheinwerfer herum mit Klebeband.</p>
-            <p>2. <strong>Nassschleifen</strong> – verwenden Sie Schleifpapier mit der Kürnung 800 bis 3000, beginnend mit dem gröbsten. Horizontale und vertikale Bewegungen, um Richtungskratzer zu vermeiden. Kontrollieren Sie die Temperatur – Polycarbonat nicht überhitzen.</p>
-            <p>3. <strong>Eigentliches Polieren</strong> – niedrige Polierergeschwindigkeit, mäßiger Druck, arbeiten in Abschnitten. Das Scheinwerferpolieren erhöht die Transparenz und Helligkeit bereits in dieser Phase.</p>
-            <p>4. <strong>UV-Schutz</strong> – Scheinwerferpolieren erfordert das Auftragen einer neuen Schutzbeschichtung. Das Lackieren von Scheinwerfern erzeugt eine neue, harte Schutzschicht, die ein erneutes Erblinden verhindert. Schützen Sie die Scheinwerfer nach dem Polieren mit einer UV-Beschichtung – ohne diese verschwindet der Effekt innerhalb weniger Monate.</p>
-            <p>Das reine Polieren mit einem UV-Filter kostet 150 bis 300 PLN pro Lampe. Das Polieren verbessert die Sichtbarkeit auf der Straße um einige Meter – der Unterschied macht sich besonders nachts bemerkbar. Denken Sie jedoch daran, dass das Polieren der Streuscheibe ohne Demontage der Lampe eine schnelle Lösung, aber nicht immer ausreichend ist – wenn der Reflektor im Inneren verbrannt oder korrodiert ist, hilft eine einfache Außenreinigung nicht.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Lampenvorbereitung für die umfassende Reflektoren Regeneration</h2>
-            <p>Die Reflektoren Regeneration erfordert den Ausbau der Lampe aus dem Fahrzeug und das Lösen des Gehäuses – dies wird normalerweise von einer Fachwerkstatt durchgeführt, während STANIAX den Oberflächenteil des Reflektors übernimmt: Metallisierung und Beschichtungen.</p>
-            <p><strong>Wie B2B-Kunden und Werkstätten Elemente für den Versand vorbereiten sollten:</strong></p>
-            <ul class="list-disc pl-6 mb-6 space-y-1">
-              <li>Demontage der Scheinwerfer aus dem Auto – die Lampenvorbereitung beginnt mit dem vorsichtigen Ausbau der kompletten Scheinwerfer,</li>
-              <li>Öffnen des Gehäuses und Entnehmen der Reflektoren aus dem Inneren,</li>
-              <li>Entfernen von Resten des alten Klebers und Schmutz,</li>
-              <li>Schutz empfindlicher Stellen vor mechanischer Beschädigung (Kontakt mit scharfen Gegenständen vermeiden).</li>
-            </ul>
-            <p>Reflektoren sollten vorher nicht mechanisch poliert werden – dies beschädigt ihre Geometrie und erschwert eine korrekte Vakuummetallisierung. Die Oberfläche der Reflektoren wird von STANIAX zusätzlich gereinigt und vorbereitet: Entfernung der vorherigen Metallisierung zusammen mit dem Schleifen der Innenfläche, Entfetten und Auftragen einer Grundierung, falls das jeweilige System dies erfordert. Der Versand sollte wie folgt aussehen: feste Kartons, einzelner Schutz jedes Reflektors mit Luftpolsterfolie, Beschreibung von Auto/Modell/Baujahr – so vermeiden wir Fehler. Ein Austausch der Scheinwerfer ist nur bei schwerwiegenden strukturellen Schäden erforderlich – was jedoch selten vorkommt; die meisten alten Lampen lassen sich erfolgreich erneuern.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Professionelle Reflektoren Regeneration bei STANIAX – Vakuum- und Spritzmetallisierung</h2>
-            <p>Der Reflektor ist das Herzstück des Scheinwerfers – er formt den Lichtkegel und entscheidet über die Lichtqualität. Sein Ausbrennen führt zu einem drastischen Leistungsabfall, selbst bei neuen Glühbirnen oder LED-Modulen. Die Reflektoren Regeneration erhöht deren Lebensdauer und verbessert die Sicherheit, indem sie die richtige Menge an reflektiertem Licht wiederherstellt.</p>
-            <p>Die Vakuummetallisierung (PVD) besteht darin, Aluminium in einer Vakuumkammer zu verdampfen und eine ultradünne, gleichmäßige Schicht auf die Reflektoroberfläche aufzutragen. Der Spiegeleffekt ist mit der Werksausführung vergleichbar, und der Reflexionsgrad liegt bei über 85%. Die Kosten für die Regeneration mit Vakuummetallisierung betragen ca. 350–700 PLN pro Stück – immer noch um ein Vielfaches weniger als ein neuer Scheinwerfer.</p>
-            <p>Die Spritzmetallisierung stellt eine Alternative für bestimmte Serien von Details dar, wenn eine dickere oder spezifische Beschichtung erforderlich ist. STANIAX setzt industrielle Lacksysteme und UV-Schutzlacke ein, wodurch regenerierte Reflektoren unempfindlich gegen Scheinwerferbetriebstemperaturen und Feuchtigkeit sind. Diese Dienstleistung richtet sich in erster Linie an Werkstätten, Lackierereien und Hersteller von Beleuchtungskomponenten, aber Autofahrer profitieren indirekt davon, da ihre Scheinwerfer wieder Werksparameter und ein attraktives Aussehen erhalten.</p>
-          </div>
-
-          <h3 class="text-lg md:text-xl font-bold text-foreground mb-3 mt-8">Polieren der Streuscheibe, Innenregeneration oder Scheinwerfertausch – was wählen?</h3>
-          <div class="my-8 overflow-x-auto rounded-2xl border border-border/80 bg-card/30 backdrop-blur-md">
-            <table class="w-full text-left border-collapse text-sm min-w-[600px]">
-              <thead>
-                <tr class="border-b border-border/80 bg-muted/40">
-                  <th class="p-4 font-bold text-foreground">Methode</th>
-                  <th class="p-4 font-bold text-foreground">Kosten (pro Stk.)</th>
-                  <th class="p-4 font-bold text-foreground">Haltbarkeit des Effekts</th>
-                  <th class="p-4 font-bold text-foreground">Umfang</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-border/60">
-                <tr class="hover:bg-muted/10 transition-colors">
-                  <td class="p-4 font-medium text-foreground">Streuscheibe polieren</td>
-                  <td class="p-4">150–300 PLN</td>
-                  <td class="p-4">1–2 Saisons</td>
-                  <td class="p-4">nur äußere Oberfläche</td>
-                </tr>
-                <tr class="hover:bg-muted/10 transition-colors">
-                  <td class="p-4 font-medium text-foreground">Umfassende Regeneration</td>
-                  <td class="p-4">350–700 PLN</td>
-                  <td class="p-4">3–5 Jahre</td>
-                  <td class="p-4">Streuscheibe + Reflektor + Dichtungen</td>
-                </tr>
-                <tr class="hover:bg-muted/10 transition-colors">
-                  <td class="p-4 font-medium text-foreground">Neuer Scheinwerfer (OEM)</td>
-                  <td class="p-4">1.500–5.000+ PLN</td>
-                  <td class="p-4">werkseitig</td>
-                  <td class="p-4">komplettes Set</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Beleuchtungsmodernisierung – Montage von Bi-LED-, Bi-Xenon-Linsen und Scheinwerfer-Tuning</h2>
-            <p>Die Regeneration ist nicht nur Reparatur – sie ist auch eine Gelegenheit, die Beleuchtung zu modernisieren, insbesondere bei älteren Modellen mit Halogenscheinwerfern. Anstatt nur den alten Glanz wiederherzustellen, können die Lichtparameter verbessert werden.</p>
-            <p>Die Montage von Bi-LED-Linsen wird immer beliebter: Bi-LED-Linsen sorgen für einen besser fokussierten Lichtkegel, eine gleichmäßige Ausleuchtung des Fahrbahnrandes und einen geringen Energieverbrauch im Vergleich zu klassischen Glühbirnen. Der Einbau von Bi-LED-Linsen erhöht die Lichtqualität, und die Montage von LED-Projektoren steigert die Helligkeit um 100%. Das Scheinwerfer-Tuning vergrößert die Leuchtweite bei Nacht – der Unterschied ist besonders auf Landstraßen spürbar.</p>
-            <p>Xenon- und Bi-Xenon-Lösungen bleiben eine beliebte Alternative, obwohl sich der Markt allmählich auf LED-Technik verlagert. Es ist gut zu wissen, dass die Anpassung von Scheinwerfern aus UK das Verstellen des Lichtstrahls erfordert – das ist wichtig beim Import eines Autos aus Großbritannien. Die Montage von Linsen erfordert eine korrekte Einstellung der Hell-Dunkel-Grenze und die Anpassung an die Vorschriften, um andere Autofahrer und andere Verkehrsteilnehmer nicht zu blenden. Daher sollte die Montage von Bi-LED-Linsen Fachwerkstätten anvertraut werden.</p>
-            <p>Andere Formen des Scheinwerfer-Tunings – Lackieren des Scheinwerferinnenraums, Montage von LED-Ringen, DRL-Ergänzungen – können dem Auto einen modernen Look verleihen. STANIAX als Industrielackiererei bietet hochwertiges dekoratives Lackieren von Innen- und Außenelementen, ähnlich wie bei Glas- und Scheinwerferrahmenlackierungen.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Schutz der Lampen nach der Regeneration – PPF-Folie, UV-Beschichtungen und Lackieren</h2>
-            <p>Die reinen Renovierungskosten sind nur der halbe Erfolg – die Haltbarkeit des Effekts hängt vom Schutz für die kommenden Jahre ab.</p>
-            <p>PPF-Folie ist einer der wirksamsten Schutze für Scheinwerferstreuscheiben. Sie schützt die Scheinwerfer vor äußeren Schäden – Steinen, Kratzern und UV-Strahlung. Professionelles Folieren ist praktisch unsichtbar, und die Haltbarkeit beträgt 5–10 Jahre.</p>
-            <p>Eine Alternative sind professionelle Klarlacke mit UV-Filtern, die in Lackierereien und von STANIAX auf dekorativen Elementen verwendet werden. Erneuerte Scheinwerfer bedeuten eine bessere Sicht auf der Straße, und ein entsprechender Schutz erhält diesen Effekt. Für industrielle Anwendungen und Scheinwerferhersteller bietet STANIAX im Spritzverfahren aufgetragene UV-Schutzlacke an, die eine hohe chemische und mechanische Beständigkeit bei gleichzeitiger Transparenz bieten.</p>
-            <p>Vernachlässigen Sie nach der Regeneration nicht das regelmäßige Reinigen der Scheinwerfer mit milden Mitteln und die regelmäßige Dichtheitskontrolle – Wasser im Scheinwerfer zerstört auch frisch regenerierte Reflektoren schnell. Vermeiden Sie aggressive chemische Produkte beim Schleifen und Reinigen und parken Sie das Auto nach Möglichkeit im Schatten oder in einer Garage.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">Scheinwerfer-Regeneration: Sicherheit und Rentabilität</h2>
-            <p>Funktionstüchtige Scheinwerfer bedeuten eine größere Sichtweite vor dem Fahrzeug, eine bessere Ausleuchtung des Fahrbahnrandes und mehr Zeit zum Reagieren in Notsituationen. Das Polieren verbessert die Sicht auf der Straße, und eine umfassende Regeneration mit Metallisierung stellt Parameter nahe am Werkzustand wieder her – was sich direkt auf die Fahrsicherheit aller Verkehrsteilnehmer auswirkt.</p>
-            <p>Der wirtschaftliche Aspekt ist ebenso wichtig: Die Scheinwerfer-Regeneration (insbesondere mit Reflektoren Regeneration) is um ein Vielfaches günstiger als der Kauf neuer Scheinwerfer und verlängert gleichzeitig deren Lebensdauer für die kommenden Jahre. Eine Reparatur statt eines Austauschs bedeutet auch weniger Abfall – ein verantwortungsvollerer Umgang mit dem Fahrzeugbetrieb.</p>
-            <p>Bei Firmenflotten – Liefer- und Dienstwagen – senkt eine regelmäßige Scheinwerferrenovierung die Wartungskosten erheblich. Bevor Sie sich für einen teuren Austausch eines kompletten Scheinwerfers entscheiden, wenden Sie sich an die mit STANIAX kooperierenden Fachleute.</p>
-          </div>
-
-          <div class="space-y-4">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground pt-4 border-b border-border pb-2">STANIAX – B2B-Partner bei der Reflektoren Regeneration und Scheinwerfer-Oberflächenbehandlung</h2>
-            <p>STANIAX ist ein Spezialist für Geschäftskunden: Scheinwerferhersteller, Kfz-Werkstätten, Lackierereien und Automotive-Unternehmen. Zu unseren Kernkompetenzen gehören die Vakuum-PVD-Metallisierung von Reflektoren und Dekorelementen, die Spritzmetallisierung, das Lackieren von Kunststoffen, Metallen und Glas sowie das Auftragen von Grundierungen und langlebigen UV-Schutzlacken.</p>
-            <p>Wir legen Wert auf Spiegeleffekte, hohe Oberflächenästhetik, Serienwiederholbarkeit und Haltbarkeit der Beschichtung – besonders wichtig für Hersteller von Scheinwerfern, Spiegeln und Autoinnenraumteilen. Unsere Erfahrung umfasst Projekte für die Automotive-Branche: Reflektoren für Halogen- und Bi-Xenon-Scheinwerfer, dekorative Cockpitelemente, Abdeckungen und Scheinwerferrahmen – immer in Übereinstimmung mit Qualitätsanforderungen auf OEM-Niveau.</p>
-            <p>Wenn Sie eine Werkstatt, eine Lackiererei oder einen Hersteller von Beleuchtungskomponenten betreiben und einen Partner für die Reflektoren Regeneration, die Veredelung von Serien-Autoscheinwerfern oder Spezialprojekte im Bereich Metallisierung und dekorativer Lackierung suchen – kontaktieren Sie uns. Gemeinsam finden wir eine auf Ihre Produktionsbedürfnisse zugeschnittene Lösung.</p>
-          </div>
-
-          <div class="space-y-6 pt-6 border-t border-border/80">
-            <h2 class="text-2xl md:text-3xl font-black text-foreground">Häufig gestellte Fragen (FAQ)</h2>
-            <div class="space-y-6">
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Wie viel kostet die Scheinwerfer-Regeneration?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Das Polieren der Streuscheibe mit UV-Beschichtung kostet 150–300 PLN pro Lampe, eine umfassende Regeneration mit Reflektormetallisierung 350–700 PLN pro Stück. Im Vergleich dazu kostet ein neuer OEM-Scheinwerfer ab 1.500 bis über 5.000 PLN.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Wie lange dauert die Scheinwerfer-Regeneration?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Das reine Polieren der Streuscheibe kann in wenigen Stunden erledigt werden. Eine umfassende Regeneration mit Reflektormetallisierung dauert in der Regel 5 bis 7 Werktage, je nach Arbeitsaufwand und Technologie.</p>
-              </div>
-              <div class="space-y-2">
-                <h4 class="font-bold text-foreground">Bestehen erblindete Scheinwerfer die Hauptuntersuchung?</h4>
-                <p class="text-sm pl-4 border-l border-accent/30">Stark degradierte Streuscheiben lassen nur 20–30 % des Lichts durch, was zu einer nicht bestandenen Hauptuntersuchung oder sogar zum Entzug der Straßenzulassung führen kann. Die Regeneration stellt die Lichtwerte wieder her und vermeidet Probleme bei der HU.</p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <aside class="space-y-8 sticky top-28">
-          <div class="rounded-[24px] border border-border/80 bg-card/65 backdrop-blur p-6 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-            <h4 class="text-sm font-bold uppercase tracking-wider text-foreground mb-4">Bauen Sie mit uns Ihren Vorsprung aus</h4>
-            <p class="text-sm text-muted-foreground/90 mb-6 leading-relaxed">Suchen Sie einen Partner, der Metallisierungsbeschichtungen höchster Qualität mit nanometrischen Dicken liefert? Konsultieren Sie noch heute unsere Experten.</p>
-            <a href="/de#contact" class="inline-flex w-full items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 group/btn">
-              Kontakt
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-          </div>
-          <div class="rounded-[24px] border border-border/80 bg-card/30 p-6 space-y-4">
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l5.263-2.632m0 7.78l-5.263-2.632M19 6a3 3 0 11-6 0 3 3 0 016 0zm-11 6a3 3 0 1 1-6 0 3 3 0 016 0zm11 6a3 3 0 1 1-6 0 3 3 0 016 0z"></path></svg>
-              Link kopieren
-            </button>
-            <button class="flex items-center gap-3 w-full text-left text-sm text-muted-foreground hover:text-foreground transition-colors font-medium py-1" onclick="window.print()">
-              <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4"></path></svg>
-              Artikel drucken
-            </button>
-          </div>
-        </aside>
-      </div>
-
-      <!-- Main article body CTA Callout Block -->
-      <div class="bg-muted/30 border border-border/80 rounded-[32px] p-6 md:p-8 my-10 relative overflow-hidden group">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-        <h3 class="text-xl font-bold text-foreground mb-4">Regenerieren Sie Scheinwerfer und stellen Sie die Sicherheit auf der Straße wieder her!</h3>
-        <p class="text-sm md:text-base mb-6 leading-relaxed">
-          Suchen Sie einen zuverlässigen Partner, der Ihre Autolampen wieder auf Fabrikleistung bringt? Im STANIAX-Metallisierungsbetrieb bieten wir eine professionelle Reflektorregeneration im PVD-Verfahren sowie das Polieren von Scheinwerferstreuscheiben mit UV-Schutz an. Kontaktieren Sie uns noch heute!
-        </p>
-        
-        <h4 class="font-bold text-foreground mb-3 text-sm md:text-base">Warum STANIAX wählen?</h4>
-        <ul class="list-disc pl-5 space-y-2 text-sm md:text-base mb-6">
-          <li><strong>Haltbarkeit bis zu 5 Jahre:</strong> Die im Vakuum (PVD-Verfahren) aufgetragene Aluminiumschicht garantiert werkseitige Lichtreflexionsparameter.</li>
-          <li><strong>Schnelle Abwicklung:</strong> Rasche Auftragsabwicklung, einschließlich Versand-Regeneration für Kunden aus ganz Polen.</li>
-          <li><strong>Ersparnis bis zu 90%:</strong> Die Regeneration ist um ein Vielfaches günstiger als der Kauf neuer OEM-Scheinwerfer.</li>
-        </ul>
-        
-        <p class="font-semibold text-foreground mb-6 text-sm md:text-base">Stellen Sie die volle Sicht wieder her und sorgen Sie für die Sicherheit von Ihnen und Ihren Passagieren!</p>
-        
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/de#contact" class="inline-flex items-center justify-center rounded-md text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
-            Kontaktieren Sie uns und bringen Sie Ihre Scheinwerfer zum Glänzen!
-          </a>
-          <a href="/de/gallery" class="inline-flex items-center justify-center rounded-md text-sm font-semibold border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2">
-            Entdecken Sie abgeschlossene Projekte des STANIAX Metallisierungswerks
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-</div>
-`;
+  } catch {
+    // Fallback below if binary header cannot be decoded
   }
+  return null;
 }
 
-// 7. Polish version (Reflectors)
-writePrerenderFile('news/regeneracja-odblysnikow-reflektorow-samochodowych', plReflectorsMeta, getReflectorsHtml('pl'))
+const imageDimCache = new Map();
 
-// 8. English version (Reflectors)
-writePrerenderFile('en/news/reflector-regeneration-and-headlight-polishing', enReflectorsMeta, getReflectorsHtml('en'))
-
-// 9. German version (Reflectors)
-writePrerenderFile('de/news/scheinwerfer-reflektoren-regeneration-und-polieren', deReflectorsMeta, getReflectorsHtml('de'))
-
-
-// 7. Generate Homepage Shells for PL (/), EN (/en), and DE (/de)
-function generateHomepageShells() {
-  const enMetaTags = `
-    <title>STANIAX - Vacuum Metalizing & PVD Deposition</title>
-    <meta name="description" content="Staniax offers premium vacuum metalizing and PVD coating services for plastics, glass, and metals. Explore our completed projects!" />
-    <meta property="og:title" content="STANIAX - Vacuum Metalizing & PVD Deposition" />
-    <meta property="og:description" content="Staniax offers premium vacuum metalizing and PVD coating services for plastics, glass, and metals. Explore our completed projects!" />
-    <meta property="og:type" content="website" />
-  `;
-
-  const deMetaTags = `
-    <title>STANIAX - Vakuummetallisierung & PVD Beschichtung</title>
-    <meta name="description" content="Staniax bietet erstklassige Vakuummetallisierung und PVD-Beschichtung für Kunststoffe, Glas und Metalle. Sehen Sie sich unsere Realisierungen an!" />
-    <meta property="og:title" content="STANIAX - Vakuummetallisierung & PVD Beschichtung" />
-    <meta property="og:description" content="Staniax bietet erstklassige Vakuummetallisierung und PVD-Beschichtung für Kunststoffe, Glas und Metalle. Sehen Sie sich unsere Realisierungen an!" />
-    <meta property="og:type" content="website" />
-  `;
-
-  const plCanonical = `\n    <link rel="canonical" href="https://www.staniax.pl/" />\n`;
-  const enCanonical = `\n    <link rel="canonical" href="https://www.staniax.pl/en" />\n`;
-  const deCanonical = `\n    <link rel="canonical" href="https://www.staniax.pl/de" />\n`;
-
-  // 1. Update PL (main index.html in dist)
-  let plHtml = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
-  plHtml = plHtml.replace(/<title>[^<]*<\/title>/, '<title>STANIAX - Metalizacja Próżniowa i Lakierowanie Tworzyw</title>');
-  plHtml = plHtml.replace(/<meta name="description"[^>]*>/, '<meta name="description" content="Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw sztucznych, szkła i detali. Zobacz realizacje!" />');
-  
-  plHtml = plHtml.replace('</head>', `${plCanonical}</head>`);
-  
-  // Inject a screen-reader-only H1 for SEO bots that do not execute JS
-  plHtml = plHtml.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">STANIAX - Profesjonalna Metalizacja Próżniowa i Lakierowanie Tworzyw</h1></div>`);
-  
-  fs.writeFileSync(indexPath, plHtml, 'utf-8');
-  console.log('Successfully injected canonical link, metadata, and H1 in dist/index.html');
-
-  // 2. Create EN homepage shell (dist/en/index.html)
-  let enHtml = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
-  enHtml = enHtml.replace('<html lang="pl">', '<html lang="en">');
-  enHtml = enHtml.replace(/<title>[^<]*<\/title>/, '');
-  enHtml = enHtml.replace(/<meta name="description"[^>]*>/, '');
-  enHtml = enHtml.replace(/<meta property="og:title"[^>]*>/, '');
-  enHtml = enHtml.replace(/<meta property="og:description"[^>]*>/, '');
-  enHtml = enHtml.replace(/<meta property="og:type"[^>]*>/, '');
-  enHtml = enHtml.replace(/<meta name="keywords"[^>]*>/, '<meta name="keywords" content="vacuum metalizing, vacuum metal deposition, vacuum casting metal, metal vacuum, plastic painting, glass painting, staniax, metallization" />');
-  enHtml = enHtml.replace('</head>', `${enMetaTags}${enCanonical}</head>`);
-  
-  enHtml = enHtml.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">STANIAX - Professional Vacuum Metalizing</h1></div>`);
-
-  const enDir = path.join(distDir, 'en');
-  if (!fs.existsSync(enDir)) {
-    fs.mkdirSync(enDir, { recursive: true });
+function imgSizeAttrs(imgUrl) {
+  if (!imgUrl) return "";
+  if (imageDimCache.has(imgUrl)) {
+    const cached = imageDimCache.get(imgUrl);
+    return `width="${cached.width}" height="${cached.height}"`;
   }
-  fs.writeFileSync(path.join(enDir, 'index.html'), enHtml, 'utf-8');
-  console.log('Successfully generated dist/en/index.html homepage shell with H1');
-
-  // 3. Create DE homepage shell (dist/de/index.html)
-  let deHtml = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
-  deHtml = deHtml.replace('<html lang="pl">', '<html lang="de">');
-  deHtml = deHtml.replace(/<title>[^<]*<\/title>/, '');
-  deHtml = deHtml.replace(/<meta name="description"[^>]*>/, '');
-  deHtml = deHtml.replace(/<meta property="og:title"[^>]*>/, '');
-  deHtml = deHtml.replace(/<meta property="og:description"[^>]*>/, '');
-  deHtml = deHtml.replace(/<meta property="og:type"[^>]*>/, '');
-  deHtml = deHtml.replace(/<meta name="keywords"[^>]*>/, '<meta name="keywords" content="Vakuummetallisierung, Vakuum-Metallbedampfung, Vakuumguss Metall, Metallvakuum, Kunststofflackierung, Glaslackierung, staniax, metallisierung" />');
-  deHtml = deHtml.replace('</head>', `${deMetaTags}${deCanonical}</head>`);
-  
-  deHtml = deHtml.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">STANIAX - Professionelle Vakuummetallisierung</h1></div>`);
-
-  const deDir = path.join(distDir, 'de');
-  if (!fs.existsSync(deDir)) {
-    fs.mkdirSync(deDir, { recursive: true });
+  let dims = null;
+  if (imgUrl.startsWith("/assets/")) {
+    const candidate = path.join(distDir, imgUrl.replace(/^\/+/, ""));
+    if (fs.existsSync(candidate)) {
+      dims = readImageDimensionsFromFile(candidate);
+    }
   }
-  fs.writeFileSync(path.join(deDir, 'index.html'), deHtml, 'utf-8');
-  console.log('Successfully generated dist/de/index.html homepage shell with H1');
+  if (!dims) {
+    dims = { width: 1200, height: 800 };
+  }
+  imageDimCache.set(imgUrl, dims);
+  return `width="${dims.width}" height="${dims.height}"`;
 }
 
-generateHomepageShells();
+function escapeHtml(str) {
+  return String(str ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
+function tokenizeMarkdownLinks(input) {
+  const tokens = [];
+  let i = 0;
+  let textStart = 0;
 
-// 8. Generate Category Shells for Gallery and News (/gallery, /news, and their EN/DE variants)
-function generateCategoryShells() {
-  const shells = [
-    {
-      subPath: 'gallery',
-      lang: 'pl',
-      title: 'Galeria Realizacji i Projektów Metalizacji | STANIAX',
-      desc: 'Przeglądaj naszą galerię metalizacji próżniowej oraz precyzyjnego lakierowania tworzyw, szkła i metali. Zobacz zrealizowane projekty premium.'
-    },
-    {
-      subPath: 'en/gallery',
-      lang: 'en',
-      title: 'Gallery of Completed Projects and Metallization | STANIAX',
-      desc: 'Explore our gallery of vacuum metallization and precision lacquering of plastics, glass, and metals. View completed premium projects.'
-    },
-    {
-      subPath: 'de/gallery',
-      lang: 'de',
-      title: 'Galerie der Metallisierungsprojekte | STANIAX',
-      desc: 'Entdecken Sie unsere Galerie der Vakuummetallisierung und der präzisen Lackierung von Kunststoffen, Glas und Metallen. Sehen Sie Premium-Projekte.'
-    },
-    {
-      subPath: 'news',
-      lang: 'pl',
-      title: 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX',
-      desc: 'Aktualności, poradniki i artykuły eksperckie na temat metalizacji próżniowej oraz lakierowania. Baza wiedzy o uszlachetnianiu powierzchni.'
-    },
-    {
-      subPath: 'en/news',
-      lang: 'en',
-      title: 'Knowledge Base & News - Vacuum Metallization | STANIAX',
-      desc: 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
-    },
-    {
-      subPath: 'de/news',
-      lang: 'de',
-      title: 'Aktuelles zur Vakuummetallisierung | STANIAX',
-      desc: 'Aktuelles, Leitfäden und Expertenartikel über Vakuummetallisierung und Lackierung. Wissensdatenbank zur Oberflächenveredelung.'
+  while (i < input.length) {
+    if (input[i] === "[") {
+      const closeBracket = input.indexOf("]", i + 1);
+      if (closeBracket !== -1 && input[closeBracket + 1] === "(") {
+        let depth = 1;
+        let j = closeBracket + 2;
+        while (j < input.length && depth > 0) {
+          if (input[j] === "(") depth++;
+          else if (input[j] === ")") depth--;
+          j++;
+        }
+        if (depth === 0) {
+          if (i > textStart) {
+            tokens.push({ type: "text", content: input.slice(textStart, i) });
+          }
+          tokens.push({
+            type: "link",
+            content: input.slice(i + 1, closeBracket),
+            url: input.slice(closeBracket + 2, j - 1),
+          });
+          i = j;
+          textStart = i;
+          continue;
+        }
+      }
     }
+    i++;
+  }
+
+  if (textStart < input.length) {
+    tokens.push({ type: "text", content: input.slice(textStart) });
+  }
+  return tokens;
+}
+
+function stripMarkdown(str) {
+  const raw = String(str ?? "");
+  const plain = tokenizeMarkdownLinks(raw)
+    .map((tok) => tok.content)
+    .join("");
+  return plain.replace(/\*\*([^*]+)\*\*/g, "$1").trim();
+}
+
+function renderInlineMarkdown(str, { linkResolver } = {}) {
+  const text = String(str ?? "");
+  if (!text) return "";
+
+  const renderBoldOnly = (segment) => {
+    const parts = [];
+    const boldRe = /\*\*([^*]+)\*\*/g;
+    let last = 0;
+    let m;
+    while ((m = boldRe.exec(segment)) !== null) {
+      if (m.index > last) {
+        parts.push(escapeHtml(segment.slice(last, m.index)));
+      }
+      parts.push(
+        `<strong class="font-bold text-slate-900">${escapeHtml(m[1])}</strong>`,
+      );
+      last = boldRe.lastIndex;
+    }
+    if (last < segment.length) {
+      parts.push(escapeHtml(segment.slice(last)));
+    }
+    return parts.join("");
+  };
+
+  const out = [];
+  for (const tok of tokenizeMarkdownLinks(text)) {
+    if (tok.type === "text") {
+      out.push(renderBoldOnly(tok.content));
+      continue;
+    }
+    const label = tok.content;
+    const rawUrl = tok.url;
+    const resolved = linkResolver
+      ? linkResolver(label, rawUrl)
+      : { href: rawUrl, external: /^https?:\/\//i.test(rawUrl) };
+    if (resolved.external) {
+      out.push(
+        `<a href="${escapeHtml(resolved.href)}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-700">${escapeHtml(label)}</a>`,
+      );
+    } else {
+      out.push(
+        `<a href="${escapeHtml(resolved.href)}" class="text-blue-600 underline hover:text-blue-700">${escapeHtml(label)}</a>`,
+      );
+    }
+  }
+  return out.join("");
+}
+
+function renderBodyBlocks(text, options = {}) {
+  const raw = String(text ?? "");
+  if (!raw.trim()) return "";
+
+  const lines = raw.split("\n");
+  const blocks = [];
+  let bulletItems = [];
+  let numberedItems = [];
+
+  const flushBullets = () => {
+    if (bulletItems.length === 0) return;
+    blocks.push(
+      `<ul class="list-disc pl-6 space-y-2 text-slate-700">${bulletItems
+        .map((item) => `<li>${renderInlineMarkdown(item, options)}</li>`)
+        .join("")}</ul>`,
+    );
+    bulletItems = [];
+  };
+
+  const flushNumbered = () => {
+    if (numberedItems.length === 0) return;
+    blocks.push(
+      `<ol class="list-decimal pl-6 space-y-2 text-slate-700">${numberedItems
+        .map((item) => `<li>${renderInlineMarkdown(item, options)}</li>`)
+        .join("")}</ol>`,
+    );
+    numberedItems = [];
+  };
+
+  for (const rawLine of lines) {
+    const trimmed = rawLine.trim();
+    if (!trimmed) {
+      flushBullets();
+      flushNumbered();
+      continue;
+    }
+    if (trimmed.startsWith("- ")) {
+      flushNumbered();
+      bulletItems.push(trimmed.slice(2));
+    } else if (/^\d+\.\s/.test(trimmed)) {
+      flushBullets();
+      numberedItems.push(trimmed.replace(/^\d+\.\s+/, ""));
+    } else {
+      flushBullets();
+      flushNumbered();
+      blocks.push(
+        `<p class="leading-relaxed text-slate-700">${renderInlineMarkdown(trimmed, options)}</p>`,
+      );
+    }
+  }
+  flushBullets();
+  flushNumbered();
+  return blocks.join("\n");
+}
+
+function renderBreadcrumbsHtml(items) {
+  if (!items || items.length === 0) return "";
+  const listItems = items
+    .map((item, idx) => {
+      const isLast = idx === items.length - 1;
+      const sep = idx > 0 ? '<span aria-hidden="true" class="text-slate-400">/</span>' : "";
+      const node =
+        isLast || !item.path
+          ? `<span class="text-slate-900 font-semibold" aria-current="page">${escapeHtml(item.name)}</span>`
+          : `<a href="${escapeHtml(item.path)}" class="hover:text-blue-700 underline">${escapeHtml(item.name)}</a>`;
+      return `<li class="inline-flex items-center gap-2">${sep}${node}</li>`;
+    })
+    .join(" ");
+  return `<nav aria-label="Breadcrumb" class="container mx-auto max-w-6xl px-6 pt-6 text-xs font-mono text-slate-600"><ol class="flex flex-wrap items-center gap-2">${listItems}</ol></nav>`;
+}
+
+const AUTHOR_BOX_COPY = {
+  pl: {
+    authorRole: "Główny Technolog Metalizacji Próżniowej PVD · STANIAX Sp. z o.o.",
+    authorBio:
+      "Ponad 25 lat praktyki w metalizacji próżniowej PVD i testach przyczepności ISO 2409.",
+    publishedLabel: "Opublikowano",
+    updatedLabel: "Aktualizacja",
+  },
+  en: {
+    authorRole: "Chief PVD Vacuum Metallization Technologist · STANIAX Sp. z o.o.",
+    authorBio:
+      "25+ years of expertise in PVD aluminum vapor deposition and ISO 2409 adhesion testing.",
+    publishedLabel: "Published",
+    updatedLabel: "Updated",
+  },
+  de: {
+    authorRole: "Leitender Technologe für PVD-Vakuummetallisierung · STANIAX Sp. z o.o.",
+    authorBio:
+      "Über 25 Jahre Praxiserfahrung in PVD-Aluminiumbedampfung und Haftprüfung ISO 2409.",
+    publishedLabel: "Veröffentlicht",
+    updatedLabel: "Aktualisiert",
+  },
+};
+
+function renderArticleAuthorBoxHtml(lang, datePublished, dateModified) {
+  const copy = AUTHOR_BOX_COPY[lang] || AUTHOR_BOX_COPY.pl;
+  return `
+    <div class="rounded-2xl border border-slate-200 bg-slate-50/90 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div class="space-y-1">
+        <p class="text-sm font-bold text-slate-950">Dariusz Staniak</p>
+        <p class="text-xs font-semibold text-blue-700">${escapeHtml(copy.authorRole)}</p>
+        <p class="text-xs text-slate-600 leading-relaxed">${escapeHtml(copy.authorBio)}</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-mono text-slate-600 sm:text-right shrink-0 border-t sm:border-t-0 sm:border-l border-slate-200 pt-2 sm:pt-0 sm:pl-4">
+        <span>${escapeHtml(copy.publishedLabel)}: <time datetime="${escapeHtml(datePublished)}">${escapeHtml(datePublished)}</time></span>
+        <span class="font-semibold text-slate-900">${escapeHtml(copy.updatedLabel)}: <time datetime="${escapeHtml(dateModified)}">${escapeHtml(dateModified)}</time></span>
+      </div>
+    </div>`;
+}
+
+const GALLERY_CATEGORY_LABELS = {
+  pl: { Wszystkie: "Wszystkie", Złoto: "Złoto", Chrom: "Chrom", Dekoracyjne: "Dekoracyjne" },
+  en: { Wszystkie: "All", Złoto: "Gold PVD", Chrom: "Chrome Mirror", Dekoracyjne: "Decorative Finishes" },
+  de: { Wszystkie: "Alle", Złoto: "Gold-PVD", Chrom: "Spiegelchrom", Dekoracyjne: "Dekorative Lackierung" },
+};
+
+function localizeGalleryAlt(item, idx, lang) {
+  if (lang === "pl") return item.alt;
+  const lower = item.alt.toLowerCase();
+  const catLabel = GALLERY_CATEGORY_LABELS[lang][item.category] || item.category;
+  if (lang === "de") {
+    const subject =
+      lower.includes("reflektor") || lower.includes("odbłyśnik") || lower.includes("lamp")
+        ? "Kfz-Scheinwerferreflektor nach PVD-Vakuumbedampfung"
+        : lower.includes("szkł") || lower.includes("flakon") || lower.includes("butel") || lower.includes("słoik")
+          ? "Parfümflakon & Glasveredelung durch Industrielackierung"
+          : "Kosmetik- & Industriebauteil nach Vakuummetallisierung";
+    return `${catLabel}: ${subject} — Referenz #${idx + 1}`;
+  }
+  const subject =
+    lower.includes("reflektor") || lower.includes("odbłyśnik") || lower.includes("lamp")
+      ? "automotive headlight reflector after PVD vacuum metallization"
+      : lower.includes("szkł") || lower.includes("flakon") || lower.includes("butel") || lower.includes("słoik")
+        ? "perfume flacon & glass bottle after industrial coating"
+        : "cosmetic packaging & industrial part after PVD vacuum coating";
+  return `${catLabel}: ${subject} — Project #${idx + 1}`;
+}
+
+function extractGalleryItems(resolveAsset) {
+  const gallerySourcePath = path.join(
+    rootDir,
+    "src",
+    "pages",
+    "GalleryPage.tsx",
+  );
+  const src = fs.readFileSync(gallerySourcePath, "utf-8");
+  const itemRe =
+    /\{\s*src:\s*gallery(\d+),\s*alt:\s*['"]([^'"]+)['"],\s*category:\s*['"]([^'"]+)['"],?\s*\}/g;
+  const items = [];
+  let m;
+  while ((m = itemRe.exec(src)) !== null) {
+    const nn = m[1].padStart(2, "0");
+    items.push({
+      src: resolveAsset(`gallery-${nn}`),
+      alt: m[2],
+      category: m[3],
+    });
+  }
+  if (items.length === 0) {
+    throw new Error(
+      "Failed to parse rawGalleryItems from src/pages/GalleryPage.tsx",
+    );
+  }
+  return items;
+}
+
+function getLayoutLabels(lang) {
+  if (lang === "en") {
+    return {
+      home: "Home",
+      services: "Services",
+      gallery: "Gallery",
+      news: "Knowledge Base",
+      contact: "Contact & Quote",
+      langSwitch: "Language",
+      footerServicesTitle: "Surface Engineering Services",
+      footerCompanyTitle: "Knowledge & Legal",
+      footerPlantTitle: "Production Plant & HQ",
+      footerPlantPrefix: "Production Plant:",
+      footerHqPrefix: "Registered Office:",
+      footerCountrySuffix: ", Poland",
+      contactPlantLine:
+        "STANIAX Sp. z o.o. · ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów, Poland",
+      privacy: "Privacy Policy",
+      cookies: "Cookie Policy",
+      allRights: "© 2026 STANIAX Sp. z o.o. All rights reserved.",
+      backToTop: "Get Technical Quote",
+      tableCaptionSuffix: "technical specification table",
+      processLabel: "Technological Process",
+      benefitsLabel: "B2B Advantages",
+      caseStudiesLabel: "Industrial Case Studies",
+      showcasePreviewLabel: "Available Finishes & Reference Comparison",
+      relatedLabel: "See Related Services",
+      serviceLinks: {
+        privacy: "/en/privacy-policy",
+        cookies: "/en/cookie-policy",
+        gallery: "/en/gallery",
+        news: "/en/news",
+        home: "/en",
+      },
+    };
+  }
+  if (lang === "de") {
+    return {
+      home: "Startseite",
+      services: "Leistungen",
+      gallery: "Galerie",
+      news: "Wissensdatenbank",
+      contact: "Kontakt & Anfrage",
+      langSwitch: "Sprache",
+      footerServicesTitle: "Oberflächentechnik & Leistungen",
+      footerCompanyTitle: "Wissen & Rechtliches",
+      footerPlantTitle: "Produktionswerk & Sitz",
+      footerPlantPrefix: "Produktionswerk:",
+      footerHqPrefix: "Firmensitz:",
+      footerCountrySuffix: ", Polen",
+      contactPlantLine:
+        "STANIAX Sp. z o.o. · ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów, Polen",
+      privacy: "Datenschutzerklärung",
+      cookies: "Cookie-Richtlinie",
+      allRights: "© 2026 STANIAX Sp. z o.o. Alle Rechte vorbehalten.",
+      backToTop: "Angebot anfordern",
+      tableCaptionSuffix: "technische Spezifikation",
+      processLabel: "Technologieprozess",
+      benefitsLabel: "B2B-Vorteile",
+      caseStudiesLabel: "Praxisbeispiele & Projekte",
+      showcasePreviewLabel: "Verfügbare Ausführungen & Vergleich",
+      relatedLabel: "Verwandte Leistungen",
+      serviceLinks: {
+        privacy: "/de/datenschutz",
+        cookies: "/de/cookie-richtlinie",
+        gallery: "/de/gallery",
+        news: "/de/news",
+        home: "/de",
+      },
+    };
+  }
+  return {
+    home: "Strona główna",
+    services: "Oferta usług",
+    gallery: "Galeria realizacji",
+    news: "Baza wiedzy",
+    contact: "Kontakt i wycena",
+    langSwitch: "Język",
+    footerServicesTitle: "Usługi technologiczne STANIAX",
+    footerCompanyTitle: "Wiedza i dokumenty",
+    footerPlantTitle: "Zakład produkcyjny i siedziba",
+    footerPlantPrefix: "Zakład produkcyjny:",
+    footerHqPrefix: "Siedziba rejestrowa:",
+    footerCountrySuffix: "",
+    contactPlantLine:
+      "STANIAX Sp. z o.o. · ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów",
+    privacy: "Polityka prywatności",
+    cookies: "Polityka cookies",
+    allRights: "© 2026 STANIAX Sp. z o.o. Wszelkie prawa zastrzeżone.",
+    backToTop: "Poproś o wycenę B2B",
+    tableCaptionSuffix: "specyfikacja techniczna",
+    processLabel: "Proces technologiczny",
+    benefitsLabel: "Przewagi B2B",
+    caseStudiesLabel: "Realizacje przemysłowe",
+    showcasePreviewLabel: "Warianty wykończeń i porównanie",
+    relatedLabel: "Powiązane usługi i wiedza",
+    serviceLinks: {
+      privacy: "/polityka-prywatnosci",
+      cookies: "/polityka-cookies",
+      gallery: "/gallery",
+      news: "/news",
+      home: "/",
+    },
+  };
+}
+
+function renderSiteChrome({ lang, currentPath, alternates, bridge, bodyHtml }) {
+  const { SERVICE_ORDER, SERVICE_SLUGS, SERVICES } = bridge;
+  const labels = getLayoutLabels(lang);
+  const contactHref = `${labels.serviceLinks.home}#contact`;
+
+  const serviceNavLinks = SERVICE_ORDER.map(
+    (id) =>
+      `<a href="${escapeHtml(SERVICE_SLUGS[id][lang])}" class="text-sm font-medium text-slate-700 hover:text-blue-700">${escapeHtml(
+        SERVICES[id].locales[lang].navLabel,
+      )}</a>`,
+  ).join("\n            ");
+
+  const footerServiceLinks = SERVICE_ORDER.map(
+    (id) =>
+      `<li><a href="${escapeHtml(SERVICE_SLUGS[id][lang])}" class="text-slate-300 hover:text-white underline-offset-4 hover:underline">${escapeHtml(
+        SERVICES[id].locales[lang].navLabel,
+      )}</a></li>`,
+  ).join("\n            ");
+
+  const langSwitcherLinks = ["pl", "en", "de"]
+    .map((l) => {
+      const target =
+        (alternates && alternates[l]) || (l === "pl" ? "/" : `/${l}`);
+      const activeClass =
+        l === lang
+          ? "font-bold text-blue-700 underline"
+          : "text-slate-600 hover:text-slate-900";
+      return `<a href="${escapeHtml(target)}" hreflang="${l}" class="text-xs uppercase ${activeClass}">${l.toUpperCase()}</a>`;
+    })
+    .join(" · ");
+
+  return `
+<div class="min-h-screen bg-white text-slate-900 font-sans">
+  <header class="border-b border-slate-200 bg-white/95 sticky top-0 z-50">
+    <div class="container mx-auto max-w-6xl px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+      <a href="${escapeHtml(labels.serviceLinks.home)}" class="font-black tracking-tight text-xl text-slate-950">STANIAX Sp. z o.o.</a>
+      <nav aria-label="Primary navigation" class="flex flex-wrap items-center gap-4">
+        <a href="${escapeHtml(labels.serviceLinks.home)}" class="text-sm font-medium text-slate-700 hover:text-blue-700">${escapeHtml(labels.home)}</a>
+        ${serviceNavLinks}
+        <a href="${escapeHtml(labels.serviceLinks.gallery)}" class="text-sm font-medium text-slate-700 hover:text-blue-700">${escapeHtml(labels.gallery)}</a>
+        <a href="${escapeHtml(labels.serviceLinks.news)}" class="text-sm font-medium text-slate-700 hover:text-blue-700">${escapeHtml(labels.news)}</a>
+        <a href="${escapeHtml(contactHref)}" class="text-sm font-semibold text-blue-700 hover:text-blue-800">${escapeHtml(labels.contact)}</a>
+      </nav>
+      <div class="text-xs text-slate-500" aria-label="${escapeHtml(labels.langSwitch)}">${langSwitcherLinks}</div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    ${bodyHtml}
+  </main>
+
+  <footer class="bg-slate-950 text-slate-200 border-t border-slate-800 mt-16 py-12">
+    <div class="container mx-auto max-w-6xl px-6 grid gap-8 md:grid-cols-3">
+      <div class="space-y-3">
+        <p class="text-xs uppercase tracking-widest text-blue-400 font-bold">${escapeHtml(labels.footerPlantTitle)}</p>
+        <p class="font-bold text-white">STANIAX Sp. z o.o.</p>
+        <p class="text-sm text-slate-300">${escapeHtml(labels.footerPlantPrefix)} ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów${escapeHtml(labels.footerCountrySuffix)}</p>
+        <p class="text-sm text-slate-300">${escapeHtml(labels.footerHqPrefix)} ul. Grzybowska 5A, 00-132 Warszawa${escapeHtml(labels.footerCountrySuffix)}</p>
+        <p class="text-sm text-slate-300">Tel.: <a href="tel:+48882488844" class="text-blue-400 underline">+48 882 488 844</a></p>
+        <p class="text-sm text-slate-300">E-mail: <a href="mailto:metalizacja@staniax.pl" class="text-blue-400 underline">metalizacja@staniax.pl</a> · <a href="mailto:office@staniax.pl" class="text-blue-400 underline">office@staniax.pl</a></p>
+      </div>
+      <div class="space-y-3">
+        <p class="text-xs uppercase tracking-widest text-blue-400 font-bold">${escapeHtml(labels.footerServicesTitle)}</p>
+        <ul class="space-y-2 text-sm">
+          ${footerServiceLinks}
+        </ul>
+      </div>
+      <div class="space-y-3">
+        <p class="text-xs uppercase tracking-widest text-blue-400 font-bold">${escapeHtml(labels.footerCompanyTitle)}</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="${escapeHtml(labels.serviceLinks.gallery)}" class="text-slate-300 hover:text-white underline-offset-4 hover:underline">${escapeHtml(labels.gallery)}</a></li>
+          <li><a href="${escapeHtml(labels.serviceLinks.news)}" class="text-slate-300 hover:text-white underline-offset-4 hover:underline">${escapeHtml(labels.news)}</a></li>
+          <li><a href="${escapeHtml(labels.serviceLinks.privacy)}" class="text-slate-300 hover:text-white underline-offset-4 hover:underline">${escapeHtml(labels.privacy)}</a></li>
+          <li><a href="${escapeHtml(labels.serviceLinks.cookies)}" class="text-slate-300 hover:text-white underline-offset-4 hover:underline">${escapeHtml(labels.cookies)}</a></li>
+        </ul>
+        <p class="text-xs text-slate-400 pt-2">${escapeHtml(labels.allRights)} · URL: ${escapeHtml(currentPath)}</p>
+      </div>
+    </div>
+  </footer>
+</div>`;
+}
+
+function renderHomePage(lang, bridge, resolveAsset) {
+  const {
+    SERVICE_ORDER,
+    SERVICE_SLUGS,
+    SERVICES,
+    NEWS_ITEMS_BY_LANG,
+    translations,
+  } = bridge;
+  const tr = translations[lang];
+  const labels = getLayoutLabels(lang);
+  const heroImageUrl = resolveAsset("vacuum_metalization_chamber");
+
+  const serviceCardsHtml = SERVICE_ORDER.map((id, idx) => {
+    const svc = SERVICES[id].locales[lang];
+    const slug = SERVICE_SLUGS[id][lang];
+    const imgUrl = resolveAsset(HERO_IMAGE_PREFIXES[svc.heroImageKey]);
+    return `
+      <article class="rounded-2xl border border-slate-200 bg-white p-6 space-y-4 shadow-sm">
+        <img src="${escapeHtml(imgUrl)}" alt="${escapeHtml(svc.heroImageAlt)}" ${imgSizeAttrs(imgUrl)} class="w-full h-48 object-cover rounded-xl" loading="lazy" />
+        <p class="text-xs font-mono uppercase tracking-widest text-blue-700 font-bold">0${idx + 1}. ${escapeHtml(svc.heroBadge)}</p>
+        <h3 class="text-xl font-bold text-slate-950">
+          <a href="${escapeHtml(slug)}" class="hover:text-blue-700">${escapeHtml(svc.navLabel)}</a>
+        </h3>
+        <p class="text-sm text-slate-600 leading-relaxed">${escapeHtml(svc.shortSummary)}</p>
+        <p><a href="${escapeHtml(slug)}" class="text-sm font-bold text-blue-700 underline">${escapeHtml(svc.navLabel)} →</a></p>
+      </article>`;
+  }).join("\n");
+
+  const newsCardsHtml = NEWS_ITEMS_BY_LANG[lang]
+    .map((item) => {
+      const imgSrc =
+        item.imageKey === "externalUnsplash"
+          ? item.externalImageUrl || heroImageUrl
+          : resolveAsset(NEWS_IMAGE_PREFIXES[item.imageKey]);
+      return `
+      <article class="rounded-2xl border border-slate-200 bg-slate-50 p-6 space-y-3">
+        <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(item.title)}" ${imgSizeAttrs(imgSrc)} class="w-full h-40 object-cover rounded-xl" loading="lazy" />
+        <p class="text-xs uppercase font-bold text-blue-700">${escapeHtml(item.category)} · ${escapeHtml(item.date)}</p>
+        <h3 class="text-lg font-bold text-slate-950"><a href="${escapeHtml(item.path)}" class="hover:text-blue-700">${escapeHtml(item.title)}</a></h3>
+        <p class="text-sm text-slate-600">${escapeHtml(item.homeSummary || item.excerpt)}</p>
+        <p><a href="${escapeHtml(item.path)}" class="text-sm font-bold text-blue-700 underline">${escapeHtml(item.ctaLabel)}</a></p>
+      </article>`;
+    })
+    .join("\n");
+
+  const faqHtml = [1, 2, 3, 4, 5, 6]
+    .map((i) => {
+      const q = tr[`faq${i}q`];
+      const a = tr[`faq${i}a`];
+      if (!q || !a) return "";
+      return `
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 space-y-2">
+        <h3 class="text-lg font-bold text-slate-950">${escapeHtml(q)}</h3>
+        <p class="text-sm text-slate-700 leading-relaxed">${escapeHtml(a)}</p>
+      </div>`;
+    })
+    .join("\n");
+
+  const bodyHtml = `
+  <section class="container mx-auto max-w-6xl px-6 py-12 space-y-8">
+    <div class="grid gap-8 lg:grid-cols-2 items-center">
+      <div class="space-y-4">
+        <p class="text-xs uppercase tracking-[0.3em] text-blue-700 font-bold">${escapeHtml(tr.bentoSubtitle || "STANIAX Sp. z o.o.")}</p>
+        <h1 class="text-4xl lg:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(tr.bentoTitle)}</h1>
+        <p class="text-lg text-slate-700 leading-relaxed">${escapeHtml(tr.bentoDesc)}</p>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="${escapeHtml(SERVICE_SLUGS.reflectors[lang])}" class="inline-block rounded-lg bg-blue-700 text-white px-5 py-3 text-sm font-bold">${escapeHtml(SERVICES.reflectors.locales[lang].navLabel)}</a>
+          <a href="${escapeHtml(SERVICE_SLUGS["vacuum-metallization"][lang])}" class="inline-block rounded-lg border border-slate-300 text-slate-900 px-5 py-3 text-sm font-bold">${escapeHtml(SERVICES["vacuum-metallization"].locales[lang].navLabel)}</a>
+        </div>
+      </div>
+      <div>
+        <img src="${escapeHtml(heroImageUrl)}" alt="${escapeHtml(tr.bentoTitle)}" ${imgSizeAttrs(heroImageUrl)} class="w-full h-80 object-cover rounded-2xl border border-slate-200" />
+      </div>
+    </div>
+  </section>
+
+  <section id="kim-jestesmy" class="bg-slate-50 border-y border-slate-200 py-12">
+    <div class="container mx-auto max-w-6xl px-6 space-y-4">
+      <p class="text-xs uppercase tracking-widest text-blue-700 font-bold">${escapeHtml(tr.oNas || "STANIAX")}</p>
+      <h2 class="text-3xl font-black text-slate-950">${escapeHtml((tr.kimJestesmy || "STANIAX").replace(/\n/g, " "))}</h2>
+      <p class="text-slate-700 leading-relaxed">${escapeHtml(tr.kimJestesmyText1)}</p>
+      <p class="text-slate-700 leading-relaxed">${escapeHtml(tr.kimJestesmyText2)}</p>
+    </div>
+  </section>
+
+  <section id="about" class="container mx-auto max-w-6xl px-6 py-12 space-y-8">
+    <h2 class="text-3xl font-black text-slate-950">${escapeHtml(tr.naszaOferta)}</h2>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      ${serviceCardsHtml}
+    </div>
+  </section>
+
+  <section class="bg-slate-50 border-y border-slate-200 py-12">
+    <div class="container mx-auto max-w-6xl px-6 space-y-6">
+      <h2 class="text-3xl font-black text-slate-950">${escapeHtml(`${tr.bazaWiedzyHeading || ""} ${tr.bazaWiedzyHeadingSub || ""}`.trim())}</h2>
+      <p class="text-slate-700 leading-relaxed">${escapeHtml(tr.bazaWiedzyLead)}</p>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="rounded-xl bg-white p-6 border border-slate-200 space-y-2">
+          <h3 class="text-lg font-bold text-slate-950">${escapeHtml(tr.bazaWiedzyTechTitle)}</h3>
+          <p class="text-sm text-slate-700">${escapeHtml(tr.bazaWiedzyTechDesc)}</p>
+        </div>
+        <div class="rounded-xl bg-white p-6 border border-slate-200 space-y-2">
+          <h3 class="text-lg font-bold text-slate-950">${escapeHtml(tr.bazaWiedzyWhyTitle)}</h3>
+          <p class="text-sm text-slate-700">${escapeHtml(tr.bazaWiedzyWhyDesc)}</p>
+          <p><a href="${escapeHtml(labels.serviceLinks.gallery)}" class="text-sm font-bold text-blue-700 underline">${escapeHtml(tr.bazaWiedzyWhyLink)}</a></p>
+        </div>
+        <div class="rounded-xl bg-white p-6 border border-slate-200 space-y-2">
+          <h3 class="text-lg font-bold text-slate-950">${escapeHtml(tr.bazaWiedzyLocTitle)}</h3>
+          <p class="text-sm text-slate-700">${escapeHtml(tr.bazaWiedzyLocDesc)}</p>
+          <p><a href="${escapeHtml(labels.serviceLinks.news)}" class="text-sm font-bold text-blue-700 underline">${escapeHtml(tr.bazaWiedzyLocLink)}</a></p>
+        </div>
+        <div class="rounded-xl bg-white p-6 border border-slate-200 space-y-2">
+          <h3 class="text-lg font-bold text-slate-950">${escapeHtml(tr.bazaWiedzyAppTitle)}</h3>
+          <p class="text-sm text-slate-700">${escapeHtml(tr.bazaWiedzyAppDesc)}</p>
+        </div>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 pt-4">
+        ${newsCardsHtml}
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="container mx-auto max-w-6xl px-6 py-12 space-y-6">
+    <h2 class="text-3xl font-black text-slate-950">${escapeHtml((tr.faqTitle || "FAQ").replace(/\n/g, " "))}</h2>
+    <div class="grid gap-4 md:grid-cols-2">
+      ${faqHtml}
+    </div>
+  </section>
+
+  <section id="contact" class="container mx-auto max-w-6xl px-6 pb-12 space-y-4">
+    <h2 class="text-2xl font-black text-slate-950">${escapeHtml(labels.contact)}</h2>
+    <p class="text-slate-700">${escapeHtml(labels.contactPlantLine)}</p>
+  </section>
+
+  ${renderEngineeringHubHtml(bridge.getHomeEngineeringHub(lang))}`;
+
+  const faqSchemaItems = [1, 2, 3, 4, 5, 6]
+    .map((i) => ({ q: tr[`faq${i}q`], a: tr[`faq${i}a`] }))
+    .filter((f) => Boolean(f.q && f.a));
+
+  const seoConfig = {
+    lang,
+    path: lang === "pl" ? "/" : `/${lang}`,
+    title: tr.metaTitle,
+    description: tr.metaDesc,
+    alternates: { pl: "/", en: "/en", de: "/de", xDefault: "/" },
+    faq: faqSchemaItems,
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function getGeoChromeCopy(lang) {
+  if (lang === "en") {
+    return {
+      geoBadge: "Engineering Quick Answer",
+      faqHeading: "Technical FAQ",
+      relatedHeading: "Related Services & Specifications",
+      ctaTitle: "Discuss specifications directly with STANIAX engineers",
+      ctaPhoneLabel: "Call plant",
+      ctaFormLabel: "Request B2B quote",
+      compareHub: "Engineering Library",
+      paramCol: "Technical Parameter",
+      tableHeading: "Quantitative Comparison Matrix",
+      subHub: "Substrate Matrix",
+      specsHeading: "Process Parameters & Quality Standards",
+      specParamCol: "Parameter",
+      valCol: "STANIAX Specification",
+      appsHeading: "Typical Industrial Applications",
+      reflectorService: "Reflector Restoration",
+      colVariant: "Service Tier",
+      colScope: "Process Scope",
+      colTime: "Turnaround",
+      colPrice: "Estimated Rate",
+      colWarranty: "Warranty",
+      radiusHeading: "Drop-Off Zones & Courier Coverage",
+      colZone: "District / Region",
+      colDist: "Travel / Transit Time",
+      colMode: "Delivery Mode",
+    };
+  }
+  if (lang === "de") {
+    return {
+      geoBadge: "Technische Kurzantwort",
+      faqHeading: "Häufige Fachfragen (FAQ)",
+      relatedHeading: "Weiterführende Leistungen & Daten",
+      ctaTitle: "Verfahren direkt mit den STANIAX-Ingenieuren abstimmen",
+      ctaPhoneLabel: "Werk anrufen",
+      ctaFormLabel: "Angebot anfordern",
+      compareHub: "Fachbibliothek & Vergleiche",
+      paramCol: "Technischer Parameter",
+      tableHeading: "Direkter Technologievergleich",
+      subHub: "Materialmatrix & Lösungen",
+      specsHeading: "Prozessparameter & Qualitätsnormen",
+      specParamCol: "Parameter",
+      valCol: "STANIAX-Spezifikation",
+      appsHeading: "Typische Industrieanwendungen",
+      reflectorService: "Reflektor neu bedampfen",
+      colVariant: "Leistungsstufe",
+      colScope: "Bearbeitungsumfang",
+      colTime: "Durchlaufzeit",
+      colPrice: "Richtpreis",
+      colWarranty: "Garantie",
+      radiusHeading: "Einzugsgebiet & Paketlogistik",
+      colZone: "Stadtteil / Region",
+      colDist: "Fahrzeit / Laufzeit",
+      colMode: "Anlieferungsweg",
+    };
+  }
+  return {
+    geoBadge: "Synteza inżynieryjna",
+    faqHeading: "Najczęstsze pytania techniczne",
+    relatedHeading: "Powiązane usługi i specyfikacje",
+    ctaTitle: "Skonsultuj dobór technologii z technologiem STANIAX",
+    ctaPhoneLabel: "Zadzwoń",
+    ctaFormLabel: "Formularz wyceny",
+    compareHub: "Baza wiedzy i porównania",
+    paramCol: "Parametr techniczny",
+    tableHeading: "Zestawienie parametrów technologicznych",
+    subHub: "Baza technologii i materiałów",
+    specsHeading: "Parametry procesowe i normy powłoki",
+    specParamCol: "Parametr",
+    valCol: "Specyfikacja STANIAX",
+    appsHeading: "Typowe zastosowania przemysłowe",
+    reflectorService: "Regeneracja odbłyśników",
+    colVariant: "Wariant usługi",
+    colScope: "Zakres technologiczny",
+    colTime: "Czas realizacji",
+    colPrice: "Cena orientacyjna",
+    colWarranty: "Gwarancja",
+    radiusHeading: "Strefy dojazdu i wysyłki (Warszawa, Mazowsze, Polska)",
+    colZone: "Dzielnica / Region",
+    colDist: "Dojazd / Tranzyt",
+    colMode: "Tryb realizacji STANIAX",
+  };
+}
+
+function renderEngineeringHubHtml(hub) {
+  const colsHtml = hub.groups
+    .map(
+      (group) => `
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 space-y-4">
+        <h3 class="text-base font-extrabold uppercase tracking-wider text-slate-900 border-b border-slate-100 pb-3">${escapeHtml(group.title)}</h3>
+        <ul class="space-y-2.5">
+          ${group.items
+            .map(
+              (item) => `
+          <li>
+            <a href="${escapeHtml(item.path)}" class="flex items-start justify-between gap-3 rounded-xl border border-slate-100 bg-slate-50 px-3.5 py-2.5 hover:border-blue-500">
+              <div class="min-w-0">
+                <span class="block text-sm font-bold text-slate-900">${escapeHtml(item.title)}</span>
+                <span class="block text-xs font-mono text-slate-500">${escapeHtml(item.meta)}</span>
+              </div>
+              <span class="text-blue-700 font-bold" aria-hidden="true">→</span>
+            </a>
+          </li>`,
+            )
+            .join("")}
+        </ul>
+      </div>`,
+    )
+    .join("\n");
+
+  return `
+  <section id="engineering-hub" class="bg-slate-50 border-t border-slate-200 py-12">
+    <div class="container mx-auto max-w-6xl px-6 space-y-6">
+      <div class="space-y-2 max-w-3xl">
+        <p class="text-xs font-mono font-bold uppercase tracking-widest text-blue-700">${escapeHtml(hub.eyebrow)}</p>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-950">${escapeHtml(hub.heading)}</h2>
+        <p class="text-slate-700 leading-relaxed">${escapeHtml(hub.subheading)}</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        ${colsHtml}
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderServiceClusterHtml(cluster) {
+  const itemsHtml = cluster.items
+    .map(
+      (item) => `
+      <a href="${escapeHtml(item.path)}" class="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-800 hover:border-blue-600 hover:text-blue-700">
+        <div class="min-w-0">
+          <span class="block font-bold">${escapeHtml(item.title)}</span>
+          <span class="block text-xs font-mono text-slate-500">${escapeHtml(item.meta)}</span>
+        </div>
+        <span aria-hidden="true">→</span>
+      </a>`,
+    )
+    .join("\n");
+
+  return `
+    <div class="pt-6 border-t border-slate-200 space-y-4">
+      <h3 class="text-lg font-bold text-slate-900">${escapeHtml(cluster.heading)}</h3>
+      <div class="grid gap-3 md:grid-cols-3">
+        ${itemsHtml}
+      </div>
+    </div>`;
+}
+
+function renderGeoDirectAnswerHtml(lang, question, answer) {
+  const copy = getGeoChromeCopy(lang);
+  return `
+  <section aria-label="${escapeHtml(copy.geoBadge)}" data-geo-answer="true" class="rounded-3xl border border-blue-200 bg-blue-50/70 p-6 sm:p-8 space-y-3">
+    <span class="inline-flex rounded-full border border-blue-200 bg-white px-3 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-blue-700">${escapeHtml(copy.geoBadge)}</span>
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(question)}</h2>
+    <p class="text-base sm:text-lg leading-relaxed text-slate-800">${escapeHtml(answer)}</p>
+  </section>`;
+}
+
+function renderTechnicalSectionsHtml(sections) {
+  return sections
+    .map(
+      (section) => `
+  <section class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 space-y-4">
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(section.heading)}</h2>
+    ${section.paragraphs.map((p) => `<p class="leading-relaxed text-slate-700">${escapeHtml(p)}</p>`).join("\n    ")}
+    ${
+      section.bullets && section.bullets.length
+        ? `<ul class="space-y-2 pt-2">${section.bullets
+            .map((b) => `<li class="text-slate-800">• ${escapeHtml(b)}</li>`)
+            .join("\n      ")}</ul>`
+        : ""
+    }
+  </section>`,
+    )
+    .join("\n");
+}
+
+function renderPageFaqHtml(lang, faq) {
+  const copy = getGeoChromeCopy(lang);
+  return `
+  <section class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 space-y-4">
+    <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(copy.faqHeading)}</h2>
+    <div class="space-y-4">
+      ${faq
+        .map(
+          (item) => `
+      <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 space-y-2">
+        <h3 class="font-bold text-slate-900">${escapeHtml(item.q)}</h3>
+        <p class="text-sm sm:text-base leading-relaxed text-slate-700">${escapeHtml(item.a)}</p>
+      </div>`,
+        )
+        .join("\n")}
+    </div>
+  </section>`;
+}
+
+function renderRelatedClusterHtml(lang, links) {
+  const copy = getGeoChromeCopy(lang);
+  return `
+  <section class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 space-y-4">
+    <h2 class="text-lg sm:text-xl font-bold text-slate-900">${escapeHtml(copy.relatedHeading)}</h2>
+    <div class="grid gap-3 md:grid-cols-2">
+      ${links
+        .map(
+          (item) => `
+      <a href="${escapeHtml(item.path)}" class="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-800 hover:border-blue-500">
+        <span>${escapeHtml(item.label)}</span>
+        <span aria-hidden="true">→</span>
+      </a>`,
+        )
+        .join("\n")}
+    </div>
+  </section>`;
+}
+
+function renderBofuCtaHtml(lang, contextLabel) {
+  const copy = getGeoChromeCopy(lang);
+  const homeContact = lang === "pl" ? "/#contact" : `/${lang}#contact`;
+  const titleText = contextLabel ? `${contextLabel}: ${copy.ctaTitle}` : copy.ctaTitle;
+  return `
+  <section id="wycena" class="rounded-3xl bg-slate-900 text-white p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div>
+      <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">${escapeHtml(titleText)}</h2>
+      <p class="text-sm font-mono text-slate-300">STANIAX · Józefów 05-420</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="tel:+48882488844" class="rounded-full bg-white text-slate-900 px-5 py-3 text-sm font-bold">${escapeHtml(copy.ctaPhoneLabel)}: +48 882 488 844</a>
+      <a href="mailto:metalizacja@staniax.pl" class="rounded-full border border-white/30 bg-white/10 text-white px-5 py-3 text-sm font-bold">metalizacja@staniax.pl</a>
+      <a href="${escapeHtml(homeContact)}" class="rounded-full bg-blue-600 text-white px-5 py-3 text-sm font-bold">${escapeHtml(copy.ctaFormLabel)} →</a>
+    </div>
+  </section>`;
+}
+
+function renderComparisonPage(comparisonId, lang, bridge) {
+  const { COMPARISONS, COMPARISON_SLUGS, STATIC_ROUTE_EQUIVALENTS } = bridge;
+  const page = COMPARISONS[comparisonId][lang];
+  const slugs = COMPARISON_SLUGS[comparisonId];
+  const copy = getGeoChromeCopy(lang);
+  const labels = getLayoutLabels(lang);
+  const libGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/biblioteka",
+  );
+  const libraryPath = (libGroup && libGroup[lang]) || "/news/biblioteka";
+  const currentPath = slugs[lang];
+
+  const rowsHtml = page.comparisonRows
+    .map(
+      (row) => `
+        <tr>
+          <td class="py-3 px-4 font-semibold text-slate-900">${escapeHtml(row.parameter)}</td>
+          <td class="py-3 px-4 text-slate-800">${escapeHtml(row.optionA)}</td>
+          <td class="py-3 px-4 text-slate-600">${escapeHtml(row.optionB)}</td>
+        </tr>`,
+    )
+    .join("\n");
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml([
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: copy.compareHub, path: libraryPath },
+    { name: page.breadLabel, path: currentPath },
+  ])}
+
+  <div class="container mx-auto max-w-5xl px-6 py-10 space-y-10">
+    <header class="space-y-4">
+      <span class="inline-flex rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-blue-700">${escapeHtml(page.badge)}</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(page.h1)}</h1>
+      <p class="text-lg text-slate-700 leading-relaxed">${escapeHtml(page.subtitle)}</p>
+    </header>
+
+    ${renderGeoDirectAnswerHtml(lang, page.directAnswerQuestion, page.directAnswer)}
+
+    <section class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(copy.tableHeading)}</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-sm sm:text-base">
+          <thead>
+            <tr class="border-b-2 border-slate-200 bg-slate-50">
+              <th scope="col" class="py-3 px-4 font-bold text-slate-900">${escapeHtml(copy.paramCol)}</th>
+              <th scope="col" class="py-3 px-4 font-bold text-blue-800">${escapeHtml(page.sideALabel)}</th>
+              <th scope="col" class="py-3 px-4 font-bold text-slate-700">${escapeHtml(page.sideBLabel)}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            ${rowsHtml}
+          </tbody>
+        </table>
+      </div>
+      <div class="rounded-2xl bg-slate-900 text-white p-5">
+        <p class="text-xs font-mono uppercase tracking-wider text-blue-300 mb-1">${escapeHtml(page.verdictTitle)}</p>
+        <p class="text-sm sm:text-base text-slate-100 leading-relaxed">${escapeHtml(page.verdictSummary)}</p>
+      </div>
+    </section>
+
+    ${renderTechnicalSectionsHtml(page.sections)}
+
+    <section class="grid gap-6 md:grid-cols-2">
+      <div class="rounded-3xl border border-blue-200 bg-white p-6 space-y-3">
+        <h2 class="text-lg font-bold text-blue-900">${escapeHtml(page.whenChooseATitle)}</h2>
+        <ul class="space-y-2 text-slate-800">${page.whenChooseA
+          .map((item) => `<li>• ${escapeHtml(item)}</li>`)
+          .join("\n")}</ul>
+      </div>
+      <div class="rounded-3xl border border-slate-200 bg-white p-6 space-y-3">
+        <h2 class="text-lg font-bold text-slate-900">${escapeHtml(page.whenChooseBTitle)}</h2>
+        <ul class="space-y-2 text-slate-700">${page.whenChooseB
+          .map((item) => `<li>• ${escapeHtml(item)}</li>`)
+          .join("\n")}</ul>
+      </div>
+    </section>
+
+    ${renderPageFaqHtml(lang, page.faq)}
+    ${renderRelatedClusterHtml(lang, page.relatedLinks)}
+    ${renderBofuCtaHtml(lang, page.breadLabel)}
+  </div>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: page.metaTitle,
+    description: page.metaDesc,
+    alternates: { pl: slugs.pl, en: slugs.en, de: slugs.de, xDefault: slugs.pl },
+    ogType: "article",
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: copy.compareHub, path: libraryPath },
+      { name: page.breadLabel, path: currentPath },
+    ],
+    faq: page.faq,
+    serviceSchema: {
+      name: page.h1,
+      serviceType: page.badge,
+      description: page.metaDesc,
+    },
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderSubstrateMatrixPage(substrateId, lang, bridge) {
+  const { SUBSTRATES, SUBSTRATE_SLUGS, STATIC_ROUTE_EQUIVALENTS } = bridge;
+  const page = SUBSTRATES[substrateId][lang];
+  const slugs = SUBSTRATE_SLUGS[substrateId];
+  const copy = getGeoChromeCopy(lang);
+  const labels = getLayoutLabels(lang);
+  const libGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/biblioteka",
+  );
+  const libraryPath = (libGroup && libGroup[lang]) || "/news/biblioteka";
+  const currentPath = slugs[lang];
+
+  const rowsHtml = page.specs
+    .map(
+      (row) => `
+        <tr>
+          <td class="py-3 px-4 font-semibold text-slate-900">${escapeHtml(row.parameter)}</td>
+          <td class="py-3 px-4 text-slate-700">${escapeHtml(row.value)}</td>
+        </tr>`,
+    )
+    .join("\n");
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml([
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: copy.subHub, path: libraryPath },
+    { name: page.breadLabel, path: currentPath },
+  ])}
+
+  <div class="container mx-auto max-w-5xl px-6 py-10 space-y-10">
+    <header class="space-y-4">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="inline-flex rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-blue-700">${escapeHtml(page.badge)}</span>
+        <span class="inline-flex rounded-full border border-slate-200 bg-white px-3.5 py-1 text-xs font-mono text-slate-700">${escapeHtml(page.polymerCode)}</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(page.h1)}</h1>
+      <p class="text-lg text-slate-700 leading-relaxed">${escapeHtml(page.subtitle)}</p>
+    </header>
+
+    ${renderGeoDirectAnswerHtml(lang, page.directAnswerQuestion, page.directAnswer)}
+
+    <section class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(copy.specsHeading)}</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-sm sm:text-base">
+          <thead>
+            <tr class="border-b-2 border-slate-200 bg-slate-50">
+              <th scope="col" class="py-3 px-4 font-bold text-slate-900">${escapeHtml(copy.specParamCol)}</th>
+              <th scope="col" class="py-3 px-4 font-bold text-blue-800">${escapeHtml(copy.valCol)}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            ${rowsHtml}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    ${renderTechnicalSectionsHtml(page.sections)}
+
+    <section class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(copy.appsHeading)}</h2>
+      <ul class="grid gap-3 md:grid-cols-2 text-slate-800">
+        ${page.applications
+          .map(
+            (app) =>
+              `<li class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm sm:text-base">• ${escapeHtml(app)}</li>`,
+          )
+          .join("\n")}
+      </ul>
+    </section>
+
+    ${renderPageFaqHtml(lang, page.faq)}
+    ${renderRelatedClusterHtml(lang, page.relatedLinks)}
+    ${renderBofuCtaHtml(lang, page.breadLabel)}
+  </div>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: page.metaTitle,
+    description: page.metaDesc,
+    alternates: { pl: slugs.pl, en: slugs.en, de: slugs.de, xDefault: slugs.pl },
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: copy.subHub, path: libraryPath },
+      { name: page.breadLabel, path: currentPath },
+    ],
+    faq: page.faq,
+    serviceSchema: {
+      name: page.h1,
+      serviceType: page.polymerCode,
+      description: page.metaDesc,
+    },
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderHeadlightPricingPage(lang, bridge) {
+  const { HEADLIGHT_PRICING_PAGE, PRICING_SLUGS, SERVICE_SLUGS } = bridge;
+  const page = HEADLIGHT_PRICING_PAGE[lang];
+  const copy = getGeoChromeCopy(lang);
+  const labels = getLayoutLabels(lang);
+  const servicePath = SERVICE_SLUGS.reflectors[lang];
+  const currentPath = PRICING_SLUGS[lang];
+
+  const presetsHtml = page.presets
+    .map(
+      (p) => `
+      <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 space-y-1">
+        <div class="flex items-center justify-between gap-2">
+          <span class="font-semibold text-slate-900">${escapeHtml(p.label)}</span>
+          <span class="font-mono font-bold text-blue-700">${escapeHtml(`${p.baseReflectorPrice} ${p.currency}`)}</span>
+        </div>
+        <p class="text-xs text-slate-600">${escapeHtml(p.note)}</p>
+      </div>`,
+    )
+    .join("\n");
+
+  const tiersHtml = page.tiers
+    .map(
+      (tier) => `
+        <tr>
+          <td class="py-3.5 px-4 font-semibold text-slate-900">${escapeHtml(tier.serviceType)}</td>
+          <td class="py-3.5 px-4 text-slate-700">${escapeHtml(tier.scope)}</td>
+          <td class="py-3.5 px-4 font-mono text-slate-700">${escapeHtml(tier.turnaround)}</td>
+          <td class="py-3.5 px-4 font-mono font-bold text-blue-700">${escapeHtml(tier.priceLabel)}</td>
+          <td class="py-3.5 px-4 text-slate-700">${escapeHtml(tier.warranty)}</td>
+        </tr>`,
+    )
+    .join("\n");
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml([
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: copy.reflectorService, path: servicePath },
+    { name: page.breadLabel, path: currentPath },
+  ])}
+
+  <div class="container mx-auto max-w-5xl px-6 py-10 space-y-10">
+    <header class="space-y-4">
+      <span class="inline-flex rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-blue-700">${escapeHtml(page.badge)}</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(page.h1)}</h1>
+      <p class="text-lg text-slate-700 leading-relaxed">${escapeHtml(page.subtitle)}</p>
+    </header>
+
+    ${renderGeoDirectAnswerHtml(lang, page.directAnswerQuestion, page.directAnswer)}
+
+    <section class="rounded-3xl border border-blue-200 bg-white p-6 sm:p-8 space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(page.calcTitle)}</h2>
+      <p class="text-sm sm:text-base text-slate-600">${escapeHtml(page.calcIntro)}</p>
+      <div class="grid gap-3 md:grid-cols-2">
+        ${presetsHtml}
+      </div>
+    </section>
+
+    <section class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(page.tiersTitle)}</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-sm sm:text-base">
+          <thead>
+            <tr class="border-b-2 border-slate-200 bg-slate-50">
+              <th scope="col" class="py-3 px-4 font-bold text-slate-900">${escapeHtml(copy.colVariant)}</th>
+              <th scope="col" class="py-3 px-4 font-bold text-slate-900">${escapeHtml(copy.colScope)}</th>
+              <th scope="col" class="py-3 px-4 font-bold text-slate-900">${escapeHtml(copy.colTime)}</th>
+              <th scope="col" class="py-3 px-4 font-bold text-blue-800">${escapeHtml(copy.colPrice)}</th>
+              <th scope="col" class="py-3 px-4 font-bold text-slate-900">${escapeHtml(copy.colWarranty)}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            ${tiersHtml}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    ${renderTechnicalSectionsHtml(page.sections)}
+    ${renderPageFaqHtml(lang, page.faq)}
+    ${renderRelatedClusterHtml(lang, page.relatedLinks)}
+    ${renderBofuCtaHtml(lang, page.breadLabel)}
+  </div>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: page.metaTitle,
+    description: page.metaDesc,
+    alternates: {
+      pl: PRICING_SLUGS.pl,
+      en: PRICING_SLUGS.en,
+      de: PRICING_SLUGS.de,
+      xDefault: PRICING_SLUGS.pl,
+    },
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: copy.reflectorService, path: servicePath },
+      { name: page.breadLabel, path: currentPath },
+    ],
+    faq: page.faq,
+    serviceSchema: {
+      name: page.h1,
+      serviceType: page.badge,
+      description: page.metaDesc,
+      priceRange: lang === "pl" ? "150 - 550 PLN" : "35 - 140 EUR",
+      priceCurrency: lang === "pl" ? "PLN" : "EUR",
+    },
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderLocalWarsawPage(lang, bridge) {
+  const { LOCAL_WARSAW_PAGE, LOCAL_WARSAW_SLUGS, SERVICE_SLUGS } = bridge;
+  const page = LOCAL_WARSAW_PAGE[lang];
+  const copy = getGeoChromeCopy(lang);
+  const labels = getLayoutLabels(lang);
+  const servicePath = SERVICE_SLUGS.reflectors[lang];
+  const currentPath = LOCAL_WARSAW_SLUGS[lang];
+
+  const radiusHtml = page.serviceRadiusTable
+    .map(
+      (row) => `
+        <tr>
+          <td class="py-3.5 px-4 font-semibold text-slate-900">${escapeHtml(row.zone)}</td>
+          <td class="py-3.5 px-4 text-slate-700">${escapeHtml(row.distanceTime)}</td>
+          <td class="py-3.5 px-4 text-slate-700">${escapeHtml(row.dropoffMode)}</td>
+        </tr>`,
+    )
+    .join("\n");
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml([
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: copy.reflectorService, path: servicePath },
+    { name: page.breadLabel, path: currentPath },
+  ])}
+
+  <div class="container mx-auto max-w-5xl px-6 py-10 space-y-10">
+    <header class="space-y-4">
+      <span class="inline-flex rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-blue-700">${escapeHtml(page.badge)}</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(page.h1)}</h1>
+      <p class="text-lg text-slate-700 leading-relaxed">${escapeHtml(page.subtitle)}</p>
+    </header>
+
+    ${renderGeoDirectAnswerHtml(lang, page.directAnswerQuestion, page.directAnswer)}
+
+    <section class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 space-y-5">
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(page.plantCardTitle)}</h2>
+      <div class="grid gap-4 md:grid-cols-3 text-sm sm:text-base">
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 font-semibold text-slate-900">${escapeHtml(page.plantAddress)}</div>
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 font-semibold text-slate-900">${escapeHtml(page.plantHours)}</div>
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 font-mono font-bold text-blue-700"><a href="tel:+48882488844">${escapeHtml(page.phone)}</a></div>
+      </div>
+      <p class="text-sm sm:text-base text-slate-700">${escapeHtml(page.plantDirections)}</p>
+      <p class="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950">${escapeHtml(page.plantRegNote)}</p>
+    </section>
+
+    <section class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-slate-900">${escapeHtml(copy.radiusHeading)}</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-sm sm:text-base">
+          <thead>
+            <tr class="border-b-2 border-slate-200 bg-slate-50">
+              <th scope="col" class="py-3 px-4 font-bold text-slate-900">${escapeHtml(copy.colZone)}</th>
+              <th scope="col" class="py-3 px-4 font-bold text-slate-900">${escapeHtml(copy.colDist)}</th>
+              <th scope="col" class="py-3 px-4 font-bold text-blue-800">${escapeHtml(copy.colMode)}</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            ${radiusHtml}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    ${renderTechnicalSectionsHtml(page.sections)}
+    ${renderPageFaqHtml(lang, page.faq)}
+    ${renderRelatedClusterHtml(lang, page.relatedLinks)}
+    ${renderBofuCtaHtml(lang, page.breadLabel)}
+  </div>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: page.metaTitle,
+    description: page.metaDesc,
+    alternates: {
+      pl: LOCAL_WARSAW_SLUGS.pl,
+      en: LOCAL_WARSAW_SLUGS.en,
+      de: LOCAL_WARSAW_SLUGS.de,
+      xDefault: LOCAL_WARSAW_SLUGS.pl,
+    },
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: copy.reflectorService, path: servicePath },
+      { name: page.breadLabel, path: currentPath },
+    ],
+    faq: page.faq,
+    serviceSchema: {
+      name: page.h1,
+      serviceType: page.badge,
+      description: page.metaDesc,
+      areaServed: [
+        "Warszawa",
+        "Józefów",
+        "Otwock",
+        "Wawer",
+        "Piaseczno",
+        "Mazowieckie",
+        "Polska",
+      ],
+    },
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderServicePage(serviceId, lang, bridge, resolveAsset) {
+  const { SERVICES, SERVICE_SLUGS } = bridge;
+  const def = SERVICES[serviceId];
+  const c = def.locales[lang];
+  const currentPath = SERVICE_SLUGS[serviceId][lang];
+  const labels = getLayoutLabels(lang);
+  const heroImg = resolveAsset(HERO_IMAGE_PREFIXES[c.heroImageKey]);
+
+  const metricsHtml = c.metrics
+    .map(
+      (m) => `
+      <div class="rounded-xl border border-slate-200 bg-white p-5">
+        <p class="text-3xl font-black text-blue-700">${escapeHtml(m.value)}${escapeHtml(m.suffix || "")}</p>
+        <p class="text-sm font-bold text-slate-950 mt-1">${escapeHtml(m.label)}</p>
+        ${m.sub ? `<p class="text-xs text-slate-600 mt-1">${escapeHtml(m.sub)}</p>` : ""}
+      </div>`,
+    )
+    .join("\n");
+
+  const scopeTableHeaders = c.scopeSection.table.headers
+    .map(
+      (h) =>
+        `<th class="p-3 font-bold text-slate-950 border-b border-slate-200">${escapeHtml(h)}</th>`,
+    )
+    .join("");
+  const scopeTableRows = c.scopeSection.table.rows
+    .map(
+      (row) =>
+        `<tr class="border-b border-slate-100">${row
+          .map(
+            (cell) =>
+              `<td class="p-3 text-sm text-slate-700">${escapeHtml(cell)}</td>`,
+          )
+          .join("")}</tr>`,
+    )
+    .join("\n");
+
+  const editorialHtml = c.editorialSections
+    .map((sec) => {
+      const paras = sec.paragraphs
+        .map(
+          (p) =>
+            `<p class="leading-relaxed text-slate-700">${renderInlineMarkdown(p)}</p>`,
+        )
+        .join("\n");
+      const subs = (sec.subSections || [])
+        .map((sub) => {
+          const bullets =
+            sub.bullets && sub.bullets.length > 0
+              ? `<ul class="list-disc pl-6 space-y-1 text-slate-700">${sub.bullets
+                  .map((b) => `<li>${renderInlineMarkdown(b)}</li>`)
+                  .join("")}</ul>`
+              : "";
+          return `
+          <div class="pl-4 border-l-2 border-blue-500 space-y-2">
+            <h3 class="text-xl font-bold text-slate-950">${escapeHtml(sub.h3)}</h3>
+            <p class="leading-relaxed text-slate-700">${renderInlineMarkdown(sub.body)}</p>
+            ${bullets}
+          </div>`;
+        })
+        .join("\n");
+      return `
+      <article class="space-y-4">
+        <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(sec.h2)}</h2>
+        ${paras}
+        ${subs}
+      </article>`;
+    })
+    .join("\n");
+
+  const showcaseItemsHtml = [
+    ...(c.showcase.options || []).map(
+      (opt) =>
+        `<div class="rounded-xl border border-slate-200 p-4 space-y-1">
+          <h3 class="text-base font-bold text-slate-950">${escapeHtml(opt.label)} (${escapeHtml(opt.badge)})</h3>
+          <p class="text-sm text-slate-600">${escapeHtml(opt.desc)}</p>
+          <p class="text-xs font-mono text-blue-700">${escapeHtml(opt.spec)}</p>
+        </div>`,
+    ),
+    ...(c.showcase.ralColors || []).map(
+      (ral) =>
+        `<div class="rounded-xl border border-slate-200 p-4 space-y-1">
+          <h3 class="text-base font-bold text-slate-950">${escapeHtml(ral.code)} — ${escapeHtml(ral.name)}</h3>
+          <p class="text-sm text-slate-600">${escapeHtml(ral.application)}</p>
+        </div>`,
+    ),
+    ...(c.showcase.finishOptions || []).map(
+      (fin) =>
+        `<div class="rounded-xl border border-slate-200 p-4 space-y-1">
+          <h3 class="text-base font-bold text-slate-950">${escapeHtml(fin.label)} (${escapeHtml(fin.gloss)})</h3>
+          <p class="text-sm text-slate-600">${escapeHtml(fin.desc)}</p>
+        </div>`,
+    ),
+  ].join("\n");
+
+  const processStepsHtml = c.processSection.steps
+    .map(
+      (step) => `
+      <div class="rounded-xl border border-slate-200 bg-white p-5 space-y-2">
+        <span class="text-xs font-mono font-bold text-blue-700">${escapeHtml(step.num)}</span>
+        <h3 class="text-lg font-bold text-slate-950">${escapeHtml(step.title)}</h3>
+        <p class="text-sm text-slate-700">${escapeHtml(step.desc)}</p>
+        <p class="text-xs font-mono text-slate-500">${escapeHtml(step.param)}</p>
+      </div>`,
+    )
+    .join("\n");
+
+  const b2bCardsHtml = c.marqueeSection.b2bCards
+    .map(
+      (card) => `
+      <div class="rounded-xl border border-slate-200 bg-white p-5 space-y-2">
+        <p class="text-xs uppercase font-bold text-blue-700">${escapeHtml(card.badge)}</p>
+        <h3 class="text-lg font-bold text-slate-950">${escapeHtml(card.h3)}</h3>
+        <p class="text-sm text-slate-700">${escapeHtml(card.body)}</p>
+        <p class="text-xs font-mono text-slate-500">${escapeHtml(card.spec)}</p>
+      </div>`,
+    )
+    .join("\n");
+
+  const caseStudiesHtml = c.caseStudiesSection.items
+    .map((cs) => {
+      const csImg = resolveAsset(CASE_STUDY_IMAGE_PREFIXES[cs.imageKey]);
+      return `
+      <article class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+        <img src="${escapeHtml(csImg)}" alt="${escapeHtml(cs.alt)}" ${imgSizeAttrs(csImg)} class="w-full h-48 object-cover rounded-xl" loading="lazy" />
+        <p class="text-xs font-bold uppercase text-blue-700">${escapeHtml(cs.badge)}</p>
+        <h3 class="text-lg font-bold text-slate-950">${escapeHtml(cs.h3)}</h3>
+        <p class="text-sm text-slate-700">${escapeHtml(cs.desc)}</p>
+        <p class="text-xs font-mono text-slate-500">${escapeHtml(cs.param)}</p>
+      </article>`;
+    })
+    .join("\n");
+
+  const faqHtml = c.faqSection.items
+    .map(
+      (item) => `
+      <div class="rounded-xl border border-slate-200 bg-white p-5 space-y-2">
+        <h3 class="text-base font-bold text-slate-950">${escapeHtml(item.q)}</h3>
+        <p class="text-sm text-slate-700 leading-relaxed">${escapeHtml(item.a)}</p>
+      </div>`,
+    )
+    .join("\n");
+
+  const seeAlsoHtml = c.seeAlsoSection.links
+    .map(
+      (lnk) => `
+      <a href="${escapeHtml(lnk.path)}" class="block rounded-xl border border-slate-200 bg-white p-5 hover:border-blue-500 space-y-1">
+        <p class="text-xs font-bold uppercase text-blue-700">${escapeHtml(lnk.badge)}</p>
+        <h3 class="text-base font-bold text-slate-950">${escapeHtml(lnk.anchorText)}</h3>
+        <p class="text-sm text-slate-600">${escapeHtml(lnk.desc)}</p>
+      </a>`,
+    )
+    .join("\n");
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml([
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: c.breadcrumbLabel, path: currentPath },
+  ])}
+
+  <section class="container mx-auto max-w-6xl px-6 py-10 space-y-8">
+    <div class="grid gap-8 lg:grid-cols-2 items-center">
+      <div class="space-y-4">
+        <p class="inline-block rounded-full bg-blue-50 border border-blue-200 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-700">${escapeHtml(c.heroBadge)}</p>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(c.h1)}</h1>
+        <p class="text-base sm:text-lg text-slate-700 leading-relaxed">${escapeHtml(c.lead)}</p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="#wycena" class="inline-block rounded-lg bg-blue-700 text-white px-5 py-3 text-sm font-bold">${escapeHtml(c.ctaPrimaryLabel)}</a>
+          <a href="#zakres" class="inline-block rounded-lg border border-slate-300 text-slate-900 px-5 py-3 text-sm font-bold">${escapeHtml(c.ctaSecondaryLabel)}</a>
+        </div>
+      </div>
+      <div>
+        <img src="${escapeHtml(heroImg)}" alt="${escapeHtml(c.heroImageAlt)}" ${imgSizeAttrs(heroImg)} class="w-full h-80 object-cover rounded-2xl border border-slate-200" />
+      </div>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-3">
+      ${metricsHtml}
+    </div>
+  </section>
+
+  <section id="zakres" class="bg-slate-50 border-y border-slate-200 py-12">
+    <div class="container mx-auto max-w-6xl px-6 space-y-6">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(c.scopeSection.h2)}</h2>
+      <p class="text-slate-700 leading-relaxed">${escapeHtml(c.scopeSection.intro)}</p>
+      <div class="rounded-2xl bg-white border border-slate-200 p-6 space-y-3">
+        <h3 class="text-lg font-bold text-slate-950">${escapeHtml(c.scopeSection.cardTitle)}</h3>
+        <p class="text-sm text-slate-600">${escapeHtml(c.scopeSection.cardSubtitle)}</p>
+        <ul class="grid gap-2 md:grid-cols-2 list-disc pl-5 text-sm text-slate-700">
+          ${c.scopeSection.highlights.map((h) => `<li>${escapeHtml(h)}</li>`).join("\n          ")}
+        </ul>
+      </div>
+      <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+        <table class="w-full text-left border-collapse">
+          <caption class="sr-only">${escapeHtml(c.scopeSection.table.caption)} — ${escapeHtml(labels.tableCaptionSuffix)}</caption>
+          <thead class="bg-slate-100">
+            <tr>${scopeTableHeaders}</tr>
+          </thead>
+          <tbody>
+            ${scopeTableRows}
+          </tbody>
+        </table>
+      </div>
+      ${c.scopeSection.table.footnote ? `<p class="text-xs text-slate-500">${escapeHtml(c.scopeSection.table.footnote)}</p>` : ""}
+    </div>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 py-12 space-y-10">
+    ${editorialHtml}
+  </section>
+
+  <section class="bg-slate-50 border-y border-slate-200 py-12">
+    <div class="container mx-auto max-w-6xl px-6 space-y-6">
+      <p class="text-xs uppercase font-bold tracking-widest text-blue-700">${escapeHtml(labels.showcasePreviewLabel)}</p>
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(c.showcase.h2)}</h2>
+      <p class="text-slate-700">${escapeHtml(c.showcase.subtitle)}</p>
+      ${c.showcase.sliderSummary ? `<p class="text-sm font-medium text-slate-800">${escapeHtml(c.showcase.sliderSummary)}</p>` : ""}
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        ${showcaseItemsHtml}
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 py-12 space-y-6">
+    <p class="text-xs uppercase font-bold tracking-widest text-blue-700">${escapeHtml(labels.processLabel)}</p>
+    <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(c.processSection.h2)}</h2>
+    <p class="text-slate-700">${escapeHtml(c.processSection.subtitle)}</p>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      ${processStepsHtml}
+    </div>
+  </section>
+
+  <section class="bg-slate-50 border-y border-slate-200 py-12">
+    <div class="container mx-auto max-w-6xl px-6 space-y-6">
+      <p class="text-xs uppercase font-bold tracking-widest text-blue-700">${escapeHtml(labels.benefitsLabel)}</p>
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(c.marqueeSection.h2)}</h2>
+      <p class="text-slate-700">${escapeHtml(c.marqueeSection.subtitle)}</p>
+      <p class="text-xs text-slate-500">${escapeHtml([...c.marqueeSection.row1, ...c.marqueeSection.row2].join(" · "))}</p>
+      <div class="grid gap-4 md:grid-cols-2">
+        ${b2bCardsHtml}
+      </div>
+    </div>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 py-12 space-y-6">
+    <p class="text-xs uppercase font-bold tracking-widest text-blue-700">${escapeHtml(labels.caseStudiesLabel)}</p>
+    <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(c.caseStudiesSection.h2)}</h2>
+    <p class="text-slate-700">${escapeHtml(c.caseStudiesSection.subtitle)}</p>
+    <div class="grid gap-6 md:grid-cols-3">
+      ${caseStudiesHtml}
+    </div>
+  </section>
+
+  ${
+    serviceId === "vacuum-metallization"
+      ? `<section id="kalkulator-pvd" class="container mx-auto max-w-6xl px-6 py-10 space-y-4">
+    <h2 class="text-2xl font-black text-slate-950">${escapeHtml(
+      lang === "pl"
+        ? "Kalkulator wsadu komory próżniowej Ø 1200 mm i doboru powłoki PVD"
+        : lang === "de"
+          ? "PVD-Kammerrechner Ø 1200 mm für B2B-Serien"
+          : "Ø 1200 mm PVD Chamber Batch & Primer Stack Calculator",
+    )}</h2>
+    <p class="text-slate-700">${escapeHtml(
+      lang === "pl"
+        ? "Orientacyjna pojemność wsadu planetarnego Ø 1200 mm: małe detale (20–65 mm, np. nakrętki kosmetyczne) ~900 szt./cykl; średnie detale (80–240 mm, np. odbłyśniki i flakony) ~140 szt./cykl; duże korpusy i klosze (250–550 mm) ~28 szt./cykl. Dobór powłoki PVD i napylanie aluminium 99,99% pod ABS, PC, PP, PA, szkło oraz druk 3D SLS."
+        : lang === "de"
+          ? "Richtkapazität der Ø-1200-mm-Planetenkammer: Kleinteile (20–65 mm) ca. 900 Stk./Zyklus; mittelgroße Bauteile (80–240 mm) ca. 140 Stk./Zyklus; Großgehäuse (250–550 mm) ca. 28 Stk./Zyklus — abgestimmt auf ABS, PC, PP, PA, Glas und PA12-3D-Druck."
+          : "Typical Ø 1200 mm planetary rack capacity: small closures (20–65 mm) ~900 pcs/cycle; medium bezels & reflectors (80–240 mm) ~140 pcs/cycle; large housings (250–550 mm) ~28 pcs/cycle across ABS, PC, PP, PA, glass, and SLS 3D prints.",
+    )}</p>
+  </section>`
+      : ""
+  }
+
+  <section class="bg-slate-50 border-y border-slate-200 py-12">
+    <div class="container mx-auto max-w-6xl px-6 space-y-6">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(c.faqSection.h2)}</h2>
+      <p class="text-slate-700">${escapeHtml(c.faqSection.subtitle)}</p>
+      <div class="grid gap-4 md:grid-cols-2">
+        ${faqHtml}
+      </div>
+    </div>
+  </section>
+
+  <section id="wycena" class="container mx-auto max-w-6xl px-6 py-12 space-y-4">
+    <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(c.quoteSection.h2)}</h2>
+    <p class="text-slate-700 leading-relaxed">${escapeHtml(c.quoteSection.intro)}</p>
+    <p class="text-sm text-slate-600">${escapeHtml(c.quoteSection.projectTypes.join(" · "))}</p>
+    <p class="text-sm font-semibold text-blue-700">${escapeHtml(labels.contactPlantLine)}</p>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 pb-8 space-y-6">
+    <h2 class="text-2xl font-black text-slate-950">${escapeHtml(c.seeAlsoSection.h2)}</h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      ${seeAlsoHtml}
+    </div>
+    ${renderServiceClusterHtml(bridge.getServiceClusterLinks(serviceId, lang))}
+  </section>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: c.metaTitle,
+    description: c.metaDesc,
+    alternates: def.slugs,
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: c.breadcrumbLabel, path: currentPath },
+    ],
+    faq: c.faqSection.items.map((item) => ({
+      q: stripMarkdown(item.q),
+      a: stripMarkdown(item.a),
+    })),
+    serviceSchema: {
+      name: c.navLabel,
+      serviceType: c.schemaServiceType,
+      description: c.metaDesc,
+      priceRange: c.schemaPriceRange,
+      priceCurrency: c.schemaPriceCurrency,
+    },
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderNewsHubPage(lang, bridge, resolveAsset) {
+  const {
+    NEWS_ITEMS_BY_LANG,
+    NEWS_PAGE_CONTENT,
+    STATIC_ROUTE_EQUIVALENTS,
+    resolveLanguageAlternates,
+  } = bridge;
+  const t = NEWS_PAGE_CONTENT[lang];
+  const items = NEWS_ITEMS_BY_LANG[lang];
+  const labels = getLayoutLabels(lang);
+  const currentPath = labels.serviceLinks.news;
+  const libGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/biblioteka",
+  );
+  const libraryPath = (libGroup && libGroup[lang]) || "/news/biblioteka";
+  const featured = items[0];
+  const others = items.slice(1);
+
+  const resolveItemImg = (item) =>
+    item.imageKey === "externalUnsplash"
+      ? item.externalImageUrl
+      : resolveAsset(NEWS_IMAGE_PREFIXES[item.imageKey]);
+
+  const featuredImg = resolveItemImg(featured);
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml([
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: t.newsTitle, path: currentPath },
+  ])}
+
+  <section class="container mx-auto max-w-6xl px-6 py-12 space-y-6">
+    <p class="text-xs font-bold uppercase tracking-widest text-blue-700">${escapeHtml(t.newsCenter)}</p>
+    <h1 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(t.h1)}</h1>
+    <p class="text-lg text-slate-700 max-w-3xl leading-relaxed">${escapeHtml(t.newsDesc)}</p>
+    <p><a href="${escapeHtml(libraryPath)}" class="inline-block rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700 hover:bg-blue-100">${escapeHtml(t.libraryLinkLabel)} →</a></p>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 pb-10 space-y-4">
+    <h2 class="text-2xl font-black text-slate-950">${escapeHtml(t.featuredNews)}</h2>
+    <article class="rounded-2xl border border-slate-200 bg-slate-50 p-6 grid gap-6 md:grid-cols-2 items-center">
+      <img src="${escapeHtml(featuredImg)}" alt="${escapeHtml(featured.title)}" ${imgSizeAttrs(featuredImg)} class="w-full h-64 object-cover rounded-xl" />
+      <div class="space-y-3">
+        <p class="text-xs font-bold uppercase text-blue-700">${escapeHtml(featured.category)} · ${escapeHtml(featured.date)}</p>
+        <h3 class="text-2xl font-bold text-slate-950"><a href="${escapeHtml(featured.path)}" class="hover:text-blue-700">${escapeHtml(featured.title)}</a></h3>
+        <p class="text-sm text-slate-700 leading-relaxed">${escapeHtml(featured.excerpt)}</p>
+        <p><a href="${escapeHtml(featured.path)}" class="text-sm font-bold text-blue-700 underline">${escapeHtml(featured.ctaLabel || t.fullArticle)} →</a></p>
+      </div>
+    </article>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 py-8 space-y-6">
+    <h2 class="text-2xl font-black text-slate-950">${escapeHtml(t.otherNews)}</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+      ${others
+        .map((item) => {
+          const itemImg = resolveItemImg(item);
+          return `
+      <article class="rounded-2xl border border-slate-200 bg-white p-6 space-y-3">
+        <img src="${escapeHtml(itemImg)}" alt="${escapeHtml(item.title)}" ${imgSizeAttrs(itemImg)} class="w-full h-48 object-cover rounded-xl" loading="lazy" />
+        <p class="text-xs font-bold uppercase text-blue-700">${escapeHtml(item.category)} · ${escapeHtml(item.date)}</p>
+        <h3 class="text-xl font-bold text-slate-950"><a href="${escapeHtml(item.path)}" class="hover:text-blue-700">${escapeHtml(item.title)}</a></h3>
+        <p class="text-sm text-slate-700 leading-relaxed">${escapeHtml(item.excerpt)}</p>
+        <p><a href="${escapeHtml(item.path)}" class="text-sm font-bold text-blue-700 underline">${escapeHtml(item.ctaLabel || t.readMore)} →</a></p>
+      </article>`;
+        })
+        .join("\n      ")}
+    </div>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 pb-10">
+    <div class="rounded-2xl border border-slate-200 bg-white p-8 space-y-6">
+      <div class="space-y-3 max-w-4xl">
+        <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.editorialGuide.title)}</h2>
+        <p class="text-slate-700 leading-relaxed">${escapeHtml(t.editorialGuide.intro)}</p>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-lg font-bold text-slate-950">${escapeHtml(t.editorialGuide.standardsTitle)}</h3>
+        <div class="grid gap-5 md:grid-cols-3">
+          ${t.editorialGuide.standards
+            .map(
+              (std) => `
+          <div class="rounded-xl border border-slate-200 bg-slate-50 p-5 space-y-2">
+            <h4 class="text-sm font-bold text-slate-950">${escapeHtml(std.label)}</h4>
+            <p class="text-sm text-slate-700 leading-relaxed">${escapeHtml(std.detail)}</p>
+          </div>`,
+            )
+            .join("\n          ")}
+        </div>
+      </div>
+      <p class="text-sm text-slate-700 leading-relaxed border-t border-slate-200 pt-4">${escapeHtml(t.editorialGuide.closing)}</p>
+    </div>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 py-10 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+    <h2 class="text-2xl font-black text-slate-950">${escapeHtml(t.newsletterHeading)}</h2>
+    <p class="text-slate-700">${escapeHtml(t.newsletterDesc)}</p>
+    <p><a href="${escapeHtml(labels.serviceLinks.home)}#contact" class="text-sm font-bold text-blue-700 underline">${escapeHtml(t.contactTeam)}</a></p>
+  </section>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: t.pageTitle,
+    description: t.pageDesc,
+    alternates: resolveLanguageAlternates(currentPath),
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: t.newsTitle, path: currentPath },
+    ],
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderLibraryPage(lang, currentPath, bridge, resolveAsset) {
+  const {
+    ARTICLE_LIBRARY_CONTENT,
+    NEWS_ITEMS_BY_LANG,
+    NEWS_PAGE_CONTENT,
+    resolveLanguageAlternates,
+  } = bridge;
+  const t = ARTICLE_LIBRARY_CONTENT[lang];
+  const newsT = NEWS_PAGE_CONTENT[lang];
+  const items = NEWS_ITEMS_BY_LANG[lang];
+  const labels = getLayoutLabels(lang);
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml([
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: newsT.newsTitle, path: labels.serviceLinks.news },
+    { name: t.title, path: currentPath },
+  ])}
+
+  <section class="container mx-auto max-w-6xl px-6 py-12 space-y-4">
+    <p class="text-xs font-bold uppercase tracking-widest text-blue-700">${escapeHtml(t.badge)}</p>
+    <h1 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(t.title)}</h1>
+    <p><a href="${escapeHtml(labels.serviceLinks.news)}" class="text-sm font-bold text-blue-700 underline">← ${escapeHtml(t.backToNews)}</a></p>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 pb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    ${items
+      .map((item) => {
+        const imgSrc =
+          item.imageKey === "externalUnsplash"
+            ? item.externalImageUrl
+            : resolveAsset(NEWS_IMAGE_PREFIXES[item.imageKey]);
+        return `
+    <article class="rounded-2xl border border-slate-200 bg-white p-5 space-y-3">
+      <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(item.title)}" ${imgSizeAttrs(imgSrc)} class="w-full h-44 object-cover rounded-xl" loading="lazy" />
+      <p class="text-xs font-bold uppercase text-blue-700">${escapeHtml(item.category)} · ${escapeHtml(item.date)}</p>
+      <h2 class="text-lg font-bold text-slate-950"><a href="${escapeHtml(item.path)}" class="hover:text-blue-700">${escapeHtml(item.title)}</a></h2>
+      <p class="text-sm text-slate-700">${escapeHtml(item.excerpt)}</p>
+      <p><a href="${escapeHtml(item.path)}" class="text-sm font-bold text-blue-700 underline">${escapeHtml(item.ctaLabel || t.readMore)} →</a></p>
+    </article>`;
+      })
+      .join("\n    ")}
+  </section>
+
+  ${renderEngineeringHubHtml(bridge.getHomeEngineeringHub(lang))}`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: t.metaTitle,
+    description: t.desc,
+    noindex: true,
+    alternates: resolveLanguageAlternates(currentPath),
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: newsT.newsTitle, path: labels.serviceLinks.news },
+      { name: t.title, path: currentPath },
+    ],
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function createArticleLinkResolver(lang, bridge) {
+  const { SERVICE_SLUGS } = bridge;
+  const vacuumMetalPath = SERVICE_SLUGS["vacuum-metallization"][lang];
+  const plasticMetalPath = SERVICE_SLUGS["plastic-metallization"][lang];
+  const plasticPaintPath = SERVICE_SLUGS["plastic-painting"][lang];
+  const reflectorsPath = SERVICE_SLUGS.reflectors[lang];
+
+  return function resolveLink(label, rawUrl) {
+    let url = String(rawUrl || "").trim();
+    const lowerLabel = String(label || "").toLowerCase();
+
+    if (url.includes("google.com/search?q=")) {
+      url = url.replace(/https?:\/\/(?:www\.)?google\.com\/search\?q=/i, "");
+    }
+
+    if (url.includes("staniax.pl")) {
+      try {
+        const parsed = new URL(url);
+        url = `${parsed.pathname}${parsed.hash}`;
+      } catch {
+        // leave url as-is
+      }
+    }
+
+    if (url.startsWith("/")) {
+      if (url === "/#about") {
+        if (
+          lowerLabel.includes("reflector") ||
+          lowerLabel.includes("odbłyśnik") ||
+          lowerLabel.includes("reflektor")
+        ) {
+          return { href: reflectorsPath, external: false };
+        }
+        if (
+          lowerLabel.includes("paint") ||
+          lowerLabel.includes("lakier") ||
+          lowerLabel.includes("lackier")
+        ) {
+          return { href: plasticPaintPath, external: false };
+        }
+        if (
+          lowerLabel.includes("plastic") ||
+          lowerLabel.includes("plastik") ||
+          lowerLabel.includes("kunststoff")
+        ) {
+          return { href: plasticMetalPath, external: false };
+        }
+        return { href: vacuumMetalPath, external: false };
+      }
+      if (url.includes("#kim-jestesmy")) {
+        return {
+          href: `${lang === "pl" ? "/" : `/${lang}`}#kim-jestesmy`,
+          external: false,
+        };
+      }
+      if (url.includes("#contact")) {
+        return {
+          href: `${lang === "pl" ? "/" : `/${lang}`}#contact`,
+          external: false,
+        };
+      }
+      return { href: url, external: false };
+    }
+
+    return { href: url, external: /^https?:\/\//i.test(url) };
+  };
+}
+
+function renderArticleTable(text) {
+  if (!text.tableHeaders || !text.tableRows) return "";
+  return `
+  <div class="space-y-3 my-6">
+    ${text.tableTitle ? `<h3 class="text-xl font-bold text-slate-950">${escapeHtml(text.tableTitle)}</h3>` : ""}
+    <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+      <table class="w-full text-left border-collapse text-sm">
+        <thead class="bg-slate-100">
+          <tr>${text.tableHeaders.map((h) => `<th class="p-3 font-bold text-slate-950 border-b border-slate-200">${escapeHtml(h)}</th>`).join("")}</tr>
+        </thead>
+        <tbody>
+          ${text.tableRows
+            .map(
+              (row) =>
+                `<tr class="border-b border-slate-100">${row
+                  .map(
+                    (cell) =>
+                      `<td class="p-3 text-slate-700">${escapeHtml(cell)}</td>`,
+                  )
+                  .join("")}</tr>`,
+            )
+            .join("\n          ")}
+        </tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+function renderArticleAviation(lang, currentPath, bridge, resolveAsset) {
+  const { AVIATION_ARTICLE, resolveLanguageAlternates } = bridge;
+  const t = AVIATION_ARTICLE[lang];
+  const labels = getLayoutLabels(lang);
+  const heroImg = resolveAsset("news_aviation");
+  const linkResolver = createArticleLinkResolver(lang, bridge);
+  const opts = { linkResolver };
+  const breadcrumbs = [
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: t.newsTitle, path: labels.serviceLinks.news },
+    { name: t.heading, path: currentPath },
   ];
 
-  shells.forEach(s => {
-    let html = baseHtml.replace(/<link rel="canonical"[^>]*>/g, '');
-    html = html.replace('<html lang="pl">', `<html lang="${s.lang}">`);
-    html = html.replace(/<title>[^<]*<\/title>/, '');
-    html = html.replace(/<meta name="description"[^>]*>/, '');
-    html = html.replace(/<meta property="og:title"[^>]*>/, '');
-    html = html.replace(/<meta property="og:description"[^>]*>/, '');
-    html = html.replace(/<meta property="og:type"[^>]*>/, '');
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml(breadcrumbs)}
+  <article class="container mx-auto max-w-4xl px-6 py-10 space-y-8">
+    <header class="space-y-4">
+      <p class="text-xs font-bold uppercase tracking-widest text-blue-700">${escapeHtml(t.articleBadge)} · 2025-08-20 · ${escapeHtml(t.readTime)}</p>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(t.heading)}</h1>
+      <p class="text-lg text-slate-700 leading-relaxed">${escapeHtml(t.lead)}</p>
+      ${renderArticleAuthorBoxHtml(lang, "2025-08-20", LASTMOD)}
+      <img src="${escapeHtml(heroImg)}" alt="${escapeHtml(t.imageAlt)}" ${imgSizeAttrs(heroImg)} class="w-full h-80 object-cover rounded-2xl border border-slate-200" />
+    </header>
 
-    const metaTags = `
-    <title>${s.title}</title>
-    <meta name="description" content="${s.desc}" />
-    <meta property="og:title" content="${s.title}" />
-    <meta property="og:description" content="${s.desc}" />
-    <meta property="og:type" content="website" />
-    <link rel="canonical" href="https://www.staniax.pl/${s.subPath}" />
-    `;
+    <section class="space-y-4">
+      ${t.introTitle ? `<h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.introTitle)}</h2>` : ""}
+      ${renderBodyBlocks(t.p1, opts)}
+      ${renderBodyBlocks(t.p2, opts)}
+      ${renderArticleTable(t)}
+    </section>
 
-    html = html.replace('</head>', `${metaTags}</head>`);
-    
-    let extraNav = '';
-    if (s.subPath.includes('news')) {
-      const plLinks = `
-        <a href="/news/partnerstwo-z-wiodacym-producentem-lotniczym">Lotnictwo</a>
-        <a href="/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty">Beauty</a>
-        <a href="/news/regeneracja-odblysnikow-reflektorow-samochodowych">Reflektory</a>
-      `;
-      const enLinks = `
-        <a href="/en/news/how-does-metallization-affect-material-performance">Aviation</a>
-        <a href="/en/news/vacuum-metallization-revolutionizes-beauty-industry">Beauty</a>
-        <a href="/en/news/reflector-regeneration-and-headlight-polishing">Reflectors</a>
-      `;
-      const deLinks = `
-        <a href="/de/news/wie-beeinflusst-metallisierung-die-materialleistung">Aviation</a>
-        <a href="/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche">Beauty</a>
-        <a href="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren">Reflectors</a>
-      `;
-      const links = s.lang === 'pl' ? plLinks : s.lang === 'en' ? enLinks : deLinks;
-      extraNav = `<nav style="display:none">${links}</nav>`;
-    }
-    
-    // Inject a screen-reader-only H1 for SEO bots that do not execute JS
-    html = html.replace('<div id="root"></div>', `<div id="root"><h1 class="sr-only">${s.title}</h1><p class="sr-only">${s.title}</p>${extraNav}</div>`);
-    
-    const targetDir = path.join(distDir, s.subPath);
-    if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true });
-    }
-    fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
-    console.log(`Successfully generated dist/${s.subPath}/index.html shell`);
-  });
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec1Title)}</h2>
+      ${renderBodyBlocks(t.sec1P1, opts)}
+      ${renderBodyBlocks(t.sec1P2, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec2Title)}</h2>
+      ${renderBodyBlocks(t.sec2P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub21Title)}</h3>
+      ${renderBodyBlocks(t.sub21P1, opts)}
+      ${renderBodyBlocks(t.sub21P2, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub22Title)}</h3>
+      ${renderBodyBlocks(t.sub22P1, opts)}
+      ${renderBodyBlocks(t.sub22P2, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub23Title)}</h3>
+      ${renderBodyBlocks(t.sub23P1, opts)}
+      ${renderBodyBlocks(t.sub23P2, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec3Title)}</h2>
+      ${renderBodyBlocks(t.sec3P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub31Title)}</h3>
+      ${renderBodyBlocks(t.sub31P1, opts)}
+      ${renderBodyBlocks(t.sub31P2, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub32Title)}</h3>
+      ${renderBodyBlocks(t.sub32P1, opts)}
+      ${renderBodyBlocks(t.sub32P2, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec4Title)}</h2>
+      ${renderBodyBlocks(t.sec4P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub41Title)}</h3>
+      ${renderBodyBlocks(t.sub41P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub42Title)}</h3>
+      ${renderBodyBlocks(t.sub42P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub43Title)}</h3>
+      ${renderBodyBlocks(t.sub43P1, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec5Title)}</h2>
+      ${renderBodyBlocks(t.sec5P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub51Title)}</h3>
+      ${renderBodyBlocks(t.sub51P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub52Title)}</h3>
+      ${renderBodyBlocks(t.sub52P1, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec6Title)}</h2>
+      ${renderBodyBlocks(t.sec6P1, opts)}
+      <blockquote class="border-l-4 border-blue-600 pl-4 italic text-slate-700">${renderInlineMarkdown(t.quote, opts)}</blockquote>
+    </section>
+
+    <section class="rounded-2xl border border-slate-200 bg-slate-50 p-6 space-y-3">
+      <h2 class="text-2xl font-black text-slate-950">${escapeHtml(t.ctaHeader)}</h2>
+      ${renderBodyBlocks(t.ctaText, opts)}
+      <h3 class="text-lg font-bold text-slate-950">${escapeHtml(t.ctaWhyTitle)}</h3>
+      <ul class="list-disc pl-6 space-y-1 text-slate-700">
+        <li>${renderInlineMarkdown(t.ctaWhy1, opts)}</li>
+        <li>${renderInlineMarkdown(t.ctaWhy2, opts)}</li>
+        <li>${renderInlineMarkdown(t.ctaWhy3, opts)}</li>
+      </ul>
+      <p class="font-bold text-slate-900">${escapeHtml(t.ctaSubhead)}</p>
+      <p><a href="${escapeHtml(labels.serviceLinks.home)}#contact" class="text-sm font-bold text-blue-700 underline">${escapeHtml(t.ctaBtn)}</a></p>
+    </section>
+  </article>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: t.metaTitle,
+    description: t.metaDesc,
+    ogType: "article",
+    alternates: resolveLanguageAlternates(currentPath),
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: t.newsTitle, path: labels.serviceLinks.news },
+      { name: t.heading, path: currentPath },
+    ],
+    articleSchema: {
+      headline: t.heading,
+      description: t.metaDesc,
+      datePublished: "2025-08-20",
+      dateModified: LASTMOD,
+      image: heroImg,
+    },
+  };
+
+  return { seoConfig, bodyHtml };
 }
 
-generateCategoryShells();
+function renderArticleBeauty(lang, currentPath, bridge, resolveAsset) {
+  const { BEAUTY_ARTICLE, resolveLanguageAlternates } = bridge;
+  const t = BEAUTY_ARTICLE[lang];
+  const labels = getLayoutLabels(lang);
+  const heroImg = resolveAsset("colorful_packaging");
+  const linkResolver = createArticleLinkResolver(lang, bridge);
+  const opts = { linkResolver };
+  const breadcrumbs = [
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: t.newsTitle, path: labels.serviceLinks.news },
+    { name: t.heading, path: currentPath },
+  ];
 
+  const qaList = [1, 2, 3, 4, 5].map((i) => ({ q: t[`q${i}`], a: t[`a${i}`] }));
 
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml(breadcrumbs)}
+  <article class="container mx-auto max-w-4xl px-6 py-10 space-y-8">
+    <header class="space-y-4">
+      <p class="text-xs font-bold uppercase tracking-widest text-blue-700">${escapeHtml(t.articleBadge)} · 2025-08-20 · ${escapeHtml(t.readTime)}</p>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(t.heading)}</h1>
+      <p class="text-lg text-slate-700 leading-relaxed">${escapeHtml(t.lead)}</p>
+      ${renderArticleAuthorBoxHtml(lang, "2025-08-20", LASTMOD)}
+      <img src="${escapeHtml(heroImg)}" alt="${escapeHtml(t.imageAlt)}" ${imgSizeAttrs(heroImg)} class="w-full h-80 object-cover rounded-2xl border border-slate-200" />
+    </header>
 
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.introTitle)}</h2>
+      ${renderBodyBlocks(t.p1, opts)}
+      ${renderBodyBlocks(t.p2, opts)}
+      ${renderArticleTable(t)}
+    </section>
 
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec1Title)}</h2>
+      ${renderBodyBlocks(t.sec1P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sec1SubTitle)}</h3>
+      ${renderBodyBlocks(t.sec1P2, opts)}
+    </section>
 
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec2Title)}</h2>
+      ${renderBodyBlocks(t.sec2P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub21Title)}</h3>
+      ${renderBodyBlocks(t.sub21P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub22Title)}</h3>
+      ${renderBodyBlocks(t.sub22P1, opts)}
+      <ul class="list-disc pl-6 space-y-1 text-slate-700">
+        <li>${renderInlineMarkdown(t.sub22Bullet1, opts)}</li>
+        <li>${renderInlineMarkdown(t.sub22Bullet2, opts)}</li>
+      </ul>
+      ${renderBodyBlocks(t.sub22P2, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec3Title)}</h2>
+      ${renderBodyBlocks(t.sec3P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub31Title)}</h3>
+      ${renderBodyBlocks(t.sub31P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub32Title)}</h3>
+      ${renderBodyBlocks(t.sub32P1, opts)}
+      <ul class="list-disc pl-6 space-y-1 text-slate-700">
+        <li>${renderInlineMarkdown(t.sub32Bullet1, opts)}</li>
+        <li>${renderInlineMarkdown(t.sub32Bullet2, opts)}</li>
+        <li>${renderInlineMarkdown(t.sub32Bullet3, opts)}</li>
+      </ul>
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub33Title)}</h3>
+      ${renderBodyBlocks(t.sub33P1, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec4Title)}</h2>
+      ${renderBodyBlocks(t.sec4P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub41Title)}</h3>
+      ${renderBodyBlocks(t.sub41P1, opts)}
+      <ul class="list-disc pl-6 space-y-1 text-slate-700">
+        <li>${renderInlineMarkdown(t.sub41Bullet1, opts)}</li>
+        <li>${renderInlineMarkdown(t.sub41Bullet2, opts)}</li>
+        <li>${renderInlineMarkdown(t.sub41Bullet3, opts)}</li>
+      </ul>
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub42Title)}</h3>
+      ${renderBodyBlocks(t.sub42P1, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec5Title)}</h2>
+      ${renderBodyBlocks(t.sec5P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub51Title)}</h3>
+      ${renderBodyBlocks(t.sub51P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub52Title)}</h3>
+      ${renderBodyBlocks(t.sub52P1, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.qaTitle)}</h2>
+      ${qaList
+        .map(
+          (qa) => `
+      <div class="rounded-xl border border-slate-200 p-5 space-y-2">
+        <h3 class="text-lg font-bold text-slate-950">${renderInlineMarkdown(qa.q, opts)}</h3>
+        ${renderBodyBlocks(qa.a, opts)}
+      </div>`,
+        )
+        .join("\n      ")}
+    </section>
+
+    <section class="rounded-2xl border border-slate-200 bg-slate-50 p-6 space-y-3">
+      <h2 class="text-2xl font-black text-slate-950">${escapeHtml(t.ctaHeader)}</h2>
+      ${renderBodyBlocks(t.ctaText, opts)}
+      <h3 class="text-lg font-bold text-slate-950">${escapeHtml(t.ctaWhyTitle)}</h3>
+      <ul class="list-disc pl-6 space-y-1 text-slate-700">
+        <li>${renderInlineMarkdown(t.ctaWhy1, opts)}</li>
+        <li>${renderInlineMarkdown(t.ctaWhy2, opts)}</li>
+        <li>${renderInlineMarkdown(t.ctaWhy3, opts)}</li>
+      </ul>
+      <p class="font-bold text-slate-900">${escapeHtml(t.ctaSubhead)}</p>
+      <p><a href="${escapeHtml(labels.serviceLinks.home)}#contact" class="text-sm font-bold text-blue-700 underline">${escapeHtml(t.ctaBtn)}</a></p>
+    </section>
+  </article>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: t.metaTitle,
+    description: t.metaDesc,
+    ogType: "article",
+    alternates: resolveLanguageAlternates(currentPath),
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: t.newsTitle, path: labels.serviceLinks.news },
+      { name: t.heading, path: currentPath },
+    ],
+    faq: qaList.map((f) => ({ q: stripMarkdown(f.q), a: stripMarkdown(f.a) })),
+    articleSchema: {
+      headline: t.heading,
+      description: t.metaDesc,
+      datePublished: "2025-08-20",
+      dateModified: LASTMOD,
+      image: heroImg,
+    },
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderArticleReflectors(lang, currentPath, bridge, resolveAsset) {
+  const { REFLECTORS_ARTICLE, SERVICE_SLUGS, resolveLanguageAlternates } =
+    bridge;
+  const t = REFLECTORS_ARTICLE[lang];
+  const labels = getLayoutLabels(lang);
+  const heroImg = resolveAsset("odblysniki-nowe-1");
+  const reflectorServicePath = SERVICE_SLUGS.reflectors[lang];
+  const linkResolver = createArticleLinkResolver(lang, bridge);
+  const opts = { linkResolver };
+  const breadcrumbs = [
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: t.newsTitle, path: labels.serviceLinks.news },
+    { name: t.heading, path: currentPath },
+  ];
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml(breadcrumbs)}
+  <article class="container mx-auto max-w-4xl px-6 py-10 space-y-8">
+    <header class="space-y-4">
+      <p class="text-xs font-bold uppercase tracking-widest text-blue-700">${escapeHtml(t.articleBadge)} · 2026-06-10 · ${escapeHtml(t.readTime)}</p>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(t.heading)}</h1>
+      <p class="text-lg text-slate-700 leading-relaxed">${escapeHtml(t.lead)}</p>
+      ${renderArticleAuthorBoxHtml(lang, "2026-06-10", LASTMOD)}
+      <div class="rounded-xl border border-blue-200 bg-blue-50 p-4 text-sm font-semibold text-slate-900">
+        <a href="${escapeHtml(reflectorServicePath)}" class="text-blue-700 underline font-bold">${escapeHtml(t.ctaBtn)} →</a>
+      </div>
+      <img src="${escapeHtml(heroImg)}" alt="${escapeHtml(t.imageAlt)}" ${imgSizeAttrs(heroImg)} class="w-full h-80 object-cover rounded-2xl border border-slate-200" />
+    </header>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.introTitle)}</h2>
+      ${renderBodyBlocks(t.introP1, opts)}
+      ${renderBodyBlocks(t.introP2, opts)}
+      ${renderBodyBlocks(t.introP3, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec1Title)}</h2>
+      ${renderBodyBlocks(t.sec1P1, opts)}
+      ${renderBodyBlocks(t.sec1P2, opts)}
+      ${renderBodyBlocks(t.sec1P3, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec2Title)}</h2>
+      ${renderBodyBlocks(t.sec2P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub21Title)}</h3>
+      ${renderBodyBlocks(t.sub21P1, opts)}
+      <h3 class="text-xl font-bold text-slate-950">${escapeHtml(t.sub22Title)}</h3>
+      ${renderBodyBlocks(t.sub22P1, opts)}
+      ${renderBodyBlocks(t.sub22P2, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec3Title)}</h2>
+      ${renderBodyBlocks(t.sec3P1, opts)}
+      ${renderBodyBlocks(t.sec3P2, opts)}
+      ${renderBodyBlocks(t.sec3P3, opts)}
+      ${renderBodyBlocks(t.sec3P4, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec4Title)}</h2>
+      ${renderBodyBlocks(t.sec4P1, opts)}
+      ${renderBodyBlocks(t.sec4P2, opts)}
+      ${renderBodyBlocks(t.sec4P3, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec5Title)}</h2>
+      ${renderBodyBlocks(t.sec5P1, opts)}
+      ${renderBodyBlocks(t.sec5P2, opts)}
+      ${renderBodyBlocks(t.sec5P3, opts)}
+      ${renderArticleTable(t)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec6Title)}</h2>
+      ${renderBodyBlocks(t.sec6P1, opts)}
+      ${renderBodyBlocks(t.sec6P2, opts)}
+      ${renderBodyBlocks(t.sec6P3, opts)}
+      ${renderBodyBlocks(t.sec6P4, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec7Title)}</h2>
+      ${renderBodyBlocks(t.sec7P1, opts)}
+      ${renderBodyBlocks(t.sec7P2, opts)}
+      ${renderBodyBlocks(t.sec7P3, opts)}
+      ${renderBodyBlocks(t.sec7P4, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec8Title)}</h2>
+      ${renderBodyBlocks(t.sec8P1, opts)}
+      ${renderBodyBlocks(t.sec8P2, opts)}
+      ${renderBodyBlocks(t.sec8P3, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.sec9Title)}</h2>
+      ${renderBodyBlocks(t.sec9P1, opts)}
+      ${renderBodyBlocks(t.sec9P2, opts)}
+      ${renderBodyBlocks(t.sec9P3, opts)}
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-2xl lg:text-3xl font-black text-slate-950">${escapeHtml(t.faqTitle)}</h2>
+      ${t.faqItems
+        .map(
+          (f) => `
+      <div class="rounded-xl border border-slate-200 p-5 space-y-2">
+        <h3 class="text-lg font-bold text-slate-950">${escapeHtml(f.q)}</h3>
+        <p class="text-sm text-slate-700 leading-relaxed">${escapeHtml(f.a)}</p>
+      </div>`,
+        )
+        .join("\n      ")}
+    </section>
+
+    <section class="rounded-2xl border border-slate-200 bg-slate-50 p-6 space-y-3">
+      <h2 class="text-2xl font-black text-slate-950">${escapeHtml(t.ctaHeader)}</h2>
+      ${renderBodyBlocks(t.ctaText, opts)}
+      <h3 class="text-lg font-bold text-slate-950">${escapeHtml(t.ctaWhyTitle)}</h3>
+      <ul class="list-disc pl-6 space-y-1 text-slate-700">
+        <li>${renderInlineMarkdown(t.ctaWhy1, opts)}</li>
+        <li>${renderInlineMarkdown(t.ctaWhy2, opts)}</li>
+        <li>${renderInlineMarkdown(t.ctaWhy3, opts)}</li>
+      </ul>
+      <p class="font-bold text-slate-900">${escapeHtml(t.ctaSubhead)}</p>
+      <p><a href="${escapeHtml(reflectorServicePath)}" class="text-sm font-bold text-blue-700 underline">${escapeHtml(t.ctaBtn)} →</a></p>
+    </section>
+  </article>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: t.metaTitle,
+    description: t.metaDesc,
+    ogType: "article",
+    alternates: resolveLanguageAlternates(currentPath),
+    breadcrumbs: [
+      { name: labels.home, path: labels.serviceLinks.home },
+      { name: t.newsTitle, path: labels.serviceLinks.news },
+      { name: t.heading, path: currentPath },
+    ],
+    faq: t.faqItems.map((f) => ({
+      q: stripMarkdown(f.q),
+      a: stripMarkdown(f.a),
+    })),
+    articleSchema: {
+      headline: t.heading,
+      description: t.metaDesc,
+      datePublished: "2026-06-10",
+      dateModified: LASTMOD,
+      image: heroImg,
+    },
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderGalleryPage(lang, currentPath, bridge, galleryItems) {
+  const { SERVICE_SLUGS, resolveLanguageAlternates } = bridge;
+  const labels = getLayoutLabels(lang);
+  const catLabels = GALLERY_CATEGORY_LABELS[lang] || GALLERY_CATEGORY_LABELS.pl;
+
+  const meta =
+    lang === "pl"
+      ? {
+          title: "Galeria Realizacji: Metalizacja PVD i Lakierowanie | STANIAX",
+          desc: "Zobacz ponad 115 zdjęć realizacji STANIAX: regeneracja odbłyśników reflektorów, metalizacja próżniowa PVD opakowań beauty oraz lakierowanie szkła i tworzyw.",
+          badge: "Portfolio 115+ realizacji",
+          h1: "GALERIA REALIZACJI METALIZACJI PVD I LAKIEROWANIA",
+          subH2: "Realizacje PVD w odcieniach Złota, Chromu i Dekoracyjnych",
+          breadName: "Galeria realizacji",
+          servicesHeading: "Technologie stojące za realizacjami w galerii STANIAX",
+          servicesLead:
+            "Prezentowane powyżej zdjęcia pochodzą bezpośrednio z linii produkcyjnej STANIAX w Józefowie k. Warszawy. Każde wykończenie lustrzane, złote i dekoracyjne powstaje w wieloetapowym procesie obejmującym przygotowanie chemiczne i jonowe, aplikację podkładu, napylanie próżniowe PVD oraz zabezpieczenie lakierem nawierzchniowym UV lub 2K. Sprawdź szczegóły poszczególnych technologii:",
+          linkLabels: {
+            reflectors: "regeneracja odbłyśników i reflektorów samochodowych",
+            vacuum: "usługowa metalizacja próżniowa PVD",
+            plasticMeta: "metalizacja i chromowanie tworzyw sztucznych",
+            plasticPaint: "lakierowanie tworzyw sztucznych (ABS, PC, PA, PP)",
+            glassPaint: "lakierowanie szkła i ceramiki",
+            sprayPaint: "lakierowanie natryskowe HVLP w palecie RAL",
+            conjunction: "oraz",
+          },
+        }
+      : lang === "de"
+        ? {
+            title: "Projektgalerie: PVD-Metallisierung & Lackierung | STANIAX",
+            desc: "Über 115 Referenzfotos aus dem STANIAX-Werk in Józefów: Scheinwerfer-Reflektor-Aufbereitung, PVD-Vakuummetallisierung in Gold/Chrom sowie Glaslackierung.",
+            badge: "Portfolio mit 115+ Projekten",
+            h1: "PROJEKTGALERIE PVD-METALLISIERUNG & LACKIERUNG",
+            subH2: "PVD-Referenzen in Gold, Chrom und Dekor-Farben",
+            breadName: "Projektgalerie",
+            servicesHeading: "Technologien hinter den Projekten in der STANIAX-Galerie",
+            servicesLead:
+              "Die oben gezeigten Aufnahmen stammen direkt aus der Produktionslinie von STANIAX in Józefów bei Warschau. Jede Spiegel-, Gold- und Dekorbeschichtung entsteht in einem mehrstufigen Prozess. Entdecken Sie unsere einzelnen Dienstleistungen:",
+            linkLabels: {
+              reflectors: "Scheinwerfer-Reflektor-Aufbereitung",
+              vacuum: "PVD-Vakuummetallisierung im Lohnauftrag",
+              plasticMeta: "Kunststoffverchromung und -metallisierung",
+              plasticPaint: "Kunststofflackierung (ABS, PC, PA, PP)",
+              glassPaint: "Glas- und Keramiklackierung",
+              sprayPaint: "HVLP-Spritzlackierung in der RAL-Palette",
+              conjunction: "sowie",
+            },
+          }
+        : {
+            title: "Project Gallery: PVD Metallization & Coating | STANIAX",
+            desc: "Browse 115+ photos of STANIAX projects: headlight reflector restoration, gold and chrome PVD vacuum metallization for cosmetics, and industrial glass coating.",
+            badge: "Portfolio of 115+ Projects",
+            h1: "PROJECT GALLERY PVD METALLIZATION & COATING",
+            subH2: "PVD Finishes in Gold, Chrome & Decorative Coating Series",
+            breadName: "Project Gallery",
+            servicesHeading: "Technologies Behind the Projects in the STANIAX Gallery",
+            servicesLead:
+              "The photographs shown above come directly from the STANIAX production line in Józefów near Warsaw. Every mirror, gold, and decorative finish is produced in a multi-stage process. Explore the specifications of our individual services:",
+            linkLabels: {
+              reflectors: "headlight reflector restoration",
+              vacuum: "contract PVD vacuum metallisation",
+              plasticMeta: "plastic chrome plating and metallisation",
+              plasticPaint: "plastic parts painting (ABS, PC, PA, PP)",
+              glassPaint: "glass and ceramic painting",
+              sprayPaint: "HVLP spray painting in the RAL palette",
+              conjunction: "and",
+            },
+          };
+
+  const breadcrumbs = [
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: meta.breadName, path: currentPath },
+  ];
+
+  const categoryBadges = Object.values(catLabels)
+    .map(
+      (label) =>
+        `<span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">${escapeHtml(label)}</span>`,
+    )
+    .join(" ");
+
+  const galleryGrid = galleryItems
+    .map((item, idx) => {
+      const altText = localizeGalleryAlt(item, idx, lang);
+      return `
+      <figure class="rounded-xl border border-slate-200 bg-white overflow-hidden">
+        <img src="${escapeHtml(item.src)}" alt="${escapeHtml(altText)}" ${imgSizeAttrs(item.src)} class="w-full h-48 object-cover" loading="lazy" />
+        <figcaption class="p-3 text-xs text-slate-600">${escapeHtml(altText)}</figcaption>
+      </figure>`;
+    })
+    .join("\n      ");
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml(breadcrumbs)}
+  <section class="container mx-auto max-w-6xl px-6 py-12 space-y-4">
+    <p class="text-xs font-bold uppercase tracking-widest text-blue-700">${escapeHtml(meta.badge)}</p>
+    <h1 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">${escapeHtml(meta.h1)}</h1>
+    <p class="text-base text-slate-700 max-w-3xl">${escapeHtml(meta.desc)}</p>
+    <div class="flex flex-wrap gap-2 pt-2">${categoryBadges}</div>
+  </section>
+
+  <section class="container mx-auto max-w-6xl px-6 pb-12 space-y-6">
+    <h2 class="text-2xl font-black text-slate-950">${escapeHtml(meta.subH2)}</h2>
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      ${galleryGrid}
+    </div>
+  </section>
+
+  <section class="bg-slate-50 border-y border-slate-200 py-12">
+    <div class="container mx-auto max-w-4xl px-6 space-y-4 text-sm text-slate-700">
+      <h2 class="text-xl font-bold text-slate-950">${escapeHtml(meta.servicesHeading)}</h2>
+      <p class="leading-relaxed">${escapeHtml(meta.servicesLead)}
+        <a href="${escapeHtml(SERVICE_SLUGS.reflectors[lang])}" class="text-blue-700 font-semibold underline">${escapeHtml(meta.linkLabels.reflectors)}</a>,
+        <a href="${escapeHtml(SERVICE_SLUGS["vacuum-metallization"][lang])}" class="text-blue-700 font-semibold underline">${escapeHtml(meta.linkLabels.vacuum)}</a>,
+        <a href="${escapeHtml(SERVICE_SLUGS["plastic-metallization"][lang])}" class="text-blue-700 font-semibold underline">${escapeHtml(meta.linkLabels.plasticMeta)}</a>,
+        <a href="${escapeHtml(SERVICE_SLUGS["plastic-painting"][lang])}" class="text-blue-700 font-semibold underline">${escapeHtml(meta.linkLabels.plasticPaint)}</a>,
+        <a href="${escapeHtml(SERVICE_SLUGS["glass-painting"][lang])}" class="text-blue-700 font-semibold underline">${escapeHtml(meta.linkLabels.glassPaint)}</a> ${escapeHtml(meta.linkLabels.conjunction)}
+        <a href="${escapeHtml(SERVICE_SLUGS["spray-painting"][lang])}" class="text-blue-700 font-semibold underline">${escapeHtml(meta.linkLabels.sprayPaint)}</a>.
+      </p>
+    </div>
+  </section>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: meta.title,
+    description: meta.desc,
+    alternates: resolveLanguageAlternates(currentPath),
+    breadcrumbs,
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderLegalPage(docType, lang, currentPath, bridge) {
+  const { LEGAL_DATA } = bridge;
+  const doc = LEGAL_DATA[docType];
+  const content = doc.locales[lang];
+  const labels = getLayoutLabels(lang);
+  const breadcrumbs = [
+    { name: labels.home, path: labels.serviceLinks.home },
+    { name: content.h1, path: currentPath },
+  ];
+
+  const bodyHtml = `
+  ${renderBreadcrumbsHtml(breadcrumbs)}
+  <section class="container mx-auto max-w-4xl px-6 py-10 space-y-6">
+    <p><a href="${escapeHtml(labels.serviceLinks.home)}" class="text-sm font-bold text-blue-700 underline">← ${escapeHtml(labels.home)}</a></p>
+    <h1 class="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">${escapeHtml(content.h1)}</h1>
+    <p class="text-slate-700 leading-relaxed">${escapeHtml(content.lead)}</p>
+    <div class="space-y-6 pt-4">
+      ${content.sections
+        .map(
+          (sec) => `
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 space-y-2">
+        <h2 class="text-lg font-bold text-slate-950">${escapeHtml(sec.h2)}</h2>
+        <p class="text-sm text-slate-700 leading-relaxed">${escapeHtml(sec.body)}</p>
+      </div>`,
+        )
+        .join("\n      ")}
+    </div>
+  </section>`;
+
+  const seoConfig = {
+    lang,
+    path: currentPath,
+    title: content.title,
+    description: content.desc,
+    noindex: true,
+    alternates: doc.alternates,
+    breadcrumbs,
+  };
+
+  return { seoConfig, bodyHtml };
+}
+
+function renderNotFoundPage(bridge) {
+  const { SERVICE_ORDER, SERVICE_SLUGS, SERVICES } = bridge;
+  const bodyHtml = `
+  <section class="container mx-auto max-w-4xl px-6 py-16 text-center space-y-6">
+    <p class="inline-block rounded-full bg-blue-100 px-4 py-1 text-xs font-mono font-bold text-blue-800">HTTP 404</p>
+    <h1 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">Nie znaleziono szukanej podstrony (404)</h1>
+    <p class="text-base text-slate-600 max-w-xl mx-auto">Wybierz jedną z naszych 6 głównych usług technologicznych poniżej lub przejdź na stronę główną STANIAX.</p>
+    <div>
+      <a href="/" class="inline-block rounded-xl bg-blue-700 text-white px-6 py-3 text-sm font-bold">Wróć na stronę główną</a>
+    </div>
+    <h2 class="text-2xl font-black text-slate-950 pt-6">Główne usługi STANIAX Sp. z o.o.</h2>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-left">
+      ${SERVICE_ORDER.map(
+        (id) => `
+      <a href="${escapeHtml(SERVICE_SLUGS[id].pl)}" class="rounded-2xl border border-slate-200 bg-white p-5 hover:border-blue-500 space-y-1">
+        <h3 class="text-base font-bold text-slate-950">${escapeHtml(SERVICES[id].locales.pl.navLabel)}</h3>
+        <p class="text-xs text-slate-600">${escapeHtml(SERVICES[id].locales.pl.shortSummary)}</p>
+      </a>`,
+      ).join("\n      ")}
+    </div>
+  </section>`;
+
+  return {
+    title: "404 — Nie znaleziono strony | STANIAX",
+    description:
+      "Strona o podanym adresie nie istnieje. Sprawdź ofertę usług metalizacji próżniowej, regeneracji reflektorów i lakierowania STANIAX.",
+    bodyHtml,
+  };
+}
+
+function injectHtmlDocument(
+  baseHtml,
+  { lang, seoConfig, custom404Meta, renderedBody, bridge },
+) {
+  const { buildJsonLdGraph, normalizeUrl, SITE_ORIGIN } = bridge;
+  let html = baseHtml;
+
+  html = html.replace(/<html\b[^>]*>/i, `<html lang="${escapeHtml(lang)}">`);
+  html = html.replace(/<title>[\s\S]*?<\/title>\s*/gi, "");
+  html = html.replace(
+    /<meta\s+(?:name|property)="(?:description|robots|og:[^"]+|twitter:[^"]+)"[^>]*>\s*/gi,
+    "",
+  );
+  html = html.replace(/<link\s+rel="(?:canonical|alternate)"[^>]*>\s*/gi, "");
+  html = html.replace(
+    /<script\s+id="staniax-seo-jsonld"[^>]*>[\s\S]*?<\/script>\s*/gi,
+    "",
+  );
+
+  const headTags = [];
+  if (custom404Meta) {
+    headTags.push(`<title>${escapeHtml(custom404Meta.title)}</title>`);
+    headTags.push(
+      `<meta name="description" content="${escapeHtml(custom404Meta.description)}" />`,
+    );
+    headTags.push(`<meta name="robots" content="noindex, nofollow" />`);
+    headTags.push(
+      `<meta property="og:image" content="${escapeHtml(`${SITE_ORIGIN}/staniax-logo.png`)}" />`,
+    );
+  } else {
+    const canonicalUrl = normalizeUrl(seoConfig.path);
+    const ogType = seoConfig.ogType || "website";
+    const robotsContent = seoConfig.noindex
+      ? "noindex, follow"
+      : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
+    const ogLocale =
+      lang === "pl" ? "pl_PL" : lang === "de" ? "de_DE" : "en_US";
+    const jsonLdObj = buildJsonLdGraph(seoConfig);
+    const safeJsonLd = JSON.stringify(jsonLdObj).replace(
+      /<\/script>/gi,
+      "<\\/script>",
+    );
+
+    headTags.push(`<title>${escapeHtml(seoConfig.title)}</title>`);
+    headTags.push(
+      `<meta name="description" content="${escapeHtml(seoConfig.description)}" />`,
+    );
+    headTags.push(`<meta name="robots" content="${robotsContent}" />`);
+    headTags.push(
+      `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`,
+    );
+
+    if (!seoConfig.noindex && seoConfig.alternates) {
+      const xDefPath =
+        seoConfig.alternates.xDefault || seoConfig.alternates.pl || "/";
+      headTags.push(
+        `<link rel="alternate" hreflang="pl" href="${escapeHtml(normalizeUrl(seoConfig.alternates.pl))}" />`,
+      );
+      headTags.push(
+        `<link rel="alternate" hreflang="en" href="${escapeHtml(normalizeUrl(seoConfig.alternates.en))}" />`,
+      );
+      headTags.push(
+        `<link rel="alternate" hreflang="de" href="${escapeHtml(normalizeUrl(seoConfig.alternates.de))}" />`,
+      );
+      headTags.push(
+        `<link rel="alternate" hreflang="x-default" href="${escapeHtml(normalizeUrl(xDefPath))}" />`,
+      );
+    }
+
+    headTags.push(
+      `<meta property="og:type" content="${escapeHtml(ogType)}" />`,
+    );
+    headTags.push(
+      `<meta property="og:title" content="${escapeHtml(seoConfig.title)}" />`,
+    );
+    headTags.push(
+      `<meta property="og:description" content="${escapeHtml(seoConfig.description)}" />`,
+    );
+    headTags.push(
+      `<meta property="og:url" content="${escapeHtml(canonicalUrl)}" />`,
+    );
+    headTags.push(
+      `<meta property="og:site_name" content="STANIAX Sp. z o.o." />`,
+    );
+    headTags.push(
+      `<meta property="og:locale" content="${escapeHtml(ogLocale)}" />`,
+    );
+    if (seoConfig.articleSchema && seoConfig.articleSchema.image) {
+      const imgAbs = seoConfig.articleSchema.image.startsWith("http")
+        ? seoConfig.articleSchema.image
+        : `${SITE_ORIGIN}${seoConfig.articleSchema.image}`;
+      headTags.push(
+        `<meta property="og:image" content="${escapeHtml(imgAbs)}" />`,
+      );
+    } else {
+      headTags.push(
+        `<meta property="og:image" content="${SITE_ORIGIN}/staniax-logo.png" />`,
+      );
+    }
+    headTags.push(`<meta name="twitter:card" content="summary_large_image" />`);
+    headTags.push(
+      `<meta name="twitter:title" content="${escapeHtml(seoConfig.title)}" />`,
+    );
+    headTags.push(
+      `<meta name="twitter:description" content="${escapeHtml(seoConfig.description)}" />`,
+    );
+    headTags.push(
+      `<script id="staniax-seo-jsonld" type="application/ld+json">${safeJsonLd}</script>`,
+    );
+  }
+
+  html = html.replace("</head>", `  ${headTags.join("\n  ")}\n</head>`);
+  html = html.replace(
+    /<div id="root">[\s\S]*<\/div>(\s*<\/body>)/i,
+    `<div id="root">${renderedBody}</div>$1`,
+  );
+  return html;
+}
+
+function writeRouteHtml(routePath, htmlContent) {
+  const clean = routePath.replace(/^\/+/, "").replace(/\/+$/, "");
+  const outFile = clean
+    ? path.join(distDir, clean, "index.html")
+    : path.join(distDir, "index.html");
+  fs.mkdirSync(path.dirname(outFile), { recursive: true });
+  fs.writeFileSync(outFile, htmlContent, "utf-8");
+}
+
+function buildUrlSetXml(entries, bridge) {
+  const { normalizeUrl } = bridge;
+  const urlsXml = entries
+    .map(({ path: p, priority, changefreq, alternates }) => {
+      const xDef = alternates.xDefault || alternates.pl || "/";
+      return `  <url>
+    <loc>${escapeHtml(normalizeUrl(p))}</loc>
+    <lastmod>${LASTMOD}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="${escapeHtml(normalizeUrl(alternates.pl))}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${escapeHtml(normalizeUrl(alternates.en))}" />
+    <xhtml:link rel="alternate" hreflang="de" href="${escapeHtml(normalizeUrl(alternates.de))}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeHtml(normalizeUrl(xDef))}" />
+  </url>`;
+    })
+    .join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urlsXml}
+</urlset>
+`;
+}
+
+function generateSitemaps(bridge) {
+  const {
+    SERVICE_ORDER,
+    SERVICE_SLUGS,
+    COMPARISON_ORDER,
+    COMPARISON_SLUGS,
+    SUBSTRATE_ORDER,
+    SUBSTRATE_SLUGS,
+    PRICING_SLUGS,
+    LOCAL_WARSAW_SLUGS,
+    STATIC_ROUTE_EQUIVALENTS,
+    SITE_ORIGIN,
+  } = bridge;
+
+  const homeGroup = STATIC_ROUTE_EQUIVALENTS[0];
+  const galleryGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/gallery",
+  );
+
+  const pagesEntries = [
+    ...["pl", "en", "de"].map((l) => ({
+      path: homeGroup[l],
+      priority: "1.0",
+      changefreq: "weekly",
+      alternates: homeGroup,
+    })),
+    ...["pl", "en", "de"].map((l) => ({
+      path: galleryGroup[l],
+      priority: "0.8",
+      changefreq: "monthly",
+      alternates: galleryGroup,
+    })),
+  ];
+
+  const serviceEntries = [];
+  for (const id of SERVICE_ORDER) {
+    const group = SERVICE_SLUGS[id];
+    for (const l of ["pl", "en", "de"]) {
+      serviceEntries.push({
+        path: group[l],
+        priority: "0.9",
+        changefreq: "monthly",
+        alternates: group,
+      });
+    }
+  }
+
+  const newsGroup = STATIC_ROUTE_EQUIVALENTS.find((g) => g.pl === "/news");
+  const aviationGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/partnerstwo-z-wiodacym-producentem-lotniczym",
+  );
+  const beautyGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty",
+  );
+  const reflectorsGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/regeneracja-odblysnikow-reflektorow-samochodowych",
+  );
+
+  const newsEntries = [
+    ...["pl", "en", "de"].map((l) => ({
+      path: newsGroup[l],
+      priority: "0.8",
+      changefreq: "weekly",
+      alternates: newsGroup,
+    })),
+    ...["pl", "en", "de"].map((l) => ({
+      path: aviationGroup[l],
+      priority: "0.7",
+      changefreq: "monthly",
+      alternates: aviationGroup,
+    })),
+    ...["pl", "en", "de"].map((l) => ({
+      path: beautyGroup[l],
+      priority: "0.7",
+      changefreq: "monthly",
+      alternates: beautyGroup,
+    })),
+    ...["pl", "en", "de"].map((l) => ({
+      path: reflectorsGroup[l],
+      priority: "0.7",
+      changefreq: "monthly",
+      alternates: reflectorsGroup,
+    })),
+  ];
+
+  const solutionsEntries = [];
+  for (const id of COMPARISON_ORDER) {
+    const group = COMPARISON_SLUGS[id];
+    for (const l of ["pl", "en", "de"]) {
+      solutionsEntries.push({
+        path: group[l],
+        priority: "0.85",
+        changefreq: "monthly",
+        alternates: group,
+      });
+    }
+  }
+  for (const id of SUBSTRATE_ORDER) {
+    const group = SUBSTRATE_SLUGS[id];
+    for (const l of ["pl", "en", "de"]) {
+      solutionsEntries.push({
+        path: group[l],
+        priority: "0.85",
+        changefreq: "monthly",
+        alternates: group,
+      });
+    }
+  }
+  for (const l of ["pl", "en", "de"]) {
+    solutionsEntries.push({
+      path: PRICING_SLUGS[l],
+      priority: "0.9",
+      changefreq: "monthly",
+      alternates: PRICING_SLUGS,
+    });
+  }
+  for (const l of ["pl", "en", "de"]) {
+    solutionsEntries.push({
+      path: LOCAL_WARSAW_SLUGS[l],
+      priority: "0.9",
+      changefreq: "monthly",
+      alternates: LOCAL_WARSAW_SLUGS,
+    });
+  }
+
+  const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${SITE_ORIGIN}/sitemap-pages.xml</loc>
+    <lastmod>${LASTMOD}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${SITE_ORIGIN}/sitemap-services.xml</loc>
+    <lastmod>${LASTMOD}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${SITE_ORIGIN}/sitemap-news.xml</loc>
+    <lastmod>${LASTMOD}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${SITE_ORIGIN}/sitemap-solutions.xml</loc>
+    <lastmod>${LASTMOD}</lastmod>
+  </sitemap>
+</sitemapindex>
+`;
+
+  const filesToWrite = {
+    "sitemap.xml": sitemapIndexXml,
+    "sitemap-pages.xml": buildUrlSetXml(pagesEntries, bridge),
+    "sitemap-services.xml": buildUrlSetXml(serviceEntries, bridge),
+    "sitemap-news.xml": buildUrlSetXml(newsEntries, bridge),
+    "sitemap-solutions.xml": buildUrlSetXml(solutionsEntries, bridge),
+  };
+
+  for (const [name, xml] of Object.entries(filesToWrite)) {
+    fs.writeFileSync(path.join(publicDir, name), xml, "utf-8");
+    fs.writeFileSync(path.join(distDir, name), xml, "utf-8");
+  }
+
+  return {
+    pagesCount: pagesEntries.length,
+    servicesCount: serviceEntries.length,
+    newsCount: newsEntries.length,
+    solutionsCount: solutionsEntries.length,
+  };
+}
+
+async function run() {
+  const baseHtml = fs.readFileSync(indexPath, "utf-8");
+  const bridge = await loadBridgeData();
+  const resolveAsset = createAssetResolver(path.join(distDir, "assets"));
+  const galleryItems = extractGalleryItems(resolveAsset);
+  const {
+    SERVICE_ORDER,
+    SERVICE_SLUGS,
+    COMPARISON_ORDER,
+    COMPARISON_SLUGS,
+    SUBSTRATE_ORDER,
+    SUBSTRATE_SLUGS,
+    PRICING_SLUGS,
+    LOCAL_WARSAW_SLUGS,
+    STATIC_ROUTE_EQUIVALENTS,
+  } = bridge;
+
+  const routes = [];
+
+  for (const lang of ["pl", "en", "de"]) {
+    const p = lang === "pl" ? "/" : `/${lang}`;
+    const { seoConfig, bodyHtml } = renderHomePage(lang, bridge, resolveAsset);
+    routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  for (const id of SERVICE_ORDER) {
+    for (const lang of ["pl", "en", "de"]) {
+      const p = SERVICE_SLUGS[id][lang];
+      const { seoConfig, bodyHtml } = renderServicePage(
+        id,
+        lang,
+        bridge,
+        resolveAsset,
+      );
+      routes.push({ path: p, lang, seoConfig, bodyHtml });
+    }
+  }
+
+  for (const lang of ["pl", "en", "de"]) {
+    const p = lang === "pl" ? "/news" : `/${lang}/news`;
+    const { seoConfig, bodyHtml } = renderNewsHubPage(
+      lang,
+      bridge,
+      resolveAsset,
+    );
+    routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  const libGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/biblioteka",
+  );
+  for (const lang of ["pl", "en", "de"]) {
+    const p = libGroup[lang];
+    const { seoConfig, bodyHtml } = renderLibraryPage(
+      lang,
+      p,
+      bridge,
+      resolveAsset,
+    );
+    routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  const aviationGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/partnerstwo-z-wiodacym-producentem-lotniczym",
+  );
+  for (const lang of ["pl", "en", "de"]) {
+    const p = aviationGroup[lang];
+    const { seoConfig, bodyHtml } = renderArticleAviation(
+      lang,
+      p,
+      bridge,
+      resolveAsset,
+    );
+    routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  const beautyGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty",
+  );
+  for (const lang of ["pl", "en", "de"]) {
+    const p = beautyGroup[lang];
+    const { seoConfig, bodyHtml } = renderArticleBeauty(
+      lang,
+      p,
+      bridge,
+      resolveAsset,
+    );
+    routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  const reflectorsGroup = STATIC_ROUTE_EQUIVALENTS.find(
+    (g) => g.pl === "/news/regeneracja-odblysnikow-reflektorow-samochodowych",
+  );
+  for (const lang of ["pl", "en", "de"]) {
+    const p = reflectorsGroup[lang];
+    const { seoConfig, bodyHtml } = renderArticleReflectors(
+      lang,
+      p,
+      bridge,
+      resolveAsset,
+    );
+    routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  for (const lang of ["pl", "en", "de"]) {
+    const p = lang === "pl" ? "/gallery" : `/${lang}/gallery`;
+    const { seoConfig, bodyHtml } = renderGalleryPage(
+      lang,
+      p,
+      bridge,
+      galleryItems,
+    );
+    routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  for (const id of COMPARISON_ORDER) {
+    for (const lang of ["pl", "en", "de"]) {
+      const p = COMPARISON_SLUGS[id][lang];
+      const { seoConfig, bodyHtml } = renderComparisonPage(id, lang, bridge);
+      routes.push({ path: p, lang, seoConfig, bodyHtml });
+    }
+  }
+
+  for (const id of SUBSTRATE_ORDER) {
+    for (const lang of ["pl", "en", "de"]) {
+      const p = SUBSTRATE_SLUGS[id][lang];
+      const { seoConfig, bodyHtml } = renderSubstrateMatrixPage(id, lang, bridge);
+      routes.push({ path: p, lang, seoConfig, bodyHtml });
+    }
+  }
+
+  for (const lang of ["pl", "en", "de"]) {
+    const p = PRICING_SLUGS[lang];
+    const { seoConfig, bodyHtml } = renderHeadlightPricingPage(lang, bridge);
+    routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  for (const lang of ["pl", "en", "de"]) {
+    const p = LOCAL_WARSAW_SLUGS[lang];
+    const { seoConfig, bodyHtml } = renderLocalWarsawPage(lang, bridge);
+    routes.push({ path: p, lang, seoConfig, bodyHtml });
+  }
+
+  for (const docType of ["privacy", "cookies"]) {
+    const group = bridge.LEGAL_DATA[docType].alternates;
+    for (const lang of ["pl", "en", "de"]) {
+      const p = group[lang];
+      const { seoConfig, bodyHtml } = renderLegalPage(docType, lang, p, bridge);
+      routes.push({ path: p, lang, seoConfig, bodyHtml });
+    }
+  }
+
+  for (const route of routes) {
+    const chromeHtml = renderSiteChrome({
+      lang: route.lang,
+      currentPath: route.path,
+      alternates: route.seoConfig.alternates,
+      bridge,
+      bodyHtml: route.bodyHtml,
+    });
+    const doc = injectHtmlDocument(baseHtml, {
+      lang: route.lang,
+      seoConfig: route.seoConfig,
+      renderedBody: chromeHtml,
+      bridge,
+    });
+    writeRouteHtml(route.path, doc);
+  }
+
+  const notFound = renderNotFoundPage(bridge);
+  const notFoundChrome = renderSiteChrome({
+    lang: "pl",
+    currentPath: "/404",
+    alternates: { pl: "/", en: "/en", de: "/de" },
+    bridge,
+    bodyHtml: notFound.bodyHtml,
+  });
+  const notFoundDoc = injectHtmlDocument(baseHtml, {
+    lang: "pl",
+    custom404Meta: { title: notFound.title, description: notFound.description },
+    renderedBody: notFoundChrome,
+    bridge,
+  });
+  fs.writeFileSync(path.join(distDir, "404.html"), notFoundDoc, "utf-8");
+
+  const sitemapStats = generateSitemaps(bridge);
+  console.log(
+    `[prerender] Generated ${routes.length} routes + 404.html | Gallery items: ${galleryItems.length} | Sitemaps: ${
+      sitemapStats.pagesCount +
+      sitemapStats.servicesCount +
+      sitemapStats.newsCount +
+      sitemapStats.solutionsCount
+    } URLs (pages=${sitemapStats.pagesCount}, services=${sitemapStats.servicesCount}, news=${sitemapStats.newsCount}, solutions=${sitemapStats.solutionsCount})`,
+  );
+}
+
+run().catch((err) => {
+  console.error("[prerender] Fatal error:", err);
+  process.exit(1);
+});

@@ -1,4 +1,29 @@
 User-agent: *
 Allow: /
 
+# OpenAI Search & ChatGPT Browsing
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Perplexity & Anthropic & Apple AI Search
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Google AI Overviews / Gemini Grounding
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://www.staniax.pl/sitemap.xml
+# AI Knowledge Index: https://www.staniax.pl/llms.txt
