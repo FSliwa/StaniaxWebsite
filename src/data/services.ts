@@ -155,7 +155,7 @@ export const STATIC_ROUTE_EQUIVALENTS: Array<Record<Lang, string>> = [
   { pl: '/polityka-prywatnosci', en: '/en/privacy-policy', de: '/de/datenschutz' },
   { pl: '/polityka-cookies', en: '/en/cookie-policy', de: '/de/cookie-richtlinie' },
   // Artykuły tylko po polsku: przełącznik EN/DE prowadzi do listy aktualności.
-  // (hreflang dla tych stron emitowany jest tylko dla PL — patrz singleLanguage w seo.ts)
+  // (hreflang dla tych stron emitowany jest tylko dla PL - patrz singleLanguage w seo.ts)
   ...BLOG_POST_SLUGS.map((slug) => ({ pl: slug, en: '/en/news', de: '/de/news' })),
 ]
 

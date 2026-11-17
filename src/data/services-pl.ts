@@ -139,7 +139,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
     breadcrumbLabel: "Regeneracja reflektorów i odbłyśników",
     heroBadge: "Józefów k. Warszawy + wysyłka kurierska 24/48h w całej Polsce",
     h1: "Regeneracja reflektorów i odbłyśników samochodowych metodą próżniową",
-    lead: "Przywracamy fabryczną sprawność świetlną reflektorom samochodowym, motocyklowym oraz klasykom — kompleksowe odnawianie lamp samochodowych, renowacja reflektorów zabytkowych, czyszczenie lamp samochodowych z osadów i regeneracja lampy samochodowej po wypaleniu soczewki. Nasza regeneracja reflektorów i regeneracja lamp samochodowych w zakładzie STANIAX w Józefowie pod Warszawą polega na usunięciu wypalonej powłoki, nałożeniu lakieru podkładowego wysokotemperaturowego i próżniowym napyleniu czystego aluminium (99,99% Al) z warstwą ochronną krzemoorganiczną.",
+    lead: "Przywracamy fabryczną sprawność świetlną reflektorom samochodowym, motocyklowym oraz klasykom - kompleksowe odnawianie lamp samochodowych, renowacja reflektorów zabytkowych, czyszczenie lamp samochodowych z osadów i regeneracja lampy samochodowej po wypaleniu soczewki. Nasza regeneracja reflektorów i regeneracja lamp samochodowych w zakładzie STANIAX w Józefowie pod Warszawą polega na usunięciu wypalonej powłoki, nałożeniu lakieru podkładowego wysokotemperaturowego i próżniowym napyleniu czystego aluminium (99,99% Al) z warstwą ochronną krzemoorganiczną.",
     ctaPrimaryLabel: "Wyceń regenerację reflektorów →",
     ctaSecondaryLabel: "Sprawdź cennik i zakres naprawy ↓",
     heroImageKey: "reflectorsHero",
@@ -197,20 +197,20 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           [
             "Metalizacja samego odbłyśnika (dostarczonego luzem)",
             "Zmycie starej powłoki, podkład wysokotemperaturowy, napylanie próżniowe Al 99,99%, zabezpieczenie antykorozyjne",
-            "2–3 dni robocze",
-            "150 – 300 zł / szt.",
+            "2-3 dni robocze",
+            "150 - 300 zł / szt.",
           ],
           [
             "Kompleksowa regeneracja reflektora standardowego (H7 / Xenon / Bi-Xenon)",
             "Rozklejenie lampy, regeneracja odbłyśnika soczewki, czyszczenie wnętrza i soczewki, polerowanie klosza + powłoka UV, hermetyzacja",
-            "3–5 dni roboczych",
-            "350 – 700 zł / szt.",
+            "3-5 dni roboczych",
+            "350 - 700 zł / szt.",
           ],
           [
             "Kompleksowa renowacja kpl. lamp (2 szt.) + elektronika / LED / klasyki",
             "Pełna odbudowa pary reflektorów, spawanie uchwytów PP/ABS, naprawa przetwornic/modułów LED lub renowacja stalowych luster aut zabytkowych",
-            "4–7 dni roboczych",
-            "1 500 – 5 000+ zł / kpl.",
+            "4-7 dni roboczych",
+            "1 500 - 5 000+ zł / kpl.",
           ],
         ],
         footnote:
@@ -222,21 +222,21 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         h2: "Dlaczego reflektory tracą jasność, a samo polerowanie lamp nie wystarcza?",
         paragraphs: [
           "Kierowcy zgłaszający się na polerowanie reflektorów często zauważają, że mimo idealnie przejrzystego klosza światła mijania nadal świecą słabo i mają rozmyty światłocień na stacji kontroli pojazdów. Przyczyną w ponad 80% przypadków jest wypalenie odbłyśnika ukrytego za soczewką projekcyjną (w lampach Xenon, Bi-Xenon oraz H7 soczewkowych) lub utlenienie lustra głównego w reflektorach refleksyjnych.",
-          "Żarnik ksenonowy lub żarówka halogenowa generuje w górnej części komory odbłyśnika temperaturę przekraczającą 180–220°C oraz intensywne promieniowanie UV. Po przebiegu 120 000 – 180 000 km fabryczna warstwa aluminium o grubości kilkudziesięciu nanometrów ulega degradacji termicznej: najpierw żółknie i matowieje, a następnie wypala się do czarnego tworzywa BMC/PPS lub odsłania stalową blachę. W takim stanie odbłyśnik pochłania światło zamiast kierować je przez soczewkę na drogę, przez co natężenie oświetlenia spada nawet o 70%.",
+          "Żarnik ksenonowy lub żarówka halogenowa generuje w górnej części komory odbłyśnika temperaturę przekraczającą 180-220°C oraz intensywne promieniowanie UV. Po przebiegu 120 000 - 180 000 km fabryczna warstwa aluminium o grubości kilkudziesięciu nanometrów ulega degradacji termicznej: najpierw żółknie i matowieje, a następnie wypala się do czarnego tworzywa BMC/PPS lub odsłania stalową blachę. W takim stanie odbłyśnik pochłania światło zamiast kierować je przez soczewkę na drogę, przez co natężenie oświetlenia spada nawet o 70%.",
         ],
         subSections: [
           {
             h3: "Metalizacja próżniowa odbłyśników a domowe „chromowanie w sprayu”",
             body: "Na rynku wtórnym można spotkać farby określane jako „chrom w sprayu” lub oklejanie odbłyśników folią lustrzaną. Takie metody nie sprawdzają się w układach optycznych reflektorów samochodowych z trzech powodów inżynieryjnych:",
             bullets: [
-              "Współczynnik odbicia kierunkowego farby chromowej wynosi zaledwie 45–55%, podczas gdy napylone próżniowo aluminium 99,99% osiąga >92% refleksji zwierciadlanej.",
-              "Farby aerozolowe gazują i miękną już przy 80–90°C, co powoduje zadymienie wnętrza lampy i osadzanie tłustego nalotu na wewnętrznej stronie klosza oraz soczewki.",
+              "Współczynnik odbicia kierunkowego farby chromowej wynosi zaledwie 45-55%, podczas gdy napylone próżniowo aluminium 99,99% osiąga >92% refleksji zwierciadlanej.",
+              "Farby aerozolowe gazują i miękną już przy 80-90°C, co powoduje zadymienie wnętrza lampy i osadzanie tłustego nalotu na wewnętrznej stronie klosza oraz soczewki.",
               "Tylko próżniowa metalizacja odbłyśników (PVD) daje nanometryczną gładkość (Ra < 0,02 µm) niezbędną do uzyskania ostrej linii odcięcia światłocienia wymaganej podczas przeglądu technicznego.",
             ],
           },
           {
             h3: "Polerowanie reflektorów z zabezpieczeniem lakierem UV vs krótkotrwały wosk",
-            body: "Zewnętrzny klosz reflektora wykonany z poliwęglanu (PC) jest fabrycznie pokryty twardym lakierem poliuretanowym lub polisiloksanowym z filtrem UV. Zwykłe przepolerowanie pastą ścierną bez odtworzenia warstwy ochronnej powoduje, że odkryty poliwęglan żółknie ponownie już po 3–6 miesiącach. W STANIAX po gradacyjnym szlifowaniu wodnym usuwamy całą zdegradowaną warstwę i nakładamy nową powłokę lakierniczą UV odporną na chemię myjni bezdotykowych oraz uderzenia drobinek piasku.",
+            body: "Zewnętrzny klosz reflektora wykonany z poliwęglanu (PC) jest fabrycznie pokryty twardym lakierem poliuretanowym lub polisiloksanowym z filtrem UV. Zwykłe przepolerowanie pastą ścierną bez odtworzenia warstwy ochronnej powoduje, że odkryty poliwęglan żółknie ponownie już po 3-6 miesiącach. W STANIAX po gradacyjnym szlifowaniu wodnym usuwamy całą zdegradowaną warstwę i nakładamy nową powłokę lakierniczą UV odporną na chemię myjni bezdotykowych oraz uderzenia drobinek piasku.",
           },
         ],
       },
@@ -262,14 +262,14 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       subtitle:
         "Przesuń suwak (myszką, palcem lub strzałkami klawiatury), aby zobaczyć różnicę między wypalonym, zmatowiałym odbłyśnikiem a czaszą po napyleniu próżniowym aluminium 99,99% w STANIAX.",
       ctaLabel: "Zamów wycenę regeneracji swoich reflektorów →",
-      beforeLabel: "PRZED — Wypalona powłoka",
-      afterLabel: "PO — Metalizacja próżniowa Al 99,99%",
+      beforeLabel: "PRZED - Wypalona powłoka",
+      afterLabel: "PO - Metalizacja próżniowa Al 99,99%",
       beforeAlt:
         "Wypalony i zmatowiały odbłyśnik reflektora samochodowego przed regeneracją",
       afterAlt:
         "Odbłyśnik reflektora samochodowego po metalizacji próżniowej aluminium w STANIAX z lustrzanym połyskiem",
       sliderSummary:
-        "Po metalizacji próżniowej strumień świetlny na drodze wzrasta średnio o 200–300% względem wypalonego odbłyśnika, przywracając pełny zasięg świateł mijania i drogowych.",
+        "Po metalizacji próżniowej strumień świetlny na drodze wzrasta średnio o 200-300% względem wypalonego odbłyśnika, przywracając pełny zasięg świateł mijania i drogowych.",
     },
     processSection: {
       h2: "Jak przebiega regeneracja odbłyśników i reflektorów krok po kroku?",
@@ -298,7 +298,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           num: "04",
           title: "Warstwa ochronna Top Coat i kontrola ogniskowej",
           desc: "Zabezpieczamy napylone aluminium powłoką krzemoorganiczną chroniącą przed wilgocią i utlenianiem, a przy całych lampach polerujemy klosz, nakładamy filtr UV i testujemy szczelność.",
-          param: "12–24 m-ce gwarancji trwałości",
+          param: "12-24 m-ce gwarancji trwałości",
         },
       ],
     },
@@ -330,14 +330,14 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           badge: "DLA KIEROWCÓW INDYWIDUALNYCH",
           h3: "Regeneracja wysyłkowa w całej Polsce (Paczkomat / Kurier)",
-          body: "Wyślij do nas same wymontowane odbłyśniki lub kompletne reflektory. Po wykonaniu metalizacji próżniowej odsyłamy bezpiecznie zapakowane części w ciągu 2–4 dni roboczych.",
+          body: "Wyślij do nas same wymontowane odbłyśniki lub kompletne reflektory. Po wykonaniu metalizacji próżniowej odsyłamy bezpiecznie zapakowane części w ciągu 2-4 dni roboczych.",
           spec: "Odbiór osobisty: Józefów k. Warszawy (ul. Wyszyńskiego 116A)",
         },
         {
           badge: "DLA WARSZTATÓW I SERWISÓW LAMP",
           h3: "Stała współpraca B2B na metalizację odbłyśników",
           body: "Dla firm zajmujących się przeróbką i naprawą reflektorów oferujemy priorytetowe wsady komory próżniowej, powtarzalną jakość lustra i cennik hurtowy od 5 sztuk w partii.",
-          spec: "Faktura VAT 23% · Krótkie terminy 24–48h dla partnerów",
+          spec: "Faktura VAT 23% · Krótkie terminy 24-48h dla partnerów",
         },
         {
           badge: "RENOWACJA KLASYKÓW I MOTOCYKLI",
@@ -364,7 +364,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           badge: "REFLEKTORY WIELOKOMOROWE",
           h3: "Metalizacja próżniowa odbłyśników głównych i ramek dekoracyjnych",
           desc: "Odtworzenie powłoki lustrzanej na wielopłaszczyznowych odbłyśnikach z tworzywa PC/ABS i termoutwardzalnych kompozytów bez efektu skórki pomarańczy.",
-          param: "Grubość warstwy Al: 80–100 nm + zabezpieczenie Top Coat",
+          param: "Grubość warstwy Al: 80-100 nm + zabezpieczenie Top Coat",
           imageKey: "reflectors2",
           alt: "Wielokomorowe odbłyśniki samochodowe pokryte lustrzaną warstwą aluminium w komorze próżniowej",
         },
@@ -385,11 +385,11 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: "Ile kosztuje regeneracja odbłyśników, a ile kompleksowa regeneracja całych reflektorów?",
-          a: "Metalizacja próżniowa samego dostarczonego (wymontowanego z lampy) odbłyśnika kosztuje od 150 do 300 zł za sztukę w zależności od jego wielkości i materiału (tworzywo BMC/PPS lub metal). Kompleksowa regeneracja całego reflektora (rozklejenie lampy, metalizacja odbłyśnika, czyszczenie soczewki, polerowanie klosza z powłoką UV i ponowne sklejenie) wynosi zazwyczaj 350–700 zł za sztukę, a przy zaawansowanych lampach skrętnych LED/Xenon lub renowacji kompletu z elektroniką 1 500–5 000+ zł za parę.",
+          a: "Metalizacja próżniowa samego dostarczonego (wymontowanego z lampy) odbłyśnika kosztuje od 150 do 300 zł za sztukę w zależności od jego wielkości i materiału (tworzywo BMC/PPS lub metal). Kompleksowa regeneracja całego reflektora (rozklejenie lampy, metalizacja odbłyśnika, czyszczenie soczewki, polerowanie klosza z powłoką UV i ponowne sklejenie) wynosi zazwyczaj 350-700 zł za sztukę, a przy zaawansowanych lampach skrętnych LED/Xenon lub renowacji kompletu z elektroniką 1 500-5 000+ zł za parę.",
         },
         {
           q: "Jak długo trwa regeneracja reflektorów i czy realizujecie usługę wysyłkowo?",
-          a: "Tak, obsługujemy klientów z całej Polski i UE wysyłkowo. Regeneracja samych odbłyśników trwa 2–3 dni robocze od momentu doręczenia paczki do naszego zakładu w Józefowie (ul. Wyszyńskiego 116A). Kompleksowa regeneracja całych lamp trwa średnio 3–5 dni roboczych. Części odsyłamy kurierem lub do Paczkomatu InPost w bezpiecznych opakowaniach wielowarstwowych.",
+          a: "Tak, obsługujemy klientów z całej Polski i UE wysyłkowo. Regeneracja samych odbłyśników trwa 2-3 dni robocze od momentu doręczenia paczki do naszego zakładu w Józefowie (ul. Wyszyńskiego 116A). Kompleksowa regeneracja całych lamp trwa średnio 3-5 dni roboczych. Części odsyłamy kurierem lub do Paczkomatu InPost w bezpiecznych opakowaniach wielowarstwowych.",
         },
         {
           q: "Czy lepiej zregenerować oryginalny reflektor OEM, czy kupić nowy zamiennik?",
@@ -405,7 +405,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Na jak długo wystarcza zregenerowany odbłyśnik i polerowany klosz?",
-          a: "Trwałość odbłyśnika po metalizacji próżniowej z podkładem wysokotemperaturowym odpowiada żywotności fabrycznie nowej części (zwykle 5–8 lat lub 150 000 km przebiegu, pod warunkiem stosowania markowych żarówek/żarników o standardowej mocy 35W/55W). Klosz zabezpieczony twardym lakierem UV zachowuje przejrzystość przez wiele lat eksploatacji.",
+          a: "Trwałość odbłyśnika po metalizacji próżniowej z podkładem wysokotemperaturowym odpowiada żywotności fabrycznie nowej części (zwykle 5-8 lat lub 150 000 km przebiegu, pod warunkiem stosowania markowych żarówek/żarników o standardowej mocy 35W/55W). Klosz zabezpieczony twardym lakierem UV zachowuje przejrzystość przez wiele lat eksploatacji.",
         },
       ],
     },
@@ -427,7 +427,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       links: [
         {
           path: "/metalizacja-prozniowa",
-          anchorText: "Metalizacja próżniowa PVD — technologia i możliwości",
+          anchorText: "Metalizacja próżniowa PVD - technologia i możliwości",
           badge: "USŁUGA GŁÓWNA PVD",
           desc: "Poznaj fizykę napylania próżniowego aluminium i parametry naszych komór próżniowych.",
         },
@@ -455,14 +455,14 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
     navLabel: "Metalizacja próżniowa",
     shortSummary:
       "Przemysłowe napylanie próżniowe PVD aluminium (99,99% Al) nadające lustrzany efekt chromu, złota, miedzi i powłok technicznych EMI/RFI.",
-    metaTitle: "Metalizacja Próżniowa PVD — Usługi Przemysłowe | STANIAX",
+    metaTitle: "Metalizacja Próżniowa PVD - Usługi Przemysłowe | STANIAX",
     metaDesc:
       "Usługowa metalizacja próżniowa PVD w STANIAX (Józefów k. Warszawy). Powłoki lustrzane Al 99,99%, chrom, złoto, inox dla przemysłu, oświetlenia i opakowań.",
     breadcrumbLabel: "Metalizacja próżniowa PVD",
     heroBadge:
       "Technologia PVD rozwijana od 1993 r. (Dariusz Staniak · STANIAX Sp. z o.o.)",
-    h1: "Metalizacja próżniowa PVD — przemysłowe napylanie powłok metalicznych",
-    lead: "Metalizacja próżniowa (Physical Vapor Deposition — PVD) to zaawansowany proces fizycznego osadzania nanometrycznej warstwy metalu w wysokiej próżni. W zakładzie produkcyjnym STANIAX w Józefowie pod Warszawą wykonujemy usługowe metalizowanie próżniowe detali z tworzyw sztucznych, metali, szkła i ceramiki, uzyskując idealnie gładki efekt lustrzanego chromu, złota, miedzi oraz powłoki techniczne o wysokiej refleksyjności świetlnej.",
+    h1: "Metalizacja próżniowa PVD - przemysłowe napylanie powłok metalicznych",
+    lead: "Metalizacja próżniowa (Physical Vapor Deposition - PVD) to zaawansowany proces fizycznego osadzania nanometrycznej warstwy metalu w wysokiej próżni. W zakładzie produkcyjnym STANIAX w Józefowie pod Warszawą wykonujemy usługowe metalizowanie próżniowe detali z tworzyw sztucznych, metali, szkła i ceramiki, uzyskując idealnie gładki efekt lustrzanego chromu, złota, miedzi oraz powłoki techniczne o wysokiej refleksyjności świetlnej.",
     ctaPrimaryLabel: "Wyceń metalizację próżniową →",
     ctaSecondaryLabel: "Poznaj układ warstw i parametry PVD ↓",
     heroImageKey: "vacuumHero",
@@ -502,7 +502,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         "Kompleksowa linia przygotowania powierzchni, lakierowania podkładowego, napylania próżniowego i barwienia Top Coat",
       highlights: [
         "Napylanie próżniowe czystego aluminium (99,99% Al) w komorach wysokiej próżni z planetarnym systemem rotacji wsadu zapewniającym równomierne pokrycie 3D.",
-        "Pełny układ trójwarstwowy: Lakier podkładowy (Base Coat) + Warstwa metaliczna PVD (50–120 nm) + Lakier nawierzchniowy (Top Coat UV lub 2K).",
+        "Pełny układ trójwarstwowy: Lakier podkładowy (Base Coat) + Warstwa metaliczna PVD (50-120 nm) + Lakier nawierzchniowy (Top Coat UV lub 2K).",
         "Barwienie lakieru nawierzchniowego na dowolny odcień metaliczny: lustrzany chrom, złoto 14K/18K/24K, różowe złoto (rose gold), miedź, mosiądz, tytan, inox oraz czarny chrom.",
         "Własna produkcja i adaptacja specjalistycznego oprzyrządowania (satelitów, uchwytów i masek) pod nietypowe kształty detali klienta.",
         "Metalizacja funkcjonalna: zwierciadła optyczne i oświetleniowe, ekrany odbijające promieniowanie cieplne IR oraz powłoki ekranujące EMI/RFI na obudowach elektroniki.",
@@ -520,19 +520,19 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Ciśnienie robocze w komorze",
-            "10⁻⁴ – 5×10⁻⁵ mbar (wysoka próżnia)",
+            "10⁻⁴ - 5×10⁻⁵ mbar (wysoka próżnia)",
             "Brak wtrąceń gazowych, maksymalna gęstość i czystość lustra metalicznego",
             "Próżniomierze próżni wysokiej w każdym cyklu",
           ],
           [
             "Grubość warstwy metalu (Al)",
-            "50 – 120 nanometrów (0,05 – 0,12 µm)",
+            "50 - 120 nanometrów (0,05 - 0,12 µm)",
             "Brak wpływu na tolerancje montażowe, zatrzaski i gwinty precyzyjnych detali",
             "Kontrola transmisji optycznej i rezystancji powierzchniowej",
           ],
           [
             "Grubość układu lakierniczego (Base + Top)",
-            "15 – 35 µm (zależnie od podłoża i przeznaczenia)",
+            "15 - 35 µm (zależnie od podłoża i przeznaczenia)",
             "Wygładzenie mikronierówności wtrysku (Ra < 0,02 µm) oraz odporność na ścieranie i UV",
             "Pomiar grubościomierzem ultradźwiękowym / indukcyjnym",
           ],
@@ -552,27 +552,27 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         h2: "Na czym polega fizyka metalizacji próżniowej i budowa powłoki 4-warstwowej?",
         paragraphs: [
           "W ujęciu inżynierii powierzchni metalizacja próżniowa metodą odparowania termicznego (Thermal Evaporation PVD) wykorzystuje zjawisko przejścia metalu w stan pary w warunkach głębokiej próżni. Po odpompowaniu powietrza z komory do ciśnienia rzędu 10⁻⁴ mbar czyste aluminium umieszczone na wolframowych elementach grzejnych zostaje błyskawicznie odparowane. Ponieważ w komorze nie ma cząsteczek powietrza, atomy aluminium poruszają się po liniach prostych i kondensują na chłodniejszych detalach obracających się na planetarnym bębnie wsadowym.",
-          "Sama warstwa napylonego metalu ma grubość poniżej 0,1 mikrometra — dlatego idealnie odwzorowuje topografię podłoża, na którym spoczywa. Aby uzyskać głębokie, bezbłędne lustro na wyprasce wtryskowej lub odlewie, kluczowe jest połączenie procesu próżniowego z zaawansowaną technologią lakierniczą.",
+          "Sama warstwa napylonego metalu ma grubość poniżej 0,1 mikrometra - dlatego idealnie odwzorowuje topografię podłoża, na którym spoczywa. Aby uzyskać głębokie, bezbłędne lustro na wyprasce wtryskowej lub odlewie, kluczowe jest połączenie procesu próżniowego z zaawansowaną technologią lakierniczą.",
         ],
         subSections: [
           {
             h3: "Dlaczego lakier podkładowy (Base Coat) i nawierzchniowy (Top Coat) decydują o trwałości?",
             body: "Kompletny system metalizacji próżniowej STANIAX składa się z czterech współpracujących warstw inżynieryjnych:",
             bullets: [
-              "Warstwa 1 — Podłoże przygotowane chemicznie i antystatycznie: odtłuszczone w izopropanolu/kąpieli wodnej i zjonizowane powietrzem w celu usunięcia ładunków elektrostatycznych przyciągających kurz.",
-              "Warstwa 2 — Lakier podkładowy (Base Coat): wypełnia linie płynięcia tworzywa, pory i mikro-rysy formy wtryskowej, tworząc szklistą powierzchnię o napięciu powierzchniowym zoptymalizowanym pod adhezję aluminium.",
-              "Warstwa 3 — Aluminium PVD (99,99%): nadaje 100% metaliczny blask, nieprzezroczystość świetlną oraz właściwości refleksyjne lub ekranujące.",
-              "Warstwa 4 — Lakier nawierzchniowy (Top Coat): zamyka mikropory aluminium, chroni przed ścieraniem, potem dłoni, alkoholami i promieniowaniem UV oraz pozwala barwić powłokę pigmentami transparentnymi.",
+              "Warstwa 1 - Podłoże przygotowane chemicznie i antystatycznie: odtłuszczone w izopropanolu/kąpieli wodnej i zjonizowane powietrzem w celu usunięcia ładunków elektrostatycznych przyciągających kurz.",
+              "Warstwa 2 - Lakier podkładowy (Base Coat): wypełnia linie płynięcia tworzywa, pory i mikro-rysy formy wtryskowej, tworząc szklistą powierzchnię o napięciu powierzchniowym zoptymalizowanym pod adhezję aluminium.",
+              "Warstwa 3 - Aluminium PVD (99,99%): nadaje 100% metaliczny blask, nieprzezroczystość świetlną oraz właściwości refleksyjne lub ekranujące.",
+              "Warstwa 4 - Lakier nawierzchniowy (Top Coat): zamyka mikropory aluminium, chroni przed ścieraniem, potem dłoni, alkoholami i promieniowaniem UV oraz pozwala barwić powłokę pigmentami transparentnymi.",
             ],
           },
           {
-            h3: "Metalizacja próżniowa PVD a chromowanie galwaniczne — porównanie dla przemysłu",
-            body: "Tradycyjne chromowanie galwaniczne jest ograniczone głównie do metali oraz wąskiej grupy tworzyw (ABS do galwanizacji) wytrawianych w agresywnych kąpielach kwasu chromowego i soli palladu. Metalizacja próżniowa eliminuje toksyczne kąpiele, jest średnio o 30–50% tańsza w produkcji seryjnej i pozwala metalizować znacznie szerszą gamę materiałów: PC, PMMA, PA, PP, PS, kompozyty BMC/SMC, szkło oraz ceramikę.",
+            h3: "Metalizacja próżniowa PVD a chromowanie galwaniczne - porównanie dla przemysłu",
+            body: "Tradycyjne chromowanie galwaniczne jest ograniczone głównie do metali oraz wąskiej grupy tworzyw (ABS do galwanizacji) wytrawianych w agresywnych kąpielach kwasu chromowego i soli palladu. Metalizacja próżniowa eliminuje toksyczne kąpiele, jest średnio o 30-50% tańsza w produkcji seryjnej i pozwala metalizować znacznie szerszą gamę materiałów: PC, PMMA, PA, PP, PS, kompozyty BMC/SMC, szkło oraz ceramikę.",
           },
         ],
       },
       {
-        h2: "Zastosowania przemysłowe metalizacji próżniowej — od optyki po opakowania",
+        h2: "Zastosowania przemysłowe metalizacji próżniowej - od optyki po opakowania",
         paragraphs: [
           "Dzięki połączeniu doświadczenia założycielskiego Dariusza Staniaka (działającego w branży metalizacji próżniowej w Józefowie od 1993 roku) z nowoczesnym parkiem komorowym STANIAX Sp. z o.o., obsługujemy cztery główne sektory przemysłowe.",
         ],
@@ -623,18 +623,18 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           label: "02. Lakier Base Coat",
           badge: "WYGŁADZANIE OPTYCZNE",
           title:
-            "Lakier podkładowy wyrównujący i zwiększający adhezję (10–20 µm)",
+            "Lakier podkładowy wyrównujący i zwiększający adhezję (10-20 µm)",
           description:
             "Tworzy idealnie gładką, szklistą błonę niwelującą strukturę formy wtryskowej. Bez tej warstwy napylony metal byłby matowy i odwzorowywałby mikrorysy podłoża.",
           specs: [
-            { label: "Grubość warstwy", value: "10 – 20 µm" },
+            { label: "Grubość warstwy", value: "10 - 20 µm" },
             {
               label: "Chropowatość po utwardzeniu",
               value: "Ra < 0,02 µm (lustro optyczne)",
             },
             {
               label: "Utwardzanie",
-              value: "Termiczne w piecu (60–180°C) lub radiacyjne UV",
+              value: "Termiczne w piecu (60-180°C) lub radiacyjne UV",
             },
           ],
           previewStyle: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)",
@@ -643,13 +643,13 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           id: "aluminum-pvd",
           label: "03. Aluminium PVD 99,99%",
           badge: "KOMORA WYSOKIEJ PRÓŻNI",
-          title: "Próżniowo napylona warstwa czystego aluminium (50–120 nm)",
+          title: "Próżniowo napylona warstwa czystego aluminium (50-120 nm)",
           description:
             "Osadzana w próżni 10⁻⁴ mbar warstwa metalu odpowiedzialna za lustrzany połysk, refleksyjność świetlną (>92%) oraz przewodnictwo ekranujące EMI/RFI.",
           specs: [
             {
               label: "Grubość warstwy metalu",
-              value: "50 – 120 nm (0,05 – 0,12 µm)",
+              value: "50 - 120 nm (0,05 - 0,12 µm)",
             },
             {
               label: "Czystość metalu",
@@ -674,7 +674,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Grubość warstwy ochronnej",
-              value: "10 – 20 µm (2K poliuretan / akryl / UV)",
+              value: "10 - 20 µm (2K poliuretan / akryl / UV)",
             },
             {
               label: "Dostępne efekty barwne",
@@ -756,7 +756,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           badge: "PROTOTYPOWANIE I DRUK 3D",
           h3: "Metalizacja prototypów SLA/SLS i krótkich serii wdrożeniowych",
           body: "Wykonujemy próby technologiczne oraz wzorce kolorystyczne (chrom, złoto, satyna) dla projektantów wzornictwa przemysłowego i działów R&D przed uruchomieniem produkcji wielkoseryjnej.",
-          spec: "Szybkie próby wzorców w 48–72h",
+          spec: "Szybkie próby wzorców w 48-72h",
         },
         {
           badge: "OPTYKA I OŚWIETLENIE PRZEMYSŁOWE",
@@ -813,11 +813,11 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Czy metalizacja próżniowa zmienia wymiary detalu lub blokuje gwinty i zatrzaski?",
-          a: "Sama warstwa aluminium napylana w próżni ma grubość zaledwie 50–120 nanometrów (0,05–0,12 µm), więc jest całkowicie pomijalna wymiarowo. Całkowita grubość układu z lakierem podkładowym i nawierzchniowym wynosi 15–35 µm. Jeśli detal posiada bardzo ciasne pasowania lub gwinty, stosujemy maskowanie stref montażowych na etapie mocowania na oprzyrządowaniu.",
+          a: "Sama warstwa aluminium napylana w próżni ma grubość zaledwie 50-120 nanometrów (0,05-0,12 µm), więc jest całkowicie pomijalna wymiarowo. Całkowita grubość układu z lakierem podkładowym i nawierzchniowym wynosi 15-35 µm. Jeśli detal posiada bardzo ciasne pasowania lub gwinty, stosujemy maskowanie stref montażowych na etapie mocowania na oprzyrządowaniu.",
         },
         {
           q: "Jaka jest minimalna wielkość zamówienia (MOQ) i czas realizacji?",
-          a: "Nie narzucamy sztywnego zaporowego MOQ — wyceniamy zarówno pojedyncze detale i serie prototypowe (od kilku sztuk), jak i zamówienia wielkoseryjne liczone w dziesiątkach tysięcy elementów. Standardowy czas realizacji partii produkcyjnych wynosi 5–10 dni roboczych, a prób i prototypów 2–4 dni robocze.",
+          a: "Nie narzucamy sztywnego zaporowego MOQ - wyceniamy zarówno pojedyncze detale i serie prototypowe (od kilku sztuk), jak i zamówienia wielkoseryjne liczone w dziesiątkach tysięcy elementów. Standardowy czas realizacji partii produkcyjnych wynosi 5-10 dni roboczych, a prób i prototypów 2-4 dni robocze.",
         },
         {
           q: "Czy powłoka metalizowana próżniowo jest odporna na ścieranie, UV i warunki zewnętrzne?",
@@ -834,7 +834,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       intro:
         "Prześlij informację o materiale podłoża, wymiarach detalu, oczekiwanym efekcie (chrom, złoto, satyna, odbłyśnik techniczny) oraz planowanym wolumenie. Przygotujemy kalkulację i zaproponujemy wykonanie partii próbnej.",
       projectTypes: [
-        "Metalizacja próżniowa PVD — seria produkcyjna B2B",
+        "Metalizacja próżniowa PVD - seria produkcyjna B2B",
         "Wykonanie prób technologicznych / wzorców kolorystycznych",
         "Metalizacja techniczna (odbłyśniki oświetleniowe / ekranowanie EMI)",
         "Metalizacja opakowań kosmetycznych (chrom / złoto / rose gold)",
@@ -855,7 +855,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/lakierowanie-tworzyw-sztucznych",
           anchorText:
-            "Lakierowanie tworzyw sztucznych — Piano Black, Soft-Touch i RAL",
+            "Lakierowanie tworzyw sztucznych - Piano Black, Soft-Touch i RAL",
           badge: "USŁUGA KOMPLEMENTARNA",
           desc: "Przemysłowe lakierowanie detali plastikowych bez metalizacji lub w układach hybrydowych.",
         },
@@ -875,14 +875,14 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
   "plastic-metallization": {
     navLabel: "Metalizacja tworzyw sztucznych",
     shortSummary:
-      "Chromowanie plastiku i metalizacja próżniowa wyprasek z ABS, PC, PP, PMMA i PA — efekt chromu, złota, satyny i czarnego chromu.",
+      "Chromowanie plastiku i metalizacja próżniowa wyprasek z ABS, PC, PP, PMMA i PA - efekt chromu, złota, satyny i czarnego chromu.",
         metaTitle: 'Metalizacja Tworzyw i Chromowanie Plastiku | STANIAX',
     metaDesc:
       "Profesjonalna metalizacja tworzyw sztucznych (metalizacja plastiku i chromowanie plastiku) w STANIAX. Lustrzany chrom, złoto i satyna na ABS, PC, PP, PMMA.",
     breadcrumbLabel: "Metalizacja tworzyw sztucznych (chromowanie plastiku)",
     heroBadge:
       "Ekologiczna alternatywa dla galwanizacji ABS · 0% Cr6+ · Dowolny polimer",
-    h1: "Metalizacja tworzyw sztucznych — próżniowe chromowanie plastiku",
+    h1: "Metalizacja tworzyw sztucznych - próżniowe chromowanie plastiku",
     lead: "Metalizacja tworzyw sztucznych (określana potocznie jako chromowanie plastiku lub metalizacja plastiku) pozwala nadać lekkim wypraskom wtryskowym oraz elementom drukowanym 3D perfekcyjny wygląd litego metalu. W zakładzie STANIAX nakładamy powłoki lustrzanego chromu, złota, miedzi oraz satynowego inoxu na detale z ABS, PC, PC/ABS, PMMA, PS, PA oraz poliolefin (PP/PE) bez ograniczeń klasycznej galwanizacji.",
     ctaPrimaryLabel: "Wyceń metalizację tworzyw sztucznych →",
     ctaSecondaryLabel: "Sprawdź tabelę kompatybilności tworzyw ↓",
@@ -902,7 +902,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         suffix: "+",
         label: "Wariantów barwnych metalu",
         detail:
-          "Chrom, złoto 14K–24K, rose gold, miedź, mosiądz, tytan, gunmetal i satynowy nikiel",
+          "Chrom, złoto 14K-24K, rose gold, miedź, mosiądz, tytan, gunmetal i satynowy nikiel",
       },
       {
         value: 100,
@@ -939,7 +939,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "ABS / SAN / ASA",
-            "Średnia energia (38–42 mN/m), doskonała zwilżalność",
+            "Średnia energia (38-42 mN/m), doskonała zwilżalność",
             "Mycie antystatyczne + lakier podkładowy akrylowo-poliuretanowy lub UV",
             "Emblematy, kratki nawiewów, obudowy AGD, oprawki kosmetyczne, trofea",
           ],
@@ -963,14 +963,14 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           ],
         ],
         footnote:
-          "Nie jesteś pewien, z jakiego tworzywa wykonany jest Twój detal? Prześlij nam próbkę — nasi technolodzy dobiorą właściwy układ podkładowy i wykonają próbę przyczepności.",
+          "Nie jesteś pewien, z jakiego tworzywa wykonany jest Twój detal? Prześlij nam próbkę - nasi technolodzy dobiorą właściwy układ podkładowy i wykonają próbę przyczepności.",
       },
     },
     editorialSections: [
       {
-        h2: "Chromowanie plastiku w próżni — dlaczego wypiera galwanizację i ciężkie metale?",
+        h2: "Chromowanie plastiku w próżni - dlaczego wypiera galwanizację i ciężkie metale?",
         paragraphs: [
-          "Hasło „chromowanie plastiku” jeszcze dekadę temu kojarzyło się wyłącznie z kąpielami galwanicznymi. Dziś ze względu na unijne regulacje REACH (ograniczające stosowanie trójtlenku chromu) oraz nacisk na redukcję masy wyrobów, ciężar rynku przeniósł się na próżniową metalizację tworzyw sztucznych PVD. Wypraska z tworzywa sztucznego pokryta nanometryczną warstwą aluminium i twardym lakierem bezbarwnym jest wizualnie nieodróżnialna od detalu chromowanego galwanicznie, a waży o 60–70% mniej od odlewu znalowego (ZnAl) czy mosiężnego.",
+          "Hasło „chromowanie plastiku” jeszcze dekadę temu kojarzyło się wyłącznie z kąpielami galwanicznymi. Dziś ze względu na unijne regulacje REACH (ograniczające stosowanie trójtlenku chromu) oraz nacisk na redukcję masy wyrobów, ciężar rynku przeniósł się na próżniową metalizację tworzyw sztucznych PVD. Wypraska z tworzywa sztucznego pokryta nanometryczną warstwą aluminium i twardym lakierem bezbarwnym jest wizualnie nieodróżnialna od detalu chromowanego galwanicznie, a waży o 60-70% mniej od odlewu znalowego (ZnAl) czy mosiężnego.",
           "Dla producentów opakowań kosmetycznych, armatury sanitarnej, oświetlenia czy akcesoriów meblowych oznacza to podwójną korzyść: niższy koszt wtrysku (możliwość stosowania tańszych granulatów PP lub PS zamiast drogiego ABS galwanicznego) oraz pełną swobodę kreowania kolorów, których tradycyjna galwanizacja w ogóle nie potrafi uzyskać.",
         ],
         subSections: [
@@ -997,7 +997,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         subSections: [
           {
             h3: "Lustrzany połysk (High Gloss Mirror) vs Satynowy Mat (Brushed / Satin Metal)",
-            body: "Dodając środki matujące do lakieru nawierzchniowego lub modyfikując mikrostrukturę podkładu, uzyskujemy efekt chłodnego, satynowego aluminium, tytanu lub stali nierdzewnej (Inox), na którym nie pozostają odciski palców — rozwiązanie szczególnie cenione w panelach AGD, przyciskach spłuczek i wnętrzach samochodowych.",
+            body: "Dodając środki matujące do lakieru nawierzchniowego lub modyfikując mikrostrukturę podkładu, uzyskujemy efekt chłodnego, satynowego aluminium, tytanu lub stali nierdzewnej (Inox), na którym nie pozostają odciski palców - rozwiązanie szczególnie cenione w panelach AGD, przyciskach spłuczek i wnętrzach samochodowych.",
           },
         ],
       },
@@ -1018,7 +1018,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Stopień połysku (60°)",
-              value: "92 – 98 GU (efekt pełnego lustra)",
+              value: "92 - 98 GU (efekt pełnego lustra)",
             },
             {
               label: "Odcień barwny",
@@ -1026,7 +1026,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Twardość ołówkowa Top Coat",
-              value: "2H – 4H (w układzie utwardzanym UV)",
+              value: "2H - 4H (w układzie utwardzanym UV)",
             },
           ],
           previewStyle:
@@ -1068,7 +1068,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Stopień połysku (60°)",
-              value: "15 – 45 GU (satyna) lub 85 GU (Dark Chrome)",
+              value: "15 - 45 GU (satyna) lub 85 GU (Dark Chrome)",
             },
             {
               label: "Właściwości użytkowe",
@@ -1156,7 +1156,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           badge: "MEBLARSTWO I ARMATURA",
           h3: "Lekkie zamienniki odlewów znalowych i mosiężnych",
           body: "Pomagamy producentom uchwytów, przycisków spłuczek i opraw oświetleniowych zastąpić drogie w obróbce odlewy metalowe wypraskami pokrytymi trwałą powłoką PVD.",
-          spec: "Redukcja kosztu jednostkowego detalu o 35–50%",
+          spec: "Redukcja kosztu jednostkowego detalu o 35-50%",
         },
       ],
     },
@@ -1202,7 +1202,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Ile kosztuje chromowanie plastiku / metalizacja tworzyw sztucznych?",
-          a: "W produkcji seryjnej koszt jednostkowy zależy od gabarytu detalu (ile sztuk mieści się na jednym bębnie wsadowym komory próżniowej), rodzaju tworzywa i wybranego lakieru nawierzchniowego — przy małych detalach opakowaniowych są to kwoty od kilkudziesięciu groszy do kilku złotych za sztukę. Przy pojedynczych detalach motoryzacyjnych (np. renowacja grilla, listew czy emblematów) wycena jest indywidualna i zaczyna się od ok. 150–250 zł.",
+          a: "W produkcji seryjnej koszt jednostkowy zależy od gabarytu detalu (ile sztuk mieści się na jednym bębnie wsadowym komory próżniowej), rodzaju tworzywa i wybranego lakieru nawierzchniowego - przy małych detalach opakowaniowych są to kwoty od kilkudziesięciu groszy do kilku złotych za sztukę. Przy pojedynczych detalach motoryzacyjnych (np. renowacja grilla, listew czy emblematów) wycena jest indywidualna i zaczyna się od ok. 150-250 zł.",
         },
         {
           q: "Czy powłoka chromowana na plastiku nie odpryskuje i nie ściera się od dotyku?",
@@ -1218,7 +1218,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Czy można uzyskać na plastiku kolor złota, miedzi lub szczotkowanej stali?",
-          a: "Tak. Po napyleniu srebrzystej warstwy aluminium w komorze próżniowej nakładamy lakier nawierzchniowy barwiony transparentnymi pigmentami. Pozwala to uzyskać dowolny odcień złota (14K, 18K, 24K, szampan, rose gold), miedzi, mosiądzu, brązu, przydymionego czarnego chromu, a przy zastosowaniu lakierów satynowych — efekt matowego niklu lub stali inox.",
+          a: "Tak. Po napyleniu srebrzystej warstwy aluminium w komorze próżniowej nakładamy lakier nawierzchniowy barwiony transparentnymi pigmentami. Pozwala to uzyskać dowolny odcień złota (14K, 18K, 24K, szampan, rose gold), miedzi, mosiądzu, brązu, przydymionego czarnego chromu, a przy zastosowaniu lakierów satynowych - efekt matowego niklu lub stali inox.",
         },
       ],
     },
@@ -1241,14 +1241,14 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/lakierowanie-tworzyw-sztucznych",
           anchorText:
-            "Lakierowanie tworzyw sztucznych — kolory RAL/NCS, mat i Soft-Touch",
+            "Lakierowanie tworzyw sztucznych - kolory RAL/NCS, mat i Soft-Touch",
           badge: "USŁUGA LAKIERNICZA",
           desc: "Zobacz pełną ofertę lakierowania natryskowego wyprasek plastikowych bez warstwy metalu.",
         },
         {
           path: "/metalizacja-prozniowa",
           anchorText:
-            "Metalizacja próżniowa PVD — opis technologii i parametrów komory",
+            "Metalizacja próżniowa PVD - opis technologii i parametrów komory",
           badge: "TECHNOLOGIA PVD",
           desc: "Dowiedz się więcej o fizyce osadzania aluminium w wysokiej próżni.",
         },
@@ -1268,7 +1268,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
   "plastic-painting": {
     navLabel: "Lakierowanie tworzyw sztucznych",
     shortSummary:
-      "Przemysłowe lakierowanie plastiku (ABS, PC, PP, PA, PMMA) — wykończenia Piano Black, Soft-Touch, głęboki mat, metalik i pełna paleta RAL/NCS.",
+      "Przemysłowe lakierowanie plastiku (ABS, PC, PP, PA, PMMA) - wykończenia Piano Black, Soft-Touch, głęboki mat, metalik i pełna paleta RAL/NCS.",
     metaTitle: "Lakierowanie Tworzyw Sztucznych i Plastiku | STANIAX",
     metaDesc:
       "Usługowe lakierowanie tworzyw sztucznych i elementów plastikowych w STANIAX (Józefów k. Warszawy). Piano Black, Soft-Touch, mat, metalik, kolory RAL i NCS.",
@@ -1332,31 +1332,31 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Piano Black / High Gloss 2K & UV",
-            "90 – 96 GU (lustrzany połysk)",
+            "90 - 96 GU (lustrzany połysk)",
             "Wysoka twardość powierzchniowa (do 3H), głębia koloru, odporność na mikro-zarysowania i chemię",
             "Dekory wnętrz aut, obudowy sprzętu audio, flakony i zamknięcia premium",
           ],
           [
             "Głęboki Mat (Deep Matte) i Satyna",
-            "3 – 10 GU (mat) / 20 – 35 GU (satyna)",
+            "3 - 10 GU (mat) / 20 - 35 GU (satyna)",
             "Brak refleksów świetlnych, nowoczesny wygląd techniczny, ograniczona widoczność odcisków palców",
             "Oprawy oświetleniowe, osłony kamer i czujników, elektronika użytkowa, meble",
           ],
           [
             "Soft-Touch (powłoka haptyczna PUR)",
-            "2 – 5 GU (ultramatt aksamitny)",
+            "2 - 5 GU (ultramatt aksamitny)",
             "Przyjemny, ciepły chwyt antypoślizgowy, tłumienie drgań i dźwięku, wysoka elastyczność",
             "Rączki urządzeń medycznych, obudowy powerbanków, nakrętki kosmetyczne, uchwyty",
           ],
           [
             "Lakier Strukturalny (Fine / Coarse Texture)",
-            "5 – 15 GU (faktura ziarnista)",
+            "5 - 15 GU (faktura ziarnista)",
             "Skuteczne krycie wad odlewniczych i wtryskowych (sink marks, weld lines) bez szpachlowania",
             "Obudowy maszyn, aparatury pomiarowej, kas fiskalnych i terminali płatniczych",
           ],
         ],
         footnote:
-          "Dla każdego zlecenia dobieramy odpowiedni rozcieńczalnik i temperaturę suszenia (40–80°C), aby wykluczyć odkształcenie termiczne i pękanie naprężeniowe wyprasek.",
+          "Dla każdego zlecenia dobieramy odpowiedni rozcieńczalnik i temperaturę suszenia (40-80°C), aby wykluczyć odkształcenie termiczne i pękanie naprężeniowe wyprasek.",
       },
     },
     editorialSections: [
@@ -1390,7 +1390,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         subSections: [
           {
             h3: "Ochrona polimerów przed żółknięciem UV i degradacją atmosferyczną",
-            body: "Tworzywa takie jak ABS czy polistyren pod wpływem promieniowania słonecznego szybko ulegają fotodegradacji — żółkną, kredują i stają się kruche. Pokrycie wypraski dwuskładnikowym lakierem poliuretanowym lub akrylowym z absorberami UV zabezpiecza detal na wieloletnią eksploatację zewnętrzną (motoryzacja, elementy elewacyjne, oświetlenie uliczne).",
+            body: "Tworzywa takie jak ABS czy polistyren pod wpływem promieniowania słonecznego szybko ulegają fotodegradacji - żółkną, kredują i stają się kruche. Pokrycie wypraski dwuskładnikowym lakierem poliuretanowym lub akrylowym z absorberami UV zabezpiecza detal na wieloletnią eksploatację zewnętrzną (motoryzacja, elementy elewacyjne, oświetlenie uliczne).",
           },
         ],
       },
@@ -1409,10 +1409,10 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           description:
             "Głęboka, szklista powłoka o maksymalnym połysku, utwardzana dwuskładnikowo (2K PUR) lub radiacyjnie (UV). Stosowana w panelach motoryzacyjnych, frontach audio i opakowaniach luksusowych.",
           specs: [
-            { label: "Połysk pod kątem 60°", value: "90 – 96 GU" },
+            { label: "Połysk pod kątem 60°", value: "90 - 96 GU" },
             {
               label: "Twardość ołówkowa",
-              value: "2H – 3H (odporność na mikro-rysy)",
+              value: "2H - 3H (odporność na mikro-rysy)",
             },
             {
               label: "Podłoża docelowe",
@@ -1433,7 +1433,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Połysk pod kątem 60°",
-              value: "2 – 5 GU (głęboki, bezrefleksyjny mat)",
+              value: "2 - 5 GU (głęboki, bezrefleksyjny mat)",
             },
             {
               label: "Właściwości haptyczne",
@@ -1456,7 +1456,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Połysk pod kątem 60°",
-              value: "5 – 12 GU (mat) / 20 – 35 GU (satyna)",
+              value: "5 - 12 GU (mat) / 20 - 35 GU (satyna)",
             },
             {
               label: "Dobór koloru",
@@ -1509,7 +1509,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Grubość powłoki",
-              value: "30 – 60 µm (wysoka zdolność krycia podłoża)",
+              value: "30 - 60 µm (wysoka zdolność krycia podłoża)",
             },
             {
               label: "Twardość i udarność",
@@ -1542,12 +1542,12 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           num: "03",
           title: "Natrysk lakieru bazowego i nawierzchniowego (Top Coat)",
           desc: "W kabinie lakierniczej aplikujemy bazę kolorystyczną RAL/NCS oraz lakier bezbarwny (wysoki połysk, mat, Soft-Touch lub strukturę) o ściśle kontrolowanej lepkości.",
-          param: "Kontrola grubości 20–45 µm",
+          param: "Kontrola grubości 20-45 µm",
         },
         {
           num: "04",
           title: "Utwardzanie niskotemperaturowe / UV i kontrola jakości",
-          desc: "Wygrzewamy powłokę w temperaturze 50–70°C bezpiecznej dla wypraski lub utwardzamy w tunelu UV, po czym weryfikujemy połysk (GU), odcień i przyczepność.",
+          desc: "Wygrzewamy powłokę w temperaturze 50-70°C bezpiecznej dla wypraski lub utwardzamy w tunelu UV, po czym weryfikujemy połysk (GU), odcień i przyczepność.",
           param: "100% kontroli wizualnej partii",
         },
       ],
@@ -1678,7 +1678,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/metalizacja-tworzyw-sztucznych",
           anchorText:
-            "Metalizacja tworzyw sztucznych — chromowanie i złocenie plastiku",
+            "Metalizacja tworzyw sztucznych - chromowanie i złocenie plastiku",
           badge: "EFEKT CHROMU I ZŁOTA",
           desc: "Połącz lakierowanie z napylaniem próżniowym aluminium, aby uzyskać lustrzany metal na plastiku.",
         },
@@ -1709,8 +1709,8 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
     metaDesc: 'Przemysłowe lakierowanie szkła (flakonów perfum, butelek, słoiczków, kloszy) w STANIAX. Ombre, mrożenie (frost), metalik, pełne krycie RAL/Pantone i ceramika.',
     breadcrumbLabel: 'Lakierowanie szkła, flakonów i ceramiki',
     heroBadge: 'Utwardzanie termiczne do 180°C + UV · Odporność na alkohole i pasteryzację',
-    h1: 'Lakierowanie szkła, flakonów i butelek — produkcja B2B',
-    lead: "Specjalistyczne lakierowanie szkła i ceramiki w zakładzie STANIAX pozwala przekształcić standardowe bezbarwne opakowania szklane — flakony perfum, butelki na alkohole premium, słoiczki kosmetyczne, szkło oświetleniowe oraz znicze — w unikalne wyroby o wysokiej wartości rynkowej. Realizujemy lakierowanie kryjące, transparentne, gradientowe (ombre), szronione (efekt mrożonego szkła frost) oraz metalizowane.",
+    h1: 'Lakierowanie szkła, flakonów i butelek - produkcja B2B',
+    lead: "Specjalistyczne lakierowanie szkła i ceramiki w zakładzie STANIAX pozwala przekształcić standardowe bezbarwne opakowania szklane - flakony perfum, butelki na alkohole premium, słoiczki kosmetyczne, szkło oświetleniowe oraz znicze - w unikalne wyroby o wysokiej wartości rynkowej. Realizujemy lakierowanie kryjące, transparentne, gradientowe (ombre), szronione (efekt mrożonego szkła frost) oraz metalizowane.",
     ctaPrimaryLabel: "Wyceń lakierowanie szkła i flakonów →",
     ctaSecondaryLabel: "Sprawdź efekty dekoracyjne na szkle ↓",
     heroImageKey: "glassPaintHero",
@@ -1766,19 +1766,19 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Lakierowanie transparentne i Ombre (Gradient)",
-            "50 – 90% (przejrzyste barwienie)",
+            "50 - 90% (przejrzyste barwienie)",
             "Barwniki rozpuszczalne w żywicy o zerowym zmętnieniu; płynne przejście z koloru do bezbarwnego szkła",
             "Flakony perfum, słoiczki kremów, klosze oświetleniowe, świeczniki",
           ],
           [
             "Efekt mrożonego szkła (Frost / Szronienie)",
-            "30 – 60% (światło rozproszone)",
+            "30 - 60% (światło rozproszone)",
             "Jedwabista w dotyku powłoka rozpraszająca światło, odporna na tłuste odciski palców",
             "Butelki wódek i ginów, flakony kosmetyczne, klosze lamp LED",
           ],
           [
             "Pełne krycie (Opaque Gloss / Matte / Soft-Touch)",
-            "0 – 5% (ochrona zawartości przed UV)",
+            "0 - 5% (ochrona zawartości przed UV)",
             "Całkowita blokada promieniowania światła chroniąca światłoczułe formuły kosmetyczne (retinol, wit. C)",
             "Słoiczki i butelki dermokosmetyków, butelki alkoholowe edycji limitowanych",
           ],
@@ -1803,10 +1803,10 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         subSections: [
           {
             h3: "Odporność lakierowanego szkła na perfumy, alkohole i ścieranie na liniach rozlewniczych",
-            body: "Największym wyzwaniem przy lakierowaniu flakonów perfumeryjnych i butelek alkoholowych jest kontakt powłoki ze stężonym alkoholem etylowym (80–96%) oraz olejkami zapachowymi podczas nalewania i użytkowania, a także tarcie butelek o siebie na transporterach. W STANIAX rozwiązujemy ten problem poprzez:",
+            body: "Największym wyzwaniem przy lakierowaniu flakonów perfumeryjnych i butelek alkoholowych jest kontakt powłoki ze stężonym alkoholem etylowym (80-96%) oraz olejkami zapachowymi podczas nalewania i użytkowania, a także tarcie butelek o siebie na transporterach. W STANIAX rozwiązujemy ten problem poprzez:",
             bullets: [
               "Stosowanie silanowych promotorów przyczepności tworzących trwałe wiązania kowalencyjne Si-O-Si z powierzchnią szkła.",
-              "Wygrzewanie (wypalanie) polakierowanego szkła w temperaturze 150–180°C lub sieciowanie promieniami UV, co zapewnia pełną odporność chemiczną i twardość ołówkową powłoki.",
+              "Wygrzewanie (wypalanie) polakierowanego szkła w temperaturze 150-180°C lub sieciowanie promieniami UV, co zapewnia pełną odporność chemiczną i twardość ołówkową powłoki.",
               "Precyzyjne maskowanie szyjki i pierścienia zaciskowego (neck finish FEA 15/18/20), dzięki czemu lakier nie dostaje się pod kołnierz pompki atomizera.",
             ],
           },
@@ -1824,7 +1824,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         subSections: [
           {
             h3: "Przygotowanie podłoży szkliwionych i biskwitowych",
-            body: "Dla ceramiki nieszkliwionej (porowatej) stosujemy podkłady uszczelniające pory i zapobiegające „wpijaniu” lakieru nawierzchniowego, natomiast dla gładkiej ceramiki szkliwionej — proces aktywacji silanowej identyczny jak dla szkła flakonowego.",
+            body: "Dla ceramiki nieszkliwionej (porowatej) stosujemy podkłady uszczelniające pory i zapobiegające „wpijaniu” lakieru nawierzchniowego, natomiast dla gładkiej ceramiki szkliwionej - proces aktywacji silanowej identyczny jak dla szkła flakonowego.",
           },
         ],
       },
@@ -1871,11 +1871,11 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Stopień połysku (60°)",
-              value: "4 – 12 GU (jedwabisty mat bez smug i odcisków palców)",
+              value: "4 - 12 GU (jedwabisty mat bez smug i odcisków palców)",
             },
             {
               label: "Utwardzanie powłoki",
-              value: "Termiczne w piecu (150–180°C)",
+              value: "Termiczne w piecu (150-180°C)",
             },
             {
               label: "Ekologia procesu",
@@ -1948,7 +1948,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       subtitle:
         "Obsługujemy zarówno krótkie serie wdrożeniowe i niszowe marki, jak i duże zamówienia kontraktowe.",
       row1: [
-        "Flakony perfumeryjne (15 ml – 200 ml)",
+        "Flakony perfumeryjne (15 ml - 200 ml)",
         "Słoiczki kosmetyczne na kremy i świece",
         "Butelki alkoholowe (0,5 l / 0,7 l / 1,0 l / Magnum)",
         "Buteleczki z kroplomierzem (Dropper Bottles) na serum",
@@ -1972,7 +1972,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           badge: "PERFUMERIA I KOSMETYKI",
           h3: "Personalizacja flakonów i słoiczków już od krótkich serii",
           body: "Nie musisz zamawiać 200 000 butelek w hucie szkła. Dostarcz do nas standardowe bezbarwne szkło, a stworzymy dla Twojej marki unikalne wykończenie ombre, matowe lub złote.",
-          spec: "Wzorce przedprodukcyjne (sampling) w ciągu 3–5 dni",
+          spec: "Wzorce przedprodukcyjne (sampling) w ciągu 3-5 dni",
         },
         {
           badge: "BRANŻA SPIRYTUSOWA I NAPOJE",
@@ -2069,7 +2069,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/metalizacja-tworzyw-sztucznych",
           anchorText:
-            "Metalizacja tworzyw sztucznych — złote i chromowane nakrętki do flakonów",
+            "Metalizacja tworzyw sztucznych - złote i chromowane nakrętki do flakonów",
           badge: "ZAMKNIĘCIA I KORECZKI",
           desc: "Skompletuj polakierowany flakon szklany z idealnie dopasowaną metalizowaną nakrętką z PP lub ABS.",
         },
@@ -2131,9 +2131,9 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       },
     ],
     scopeSection: {
-      h2: "Możliwości lakierni przemysłowej STANIAX — podłoża i systemy malarskie",
+      h2: "Możliwości lakierni przemysłowej STANIAX - podłoża i systemy malarskie",
       intro:
-        "Malowanie na mokro metodą natryskową jest niezastąpione wszędzie tam, gdzie malowanie proszkowe nie może zostać zastosowane ze względu na temperaturę polimeryzacji (180–200°C), efekt „skórki pomarańczy”, grubą warstwę zacierającą drobne gwinty lub brak możliwości uzyskania cienkich, metalicznych i miękkich powłok Soft-Touch.",
+        "Malowanie na mokro metodą natryskową jest niezastąpione wszędzie tam, gdzie malowanie proszkowe nie może zostać zastosowane ze względu na temperaturę polimeryzacji (180-200°C), efekt „skórki pomarańczy”, grubą warstwę zacierającą drobne gwinty lub brak możliwości uzyskania cienkich, metalicznych i miękkich powłok Soft-Touch.",
       cardTitle: "Zakres usług lakierowania natryskowego w STANIAX",
       cardSubtitle:
         "Wielowarstwowe układy antykorozyjne i dekoracyjne dla przemysłu maszynowego, elektronicznego, zbrojeniowego, reklamowego i meblarskiego",
@@ -2141,7 +2141,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         "Lakierowanie metali żelaznych i nieżelaznych: stali czarnej, stali nierdzewnej i ocynkowanej, aluminium, odlewów ciśnieniowych ZnAl i mosiądzu (z podkładami epoksydowymi i wytrawiającymi Wash Primer).",
         "Lakierowanie kompozytów (laminatów poliestrowo-szklanych LPS, włókna węglowego Carbon, żywic epoksydowych), MDF oraz wyprasek z tworzyw sztucznych.",
         "Stosowanie przemysłowych systemów dwuskładnikowych (2K): poliuretanowych (PUR), epoksydowych (EP), akrylowych, alkidowych oraz lakierów wodorozcieńczalnych i utwardzanych UV.",
-        "Cztery stopnie połysku i faktury dla każdego koloru RAL/NCS: Wysoki Połysk (>85 GU), Półmat / Satyna (25–45 GU), Głęboki Mat (<10 GU) oraz Drobna Struktura przemysłowa.",
+        "Cztery stopnie połysku i faktury dla każdego koloru RAL/NCS: Wysoki Połysk (>85 GU), Półmat / Satyna (25-45 GU), Głęboki Mat (<10 GU) oraz Drobna Struktura przemysłowa.",
         "Precyzyjne maskowanie techniczne przed lakierowaniem: zabezpieczanie otworów gwintowanych, powierzchni uziemienia (EMC), gniazd łożysk i stref klejenia.",
         "Pełna kontrola parametrów powłoki: pomiar grubości warstwy suchej (DFT wg ISO 2808), test przyczepności siatką nacięć (ISO 2409) oraz kontrola połysku i odcienia.",
       ],
@@ -2157,14 +2157,14 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Temperatura utwardzania",
-            "20 – 80°C (tworzywa, kompozyty, elektronika) lub do 160°C (szkło/metal)",
-            "180 – 200°C (wyłącznie metale odporne termicznie)",
+            "20 - 80°C (tworzywa, kompozyty, elektronika) lub do 160°C (szkło/metal)",
+            "180 - 200°C (wyłącznie metale odporne termicznie)",
             "Możliwość malowania plastiku, laminatów, klejonych zespołów i odlewów ZnAl bez gazowania",
           ],
           [
             "Grubość powłoki (DFT) i detale",
-            "15 – 45 µm (cienka, precyzyjna warstwa)",
-            "60 – 120 µm (gruba powłoka zaokrąglająca krawędzie)",
+            "15 - 45 µm (cienka, precyzyjna warstwa)",
+            "60 - 120 µm (gruba powłoka zaokrąglająca krawędzie)",
             "Zachowanie ostrych krawędzi, drobnych grawerów, pasowań i gwintów bez narostów farby",
           ],
           [
@@ -2189,7 +2189,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         h2: "Kiedy lakierowanie natryskowe na mokro jest lepszym wyborem niż lakiernia proszkowa?",
         paragraphs: [
           "Inżynierowie produktu i działy zakupów często stają przed wyborem technologii wykończenia obudów, paneli czołowych, radiatorów aluminiowych czy armatury. Choć malowanie proszkowe sprawdza się na prostych konstrukcjach stalowych, lakierowanie natryskowe na mokro w lakierni przemysłowej STANIAX jest niezastąpione w czterech sytuacjach produkcyjnych:",
-          "Po pierwsze — gdy detal jest wykonany z odlewu znalowego (ZnAl) lub ciśnieniowego odlewu aluminiowego z mikroporowatością, który w piecu proszkowym w temperaturze 200°C „gazuje”, tworząc pęcherze i kratery na powierzchni. W lakierowaniu na mokro utwardzamy powłokę 2K PUR w temperaturze 60°C, uzyskując gładką powierzchnię bez wad odlewniczych. Po drugie — gdy urządzenie składa się z części metalowych i plastikowych, które po zmontowaniu muszą mieć identyczny odcień i stopień matowości.",
+          "Po pierwsze - gdy detal jest wykonany z odlewu znalowego (ZnAl) lub ciśnieniowego odlewu aluminiowego z mikroporowatością, który w piecu proszkowym w temperaturze 200°C „gazuje”, tworząc pęcherze i kratery na powierzchni. W lakierowaniu na mokro utwardzamy powłokę 2K PUR w temperaturze 60°C, uzyskując gładką powierzchnię bez wad odlewniczych. Po drugie - gdy urządzenie składa się z części metalowych i plastikowych, które po zmontowaniu muszą mieć identyczny odcień i stopień matowości.",
         ],
         subSections: [
           {
@@ -2197,7 +2197,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
             body: "Metale nieżelazne i stal kwasoodporna posiadają pasywną warstwę tlenkową utrudniającą przyczepność zwykłych farb. W naszym procesie technologicznym stosujemy:",
             bullets: [
               "Odtłuszczanie wieloetapowe i obróbkę strumieniowo-ścierną lub włókninami scotti dla rozwinięcia powierzchni właściwej metalu.",
-              "Podkłady epoksydowe dwuskładnikowe (2K EP) oraz grunty reaktywne (Wash Primer) zapewniające ochronę antykorozyjną w klasach C2–C4 i przyczepność 5B.",
+              "Podkłady epoksydowe dwuskładnikowe (2K EP) oraz grunty reaktywne (Wash Primer) zapewniające ochronę antykorozyjną w klasach C2-C4 i przyczepność 5B.",
               "Szpachlowanie natryskowe i wyrównywanie porów na odlewach aluminiowych, żeliwnych oraz laminatach kompozytowych przed nałożeniem bazy kolorystycznej.",
             ],
           },
@@ -2224,25 +2224,25 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           id: "gloss",
           label: "Wysoki Połysk (High Gloss)",
-          gloss: "85 – 95 GU",
+          gloss: "85 - 95 GU",
           desc: "Lustrzana głębia koloru i łatwość zmywania zabrudzeń. Standard dla detali dekoracyjnych i obudów premium.",
         },
         {
           id: "satin",
           label: "Półmat / Satyna (Satin)",
-          gloss: "25 – 45 GU",
+          gloss: "25 - 45 GU",
           desc: "Najbardziej uniwersalne wykończenie przemysłowe łączące wysoką odporność na zarysowania z eleganckim półpołyskiem.",
         },
         {
           id: "matte",
           label: "Głęboki Mat (Deep Matte)",
-          gloss: "4 – 10 GU",
+          gloss: "4 - 10 GU",
           desc: "Nowoczesna, całkowicie bezrefleksyjna powierzchnia architektoniczna i techniczna.",
         },
         {
           id: "structure",
           label: "Drobna Struktura (Fine Texture)",
-          gloss: "8 – 15 GU",
+          gloss: "8 - 15 GU",
           desc: "Ziarnista faktura maskująca ślady obróbki mechanicznej, spawy, pory odlewów i rysy eksploatacyjne.",
         },
       ],
@@ -2269,7 +2269,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           num: "03",
           title: "Natrysk nawierzchniowy RAL / NCS / Efekt specjalny",
           desc: "W bezpyłowej kabinie lakierniczej aplikujemy lakier nawierzchniowy 2K poliuretanowy lub akrylowy w zadanym kolorze i stopniu połysku.",
-          param: "Równomierna warstwa DFT 25–60 µm",
+          param: "Równomierna warstwa DFT 25-60 µm",
         },
         {
           num: "04",
@@ -2347,7 +2347,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           badge: "SERIE PRODUKCYJNE NA ZAWIESZKACH",
-          h3: "Seryjne malowanie natryskowe elementów 3D — standard nowoczesnych lakierni przemysłowych",
+          h3: "Seryjne malowanie natryskowe elementów 3D - standard nowoczesnych lakierni przemysłowych",
           desc: "Równomierne pokrycie trudno dostępnych zakamarków i krawędzi na dedykowanych stojakach obrotowych.",
           param: "100% powtarzalności koloru RAL/NCS w partii",
           imageKey: "sprayPaint3",
@@ -2362,7 +2362,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: "Czym różni się lakierowanie natryskowe (na mokro) od malowania proszkowego?",
-          a: "Lakierowanie natryskowe na mokro pozwala malować detale w niskiej temperaturze suszenia (20–80°C), dzięki czemu można pokrywać tworzywa sztuczne, kompozyty, MDF, klejone podzespoły oraz porowate odlewy ZnAl/Al, które w piecu proszkowym (200°C) uległyby zniszczeniu lub gazowaniu. Ponadto lakierowanie na mokro daje znacznie cieńszą warstwę (15–45 µm), nie zalewa drobnych gwintów, umożliwia uzyskanie idealnego lustra Piano Black oraz miękkiej powłoki Soft-Touch.",
+          a: "Lakierowanie natryskowe na mokro pozwala malować detale w niskiej temperaturze suszenia (20-80°C), dzięki czemu można pokrywać tworzywa sztuczne, kompozyty, MDF, klejone podzespoły oraz porowate odlewy ZnAl/Al, które w piecu proszkowym (200°C) uległyby zniszczeniu lub gazowaniu. Ponadto lakierowanie na mokro daje znacznie cieńszą warstwę (15-45 µm), nie zalewa drobnych gwintów, umożliwia uzyskanie idealnego lustra Piano Black oraz miękkiej powłoki Soft-Touch.",
         },
         {
           q: "Jakie materiały przyjmujecie do lakierowania natryskowego?",
@@ -2382,7 +2382,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Jaki jest czas realizacji zlecenia w lakierni przemysłowej?",
-          a: "Standardowy czas realizacji dla partii produkcyjnych wynosi 4–8 dni roboczych. Dla pilnych projektów wdrożeniowych, prototypów i uzupełnień stanów magazynowych oferujemy tryb ekspresowy 48–72h po wcześniejszym uzgodnieniu z technologiem.",
+          a: "Standardowy czas realizacji dla partii produkcyjnych wynosi 4-8 dni roboczych. Dla pilnych projektów wdrożeniowych, prototypów i uzupełnień stanów magazynowych oferujemy tryb ekspresowy 48-72h po wcześniejszym uzgodnieniu z technologiem.",
         },
       ],
     },
@@ -2405,21 +2405,21 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/lakierowanie-tworzyw-sztucznych",
           anchorText:
-            "Lakierowanie tworzyw sztucznych — systemy Soft-Touch i Piano Black",
+            "Lakierowanie tworzyw sztucznych - systemy Soft-Touch i Piano Black",
           badge: "SPECJALIZACJA TWORZYWA",
           desc: "Szczegółowa specyfikacja lakierowania wyprasek wtryskowych z ABS, PC, PP i PA.",
         },
         {
           path: "/lakierowanie-szkla-i-ceramiki",
           anchorText:
-            "Lakierowanie szkła i ceramiki — flakony, butelki, klosze i ombre",
+            "Lakierowanie szkła i ceramiki - flakony, butelki, klosze i ombre",
           badge: "SZKŁO I CERAMIKA",
           desc: "Termoutwardzalne powłoki dekoracyjne i ochronne na podłożach szklanych i ceramicznych.",
         },
         {
           path: "/metalizacja-prozniowa",
           anchorText:
-            "Metalizacja próżniowa PVD — lustrzane powłoki aluminiowe i chromowe",
+            "Metalizacja próżniowa PVD - lustrzane powłoki aluminiowe i chromowe",
           badge: "METALIZACJA PRÓŻNIOWA",
           desc: "Połącz lakierowanie natryskowe z napylaniem próżniowym, aby uzyskać efekt chromu i złota.",
         },

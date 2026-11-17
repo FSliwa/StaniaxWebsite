@@ -474,7 +474,7 @@ const projectsData: ProjectItem[] = [
     image: projectImgAerospace,
     description: "Lakierowanie i metalizacja elementów opakowań premium",
     details:
-      "Metalizacja próżniowa i lakierowanie opakowań z tworzyw sztucznych — nakrętki, butelki, zamknięcia. Efekty lustrzane, matowe i kolorowe.",
+      "Metalizacja próżniowa i lakierowanie opakowań z tworzyw sztucznych - nakrętki, butelki, zamknięcia. Efekty lustrzane, matowe i kolorowe.",
     category: "Opakowania",
     year: "2024",
   },
@@ -541,7 +541,7 @@ const caseStudiesData: CaseStudy[] = [
     id: "industrial-elements",
     title: "Elementy Przemysłowe",
     subtitle:
-      "Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania",
+      "Powłoki metalizacyjne na komponentach przemysłowych i maszynowych - wytrzymałość i precyzja wykonania",
     imageBefore: automotiveBefore,
     imageAfter: automotiveAfter,
     videoAfter: elementyPrzemyslowePo,
@@ -556,7 +556,7 @@ const caseStudiesData: CaseStudy[] = [
     id: "cosmetics-packaging",
     title: "Opakowania Kosmetyczne",
     subtitle:
-      "Metalizacja próżniowa opakowań kosmetycznych — efekt złota, srebra i chromu na nakrętkach, butelkach i słoiczkach",
+      "Metalizacja próżniowa opakowań kosmetycznych - efekt złota, srebra i chromu na nakrętkach, butelkach i słoiczkach",
     imageBefore: packagingBefore,
     imageAfter: packagingAfter,
     metrics: [
@@ -569,7 +569,7 @@ const caseStudiesData: CaseStudy[] = [
     id: "automotive-parts",
     title: "Detale Motoryzacyjne",
     subtitle:
-      "Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu",
+      "Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych - trwały efekt chromu",
     imageBefore: industrialBefore,
     imageAfter: industrialAfter,
     metrics: [
@@ -2033,7 +2033,7 @@ function HomePage({ lang = "pl" }: HomePageProps) {
             </div>
           </section>
 
-          {/* BRIDGE SECTION — Transition from "Kim Jesteśmy" to "NASZA OFERTA" */}
+          {/* BRIDGE SECTION - Transition from "Kim Jesteśmy" to "NASZA OFERTA" */}
           <section
             data-theme="light"
             className="relative bg-white overflow-hidden"
@@ -2955,7 +2955,7 @@ function HomePage({ lang = "pl" }: HomePageProps) {
             </div>
           </section>
 
-          {/* KONTAKT SECTION — Dane kontaktowe, adresy, mapy */}
+          {/* KONTAKT SECTION - Dane kontaktowe, adresy, mapy */}
           <section
             id="dane-kontaktowe"
             data-theme="light"

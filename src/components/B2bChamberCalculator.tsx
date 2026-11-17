@@ -24,9 +24,9 @@ const SIZE_PRESETS: SizePreset[] = [
     id: 'small',
     pcsPerCycle: 900,
     label: {
-      pl: 'Małe detale (20–65 mm)',
-      en: 'Small components (20–65 mm)',
-      de: 'Kleinteile (20–65 mm)',
+      pl: 'Małe detale (20-65 mm)',
+      en: 'Small components (20-65 mm)',
+      de: 'Kleinteile (20-65 mm)',
     },
     examples: {
       pl: 'Nakrętki perfum, atomizery, przyciski, emblematy (~900 szt./wsad Ø 1200 mm)',
@@ -38,9 +38,9 @@ const SIZE_PRESETS: SizePreset[] = [
     id: 'medium',
     pcsPerCycle: 140,
     label: {
-      pl: 'Średnie detale (80–240 mm)',
-      en: 'Medium parts (80–240 mm)',
-      de: 'Mittelgroße Bauteile (80–240 mm)',
+      pl: 'Średnie detale (80-240 mm)',
+      en: 'Medium parts (80-240 mm)',
+      de: 'Mittelgroße Bauteile (80-240 mm)',
     },
     examples: {
       pl: 'Odbłyśniki, flakony 100 ml, ramki dekoracyjne (~140 szt./wsad Ø 1200 mm)',
@@ -52,9 +52,9 @@ const SIZE_PRESETS: SizePreset[] = [
     id: 'large',
     pcsPerCycle: 28,
     label: {
-      pl: 'Duże korpusy i klosze (250–550 mm)',
-      en: 'Large housings & optics (250–550 mm)',
-      de: 'Großgehäuse & Leuchtenoptik (250–550 mm)',
+      pl: 'Duże korpusy i klosze (250-550 mm)',
+      en: 'Large housings & optics (250-550 mm)',
+      de: 'Großgehäuse & Leuchtenoptik (250-550 mm)',
     },
     examples: {
       pl: 'Oprawy przemysłowe LED, osłony maszyn, panele (~28 szt./wsad Ø 1200 mm)',
@@ -105,7 +105,7 @@ const MATERIAL_SPECS: MaterialSpec[] = [
     id: 'glass',
     code: 'Szkło / Ceramika',
     stack: {
-      pl: 'Promotor organosilanowy Si–O–C + napylanie PVD chrom/złoto + lakier odporny na 96% etanol',
+      pl: 'Promotor organosilanowy Si-O-C + napylanie PVD chrom/złoto + lakier odporny na 96% etanol',
       en: 'Organosilane coupling primer + chrome/gold PVD + 96% ethanol-resistant topcoat',
       de: 'Organosilan-Haftbrücke + Chrom-/Gold-PVD + 96-%-ethanolfester Schutzlack',
     },
@@ -190,16 +190,16 @@ export function B2bChamberCalculator({ lang }: { lang: Lang }) {
   const leadTime =
     cycles <= 3
       ? lang === 'pl'
-        ? '3–5 dni roboczych'
+        ? '3-5 dni roboczych'
         : lang === 'de'
-          ? '3–5 Werktage'
-          : '3–5 business days'
+          ? '3-5 Werktage'
+          : '3-5 business days'
       : cycles <= 12
         ? lang === 'pl'
-          ? '5–8 dni roboczych'
+          ? '5-8 dni roboczych'
           : lang === 'de'
-            ? '5–8 Werktage'
-            : '5–8 business days'
+            ? '5-8 Werktage'
+            : '5-8 business days'
         : lang === 'pl'
           ? 'Harmonogram tygodniowy (dostawy transzowe B2B)'
           : lang === 'de'

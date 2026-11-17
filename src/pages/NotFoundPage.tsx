@@ -24,10 +24,10 @@ export function NotFoundPage({ lang: propLang }: { lang?: Lang }) {
       path: location.pathname,
       title:
         lang === 'pl'
-          ? '404 — Nie znaleziono strony | STANIAX'
+          ? '404 - Nie znaleziono strony | STANIAX'
           : lang === 'de'
-            ? '404 — Seite nicht gefunden | STANIAX'
-            : '404 — Page Not Found | STANIAX',
+            ? '404 - Seite nicht gefunden | STANIAX'
+            : '404 - Page Not Found | STANIAX',
       description:
         lang === 'pl'
           ? 'Strona o podanym adresie nie istnieje. Sprawdź ofertę usług metalizacji próżniowej, regeneracji reflektorów i lakierowania STANIAX.'

@@ -140,7 +140,7 @@ const rawGalleryItems = [
   },
   {
     src: gallery04,
-    alt: "Złote nakrętki do słoików kremów premium — seria produkcyjna B2B",
+    alt: "Złote nakrętki do słoików kremów premium - seria produkcyjna B2B",
     category: "Złoto",
   },
   {
@@ -160,7 +160,7 @@ const rawGalleryItems = [
   },
   {
     src: gallery17,
-    alt: "Złote akcesoria meblowe i oświetleniowe — metalizacja lustrzana",
+    alt: "Złote akcesoria meblowe i oświetleniowe - metalizacja lustrzana",
     category: "Złoto",
   },
   {
@@ -170,7 +170,7 @@ const rawGalleryItems = [
   },
   {
     src: gallery06,
-    alt: "Chromowana rzeźba dekoracyjna z żywicy — powłoka lustrzana PVD",
+    alt: "Chromowana rzeźba dekoracyjna z żywicy - powłoka lustrzana PVD",
     category: "Chrom",
   },
   {
@@ -719,7 +719,7 @@ const getLocalizedAlt = (item: { alt: string; category: string }, idx: number, l
         : lower.includes('szkł') || lower.includes('flakon') || lower.includes('butel') || lower.includes('słoik')
           ? 'Parfümflakon & Glasveredelung durch Industrielackierung'
           : 'Kosmetik- & Industriebauteil nach Vakuummetallisierung'
-    return `${CATEGORY_LABELS.de[item.category] || item.category}: ${subject} — Referenz #${idx + 1}`
+    return `${CATEGORY_LABELS.de[item.category] || item.category}: ${subject} - Referenz #${idx + 1}`
   }
   const subject =
     lower.includes('reflektor') || lower.includes('odbłyśnik') || lower.includes('lamp')
@@ -727,7 +727,7 @@ const getLocalizedAlt = (item: { alt: string; category: string }, idx: number, l
       : lower.includes('szkł') || lower.includes('flakon') || lower.includes('butel') || lower.includes('słoik')
         ? 'perfume flacon & glass bottle after industrial coating'
         : 'cosmetic packaging & industrial part after PVD vacuum coating'
-  return `${CATEGORY_LABELS.en[item.category] || item.category}: ${subject} — Project #${idx + 1}`
+  return `${CATEGORY_LABELS.en[item.category] || item.category}: ${subject} - Project #${idx + 1}`
 }
 
 const getGridSpan = (index: number) => {
@@ -900,10 +900,10 @@ function GalleryPage({ lang = "pl" as Lang }: { lang?: Lang }) {
 
             <p className="text-lg sm:text-xl text-gray-600 max-w-2xl leading-relaxed">
               {activeLang === "pl"
-                ? "Dokumentacja fotograficzna detali wykonanych w zakładzie STANIAX w Józefowie — od zregenerowanych odbłyśników reflektorów samochodowych po wielkoseryjne opakowania kosmetyczne, szkło perfumeryjne i komponenty techniczne."
+                ? "Dokumentacja fotograficzna detali wykonanych w zakładzie STANIAX w Józefowie - od zregenerowanych odbłyśników reflektorów samochodowych po wielkoseryjne opakowania kosmetyczne, szkło perfumeryjne i komponenty techniczne."
                 : activeLang === "de"
-                  ? "Fotodokumentation von Bauteilen aus dem STANIAX-Werk in Józefów — von aufbereiteten Scheinwerferreflektoren über Kosmetikverpackungen bis hin zu Parfümglas und technischen Bauteilen."
-                  : "Photographic documentation of parts finished at the STANIAX plant in Józefów — from restored automotive headlight reflectors to high-volume cosmetic packaging, perfumery glass, and technical components."}
+                  ? "Fotodokumentation von Bauteilen aus dem STANIAX-Werk in Józefów - von aufbereiteten Scheinwerferreflektoren über Kosmetikverpackungen bis hin zu Parfümglas und technischen Bauteilen."
+                  : "Photographic documentation of parts finished at the STANIAX plant in Józefów - from restored automotive headlight reflectors to high-volume cosmetic packaging, perfumery glass, and technical components."}
             </p>
           </motion.div>
         </div>

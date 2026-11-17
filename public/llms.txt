@@ -1,10 +1,10 @@
-# STANIAX Sp. z o.o. — Industrial Vacuum Metallization (PVD), Reflector Restoration & Coating
+# STANIAX Sp. z o.o. - Industrial Vacuum Metallization (PVD), Reflector Restoration & Coating
 
 > Engineering-grade surface treatment partner in Central Poland (since 1993, founded by Dariusz Staniak). Production facility near Warsaw serving B2B OEMs, automotive workshops, cosmetic/spirits packaging manufacturers, and lighting producers across Poland and the European Union.
 
 ## Core Capabilities & Verified Technical Specifications
 - **PVD Vacuum Metallization Chambers:** Industrial vacuum deposition chambers up to Ø 1200 mm with planetary rotary racks for uniform aluminium (99.99% purity) nanometric coatings.
-- **Reflective Optics Restoration:** Directional light reflectance **>92%** restored on automotive H7, Bi-Xenon, Bi-LED, Hella/Valeo/Bosch, motorcycle, truck 24V, and classic car (oldtimer/youngtimer) reflectors; heat-resistant primer systems up to 220 °C + SiOx protective layer; 24-month warranty; 2–5 working days turnaround.
+- **Reflective Optics Restoration:** Directional light reflectance **>92%** restored on automotive H7, Bi-Xenon, Bi-LED, Hella/Valeo/Bosch, motorcycle, truck 24V, and classic car (oldtimer/youngtimer) reflectors; heat-resistant primer systems up to 220 °C + SiOx protective layer; 24-month warranty; 2-5 working days turnaround.
 - **Substrates Handled:** ABS, PC, PC/ABS, PMMA, PS, SAN, PA (polyamide), PP (low-pressure plasma activation), PET, glass, ceramics, aluminium/ZnAl die-castings, and thermally sensitive composites.
 - **Quality Control Standards:** Cross-hatch adhesion Class 0 per **ISO 2409**, spectrophotometric color control **ΔE < 0.8**, gloss measurement from deep matte (<5 GU) to Piano Black high gloss (>92 GU), 96% ethanol chemical resistance for perfumery glass.
 - **Coating Systems:** UV-cured VOC-free lacquers, 2K polyurethane (2K PU), epoxy & ESD coatings, waterborne silane-promoted glass systems, full RAL / NCS / Pantone color matching, frosted etched-look without HF acid, ombre gradients.
@@ -43,7 +43,7 @@
 
 ## Main Hubs & Reference Galleries
 - Home (PL / EN / DE): https://www.staniax.pl/ | https://www.staniax.pl/en | https://www.staniax.pl/de
-- Project Gallery — 115+ Photos (PL / EN / DE): https://www.staniax.pl/gallery | https://www.staniax.pl/en/gallery | https://www.staniax.pl/de/gallery
+- Project Gallery - 115+ Photos (PL / EN / DE): https://www.staniax.pl/gallery | https://www.staniax.pl/en/gallery | https://www.staniax.pl/de/gallery
 - Knowledge Base & Guides (PL / EN / DE): https://www.staniax.pl/news | https://www.staniax.pl/en/news | https://www.staniax.pl/de/news
 
 ## Technical Articles & Engineering Guides
@@ -59,9 +59,9 @@
    - PL: https://www.staniax.pl/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty
    - EN: https://www.staniax.pl/en/news/vacuum-metallization-revolutionizes-beauty-industry
    - DE: https://www.staniax.pl/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche
-4. **Plastic Parts Painting — Methods, Surface Preparation & Coating Selection (Lakierowanie tworzyw sztucznych, PL only):**
+4. **Plastic Parts Painting - Methods, Surface Preparation & Coating Selection (Lakierowanie tworzyw sztucznych, PL only):**
    - PL: https://www.staniax.pl/news/lakierowanie-tworzyw-sztucznych
-5. **PVD Coating — Thermal Evaporation vs. Sputtering in Vacuum Metallization (Powłoka PVD: naparowanie a sputtering, PL only):**
+5. **PVD Coating - Thermal Evaporation vs. Sputtering in Vacuum Metallization (Powłoka PVD: naparowanie a sputtering, PL only):**
    - PL: https://www.staniax.pl/news/powloka-pvd-sputtering-roznice
 
 ## Pricing, Interactive Calculator & Local Production Hub (PL / EN / DE)
@@ -75,7 +75,7 @@
    - DE: https://www.staniax.pl/de/scheinwerfer-aufbereitung/warschau-jozefow
 
 ## Engineering VS Comparison Guides (PL / EN / DE)
-1. **PVD Vacuum Metallization vs Electroplating / Galvanic Chrome (REACH, 50–150 nm Al, zero Cr6+ bath waste):**
+1. **PVD Vacuum Metallization vs Electroplating / Galvanic Chrome (REACH, 50-150 nm Al, zero Cr6+ bath waste):**
    - PL: https://www.staniax.pl/porownanie/metalizacja-prozniowa-vs-galwanizacja
    - EN: https://www.staniax.pl/en/compare/vacuum-metallization-vs-electroplating
    - DE: https://www.staniax.pl/de/vergleich/vakuummetallisierung-vs-galvanik
@@ -159,4 +159,4 @@
 - **Registered Office:** ul. Grzybowska 5A, 00-132 Warszawa, Poland
 - **Phone:** +48 882 488 844
 - **E-mail:** metalizacja@staniax.pl | office@staniax.pl
-- **Opening Hours:** Monday – Friday 07:00 – 17:00 CET
+- **Opening Hours:** Monday - Friday 07:00 - 17:00 CET

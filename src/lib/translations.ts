@@ -18,7 +18,7 @@ export const translations = {
     ktoraZmienia: "która zmienia",
     powierzchnie: "powierzchnię",
     bridgeDesc:
-      "Od metalizacji próżniowej po lakierowanie natryskowe — oferujemy pełne spektrum wykończeń przemysłowych.",
+      "Od metalizacji próżniowej po lakierowanie natryskowe - oferujemy pełne spektrum wykończeń przemysłowych.",
     bridgeVideoLabel: "Metalizacja w akcji",
     przewinDalej: "Przewiń dalej",
 
@@ -40,9 +40,9 @@ export const translations = {
     oNas: "O Nas",
     kimJestesmy: "Kim\nJesteśmy",
     kimJestesmyText1:
-      "Witamy w\u00a0STANIAX Sp.\u00a0z\u00a0o.o. (z\u00a0siedzibą w\u00a0Warszawie) — firmie specjalizującej się w\u00a0metalizacji próżniowej i\u00a0lakierowaniu natryskowym. Wysoka jakość, którą oferujemy naszym kontrahentom, jest gwarantem dobrej współpracy. Taką jakość czerpiemy od naszego mentora — Dariusza Staniaka, który od 1993 roku stał się liderem metalizacji próżniowej na Mazowszu w\u00a0Józefowie koło Otwocka. Dziś STANIAX jest kontynuacją jego wiedzy i\u00a0doświadczenia.",
+      "Witamy w\u00a0STANIAX Sp.\u00a0z\u00a0o.o. (z\u00a0siedzibą w\u00a0Warszawie) - firmie specjalizującej się w\u00a0metalizacji próżniowej i\u00a0lakierowaniu natryskowym. Wysoka jakość, którą oferujemy naszym kontrahentom, jest gwarantem dobrej współpracy. Taką jakość czerpiemy od naszego mentora - Dariusza Staniaka, który od 1993 roku stał się liderem metalizacji próżniowej na Mazowszu w\u00a0Józefowie koło Otwocka. Dziś STANIAX jest kontynuacją jego wiedzy i\u00a0doświadczenia.",
     kimJestesmyText2:
-      "Zespół wysoko wykwalifikowanych pracowników sprawia, że jakość naszych usług stawia nas w\u00a0czołówce podobnych firm w\u00a0Polsce. Zaletą naszą jest precyzja oraz możliwość szybkiego przeorganizowania otrzymanych zleceń — zwłaszcza dla klientów, którzy muszą wdrożyć nowe wzory.",
+      "Zespół wysoko wykwalifikowanych pracowników sprawia, że jakość naszych usług stawia nas w\u00a0czołówce podobnych firm w\u00a0Polsce. Zaletą naszą jest precyzja oraz możliwość szybkiego przeorganizowania otrzymanych zleceń - zwłaszcza dla klientów, którzy muszą wdrożyć nowe wzory.",
     wykwalifikowanyZespol: "Wykwalifikowany zespół",
     nowoczesnyPark: "Nowoczesny park maszynowy",
     gwarancjaJakosci: "Gwarancja jakości",
@@ -65,7 +65,7 @@ export const translations = {
     ofertaItem5: "LAKIEROWANIE NATRYSKOWE",
     ofertaItem6: "GALERIA",
     cytatMisji:
-      '"Nasza otwartość w lepsze jutro zaprasza Was — Klientów — do podjęcia wyzwań i wspaniałej współpracy z nami. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny. Czekamy na kontakt z Wami."',
+      '"Nasza otwartość w lepsze jutro zaprasza Was - Klientów - do podjęcia wyzwań i wspaniałej współpracy z nami. Każdy projekt traktujemy indywidualnie, oferując pełne wsparcie techniczne od etapu projektowania po serwis posprzedażny. Czekamy na kontakt z Wami."',
 
     // Services data
     svcVacuumTitle: "Metalizacja Próżniowa",
@@ -101,15 +101,15 @@ export const translations = {
     po: "PO",
     csAutomotiveTitle: "Detale Motoryzacyjne",
     csAutomotiveSubtitle:
-      "Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu",
+      "Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych - trwały efekt chromu",
     csAutomotiveBadge: "Najwyższa Jakość",
     csCosmeticsTitle: "Opakowania Kosmetyczne",
     csCosmeticsSubtitle:
-      "Metalizacja próżniowa opakowań kosmetycznych — efekt złota, srebra i chromu na nakrętkach, butelkach i słoiczkach",
+      "Metalizacja próżniowa opakowań kosmetycznych - efekt złota, srebra i chromu na nakrętkach, butelkach i słoiczkach",
     csCosmeticsBadge: "Efekt Premium",
     csIndustrialTitle: "Elementy Przemysłowe",
     csIndustrialSubtitle:
-      "Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania",
+      "Powłoki metalizacyjne na komponentach przemysłowych i maszynowych - wytrzymałość i precyzja wykonania",
     csIndustrialBadge: "Solidność",
     csMetricQuality: "Kontrola jakości",
     csMetricParts: "Detali/msc",
@@ -190,7 +190,7 @@ export const translations = {
     // Footer
     skontaktujSieZNami: "Skontaktuj się z nami",
     footerHeading:
-      "STANIAX Sp.\u00a0z\u00a0o.o. – SYSTEMY METALIZACJI PRÓŻNIOWEJ",
+      "STANIAX Sp.\u00a0z\u00a0o.o. - SYSTEMY METALIZACJI PRÓŻNIOWEJ",
     footerSubheading: "LAKIEROWANIE TWORZYW, SZKŁA, METALI",
     footerSpecialist: "SPECJALISTYCZNE POWLEKANIE METALICZNE",
     footerFreeConsultation: "BEZPŁATNA KONSULTACJA",
@@ -271,7 +271,7 @@ export const translations = {
     bazaWiedzyAppDesc:
       "Nie wszystkie materiały i geometrie pozwalają na obróbkę w warunkach wysokiej próżni. W takich przypadkach konieczne jest zastosowanie metod pokrewnych, które pozwalają na równomierne rozłożenie materiału na powierzchniach o nietypowych kształtach. Z tego powodu powszechnie stosowana metalizacja natryskowa pozostaje kluczowym elementem naszej oferty. Dzięki niej, jesteśmy w stanie dostarczyć doskonałe wykończenie tam, gdzie tradycyjna obróbka napotyka na ograniczenia fizyczne. Natomiast dla branży oświetleniowej absolutnie kluczowa pozostaje precyzyjna regeneracja odbłyśników, która zapewnia idealny kąt padania wiązki światła.",
     bazaWiedzySummary:
-      "Podsumowując, obróbka taka jak metalizacja tworzyw sztucznych, czy szerzej pojęta metalizacja tworzyw, to coś więcej niż techniczny proces przemysłowy – to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia. To samo dotyczy usług takich jak kompleksowa naprawa lamp samochodowych, która przywraca bezpieczeństwo. Naszym flagowym rozwiązaniem pozostaje metalizacja próżniowa tworzyw sztucznych. Nad tym wszystkim jako mentor czuwa metalizacja dariusz staniak, marka, której poświęciliśmy nasze zawodowe pasje i kompetencje.",
+      "Podsumowując, obróbka taka jak metalizacja tworzyw sztucznych, czy szerzej pojęta metalizacja tworzyw, to coś więcej niż techniczny proces przemysłowy - to sztuka nadawania przedmiotom nowego, trwałego i estetycznego życia. To samo dotyczy usług takich jak kompleksowa naprawa lamp samochodowych, która przywraca bezpieczeństwo. Naszym flagowym rozwiązaniem pozostaje metalizacja próżniowa tworzyw sztucznych. Nad tym wszystkim jako mentor czuwa metalizacja dariusz staniak, marka, której poświęciliśmy nasze zawodowe pasje i kompetencje.",
     metaTitle: "Metalizacja Próżniowa i Lakierowanie Tworzyw | STANIAX",
     metaDesc:
       "Staniax - Profesjonalna metalizacja próżniowa, lakierowanie tworzyw, szkła oraz regeneracja lamp samochodowych. Zobacz realizacje!",
@@ -292,7 +292,7 @@ export const translations = {
     ktoraZmienia: "that transforms",
     powierzchnie: "surfaces",
     bridgeDesc:
-      "From vacuum metallization to spray painting — we offer the full spectrum of industrial finishes.",
+      "From vacuum metallization to spray painting - we offer the full spectrum of industrial finishes.",
     bridgeVideoLabel: "Metallization in action",
     przewinDalej: "Scroll down",
 
@@ -312,9 +312,9 @@ export const translations = {
     oNas: "About Us",
     kimJestesmy: "Who\nWe Are",
     kimJestesmyText1:
-      "Welcome to STANIAX Sp. z o.o. (headquartered in Warsaw) — a company specializing in vacuum metallization and spray painting. The high quality we offer our partners guarantees excellent cooperation. We draw this quality from our mentor — Dariusz Staniak, who since 1993 has been a leader in vacuum metallization in the Mazovia region near Warsaw. Today, STANIAX is a continuation of his knowledge and experience.",
+      "Welcome to STANIAX Sp. z o.o. (headquartered in Warsaw) - a company specializing in vacuum metallization and spray painting. The high quality we offer our partners guarantees excellent cooperation. We draw this quality from our mentor - Dariusz Staniak, who since 1993 has been a leader in vacuum metallization in the Mazovia region near Warsaw. Today, STANIAX is a continuation of his knowledge and experience.",
     kimJestesmyText2:
-      "Our team of highly qualified professionals ensures that the quality of our services places us among the top companies in Poland. Our strengths are precision and the ability to quickly reorganize orders — especially for clients who need to implement new designs.",
+      "Our team of highly qualified professionals ensures that the quality of our services places us among the top companies in Poland. Our strengths are precision and the ability to quickly reorganize orders - especially for clients who need to implement new designs.",
     wykwalifikowanyZespol: "Qualified team",
     nowoczesnyPark: "Modern machinery",
     gwarancjaJakosci: "Quality guarantee",
@@ -335,7 +335,7 @@ export const translations = {
     ofertaItem5: "SPRAY PAINTING",
     ofertaItem6: "GALLERY",
     cytatMisji:
-      '"Our openness to a better tomorrow invites you — our Clients — to take on challenges and wonderful cooperation with us. We treat every project individually, offering full technical support from design to after-sales service. We look forward to hearing from you."',
+      '"Our openness to a better tomorrow invites you - our Clients - to take on challenges and wonderful cooperation with us. We treat every project individually, offering full technical support from design to after-sales service. We look forward to hearing from you."',
 
     svcVacuumTitle: "Vacuum Metallization",
     svcVacuumDesc:
@@ -369,15 +369,15 @@ export const translations = {
     po: "AFTER",
     csAutomotiveTitle: "Automotive Parts",
     csAutomotiveSubtitle:
-      "Vacuum metallization of reflectors, trim elements and automotive components — durable chrome effect",
+      "Vacuum metallization of reflectors, trim elements and automotive components - durable chrome effect",
     csAutomotiveBadge: "Highest Quality",
     csCosmeticsTitle: "Cosmetic Packaging",
     csCosmeticsSubtitle:
-      "Vacuum metallization of cosmetic packaging — gold, silver and chrome effects on caps, bottles and jars",
+      "Vacuum metallization of cosmetic packaging - gold, silver and chrome effects on caps, bottles and jars",
     csCosmeticsBadge: "Premium Effect",
     csIndustrialTitle: "Industrial Elements",
     csIndustrialSubtitle:
-      "Metallization coatings on industrial and machine components — durability and precision",
+      "Metallization coatings on industrial and machine components - durability and precision",
     csIndustrialBadge: "Reliability",
     csMetricQuality: "Quality control",
     csMetricParts: "Parts/month",
@@ -403,7 +403,7 @@ export const translations = {
       "Standard lead time is 5-10 business days for production projects. For prototypes, we offer express mode of 2-3 days. The exact time depends on project complexity, quantity and chosen technology.",
     faq4q: "Does metallization increase element durability?",
     faq4a:
-      "Yes, metallization significantly increases durability — metallic coatings improve abrasion resistance by 200-400%, protect against corrosion, increase surface hardness and can extend element lifespan by up to 300%.",
+      "Yes, metallization significantly increases durability - metallic coatings improve abrasion resistance by 200-400%, protect against corrosion, increase surface hardness and can extend element lifespan by up to 300%.",
     faq5q: "What materials can be metallized?",
     faq5a:
       "We can metallize most engineering materials: tool steels, stainless steels, aluminum, copper, titanium, technical ceramics, as well as selected plastics after proper surface preparation.",
@@ -448,7 +448,7 @@ export const translations = {
 
     skontaktujSieZNami: "Contact us",
     footerHeading:
-      "STANIAX Sp.\u00a0z\u00a0o.o. – VACUUM METALLIZATION SYSTEMS",
+      "STANIAX Sp.\u00a0z\u00a0o.o. - VACUUM METALLIZATION SYSTEMS",
     footerSubheading: "PAINTING OF PLASTICS, GLASS, METALS",
     footerSpecialist: "SPECIALIST METALLIC COATING",
     footerFreeConsultation: "FREE CONSULTATION",
@@ -492,7 +492,7 @@ export const translations = {
     email: "Email (e.g. john.smith@company.com) *",
     telefon: "Phone (optional, e.g. +48 123 456 789)",
     opisProjekt:
-      "Describe your project — the more details, the better we can help *",
+      "Describe your project - the more details, the better we can help *",
     wstecz: "← Back",
     kontynuuj: "Continue →",
     wyslijZapytanie: "Send inquiry 🚀",
@@ -527,7 +527,7 @@ export const translations = {
     bazaWiedzyAppDesc:
       "Not all materials and geometries allow for processing under high vacuum conditions. In such cases, it is necessary to use related methods that allow for even distribution of material on surfaces with unusual shapes. For this reason, commonly used spray metallization remains a key element of our offer. Thanks to it, we are able to deliver a perfect finish where traditional processing faces physical limitations. On the other hand, for the lighting industry, precise reflector regeneration remains absolutely crucial, ensuring the ideal angle of the light beam.",
     bazaWiedzySummary:
-      "In conclusion, metallization is more than just a technical industrial process – it is the art of giving objects a new, durable, and aesthetic life, to which we have dedicated our professional passions and competencies.",
+      "In conclusion, metallization is more than just a technical industrial process - it is the art of giving objects a new, durable, and aesthetic life, to which we have dedicated our professional passions and competencies.",
     metaTitle: "STANIAX - Vacuum Metalizing & PVD Deposition",
     metaDesc:
       "Staniax offers premium vacuum metalizing and PVD coating services for plastics, glass, and metals. Explore our completed projects!",
@@ -548,7 +548,7 @@ export const translations = {
     ktoraZmienia: "die Oberflächen",
     powierzchnie: "verändert",
     bridgeDesc:
-      "Von der Vakuummetallisierung bis zur Sprühlackierung — wir bieten das gesamte Spektrum industrieller Oberflächen.",
+      "Von der Vakuummetallisierung bis zur Sprühlackierung - wir bieten das gesamte Spektrum industrieller Oberflächen.",
     bridgeVideoLabel: "Metallisierung in Aktion",
     przewinDalej: "Weiter scrollen",
 
@@ -568,9 +568,9 @@ export const translations = {
     oNas: "Über uns",
     kimJestesmy: "Wer\nwir sind",
     kimJestesmyText1:
-      "Willkommen bei STANIAX Sp. z o.o. (mit Sitz in Warschau) — einem Unternehmen, das auf Vakuummetallisierung und Sprühlackierung spezialisiert ist. Die hohe Qualität, die wir unseren Partnern bieten, ist Garant für eine gute Zusammenarbeit. Diese Qualität verdanken wir unserem Mentor — Dariusz Staniak, der seit 1993 ein führender Anbieter von Vakuummetallisierung in der Region Masowien bei Warschau ist. Heute ist STANIAX die Fortsetzung seines Wissens und seiner Erfahrung.",
+      "Willkommen bei STANIAX Sp. z o.o. (mit Sitz in Warschau) - einem Unternehmen, das auf Vakuummetallisierung und Sprühlackierung spezialisiert ist. Die hohe Qualität, die wir unseren Partnern bieten, ist Garant für eine gute Zusammenarbeit. Diese Qualität verdanken wir unserem Mentor - Dariusz Staniak, der seit 1993 ein führender Anbieter von Vakuummetallisierung in der Region Masowien bei Warschau ist. Heute ist STANIAX die Fortsetzung seines Wissens und seiner Erfahrung.",
     kimJestesmyText2:
-      "Unser Team hochqualifizierter Mitarbeiter sorgt dafür, dass die Qualität unserer Dienstleistungen uns an die Spitze vergleichbarer Unternehmen in Polen stellt. Unsere Stärke ist die Präzision und die Fähigkeit, Aufträge schnell umzuorganisieren — insbesondere für Kunden, die neue Muster einführen müssen.",
+      "Unser Team hochqualifizierter Mitarbeiter sorgt dafür, dass die Qualität unserer Dienstleistungen uns an die Spitze vergleichbarer Unternehmen in Polen stellt. Unsere Stärke ist die Präzision und die Fähigkeit, Aufträge schnell umzuorganisieren - insbesondere für Kunden, die neue Muster einführen müssen.",
     wykwalifikowanyZespol: "Qualifiziertes Team",
     nowoczesnyPark: "Moderner Maschinenpark",
     gwarancjaJakosci: "Qualitätsgarantie",
@@ -592,7 +592,7 @@ export const translations = {
     ofertaItem5: "SPRÜHLACKIERUNG",
     ofertaItem6: "GALERIE",
     cytatMisji:
-      '"Unsere Offenheit für eine bessere Zukunft lädt Sie — unsere Kunden — ein, Herausforderungen anzunehmen und wunderbar mit uns zusammenzuarbeiten. Jedes Projekt behandeln wir individuell und bieten volle technische Unterstützung vom Design bis zum After-Sales-Service. Wir freuen uns auf Ihre Kontaktaufnahme."',
+      '"Unsere Offenheit für eine bessere Zukunft lädt Sie - unsere Kunden - ein, Herausforderungen anzunehmen und wunderbar mit uns zusammenzuarbeiten. Jedes Projekt behandeln wir individuell und bieten volle technische Unterstützung vom Design bis zum After-Sales-Service. Wir freuen uns auf Ihre Kontaktaufnahme."',
 
     svcVacuumTitle: "Vakuummetallisierung",
     svcVacuumDesc:
@@ -626,15 +626,15 @@ export const translations = {
     po: "NACHHER",
     csAutomotiveTitle: "Automobilteile",
     csAutomotiveSubtitle:
-      "Vakuummetallisierung von Reflektoren, Zierteilen und Automobilkomponenten — dauerhafter Chromeffekt",
+      "Vakuummetallisierung von Reflektoren, Zierteilen und Automobilkomponenten - dauerhafter Chromeffekt",
     csAutomotiveBadge: "Höchste Qualität",
     csCosmeticsTitle: "Kosmetikverpackungen",
     csCosmeticsSubtitle:
-      "Vakuummetallisierung von Kosmetikverpackungen — Gold-, Silber- und Chromeffekte auf Kappen, Flaschen und Tiegeln",
+      "Vakuummetallisierung von Kosmetikverpackungen - Gold-, Silber- und Chromeffekte auf Kappen, Flaschen und Tiegeln",
     csCosmeticsBadge: "Premium-Effekt",
     csIndustrialTitle: "Industrieelemente",
     csIndustrialSubtitle:
-      "Metallisierungsbeschichtungen auf Industrie- und Maschinenkomponenten — Haltbarkeit und Präzision",
+      "Metallisierungsbeschichtungen auf Industrie- und Maschinenkomponenten - Haltbarkeit und Präzision",
     csIndustrialBadge: "Zuverlässigkeit",
     csMetricQuality: "Qualitätskontrolle",
     csMetricParts: "Teile/Monat",
@@ -660,7 +660,7 @@ export const translations = {
       "Die Standardlieferzeit beträgt 5-10 Werktage für Produktionsprojekte. Für Prototypen bieten wir einen Expressmodus von 2-3 Tagen. Die genaue Zeit hängt von der Projektkomplexität, Menge und gewählter Technologie ab.",
     faq4q: "Erhöht Metallisierung die Haltbarkeit von Elementen?",
     faq4a:
-      "Ja, Metallisierung erhöht die Haltbarkeit erheblich — metallische Beschichtungen verbessern die Abriebfestigkeit um 200-400%, schützen vor Korrosion, erhöhen die Oberflächenhärte und können die Lebensdauer um bis zu 300% verlängern.",
+      "Ja, Metallisierung erhöht die Haltbarkeit erheblich - metallische Beschichtungen verbessern die Abriebfestigkeit um 200-400%, schützen vor Korrosion, erhöhen die Oberflächenhärte und können die Lebensdauer um bis zu 300% verlängern.",
     faq5q: "Welche Materialien können metallisiert werden?",
     faq5a:
       "Wir können die meisten technischen Materialien metallisieren: Werkzeugstähle, Edelstähle, Aluminium, Kupfer, Titan, technische Keramik sowie ausgewählte Kunststoffe nach entsprechender Oberflächenvorbereitung.",
@@ -706,7 +706,7 @@ export const translations = {
 
     skontaktujSieZNami: "Kontaktieren Sie uns",
     footerHeading:
-      "STANIAX Sp.\u00a0z\u00a0o.o. – VAKUUMMETALLISIERUNGSSYSTEME",
+      "STANIAX Sp.\u00a0z\u00a0o.o. - VAKUUMMETALLISIERUNGSSYSTEME",
     footerSubheading: "LACKIERUNG VON KUNSTSTOFFEN, GLAS, METALLEN",
     footerSpecialist: "SPEZIALBESCHICHTUNG METALLISCH",
     footerFreeConsultation: "KOSTENLOSE BERATUNG",
@@ -750,7 +750,7 @@ export const translations = {
     email: "E-Mail (z.B. max.mustermann@firma.de) *",
     telefon: "Telefon (optional, z.B. +49 123 456 789)",
     opisProjekt:
-      "Beschreiben Sie Ihr Projekt — je mehr Details, desto besser können wir helfen *",
+      "Beschreiben Sie Ihr Projekt - je mehr Details, desto besser können wir helfen *",
     wstecz: "← Zurück",
     kontynuuj: "Weiter →",
     wyslijZapytanie: "Anfrage senden 🚀",
@@ -786,7 +786,7 @@ export const translations = {
     bazaWiedzyAppDesc:
       "Nicht alle Materialien und Geometrien ermöglichen eine Bearbeitung unter Hochvakuumbedingungen. In solchen Fällen ist es notwendig, verwandte Methoden anzuwenden, die eine gleichmäßige Verteilung des Materials auf Oberflächen mit ungewöhnlichen Formen ermöglichen. Aus diesem Grund bleibt die weit verbreitete Spritzmetallisierung ein Schlüsselelement unseres Angebots. Dank ihr sind wir in der Lage, dort ein perfektes Finish zu liefern, wo die traditionelle Bearbeitung an physikalische Grenzen stößt. Für die Beleuchtungsindustrie hingegen bleibt die präzise Reflektorregenerierung absolut entscheidend, da sie den idealen Einfallswinkel des Lichtstrahls garantiert.",
     bazaWiedzySummary:
-      "Zusammenfassend lässt sich sagen, dass die Metallisierung mehr als nur ein technischer Industrieprozess ist – sie ist die Kunst, Gegenständen ein neues, langlebiges und ästhetisches Leben einzuhauchen, dem wir unsere beruflichen Leidenschaften und Kompetenzen gewidmet haben.",
+      "Zusammenfassend lässt sich sagen, dass die Metallisierung mehr als nur ein technischer Industrieprozess ist - sie ist die Kunst, Gegenständen ein neues, langlebiges und ästhetisches Leben einzuhauchen, dem wir unsere beruflichen Leidenschaften und Kompetenzen gewidmet haben.",
     metaTitle: "STANIAX - Vakuummetallisierung & PVD Beschichtung",
     metaDesc:
       "Staniax bietet erstklassige Vakuummetallisierung und PVD-Beschichtung für Kunststoffe, Glas und Metalle. Sehen Sie sich unsere Realisierungen an!",

@@ -422,7 +422,7 @@ function localizeGalleryAlt(item, idx, lang) {
         : lower.includes("szkł") || lower.includes("flakon") || lower.includes("butel") || lower.includes("słoik")
           ? "Parfümflakon & Glasveredelung durch Industrielackierung"
           : "Kosmetik- & Industriebauteil nach Vakuummetallisierung";
-    return `${catLabel}: ${subject} — Referenz #${idx + 1}`;
+    return `${catLabel}: ${subject} - Referenz #${idx + 1}`;
   }
   const subject =
     lower.includes("reflektor") || lower.includes("odbłyśnik") || lower.includes("lamp")
@@ -430,7 +430,7 @@ function localizeGalleryAlt(item, idx, lang) {
       : lower.includes("szkł") || lower.includes("flakon") || lower.includes("butel") || lower.includes("słoik")
         ? "perfume flacon & glass bottle after industrial coating"
         : "cosmetic packaging & industrial part after PVD vacuum coating";
-  return `${catLabel}: ${subject} — Project #${idx + 1}`;
+  return `${catLabel}: ${subject} - Project #${idx + 1}`;
 }
 
 function extractGalleryItems(resolveAsset) {
@@ -625,7 +625,7 @@ function renderSiteChrome({ lang, currentPath, alternates, bridge, bodyHtml }) {
         <p class="font-bold text-white">STANIAX Sp. z o.o.</p>
         <p class="text-sm text-slate-300">${escapeHtml(labels.footerPlantPrefix)} ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów${escapeHtml(labels.footerCountrySuffix)}</p>
         <p class="text-sm text-slate-300">${escapeHtml(labels.footerHqPrefix)} ul. Grzybowska 5A, 00-132 Warszawa${escapeHtml(labels.footerCountrySuffix)}</p>
-        <p class="text-sm text-slate-300">Tel.: <a href="tel:+48882488844" class="text-blue-400 underline">+48 882 488 844</a> (pn.–pt. 07:00–17:00)</p>
+        <p class="text-sm text-slate-300">Tel.: <a href="tel:+48882488844" class="text-blue-400 underline">+48 882 488 844</a> (pn.-pt. 07:00-17:00)</p>
         <p class="text-sm text-slate-300">E-mail: <a href="mailto:metalizacja@staniax.pl" class="text-blue-400 underline">metalizacja@staniax.pl</a> · <a href="mailto:office@staniax.pl" class="text-blue-400 underline">office@staniax.pl</a></p>
         <p class="text-xs text-slate-400">KRS: 0001182026 · NIP: 5253052509 · REGON: 542156053 · Kapitał zakładowy: 150 000,00 zł</p>
       </div>
@@ -1542,7 +1542,7 @@ function renderServicePage(serviceId, lang, bridge, resolveAsset) {
     ...(c.showcase.ralColors || []).map(
       (ral) =>
         `<div class="rounded-xl border border-slate-200 p-4 space-y-1">
-          <h3 class="text-base font-bold text-slate-950">${escapeHtml(ral.code)} — ${escapeHtml(ral.name)}</h3>
+          <h3 class="text-base font-bold text-slate-950">${escapeHtml(ral.code)} - ${escapeHtml(ral.name)}</h3>
           <p class="text-sm text-slate-600">${escapeHtml(ral.application)}</p>
         </div>`,
     ),
@@ -1654,7 +1654,7 @@ function renderServicePage(serviceId, lang, bridge, resolveAsset) {
       </div>
       <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
         <table class="w-full text-left border-collapse">
-          <caption class="sr-only">${escapeHtml(c.scopeSection.table.caption)} — ${escapeHtml(labels.tableCaptionSuffix)}</caption>
+          <caption class="sr-only">${escapeHtml(c.scopeSection.table.caption)} - ${escapeHtml(labels.tableCaptionSuffix)}</caption>
           <thead class="bg-slate-100">
             <tr>${scopeTableHeaders}</tr>
           </thead>
@@ -1725,10 +1725,10 @@ function renderServicePage(serviceId, lang, bridge, resolveAsset) {
     )}</h2>
     <p class="text-slate-700">${escapeHtml(
       lang === "pl"
-        ? "Orientacyjna pojemność wsadu planetarnego Ø 1200 mm: małe detale (20–65 mm, np. nakrętki kosmetyczne) ~900 szt./cykl; średnie detale (80–240 mm, np. odbłyśniki i flakony) ~140 szt./cykl; duże korpusy i klosze (250–550 mm) ~28 szt./cykl. Dobór powłoki PVD i napylanie aluminium 99,99% pod ABS, PC, PP, PA, szkło oraz druk 3D SLS."
+        ? "Orientacyjna pojemność wsadu planetarnego Ø 1200 mm: małe detale (20-65 mm, np. nakrętki kosmetyczne) ~900 szt./cykl; średnie detale (80-240 mm, np. odbłyśniki i flakony) ~140 szt./cykl; duże korpusy i klosze (250-550 mm) ~28 szt./cykl. Dobór powłoki PVD i napylanie aluminium 99,99% pod ABS, PC, PP, PA, szkło oraz druk 3D SLS."
         : lang === "de"
-          ? "Richtkapazität der Ø-1200-mm-Planetenkammer: Kleinteile (20–65 mm) ca. 900 Stk./Zyklus; mittelgroße Bauteile (80–240 mm) ca. 140 Stk./Zyklus; Großgehäuse (250–550 mm) ca. 28 Stk./Zyklus — abgestimmt auf ABS, PC, PP, PA, Glas und PA12-3D-Druck."
-          : "Typical Ø 1200 mm planetary rack capacity: small closures (20–65 mm) ~900 pcs/cycle; medium bezels & reflectors (80–240 mm) ~140 pcs/cycle; large housings (250–550 mm) ~28 pcs/cycle across ABS, PC, PP, PA, glass, and SLS 3D prints.",
+          ? "Richtkapazität der Ø-1200-mm-Planetenkammer: Kleinteile (20-65 mm) ca. 900 Stk./Zyklus; mittelgroße Bauteile (80-240 mm) ca. 140 Stk./Zyklus; Großgehäuse (250-550 mm) ca. 28 Stk./Zyklus - abgestimmt auf ABS, PC, PP, PA, Glas und PA12-3D-Druck."
+          : "Typical Ø 1200 mm planetary rack capacity: small closures (20-65 mm) ~900 pcs/cycle; medium bezels & reflectors (80-240 mm) ~140 pcs/cycle; large housings (250-550 mm) ~28 pcs/cycle across ABS, PC, PP, PA, glass, and SLS 3D prints.",
     )}</p>
   </section>`
       : ""
@@ -2756,10 +2756,10 @@ function renderGalleryPage(lang, currentPath, bridge, galleryItems) {
       )}</p>
       <p class="leading-relaxed">${escapeHtml(
         lang === "pl"
-          ? "Przed uruchomieniem produkcji wielkoseryjnej wykonujemy próbki wzorcowe na powierzonych detalach z ABS, PC, PP, PA, metalu lub szkła — prześlij zapytanie ze zdjęciem lub modelem 3D na metalizacja@staniax.pl."
+          ? "Przed uruchomieniem produkcji wielkoseryjnej wykonujemy próbki wzorcowe na powierzonych detalach z ABS, PC, PP, PA, metalu lub szkła - prześlij zapytanie ze zdjęciem lub modelem 3D na metalizacja@staniax.pl."
           : lang === "de"
-            ? "Vor Serienfreigabe erstellen wir verbindliche Grenzmuster direkt auf Ihren Originalteilen aus ABS, PC, PP, PA, Metallguss oder Verpackungsglas — senden Sie Ihre Anfrage an metalizacja@staniax.pl."
-            : "Prior to serial release, we prepare reference approval samples on your actual ABS, PC, PP, PA, metal, or glass components — send photos or STEP files to metalizacja@staniax.pl.",
+            ? "Vor Serienfreigabe erstellen wir verbindliche Grenzmuster direkt auf Ihren Originalteilen aus ABS, PC, PP, PA, Metallguss oder Verpackungsglas - senden Sie Ihre Anfrage an metalizacja@staniax.pl."
+            : "Prior to serial release, we prepare reference approval samples on your actual ABS, PC, PP, PA, metal, or glass components - send photos or STEP files to metalizacja@staniax.pl.",
       )}</p>
     </div>
   </section>`;
@@ -2841,7 +2841,7 @@ function renderNotFoundPage(bridge) {
   </section>`;
 
   return {
-    title: "404 — Nie znaleziono strony | STANIAX",
+    title: "404 - Nie znaleziono strony | STANIAX",
     description:
       "Strona o podanym adresie nie istnieje. Sprawdź ofertę usług metalizacji próżniowej, regeneracji reflektorów i lakierowania STANIAX.",
     bodyHtml,

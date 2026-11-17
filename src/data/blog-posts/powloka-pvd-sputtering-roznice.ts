@@ -5,7 +5,7 @@ import type { BlogArticle } from './types'
 const article: BlogArticle = {
   "slug": "/news/powloka-pvd-sputtering-roznice",
   "lang": "pl",
-  "heading": "Powłoka PVD – naparowanie a sputtering w metalizacji próżniowej",
+  "heading": "Powłoka PVD - naparowanie a sputtering w metalizacji próżniowej",
   "metaTitle": "Powłoka PVD: naparowanie a sputtering | STANIAX",
   "metaDescription": "Powłoka PVD: sprawdź, czym naparowanie różni się od sputteringu, jak działa metalizacja próżniowa i kiedy wybrać ją zamiast twardej powłoki.",
   "lead": "Powłoka PVD to cienka warstwa metalu lub związku metalu, która powstaje w próżni z pary materiału kondensującej na powierzchni detalu. Ten sam skrót obejmuje jednak bardzo różne procesy: od lustrzanej warstwy aluminium na zakrętce perfum po twardą, złocistą warstwę azotku tytanu na wiertle. W tym artykule wyjaśniamy, jak działa PVD, czym różnią się naparowanie i sputtering oraz gdzie kończy się dekoracyjna metalizacja próżniowa, a zaczynają twarde powłoki narzędziowe.",
@@ -78,7 +78,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "PVD, czyli fizyczne osadzanie z fazy gazowej (ang. physical vapour deposition), potocznie nazywane napylaniem próżniowym, to zbiorcza nazwa metod próżniowych, w których materiał przechodzi z fazy skondensowanej w parę, a potem z powrotem w ciało stałe – już jako cienka warstwa na detalu. Kluczowe jest słowo „fizyczne”: w odróżnieniu od CVD źródłem warstwy nie jest reakcja chemicznych prekursorów, lecz odparowany lub wybity z tarczy materiał."
+      "text": "PVD, czyli fizyczne osadzanie z fazy gazowej (ang. physical vapour deposition), potocznie nazywane napylaniem próżniowym, to zbiorcza nazwa metod próżniowych, w których materiał przechodzi z fazy skondensowanej w parę, a potem z powrotem w ciało stałe - już jako cienka warstwa na detalu. Kluczowe jest słowo „fizyczne”: w odróżnieniu od CVD źródłem warstwy nie jest reakcja chemicznych prekursorów, lecz odparowany lub wybity z tarczy materiał."
     },
     {
       "type": "p",
@@ -102,7 +102,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Próżnia zmniejsza liczbę cząsteczek gazu w komorze, więc atomy pary mogą dolecieć do detalu bez zderzeń. Źródła podają, że przy typowym w naparowaniu ciśnieniu rzędu 10⁻⁴ Pa średnia droga swobodna cząstki o średnicy 0,4 nm wynosi około 60 m – wielokrotnie więcej niż wymiary komory."
+      "text": "Próżnia zmniejsza liczbę cząsteczek gazu w komorze, więc atomy pary mogą dolecieć do detalu bez zderzeń. Źródła podają, że przy typowym w naparowaniu ciśnieniu rzędu 10⁻⁴ Pa średnia droga swobodna cząstki o średnicy 0,4 nm wynosi około 60 m - wielokrotnie więcej niż wymiary komory."
     },
     {
       "type": "p",
@@ -119,7 +119,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "To właśnie naparowanie stoi za klasyczną metalizacją aluminium. W ten sposób produkuje się metalizowane folie opakowaniowe, lustra i odbłyśniki – oraz detale, które trafiają do nas na metalizację."
+      "text": "To właśnie naparowanie stoi za klasyczną metalizacją aluminium. W ten sposób produkuje się metalizowane folie opakowaniowe, lustra i odbłyśniki - oraz detale, które trafiają do nas na metalizację."
     },
     {
       "type": "h3",
@@ -135,11 +135,11 @@ const article: BlogArticle = {
     },
     {
       "type": "h3",
-      "text": "Naparowanie łukowe – most między dekoracją a narzędziami"
+      "text": "Naparowanie łukowe - most między dekoracją a narzędziami"
     },
     {
       "type": "p",
-      "text": "Naparowanie łukowe (cathodic arc) używa wyładowania elektrycznego o dużym natężeniu. Łuk tworzy na tarczy bardzo gorące mikroobszary, które odparowują materiał w postaci silnie zjonizowanej plazmy – stopień jonizacji sięga 30–100%."
+      "text": "Naparowanie łukowe (cathodic arc) używa wyładowania elektrycznego o dużym natężeniu. Łuk tworzy na tarczy bardzo gorące mikroobszary, które odparowują materiał w postaci silnie zjonizowanej plazmy - stopień jonizacji sięga 30-100%."
     },
     {
       "type": "p",
@@ -273,7 +273,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "O tym, jak technologia przekłada się na koszt konkretnego zlecenia, piszemy osobno w artykule [Metalizacja próżniowa – cena](/metalizacja-prozniowa)."
+      "text": "O tym, jak technologia przekłada się na koszt konkretnego zlecenia, piszemy osobno w artykule [Metalizacja próżniowa - cena](/metalizacja-prozniowa)."
     },
     {
       "type": "h3",
@@ -285,7 +285,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "W metalizacji dekoracyjnej przyczepność zapewnia przede wszystkim podkład lakierowy, a równomierność – rozmieszczenie i obrót detali w komorze. Dobrze poprowadzone naparowanie daje równą, lustrzaną warstwę na typowych kształtach opakowań i odbłyśników."
+      "text": "W metalizacji dekoracyjnej przyczepność zapewnia przede wszystkim podkład lakierowy, a równomierność - rozmieszczenie i obrót detali w komorze. Dobrze poprowadzone naparowanie daje równą, lustrzaną warstwę na typowych kształtach opakowań i odbłyśników."
     },
     {
       "type": "h3",
@@ -313,7 +313,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Azotki i tlenki uzyskuje się w procesach reaktywnych, z udziałem azotu lub tlenu – rozpylaniem magnetronowym albo naparowaniem łukowym. To technologie typowe dla warstw funkcjonalnych i narzędziowych, a nie dla dekoracji tworzyw."
+      "text": "Azotki i tlenki uzyskuje się w procesach reaktywnych, z udziałem azotu lub tlenu - rozpylaniem magnetronowym albo naparowaniem łukowym. To technologie typowe dla warstw funkcjonalnych i narzędziowych, a nie dla dekoracji tworzyw."
     },
     {
       "type": "h2",
@@ -322,7 +322,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Właściwości zależą przede wszystkim od tego, co osadzamy. Warstwa aluminium daje wysoki współczynnik odbicia: według literatury odbija 85–90% światła w zakresie widzialnym i bliskim nadfiolecie. Twarda warstwa azotku tytanu ma natomiast twardość rzędu 1800–2100 HV i chroni krawędź narzędzia."
+      "text": "Właściwości zależą przede wszystkim od tego, co osadzamy. Warstwa aluminium daje wysoki współczynnik odbicia: według literatury odbija 85-90% światła w zakresie widzialnym i bliskim nadfiolecie. Twarda warstwa azotku tytanu ma natomiast twardość rzędu 1800-2100 HV i chroni krawędź narzędzia."
     },
     {
       "type": "p",
@@ -350,7 +350,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Czysta warstwa aluminium jest inna: jest miękka i podatna na utlenianie. Dlatego w reflektorach i opakowaniach zawsze chroni ją przezroczysty lakier lub warstwa ochronna – źródła wprost wskazują, że odbłyśniki reflektorów mają przezroczyste pokrycie zapobiegające utlenianiu bardzo cienkiego aluminium."
+      "text": "Czysta warstwa aluminium jest inna: jest miękka i podatna na utlenianie. Dlatego w reflektorach i opakowaniach zawsze chroni ją przezroczysty lakier lub warstwa ochronna - źródła wprost wskazują, że odbłyśniki reflektorów mają przezroczyste pokrycie zapobiegające utlenianiu bardzo cienkiego aluminium."
     },
     {
       "type": "h3",
@@ -358,7 +358,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Przyjmuje się, że warstwy poniżej 1 µm to cienkie filmy, a grubsze nazywa się powłokami. Metalizacja dekoracyjna mieści się w pierwszej grupie – w STANIAX mówimy o grubościach nanometrycznych."
+      "text": "Przyjmuje się, że warstwy poniżej 1 µm to cienkie filmy, a grubsze nazywa się powłokami. Metalizacja dekoracyjna mieści się w pierwszej grupie - w STANIAX mówimy o grubościach nanometrycznych."
     },
     {
       "type": "p",
@@ -378,7 +378,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Trzeci czynnik to światło i temperatura pracy. Odbłyśnik w reflektorze pracuje w cieple i promieniowaniu, więc wymaga innych lakierów niż zakrętka kremu – zakres warunków pracy warto opisać już przy zapytaniu."
+      "text": "Trzeci czynnik to światło i temperatura pracy. Odbłyśnik w reflektorze pracuje w cieple i promieniowaniu, więc wymaga innych lakierów niż zakrętka kremu - zakres warunków pracy warto opisać już przy zapytaniu."
     },
     {
       "type": "h2",
@@ -449,7 +449,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "W metalizacji dekoracyjnej kolor powstaje inaczej. Aluminium daje srebrzysty, lustrzany efekt, a lakier nawierzchniowy może go zabarwić na złoto, miedź, róż czy grafit – stąd praktycznie nieograniczona paleta barw."
+      "text": "W metalizacji dekoracyjnej kolor powstaje inaczej. Aluminium daje srebrzysty, lustrzany efekt, a lakier nawierzchniowy może go zabarwić na złoto, miedź, róż czy grafit - stąd praktycznie nieograniczona paleta barw."
     },
     {
       "type": "h3",
@@ -470,7 +470,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Tak – i to jest jej główna przewaga. PVD można prowadzić w niższych temperaturach niż CVD, a współczesne reflektory samochodowe mają odbłyśniki z tworzyw formowanych wtryskowo lub tłocznie, pokrywane naparowanym aluminium."
+      "text": "Tak - i to jest jej główna przewaga. PVD można prowadzić w niższych temperaturach niż CVD, a współczesne reflektory samochodowe mają odbłyśniki z tworzyw formowanych wtryskowo lub tłocznie, pokrywane naparowanym aluminium."
     },
     {
       "type": "p",
@@ -506,7 +506,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Szkło to klasyczne podłoże metalizacji próżniowej – od aluminiowanych luster teleskopów z lat 30. XX wieku po współczesne lustra. Gładka, nienasiąkliwa powierzchnia szkła i szkliwionej ceramiki dobrze przyjmuje cienką warstwę metalu."
+      "text": "Szkło to klasyczne podłoże metalizacji próżniowej - od aluminiowanych luster teleskopów z lat 30. XX wieku po współczesne lustra. Gładka, nienasiąkliwa powierzchnia szkła i szkliwionej ceramiki dobrze przyjmuje cienką warstwę metalu."
     },
     {
       "type": "p",
@@ -542,7 +542,7 @@ const article: BlogArticle = {
         [
           "Grubość warstwy",
           "Cienkie filmy do kilku µm",
-          "Chrom dekoracyjny 0,05–0,5 µm na niklu; chrom techniczny zwykle 20–40 µm"
+          "Chrom dekoracyjny 0,05-0,5 µm na niklu; chrom techniczny zwykle 20-40 µm"
         ],
         [
           "Aspekt środowiskowy",
@@ -620,7 +620,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "W branży beauty metalizacja aluminium zastępuje ciężkie i drogie elementy metalowe. Lekki detal z tworzywa zyskuje wygląd metalu, a kolor nadaje lakier – więcej piszemy o tym w artykule [Metalizacja próżniowa rewolucjonizuje branżę beauty](/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty)."
+      "text": "W branży beauty metalizacja aluminium zastępuje ciężkie i drogie elementy metalowe. Lekki detal z tworzywa zyskuje wygląd metalu, a kolor nadaje lakier - więcej piszemy o tym w artykule [Metalizacja próżniowa rewolucjonizuje branżę beauty](/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty)."
     },
     {
       "type": "h3",
@@ -660,7 +660,7 @@ const article: BlogArticle = {
   "faq": [
     {
       "q": "Czy metalizacja próżniowa to to samo co PVD?",
-      "a": "Metalizacja próżniowa jest jedną z technik PVD. W potocznym użyciu tym określeniem – albo słowem „napylanie” – nazywa się zwykle naparowanie aluminium na detale dekoracyjne, podczas gdy PVD obejmuje także sputtering, naparowanie łukowe i twarde powłoki narzędziowe."
+      "a": "Metalizacja próżniowa jest jedną z technik PVD. W potocznym użyciu tym określeniem - albo słowem „napylanie” - nazywa się zwykle naparowanie aluminium na detale dekoracyjne, podczas gdy PVD obejmuje także sputtering, naparowanie łukowe i twarde powłoki narzędziowe."
     },
     {
       "q": "Jaką technologię stosuje STANIAX?",
@@ -668,7 +668,7 @@ const article: BlogArticle = {
     },
     {
       "q": "Jaka jest grubość powłoki PVD?",
-      "a": "Zależy od funkcji. Dekoracyjna warstwa aluminium to cienki film o grubości nanometrycznej, poniżej 1 µm. Twarde powłoki narzędziowe mają zwykle kilka mikrometrów – źródła podają poniżej 4 µm dla typowych twardych warstw i poniżej 5 µm dla TiN."
+      "a": "Zależy od funkcji. Dekoracyjna warstwa aluminium to cienki film o grubości nanometrycznej, poniżej 1 µm. Twarde powłoki narzędziowe mają zwykle kilka mikrometrów - źródła podają poniżej 4 µm dla typowych twardych warstw i poniżej 5 µm dla TiN."
     },
     {
       "q": "Jakie kolory można uzyskać?",

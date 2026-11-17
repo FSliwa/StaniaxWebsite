@@ -14,11 +14,11 @@ export const LEGAL_DATA = {
         sections: [
           {
             h2: "1. Administrator Danych Osobowych i dane rejestrowe (art. 206 KSH)",
-            body: "Administratorem danych osobowych jest STANIAX Spółka z ograniczoną odpowiedzialnością z siedzibą w Warszawie przy ul. Grzybowskiej 5A, 00-132 Warszawa, wpisana do rejestru przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy dla m.st. Warszawy w Warszawie, XIII Wydział Gospodarczy KRS pod numerem KRS: 0001182026, posiadająca numer NIP: 5253052509, REGON: 542156053 oraz kapitał zakładowy w wysokości 150 000,00 zł, prowadząca zakład produkcyjny przy ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów. Kontakt z Administratorem możliwy jest pod adresem e-mail: office@staniax.pl lub metalizacja@staniax.pl oraz telefonicznie pod numerem +48 882 488 844 (pn.–pt. 07:00–17:00).",
+            body: "Administratorem danych osobowych jest STANIAX Spółka z ograniczoną odpowiedzialnością z siedzibą w Warszawie przy ul. Grzybowskiej 5A, 00-132 Warszawa, wpisana do rejestru przedsiębiorców Krajowego Rejestru Sądowego prowadzonego przez Sąd Rejonowy dla m.st. Warszawy w Warszawie, XIII Wydział Gospodarczy KRS pod numerem KRS: 0001182026, posiadająca numer NIP: 5253052509, REGON: 542156053 oraz kapitał zakładowy w wysokości 150 000,00 zł, prowadząca zakład produkcyjny przy ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów. Kontakt z Administratorem możliwy jest pod adresem e-mail: office@staniax.pl lub metalizacja@staniax.pl oraz telefonicznie pod numerem +48 882 488 844 (pn.-pt. 07:00-17:00).",
           },
           {
             h2: "2. Cele i podstawy prawne przetwarzania danych",
-            body: "Dane osobowe podawane w formularzu wyceny i kontaktu (imię, nazwisko, nazwa firmy, adres e-mail, numer telefonu, specyfikacja detali) przetwarzane są wyłącznie w celu przygotowania wyceny usług metalizacji próżniowej, regeneracji reflektorów lub lakierowania przemysłowego (art. 6 ust. 1 lit. b RODO — podjęcie działań przed zawarciem umowy) oraz w celu realizacji prawnie uzasadnionego interesu Administratora polegającego na obsłudze zapytań ofertowych i dochodzeniu roszczeń (art. 6 ust. 1 lit. f RODO).",
+            body: "Dane osobowe podawane w formularzu wyceny i kontaktu (imię, nazwisko, nazwa firmy, adres e-mail, numer telefonu, specyfikacja detali) przetwarzane są wyłącznie w celu przygotowania wyceny usług metalizacji próżniowej, regeneracji reflektorów lub lakierowania przemysłowego (art. 6 ust. 1 lit. b RODO - podjęcie działań przed zawarciem umowy) oraz w celu realizacji prawnie uzasadnionego interesu Administratora polegającego na obsłudze zapytań ofertowych i dochodzeniu roszczeń (art. 6 ust. 1 lit. f RODO).",
           },
           {
             h2: "3. Prawa osób, których dane dotyczą",
@@ -34,7 +34,7 @@ export const LEGAL_DATA = {
         sections: [
           {
             h2: "1. Data Controller & Corporate Registry Details",
-            body: "The Controller of your personal data is STANIAX Sp. z o.o., registered office at ul. Grzybowska 5A, 00-132 Warsaw, Poland (District Court for the Capital City of Warsaw, 13th Commercial Division of the National Court Register — KRS: 0001182026, NIP / VAT UE: PL5253052509, REGON: 542156053, share capital: 150,000.00 PLN), operating its production plant at ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów, Poland. You can contact us at office@staniax.pl, metalizacja@staniax.pl, or +48 882 488 844 (Mon–Fri 07:00–17:00).",
+            body: "The Controller of your personal data is STANIAX Sp. z o.o., registered office at ul. Grzybowska 5A, 00-132 Warsaw, Poland (District Court for the Capital City of Warsaw, 13th Commercial Division of the National Court Register - KRS: 0001182026, NIP / VAT UE: PL5253052509, REGON: 542156053, share capital: 150,000.00 PLN), operating its production plant at ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów, Poland. You can contact us at office@staniax.pl, metalizacja@staniax.pl, or +48 882 488 844 (Mon-Fri 07:00-17:00).",
           },
           {
             h2: "2. Purpose and Legal Basis of Processing",
@@ -54,7 +54,7 @@ export const LEGAL_DATA = {
         sections: [
           {
             h2: "1. Verantwortlicher & Handelsregisterangaben",
-            body: "Verantwortlicher im Sinne der DSGVO ist die STANIAX Sp. z o.o. mit Sitz in ul. Grzybowska 5A, 00-132 Warschau, Polen (eingetragen beim Bezirksgericht für die Hauptstadt Warschau, XIII. Wirtschaftsabteilung des Landesgerichtsregisters unter KRS: 0001182026, USt-IdNr.: PL5253052509, REGON: 542156053, Stammkapital: 150.000,00 PLN) und Produktionswerk in ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów, Polen (E-Mail: office@staniax.pl, metalizacja@staniax.pl, Tel.: +48 882 488 844, Mo.–Fr. 07:00–17:00 Uhr).",
+            body: "Verantwortlicher im Sinne der DSGVO ist die STANIAX Sp. z o.o. mit Sitz in ul. Grzybowska 5A, 00-132 Warschau, Polen (eingetragen beim Bezirksgericht für die Hauptstadt Warschau, XIII. Wirtschaftsabteilung des Landesgerichtsregisters unter KRS: 0001182026, USt-IdNr.: PL5253052509, REGON: 542156053, Stammkapital: 150.000,00 PLN) und Produktionswerk in ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów, Polen (E-Mail: office@staniax.pl, metalizacja@staniax.pl, Tel.: +48 882 488 844, Mo.-Fr. 07:00-17:00 Uhr).",
           },
           {
             h2: "2. Zwecke und Rechtsgrundlagen der Verarbeitung",

@@ -35,7 +35,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
     pl: {
       metaTitle: 'Metalizacja próżniowa vs malowanie proszkowe | STANIAX',
       metaDesc:
-        'Porównanie PVD i malowania proszkowego „chrom”: refleksyjność >92% vs ~55%, temperatura wygrzewania 60°C vs 180–200°C oraz obróbka tworzyw ABS, PC i metali.',
+        'Porównanie PVD i malowania proszkowego „chrom”: refleksyjność >92% vs ~55%, temperatura wygrzewania 60°C vs 180-200°C oraz obróbka tworzyw ABS, PC i metali.',
       badge: 'Porównanie powłok: PVD vs Proszek',
       h1: 'Metalizacja próżniowa PVD vs malowanie proszkowe w efekcie chromu',
       subtitle:
@@ -44,15 +44,15 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Malowanie proszkowe „efekt chrom”',
       directAnswerQuestion: 'Czym różni się metalizacja próżniowa PVD od malowania proszkowego w kolorze chromu?',
       directAnswer:
-        'Malowanie proszkowe wymaga pieca 180–200 °C (co topi tworzywa ABS, PC i PP) oraz daje jedynie metaliczny srebrny półpołysk o odbiciu ok. 50–60% ze skórką pomarańczy. Metalizacja próżniowa PVD w STANIAX osadza czyste aluminium 99,99% poniżej 70 °C, zapewniając lustro optyczne >92% bez zaokrąglania ostrych krawędzi i gwintów.',
+        'Malowanie proszkowe wymaga pieca 180-200 °C (co topi tworzywa ABS, PC i PP) oraz daje jedynie metaliczny srebrny półpołysk o odbiciu ok. 50-60% ze skórką pomarańczy. Metalizacja próżniowa PVD w STANIAX osadza czyste aluminium 99,99% poniżej 70 °C, zapewniając lustro optyczne >92% bez zaokrąglania ostrych krawędzi i gwintów.',
       verdictTitle: 'Werdykt technologiczny B2B',
       verdictSummary:
         'Wybierz malowanie proszkowe do grubowarstwowej ochrony antykorozyjnej stalowych ogrodzeń i felg. Wybierz metalizację próżniową PVD w STANIAX wszędzie tam, gdzie liczy się prawdziwe lustro chromu lub złota, obróbka tworzyw sztucznych, szkła lub odbłyśników oświetleniowych.',
       comparisonRows: [
-        { parameter: 'Efekt wizualny i odbicie światła', optionA: 'Prawdziwe lustro >92% (Al 99,99%)', optionB: 'Srebrny metalik ~50–60%, widoczne ziarno' },
-        { parameter: 'Temperatura procesu', optionA: '45–75 °C (bezpieczna dla ABS, PC, PP, PA)', optionB: '180–200 °C w piecu (wyłącznie metale)' },
-        { parameter: 'Grubość układu powłokowego', optionA: '20–35 µm łącznie (zachowuje gwinty i pasowania)', optionB: '80–150 µm (zalewa drobne detale i zatrzaski)' },
-        { parameter: 'Zastosowanie w optyce i lampach', optionA: 'Tak — standard OEM reflektorów i opraw LED', optionB: 'Nie — rozprasza wiązkę i przegrzewa czaszę' },
+        { parameter: 'Efekt wizualny i odbicie światła', optionA: 'Prawdziwe lustro >92% (Al 99,99%)', optionB: 'Srebrny metalik ~50-60%, widoczne ziarno' },
+        { parameter: 'Temperatura procesu', optionA: '45-75 °C (bezpieczna dla ABS, PC, PP, PA)', optionB: '180-200 °C w piecu (wyłącznie metale)' },
+        { parameter: 'Grubość układu powłokowego', optionA: '20-35 µm łącznie (zachowuje gwinty i pasowania)', optionB: '80-150 µm (zalewa drobne detale i zatrzaski)' },
+        { parameter: 'Zastosowanie w optyce i lampach', optionA: 'Tak - standard OEM reflektorów i opraw LED', optionB: 'Nie - rozprasza wiązkę i przegrzewa czaszę' },
         { parameter: 'Gładkość powierzchni (Ra)', optionA: 'Klasa optyczna A bez skórki pomarańczy', optionB: 'Charakterystyczna struktura proszkowa' },
       ],
       sections: [
@@ -60,7 +60,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           heading: 'Dlaczego proszkowy „chrom” nigdy nie daje głębi lustra PVD?',
           paragraphs: [
             'Lakiery proszkowe sprzedawane jako „chrom” zawierają płatki aluminium zatopione w grubej żywicy poliestrowej lub epoksydowej. Po wypaleniu w 190 °C i nałożeniu bezbarwnego topcoatu płatki ulegają częściowej dezorientacji, przez co powierzchnia przypomina polerowane srebro lub jasny szary metalik, a nie lustro.',
-            'W komorach próżniowych STANIAX (Ø 1200 mm) napylanie aluminium odbywa się w fazie gazowej przy ciśnieniu 10⁻⁴ mbar na idealnie wypoziomowany podkład UV. Warstwa metalu o grubości 80–120 nm tworzy ciągłą taflę zwierciadlaną, którą można zabarwić na chrom, 24-karatowe złoto, miedź lub tytan z dokładnością ΔE < 0,8.',
+            'W komorach próżniowych STANIAX (Ø 1200 mm) napylanie aluminium odbywa się w fazie gazowej przy ciśnieniu 10⁻⁴ mbar na idealnie wypoziomowany podkład UV. Warstwa metalu o grubości 80-120 nm tworzy ciągłą taflę zwierciadlaną, którą można zabarwić na chrom, 24-karatowe złoto, miedź lub tytan z dokładnością ΔE < 0,8.',
           ],
           bullets: [
             'Możliwość powlekania detali z ABS, PC, polipropylenu, poliamidu, szkła oraz odlewów ZnAl i stali',
@@ -93,7 +93,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Czy można malować proszkowo tworzywa ABS lub poliwęglan?',
-          a: 'Nie, piec polimeryzacyjny 180–200 °C powoduje stopienie i deformację wyprasek z ABS (HDT ~90 °C) i PC.',
+          a: 'Nie, piec polimeryzacyjny 180-200 °C powoduje stopienie i deformację wyprasek z ABS (HDT ~90 °C) i PC.',
         },
         {
           q: 'Czy powłoka PVD jest odporna na warunki atmosferyczne?',
@@ -101,7 +101,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Jaki jest czas realizacji serii PVD względem lakierni proszkowej?',
-          a: 'Serie przemysłowe B2B realizujemy w 3–7 dni roboczych, a odbłyśniki samochodowe w 2–4 dni robocze w zakładzie w Józefowie.',
+          a: 'Serie przemysłowe B2B realizujemy w 3-7 dni roboczych, a odbłyśniki samochodowe w 2-4 dni robocze w zakładzie w Józefowie.',
         },
       ],
       relatedLinks: [
@@ -124,15 +124,15 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Chrome-Effect Powder Coating',
       directAnswerQuestion: 'How does PVD vacuum metallization differ from chrome-effect powder coating?',
       directAnswer:
-        'Chrome-effect powder coating requires 180–200 °C oven curing—melting ABS, PC, and PP plastics—and yields only a ~55% semi-reflective metallic silver with orange-peel texture. STANIAX PVD vacuum metallization deposits 99.99% pure aluminum below 70 °C, delivering >92% true mirror reflectance and crisp thread tolerances.',
+        'Chrome-effect powder coating requires 180-200 °C oven curing - melting ABS, PC, and PP plastics - and yields only a ~55% semi-reflective metallic silver with orange-peel texture. STANIAX PVD vacuum metallization deposits 99.99% pure aluminum below 70 °C, delivering >92% true mirror reflectance and crisp thread tolerances.',
       verdictTitle: 'B2B Engineering Verdict',
       verdictSummary:
         'Use powder coating for heavy structural corrosion protection on steel frames and wheels. Specify STANIAX PVD vacuum metallization whenever true mirror chrome/gold optics, polymer or glass compatibility, or >92% lighting reflectance is required.',
       comparisonRows: [
-        { parameter: 'Optical Reflectance & Finish', optionA: '>92% true mirror specular chrome/gold', optionB: '~50–60% metallic silver with visible flake' },
-        { parameter: 'Process Curing Temperature', optionA: '45–75 °C (safe for ABS, PC, PP, PA, glass)', optionB: '180–200 °C oven (metals only)' },
-        { parameter: 'Total Film Build', optionA: '20–35 µm (preserves fine threads & snap-fits)', optionB: '80–150 µm (bridges sharp edges & tolerances)' },
-        { parameter: 'Headlamp & LED Optics Use', optionA: 'Yes — OEM standard for reflectors', optionB: 'No — scatters beam pattern' },
+        { parameter: 'Optical Reflectance & Finish', optionA: '>92% true mirror specular chrome/gold', optionB: '~50-60% metallic silver with visible flake' },
+        { parameter: 'Process Curing Temperature', optionA: '45-75 °C (safe for ABS, PC, PP, PA, glass)', optionB: '180-200 °C oven (metals only)' },
+        { parameter: 'Total Film Build', optionA: '20-35 µm (preserves fine threads & snap-fits)', optionB: '80-150 µm (bridges sharp edges & tolerances)' },
+        { parameter: 'Headlamp & LED Optics Use', optionA: 'Yes - OEM standard for reflectors', optionB: 'No - scatters beam pattern' },
         { parameter: 'Surface Smoothness', optionA: 'Class-A optical mirror leveling', optionB: 'Characteristic powder orange-peel' },
       ],
       sections: [
@@ -140,7 +140,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           heading: 'Why Chrome Powder Cannot Match Vapor-Deposited Aluminum',
           paragraphs: [
             'So-called chrome powders suspend leafing aluminum pigments inside a thick polyester or epoxy resin matrix. Once baked at 190 °C and sealed under clear powder, pigment leafing shifts, dulling the surface into bright silver rather than an image-forming mirror.',
-            'Inside STANIAX Ø 1200 mm high-vacuum chambers (10⁻⁴ mbar), 99.99% aluminum condenses atom-by-atom onto a flow-leveled UV basecoat. The resulting 80–120 nm metallic film achieves >92% specular reflectance and can be tinted to chrome, 24k gold, rose gold, or smoked titanium within ΔE < 0.8.',
+            'Inside STANIAX Ø 1200 mm high-vacuum chambers (10⁻⁴ mbar), 99.99% aluminum condenses atom-by-atom onto a flow-leveled UV basecoat. The resulting 80-120 nm metallic film achieves >92% specular reflectance and can be tinted to chrome, 24k gold, rose gold, or smoked titanium within ΔE < 0.8.',
           ],
           bullets: [
             'Compatible with injection-molded ABS, PC, PP, PA66, glass flacons, and ZnAl/aluminum castings',
@@ -151,7 +151,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         {
           heading: 'Hybrid Anticorrosion Base + PVD Mirror for Classic Steel & Castings',
           paragraphs: [
-            'For corroded vintage steel headlamp bowls and sandblasted ZnAl housings, STANIAX applies an epoxy anticorrosion seal followed by a high-leveling thermal primer, high-vacuum PVD aluminum, and SiOx or 2K polyurethane protection—combining rust immunity with optical brilliance.',
+            'For corroded vintage steel headlamp bowls and sandblasted ZnAl housings, STANIAX applies an epoxy anticorrosion seal followed by a high-leveling thermal primer, high-vacuum PVD aluminum, and SiOx or 2K polyurethane protection - combining rust immunity with optical brilliance.',
           ],
         },
       ],
@@ -173,7 +173,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Can ABS or polycarbonate parts be powder coated?',
-          a: 'No, 180–200 °C powder curing ovens deform thermoplastics well above their heat deflection temperature.',
+          a: 'No, 180-200 °C powder curing ovens deform thermoplastics well above their heat deflection temperature.',
         },
         {
           q: 'Does PVD vacuum metallization resist outdoor UV exposure?',
@@ -181,7 +181,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'What is the typical B2B turnaround at STANIAX?',
-          a: '3–7 business days for serial industrial batches and 2–4 days for automotive reflectors at our Józefów facility.',
+          a: '3-7 business days for serial industrial batches and 2-4 days for automotive reflectors at our Józefów facility.',
         },
       ],
       relatedLinks: [
@@ -204,15 +204,15 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Chrom-Effekt-Pulverbeschichtung',
       directAnswerQuestion: 'Worin unterscheidet sich PVD-Vakuummetallisierung von einer Chrom-Pulverbeschichtung?',
       directAnswer:
-        'Pulverbeschichtungen benötigen 180–200 °C Einbrenntemperatur (wodurch ABS, PC und PP schmelzen) und erzeugen nur ein silbergraues Metallic-Finish mit ca. 55 % Reflexion und Orangenhaut. Die PVD-Vakuummetallisierung bei STANIAX scheidet 99,99 % Reinaluminium unter 70 °C ab und liefert >92 % echten Spiegelglanz bei voller Maßhaltigkeit.',
+        'Pulverbeschichtungen benötigen 180-200 °C Einbrenntemperatur (wodurch ABS, PC und PP schmelzen) und erzeugen nur ein silbergraues Metallic-Finish mit ca. 55 % Reflexion und Orangenhaut. Die PVD-Vakuummetallisierung bei STANIAX scheidet 99,99 % Reinaluminium unter 70 °C ab und liefert >92 % echten Spiegelglanz bei voller Maßhaltigkeit.',
       verdictTitle: 'Technisches B2B-Fazit',
       verdictSummary:
         'Nutzen Sie Pulverlacke für dickschichtigen Korrosionsschutz auf Stahlrahmen und Felgen. Wählen Sie die STANIAX PVD-Vakuummetallisierung für echte Chrom-/Goldspiegel, Kunststoffverchromung, Glasflakons sowie Scheinwerfer- und LED-Reflektoren.',
       comparisonRows: [
-        { parameter: 'Spiegelglanz & Reflexionsgrad', optionA: '>92 % gerichteter Echtspiegel (Al 99,99 %)', optionB: '~50–60 % Silbermetallic mit Pigmentkorn' },
-        { parameter: 'Prozesstemperatur', optionA: '45–75 °C (ideal für ABS, PC, PP, PA & Glas)', optionB: '180–200 °C Einbrennofen (nur Metalle)' },
-        { parameter: 'Gesamtschichtdicke', optionA: '20–35 µm (Gewinde & Rastnasen bleiben frei)', optionB: '80–150 µm (rundet Kanten & Passungen ab)' },
-        { parameter: 'Scheinwerfer- & Lichtoptik', optionA: 'Ja — OEM-Standard zum Reflektor bedampfen', optionB: 'Nein — streut den Lichtkegel unzulässig' },
+        { parameter: 'Spiegelglanz & Reflexionsgrad', optionA: '>92 % gerichteter Echtspiegel (Al 99,99 %)', optionB: '~50-60 % Silbermetallic mit Pigmentkorn' },
+        { parameter: 'Prozesstemperatur', optionA: '45-75 °C (ideal für ABS, PC, PP, PA & Glas)', optionB: '180-200 °C Einbrennofen (nur Metalle)' },
+        { parameter: 'Gesamtschichtdicke', optionA: '20-35 µm (Gewinde & Rastnasen bleiben frei)', optionB: '80-150 µm (rundet Kanten & Passungen ab)' },
+        { parameter: 'Scheinwerfer- & Lichtoptik', optionA: 'Ja - OEM-Standard zum Reflektor bedampfen', optionB: 'Nein - streut den Lichtkegel unzulässig' },
         { parameter: 'Oberflächenverlauf', optionA: 'Optisch glatte Klasse-A-Oberfläche', optionB: 'Typische Pulverlack-Struktur' },
       ],
       sections: [
@@ -232,7 +232,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         {
           heading: 'Wann ein Hybridaufbau auf Oldtimer-Stahlreflektoren sinnvoll ist',
           paragraphs: [
-            'Bei angerosteten Stahlreflektoren klassischer Fahrzeuge kombinieren wir Entrostung und korrosionsschützende Epoxid-Grundierung mit einem hochglatten Hitzeschutzprimer sowie anschließender PVD-Aluminiumbedampfung und SiOx-Versiegelung — für langlebige HU/TÜV-Lichtwerte.',
+            'Bei angerosteten Stahlreflektoren klassischer Fahrzeuge kombinieren wir Entrostung und korrosionsschützende Epoxid-Grundierung mit einem hochglatten Hitzeschutzprimer sowie anschließender PVD-Aluminiumbedampfung und SiOx-Versiegelung - für langlebige HU/TÜV-Lichtwerte.',
           ],
         },
       ],
@@ -254,7 +254,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Können ABS- oder Polycarbonat-Gehäuse pulverbeschichtet werden?',
-          a: 'Nein, die Einbrenntemperatur von 180–200 °C zerstört thermoplastische Spritzgussteile sofort.',
+          a: 'Nein, die Einbrenntemperatur von 180-200 °C zerstört thermoplastische Spritzgussteile sofort.',
         },
         {
           q: 'Ist die PVD-Schicht mit Schutzlack witterungsbeständig?',
@@ -262,7 +262,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Wie schnell liefert STANIAX Serienlose nach Deutschland?',
-          a: 'Industrieserien fertigen wir in 3–7 Werktagen, Scheinwerferreflektoren in 2–4 Werktagen ab Eingang in Józefów.',
+          a: 'Industrieserien fertigen wir in 3-7 Werktagen, Scheinwerferreflektoren in 2-4 Werktagen ab Eingang in Józefów.',
         },
       ],
       relatedLinks: [
@@ -288,7 +288,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Hydrografika (Water Transfer Printing)',
       directAnswerQuestion: 'Czy hydrografika może zastąpić metalizację próżniową PVD w efekcie chromu?',
       directAnswer:
-        'Nie. Hydrografika przenosi z powierzchni wody drukowaną folię PVA z wzorem (np. karbon, drewno), ale nie potrafi wytworzyć ciągłej warstwy czystego metalu — tzw. folie lustrzane rozciągają się na krzywiznach i dają przydymiony połysk ~45–55%. Metalizacja próżniowa PVD osadza prawdziwe aluminium 99,99% (>92% odbicia) powtarzalnie na tysiącach detali.',
+        'Nie. Hydrografika przenosi z powierzchni wody drukowaną folię PVA z wzorem (np. karbon, drewno), ale nie potrafi wytworzyć ciągłej warstwy czystego metalu - tzw. folie lustrzane rozciągają się na krzywiznach i dają przydymiony połysk ~45-55%. Metalizacja próżniowa PVD osadza prawdziwe aluminium 99,99% (>92% odbicia) powtarzalnie na tysiącach detali.',
       verdictTitle: 'Werdykt technologiczny',
       verdictSummary:
         'Hydrografika sprawdza się wyłącznie przy jednostkowym tuningu wzorami karbonu lub kamuflażu. Do uzyskania metalicznego lustra chromu, złota, satyny OEM oraz seryjnej produkcji B2B jedynym standardem przemysłowym jest powłoka PVD.',
@@ -367,7 +367,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Hydrographics (Water Transfer)',
       directAnswerQuestion: 'Can hydrographics achieve the same chrome mirror finish as PVD vacuum metallization?',
       directAnswer:
-        'No. Hydrographics floats a printed polyvinyl alcohol (PVA) ink film on water to apply patterns like carbon fiber or woodgrain, but ink cannot replicate continuous metallic electron reflection—yielding muted ~45% sheen and corner stretching. STANIAX PVD deposits 99.99% pure aluminum in high vacuum for >92% distortion-free mirror chrome.',
+        'No. Hydrographics floats a printed polyvinyl alcohol (PVA) ink film on water to apply patterns like carbon fiber or woodgrain, but ink cannot replicate continuous metallic electron reflection - yielding muted ~45% sheen and corner stretching. STANIAX PVD deposits 99.99% pure aluminum in high vacuum for >92% distortion-free mirror chrome.',
       verdictTitle: 'Engineering Verdict',
       verdictSummary:
         'Reserve hydrographics for one-off decorative patterns (camo, woodgrain, carbon weave). Specify STANIAX PVD vacuum metallization for authentic chrome, gold, smoked titanium, optical reflectors, and repeatable B2B production runs.',
@@ -423,7 +423,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'How many closures fit into a single STANIAX vacuum cycle?',
-          a: 'Approximately 600–1,000 small cosmetic caps per Ø 1200 mm planetary cycle.',
+          a: 'Approximately 600-1,000 small cosmetic caps per Ø 1200 mm planetary cycle.',
         },
       ],
       relatedLinks: [
@@ -463,7 +463,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           paragraphs: [
             'Unter dem Suchbegriff „Hydrografik Chrom“ suchen viele Anwender nach einer einfachen Methode zum Kunststoff verchromen. Da Drucktinten jedoch keine geschlossene Metallgitterstruktur bilden, wirkt jede Transferfolie im direkten Vergleich wie grauer Felgenlack.',
             'Im STANIAX-Werk in Józefów rotieren die Bauteile auf Planetengestellen im Hochvakuum (10⁻⁴ mbar). Das verdampfte Aluminium legt sich gleichmäßig um dreidimensionale Konturen, ohne Nähte, Wasserflecken oder verstopfte Feingewinde zu hinterlassen.',
-            'Anschließend versiegeln UV-härtende oder zweikomponentige Decklacke die Metallschicht abriebfest nach DIN EN ISO 2409 (Gt 0) — wahlweise in Hochglanz-Chrom, 24-Karat-Gold, Roségold oder edlem Dark Chrome für Interieurleisten und Premium-Flakons.',
+            'Anschließend versiegeln UV-härtende oder zweikomponentige Decklacke die Metallschicht abriebfest nach DIN EN ISO 2409 (Gt 0) - wahlweise in Hochglanz-Chrom, 24-Karat-Gold, Roségold oder edlem Dark Chrome für Interieurleisten und Premium-Flakons.',
           ],
           bullets: [
             'Beständig gegen 96 % Parfümethanol, Handschweiß und Innenraumreiniger',
@@ -474,7 +474,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         {
           heading: 'Wann welche Oberflächentechnik im Fahrzeug- und Produktdesign überzeugt',
           paragraphs: [
-            'Während Hydrografik reine Musterdekore abdeckt, erfüllt die PVD-Vakuummetallisierung sämtliche optischen und mechanischen Lastenhefte europäischer OEM-Serienprojekte bei kurzen Lieferzeiten von 3–7 Werktagen.',
+            'Während Hydrografik reine Musterdekore abdeckt, erfüllt die PVD-Vakuummetallisierung sämtliche optischen und mechanischen Lastenhefte europäischer OEM-Serienprojekte bei kurzen Lieferzeiten von 3-7 Werktagen.',
             'Speziell bei komplex geformten Zierblenden, Marken-Emblemen, Spiegelkappen und Lüftungsdüsen aus ABS oder PC/ABS garantiert die Gasphasenabscheidung kantenscharfe Konturen ohne Folienverzug. Zudem lassen sich Teilbereiche per Präzisionsmaskierung selektiv verspiegeln oder mit matten Kontrastflächen kombinieren.',
           ],
         },
@@ -530,13 +530,13 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Przeróbka / Retrofit na Bi-LED',
       directAnswerQuestion: 'Czy lepiej zregenerować fabryczny odbłyśnik PVD, czy przerobić lampy na soczewki Bi-LED?',
       directAnswer:
-        'Regeneracja fabrycznego odbłyśnika metodą PVD w STANIAX (od 150–250 zł/szt.) przywraca >92% fabrycznego odbicia światła przy 100% zachowaniu homologacji drogowej ECE, sterowania AFS i ważności ubezpieczenia OC/AC. Przeróbka lampy H7/Xenon na niehomologowaną soczewkę Bi-LED kosztuje 1500–3500 zł i formalnie unieważnia homologację reflektora.',
+        'Regeneracja fabrycznego odbłyśnika metodą PVD w STANIAX (od 150-250 zł/szt.) przywraca >92% fabrycznego odbicia światła przy 100% zachowaniu homologacji drogowej ECE, sterowania AFS i ważności ubezpieczenia OC/AC. Przeróbka lampy H7/Xenon na niehomologowaną soczewkę Bi-LED kosztuje 1500-3500 zł i formalnie unieważnia homologację reflektora.',
       verdictTitle: 'Werdykt prawny i techniczny dla kierowców oraz flot',
       verdictSummary:
         'W pojazdach poruszających się po drogach publicznych UE regeneracja oryginalnego odbłyśnika PVD zwraca pełną moc świateł mijania bez ryzyka zatrzymania dowodu rejestracyjnego na SKP lub odmowy wypłaty odszkodowania po kolizji.',
       comparisonRows: [
         { parameter: 'Homologacja drogowa ECE i przegląd SKP', optionA: '100% zachowana fabryczna homologacja lampy', optionB: 'Utrata homologacji przy zmianie źródła światła' },
-        { parameter: 'Koszt kompletu (lewa + prawa strona)', optionA: '300 – 600 zł za parę samych odbłyśników', optionB: '1 500 – 3 500 zł za przeróbkę reflektorów' },
+        { parameter: 'Koszt kompletu (lewa + prawa strona)', optionA: '300 - 600 zł za parę samych odbłyśników', optionB: '1 500 - 3 500 zł za przeróbkę reflektorów' },
         { parameter: 'Ochrona ubezpieczeniowa OC / AC', optionA: 'Pełna zgodność ze specyfikacją producenta OEM', optionB: 'Ryzyko regresu ubezpieczyciela po wypadku nocnym' },
         { parameter: 'Kompatybilność z CANBUS i skrętnym AFS', optionA: 'Plug & Play bez błędów na desce rozdzielczej', optionB: 'Wymaga adapterów, rezystorów i cięcia kosza' },
         { parameter: 'Serwisowalność po latach', optionA: 'Wymiana standardowego żarnika D1S/D2S/D3S lub H7', optionB: 'Awaria niewymiennego modułu = ponowne rozklejanie' },
@@ -546,7 +546,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           heading: 'Dlaczego kierowcy mylnie obwiniają technologię Xenon lub H7 zamiast wypalonego odbłyśnika?',
           paragraphs: [
             'Sprawny fabryczny projektor Bi-Xenon (Hella E55, Intemo, Valeo, Bosch AL) z nowym odbłyśnikiem PVD oraz markowym żarnikiem generuje szeroką, równomierną wiązkę ponad 3200 lumenów. Wrażenie „świeczek zamiast świateł” wynika niemal zawsze z utlenienia i wypalenia górnej części czaszy odbłyśnika po 150 000 km.',
-            'Zamiast wycinać fabryczne mocowania pod chińskie projektory Bi-LED, napylenie świeżego aluminium 99,99% z powłoką ochronną SiOx w komorze próżniowej STANIAX przywraca parametry salonowe w 2–4 dni robocze — za ułamek ceny przeróbki.',
+            'Zamiast wycinać fabryczne mocowania pod chińskie projektory Bi-LED, napylenie świeżego aluminium 99,99% z powłoką ochronną SiOx w komorze próżniowej STANIAX przywraca parametry salonowe w 2-4 dni robocze - za ułamek ceny przeróbki.',
           ],
           bullets: [
             'Idealna linia światłocienia na przyrządzie diagnostycznym SKP i niemieckim TÜV/HU',
@@ -564,7 +564,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       whenChooseATitle: 'Wybierz regenerację odbłyśnika PVD, gdy:',
       whenChooseA: [
         'Poruszasz się po drogach publicznych w Polsce i UE oraz cenisz pełną legalność ECE.',
-        'Chcesz odzyskać do +250% więcej światła na mokrym asfalcie w budżecie 300–600 zł za parę.',
+        'Chcesz odzyskać do +250% więcej światła na mokrym asfalcie w budżecie 300-600 zł za parę.',
         'Zależy Ci na bezproblemowym działaniu systemów skrętnych AFS/Dynamic Xenon.',
       ],
       whenChooseBTitle: 'Przeróbka Bi-LED ma sens wyłącznie, gdy:',
@@ -578,7 +578,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Czy zregenerowany w STANIAX odbłyśnik Bi-Xenon świeci jak nowy oryginał?',
-          a: 'Tak, warstwa aluminium 99,99% z barierą SiOx daje >92% refleksyjności kierunkowej — identycznie z nową częścią OEM.',
+          a: 'Tak, warstwa aluminium 99,99% z barierą SiOx daje >92% refleksyjności kierunkowej - identycznie z nową częścią OEM.',
         },
         {
           q: 'Czy regenerujecie również odbłyśniki z fabrycznych lamp LED?',
@@ -586,7 +586,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Jak szybko mogę wysłać wymontowane soczewki do Józefowa?',
-          a: 'Wystarczy spakować same odbłyśniki i wysłać kurierem na ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów — odsyłamy w 2–4 dni robocze.',
+          a: 'Wystarczy spakować same odbłyśniki i wysłać kurierem na ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów - odsyłamy w 2-4 dni robocze.',
         },
       ],
       relatedLinks: [
@@ -609,13 +609,13 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Aftermarket Bi-LED Conversion',
       directAnswerQuestion: 'Should you restore burnt OEM reflector bowls with PVD or retrofit aftermarket Bi-LED projectors?',
       directAnswer:
-        'Restoring the factory OEM reflector bowl via high-vacuum 99.99% aluminum PVD at STANIAX (€35–€65/unit) recovers >92% factory beam intensity while keeping 100% ECE type-approval, adaptive AFS cornering electronics, and motor insurance validity. Cutting halogen/xenon housings for uncertified Bi-LED modules voids ECE homologation on European public roads.',
+        'Restoring the factory OEM reflector bowl via high-vacuum 99.99% aluminum PVD at STANIAX (€35-€65/unit) recovers >92% factory beam intensity while keeping 100% ECE type-approval, adaptive AFS cornering electronics, and motor insurance validity. Cutting halogen/xenon housings for uncertified Bi-LED modules voids ECE homologation on European public roads.',
       verdictTitle: 'Legal & Photometric Verdict',
       verdictSummary:
         'For any road-registered vehicle in the EU/UK, PVD restoration of the original Hella, Valeo, Bosch, or Koito bowl delivers new-car night visibility at ~20% of conversion cost with zero inspection or insurance liability.',
       comparisonRows: [
         { parameter: 'ECE Road Homologation & MOT/TÜV', optionA: '100% factory type-approval preserved', optionB: 'Voids lens light-source certification' },
-        { parameter: 'Typical Pair Cost (Left + Right)', optionA: '€75 – €140 for loose reflector bowls', optionB: '€400 – €900 for full retrofit conversion' },
+        { parameter: 'Typical Pair Cost (Left + Right)', optionA: '€75 - €140 for loose reflector bowls', optionB: '€400 - €900 for full retrofit conversion' },
         { parameter: 'Insurance Coverage Compliance', optionA: 'Full OEM specification compliance', optionB: 'Risk of claim dispute after night collisions' },
         { parameter: 'Adaptive AFS & CANBUS Electronics', optionA: '100% plug-and-play factory fit', optionB: 'Requires bracket cutting & CANBUS resistors' },
         { parameter: 'Long-Term Serviceability', optionA: 'Uses standard replaceable D1S/D2S/H7 bulbs', optionB: 'Integrated LED chip failure requires re-splitting' },
@@ -624,8 +624,8 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         {
           heading: 'Why Factory Xenon Appears Dim Only Because the Bowl Oxidized',
           paragraphs: [
-            'A healthy OEM Bi-Xenon projector (Hella E55, EvoX-R/Intemo, Valeo, AL Bosch) paired with a fresh D1S/D2S burner projects over 3,200 lumens across a wide, glare-free cutoff. Drivers assume Xenon is outdated only because the factory aluminum film above the arc tube burns brown after 8–10 years.',
-            'Recoating those exact OEM bowls in STANIAX Ø 1200 mm vacuum chambers with high-temp primer, 99.99% aluminum, and SiOx passivation restores showroom lux readings in 2–4 working days without irreversibly modifying headlamp brackets.',
+            'A healthy OEM Bi-Xenon projector (Hella E55, EvoX-R/Intemo, Valeo, AL Bosch) paired with a fresh D1S/D2S burner projects over 3,200 lumens across a wide, glare-free cutoff. Drivers assume Xenon is outdated only because the factory aluminum film above the arc tube burns brown after 8-10 years.',
+            'Recoating those exact OEM bowls in STANIAX Ø 1200 mm vacuum chambers with high-temp primer, 99.99% aluminum, and SiOx passivation restores showroom lux readings in 2-4 working days without irreversibly modifying headlamp brackets.',
           ],
           bullets: [
             'Razor-sharp ECE R112 / R98 beam cutoff on workshop headlamp aligners',
@@ -665,7 +665,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'What is the turnaround for shipped projector bowls?',
-          a: '2–4 business days inside our Józefów facility plus insured courier transit.',
+          a: '2-4 business days inside our Józefów facility plus insured courier transit.',
         },
       ],
       relatedLinks: [
@@ -688,13 +688,13 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Nachträglicher Bi-LED-Umbau',
       directAnswerQuestion: 'Sollte man blinde Reflektoren PVD-bedampfen lassen oder auf Nachrüst-Bi-LED-Linsen umbauen?',
       directAnswer:
-        'Das PVD-Bedampfen des Originalreflektors bei STANIAX (ab ca. 35–60 €/Stück) stellt >92 % Werksreflexion wieder her und erhält die ECE-Bauartgenehmigung, das AFS-Kurvenlicht sowie den vollen Versicherungsschutz für die HU/TÜV-Prüfung. Ein Umbau von H7- oder Xenon-Scheinwerfern auf ungeprüfte Bi-LED-Module führt im öffentlichen Straßenverkehr zum Erlöschen der Betriebserlaubnis.',
+        'Das PVD-Bedampfen des Originalreflektors bei STANIAX (ab ca. 35-60 €/Stück) stellt >92 % Werksreflexion wieder her und erhält die ECE-Bauartgenehmigung, das AFS-Kurvenlicht sowie den vollen Versicherungsschutz für die HU/TÜV-Prüfung. Ein Umbau von H7- oder Xenon-Scheinwerfern auf ungeprüfte Bi-LED-Module führt im öffentlichen Straßenverkehr zum Erlöschen der Betriebserlaubnis.',
       verdictTitle: 'Rechtliches & technisches Urteil für DACH-Fahrzeuge',
       verdictSummary:
         'Für straßenzugelassene Pkw und Lkw in Deutschland, Österreich und Polen bietet die PVD-Neuverspiegelung des Originalreflektors volle Neuwagen-Leuchtkraft ohne HU-Beanstandung oder Regressrisiko bei Nachtunfällen.',
       comparisonRows: [
         { parameter: 'ECE-Zulassung & HU / TÜV / Pickerl', optionA: '100 % Erhalt der Original-Bauartgenehmigung', optionB: 'Erlöschen der Betriebserlaubnis des Scheinwerfers' },
-        { parameter: 'Kosten für beide Fahrzeugseiten', optionA: 'Ca. 75 – 140 € für ausgebaute Reflektoren', optionB: '450 – 1.000 € für Komplettumbau' },
+        { parameter: 'Kosten für beide Fahrzeugseiten', optionA: 'Ca. 75 - 140 € für ausgebaute Reflektoren', optionB: '450 - 1.000 € für Komplettumbau' },
         { parameter: 'Kfz-Haftpflicht & Kaskoschutz', optionA: 'Uneingeschränkt serienkonform', optionB: 'Gefahr von Kürzungen bei Blendungsunfällen' },
         { parameter: 'Kurvenlicht (AFS) & Bordelektronik', optionA: '100 % Plug-and-Play ohne Fehlermeldung', optionB: 'Fräsarbeiten am Tragrahmen & Lastwiderstände nötig' },
         { parameter: 'Wartungsfreundlichkeit', optionA: 'Normale D1S/D2S/H7-Leuchtmittel wechselbar', optionB: 'Bei Platinendefekt erneutes Öffnen der Lampe' },
@@ -704,7 +704,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           heading: 'Warum Bi-Xenon nur wegen verbrannter Spiegelschalen schwach wirkt',
           paragraphs: [
             'Ein intakter Hella-, Valeo- oder Bosch-AL-Xenonprojektor liefert mit frischem Brenner über 3.200 Lumen und eine gestochen scharfe Hell-Dunkel-Grenze. Dass Scheinwerfer nach acht bis zehn Jahren kaum noch die Fahrbahn ausleuchten, liegt fast immer am abgedampften Aluminium direkt über dem Lichtbogen.',
-            'Wenn Sie Ihren Scheinwerfer Reflektor neu verspiegeln lassen, trägt STANIAX im Hochvakuum (10⁻⁴ mbar) hitzefesten Spezialprimer, 99,99 % Reinaluminium und eine schützende SiOx-Schicht auf. Binnen 2–4 Werktagen erreicht der Originalscheinwerfer wieder exakte Neuwagenwerte.',
+            'Wenn Sie Ihren Scheinwerfer Reflektor neu verspiegeln lassen, trägt STANIAX im Hochvakuum (10⁻⁴ mbar) hitzefesten Spezialprimer, 99,99 % Reinaluminium und eine schützende SiOx-Schicht auf. Binnen 2-4 Werktagen erreicht der Originalscheinwerfer wieder exakte Neuwagenwerte.',
             'Gerade bei strengen deutschen HU-/TÜV-Kontrollen prüfen Sachverständige gezielt die Kennzeichnung auf Gehäuse und Streuscheibe (DC/DR bzw. HC/HR). Mit dem neu bedampften Originalreflektor bleibt jedes Prüfzeichen 100 % gültig.',
           ],
           bullets: [
@@ -745,7 +745,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Wie lange dauert das Scheinwerfer bedampfen inklusive Rückversand?',
-          a: 'Die Werkslaufzeit in Józefów beträgt 2–4 Werktage zuzüglich 2 Tagen versichertem Paketlauf nach Deutschland.',
+          a: 'Die Werkslaufzeit in Józefów beträgt 2-4 Werktage zuzüglich 2 Tagen versichertem Paketlauf nach Deutschland.',
         },
       ],
       relatedLinks: [
@@ -771,16 +771,16 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: '„Czajniczek” z oparami acetonu (DIY)',
       directAnswerQuestion: 'Dlaczego lakierowanie UV kloszy reflektorów jest trwalsze niż metoda „czajniczka” z acetonem?',
       directAnswer:
-        '„Czajniczek” rozpuszcza wierzchnią warstwę nagiego poliwęglanu (PC) gorącymi oparami acetonu lub chlorku metylenu — nie nakłada żadnego filtra UV i wywołuje naprężenia prowadzące do siatki mikropęknięć (crazing) już po 3–6 miesiącach. Przemysłowe lakierowanie UV w STANIAX odbudowuje usieciowaną powłokę ochronną o trwałości powyżej 5 lat.',
+        '„Czajniczek” rozpuszcza wierzchnią warstwę nagiego poliwęglanu (PC) gorącymi oparami acetonu lub chlorku metylenu - nie nakłada żadnego filtra UV i wywołuje naprężenia prowadzące do siatki mikropęknięć (crazing) już po 3-6 miesiącach. Przemysłowe lakierowanie UV w STANIAX odbudowuje usieciowaną powłokę ochronną o trwałości powyżej 5 lat.',
       verdictTitle: 'Werdykt inżynierii polimerów (PC)',
       verdictSummary:
-        'Nigdy nie traktuj drogich kloszy Bi-Xenon ani Matrix LED oparami acetonu — wywołane mikropęknięcia skrośne są nieodwracalne i zmuszają do wymiany klosza. Wybierz szlif gradacyjny i bezpyłowy twardy lakier UV.',
+        'Nigdy nie traktuj drogich kloszy Bi-Xenon ani Matrix LED oparami acetonu - wywołane mikropęknięcia skrośne są nieodwracalne i zmuszają do wymiany klosza. Wybierz szlif gradacyjny i bezpyłowy twardy lakier UV.',
       comparisonRows: [
-        { parameter: 'Ochrona przed promieniowaniem słonecznym UV', optionA: 'Pełny bloker UV w usieciowanej żywicy (5+ lat)', optionB: '0% ochrony UV — goły poliwęglan żółknie w pół roku' },
-        { parameter: 'Ryzyko pęknięć naprężeniowych (Solvent Crazing)', optionA: 'Zerowe — dedykowane systemy bezketonowe do PC', optionB: 'Bardzo wysokie — nieodwracalna pajęczynka pęknięć' },
+        { parameter: 'Ochrona przed promieniowaniem słonecznym UV', optionA: 'Pełny bloker UV w usieciowanej żywicy (5+ lat)', optionB: '0% ochrony UV - goły poliwęglan żółknie w pół roku' },
+        { parameter: 'Ryzyko pęknięć naprężeniowych (Solvent Crazing)', optionA: 'Zerowe - dedykowane systemy bezketonowe do PC', optionB: 'Bardzo wysokie - nieodwracalna pajęczynka pęknięć' },
         { parameter: 'Odporność na chemię myjni i piasek drogowy', optionA: 'Twarda powłoka odporna na ścieranie i zasady', optionB: 'Rozmiękczona warstwa łatwo matowieje pod szczotkami' },
-        { parameter: 'Możliwość ponownej korekty w przyszłości', optionA: 'Pełna — szlifujesz wyłącznie warstwę lakieru', optionB: 'Często brak — pęknięcia wchodzą w głąb tworzywa' },
-        { parameter: 'Wpływ na jasność wypalonej soczewki wewnątrz', optionA: 'Łączymy z metalizacją PVD odbłyśnika (>92%)', optionB: 'Zerowy — naprawia wyłącznie zewnętrzny plastik' },
+        { parameter: 'Możliwość ponownej korekty w przyszłości', optionA: 'Pełna - szlifujesz wyłącznie warstwę lakieru', optionB: 'Często brak - pęknięcia wchodzą w głąb tworzywa' },
+        { parameter: 'Wpływ na jasność wypalonej soczewki wewnątrz', optionA: 'Łączymy z metalizacją PVD odbłyśnika (>92%)', optionB: 'Zerowy - naprawia wyłącznie zewnętrzny plastik' },
       ],
       sections: [
         {
@@ -819,7 +819,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Ile kosztuje lakierowanie klosza powłoką UV w STANIAX?',
-          a: 'Renowacja klosza poliwęglanowego z twardym lakierem UV kosztuje orientacyjnie 150–220 zł za sztukę (szczegóły w cenniku).',
+          a: 'Renowacja klosza poliwęglanowego z twardym lakierem UV kosztuje orientacyjnie 150-220 zł za sztukę (szczegóły w cenniku).',
         },
         {
           q: 'Czy folia PPF wystarcza zamiast lakieru UV po szlifowaniu?',
@@ -827,7 +827,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Czy polerowanie kloszy naprawi słabe światła mijania w nocy?',
-          a: 'Jeśli klosz jest już przejrzysty, a światła nadal słabe, przyczyną jest wypalony odbłyśnik wewnątrz — wymagający metalizacji próżniowej PVD.',
+          a: 'Jeśli klosz jest już przejrzysty, a światła nadal słabe, przyczyną jest wypalony odbłyśnik wewnątrz - wymagający metalizacji próżniowej PVD.',
         },
       ],
       relatedLinks: [
@@ -850,16 +850,16 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Acetone / Solvent Vapor Cup (DIY)',
       directAnswerQuestion: 'Why is industrial UV hardcoating far superior to acetone vapor headlight restoration cups?',
       directAnswer:
-        'Acetone and methylene chloride vapor cups melt the outer skin of bare polycarbonate (PC) without adding any UV absorbers—triggering internal stress micro-cracks (solvent crazing) and rapid re-yellowing within 3–6 months. STANIAX applies a solvent-safe, crosslinked UV hardcoat that restores 5+ year solar and abrasion protection.',
+        'Acetone and methylene chloride vapor cups melt the outer skin of bare polycarbonate (PC) without adding any UV absorbers - triggering internal stress micro-cracks (solvent crazing) and rapid re-yellowing within 3-6 months. STANIAX applies a solvent-safe, crosslinked UV hardcoat that restores 5+ year solar and abrasion protection.',
       verdictTitle: 'Polymer Engineering Verdict',
       verdictSummary:
-        'Never expose expensive Bi-Xenon or Matrix LED polycarbonate lenses to ketone vapors—deep crazing cracks cannot be sanded out. Choose graded wet-sanding followed by booth-applied UV hardcoat.',
+        'Never expose expensive Bi-Xenon or Matrix LED polycarbonate lenses to ketone vapors - deep crazing cracks cannot be sanded out. Choose graded wet-sanding followed by booth-applied UV hardcoat.',
       comparisonRows: [
-        { parameter: 'Solar UV Radiation Blocking', optionA: 'High-density UV absorbers (5+ year clarity)', optionB: 'Zero UV blockers — yellows again within months' },
-        { parameter: 'Solvent Stress-Cracking Risk', optionA: 'Zero — PC-compatible primerless/barrier chemistry', optionB: 'Severe — irreversible internal spiderweb cracks' },
+        { parameter: 'Solar UV Radiation Blocking', optionA: 'High-density UV absorbers (5+ year clarity)', optionB: 'Zero UV blockers - yellows again within months' },
+        { parameter: 'Solvent Stress-Cracking Risk', optionA: 'Zero - PC-compatible primerless/barrier chemistry', optionB: 'Severe - irreversible internal spiderweb cracks' },
         { parameter: 'Car-Wash & Grit Abrasion Resistance', optionA: 'Crosslinked hard-shell scratch resistance', optionB: 'Softened polymer surface mars easily' },
-        { parameter: 'Future Refinishability', optionA: 'Safe — only the clearcoat is sanded later', optionB: 'Often ruined by full-thickness crazing' },
-        { parameter: 'Internal Projector Output Recovery', optionA: 'Combined with >92% PVD bowl restoration', optionB: 'None — treats outer plastic skin only' },
+        { parameter: 'Future Refinishability', optionA: 'Safe - only the clearcoat is sanded later', optionB: 'Often ruined by full-thickness crazing' },
+        { parameter: 'Internal Projector Output Recovery', optionA: 'Combined with >92% PVD bowl restoration', optionB: 'None - treats outer plastic skin only' },
       ],
       sections: [
         {
@@ -898,7 +898,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'How much does industrial UV lens coating cost at STANIAX?',
-          a: 'Approximately €35–€52 per lens, with bundle savings when combined with internal PVD reflector restoration.',
+          a: 'Approximately €35-€52 per lens, with bundle savings when combined with internal PVD reflector restoration.',
         },
         {
           q: 'Can PPF film be applied over your cured UV hardcoat?',
@@ -929,13 +929,13 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       sideBLabel: 'Aceton-Dampfbecher / „Teekanne“ (DIY)',
       directAnswerQuestion: 'Warum ist industrieller UV-Klarlack auf Scheinwerfern besser als der Aceton-Bedampfungsbecher?',
       directAnswer:
-        'Sogenannte Aceton-Bedampfungsbecher lösen lediglich die oberste Schicht des nackten Polycarbonats (PC) chemisch an — sie hinterlassen keinerlei UV-Schutzfilter und provozieren irreversible Spannungsrisse (Crazing) binnen 3–6 Monaten. Die industrielle UV-Hartlackierung bei STANIAX baut eine vernetzte Schutzschicht mit über 5 Jahren Witterungsbeständigkeit auf.',
+        'Sogenannte Aceton-Bedampfungsbecher lösen lediglich die oberste Schicht des nackten Polycarbonats (PC) chemisch an - sie hinterlassen keinerlei UV-Schutzfilter und provozieren irreversible Spannungsrisse (Crazing) binnen 3-6 Monaten. Die industrielle UV-Hartlackierung bei STANIAX baut eine vernetzte Schutzschicht mit über 5 Jahren Witterungsbeständigkeit auf.',
       verdictTitle: 'Werkstofftechnisches Urteil für Polycarbonat',
       verdictSummary:
-        'Setzen Sie hochwertige Bi-Xenon- oder Matrix-LED-Streuscheiben niemals heißen Keton- oder Acetondämpfen aus — durchgehende Spannungsrisse zerstören die Scheibe dauerhaft. Fachgerecht ist nur Stufenschliff plus UV-Hartlack.',
+        'Setzen Sie hochwertige Bi-Xenon- oder Matrix-LED-Streuscheiben niemals heißen Keton- oder Acetondämpfen aus - durchgehende Spannungsrisse zerstören die Scheibe dauerhaft. Fachgerecht ist nur Stufenschliff plus UV-Hartlack.',
       comparisonRows: [
-        { parameter: 'UV-Strahlungsschutz gegen Vergilbung', optionA: 'Hochwirksame UV-Absorber für >5 Jahre Klarheit', optionB: '0 % UV-Schutz — vergilbt nach wenigen Monaten erneut' },
-        { parameter: 'Spannungsriss-Risiko (Solvent Crazing)', optionA: 'Null — PC-verträgliche Industrielacksysteme', optionB: 'Extrem hoch — feines Rissnetz tief im Kunststoff' },
+        { parameter: 'UV-Strahlungsschutz gegen Vergilbung', optionA: 'Hochwirksame UV-Absorber für >5 Jahre Klarheit', optionB: '0 % UV-Schutz - vergilbt nach wenigen Monaten erneut' },
+        { parameter: 'Spannungsriss-Risiko (Solvent Crazing)', optionA: 'Null - PC-verträgliche Industrielacksysteme', optionB: 'Extrem hoch - feines Rissnetz tief im Kunststoff' },
         { parameter: 'Waschstraßen- & Steinschlagfestigkeit', optionA: 'Hochvernetzte kratzfeste Hardcoat-Oberfläche', optionB: 'Angelöste Weichschicht verkratzt sehr schnell' },
         { parameter: 'Spätere Nachbearbeitbarkeit', optionA: 'Problemlos in der Lackschicht möglich', optionB: 'Bei Tiefenrissen meist Totalschaden der Scheibe' },
         { parameter: 'Behebung dunkler Reflektoren innen', optionA: 'Kombinierbar mit >92 % PVD-Reflektorbedampfung', optionB: 'Keine Wirkung auf verbrannte Innenspiegel' },
@@ -978,7 +978,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Was kostet die professionelle UV-Scheibenlackierung bei STANIAX?',
-          a: 'Richtpreis ca. 35–52 € je Frontscheibe laut unserer aktuellen Preistabelle.',
+          a: 'Richtpreis ca. 35-52 € je Frontscheibe laut unserer aktuellen Preistabelle.',
         },
         {
           q: 'Warum bleibt das Abblendlicht trotz klarer Scheibe schwach?',

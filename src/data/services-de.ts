@@ -162,20 +162,20 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           [
             "Einzelnen Reflektor neu bedampfen (lose angeliefert)",
             "Chemisches Entschichten, 220°C Hochtemperatur-Grundierung, PVD-Aluminiumbedampfung 99,99%, Top-Coat-Schutz",
-            "2–3 Werktage",
-            "150 – 300 PLN / Stk. (ca. 35 – 70 €)",
+            "2-3 Werktage",
+            "150 - 300 PLN / Stk. (ca. 35 - 70 €)",
           ],
           [
             "Komplette Aufbereitung eines Standard-Scheinwerfers (H7 / Xenon / Bi-Xenon)",
             "Öffnen des Gehäuses, Reflektor neu bedampfen, Linsenreinigung, Streuscheibe polieren + UV-Lack, Neuabdichtung",
-            "3–5 Werktage",
-            "350 – 700 PLN / Stk. (ca. 80 – 165 €)",
+            "3-5 Werktage",
+            "350 - 700 PLN / Stk. (ca. 80 - 165 €)",
           ],
           [
             "Komplettrestaurierung Scheinwerfer-Paar (2 Stk.) + Elektronik / LED / Oldtimer",
             "Vollständige Überholung beider Lampen, PP/ABS-Halter schweißen, Vorschaltgeräte/LED oder Oldtimer-Entrostung",
-            "4–7 Werktage",
-            "1.500 – 5.000+ PLN / Paar",
+            "4-7 Werktage",
+            "1.500 - 5.000+ PLN / Paar",
           ],
         ],
         footnote:
@@ -194,8 +194,8 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             h3: "Reflektor im Hochvakuum neu bedampfen vs. Chromspray aus der Dose",
             body: "Sogenanntes „Chromspray“ oder Chromfolie sind für optische Scheinwerferreflektoren aus drei physikalischen Gründen ungeeignet:",
             bullets: [
-              "Während ein einfaches Scheinwerfer-Aufbereitungsset nur die äußere Streuscheibe poliert und Chromlack lediglich 45–55% Reflexion erreicht, nutzen professionelle Scheinwerfer-Aufbereiter unsere Werkslinie, während im PVD-Vakuum aufgedampftes 99,99% Aluminium >92% Spiegelreflexion bietet.",
-              "Sprühdosenlacke gasen bereits ab 80–90°C aus und schlagen sich als milchiger Nebel dauerhaft auf der Innenseite von Linse und Streuscheibe nieder.",
+              "Während ein einfaches Scheinwerfer-Aufbereitungsset nur die äußere Streuscheibe poliert und Chromlack lediglich 45-55% Reflexion erreicht, nutzen professionelle Scheinwerfer-Aufbereiter unsere Werkslinie, während im PVD-Vakuum aufgedampftes 99,99% Aluminium >92% Spiegelreflexion bietet.",
+              "Sprühdosenlacke gasen bereits ab 80-90°C aus und schlagen sich als milchiger Nebel dauerhaft auf der Innenseite von Linse und Streuscheibe nieder.",
               "Nur die PVD-Vakuummetallisierung erhält die nanometergenaue Oberflächengüte (Ra < 0,02 µm) für eine TÜV-konforme Hell-Dunkel-Grenze.",
             ],
           },
@@ -227,14 +227,14 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       subtitle:
         "Bewegen Sie den Schieberegler (mit Maus, Finger oder Pfeiltasten), um den verbrannten Reflektor mit dem im Hochvakuum neu bedampften Spiegel von STANIAX zu vergleichen.",
       ctaLabel: "Angebot für Ihre Scheinwerfer anfordern →",
-      beforeLabel: "VORHER — Verbrannte Schicht",
-      afterLabel: "NACHHER — PVD Aluminium 99,99%",
+      beforeLabel: "VORHER - Verbrannte Schicht",
+      afterLabel: "NACHHER - PVD Aluminium 99,99%",
       beforeAlt:
         "Verbrannter und matter Scheinwerfer-Reflektor vor der Aufbereitung",
       afterAlt:
         "Scheinwerfer-Reflektor nach dem Neu-Bedampfen mit 99,99% Aluminium im Vakuum bei STANIAX",
       sliderSummary:
-        "Nach dem Neu-Bedampfen im Vakuum steigt die Lichtausbeute auf der Straße um durchschnittlich 200–300% gegenüber einem verbrannten Reflektor.",
+        "Nach dem Neu-Bedampfen im Vakuum steigt die Lichtausbeute auf der Straße um durchschnittlich 200-300% gegenüber einem verbrannten Reflektor.",
     },
     processSection: {
       h2: "Der 4-stufige Prozess beim Scheinwerfer Reflektor neu bedampfen",
@@ -263,7 +263,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           num: "04",
           title: "Top-Coat-Versiegelung & Dichtheitsprüfung",
           desc: "Wir schützen die Aluminiumschicht vor Oxidation, polieren und lackieren bei Komplettlampen die Streuscheibe mit UV-Schutz und testen die Dichtheit.",
-          param: "12–24 Monate Haltbarkeitsgarantie",
+          param: "12-24 Monate Haltbarkeitsgarantie",
         },
       ],
     },
@@ -295,7 +295,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           badge: "VERSANDSERVICE DEUTSCHLAND & EU",
           h3: "Schneller Rückversand für ausgebaute Reflektoren",
-          body: "Senden Sie uns Ihre ausgebauten Reflektorschalen oder kompletten Scheinwerfer per DHL/DPD/UPS nach Józefów bei Warschau. Nach 2–4 Werktagen geht das Paket sicher verpackt zurück.",
+          body: "Senden Sie uns Ihre ausgebauten Reflektorschalen oder kompletten Scheinwerfer per DHL/DPD/UPS nach Józefów bei Warschau. Nach 2-4 Werktagen geht das Paket sicher verpackt zurück.",
           spec: "Werkadresse: ul. Wyszyńskiego 116A, 05-420 Józefów, Polen",
         },
         {
@@ -329,7 +329,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           badge: "MEHRKAMMER-SCHEINWERFER",
           h3: "Vakuummetallisierung von Hauptreflektoren & Zierrahmen",
           desc: "Hochglänzende Aluminiumbeschichtung auf komplexen PC/ABS- und Duroplast-Reflektoren ohne Orangenhaut.",
-          param: "Al-Schichtdicke: 80–100 nm + Schutz-Top-Coat",
+          param: "Al-Schichtdicke: 80-100 nm + Schutz-Top-Coat",
           imageKey: "reflectors2",
           alt: "Mehrkammer-Scheinwerferreflektoren mit spiegelnder Aluminiumschicht aus der Vakuumkammer",
         },
@@ -350,11 +350,11 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: "Was kostet es, einen Scheinwerfer Reflektor neu bedampfen zu lassen?",
-          a: "Das reine Neu-Bedampfen eines ausgebaut angelieferten Reflektors kostet je nach Größe und Material zwischen 150 und 300 PLN (ca. 35–70 €) pro Stück. Eine Komplettaufbereitung des gesamten Scheinwerfers (Gehäuse öffnen, Reflektor bedampfen, Linse reinigen, Streuscheibe polieren + UV-Lack, neu abdichten) liegt meist bei 350–700 PLN (ca. 80–165 €) pro Scheinwerfer.",
+          a: "Das reine Neu-Bedampfen eines ausgebaut angelieferten Reflektors kostet je nach Größe und Material zwischen 150 und 300 PLN (ca. 35-70 €) pro Stück. Eine Komplettaufbereitung des gesamten Scheinwerfers (Gehäuse öffnen, Reflektor bedampfen, Linse reinigen, Streuscheibe polieren + UV-Lack, neu abdichten) liegt meist bei 350-700 PLN (ca. 80-165 €) pro Scheinwerfer.",
         },
         {
           q: "Wie lange dauert die Aufbereitung inklusive Versand aus Deutschland oder Österreich?",
-          a: "Die Bearbeitung loser Reflektoren in unserem Werk dauert nur 2–3 Werktage ab Paketeingang (bei kompletten Scheinwerfern 3–5 Werktage). Inklusive versichertem Hin- und Rückversand per DHL/DPD/UPS aus Deutschland oder Österreich erhalten Sie Ihre Teile in der Regel nach rund 6–9 Werktagen zurück.",
+          a: "Die Bearbeitung loser Reflektoren in unserem Werk dauert nur 2-3 Werktage ab Paketeingang (bei kompletten Scheinwerfern 3-5 Werktage). Inklusive versichertem Hin- und Rückversand per DHL/DPD/UPS aus Deutschland oder Österreich erhalten Sie Ihre Teile in der Regel nach rund 6-9 Werktagen zurück.",
         },
         {
           q: "Lohnt sich die Aufbereitung von Original-Scheinwerfern gegenüber billigen Nachbauten?",
@@ -370,7 +370,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Wie lange hält die neue PVD-Aluminiumschicht im Scheinwerfer?",
-          a: "Dank unseres bis 220°C temperaturbeständigen Grundlacks und der Silizium-Schutzschicht entspricht die Lebensdauer einem neuen Originalteil — in der Regel 5 bis 8 Jahre bzw. über 150.000 km bei Verwendung zugelassener Marken-Leuchtmittel (35W Xenon / 55W Halogen).",
+          a: "Dank unseres bis 220°C temperaturbeständigen Grundlacks und der Silizium-Schutzschicht entspricht die Lebensdauer einem neuen Originalteil - in der Regel 5 bis 8 Jahre bzw. über 150.000 km bei Verwendung zugelassener Marken-Leuchtmittel (35W Xenon / 55W Halogen).",
         },
       ],
     },
@@ -393,7 +393,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/de/vakuummetallisierung",
           anchorText:
-            "PVD Vakuummetallisierung — Technologie & Kammerparameter",
+            "PVD Vakuummetallisierung - Technologie & Kammerparameter",
           badge: "PVD-KERNTECHNOLOGIE",
           desc: "Erfahren Sie mehr über das physikalische Aufdampfen von Reinstaluminium im Hochvakuum.",
         },
@@ -421,7 +421,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
   "vacuum-metallization": {
     navLabel: "Vakuummetallisierung (PVD)",
     shortSummary:
-      "Industrielle PVD Vakuummetallisierung & Metallisierung mit 99,99% Aluminium — Spiegelchrom, Gold, Kupfer sowie optische und EMI/RFI-Funktionsschichten.",
+      "Industrielle PVD Vakuummetallisierung & Metallisierung mit 99,99% Aluminium - Spiegelchrom, Gold, Kupfer sowie optische und EMI/RFI-Funktionsschichten.",
     metaTitle: "Vakuummetallisierung & PVD-Beschichtung Industrie | STANIAX",
     metaDesc:
       "Industrielle Vakuummetallisierung (PVD-Bedampfung & Metallisierung Kunststoff/Metall/Glas) bei STANIAX. 99,99% Al Spiegelchrom, Gold, Inox & EMI-Schutz.",
@@ -429,7 +429,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
     heroBadge:
       "PVD-Oberflächentechnik seit 1993 (Dariusz Staniak · STANIAX Sp. z o.o.)",
     h1: "Vakuummetallisierung & industrielle PVD-Beschichtung im Hochvakuum",
-    lead: "Die Vakuummetallisierung (Physical Vapor Deposition — PVD-Vakuumbedampfung) ist ein hochpräzises Dünnschichtverfahren, bei dem im Hochvakuum eine nanometerdünne Metallschicht abgeschieden wird. Im Produktionswerk STANIAX in Józefów bei Warschau realisieren wir die Lohn-Metallisierung von Kunststoffen, Metallen, Glas und Keramik mit spiegelndem 99,99% Aluminium, Chrom-, Gold-, Kupfer- und technischen Reflexions- oder EMV-Schichten.",
+    lead: "Die Vakuummetallisierung (Physical Vapor Deposition - PVD-Vakuumbedampfung) ist ein hochpräzises Dünnschichtverfahren, bei dem im Hochvakuum eine nanometerdünne Metallschicht abgeschieden wird. Im Produktionswerk STANIAX in Józefów bei Warschau realisieren wir die Lohn-Metallisierung von Kunststoffen, Metallen, Glas und Keramik mit spiegelndem 99,99% Aluminium, Chrom-, Gold-, Kupfer- und technischen Reflexions- oder EMV-Schichten.",
     ctaPrimaryLabel: "Vakuummetallisierung anfragen →",
     ctaSecondaryLabel: "4-Schicht-Aufbau & Parameter prüfen ↓",
     heroImageKey: "vacuumHero",
@@ -467,7 +467,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         "Vollständige Prozesskette: Vorbehandlung, Base-Coat-Glättung, PVD-Hochvakuumbedampfung und Top-Coat-Farbgebung",
       highlights: [
         "Vakuumbedampfung mit 99,99% Reinstaluminium in Hochvakuumkammern mit planetarischer Chargenrotation für gleichmäßige 3D-Beschichtung.",
-        "Komplettes Dreischichtsystem: Ausgleichender Grundlack (Base Coat) + PVD-Metallschicht (50–120 nm) + Schutzlack (Top Coat UV oder 2K-PUR).",
+        "Komplettes Dreischichtsystem: Ausgleichender Grundlack (Base Coat) + PVD-Metallschicht (50-120 nm) + Schutzlack (Top Coat UV oder 2K-PUR).",
         "Einfärbung des Decklacks in jeden gewünschten Metallton: Spiegelchrom, 14K/18K/24K Gold, Roségold, Kupfer, Messing, Titan, Edelstahl-Inox und Schwarzchrom.",
         "Eigener Vorrichtungsbau (Satelliten, Warenträger und Maskierungen) für komplexe Bauteilgeometrien unserer B2B-Kunden.",
         "Funktionale Metallisierung: Technische Spiegel (>92% Reflexion), IR-Wärmeschutzschichten und leitfähige EMV/EMI-Abschirmung für Elektronikgehäuse.",
@@ -485,19 +485,19 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Arbeitsdruck in der Vakuumkammer",
-            "10⁻⁴ – 5×10⁻⁵ mbar (Hochvakuum)",
+            "10⁻⁴ - 5×10⁻⁵ mbar (Hochvakuum)",
             "Keine Gaseinschlüsse, maximale Schichtdichte und optische Spiegelreinheit",
             "Digitale Hochvakuum-Messsonden in jedem Zyklus",
           ],
           [
             "Schichtdicke des PVD-Metalls (Al)",
-            "50 – 120 Nanometer (0,05 – 0,12 µm)",
+            "50 - 120 Nanometer (0,05 - 0,12 µm)",
             "Keine Maßänderung an Präzisionsgewinden, Rastnasen oder engen Toleranzen",
             "Optische Transmissions- & Oberflächenwiderstandsmessung",
           ],
           [
             "Gesamtschichtdicke Lack (Base + Top)",
-            "15 – 35 µm (je nach Substrat)",
+            "15 - 35 µm (je nach Substrat)",
             "Einebnung von Spritzguss-Mikrorauheiten (Ra < 0,02 µm) sowie UV- und Abriebschutz",
             "Ultraschall- / Wirbelstrom-Schichtdickenmessung",
           ],
@@ -524,15 +524,15 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             h3: "Warum Base Coat und Top Coat für die Haltbarkeit entscheidend sind",
             body: "Das STANIAX-Beschichtungssystem besteht aus vier perfekt aufeinander abgestimmten Schichten:",
             bullets: [
-              "Schicht 1 — Chemisch gereinigtes & entladenes Substrat: Entfettet und mit ionisierter Druckluft abgeblasen, um elektrostatische Staubanziehung zu verhindern.",
-              "Schicht 2 — Glättender Base Coat (Grundlack): Füllt Fließlinien und Mikroriefen der Spritzgussform und erzeugt eine spiegelglatte Fläche (Ra < 0,02 µm).",
-              "Schicht 3 — 99,99% Aluminium-PVD-Schicht: Sorgt für 100% metallischen Spiegelglanz, >92% Lichtreflexion oder elektrische Schirmwirkung.",
-              "Schicht 4 — Schützender Top Coat (Decklack): Versiegelt das Aluminium gegen Abrieb, Handschweiß, Kosmetika, Alkohol und UV-Strahlung und ermöglicht die Farbgebung.",
+              "Schicht 1 - Chemisch gereinigtes & entladenes Substrat: Entfettet und mit ionisierter Druckluft abgeblasen, um elektrostatische Staubanziehung zu verhindern.",
+              "Schicht 2 - Glättender Base Coat (Grundlack): Füllt Fließlinien und Mikroriefen der Spritzgussform und erzeugt eine spiegelglatte Fläche (Ra < 0,02 µm).",
+              "Schicht 3 - 99,99% Aluminium-PVD-Schicht: Sorgt für 100% metallischen Spiegelglanz, >92% Lichtreflexion oder elektrische Schirmwirkung.",
+              "Schicht 4 - Schützender Top Coat (Decklack): Versiegelt das Aluminium gegen Abrieb, Handschweiß, Kosmetika, Alkohol und UV-Strahlung und ermöglicht die Farbgebung.",
             ],
           },
           {
-            h3: "Vakuummetallisierung vs. Galvanik — Wirtschaftlichkeit und Materialfreiheit",
-            body: "Die klassische galvanische Verchromung ist auf Metalle und spezielles Galvanik-ABS beschränkt und nutzt umweltschädliches Chromtrioxid. Die PVD-Vakuummetallisierung arbeitet komplett Cr6+-frei, senkt die Stückkosten in der Serienfertigung um 30–50% und beschichtet nahezu jeden technischen Kunststoff (PC, PMMA, PA, PP, PS, BMC/SMC), Glas und Metall.",
+            h3: "Vakuummetallisierung vs. Galvanik - Wirtschaftlichkeit und Materialfreiheit",
+            body: "Die klassische galvanische Verchromung ist auf Metalle und spezielles Galvanik-ABS beschränkt und nutzt umweltschädliches Chromtrioxid. Die PVD-Vakuummetallisierung arbeitet komplett Cr6+-frei, senkt die Stückkosten in der Serienfertigung um 30-50% und beschichtet nahezu jeden technischen Kunststoff (PC, PMMA, PA, PP, PS, BMC/SMC), Glas und Metall.",
           },
         ],
       },
@@ -587,18 +587,18 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           id: "basecoat",
           label: "02. Base Coat (Grundlack)",
           badge: "OPTISCHE GLÄTTUNG",
-          title: "Haftvermittelnder & einebnender Grundlack (10–20 µm)",
+          title: "Haftvermittelnder & einebnender Grundlack (10-20 µm)",
           description:
             "Erzeugt einen spiegelglatten Film, der Werkzeugstrukturen ausgleicht. Ohne diesen Grundlack würde die dünne Metallschicht matt wirken.",
           specs: [
-            { label: "Schichtdicke", value: "10 – 20 µm" },
+            { label: "Schichtdicke", value: "10 - 20 µm" },
             {
               label: "Rauheit nach Härtung",
               value: "Ra < 0,02 µm (optische Spiegelqualität)",
             },
             {
               label: "Aushärtung",
-              value: "Thermisch im Umluftofen (60–180°C) oder UV-Tunnel",
+              value: "Thermisch im Umluftofen (60-180°C) oder UV-Tunnel",
             },
           ],
           previewStyle: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)",
@@ -608,13 +608,13 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           label: "03. Aluminium PVD 99,99%",
           badge: "HOCHVAKUUMKAMMER",
           title:
-            "Im Hochvakuum aufgedampfte Reinstaluminiumschicht (50–120 nm)",
+            "Im Hochvakuum aufgedampfte Reinstaluminiumschicht (50-120 nm)",
           description:
             "Bei 10⁻⁴ mbar abgeschiedene Metallschicht für perfekten Chromspiegelglanz, >92% Lichtreflexion und EMV-Abschirmung.",
           specs: [
             {
               label: "Metallschichtdicke",
-              value: "50 – 120 nm (0,05 – 0,12 µm)",
+              value: "50 - 120 nm (0,05 - 0,12 µm)",
             },
             {
               label: "Reinheitsgrad",
@@ -639,7 +639,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Schichtdicke Top Coat",
-              value: "10 – 20 µm (2K-Polyurethan / Acryl / UV)",
+              value: "10 - 20 µm (2K-Polyurethan / Acryl / UV)",
             },
             {
               label: "Verfügbare Metalltöne",
@@ -720,7 +720,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           badge: "PROTOTYPEN & 3D-DRUCK",
           h3: "Bemusterung von SLA/SLS-Prototypen & Farbmustern",
           body: "Schnelle technologische Bemusterung in Chrom, Gold, Satin oder Gunmetal für Produktdesigner und Entwicklungsabteilungen vor dem Serienwerkzeugbau.",
-          spec: "Express-Bemusterung in 48–72 Stunden",
+          spec: "Express-Bemusterung in 48-72 Stunden",
         },
         {
           badge: "OPTIK & LICHTTECHNIK",
@@ -768,7 +768,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: "Worin unterscheidet sich die PVD-Vakuummetallisierung vom galvanischen Verchromen?",
-          a: "Bei der PVD-Vakuummetallisierung wird 99,99%iges Aluminium im Hochvakuum auf einen glättenden Grundlack aufgedampft und mit einem Schutzlack versiegelt. Im Gegensatz zur Galvanik kommt das Verfahren komplett ohne giftiges Chrom(VI) und Säurebäder aus, beschichtet fast alle Kunststoffe (nicht nur Galvanik-ABS), Glas und Metalle und ermöglicht Farbtöne wie Gold, Roségold, Kupfer oder Schwarzchrom bei 30–50% niedrigeren Stückkosten.",
+          a: "Bei der PVD-Vakuummetallisierung wird 99,99%iges Aluminium im Hochvakuum auf einen glättenden Grundlack aufgedampft und mit einem Schutzlack versiegelt. Im Gegensatz zur Galvanik kommt das Verfahren komplett ohne giftiges Chrom(VI) und Säurebäder aus, beschichtet fast alle Kunststoffe (nicht nur Galvanik-ABS), Glas und Metalle und ermöglicht Farbtöne wie Gold, Roségold, Kupfer oder Schwarzchrom bei 30-50% niedrigeren Stückkosten.",
         },
         {
           q: "Welche Werkstoffe können im Vakuum metallisiert werden?",
@@ -776,15 +776,15 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Verändert die Vakuummetallisierung die Bauteilmaße oder setzt sie Gewinde zu?",
-          a: "Die aufgedampfte Aluminiumschicht selbst ist nur 50–120 Nanometer (0,05–0,12 µm) dünn und maßlich völlig vernachlässigbar. Das gesamte Lacksystem (Base Coat + Top Coat) trägt 15–35 µm auf. Eng tolerierte Passflächen oder Gewinde decken wir vorab präzise ab.",
+          a: "Die aufgedampfte Aluminiumschicht selbst ist nur 50-120 Nanometer (0,05-0,12 µm) dünn und maßlich völlig vernachlässigbar. Das gesamte Lacksystem (Base Coat + Top Coat) trägt 15-35 µm auf. Eng tolerierte Passflächen oder Gewinde decken wir vorab präzise ab.",
         },
         {
           q: "Wie hoch ist die Mindestbestellmenge (MOQ) und wie lang ist die Lieferzeit?",
-          a: "Wir haben keine starre Mindestmenge — wir kalkulieren sowohl Einzelprototypen und Musterreihen als auch Großserien in Hunderttausender-Stückzahlen. Die reguläre Durchlaufzeit beträgt 5–10 Werktage (Muster 2–4 Werktage).",
+          a: "Wir haben keine starre Mindestmenge - wir kalkulieren sowohl Einzelprototypen und Musterreihen als auch Großserien in Hunderttausender-Stückzahlen. Die reguläre Durchlaufzeit beträgt 5-10 Werktage (Muster 2-4 Werktage).",
         },
         {
           q: "Ist die metallisierte Oberfläche abriebfest, UV-stabil und witterungsbeständig?",
-          a: "Ja. Die mechanische und chemische Beständigkeit wird über den Top Coat gesteuert. Je nach Anforderung setzen wir hochharte UV-Lacke (Bleistifthärte 2H–4H für Kosmetik) oder elastische, UV-stabilisierte 2K-Polyurethan-Klarlacke in Automobilqualität ein.",
+          a: "Ja. Die mechanische und chemische Beständigkeit wird über den Top Coat gesteuert. Je nach Anforderung setzen wir hochharte UV-Lacke (Bleistifthärte 2H-4H für Kosmetik) oder elastische, UV-stabilisierte 2K-Polyurethan-Klarlacke in Automobilqualität ein.",
         },
         {
           q: "Worauf muss die Spritzgießerei bei Teilen für die Vakuummetallisierung achten?",
@@ -818,7 +818,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/de/kunststofflackierung",
           anchorText:
-            "Industrielle Kunststofflackierung — Piano Black, Soft-Touch & RAL",
+            "Industrielle Kunststofflackierung - Piano Black, Soft-Touch & RAL",
           badge: "ERGÄNZENDE LEISTUNG",
           desc: "Nasslackierung von Kunststoffgehäusen und Dekorteilen ohne Metallschicht.",
         },
@@ -838,15 +838,15 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
   "plastic-metallization": {
     navLabel: "Kunststoff verchromen",
     shortSummary:
-      "Kunststoff verchromen & Plastik metallisieren im Hochvakuum (ABS, PC, PP, PMMA, PA) — Spiegelchrom, 24K Gold, gebürstetes Inox und Schwarzchrom.",
+      "Kunststoff verchromen & Plastik metallisieren im Hochvakuum (ABS, PC, PP, PMMA, PA) - Spiegelchrom, 24K Gold, gebürstetes Inox und Schwarzchrom.",
     metaTitle: "Kunststoff verchromen & Plastik Metallisierung | STANIAX",
     metaDesc:
       "Kunststoff verchromen (Plastik verchromen & Kunststoffmetallisierung) bei STANIAX. Spiegelchrom, Gold, Roségold & Satin auf ABS, PC, PP, PMMA & 3D-Druck.",
     breadcrumbLabel: "Kunststoff verchromen & Metallisierung",
     heroBadge:
       "Umweltfreundliche Alternative zur ABS-Galvanik · 0% Cr6+ · Alle Polymere",
-    h1: "Kunststoff verchromen — Vakuummetallisierung von Spritzgussteilen & Plastik",
-    lead: "Das Kunststoff verchromen (auch als Plastik verchromen oder Kunststoffmetallisierung bezeichnet) verleiht leichten Spritzgussteilen und 3D-Druck-Bauteilen die exakte Optik von massivem, poliertem Metall. Im Werk STANIAX bei Warschau beschichten wir Bauteile aus ABS, PC, PC/ABS, PMMA, PS, PA sowie Polyolefinen (PP/PE) mit Spiegelchrom, 24K Gold, Roségold, Kupfer und satiniertem Edelstahl (Inox) — ganz ohne die giftigen Säurebäder der klassischen Galvanik.",
+    h1: "Kunststoff verchromen - Vakuummetallisierung von Spritzgussteilen & Plastik",
+    lead: "Das Kunststoff verchromen (auch als Plastik verchromen oder Kunststoffmetallisierung bezeichnet) verleiht leichten Spritzgussteilen und 3D-Druck-Bauteilen die exakte Optik von massivem, poliertem Metall. Im Werk STANIAX bei Warschau beschichten wir Bauteile aus ABS, PC, PC/ABS, PMMA, PS, PA sowie Polyolefinen (PP/PE) mit Spiegelchrom, 24K Gold, Roségold, Kupfer und satiniertem Edelstahl (Inox) - ganz ohne die giftigen Säurebäder der klassischen Galvanik.",
     ctaPrimaryLabel: "Kunststoff-Verchromung anfragen →",
     ctaSecondaryLabel: "Kunststoff-Kompatibilitätstabelle prüfen ↓",
     heroImageKey: "plasticMetaHero",
@@ -865,7 +865,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         suffix: "+",
         label: "Metallische Farbvarianten",
         detail:
-          "Spiegelchrom, 14K–24K Gold, Roségold, Kupfer, Messing, Titan, Gunmetal & Satin-Nickel",
+          "Spiegelchrom, 14K-24K Gold, Roségold, Kupfer, Messing, Titan, Gunmetal & Satin-Nickel",
       },
       {
         value: 100,
@@ -902,7 +902,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "ABS / SAN / ASA",
-            "Mittlere Oberflächenenergie (38–42 mN/m), sehr gute Benetzbarkeit",
+            "Mittlere Oberflächenenergie (38-42 mN/m), sehr gute Benetzbarkeit",
             "Antistatische Wäsche + Acryl-Polyurethan- oder UV-Base-Coat",
             "KFZ-Embleme, Lüftungsdüsen, Hausgeräteblenden, Kosmetikdosen, Pokale",
           ],
@@ -926,14 +926,14 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           ],
         ],
         footnote:
-          "Sie sind unsicher, aus welchem Kunststoff Ihr Bauteil besteht? Senden Sie uns Musterteile — unser Labor führt Haftungstests durch und empfiehlt den optimalen Aufbau.",
+          "Sie sind unsicher, aus welchem Kunststoff Ihr Bauteil besteht? Senden Sie uns Musterteile - unser Labor führt Haftungstests durch und empfiehlt den optimalen Aufbau.",
       },
     },
     editorialSections: [
       {
         h2: "Warum das Verchromen von Kunststoff im Vakuum die Galvanik ablöst",
         paragraphs: [
-          "Strenge EU-REACH-Vorgaben gegen sechswertiges Chrom sowie der Trend zum Leichtbau haben die PVD-Kunststoffmetallisierung zum Industriestandard gemacht. Ein Kunststoff-Spritzgussteil mit nanometerdünner Aluminium-Spiegelschicht und hochfestem Klarlack ist optisch nicht von galvanischem Chrom zu unterscheiden, wiegt jedoch 60–70% weniger als ein Zinkdruckguss- (ZnAl) oder Messingbauteil.",
+          "Strenge EU-REACH-Vorgaben gegen sechswertiges Chrom sowie der Trend zum Leichtbau haben die PVD-Kunststoffmetallisierung zum Industriestandard gemacht. Ein Kunststoff-Spritzgussteil mit nanometerdünner Aluminium-Spiegelschicht und hochfestem Klarlack ist optisch nicht von galvanischem Chrom zu unterscheiden, wiegt jedoch 60-70% weniger als ein Zinkdruckguss- (ZnAl) oder Messingbauteil.",
           "Für Hersteller von Kosmetikverpackungen, Sanitärarmaturen, Leuchten, Möbelbeschlägen und Automobilteilen bietet dies doppelte Vorteile: geringere Werkzeug- und Rohstoffkosten (Einsatz von günstigem PP oder Standard-ABS) sowie eine unbegrenzte Farbpalette von 24K Gold bis Schwarzchrom.",
         ],
         subSections: [
@@ -941,7 +941,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             h3: "Wie wir Spritzgussfehler vor der Hochglanz-Verchromung ausgleichen",
             body: "Eine Hochglanz-Chromschicht wirkt wie ein Vergrößerungsglas für jeden Spritzgussfehler (Bindenähte, Einfallstellen, Schlieren oder Eigenspannungen). Bei STANIAX optimieren wir den Lackaufbau gezielt:",
             bullets: [
-              "Steuerung der Base-Coat-Schichtdicke (12–25 µm) zum Einebnen feiner Werkzeugstrukturen ohne Kantenflucht.",
+              "Steuerung der Base-Coat-Schichtdicke (12-25 µm) zum Einebnen feiner Werkzeugstrukturen ohne Kantenflucht.",
               "Entspannungstempern (Annealing) von PC- und PMMA-Teilen vor dem Lackieren zur Vermeidung von Spannungsrissen.",
               "Ionisationsabblasung unmittelbar vor der Lackierkabine gegen elektrostatische Staubeinschlüsse.",
             ],
@@ -960,7 +960,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         subSections: [
           {
             h3: "Hochglanz-Chrom vs. Anti-Fingerprint Satin-Inox",
-            body: "Durch Mattierungsmittel im Decklack erzeugen wir die Optik von gebürstetem Aluminium, Titan oder Edelstahl (Inox), auf der Fingerabdrücke kaum sichtbar sind — ideal für Kaffeemaschinen, Audiogeräte, Betätigungsplatten und Fahrzeuginnenräume.",
+            body: "Durch Mattierungsmittel im Decklack erzeugen wir die Optik von gebürstetem Aluminium, Titan oder Edelstahl (Inox), auf der Fingerabdrücke kaum sichtbar sind - ideal für Kaffeemaschinen, Audiogeräte, Betätigungsplatten und Fahrzeuginnenräume.",
           },
         ],
       },
@@ -981,7 +981,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Glanzgrad (60°)",
-              value: "92 – 98 GU (voller optischer Spiegel)",
+              value: "92 - 98 GU (voller optischer Spiegel)",
             },
             {
               label: "Farbcharakter",
@@ -989,7 +989,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Bleistifthärte Top Coat",
-              value: "2H – 4H (im UV-härtenden System)",
+              value: "2H - 4H (im UV-härtenden System)",
             },
           ],
           previewStyle:
@@ -1031,7 +1031,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Glanzgrad (60°)",
-              value: "15 – 45 GU (Satin) bzw. 85 GU (Dark Chrome)",
+              value: "15 - 45 GU (Satin) bzw. 85 GU (Dark Chrome)",
             },
             {
               label: "Alltagstauglichkeit",
@@ -1119,7 +1119,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           badge: "MÖBEL & SANITÄRTECHNIK",
           h3: "Leichte Alternative zu Zinkdruckguss & Messing",
           body: "Ersetzen Sie teure polierte Metallgussteile durch kostengünstige Kunststoffspritzgussteile mit abriebfester PVD-Chrom- oder Edelstahloptik.",
-          spec: "Senkung der Bauteilkosten um 35–50%",
+          spec: "Senkung der Bauteilkosten um 35-50%",
         },
       ],
     },
@@ -1165,7 +1165,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Was kostet das Verchromen von Kunststoffteilen?",
-          a: "In der B2B-Serienfertigung richtet sich der Stückpreis nach der Bauteilgröße (Bestückungsdichte auf der Vakuumtrommel), dem Kunststofftyp und dem Top-Coat-System — bei kleinen Verschlusskappen liegt er im Bereich weniger Cent bis Euro. Bei Einzelteilen (z. B. Kühlergrill oder Oldtimer-Blenden) beginnt die individuelle Kalkulation ab ca. 150–250 PLN (35–60 €).",
+          a: "In der B2B-Serienfertigung richtet sich der Stückpreis nach der Bauteilgröße (Bestückungsdichte auf der Vakuumtrommel), dem Kunststofftyp und dem Top-Coat-System - bei kleinen Verschlusskappen liegt er im Bereich weniger Cent bis Euro. Bei Einzelteilen (z. B. Kühlergrill oder Oldtimer-Blenden) beginnt die individuelle Kalkulation ab ca. 150-250 PLN (35-60 €).",
         },
         {
           q: "Blättert die Chromschicht auf Plastik ab oder nutzt sie sich beim Anfassen ab?",
@@ -1181,7 +1181,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Sind neben Silberchrom auch Gold, Kupfer oder gebürsteter Edelstahl auf Kunststoff möglich?",
-          a: "Ja. Nach dem Aufdampfen der Aluminiumschicht im Vakuum färben wir den Schutzlack mit transparenten Farbstoffen ein. So entstehen 14K/18K/24K Gold, Roségold, Kupfer, Messing, Schwarzchrom oder — mit Mattierungszusätzen — gebürstetes Satin-Nickel und Edelstahloptik (Inox).",
+          a: "Ja. Nach dem Aufdampfen der Aluminiumschicht im Vakuum färben wir den Schutzlack mit transparenten Farbstoffen ein. So entstehen 14K/18K/24K Gold, Roségold, Kupfer, Messing, Schwarzchrom oder - mit Mattierungszusätzen - gebürstetes Satin-Nickel und Edelstahloptik (Inox).",
         },
       ],
     },
@@ -1204,14 +1204,14 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/de/kunststofflackierung",
           anchorText:
-            "Industrielle Kunststofflackierung — Piano Black, Soft-Touch & RAL",
+            "Industrielle Kunststofflackierung - Piano Black, Soft-Touch & RAL",
           badge: "KUNSTSTOFFLACKIERUNG",
           desc: "Deckende, matte, strukturierte und haptische Soft-Touch-Lackierungen auf Spritzgussteilen.",
         },
         {
           path: "/de/vakuummetallisierung",
           anchorText:
-            "PVD Vakuummetallisierung — Kammertechnik & 4-Schicht-Physik",
+            "PVD Vakuummetallisierung - Kammertechnik & 4-Schicht-Physik",
           badge: "PVD-TECHNOLOGIE",
           desc: "Technische Details zur Hochvakuumbedampfung und funktionellen Schichten.",
         },
@@ -1231,15 +1231,15 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
   "plastic-painting": {
     navLabel: "Kunststofflackierung",
     shortSummary:
-      "Industrielle Kunststofflackierung (ABS, PC, PP, PA, PMMA) — Piano Black Hochglanz, Soft-Touch, Tiefmatt, Struktur und alle RAL/NCS-Farbtöne.",
-    metaTitle: "Kunststofflackierung Industrie — Soft-Touch & RAL | STANIAX",
+      "Industrielle Kunststofflackierung (ABS, PC, PP, PA, PMMA) - Piano Black Hochglanz, Soft-Touch, Tiefmatt, Struktur und alle RAL/NCS-Farbtöne.",
+    metaTitle: "Kunststofflackierung Industrie - Soft-Touch & RAL | STANIAX",
     metaDesc:
       "Industrielle Kunststofflackierung bei STANIAX (Polen/EU). Spritzgussteile aus ABS, PC, PP & PA lackieren: Piano Black, Soft-Touch, Matt, Struktur & RAL/NCS.",
     breadcrumbLabel: "Industrielle Kunststofflackierung",
     heroBadge:
       "2K-Polyurethan-, Acryl-, Soft-Touch- & UV-Lacksysteme · Haftklasse 5B (ISO 2409)",
     h1: "Industrielle Kunststofflackierung & Beschichtung von Spritzgussteilen",
-    lead: "Die professionelle Kunststofflackierung verleiht rohen Spritzgussteilen einen homogenen Farbton, eine edle Haptik sowie hohe Beständigkeit gegen Kratzer, UV-Strahlung und Chemikalien. In der Industrielackiererei STANIAX in Józefów bei Warschau lackieren wir Bauteile aus ABS, PC, PP, PA, PS und PMMA — von tiefglänzendem Piano Black über samtigen Soft-Touch-Lack bis hin zu Feinstruktur- und Metallic-Oberflächen.",
+    lead: "Die professionelle Kunststofflackierung verleiht rohen Spritzgussteilen einen homogenen Farbton, eine edle Haptik sowie hohe Beständigkeit gegen Kratzer, UV-Strahlung und Chemikalien. In der Industrielackiererei STANIAX in Józefów bei Warschau lackieren wir Bauteile aus ABS, PC, PP, PA, PS und PMMA - von tiefglänzendem Piano Black über samtigen Soft-Touch-Lack bis hin zu Feinstruktur- und Metallic-Oberflächen.",
     ctaPrimaryLabel: "Kunststofflackierung anfragen →",
     ctaSecondaryLabel: "5 Lacksysteme für Kunststoffe vergleichen ↓",
     heroImageKey: "plasticPaintHero",
@@ -1295,31 +1295,31 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Piano Black / Hochglanz 2K & UV",
-            "90 – 96 GU (Spiegelglanz)",
-            "Hohe Oberflächenhärte (2H–3H), enorme Farbtiefe, Mikrokratz- und Chemikalienfestigkeit",
+            "90 - 96 GU (Spiegelglanz)",
+            "Hohe Oberflächenhärte (2H-3H), enorme Farbtiefe, Mikrokratz- und Chemikalienfestigkeit",
             "KFZ-Interieurleisten, Audio-/TV-Fronten, edle Kosmetiktiegel und Verschlüsse",
           ],
           [
             "Tiefmatt (Deep Matte) & Seidenmatt",
-            "3 – 10 GU (Matt) / 20 – 35 GU (Satin)",
+            "3 - 10 GU (Matt) / 20 - 35 GU (Satin)",
             "Reflexionsfrei, moderne technische Optik, unempfindlich gegen Fingerabdrücke",
             "Leuchtengehäuse, Kamera-/Sensorabdeckungen, Unterhaltungselektronik, Möbelteile",
           ],
           [
             "Soft-Touch (Haptischer PUR-Lack)",
-            "2 – 5 GU (samtig ultramatt)",
+            "2 - 5 GU (samtig ultramatt)",
             "Warmer, rutschfester Griff, Geräusch- und Vibrationsdämpfung, hohe Elastizität",
             "Medizinische Handstücke, Powerbanks, Kosmetikkappen, Gerätegriffe",
           ],
           [
             "Strukturlack (Fein- / Grobstruktur)",
-            "5 – 15 GU (gekörnte Struktur)",
+            "5 - 15 GU (gekörnte Struktur)",
             "Deckt Einfallstellen, Bindenähte und Glasfasern ohne aufwendiges Spachteln ab",
             "Maschinengehäuse, Messgeräte, Kassensysteme und Zahlungsterminals",
           ],
         ],
         footnote:
-          "Lösemittelgemisch und Trocknungstemperatur (40–80°C) werden exakt auf das jeweilige Polymer abgestimmt, um Verzug und Spannungsrisse (ESC) auszuschließen.",
+          "Lösemittelgemisch und Trocknungstemperatur (40-80°C) werden exakt auf das jeweilige Polymer abgestimmt, um Verzug und Spannungsrisse (ESC) auszuschließen.",
       },
     },
     editorialSections: [
@@ -1366,8 +1366,8 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           description:
             "Glasglatte Hochglanzoberfläche auf 2K-Polyurethan- oder UV-Basis für Automobil-Interieurleisten, Audiofronten und Luxusverpackungen.",
           specs: [
-            { label: "Glanzgrad (60°)", value: "90 – 96 GU" },
-            { label: "Bleistifthärte", value: "2H – 3H (mikrokratzfest)" },
+            { label: "Glanzgrad (60°)", value: "90 - 96 GU" },
+            { label: "Bleistifthärte", value: "2H - 3H (mikrokratzfest)" },
             {
               label: "Geeignete Substrate",
               value: "ABS, PC/ABS, PMMA, PS, Komposite",
@@ -1387,7 +1387,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Glanzgrad (60°)",
-              value: "2 – 5 GU (reflexionsfreies Ultramatt)",
+              value: "2 - 5 GU (reflexionsfreies Ultramatt)",
             },
             { label: "Haptik", value: "Samtweicher, ergonomischer Griff" },
             {
@@ -1407,7 +1407,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Glanzgrad (60°)",
-              value: "5 – 12 GU (Matt) / 20 – 35 GU (Satin)",
+              value: "5 - 12 GU (Matt) / 20 - 35 GU (Satin)",
             },
             {
               label: "Farbtonwahl",
@@ -1458,7 +1458,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Trockenschichtdicke",
-              value: "30 – 60 µm (hohes Deckvermögen)",
+              value: "30 - 60 µm (hohes Deckvermögen)",
             },
             {
               label: "Stoßfestigkeit",
@@ -1492,12 +1492,12 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           num: "03",
           title: "Spritzapplikation von Basislack & Top Coat",
           desc: "In der Lackierkabine tragen wir den RAL/NCS-Farbton sowie den Decklack (Piano Black, Matt, Soft-Touch oder Struktur) auf.",
-          param: "Kontrollierte Schichtdicke 20–45 µm",
+          param: "Kontrollierte Schichtdicke 20-45 µm",
         },
         {
           num: "04",
           title: "Niedertemperatur- / UV-Härtung & Qualitätsprüfung",
-          desc: "Aushärtung bei bauteilfreundlichen 50–70°C oder im UV-Tunnel, gefolgt von Glanzgrad-, Farbmetrik- (ΔE) und Gitterschnittprüfung.",
+          desc: "Aushärtung bei bauteilfreundlichen 50-70°C oder im UV-Tunnel, gefolgt von Glanzgrad-, Farbmetrik- (ΔE) und Gitterschnittprüfung.",
           param: "100% Sichtkontrolle der Charge",
         },
       ],
@@ -1663,7 +1663,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
     heroBadge:
       "Thermische Einbrennhärtung bis 180°C + UV · Alkohol- & Abfülllinienfest",
     h1: "Glaslackierung & Keramikbeschichtung für Flakons, Flaschen und Tiegel",
-    lead: "Die spezialisierte Glas- und Keramiklackierung bei STANIAX verwandelt standardisiertes Klarglas — Parfümflakons, Spirituosenflaschen, Kosmetiktiegel, Leuchtengläser und Kerzengefäße — in unverwechselbare Markenverpackungen. Wir realisieren deckende RAL-/Pantone-Lackierungen, transparente Einfärbungen, fließende Ombre-Farbverläufe, säurefreie Mattierungen (Frost-Effekt), Soft-Touch-Glas sowie spiegelnde PVD-Metallisierungen.",
+    lead: "Die spezialisierte Glas- und Keramiklackierung bei STANIAX verwandelt standardisiertes Klarglas - Parfümflakons, Spirituosenflaschen, Kosmetiktiegel, Leuchtengläser und Kerzengefäße - in unverwechselbare Markenverpackungen. Wir realisieren deckende RAL-/Pantone-Lackierungen, transparente Einfärbungen, fließende Ombre-Farbverläufe, säurefreie Mattierungen (Frost-Effekt), Soft-Touch-Glas sowie spiegelnde PVD-Metallisierungen.",
     ctaPrimaryLabel: "Glas- & Keramiklackierung anfragen →",
     ctaSecondaryLabel: "Dekorative Glaseffekte entdecken ↓",
     heroImageKey: "glassPaintHero",
@@ -1720,19 +1720,19 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Transparentlackierung & Ombre-Verlauf",
-            "50 – 90% (glasklare Tönung)",
+            "50 - 90% (glasklare Tönung)",
             "Schleierfreie Farbstoffsysteme; fließender Übergang von Vollton zu klarem Glas",
             "Parfümflakons, Cremetiegel, Leuchtenschirme, Duftkerzengläser",
           ],
           [
             "Eisglas-Effekt (Frost / Mattierung)",
-            "30 – 60% (gestreutes Licht)",
+            "30 - 60% (gestreutes Licht)",
             "Seidig-matte, lichtstreuende Schicht, unempfindlich gegen Fingerabdrücke",
             "Wodka- & Ginflaschen, Pipettenflaschen, LED-Diffusorgläser",
           ],
           [
             "Decklackierung (Glanz / Matt / Soft-Touch)",
-            "0 – 5% (voller UV-Lichtschutz)",
+            "0 - 5% (voller UV-Lichtschutz)",
             "Blockiert UV- und Tageslicht zum Schutz lichtempfindlicher Wirkstoffe (Retinol, Vitamin C)",
             "Dermokosmetik-Tiegel & Serumflaschen, Limited-Edition-Spirituosen",
           ],
@@ -1757,10 +1757,10 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         subSections: [
           {
             h3: "Alkoholbeständigkeit & Abriebfestigkeit auf Hochleistungs-Abfülllinien",
-            body: "Parfümflakons und Spirituosenflaschen müssen beim Abfüllen und im Gebrauch konzentriertem Ethylalkohol (80–96%), ätherischen Duftölen, Eiswasser sowie dem Aneinanderreiben auf Förderbändern standhalten. STANIAX sichert dies durch:",
+            body: "Parfümflakons und Spirituosenflaschen müssen beim Abfüllen und im Gebrauch konzentriertem Ethylalkohol (80-96%), ätherischen Duftölen, Eiswasser sowie dem Aneinanderreiben auf Förderbändern standhalten. STANIAX sichert dies durch:",
             bullets: [
               "Silan-Haftvermittler, die kovalente chemische Si-O-Si-Bindungen mit der Glasoberfläche eingehen.",
-              "Thermisches Einbrennen bei 150–180°C oder UV-Vernetzung für maximale Bleistifthärte und Lösemittelresistenz.",
+              "Thermisches Einbrennen bei 150-180°C oder UV-Vernetzung für maximale Bleistifthärte und Lösemittelresistenz.",
               "Präzises Abdecken des Mündungsrings (FEA 15/18/20 und Schraubgewinde), damit Zerstäuberpumpen absolut dicht schließen.",
             ],
           },
@@ -1773,7 +1773,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       {
         h2: "Lackierung und Metallisierung von Keramik, Porzellan & Kerzengefäßen",
         paragraphs: [
-          "Neben Verpackungsglas lackieren und metallisieren wir Keramikgefäße für Duftkerzen, Porzellanbecher, Übertöpfe und technische Keramik — mit porenfüllenden Grundierungen auf Biskuitkeramik und Silanaktivierung auf glasierten Oberflächen.",
+          "Neben Verpackungsglas lackieren und metallisieren wir Keramikgefäße für Duftkerzen, Porzellanbecher, Übertöpfe und technische Keramik - mit porenfüllenden Grundierungen auf Biskuitkeramik und Silanaktivierung auf glasierten Oberflächen.",
         ],
       },
     ],
@@ -1819,11 +1819,11 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             {
               label: "Glanzgrad (60°)",
-              value: "4 – 12 GU (seidenmatt mit Anti-Fingerprint-Effekt)",
+              value: "4 - 12 GU (seidenmatt mit Anti-Fingerprint-Effekt)",
             },
             {
               label: "Vernetzung",
-              value: "Thermisches Einbrennen bei 150–180°C",
+              value: "Thermisches Einbrennen bei 150-180°C",
             },
             {
               label: "Nachhaltigkeit",
@@ -1896,7 +1896,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       subtitle:
         "Von exklusiven Kleinserien für Nischenmarken bis zur laufenden Großserien-Lohnbeschichtung.",
       row1: [
-        "Parfümflakons (15 ml – 200 ml)",
+        "Parfümflakons (15 ml - 200 ml)",
         "Kosmetiktiegel für Cremes & Duftkerzen",
         "Spirituosen- & Weinflaschen (0,5 l / 0,7 l / 1,0 l / Magnum)",
         "Pipettenflaschen (Dropper Bottles) für Seren",
@@ -1919,8 +1919,8 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           badge: "PARFÜMERIE & KOSMETIKMARKEN",
           h3: "Individuelle Flakons & Tiegel schon ab kleinen Serien",
-          body: "Umgehen Sie Mindestmengen von 200.000 Stück in der Glashütte. Liefern Sie Standard-Klarglas an — wir veredeln es in Ihrem Wunsch-Pantone, Ombre, Frost oder 24K Gold.",
-          spec: "Vorserien-Bemusterung (Sampling) in 3–5 Werktagen",
+          body: "Umgehen Sie Mindestmengen von 200.000 Stück in der Glashütte. Liefern Sie Standard-Klarglas an - wir veredeln es in Ihrem Wunsch-Pantone, Ombre, Frost oder 24K Gold.",
+          spec: "Vorserien-Bemusterung (Sampling) in 3-5 Werktagen",
         },
         {
           badge: "SPIRITUOSEN- & GETRÄNKEINDUSTRIE",
@@ -2081,7 +2081,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       },
     ],
     scopeSection: {
-      h2: "Kapazitäten unserer Industrielackiererei — Werkstoffe & Lacksysteme",
+      h2: "Kapazitäten unserer Industrielackiererei - Werkstoffe & Lacksysteme",
       intro:
         "Die industrielle Nass-Spritzlackierung ist überall dort unverzichtbar, wo eine Pulverbeschichtung wegen der 200°C Einbrenntemperatur, der dicken Schichtstärke an feinen Gewinden oder fehlender Effekte wie Piano Black, Echt-Metallic oder Soft-Touch ausscheidet.",
       cardTitle: "Leistungsumfang der Spritzlackierung bei STANIAX",
@@ -2091,7 +2091,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         "Lackierung von Eisen- und Nichteisenmetallen: Stahl, Edelstahl, verzinkter Stahl, Aluminium, ZnAl-Druckguss und Messing (mit 2K-Epoxid- und Reaktiv-Wash-Primern).",
         "Lackierung von Verbundwerkstoffen (GFK, CFK Carbon, Epoxidharz), MDF sowie technischen Spritzguss-Kunststoffen.",
         "Einsatz industrieller Zweikomponentensysteme (2K): Polyurethan (PUR), Epoxid (EP), Acryl, Wasserlacke sowie UV-härtende Systeme.",
-        "Vier Glanz- und Strukturgrade für jeden RAL-/NCS-Farbton: Hochglanz (>85 GU), Seidenmatt / Satin (25–45 GU), Tiefmatt (<10 GU) und Industrie-Feinstruktur.",
+        "Vier Glanz- und Strukturgrade für jeden RAL-/NCS-Farbton: Hochglanz (>85 GU), Seidenmatt / Satin (25-45 GU), Tiefmatt (<10 GU) und Industrie-Feinstruktur.",
         "Präzises technisches Maskieren nach CAD-Zeichnung: Schutz von Gewindebohrungen, EMV-Erdungsflächen, Lagersitzen und Klebezonen.",
         "Dokumentierte Qualitätsprüfung: Trockenschichtdickenmessung (DFT nach ISO 2808), Gitterschnitttest (ISO 2409) sowie Glanz- und Farbtonkontrolle.",
       ],
@@ -2107,14 +2107,14 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Einbrenn- / Trocknungstemperatur",
-            "20 – 80°C (Kunststoff, Komposit, Baugruppen) bzw. bis 160°C (Metall/Glas)",
-            "180 – 200°C (nur hitzebeständige Metalle)",
+            "20 - 80°C (Kunststoff, Komposit, Baugruppen) bzw. bis 160°C (Metall/Glas)",
+            "180 - 200°C (nur hitzebeständige Metalle)",
             "Lackierung von Kunststoffen, GFK, geklebten Baugruppen und porösem ZnAl-Guss ohne Ausgasungsblasen",
           ],
           [
             "Schichtdicke (DFT) & Detailtreue",
-            "15 – 45 µm (dünne, konturenscharfe Schicht)",
-            "60 – 120 µm (dicke Schicht rundet Kanten ab)",
+            "15 - 45 µm (dünne, konturenscharfe Schicht)",
+            "60 - 120 µm (dicke Schicht rundet Kanten ab)",
             "Erhalt scharfer Kanten, feiner Gravuren, Passungen und Gewinde ohne Lackanhäufung",
           ],
           [
@@ -2138,7 +2138,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       {
         h2: "Wann ist die industrielle Spritzlackierung (Nasslack) besser als Pulverbeschichten?",
         paragraphs: [
-          "Konstrukteure und Einkäufer entscheiden sich vor allem in zwei Fällen bewusst für die Nass-Spritzlackierung bei STANIAX: Erstens bei Gehäusen aus Zinkdruckguss (ZnAl) oder Aluminiumdruckguss mit Mikroporen. Im 200°C heißen Pulverofen dehnt sich eingeschlossene Luft im Gussteil aus und erzeugt Blasen und Krater („Ausgasen“). Bei unserer 2K-PUR-Nasslackierung härtet der Lack bei schonenden 60–80°C blasenfrei aus.",
+          "Konstrukteure und Einkäufer entscheiden sich vor allem in zwei Fällen bewusst für die Nass-Spritzlackierung bei STANIAX: Erstens bei Gehäusen aus Zinkdruckguss (ZnAl) oder Aluminiumdruckguss mit Mikroporen. Im 200°C heißen Pulverofen dehnt sich eingeschlossene Luft im Gussteil aus und erzeugt Blasen und Krater („Ausgasen“). Bei unserer 2K-PUR-Nasslackierung härtet der Lack bei schonenden 60-80°C blasenfrei aus.",
           "Zweitens bei Geräten und Leuchten, die aus Aluminiumprofilen, Stahlblechen und ABS/PC-Kunststoffabdeckungen bestehen und im montierten Zustand exakt denselben NCS- oder RAL-Farbton und Glanzgrad aufweisen müssen.",
         ],
         subSections: [
@@ -2147,7 +2147,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             body: "Nichteisenmetalle und Edelstahl bilden passive Oxidschichten, auf denen Standardlacke nicht haften. Unser Vorbehandlungsprozess umfasst:",
             bullets: [
               "Mehrstufige chemische Entfettung und mechanisches Anschleifen/Strahlen zur Oberflächenaktivierung.",
-              "Zweikomponentige Epoxidgrundierungen (2K-EP) und Reaktivprimer (Wash Primer) für Korrosionsschutzklassen C2–C4 und Haftwert 5B.",
+              "Zweikomponentige Epoxidgrundierungen (2K-EP) und Reaktivprimer (Wash Primer) für Korrosionsschutzklassen C2-C4 und Haftwert 5B.",
               "Spritzfüller-Ausgleich von Gussporen und Schleifspuren auf Aluguss und GFK-Laminaten vor dem Decklackauftrag.",
             ],
           },
@@ -2174,25 +2174,25 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           id: "gloss",
           label: "Hochglanz (High Gloss)",
-          gloss: "85 – 95 GU",
+          gloss: "85 - 95 GU",
           desc: "Tiefe Spiegelbrillanz und leicht zu reinigende Oberfläche für Dekorteile und Premium-Gehäuse.",
         },
         {
           id: "satin",
           label: "Seidenmatt / Satin",
-          gloss: "25 – 45 GU",
+          gloss: "25 - 45 GU",
           desc: "Universellste Industrieoberfläche: verbindet hohe Kratzfestigkeit mit edlem Seidenglanz.",
         },
         {
           id: "matte",
           label: "Tiefmatt (Deep Matte)",
-          gloss: "4 – 10 GU",
+          gloss: "4 - 10 GU",
           desc: "Moderne, komplett reflexionsfreie Oberfläche für Architektur, Lichttechnik und Elektronik.",
         },
         {
           id: "structure",
           label: "Feinstruktur (Fine Texture)",
-          gloss: "8 – 15 GU",
+          gloss: "8 - 15 GU",
           desc: "Feinkörnige Struktur, die Bearbeitungsspuren, Schweißnähte und Gussporen zuverlässig kaschiert.",
         },
       ],
@@ -2218,7 +2218,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           num: "03",
           title: "Decklack-Spritzapplikation (RAL / NCS / Spezialeffekt)",
           desc: "In der Überdruck-Lackierkabine tragen wir 2K-Polyurethan- oder Acryllacke im gewählten Farbton, Glanzgrad oder als Strukturlack auf.",
-          param: "Homogene Schichtdicke 25–60 µm DFT",
+          param: "Homogene Schichtdicke 25-60 µm DFT",
         },
         {
           num: "04",
@@ -2256,7 +2256,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           badge: "MASCHINENBAU & ELEKTRONIK",
           h3: "Blasenfreie Lackierung von Al-/ZnAl-Guss & Präzisionsgehäusen",
-          body: "Wir lackieren Druckgussgehäuse, Kühlkörper und Deckel bei niedrigen Einbrenntemperaturen ohne Ausgasungsblasen — inklusive Gewinde- und Dichtflächenmaskierung.",
+          body: "Wir lackieren Druckgussgehäuse, Kühlkörper und Deckel bei niedrigen Einbrenntemperaturen ohne Ausgasungsblasen - inklusive Gewinde- und Dichtflächenmaskierung.",
           spec: "Fertigung streng nach 2D-/3D-Kundenzeichnung",
         },
         {
@@ -2311,7 +2311,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: "Worin liegt der Vorteil der Nass-Spritzlackierung gegenüber der Pulverbeschichtung?",
-          a: "Die Nass-Spritzlackierung trocknet bei niedrigen Temperaturen (20–80°C). Dadurch lassen sich auch Kunststoffe, GFK/CFK-Komposite, MDF, geklebte Baugruppen sowie poröse ZnAl-/Alu-Druckgussteile beschichten, die im 200°C-Pulverofen schmelzen oder ausgasen würden. Zudem erzeugt Nasslack dünnere Schichten (15–45 µm), hält feine Gewinde frei und ermöglicht echtes Piano Black sowie Soft-Touch-Oberflächen.",
+          a: "Die Nass-Spritzlackierung trocknet bei niedrigen Temperaturen (20-80°C). Dadurch lassen sich auch Kunststoffe, GFK/CFK-Komposite, MDF, geklebte Baugruppen sowie poröse ZnAl-/Alu-Druckgussteile beschichten, die im 200°C-Pulverofen schmelzen oder ausgasen würden. Zudem erzeugt Nasslack dünnere Schichten (15-45 µm), hält feine Gewinde frei und ermöglicht echtes Piano Black sowie Soft-Touch-Oberflächen.",
         },
         {
           q: "Welche Werkstoffe lackieren Sie in Ihrer Spritzlackiererei?",
@@ -2331,7 +2331,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Wie lang ist die Lieferzeit bei Lohnlackieraufträgen?",
-          a: "Die reguläre Durchlaufzeit für Serienaufträge liegt bei 4–8 Werktagen. Für eilige Prototypen, Messemodelle oder Engpässe bieten wir nach Absprache einen 48–72h-Express-Service an.",
+          a: "Die reguläre Durchlaufzeit für Serienaufträge liegt bei 4-8 Werktagen. Für eilige Prototypen, Messemodelle oder Engpässe bieten wir nach Absprache einen 48-72h-Express-Service an.",
         },
       ],
     },
@@ -2354,21 +2354,21 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/de/kunststofflackierung",
           anchorText:
-            "Industrielle Kunststofflackierung — Soft-Touch & Piano Black",
+            "Industrielle Kunststofflackierung - Soft-Touch & Piano Black",
           badge: "KUNSTSTOFFLACKIERUNG",
           desc: "Spezialisierte Lacksysteme für Spritzgussteile aus ABS, PC, PP und PA.",
         },
         {
           path: "/de/glas-und-keramiklackierung",
           anchorText:
-            "Glaslackierung & Keramikbeschichtung — Ombre, Frost & Flakons",
+            "Glaslackierung & Keramikbeschichtung - Ombre, Frost & Flakons",
           badge: "GLAS & KERAMIK",
           desc: "Thermisch eingebrannte Dekor- und Schutzlacke auf Glas und Keramik.",
         },
         {
           path: "/de/vakuummetallisierung",
           anchorText:
-            "PVD Vakuummetallisierung — Spiegelchrom- & Goldbeschichtungen",
+            "PVD Vakuummetallisierung - Spiegelchrom- & Goldbeschichtungen",
           badge: "PVD-METALLISIERUNG",
           desc: "Kombinieren Sie Spritzlackierung mit Hochvakuumbedampfung für echte Spiegelmetall-Effekte.",
         },

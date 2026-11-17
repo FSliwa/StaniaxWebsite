@@ -28,7 +28,7 @@ export interface PageSeoConfig {
   ogType?: "website" | "article";
   ogImage?: string;
   noindex?: boolean;
-  /** Strona istnieje tylko w jednym języku (PL) — hreflang tylko dla pl + x-default. */
+  /** Strona istnieje tylko w jednym języku (PL) - hreflang tylko dla pl + x-default. */
   singleLanguage?: boolean;
   breadcrumbs?: BreadcrumbItem[];
   faq?: FaqSchemaItem[];
@@ -68,7 +68,7 @@ export function buildOrganizationAndLocalBusinessGraph(lang: Lang = "pl") {
       "@type": "WebSite",
       "@id": `${SITE_ORIGIN}/#website`,
       url: `${SITE_ORIGIN}/`,
-      name: "STANIAX Sp. z o.o. — Metalizacja Próżniowa i Lakierowanie Przemysłowe",
+      name: "STANIAX Sp. z o.o. - Metalizacja Próżniowa i Lakierowanie Przemysłowe",
       inLanguage: ["pl-PL", "en-US", "de-DE"],
       publisher: {
         "@id": `${SITE_ORIGIN}/#organization`,
@@ -78,7 +78,7 @@ export function buildOrganizationAndLocalBusinessGraph(lang: Lang = "pl") {
       "@type": ["Organization", "LocalBusiness", "AutoRepair"],
       "@id": `${SITE_ORIGIN}/#organization`,
       name: "STANIAX Sp. z o.o.",
-      alternateName: "Zakład Metalizacji Próżniowej STANIAX — Dariusz Staniak",
+      alternateName: "Zakład Metalizacji Próżniowej STANIAX - Dariusz Staniak",
       legalName: "STANIAX Spółka z ograniczoną odpowiedzialnością",
       taxID: "5253052509",
       vatID: "PL5253052509",
@@ -111,7 +111,7 @@ export function buildOrganizationAndLocalBusinessGraph(lang: Lang = "pl") {
       location: [
         {
           "@type": "Place",
-          name: "Zakład Produkcyjny STANIAX — Józefów k. Warszawy",
+          name: "Zakład Produkcyjny STANIAX - Józefów k. Warszawy",
           address: {
             "@type": "PostalAddress",
             streetAddress: "ul. kard. Stefana Wyszyńskiego 116A",
@@ -128,7 +128,7 @@ export function buildOrganizationAndLocalBusinessGraph(lang: Lang = "pl") {
         },
         {
           "@type": "Place",
-          name: "Siedziba Rejestrowa STANIAX Sp. z o.o. — Warszawa",
+          name: "Siedziba Rejestrowa STANIAX Sp. z o.o. - Warszawa",
           address: {
             "@type": "PostalAddress",
             streetAddress: "ul. Grzybowska 5A",

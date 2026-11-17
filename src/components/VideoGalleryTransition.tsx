@@ -42,7 +42,7 @@ export function VideoGalleryTransition({
 
   return (
     <div className="relative bg-white">
-      {/* Hero Video — Full Screen, edge-to-edge */}
+      {/* Hero Video - Full Screen, edge-to-edge */}
       <div className="relative h-screen min-h-[100dvh] w-full overflow-hidden bg-black">
         <video
           src={videoSource || undefined}
@@ -70,7 +70,7 @@ export function VideoGalleryTransition({
         </button>
       </div>
 
-      {/* Section 2 — Bento Grid with header */}
+      {/* Section 2 - Bento Grid with header */}
       <div
         id="bento-grid"
         ref={gridRef}
@@ -103,9 +103,9 @@ export function VideoGalleryTransition({
           </p>
         </div>
 
-        {/* Bento Grid — Redesigned layout */}
+        {/* Bento Grid - Redesigned layout */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 auto-rows-[160px] sm:auto-rows-[200px] lg:auto-rows-[240px]">
-          {/* Large left — spans 2 cols, 2 rows */}
+          {/* Large left - spans 2 cols, 2 rows */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -136,7 +136,7 @@ export function VideoGalleryTransition({
             </div>
           </motion.div>
 
-          {/* Stats tile — dark accent */}
+          {/* Stats tile - dark accent */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -183,7 +183,7 @@ export function VideoGalleryTransition({
                         </div>
                     </motion.div>
 
-                    {/* Bottom right of row 2 — vacuum metalization image */}
+                    {/* Bottom right of row 2 - vacuum metalization image */}
                     <motion.div
                         variants={fadeUp}
                         initial="hidden"
@@ -194,7 +194,7 @@ export function VideoGalleryTransition({
                         <img src={zamiennik1} width={800} height={600} alt={lang === 'en' ? 'Chrome-like metallized cosmetic closures' : lang === 'de' ? 'Verchromte Kosmetikverschlüsse nach Metallisierung' : 'Detale z efektem lustrzanego chromu po metalizacji próżniowej'} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
                     </motion.div>
 
-                    {/* Bottom row — 4 image tiles */}
+                    {/* Bottom row - 4 image tiles */}
                     <motion.div
                         variants={fadeUp}
                         initial="hidden"

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useInView } from 'framer-motion'
 
-const CHARS = "-_[]{}—=+*^?#________"
+const CHARS = "-_[]{}-=+*^?#________"
 
 interface ScrambleTextProps {
     text: string

@@ -92,7 +92,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
     pl: {
       metaTitle: 'Metalizacja próżniowa vs galwanizacja | STANIAX',
       metaDesc:
-        'Porównanie inżynieryjne PVD i galwanizacji plastiku: grubość warstw 50–150 nm, zgodność REACH, obróbka ABS/PP/szkła oraz koszty serii B2B w STANIAX.',
+        'Porównanie inżynieryjne PVD i galwanizacji plastiku: grubość warstw 50-150 nm, zgodność REACH, obróbka ABS/PP/szkła oraz koszty serii B2B w STANIAX.',
       badge: 'Porównanie technologii B2B',
       h1: 'Metalizacja próżniowa PVD vs galwanizacja tworzyw sztucznych',
       subtitle:
@@ -101,10 +101,10 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Galwanizacja kąpielowa (Cr6+ / Cr3+)',
       directAnswerQuestion: 'Kiedy wybrać metalizację próżniową PVD zamiast galwanizacji plastiku?',
       directAnswer:
-        'Metalizacja próżniowa PVD nakłada w wysokiej próżni warstwę aluminium 50–150 nm zabezpieczoną lakierem UV (15–25 µm), bez toksycznych kąpieli chromowych i bez wymogu przewodności podłoża. Galwanizacja sprawdza się przy grubych powłokach na czystym ABS narażonych na ekstremalne ścieranie mechaniczne, lecz generuje wyższe koszty jednostkowe i ograniczenia REACH.',
+        'Metalizacja próżniowa PVD nakłada w wysokiej próżni warstwę aluminium 50-150 nm zabezpieczoną lakierem UV (15-25 µm), bez toksycznych kąpieli chromowych i bez wymogu przewodności podłoża. Galwanizacja sprawdza się przy grubych powłokach na czystym ABS narażonych na ekstremalne ścieranie mechaniczne, lecz generuje wyższe koszty jednostkowe i ograniczenia REACH.',
       verdictTitle: 'Werdykt technologiczny do produkcji seryjnej',
       verdictSummary:
-        'Dla 85% detali z ABS, PC, PP, PA oraz szkła kosmetycznego (nakrętki, flakony, odbłyśniki, listwy wnętrza) proces PVD z podkładem i topcoatem UV oferuje o 30–50% niższy koszt jednostkowy, pełną zgodność z normami REACH/RoHS i dowolną kolorystykę od chromu po złoto i odcienie smoke.',
+        'Dla 85% detali z ABS, PC, PP, PA oraz szkła kosmetycznego (nakrętki, flakony, odbłyśniki, listwy wnętrza) proces PVD z podkładem i topcoatem UV oferuje o 30-50% niższy koszt jednostkowy, pełną zgodność z normami REACH/RoHS i dowolną kolorystykę od chromu po złoto i odcienie smoke.',
       comparisonRows: [
         {
           parameter: 'Mechanizm nanoszenia',
@@ -118,8 +118,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Grubość powłoki całkowitej',
-          optionA: '15–30 µm (podkład + 0,05–0,15 µm Al + lakier ochronny UV/PU)',
-          optionB: '20–45 µm warstw metalicznych (miedź + nikiel + chrom)',
+          optionA: '15-30 µm (podkład + 0,05-0,15 µm Al + lakier ochronny UV/PU)',
+          optionB: '20-45 µm warstw metalicznych (miedź + nikiel + chrom)',
         },
         {
           parameter: 'Wpływ na wymiary i gwinty',
@@ -138,8 +138,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Czas realizacji serii B2B',
-          optionA: '3–7 dni roboczych w komorach do Ø 1200 mm',
-          optionB: '10–21 dni roboczych w zautomatyzowanych liniach wannowych',
+          optionA: '3-7 dni roboczych w komorach do Ø 1200 mm',
+          optionB: '10-21 dni roboczych w zautomatyzowanych liniach wannowych',
         },
       ],
       sections: [
@@ -220,10 +220,10 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Wet Bath Electroplating (Cr6+ / Cr3+)',
       directAnswerQuestion: 'When should B2B manufacturers choose PVD vacuum metallization over electroplating?',
       directAnswer:
-        'PVD vacuum metallization deposits a 50–150 nm pure aluminum layer sealed with a 15–25 µm UV clearcoat inside a vacuum chamber, requiring zero heavy-metal baths or conductive substrates. Electroplating suits rigid plating-grade ABS under severe mechanical abrasion, while PVD supports PP, PC, PA, glass, REACH compliance, and lower short-run tooling costs.',
+        'PVD vacuum metallization deposits a 50-150 nm pure aluminum layer sealed with a 15-25 µm UV clearcoat inside a vacuum chamber, requiring zero heavy-metal baths or conductive substrates. Electroplating suits rigid plating-grade ABS under severe mechanical abrasion, while PVD supports PP, PC, PA, glass, REACH compliance, and lower short-run tooling costs.',
       verdictTitle: 'Engineering Verdict for Series Manufacturing',
       verdictSummary:
-        'For roughly 85% of cosmetic closures, glass bottles, optical reflectors, and interior trim made from ABS, PC, PP, or PA, UV-sealed PVD reduces unit cost by 30–50% while eliminating Cr(VI) waste streams and enabling gold, rose-gold, or smoked finishes.',
+        'For roughly 85% of cosmetic closures, glass bottles, optical reflectors, and interior trim made from ABS, PC, PP, or PA, UV-sealed PVD reduces unit cost by 30-50% while eliminating Cr(VI) waste streams and enabling gold, rose-gold, or smoked finishes.',
       comparisonRows: [
         {
           parameter: 'Deposition Physics',
@@ -237,8 +237,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Total Coating Thickness',
-          optionA: '15–30 µm (leveling primer + 0.05–0.15 µm Al + UV/2K PU topcoat)',
-          optionB: '20–45 µm solid copper-nickel-chromium metallic build-up',
+          optionA: '15-30 µm (leveling primer + 0.05-0.15 µm Al + UV/2K PU topcoat)',
+          optionB: '20-45 µm solid copper-nickel-chromium metallic build-up',
         },
         {
           parameter: 'Thread & Tolerance Impact',
@@ -257,8 +257,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Lead Time (B2B Batches)',
-          optionA: '3–7 working days in Ø 1200 mm planetary vacuum chambers',
-          optionB: '10–21 working days across automated chemical rack lines',
+          optionA: '3-7 working days in Ø 1200 mm planetary vacuum chambers',
+          optionB: '10-21 working days across automated chemical rack lines',
         },
       ],
       sections: [
@@ -284,7 +284,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         {
           heading: 'Where Electroplating Still Makes Engineering Sense',
           paragraphs: [
-            'Heavy-duty exterior truck emblems, wheel center caps exposed to gravel impact, or bathroom valves subjected to continuous boiling-water abrasion benefit from the 30–40 µm metallic ductility of electroplated copper-nickel-chromium stacks.',
+            'Heavy-duty exterior truck emblems, wheel center caps exposed to gravel impact, or bathroom valves subjected to continuous boiling-water abrasion benefit from the 30-40 µm metallic ductility of electroplated copper-nickel-chromium stacks.',
             'Conversely, whenever >92% light reflectance, lightweight cosmetic packaging, custom gold/copper tones, or non-ABS engineering resins are specified, industrial PVD metallization delivers superior ROI and compliance.',
           ],
         },
@@ -293,7 +293,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       whenChooseA: [
         'Your components use PC, PP, PA, glass, ceramics, or thin-walled ABS closures.',
         'You need gold, rose gold, tinted chrome, or >92% optical mirror reflectance.',
-        'Strict EU REACH sustainability and 3–7 day B2B lead times matter.',
+        'Strict EU REACH sustainability and 3-7 day B2B lead times matter.',
       ],
       whenChooseBTitle: 'Consider Electroplating when:',
       whenChooseB: [
@@ -304,11 +304,11 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       faq: [
         {
           q: 'Is vacuum metallization cheaper than chrome plating plastic parts?',
-          a: 'For small-to-medium series and multi-color SKUs, UV-sealed PVD is typically 30–50% more cost-effective because it avoids multi-stage precious-metal palladium baths and wastewater treatment fees.',
+          a: 'For small-to-medium series and multi-color SKUs, UV-sealed PVD is typically 30-50% more cost-effective because it avoids multi-stage precious-metal palladium baths and wastewater treatment fees.',
         },
         {
           q: 'How durable is UV-lacquered PVD on automotive interior or cosmetic caps?',
-          a: 'A crosslinked 15–25 µm UV polyurethane topcoat achieves ISO 2409 Class 0 adhesion, passes sweat/alcohol wipe testing, and resists UV yellowing outdoors or under retail lighting.',
+          a: 'A crosslinked 15-25 µm UV polyurethane topcoat achieves ISO 2409 Class 0 adhesion, passes sweat/alcohol wipe testing, and resists UV yellowing outdoors or under retail lighting.',
         },
         {
           q: 'Can you metallize selectively on plastic housings?',
@@ -339,7 +339,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Nasschemische Galvanik (Cr6+ / Cr3+)',
       directAnswerQuestion: 'Wann ist die PVD-Vakuummetallisierung der Galvanik wirtschaftlich und technisch überlegen?',
       directAnswer:
-        'Bei der Vakuummetallisierung wird im Hochvakuum eine 50–150 nm starke Aluminiumschicht aufgedampft und mit 15–25 µm UV-Schutzlack versiegelt — völlig frei von Chrombädern und leitfähigen Kunststoffen. Sie eignet sich für ABS, PC, PP, PA sowie Glas, erfüllt REACH vollständig und senkt Serienkosten gegenüber Galvanik um 30–50 %.',
+        'Bei der Vakuummetallisierung wird im Hochvakuum eine 50-150 nm starke Aluminiumschicht aufgedampft und mit 15-25 µm UV-Schutzlack versiegelt - völlig frei von Chrombädern und leitfähigen Kunststoffen. Sie eignet sich für ABS, PC, PP, PA sowie Glas, erfüllt REACH vollständig und senkt Serienkosten gegenüber Galvanik um 30-50 %.',
       verdictTitle: 'Technisches Fazit für Industriekunden',
       verdictSummary:
         'Für rund 85 % aller Kosmetikverschlüsse, Glasflakons, Scheinwerferreflektoren und Innenraumblenden ist das UV-versiegelte PVD-Verfahren wirtschaftlicher, umweltkonform und farblich flexibel (Chrom, Gold, Kupfer, Smoke).',
@@ -356,8 +356,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Gesamtschichtdicke',
-          optionA: '15–30 µm (Grundlack + 0,05–0,15 µm Al + UV-/2K-PUR-Decklack)',
-          optionB: '20–45 µm metallischer Schichtaufbau aus Kupfer, Nickel und Chrom',
+          optionA: '15-30 µm (Grundlack + 0,05-0,15 µm Al + UV-/2K-PUR-Decklack)',
+          optionB: '20-45 µm metallischer Schichtaufbau aus Kupfer, Nickel und Chrom',
         },
         {
           parameter: 'Maßhaltigkeit an Gewinden',
@@ -376,8 +376,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Durchlaufzeit B2B-Serien',
-          optionA: '3–7 Werktage in Vakuumkammern bis Ø 1200 mm',
-          optionB: '10–21 Werktage in Durchlauf-Galvanikstraßen',
+          optionA: '3-7 Werktage in Vakuumkammern bis Ø 1200 mm',
+          optionB: '10-21 Werktage in Durchlauf-Galvanikstraßen',
         },
       ],
       sections: [
@@ -385,7 +385,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Haftungsphysik auf PP, Polyamid, Polycarbonat und Glasflakons',
           paragraphs: [
             'Die klassische Kunststoffgalvanik beruht auf dem chemischen Herauslösen der Butadienphase aus ABS mittels Chromschwefelsäure, um mechanische Verankerungspunkte für chemisches Nickel zu schaffen. Nicht-ABS-Kunststoffe wie Polypropylen, Polyamid oder Glas besitzen diese Struktur nicht.',
-            'Im STANIAX-Werk in Józefów bei Warschau schließen wir diese Lücke durch Atmosphärendruck-Plasma, Flammvorbehandlung und angepasste Haftprimer — so erreichen wir auf sämtlichen Industriesubstraten Gitterschnittkennwert 0 nach ISO 2409.',
+            'Im STANIAX-Werk in Józefów bei Warschau schließen wir diese Lücke durch Atmosphärendruck-Plasma, Flammvorbehandlung und angepasste Haftprimer - so erreichen wir auf sämtlichen Industriesubstraten Gitterschnittkennwert 0 nach ISO 2409.',
           ],
           bullets: [
             'Keine Spannungsrisskorrosion an dünnwandigen Spritzgussteilen',
@@ -412,7 +412,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       whenChooseA: [
         'Bauteile aus PC, PP, PA, Glas oder dünnwandigem ABS bestehen.',
         'Gold-, Kupfer-, Rauchchrom-Töne oder >92 % Lichtreflexion gefragt sind.',
-        'REACH-Konformität ohne Chrom(VI) und 3–7 Tage Lieferzeit wichtig sind.',
+        'REACH-Konformität ohne Chrom(VI) und 3-7 Tage Lieferzeit wichtig sind.',
       ],
       whenChooseBTitle: 'Galvanik erwägen, wenn:',
       whenChooseB: [
@@ -423,7 +423,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       faq: [
         {
           q: 'Ist PVD-Vakuummetallisierung für Kunststoff günstiger als Verchromen im Tauchbad?',
-          a: 'In mittleren Losgrößen und bei Varianten in Gold oder Chrom senkt PVD die Stückkosten meist um 30–50 %, da keine Palladium-Bäder oder Abwassergebühren anfallen.',
+          a: 'In mittleren Losgrößen und bei Varianten in Gold oder Chrom senkt PVD die Stückkosten meist um 30-50 %, da keine Palladium-Bäder oder Abwassergebühren anfallen.',
         },
         {
           q: 'Hält PVD auf Polypropylen und Polyamid dauerhaft?',
@@ -431,7 +431,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Wie schnell liefert STANIAX Serienaufträge nach Deutschland?',
-          a: 'Die Produktionszeit beträgt 3–7 Werktage; der palettierte Rückversand in den DACH-Raum dauert je nach Region weitere 2–3 Werktage.',
+          a: 'Die Produktionszeit beträgt 3-7 Werktage; der palettierte Rückversand in den DACH-Raum dauert je nach Region weitere 2-3 Werktage.',
         },
         {
           q: 'Können Musterteile vor der Serienfreigabe bemustert werden?',
@@ -461,10 +461,10 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Chromowanie natryskowe (Srebrzenie AgNO3)',
       directAnswerQuestion: 'Czym różni się metalizacja próżniowa PVD od chromowania natryskowego?',
       directAnswer:
-        'Metalizacja próżniowa PVD osadza czyste aluminium (99,99%) w próżni i utrwala je sieciowanym lakierem UV, co wyklucza żółknięcie warstwy metalicznej i znosi temperatury do 220 °C na odbłyśnikach. Chromowanie natryskowe opiera się na redukcji soli srebra (AgNO3) w atmosferze otwartej — jest podatne na utlenianie, żółknięcie UV i niską powtarzalność w produkcji seryjnej.',
+        'Metalizacja próżniowa PVD osadza czyste aluminium (99,99%) w próżni i utrwala je sieciowanym lakierem UV, co wyklucza żółknięcie warstwy metalicznej i znosi temperatury do 220 °C na odbłyśnikach. Chromowanie natryskowe opiera się na redukcji soli srebra (AgNO3) w atmosferze otwartej - jest podatne na utlenianie, żółknięcie UV i niską powtarzalność w produkcji seryjnej.',
       verdictTitle: 'Wnioski technologiczne dla B2B i motoryzacji',
       verdictSummary:
-        'Chromowanie natryskowe bywa rozwiązaniem doraźnym dla dużych detali dekoracyjnych (np. felg pokazowych lub rzeźb), których nie można włożyć do komory. Dla reflektorów, kosmetyków i seryjnych elementów przemysłowych PVD zapewnia wielokrotnie wyższą stabilność barwy, odporność termiczną i 2–3× niższy koszt w serii.',
+        'Chromowanie natryskowe bywa rozwiązaniem doraźnym dla dużych detali dekoracyjnych (np. felg pokazowych lub rzeźb), których nie można włożyć do komory. Dla reflektorów, kosmetyków i seryjnych elementów przemysłowych PVD zapewnia wielokrotnie wyższą stabilność barwy, odporność termiczną i 2-3× niższy koszt w serii.',
       comparisonRows: [
         {
           parameter: 'Metal tworzący lustro',
@@ -473,17 +473,17 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Skłonność do żółknięcia',
-          optionA: 'Brak — Al w połączeniu z lakierem UV stabilizowanym HALS nie ciemnieje',
+          optionA: 'Brak - Al w połączeniu z lakierem UV stabilizowanym HALS nie ciemnieje',
           optionB: 'Wysoka wrażliwość Ag na związki siarki, promieniowanie UV i zarysowania',
         },
         {
           parameter: 'Odporność termiczna',
-          optionA: 'Do 200–220 °C (z odpowiednim podkładem krzemoorganicznym)',
-          optionB: 'Zazwyczaj 80–110 °C — warstwa lakieru 2K puchnie przy temperaturze ksenonu',
+          optionA: 'Do 200-220 °C (z odpowiednim podkładem krzemoorganicznym)',
+          optionB: 'Zazwyczaj 80-110 °C - warstwa lakieru 2K puchnie przy temperaturze ksenonu',
         },
         {
           parameter: 'Jednorodność krawędzi i wgłębień',
-          optionA: 'Równomierna warstwa 50–150 nm na planetarnych karuzelach obrotowych',
+          optionA: 'Równomierna warstwa 50-150 nm na planetarnych karuzelach obrotowych',
           optionB: 'Ryzyko zacieków, szarych cieni przy kątach prostych i plam solnych',
         },
         {
@@ -521,7 +521,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Kiedy ma zastosowanie chromowanie natryskowe?',
           paragraphs: [
             'Jedynym racjonalnym obszarem dla srebrzenia natryskowego pozostają gabaryty wykraczające poza średnicę komór próżniowych (>1,2 m), np. jednoczęściowe zderzaki tuningowe, rzeźby wystawiennicze lub wielkoformatowe elementy architektoniczne o pojedynczym nakładzie.',
-            'Wszystkie komponenty mieszczące się w komorze do Ø 1200 mm — od detali samochodowych po kapsle i obudowy elektroniki — zyskują na trwałości oraz cenie dzięki metalizacji PVD.',
+            'Wszystkie komponenty mieszczące się w komorze do Ø 1200 mm - od detali samochodowych po kapsle i obudowy elektroniki - zyskują na trwałości oraz cenie dzięki metalizacji PVD.',
           ],
         },
       ],
@@ -544,11 +544,11 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Jaka jest maksymalna wielkość detalu do komory PVD w STANIAX?',
-          a: 'Dysponujemy komorami próżniowymi o średnicy roboczej do 1200 mm — zapraszamy do przesłania rysunku STEP/DXF lub wymiarów gabarytowych.',
+          a: 'Dysponujemy komorami próżniowymi o średnicy roboczej do 1200 mm - zapraszamy do przesłania rysunku STEP/DXF lub wymiarów gabarytowych.',
         },
         {
           q: 'Dlaczego niektóre warsztaty malują odbłyśniki chromem w sprayu zamiast PVD?',
-          a: 'Lakiery „efekt chromu” w aerozolu zawierają jedynie drobny pył metaliczny w żywicy i dają ok. 40–55% rozproszonego odbicia, przez co światło drogowe traci skupienie i nie przechodzi przeglądu.',
+          a: 'Lakiery „efekt chromu” w aerozolu zawierają jedynie drobny pył metaliczny w żywicy i dają ok. 40-55% rozproszonego odbicia, przez co światło drogowe traci skupienie i nie przechodzi przeglądu.',
         },
         {
           q: 'Czy PVD wymaga zabezpieczenia dodatkowym lakierem wierzchnim?',
@@ -578,7 +578,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         'Vacuum metallization deposits 99.99% pure aluminum inside a sealed 10⁻⁴ mbar vacuum chamber with thermal stability up to 220 °C and zero yellowing. Spray-on chrome reduces silver nitrate (AgNO3) in open air over 2K primer, making it prone to UV yellowing, sulfide tarnishing, thermal blistering inside lamps, and high unit labor cost.',
       verdictTitle: 'Industrial & Optical Engineering Verdict',
       verdictSummary:
-        'Spray silver remains relevant only for oversized one-off props exceeding 1.2 meters. For reflectors, cosmetic closures, and B2B plastic parts, vacuum metallization delivers superior thermal resistance, <1% scrap rates, and 2–3× lower serial cost.',
+        'Spray silver remains relevant only for oversized one-off props exceeding 1.2 meters. For reflectors, cosmetic closures, and B2B plastic parts, vacuum metallization delivers superior thermal resistance, <1% scrap rates, and 2-3× lower serial cost.',
       comparisonRows: [
         {
           parameter: 'Reflective Metal Layer',
@@ -592,8 +592,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Operating Temperature Limit',
-          optionA: '200–220 °C with high-temp silicone/epoxy reflector basecoats',
-          optionB: 'Typically softens or yellows above 90–110 °C',
+          optionA: '200-220 °C with high-temp silicone/epoxy reflector basecoats',
+          optionB: 'Typically softens or yellows above 90-110 °C',
         },
         {
           parameter: 'Uniformity in Deep Recesses',
@@ -615,8 +615,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         {
           heading: 'Why Spray-On Chrome Fails Inside Xenon and H7 Headlamp Projectors',
           paragraphs: [
-            'Projector bowls around H7 halogen or D1S/D3S HID burners routinely reach 150–190 °C alongside intense internal UV exposure. Thick organic 2K automotive clearcoats used in spray-silver systems outgas and yellow rapidly under projector heat.',
-            'At STANIAX, headlight reflectors undergo thermal stripper cleaning, specialized high-temp primer curing, and direct aluminum vacuum deposition capped with protective SiOx passivation — restoring >92% light reflection with zero optical distortion.',
+            'Projector bowls around H7 halogen or D1S/D3S HID burners routinely reach 150-190 °C alongside intense internal UV exposure. Thick organic 2K automotive clearcoats used in spray-silver systems outgas and yellow rapidly under projector heat.',
+            'At STANIAX, headlight reflectors undergo thermal stripper cleaning, specialized high-temp primer curing, and direct aluminum vacuum deposition capped with protective SiOx passivation - restoring >92% light reflection with zero optical distortion.',
           ],
           bullets: [
             'No yellow amber shift or clearcoat peeling under continuous bulb heat',
@@ -682,10 +682,10 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Spritzchrom (Silbernitrat AgNO3)',
       directAnswerQuestion: 'Warum ist PVD-Vakuummetallisierung haltbarer als chemisches Spritzchrom?',
       directAnswer:
-        'Bei der PVD-Vakuummetallisierung wird Reinaluminium (99,99 %) bei 10⁻⁴ mbar aufgedampft — thermisch belastbar bis 220 °C und vergilbungsfrei unter UV-Schutzlack. Spritzchrom nutzt nasschemisches Silbernitrat (AgNO3), das unter UV-Strahlung, Wärme oder Schwefelkontakt schnell vergilbt und in Serien hohe Ausschussquoten verursacht.',
+        'Bei der PVD-Vakuummetallisierung wird Reinaluminium (99,99 %) bei 10⁻⁴ mbar aufgedampft - thermisch belastbar bis 220 °C und vergilbungsfrei unter UV-Schutzlack. Spritzchrom nutzt nasschemisches Silbernitrat (AgNO3), das unter UV-Strahlung, Wärme oder Schwefelkontakt schnell vergilbt und in Serien hohe Ausschussquoten verursacht.',
       verdictTitle: 'Technisches Urteil für B2B & Kfz-Optik',
       verdictSummary:
-        'Spritzchrom taugt primär für übergroße Messeobjekte über 1,2 Meter. Für Scheinwerferreflektoren, Flakonverschlüsse und Kunststoffblenden liefert PVD reproduzierbaren Spiegelglanz (>92 %) und 2–3× geringere Serienkosten.',
+        'Spritzchrom taugt primär für übergroße Messeobjekte über 1,2 Meter. Für Scheinwerferreflektoren, Flakonverschlüsse und Kunststoffblenden liefert PVD reproduzierbaren Spiegelglanz (>92 %) und 2-3× geringere Serienkosten.',
       comparisonRows: [
         {
           parameter: 'Reflektierendes Metall',
@@ -694,13 +694,13 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Vergilbungsneigung',
-          optionA: 'Keine — UV-stabilisierter Decklack verhindert Verfärbungen',
-          optionB: 'Hoch — Silberoxid- und Sulfidbildung unter Licht & Wärme',
+          optionA: 'Keine - UV-stabilisierter Decklack verhindert Verfärbungen',
+          optionB: 'Hoch - Silberoxid- und Sulfidbildung unter Licht & Wärme',
         },
         {
           parameter: 'Temperaturbeständigkeit',
-          optionA: 'Bis 200–220 °C auf Reflektor-Spezialprimern',
-          optionB: 'Meist auf 80–110 °C begrenzt, Klarlack neigt zur Blasenbildung',
+          optionA: 'Bis 200-220 °C auf Reflektor-Spezialprimern',
+          optionB: 'Meist auf 80-110 °C begrenzt, Klarlack neigt zur Blasenbildung',
         },
         {
           parameter: 'Reproduzierbarkeit',
@@ -718,7 +718,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Warum Spritzchrom im Xenon- oder H7-Scheinwerfer versagt',
           paragraphs: [
             'Im Brennraum moderner Projektorlinsen herrschen dauerhaft Temperaturen über 150 °C. Zweikomponenten-Klarlacke eines Spritzchrom-Aufbaus beginnen unter dieser thermischen Last zu vergilben und beeinträchtigen die Hell-Dunkel-Grenze.',
-            'Bei STANIAX wird der Reflektor entlackt, mit hitzebeständigem Spezialprimer egalisiert, im Hochvakuum mit 99,99 % Aluminium bedampft und abschließend mit SiOx passiviert — für dauerhafte >92 % Lichtreflexion.',
+            'Bei STANIAX wird der Reflektor entlackt, mit hitzebeständigem Spezialprimer egalisiert, im Hochvakuum mit 99,99 % Aluminium bedampft und abschließend mit SiOx passiviert - für dauerhafte >92 % Lichtreflexion.',
           ],
           bullets: [
             'Kein Ausgasen und kein Anlaufen der Streuscheibe von innen',
@@ -729,7 +729,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         {
           heading: 'Prozesssicherheit für Verpackungen und Sichtblenden',
           paragraphs: [
-            'Kappen und Flakons der Kosmetikindustrie verlangen null Läufer in Feingewinden und reproduzierbaren Glanz (>92 GU). Im Vakuumprozess schließen UV-Lacke die Aluminiumschicht staubfrei und wischfest ab — ganz ohne DI-Wasserflecken.',
+            'Kappen und Flakons der Kosmetikindustrie verlangen null Läufer in Feingewinden und reproduzierbaren Glanz (>92 GU). Im Vakuumprozess schließen UV-Lacke die Aluminiumschicht staubfrei und wischfest ab - ganz ohne DI-Wasserflecken.',
             'Da die Bedampfung im geschlossenen Hochvakuum von 10⁻⁴ mbar erfolgt, entstehen keinerlei chemische Silberniederschläge in Hinterschneidungen oder Rastnasen. Jede Charge durchläuft im Werk Józefów die Gitterschnittprüfung nach ISO 2409 (Klasse Gt 0) sowie die Farbortkontrolle ΔE < 0,8 für Gold-, Kupfer- und Rauchchrom-Nuancen.',
           ],
         },
@@ -752,7 +752,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Welche Maximalmaße fasst Ihre Vakuumkammer in Józefów?',
-          a: 'Unsere Industrieanlagen verarbeiten Gestelle bis Ø 1200 mm — ideal sowohl für Einzelelemente als auch für Serien.',
+          a: 'Unsere Industrieanlagen verarbeiten Gestelle bis Ø 1200 mm - ideal sowohl für Einzelelemente als auch für Serien.',
         },
         {
           q: 'Können verbrannte oder fehlversuchte Reflektoren gerettet werden?',
@@ -786,29 +786,29 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Nowy tani zamiennik (TYC / Depo / no-name)',
       directAnswerQuestion: 'Czy lepiej zregenerować oryginalny odbłyśnik metodą PVD czy kupić tani zamiennik lampy?',
       directAnswer:
-        'Regeneracja oryginalnego odbłyśnika OEM metodą PVD w STANIAX (koszt od 150–250 zł/szt.) przywraca fabryczne >92% odbicia światła przy zachowaniu oryginalnej geometrii wiązki i homologacji ECE. Tanie zamienniki reflektorów (700–1800 zł/szt.) mają miękką optykę o gorszej linii światłocienia, słabsze silniczki poziomowania i często parują w pierwszym sezonie.',
-      verdictTitle: 'Werdykt optyczny i finansowy (oszczędność 60–80%)',
+        'Regeneracja oryginalnego odbłyśnika OEM metodą PVD w STANIAX (koszt od 150-250 zł/szt.) przywraca fabryczne >92% odbicia światła przy zachowaniu oryginalnej geometrii wiązki i homologacji ECE. Tanie zamienniki reflektorów (700-1800 zł/szt.) mają miękką optykę o gorszej linii światłocienia, słabsze silniczki poziomowania i często parują w pierwszym sezonie.',
+      verdictTitle: 'Werdykt optyczny i finansowy (oszczędność 60-80%)',
       verdictSummary:
         'Zachowanie oryginalnej obudowy Hella, Valeo, Koito lub AL (Automotive Lighting) po profesjonalnej metalizacji odbłyśnika przewyższa jakością rozkładu światła budżetowe zamienniki oraz eliminuje problemy z adaptacyjnym skrętem AFS i kontrolką błędów na desce.',
       comparisonRows: [
         {
           parameter: 'Koszt całkowity na jedną lampę',
-          optionA: '150–250 zł (sam odbłyśnik) lub 350–550 zł komplet z rozklejeniem',
-          optionB: '600–1 800 zł zamiennik lub 3 500–9 000 zł nowy reflektor ASO',
+          optionA: '150-250 zł (sam odbłyśnik) lub 350-550 zł komplet z rozklejeniem',
+          optionB: '600-1 800 zł zamiennik lub 3 500-9 000 zł nowy reflektor ASO',
         },
         {
           parameter: 'Precyzja geometrii soczewki i odcięcia',
           optionA: 'Oryginalna forma OEM zaprojektowana na ławach fotometrycznych producenta',
-          optionB: 'Często zniekształcony profil paraboli — rozmyte pobocze i olśnienie',
+          optionB: 'Często zniekształcony profil paraboli - rozmyte pobocze i olśnienie',
         },
         {
           parameter: 'Współczynnik odbicia światła',
           optionA: '>92% po próżniowym naparowaniu Al 99,99% z pasywacją SiOx',
-          optionB: 'Zależny od partii (75–85%), cienka warstwa w tanich kopiach',
+          optionB: 'Zależny od partii (75-85%), cienka warstwa w tanich kopiach',
         },
         {
           parameter: 'Zgodność z AFS, przetwornicami i komputerem',
-          optionA: '100% plug & play — zachowujesz własne sterowniki i moduły LED/Xenon',
+          optionA: '100% plug & play - zachowujesz własne sterowniki i moduły LED/Xenon',
           optionB: 'Częsty brak modułów, błędy doświetlania zakrętów lub luźne gniazda',
         },
         {
@@ -827,7 +827,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Pułapka taniego zamiennika: oszczędność tylko pozornie mniejsza od ASO',
           paragraphs: [
             'Gdy na przeglądzie diagnostycznym wychodzi wypalony odbłyśnik w Audi A4, BMW E60, Volvo XC90 lub Mercedesie klasy E, wielu kierowców staje przed wyborem między drogą lampą w ASO a nowym zamiennikiem z internetu.',
-            'Problem polega na tym, że zamiennik wykorzystuje tańsze tworzywo klosza bez wielowarstwowego twardego powleczenia (hard-coat), co powoduje zmatowienie po 18–24 miesiącach. Wewnątrz często brakuje odpowiedniego odprowadzenia ciepła, a silniczki regulacji wysokości potrafią się zacierać.',
+            'Problem polega na tym, że zamiennik wykorzystuje tańsze tworzywo klosza bez wielowarstwowego twardego powleczenia (hard-coat), co powoduje zmatowienie po 18-24 miesiącach. Wewnątrz często brakuje odpowiedniego odprowadzenia ciepła, a silniczki regulacji wysokości potrafią się zacierać.',
           ],
           bullets: [
             'Zachowana oryginalna naklejka homologacyjna ECE bez ryzyka na stacji SKP',
@@ -838,7 +838,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         {
           heading: 'Co z lampami używanymi z demontażu?',
           paragraphs: [
-            'Zakup używanego reflektora z rynku wtórnego obarczony jest ukrytą wadą: po 8–12 latach eksploatacji niemal każdy odbłyśnik z soczewką H7 lub Bi-Xenon jest już w 50–80% zmatowiały nad ogniskiem żarówki. Kupując „igłę z anglii lub allegro”, kierowca nierzadko płaci 800 zł za identycznie wypalony element albo za lampę z angielskim profilem asymetrii świecącą w lewo.',
+            'Zakup używanego reflektora z rynku wtórnego obarczony jest ukrytą wadą: po 8-12 latach eksploatacji niemal każdy odbłyśnik z soczewką H7 lub Bi-Xenon jest już w 50-80% zmatowiały nad ogniskiem żarówki. Kupując „igłę z anglii lub allegro”, kierowca nierzadko płaci 800 zł za identycznie wypalony element albo za lampę z angielskim profilem asymetrii świecącą w lewo.',
             'Regeneracja własnych oryginalnych lamp w zakładzie STANIAX z użyciem czystego aluminium próżniowego rozwiązuje problem u źródła i obejmuje pisemną gwarancję na 24 miesiące.',
           ],
         },
@@ -853,7 +853,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       whenChooseA: [
         'Twoje oryginalne klosze i obudowy nie są mechanicznie rozbite po kolizji.',
         'Samochód ma ksenon skrętny AFS, Bi-LED lub rzadkie lampy bez dobrych zamienników.',
-        'Chcesz odzyskać fabryczne światło >92% przy koszcie 150–250 zł za odbłyśnik.',
+        'Chcesz odzyskać fabryczne światło >92% przy koszcie 150-250 zł za odbłyśnik.',
       ],
       whenChooseBTitle: 'Rozważ nowy zamiennik / ASO tylko, gdy:',
       whenChooseB: [
@@ -868,11 +868,11 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Jak długo trwa regeneracja z wysyłką kurierską do STANIAX?',
-          a: 'Sam proces w naszym zakładzie w Józefowie zajmuje standardowo 2–4 dni robocze; z wysyłką w obie strony kierowca lub warsztat zamyka temat w tydzień.',
+          a: 'Sam proces w naszym zakładzie w Józefowie zajmuje standardowo 2-4 dni robocze; z wysyłką w obie strony kierowca lub warsztat zamyka temat w tydzień.',
         },
         {
           q: 'Czy regenerujecie odbłyśniki również przy zachowaniu klosza w całości?',
-          a: 'Tak — obsługujemy zarówno same wyjęte odbłyśniki (najtaniej od 150 zł), jak i całe kompletne reflektory rozklejane i uszczelniane przez warsztat partnerski.',
+          a: 'Tak - obsługujemy zarówno same wyjęte odbłyśniki (najtaniej od 150 zł), jak i całe kompletne reflektory rozklejane i uszczelniane przez warsztat partnerski.',
         },
         {
           q: 'Czy odbłyśnik po metalizacji próżniowej wytrzyma mocne żarówki H7 i D1S?',
@@ -882,7 +882,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       relatedLinks: [
         { label: 'Cennik regeneracji reflektorów', path: '/cennik-regeneracji-reflektorow' },
         { label: 'Usługa: Regeneracja odbłyśników', path: '/regeneracja-reflektorow' },
-        { label: 'Warszawa & Józefów — obsługa lokalna', path: '/regeneracja-reflektorow/warszawa-jozefow' },
+        { label: 'Warszawa & Józefów - obsługa lokalna', path: '/regeneracja-reflektorow/warszawa-jozefow' },
         { label: 'Poradnik: Regeneracja vs polerowanie', path: '/news/regeneracja-odblysnikow-reflektorow-samochodowych' },
       ],
       breadLabel: 'Odbłyśnik PVD vs Zamiennik',
@@ -899,15 +899,15 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Low-Cost Aftermarket Unit (TYC / Depo)',
       directAnswerQuestion: 'Should you restore burnt OEM headlight reflectors via PVD or buy aftermarket lamps?',
       directAnswer:
-        'PVD vacuum re-aluminizing of your original OEM reflector restores >92% directional light reflectance while retaining factory ECE beam precision and adaptive AFS actuators at 60–80% below replacement cost. Budget aftermarket lamps frequently exhibit uneven cutoff patterns, rapid outer-lens hazing, and early condensation.',
+        'PVD vacuum re-aluminizing of your original OEM reflector restores >92% directional light reflectance while retaining factory ECE beam precision and adaptive AFS actuators at 60-80% below replacement cost. Budget aftermarket lamps frequently exhibit uneven cutoff patterns, rapid outer-lens hazing, and early condensation.',
       verdictTitle: 'Optical & Financial Verdict',
       verdictSummary:
         'Keeping genuine OEM housings with freshly metallized reflectors and sealed electronics guarantees clean MOT/inspection cutoffs, exact body panel fitment, and 24-month chamber warranty.',
       comparisonRows: [
         {
           parameter: 'Cost per Headlight',
-          optionA: 'From ~€35–€60 per dismantled reflector bowl; full unit restoration ~€85–€140',
-          optionB: '€160–€450 budget copy or €800–€2,000+ genuine dealer lamp',
+          optionA: 'From ~€35-€60 per dismantled reflector bowl; full unit restoration ~€85-€140',
+          optionB: '€160-€450 budget copy or €800-€2,000+ genuine dealer lamp',
         },
         {
           parameter: 'Photometric Beam Geometry',
@@ -935,7 +935,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Why Cheap Replacement Units Cost More Over Two Winters',
           paragraphs: [
             'When projector bowls behind H7 or D2S/D1S burners turn smoky-brown, drivers look for quick replacement assemblies online. Unfortunately, aftermarket polycarbonate covers frequently skip thick UV hard-coats, yellowing rapidly after two seasons of road salt.',
-            'Moreover, salvaging used lamps from junkyards almost guarantees acquiring bowls already degraded by 60–80% heat wear inside. Re-aluminizing your original OEM reflectors resets photometric output to factory-new levels.',
+            'Moreover, salvaging used lamps from junkyards almost guarantees acquiring bowls already degraded by 60-80% heat wear inside. Re-aluminizing your original OEM reflectors resets photometric output to factory-new levels.',
           ],
           bullets: [
             'Zero dashboard CAN-bus errors or AFS cornering faults',
@@ -954,7 +954,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       whenChooseA: [
         'Original OEM housings and mounting tabs are structurally intact.',
         'The car runs Bi-Xenon AFS or rare vintage lamps.',
-        'You demand >92% light return at 60–80% lower cost than new lamps.',
+        'You demand >92% light return at 60-80% lower cost than new lamps.',
       ],
       whenChooseBTitle: 'Replace the assembly only when:',
       whenChooseB: [
@@ -968,7 +968,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'How fast can European workshops receive returned bowls?',
-          a: 'Production turnaround in Józefów is 2–4 working days, plus 2–3 days DPD/DHL transit across the EU.',
+          a: 'Production turnaround in Józefów is 2-4 working days, plus 2-3 days DPD/DHL transit across the EU.',
         },
         {
           q: 'Do you handle dismantled reflectors shipped directly?',
@@ -999,15 +999,15 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Günstiger Nachbau (TYC / Depo)',
       directAnswerQuestion: 'Lohnt es sich, Original-Reflektoren neu zu bedampfen statt Nachbau-Scheinwerfer zu kaufen?',
       directAnswer:
-        'Das Neu-Bedampfen des Original-Reflektors per PVD stellt über 92 % Lichtreflexion samt exakter ECE-Hell-Dunkel-Grenze und voller Kurvenlicht-Funktion (AFS) wieder her — bei 60–80 % Ersparnis gegenüber Neuteilen. Günstige Nachbauten zeigen häufig Streulicht, fehlende Steuergeräte und vergilbende Scheiben.',
+        'Das Neu-Bedampfen des Original-Reflektors per PVD stellt über 92 % Lichtreflexion samt exakter ECE-Hell-Dunkel-Grenze und voller Kurvenlicht-Funktion (AFS) wieder her - bei 60-80 % Ersparnis gegenüber Neuteilen. Günstige Nachbauten zeigen häufig Streulicht, fehlende Steuergeräte und vergilbende Scheiben.',
       verdictTitle: 'Technisches Fazit für TÜV/HU & Budget',
       verdictSummary:
         'Wer das originale Marken-Gehäuse bewahrt und den Reflektor im Vakuum neu verspiegelt, erhält werkstreue Straßenausleuchtung, perfekte Spaltmaße und volle 24-Monats-Garantie.',
       comparisonRows: [
         {
           parameter: 'Kosten pro Scheinwerfer',
-          optionA: 'Ab ca. 35–60 € pro losem Reflektor; Komplettsanierung ~85–140 €',
-          optionB: '160–450 € Nachbau oder 800–2.000 €+ beim Vertragshändler',
+          optionA: 'Ab ca. 35-60 € pro losem Reflektor; Komplettsanierung ~85-140 €',
+          optionB: '160-450 € Nachbau oder 800-2.000 €+ beim Vertragshändler',
         },
         {
           parameter: 'Lichtverteilung & Hell-Dunkel-Grenze',
@@ -1069,7 +1069,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Wie läuft der Postversand aus Deutschland nach Józefów ab?',
-          a: 'Senden Sie gut gepolsterte ausgebaute Reflektoren per DHL/DPD an unser Werk; nach 2–4 Werktagen Produktion treten sie den versicherten Rückweg an.',
+          a: 'Senden Sie gut gepolsterte ausgebaute Reflektoren per DHL/DPD an unser Werk; nach 2-4 Werktagen Produktion treten sie den versicherten Rückweg an.',
         },
         {
           q: 'Hält die Beschichtung 55W-Halogen und Xenon-Hitze aus?',
@@ -1103,7 +1103,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Polerowanie klosza (zewnętrzna warstwa PC)',
       directAnswerQuestion: 'Czy samo polerowanie kloszy wystarczy, gdy światła słabo świecą w nocy?',
       directAnswer:
-        'Nie — samo polerowanie zewnętrznego klosza usuwa jedynie utlenienie i mikrorysy na poliwęglanie (odzysk 10–25% transmisji światła), natomiast nie naprawia wypalonego odbłyśnika za soczewką, który odpowiada za ponad 75% strumienia na asfalt. Dopiero połączenie metalizacji PVD odbłyśnika (>92% odbicia) z zabezpieczeniem UV klosza przywraca 100% fabrycznej widoczności.',
+        'Nie - samo polerowanie zewnętrznego klosza usuwa jedynie utlenienie i mikrorysy na poliwęglanie (odzysk 10-25% transmisji światła), natomiast nie naprawia wypalonego odbłyśnika za soczewką, który odpowiada za ponad 75% strumienia na asfalt. Dopiero połączenie metalizacji PVD odbłyśnika (>92% odbicia) z zabezpieczeniem UV klosza przywraca 100% fabrycznej widoczności.',
       verdictTitle: 'Diagnoza optyczna: klosz vs wnętrze lampy',
       verdictSummary:
         'Gdy lampa z zewnątrz jest względnie przejrzysta, lecz snop światła na mokrej drodze niemal znika, winny jest w 90% zmatowiony odbłyśnik za soczewką H7 lub Bi-Xenon. W takim przypadku nawet idealne spolerowanie i polakierowanie klosza nie zwiększy zasięgu świateł mijania.',
@@ -1115,8 +1115,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Udział w utracie jasności na drodze',
-          optionA: 'Odpowiada za 65–85% straty natężenia oświetlenia (lux)',
-          optionB: 'Odpowiada za 15–35% straty + efekt rozproszenia i olśnienia',
+          optionA: 'Odpowiada za 65-85% straty natężenia oświetlenia (lux)',
+          optionB: 'Odpowiada za 15-35% straty + efekt rozproszenia i olśnienia',
         },
         {
           parameter: 'Technologia trwałej naprawy',
@@ -1126,20 +1126,20 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         {
           parameter: 'Ryzyko błędu „samodzielnego”',
           optionA: 'Aerozole i folie aluminiowe w domu niszczą geometrię i odpadają po tygodniu',
-          optionB: 'Polerowanie pastą bez lakieru UV wraca żółtym nalotem w 3–6 miesięcy',
+          optionB: 'Polerowanie pastą bez lakieru UV wraca żółtym nalotem w 3-6 miesięcy',
         },
         {
           parameter: 'Orientacyjny koszt usługi',
-          optionA: '150–250 zł za regenerację samego odbłyśnika PVD',
-          optionB: '150–300 zł za polerowanie z trwałym zabezpieczeniem klosza UV',
+          optionA: '150-250 zł za regenerację samego odbłyśnika PVD',
+          optionB: '150-300 zł za polerowanie z trwałym zabezpieczeniem klosza UV',
         },
       ],
       sections: [
         {
           heading: 'Dlaczego klosz bywa czysty, a lampa nie świeci w deszczu?',
           paragraphs: [
-            'W reflektorach soczewkowych (Bi-Xenon, H7 projektor) ciepło palnika lub żarówki skupia się w zamkniętej, małej komorze za soczewką. Po 120–180 tys. km pierwotna warstwa aluminium paruje lub łuszczy się w górnej części czaszy, zostawiając matowy brązowy plastik.',
-            'Z zewnątrz kierowca widzi jedynie małą szklaną kulkę soczewki i ładny klosz, więc zleca tanie polerowanie na myjni. Po odebraniu auta okazuje się, że reflektor wygląda estetycznie, ale w nocy przed maską nadal panuje ciemność — światło nie ma się od czego odbić przed przejściem przez soczewkę.',
+            'W reflektorach soczewkowych (Bi-Xenon, H7 projektor) ciepło palnika lub żarówki skupia się w zamkniętej, małej komorze za soczewką. Po 120-180 tys. km pierwotna warstwa aluminium paruje lub łuszczy się w górnej części czaszy, zostawiając matowy brązowy plastik.',
+            'Z zewnątrz kierowca widzi jedynie małą szklaną kulkę soczewki i ładny klosz, więc zleca tanie polerowanie na myjni. Po odebraniu auta okazuje się, że reflektor wygląda estetycznie, ale w nocy przed maską nadal panuje ciemność - światło nie ma się od czego odbić przed przejściem przez soczewkę.',
           ],
           bullets: [
             'Test w 30 sekund: podnieś klapę i zajrzyj przez otwór wymiany żarówki lub zobacz mleczny nalot soczewki',
@@ -1205,7 +1205,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Outer Polycarbonate Lens Polishing',
       directAnswerQuestion: 'Is polishing outer headlight lenses enough to restore weak night visibility?',
       directAnswer:
-        'No — outer lens polishing removes surface oxidation for only a 15–35% clarity improvement, whereas over 75% of serious nighttime light loss stems from burnt internal projector reflectors. Only restoring >92% reflector mirror output via PVD aluminum vacuum deposition plus UV outer-lens protection recovers full OEM beam reach.',
+        'No - outer lens polishing removes surface oxidation for only a 15-35% clarity improvement, whereas over 75% of serious nighttime light loss stems from burnt internal projector reflectors. Only restoring >92% reflector mirror output via PVD aluminum vacuum deposition plus UV outer-lens protection recovers full OEM beam reach.',
       verdictTitle: 'Optical Diagnostic Summary',
       verdictSummary:
         'When your headlights look relatively clear on the outside yet leave dark blind spots on wet asphalt, 9 times out of 10 the internal projector bowl has peeled or hazed above the bulb.',
@@ -1217,8 +1217,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Impact on Lux Output',
-          optionA: 'Causes 65–85% of total road lux loss',
-          optionB: 'Causes 15–35% loss plus scattered glare toward oncoming cars',
+          optionA: 'Causes 65-85% of total road lux loss',
+          optionB: 'Causes 15-35% loss plus scattered glare toward oncoming cars',
         },
         {
           parameter: 'Proper Repair Method',
@@ -1228,14 +1228,14 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         {
           parameter: 'Why DIY Kits Underdeliver',
           optionA: 'Chrome rattle-can spray yields ~45% diffuse gray reflectance',
-          optionB: 'Bare wax after polishing re-yellows within 3–6 months outdoors',
+          optionB: 'Bare wax after polishing re-yellows within 3-6 months outdoors',
         },
       ],
       sections: [
         {
           heading: 'Why Polished Lenses Still Fail MOT Light Meters',
           paragraphs: [
-            'Projector headlights trap high thermal wattage directly over a tight aluminum-coated cavity. Around 80,000–120,000 miles on H7 or D1S/D3S xenon lamps, the thin vapor coat vaporizes off the upper bowl dome, turning it dull brown.',
+            'Projector headlights trap high thermal wattage directly over a tight aluminum-coated cavity. Around 80,000-120,000 miles on H7 or D1S/D3S xenon lamps, the thin vapor coat vaporizes off the upper bowl dome, turning it dull brown.',
             'Detailing shops often polish the outside cover flawlessly while leaving the dead reflector untouched. Because light never bounces cleanly from behind the bulb toward the projector lens, road throw shrinks below safe braking distance.',
           ],
           bullets: [
@@ -1300,7 +1300,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       sideBLabel: 'Streuscheiben-Politur + UV-Schutz (Außen)',
       directAnswerQuestion: 'Reicht Scheinwerfer polieren aus, wenn das Abblendlicht nachts zu dunkel ist?',
       directAnswer:
-        'Nein — äußeres Polieren entfernt nur verwittertes Polycarbonat (ca. 15–35 % Lichtgewinn), behebt aber nicht den verbrannten Reflektor hinter der Linse, der bis zu 75 % des Lichtverlusts verursacht. Erst das Vakuum-Bedampfen des Reflektors (>92 % Reflexion) plus UV-Scheibenschutz stellt volle Werksleuchtkraft her.',
+        'Nein - äußeres Polieren entfernt nur verwittertes Polycarbonat (ca. 15-35 % Lichtgewinn), behebt aber nicht den verbrannten Reflektor hinter der Linse, der bis zu 75 % des Lichtverlusts verursacht. Erst das Vakuum-Bedampfen des Reflektors (>92 % Reflexion) plus UV-Scheibenschutz stellt volle Werksleuchtkraft her.',
       verdictTitle: 'Optisches Fazit für die Werkstatt',
       verdictSummary:
         'Bleibt die Straße trotz glasklar polierter Frontscheibe dunkel, ist fast immer der innere Projektor-Reflektor oberhalb der H7- oder Xenon-Lampe abgebrannt.',
@@ -1312,8 +1312,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Anteil am Lichtverlust',
-          optionA: 'Verursacht 65–85 % des Reichweiten- und Lux-Verlusts',
-          optionB: 'Verursacht 15–35 % Verlust sowie unangenehmes Streulicht',
+          optionA: 'Verursacht 65-85 % des Reichweiten- und Lux-Verlusts',
+          optionB: 'Verursacht 15-35 % Verlust sowie unangenehmes Streulicht',
         },
         {
           parameter: 'Fachgerechte Instandsetzung',
@@ -1364,7 +1364,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Was kostet das Neu-Bedampfen der Reflektoren im Vergleich zum Polieren?',
-          a: 'Die reine Reflektor-Bedampfung beginnt bei ca. 35–60 € pro Stück; konkrete Pakete listet unsere Preistabelle.',
+          a: 'Die reine Reflektor-Bedampfung beginnt bei ca. 35-60 € pro Stück; konkrete Pakete listet unsere Preistabelle.',
         },
         {
           q: 'Müssen Scheinwerfer nach dem Ausbau eingestellt werden?',
@@ -1372,7 +1372,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Bearbeitet STANIAX auch einzelne lose Reflektoren aus Werkstätten?',
-          a: 'Ja, europaweite Kfz-Betriebe senden uns zerlegte Reflektorkörper gesammelt zur 2–4-tägigen PVD-Aufbereitung.',
+          a: 'Ja, europaweite Kfz-Betriebe senden uns zerlegte Reflektorkörper gesammelt zur 2-4-tägigen PVD-Aufbereitung.',
         },
       ],
       relatedLinks: [

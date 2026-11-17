@@ -21,7 +21,7 @@ export interface NewsItemData {
   path: string
 }
 
-/** Artykuły z src/data/blog-posts (tylko PL) — dodawane automatycznie na górę listy. */
+/** Artykuły z src/data/blog-posts (tylko PL) - dodawane automatycznie na górę listy. */
 const BLOG_NEWS_ITEMS_PL: NewsItemData[] = BLOG_POSTS.map((post) => ({
   title: post.heading,
   date: post.displayDate,
@@ -112,7 +112,7 @@ export const NEWS_ITEMS_BY_LANG: Record<'pl' | 'en' | 'de', NewsItemData[]> = {
       path: '/en/vacuum-metallisation',
     },
     {
-      title: 'How Headlight Reflector Restoration Works — Technical Driver’s Guide',
+      title: 'How Headlight Reflector Restoration Works - Technical Driver’s Guide',
       date: 'June 10, 2026',
       category: 'Technical Guide',
       excerpt:
@@ -124,7 +124,7 @@ export const NEWS_ITEMS_BY_LANG: Record<'pl' | 'en' | 'de', NewsItemData[]> = {
       path: '/en/news/reflector-regeneration-and-headlight-polishing',
     },
     {
-      title: 'How Metallization Affects Material Performance — Engineering Guide',
+      title: 'How Metallization Affects Material Performance - Engineering Guide',
       date: 'August 20, 2025',
       category: 'Expert Article',
       excerpt:
@@ -230,7 +230,7 @@ export const NEWS_PAGE_CONTENT = {
   pl: {
     newsTitle: 'Aktualności',
     newsCenter: 'Centrum wiedzy i aktualności STANIAX',
-    h1: 'Baza Wiedzy i Poradniki Techniczne — Metalizacja Próżniowa i Lakierowanie',
+    h1: 'Baza Wiedzy i Poradniki Techniczne - Metalizacja Próżniowa i Lakierowanie',
     pageTitle: 'Baza Wiedzy i Poradniki PVD | STANIAX',
     pageDesc:
       'Poradniki techniczne STANIAX: regeneracja odbłyśników reflektorów, metalizacja próżniowa PVD tworzyw oraz lakierowanie szkła i przemysłowe RAL/NCS.',
@@ -279,7 +279,7 @@ export const NEWS_PAGE_CONTENT = {
   en: {
     newsTitle: 'News & Guides',
     newsCenter: 'STANIAX Knowledge Base & News',
-    h1: 'Knowledge Base & Technical Guides — Vacuum Metallization & Coating',
+    h1: 'Knowledge Base & Technical Guides - Vacuum Metallization & Coating',
     pageTitle: 'PVD Metallization & Coating Guides | STANIAX',
     pageDesc:
       'Engineering guides and technical insights by STANIAX: headlight reflector restoration, PVD vacuum metallization of plastics, and industrial surface coating.',
@@ -328,7 +328,7 @@ export const NEWS_PAGE_CONTENT = {
   de: {
     newsTitle: 'Aktuelles & Ratgeber',
     newsCenter: 'STANIAX Wissensdatenbank & News',
-    h1: 'Wissensdatenbank & Technische Ratgeber — Vakuummetallisierung & Lackierung',
+    h1: 'Wissensdatenbank & Technische Ratgeber - Vakuummetallisierung & Lackierung',
     pageTitle: 'Wissensdatenbank: PVD & Lackierung | STANIAX',
     pageDesc:
       'Fachartikel und Ratgeber von STANIAX: Scheinwerfer-Reflektor-Aufbereitung, PVD-Vakuummetallisierung von Kunststoffen sowie Glas- und Industrielackierung.',
@@ -386,7 +386,7 @@ export const ARTICLE_LIBRARY_CONTENT = {
     badge: 'Pełne archiwum',
     title: 'Biblioteka artykułów i publikacji STANIAX',
     metaTitle: 'Biblioteka artykułów technicznych | STANIAX',
-    desc: 'Archiwum artykułów technicznych STANIAX — poradniki o metalizacji próżniowej PVD, regeneracji odbłyśników i lakierowaniu przemysłowym w Józefowie.',
+    desc: 'Archiwum artykułów technicznych STANIAX - poradniki o metalizacji próżniowej PVD, regeneracji odbłyśników i lakierowaniu przemysłowym w Józefowie.',
     backToNews: 'Wróć do bazy wiedzy',
     readMore: 'Czytaj publikację',
   },
@@ -394,7 +394,7 @@ export const ARTICLE_LIBRARY_CONTENT = {
     badge: 'Full archive',
     title: 'STANIAX Article & Publication Library',
     metaTitle: 'Technical Article Library | STANIAX',
-    desc: 'All STANIAX technical guides and articles in one place — resources on PVD vacuum metallization, headlight reflector restoration, and industrial coating.',
+    desc: 'All STANIAX technical guides and articles in one place - resources on PVD vacuum metallization, headlight reflector restoration, and industrial coating.',
     backToNews: 'Back to knowledge base',
     readMore: 'Read publication',
   },
@@ -402,7 +402,7 @@ export const ARTICLE_LIBRARY_CONTENT = {
     badge: 'Vollständiges Archiv',
     title: 'STANIAX Artikel- und Publikationsbibliothek',
     metaTitle: 'Technische Artikelbibliothek | STANIAX',
-    desc: 'Alle technischen Ratgeber und Fachartikel von STANIAX an einem Ort — Leitfäden zu PVD-Vakuummetallisierung, Reflektor-Aufbereitung und Industrielackierung.',
+    desc: 'Alle technischen Ratgeber und Fachartikel von STANIAX an einem Ort - Leitfäden zu PVD-Vakuummetallisierung, Reflektor-Aufbereitung und Industrielackierung.',
     backToNews: 'Zurück zur Wissensdatenbank',
     readMore: 'Beitrag lesen',
   },

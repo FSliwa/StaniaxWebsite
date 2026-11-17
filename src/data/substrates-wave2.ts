@@ -43,19 +43,19 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Próżniowe napylanie aluminium 99,99% z pasywacją SiOx dla wypalonych odbłyśników projektorowych Hella, Valeo, Bosch AL, ZKW oraz Koito.',
       directAnswerQuestion: 'Jak przebiega regeneracja wypalonego odbłyśnika soczewki Bi-Xenon lub lampy LED?',
       directAnswer:
-        'Wypalony odbłyśnik z duroplastu BMC, stopu magnezu, stali lub PC-HT przechodzi chemiczne usunięcie utlenionej warstwy, aplikację wysokotemperaturowego podkładu barierowego (do 220 °C), napylanie aluminium 99,99% w próżni 10⁻⁴ mbar oraz zabezpieczenie SiOx. Proces przywraca >92% fabrycznego odbicia światła w 2–4 dni robocze.',
+        'Wypalony odbłyśnik z duroplastu BMC, stopu magnezu, stali lub PC-HT przechodzi chemiczne usunięcie utlenionej warstwy, aplikację wysokotemperaturowego podkładu barierowego (do 220 °C), napylanie aluminium 99,99% w próżni 10⁻⁴ mbar oraz zabezpieczenie SiOx. Proces przywraca >92% fabrycznego odbicia światła w 2-4 dni robocze.',
       specs: [
         { parameter: 'Obsługiwane systemy projektorów', value: 'Hella E55 / Intemo, Valeo, Bosch AL, ZKW, Koito (Toyota/Lexus)' },
         { parameter: 'Materiały czaszy odbłyśnika', value: 'Duroplast BMC, odlew magnezowy/Al, tłoczona stal, poliwęglan PC-HT' },
         { parameter: 'Parametry optyczne po PVD', value: '>92% refleksyjności kierunkowej · ostra granica światłocienia ECE' },
-        { parameter: 'Odporność cieplna nad żarnikiem', value: '200–220 °C w strefie łuku D1S / D2S / D3S / D4S oraz H7' },
-        { parameter: 'Cena i gwarancja STANIAX', value: 'Od 150–260 zł/szt. (same odbłyśniki) · 24 miesiące gwarancji' },
+        { parameter: 'Odporność cieplna nad żarnikiem', value: '200-220 °C w strefie łuku D1S / D2S / D3S / D4S oraz H7' },
+        { parameter: 'Cena i gwarancja STANIAX', value: 'Od 150-260 zł/szt. (same odbłyśniki) · 24 miesiące gwarancji' },
       ],
       sections: [
         {
           heading: 'Diagnostyka wypalonego odbłyśnika: dlaczego wymiana żarników Xenon nie pomaga?',
           paragraphs: [
-            'Kierowcy zlecający hasła „regeneracja lamp xenon” lub „wypalony odbłyśnik” często wcześniej kupują komplet drogich żarników D1S/D2S i ze zdziwieniem odkrywają, że światła mijania nadal nie oświetlają mokrej jezdni. Przyczyną jest degradacja lustrzanej warstwy w górnej części czaszy soczewki — dokładnie tam, gdzie skupia się największa temperatura łuku elektrycznego i promieniowanie UV.',
+            'Kierowcy zlecający hasła „regeneracja lamp xenon” lub „wypalony odbłyśnik” często wcześniej kupują komplet drogich żarników D1S/D2S i ze zdziwieniem odkrywają, że światła mijania nadal nie oświetlają mokrej jezdni. Przyczyną jest degradacja lustrzanej warstwy w górnej części czaszy soczewki - dokładnie tam, gdzie skupia się największa temperatura łuku elektrycznego i promieniowanie UV.',
             'Szczególnie podatne na zmatowienie są fabryczne projektory Koito (Toyota Avensis T25/T27, Lexus IS/RX), Valeo (VW Passat B6, Audi A4/Q7), Hella E55 (Audi A6 C6, BMW E60/E65, Mercedes W211) oraz ZKW. Napylanie świeżego aluminium PVD w komorze STANIAX całkowicie eliminuje brązowy nalot i przywraca fabryczny zasięg wiązki.',
           ],
           bullets: [
@@ -67,7 +67,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         {
           heading: 'Regeneracja lamp LED i matrycowych zwierciadeł samochodowych',
           paragraphs: [
-            'Skuteczna regeneracja lamp ledowych samochodowych (Full LED oraz Bi-LED) wynika z faktu, że strumień diod mocy odbija się od wielosekcyjnych zwierciadeł z wysokotemperaturowego poliwęglanu PC-HT. Przegrzanie radiatora lub nieszczelność odpowietrznika powoduje utlenienie warstwy aluminium — nasza linia PVD odtwarza lustro bez konieczności zakupu nowej lampy LED za 4000–9000 zł.',
+            'Skuteczna regeneracja lamp ledowych samochodowych (Full LED oraz Bi-LED) wynika z faktu, że strumień diod mocy odbija się od wielosekcyjnych zwierciadeł z wysokotemperaturowego poliwęglanu PC-HT. Przegrzanie radiatora lub nieszczelność odpowietrznika powoduje utlenienie warstwy aluminium - nasza linia PVD odtwarza lustro bez konieczności zakupu nowej lampy LED za 4000-9000 zł.',
           ],
         },
       ],
@@ -80,7 +80,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
       faq: [
         {
           q: 'Ile kosztuje regeneracja soczewek reflektorów Bi-Xenon w STANIAX?',
-          a: 'Regeneracja samych wymontowanych odbłyśników soczewkowych kosztuje od 180 do 260 zł za sztukę (360–520 zł za komplet na oś).',
+          a: 'Regeneracja samych wymontowanych odbłyśników soczewkowych kosztuje od 180 do 260 zł za sztukę (360-520 zł za komplet na oś).',
         },
         {
           q: 'Czy regenerujecie słynne wypalone odbłyśniki Toyota Avensis T25 / T27?',
@@ -88,7 +88,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'Czy mogę przysłać same wyjęte soczewki bez rozklejania kloszy?',
-          a: 'Tak! W wielu lampach projektor odkręca się od tyłu obudowy — wysyłka samych czasz skraca czas usługi do 2–4 dni roboczych i obniża koszt.',
+          a: 'Tak! W wielu lampach projektor odkręca się od tyłu obudowy - wysyłka samych czasz skraca czas usługi do 2-4 dni roboczych i obniża koszt.',
         },
         {
           q: 'Czy po regeneracji lampa przejdzie przegląd na Stacji Kontroli Pojazdów?',
@@ -114,13 +114,13 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         '99.99% pure aluminum high-vacuum PVD deposition and SiOx passivation for burnt Hella, Valeo, Bosch AL, ZKW, and Koito projector optics.',
       directAnswerQuestion: 'How are burnt Bi-Xenon projector bowls and OEM LED reflectors restored?',
       directAnswer:
-        'Oxidized BMC thermoset, magnesium alloy, steel, or PC-HT projector bowls are chemically stripped without abrasive pitting, sealed with a 220 °C thermal barrier primer, vacuum-metallized with 99.99% aluminum at 10⁻⁴ mbar, and passivated with plasma SiOx—restoring >92% factory lux output in 2–4 business days.',
+        'Oxidized BMC thermoset, magnesium alloy, steel, or PC-HT projector bowls are chemically stripped without abrasive pitting, sealed with a 220 °C thermal barrier primer, vacuum-metallized with 99.99% aluminum at 10⁻⁴ mbar, and passivated with plasma SiOx - restoring >92% factory lux output in 2-4 business days.',
       specs: [
         { parameter: 'Projector Systems Serviced', value: 'Hella E55 / Intemo, Valeo, Bosch AL, ZKW, Koito (Toyota/Lexus)' },
         { parameter: 'Reflector Substrates', value: 'BMC thermoset, Mg/Al die-casting, stamped steel, optical PC-HT' },
         { parameter: 'Optical Output After PVD', value: '>92% specular reflectance · crisp ECE / MOT cutoff line' },
-        { parameter: 'Arc-Zone Heat Resistance', value: '200–220 °C continuous above D1S / D2S / D3S / H7 bulbs' },
-        { parameter: 'Rate & Warranty', value: 'From €45–€68 / bowl · 24-month industrial PVD warranty' },
+        { parameter: 'Arc-Zone Heat Resistance', value: '200-220 °C continuous above D1S / D2S / D3S / H7 bulbs' },
+        { parameter: 'Rate & Warranty', value: 'From €45-€68 / bowl · 24-month industrial PVD warranty' },
       ],
       sections: [
         {
@@ -138,7 +138,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         {
           heading: 'OEM Matrix & Full-LED Reflector Cup Metallization',
           paragraphs: [
-            'Modern factory LED headlamps rely on multi-faceted PC-HT reflector cups that oxidize from moisture ingress or heatsink thermal spikes. Recoating the OEM cup saves €1,000–€2,500 over buying a complete replacement LED headlamp.',
+            'Modern factory LED headlamps rely on multi-faceted PC-HT reflector cups that oxidize from moisture ingress or heatsink thermal spikes. Recoating the OEM cup saves €1,000-€2,500 over buying a complete replacement LED headlamp.',
           ],
         },
       ],
@@ -151,7 +151,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
       faq: [
         {
           q: 'How much does Bi-Xenon projector bowl PVD recoating cost?',
-          a: 'Loose projector bowls start at €48–€72 per unit (€96–€140 per axle pair) with a 24-month warranty.',
+          a: 'Loose projector bowls start at €48-€72 per unit (€96-€140 per axle pair) with a 24-month warranty.',
         },
         {
           q: 'Do you restore burnt Toyota Avensis Koito projector reflectors?',
@@ -159,7 +159,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'Can workshops ship only the removed projector bowls?',
-          a: 'Yes, shipping unbolted bowls avoids housing shipping bulk and completes in 2–4 working days at our Józefów plant.',
+          a: 'Yes, shipping unbolted bowls avoids housing shipping bulk and completes in 2-4 working days at our Józefów plant.',
         },
         {
           q: 'Will restored bowls pass MOT / TÜV beam alignment checks?',
@@ -185,13 +185,13 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Industrielle 99,99-%-Aluminium-Vakuumbedampfung mit SiOx-Schutzschicht für blinde Hella-, Valeo-, Bosch-AL-, ZKW- und Koito-Reflektoren.',
       directAnswerQuestion: 'Wie lässt man verbrannte Bi-Xenon-Projektorreflektoren und LED-Spiegelschalen fachgerecht neu verspiegeln?',
       directAnswer:
-        'Verbrannte Reflektorschalen aus BMC-Duroplast, Magnesiumguss, Stahl oder PC-HT werden bei STANIAX schonend entschichtet, mit einem bis 220 °C stabilen Hitzeschutzprimer geglättet, im Hochvakuum (10⁻⁴ mbar) mit 99,99 % Reinaluminium bedampft und per SiOx passiviert — für >92 % Werksreflexion binnen 2–4 Werktagen.',
+        'Verbrannte Reflektorschalen aus BMC-Duroplast, Magnesiumguss, Stahl oder PC-HT werden bei STANIAX schonend entschichtet, mit einem bis 220 °C stabilen Hitzeschutzprimer geglättet, im Hochvakuum (10⁻⁴ mbar) mit 99,99 % Reinaluminium bedampft und per SiOx passiviert - für >92 % Werksreflexion binnen 2-4 Werktagen.',
       specs: [
         { parameter: 'Unterstützte Projektorsysteme', value: 'Hella E55 / Intemo, Valeo, Bosch AL, ZKW, Koito (Toyota/Lexus)' },
         { parameter: 'Reflektor-Grundwerkstoffe', value: 'Duroplast BMC, Mg-/Al-Druckguss, Tiefziehstahl, PC-HT' },
         { parameter: 'Lichtwerte nach PVD-Prozess', value: '>92 % gerichtete Spiegelreflexion · scharfe HU/TÜV-Hell-Dunkel-Grenze' },
-        { parameter: 'Temperaturfestigkeit über Brenner', value: '200–220 °C dauerhaft für D1S / D2S / D3S / H7' },
-        { parameter: 'Richtpreis & Garantie', value: 'Ca. 48–72 € je Projektor · 24 Monate Werksgarantie' },
+        { parameter: 'Temperaturfestigkeit über Brenner', value: '200-220 °C dauerhaft für D1S / D2S / D3S / H7' },
+        { parameter: 'Richtpreis & Garantie', value: 'Ca. 48-72 € je Projektor · 24 Monate Werksgarantie' },
       ],
       sections: [
         {
@@ -225,7 +225,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
       faq: [
         {
           q: 'Was kostet das Bi-Xenon Reflektor neu verspiegeln bei STANIAX?',
-          a: 'Einzelne ausgebaute Projektorreflektoren liegen bei ca. 48–72 € pro Stück inklusive 24 Monaten Garantie.',
+          a: 'Einzelne ausgebaute Projektorreflektoren liegen bei ca. 48-72 € pro Stück inklusive 24 Monaten Garantie.',
         },
         {
           q: 'Bearbeiten Sie auch verbrannte Toyota Avensis T25/T27 Koito-Reflektoren?',
@@ -233,7 +233,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'Kann ich nur die ausgebauten Linsenhalter aus Deutschland einsenden?',
-          a: 'Ja, der Versand der reinen Reflektorschalen spart Porto, vermeidet Gehäuseschäden und dauert im Werk nur 2–4 Werktage.',
+          a: 'Ja, der Versand der reinen Reflektorschalen spart Porto, vermeidet Gehäuseschäden und dauert im Werk nur 2-4 Werktage.',
         },
         {
           q: 'Besteht das Fahrzeug danach problemlos die Hauptuntersuchung (TÜV/DEKRA)?',
@@ -254,7 +254,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
     pl: {
       metaTitle: 'Metalizacja opakowań kosmetycznych PVD i UV | STANIAX',
       metaDesc:
-        'Metalizacja opakowań kosmetycznych i perfumeryjnych w STANIAX: nakrętki PP/ABS, słoiczki, atomizery i flakony — złoto/chrom PVD, 96% etanol i ΔE < 0,8.',
+        'Metalizacja opakowań kosmetycznych i perfumeryjnych w STANIAX: nakrętki PP/ABS, słoiczki, atomizery i flakony - złoto/chrom PVD, 96% etanol i ΔE < 0,8.',
       badge: 'Branża Beauty & Perfumeryjna B2B',
       polymerCode: 'PP / ABS / SAN / PETG / Szkło',
       h1: 'Metalizacja próżniowa i lakierowanie UV opakowań kosmetycznych',
@@ -299,7 +299,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
       faq: [
         {
           q: 'Czy powłoka PVD na nakrętce perfum nie ściera się od alkoholu?',
-          a: 'Nie — stosujemy wysoko usieciowane lakiery nawierzchniowe UV i silanowe certyfikowane na odporność wobec 96% etanolu oraz kompozycji zapachowych.',
+          a: 'Nie - stosujemy wysoko usieciowane lakiery nawierzchniowe UV i silanowe certyfikowane na odporność wobec 96% etanolu oraz kompozycji zapachowych.',
         },
         {
           q: 'Czy na metalizowanym wieczku można wykonać nadruk logo lub hot-stamping?',
@@ -311,7 +311,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'Jaki jest czas realizacji partii opakowań kosmetycznych?',
-          a: 'Standardowo 3–7 dni roboczych w zależności od wielkości partii w naszym zakładzie w Józefowie k. Warszawy.',
+          a: 'Standardowo 3-7 dni roboczych w zależności od wielkości partii w naszym zakładzie w Józefowie k. Warszawy.',
         },
       ],
       relatedLinks: [
@@ -333,7 +333,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Mirror chrome, 24k gold, rose gold, soft-touch, and gradient finishes for plastic closures, skincare jars, and perfume flacons.',
       directAnswerQuestion: 'How does STANIAX metallize cosmetic and perfumery packaging for European brands?',
       directAnswer:
-        'STANIAX activates molded PP, ABS, SAN, or flint glass packaging, applies VOC-free UV leveling basecoats, deposits 99.99% pure aluminum inside Ø 1200 mm planetary vacuum chambers, and seals parts with dye-tinted UV topcoats (gold, chrome, rose gold)—achieving ΔE < 0.8 color accuracy, ISO 2409 Gt 0 adhesion, and 96% ethanol resistance.',
+        'STANIAX activates molded PP, ABS, SAN, or flint glass packaging, applies VOC-free UV leveling basecoats, deposits 99.99% pure aluminum inside Ø 1200 mm planetary vacuum chambers, and seals parts with dye-tinted UV topcoats (gold, chrome, rose gold) - achieving ΔE < 0.8 color accuracy, ISO 2409 Gt 0 adhesion, and 96% ethanol resistance.',
       specs: [
         { parameter: 'Packaging Components', value: 'Perfume caps, crimp collars, skincare jars, airless pumps, mascara/lip tubes' },
         { parameter: 'Supported Substrates', value: 'Mono-material PP & rPP, ABS, SAN, PETG, soda-lime cosmetic glass' },
@@ -357,7 +357,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         {
           heading: 'Scalable European Contract Coating from Pilot SKUs to High Volume',
           paragraphs: [
-            'Whether finishing 1,000 collector flacons for a niche fragrance house or 100,000+ injection-molded jars per month, our central EU facility delivers documented batch quality within 3–7 business days.',
+            'Whether finishing 1,000 collector flacons for a niche fragrance house or 100,000+ injection-molded jars per month, our central EU facility delivers documented batch quality within 3-7 business days.',
           ],
         },
       ],
@@ -382,7 +382,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'What is your standard B2B lead time for beauty packaging?',
-          a: '3–7 business days ex-works Józefów, Poland, with palletized EU export packing.',
+          a: '3-7 business days ex-works Józefów, Poland, with palletized EU export packing.',
         },
       ],
       relatedLinks: [
@@ -404,7 +404,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Spiegelchrom, 24-Karat-Gold, Roségold, Soft-Touch und Ombré-Verläufe für Verschlüsse, Cremetiegel und Parfümflakons im europäischen Lohnauftrag.',
       directAnswerQuestion: 'Wie veredelt STANIAX Kosmetikverpackungen aus Kunststoff und Glas im Industriemaßstab?',
       directAnswer:
-        'STANIAX aktiviert Spritzgussteile aus PP, ABS oder SAN sowie Verpackungsglas, trägt lösemittelfreie UV-Glättprimer auf, bedampft 99,99 % Reinaluminium in Ø-1200-mm-Planetenkammern und versiegelt per UV-Decklack in Gold, Chrom oder Roségold — mit ΔE < 0,8 Farbgenauigkeit, ISO 2409 Gt 0 und 96 % Ethanolbeständigkeit.',
+        'STANIAX aktiviert Spritzgussteile aus PP, ABS oder SAN sowie Verpackungsglas, trägt lösemittelfreie UV-Glättprimer auf, bedampft 99,99 % Reinaluminium in Ø-1200-mm-Planetenkammern und versiegelt per UV-Decklack in Gold, Chrom oder Roségold - mit ΔE < 0,8 Farbgenauigkeit, ISO 2409 Gt 0 und 96 % Ethanolbeständigkeit.',
       specs: [
         { parameter: 'Veredelte Packmittel', value: 'Parfümkappen, Zerstäuberringe, Cremetiegel, Airless-Spender, Lippenstifthülsen' },
         { parameter: 'Verarbeitete Substrate', value: 'Monomaterial-PP & rPP, ABS, SAN, PETG sowie Weiß- und Opalglas' },
@@ -429,7 +429,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         {
           heading: 'Schnelle Bemusterung für DACH-Kosmetikmarken und Spritzgießer',
           paragraphs: [
-            'Auf Ihren Original-Werkzeugmustern fertigen wir kurzfristig Freigabemuster in unterschiedlichen Glanz- und Goldabstufungen bei regulären Serienlaufzeiten von 3–7 Werktagen.',
+            'Auf Ihren Original-Werkzeugmustern fertigen wir kurzfristig Freigabemuster in unterschiedlichen Glanz- und Goldabstufungen bei regulären Serienlaufzeiten von 3-7 Werktagen.',
             'Jede Produktionscharge durchläuft in unserem Prüflabor standardisierte Beständigkeitstests für die Kosmetikindustrie: Gitterschnittprüfung nach DIN EN ISO 2409, Alkohol-Reibtest mit 96-prozentigem Parfümethanol, Tesa-Abrissprüfung an scharfen Flakonkanten sowie Klimakammerzyklen bei erhöhter Luftfeuchtigkeit. Dadurch vermeiden Kosmetikhersteller und Lohnabfüller zuverlässig Transportschäden, Abrieb im Faltschachtelkarton oder Spannungsrisse an dickwandigen SAN- und PETG-Tiegeln.',
             'Neben vollflächigem Hochglanz-Chrom und Champagnergold realisieren wir halbtransparente Rauchglas-Lasuren zur optischen Füllstandskontrolle, samtige Soft-Touch-Haptiklacke für exklusive Hautpflegeserien sowie fließende Zweifarb-Ombré-Verläufe auf dickwandigen Parfümflaschen und Raumduft-Diffusoren. Jede Palette verlässt unser Werk in Józefów mit Chargenprotokoll und staubgeschützter Einzelteil-Trennung für höchste Linieneffizienz beim Abfüller.',
           ],
@@ -456,7 +456,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'Wie lang ist die Lieferzeit für Serienabrufe nach Deutschland?',
-          a: 'In der Regel 3–7 Werktage ab Werk Józefów inklusive transportsicherer Palettenverpackung.',
+          a: 'In der Regel 3-7 Werktage ab Werk Józefów inklusive transportsicherer Palettenverpackung.',
         },
       ],
       relatedLinks: [
@@ -481,13 +481,13 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Przekształcamy surowe prototypy oraz krótkie serie z druku 3D (PA12 SLS/MJF, SLA, FDM) w detale o lustrzanej powierzchni chromu PVD lub lakieru klasy A.',
       directAnswerQuestion: 'Jak uzyskać idealnie gładki chrom PVD lub lakier Piano Black na porowatym wydruku 3D?',
       directAnswer:
-        'Surowe wydruki proszkowe SLS/MJF (PA12) mają chropowatość Ra 6–12 µm, a żywice SLA wykazują schodkowanie warstw. W STANIAX uszczelniamy porowatość dwuskładnikowym podkładem wypełniającym, wyrównujemy powierzchnię podkładem UV do Ra < 0,05 µm i napylamy aluminium 99,99% PVD lub lakier 2K PU w niskiej temperaturze poniżej 65 °C.',
+        'Surowe wydruki proszkowe SLS/MJF (PA12) mają chropowatość Ra 6-12 µm, a żywice SLA wykazują schodkowanie warstw. W STANIAX uszczelniamy porowatość dwuskładnikowym podkładem wypełniającym, wyrównujemy powierzchnię podkładem UV do Ra < 0,05 µm i napylamy aluminium 99,99% PVD lub lakier 2K PU w niskiej temperaturze poniżej 65 °C.',
       specs: [
         { parameter: 'Obsługiwane technologie druku 3D', value: 'SLS i HP MJF (PA12 / PA11), SLA / DLP (żywice techniczne), FDM (ABS/ASA/PC)' },
-        { parameter: 'Redukcja chropowatości powierzchni', value: 'Z surowego Ra 6–12 µm do gładkości lustrzanej pod PVD / Piano Black' },
-        { parameter: 'Temperatura wygrzewania powłok', value: '45–65 °C — brak wypaczania cienkościennych geometrii żywicznych' },
+        { parameter: 'Redukcja chropowatości powierzchni', value: 'Z surowego Ra 6-12 µm do gładkości lustrzanej pod PVD / Piano Black' },
+        { parameter: 'Temperatura wygrzewania powłok', value: '45-65 °C - brak wypaczania cienkościennych geometrii żywicznych' },
         { parameter: 'Dostępne wykończenia', value: 'Chrom i złoto PVD, RAL/NCS mat strukturalny, Soft-Touch, Piano Black' },
-        { parameter: 'Skala zleceń B2B', value: 'Od pojedynczych makiet targowych i prototypów po serie pomostowe 50–2000 szt.' },
+        { parameter: 'Skala zleceń B2B', value: 'Od pojedynczych makiet targowych i prototypów po serie pomostowe 50-2000 szt.' },
       ],
       sections: [
         {
@@ -505,7 +505,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         {
           heading: 'Szybkie serie pomostowe dla działów R&D, lotnictwa i wzornictwa przemysłowego',
           paragraphs: [
-            'Wspieramy biura konstrukcyjne, studia projektowania opakowań oraz producentów urządzeń specjalistycznych krótkimi terminami realizacji 3–6 dni roboczych w Józefowie pod Warszawą.',
+            'Wspieramy biura konstrukcyjne, studia projektowania opakowań oraz producentów urządzeń specjalistycznych krótkimi terminami realizacji 3-6 dni roboczych w Józefowie pod Warszawą.',
           ],
         },
       ],
@@ -526,7 +526,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'Czy można polakierować wydruki 3D na dowolny kolor RAL z drobną strukturą?',
-          a: 'Tak — lakierowanie strukturalne 2K PU na PA12 maskuje warstwy druku już w dwóch przejściach bez kosztownego szlifowania ręcznego.',
+          a: 'Tak - lakierowanie strukturalne 2K PU na PA12 maskuje warstwy druku już w dwóch przejściach bez kosztownego szlifowania ręcznego.',
         },
         {
           q: 'Czy przyjmujecie pojedyncze prototypy R&D?',
@@ -552,11 +552,11 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Transforming raw SLS/MJF nylon and SLA photopolymer 3D prints into injection-mold-grade mirror chrome PVD, gold, or 2K RAL production components.',
       directAnswerQuestion: 'How do you achieve a mirror PVD chrome or Class-A gloss finish on porous 3D-printed parts?',
       directAnswer:
-        'Raw SLS/MJF PA12 prints exhibit Ra 6–12 µm powder porosity while SLA prints show voxel layer lines. STANIAX seals capillary pores with catalyzed 2K high-build primers, levels the surface with UV basecoats below Ra 0.05 µm, and deposits 99.99% aluminum PVD below 65 °C without warping thin walls.',
+        'Raw SLS/MJF PA12 prints exhibit Ra 6-12 µm powder porosity while SLA prints show voxel layer lines. STANIAX seals capillary pores with catalyzed 2K high-build primers, levels the surface with UV basecoats below Ra 0.05 µm, and deposits 99.99% aluminum PVD below 65 °C without warping thin walls.',
       specs: [
         { parameter: 'Supported 3D Print Processes', value: 'SLS & HP MJF (PA12 / PA11), SLA / DLP photopolymers, industrial FDM (ASA/ABS/PC)' },
-        { parameter: 'Surface Roughness Conversion', value: 'From raw Ra 6–12 µm sinter texture to optical mirror PVD or Piano Black' },
-        { parameter: 'Thermal Curing Window', value: '45–65 °C low-temp cycle preventing resin distortion' },
+        { parameter: 'Surface Roughness Conversion', value: 'From raw Ra 6-12 µm sinter texture to optical mirror PVD or Piano Black' },
+        { parameter: 'Thermal Curing Window', value: '45-65 °C low-temp cycle preventing resin distortion' },
         { parameter: 'Available Coating Systems', value: 'Mirror chrome/gold PVD, fine-texture 2K PU RAL/NCS, Soft-Touch' },
         { parameter: 'Batch Flexibility', value: 'Single R&D show prototypes through 2,000-piece bridge production runs' },
       ],
@@ -576,7 +576,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         {
           heading: 'Fast Bridge-Production Finishing for European R&D Teams',
           paragraphs: [
-            'Hardware startups, aerospace engineers, and industrial design studios ship printed batches directly to Józefów for 3–6 business day finishing.',
+            'Hardware startups, aerospace engineers, and industrial design studios ship printed batches directly to Józefów for 3-6 business day finishing.',
           ],
         },
       ],
@@ -623,11 +623,11 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Porenversiegelung, Glättung und Hochvakuum-Verchromung für Prototypen und Kleinserien aus SLS/MJF-Polyamid sowie SLA-Photopolymeren.',
       directAnswerQuestion: 'Wie erzeugt man auf porösen 3D-Druckteilen einen makellosen PVD-Chromspiegel oder Klavierlack?',
       directAnswer:
-        'Ungeschützte SLS-/MJF-Bauteile aus PA12 weisen eine Rauheit von Ra 6–12 µm auf und gasen im Vakuum aus. STANIAX versiegelt die Kapillarporen mit zweikomponentigen Füllprimern, glättet die Oberfläche per UV-Basis auf Ra < 0,05 µm und bedampft 99,99 % Reinaluminium schonend unter 65 °C ohne Verzug.',
+        'Ungeschützte SLS-/MJF-Bauteile aus PA12 weisen eine Rauheit von Ra 6-12 µm auf und gasen im Vakuum aus. STANIAX versiegelt die Kapillarporen mit zweikomponentigen Füllprimern, glättet die Oberfläche per UV-Basis auf Ra < 0,05 µm und bedampft 99,99 % Reinaluminium schonend unter 65 °C ohne Verzug.',
       specs: [
         { parameter: 'Geeignete 3D-Druckverfahren', value: 'SLS & HP MJF (PA12 / PA11), SLA / DLP-Harze, Industrie-FDM (ASA/ABS/PC)' },
-        { parameter: 'Oberflächenglättung', value: 'Von rauer Pulverstruktur (Ra 6–12 µm) zu Spritzguss-Spiegelglanz' },
-        { parameter: 'Thermisches Prozessfenster', value: '45–65 °C Niedertemperaturtrocknung gegen Verzug bei SLA-Harzen' },
+        { parameter: 'Oberflächenglättung', value: 'Von rauer Pulverstruktur (Ra 6-12 µm) zu Spritzguss-Spiegelglanz' },
+        { parameter: 'Thermisches Prozessfenster', value: '45-65 °C Niedertemperaturtrocknung gegen Verzug bei SLA-Harzen' },
         { parameter: 'Verfügbare Beschichtungen', value: 'Chrom- & Gold-PVD, 2K-PUR-RAL/NCS-Feinstruktur, Soft-Touch, Klavierlack' },
         { parameter: 'Losgrößen', value: 'Einzelne Messeprototypen bis hin zu Bridge-Kleinserien von 2.000 Stück' },
       ],
@@ -675,7 +675,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'Beschichtet STANIAX auch einzelne F&E-Prototypen aus Deutschland?',
-          a: 'Ja, wir bearbeiten sowohl einzelne Vorserienmuster als auch laufende 3D-Druck-Abrufe in 3–6 Werktagen.',
+          a: 'Ja, wir bearbeiten sowohl einzelne Vorserienmuster als auch laufende 3D-Druck-Abrufe in 3-6 Werktagen.',
         },
       ],
       relatedLinks: [
@@ -700,7 +700,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Selektywna metalizacja próżniowa wnętrz obudów i lakierowanie rozpraszające ładunki elektrostatyczne dla elektroniki przemysłowej, aparatury medycznej i automotive.',
       directAnswerQuestion: 'Jak nadaje się właściwości ekranujące EMI/RFI i antyelektrostatyczne ESD obudowom z tworzyw sztucznych?',
       directAnswer:
-        'Tworzywa ABS, PC i poliamid są naturalnymi izolatorami przepuszczającymi zakłócenia elektromagnetyczne. W STANIAX nanosimy na wewnętrzne ścianki obudów ciągłą warstwę aluminium 99,99% w próżni PVD lub natryskowe lakiery przewodzące i antyelektrostatyczne ESD (10⁵–10⁹ Ω/sq) z precyzyjnym maskowaniem stref izolacji i zewnętrznych powierzchni dekoracyjnych.',
+        'Tworzywa ABS, PC i poliamid są naturalnymi izolatorami przepuszczającymi zakłócenia elektromagnetyczne. W STANIAX nanosimy na wewnętrzne ścianki obudów ciągłą warstwę aluminium 99,99% w próżni PVD lub natryskowe lakiery przewodzące i antyelektrostatyczne ESD (10⁵-10⁹ Ω/sq) z precyzyjnym maskowaniem stref izolacji i zewnętrznych powierzchni dekoracyjnych.',
       specs: [
         { parameter: 'Funkcje inżynieryjne powłoki', value: 'Tłumienie zakłóceń EMI/RFI · rozpraszanie ładunków ESD · odprowadzanie ciepła' },
         { parameter: 'Technologie aplikacyjne', value: 'Próżniowe napylanie Al w komorach Ø 1200 mm + natrysk przewodzący HVLP' },
@@ -737,7 +737,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
       faq: [
         {
           q: 'Czy można zmetalizować wyłącznie wnętrze obudowy, a zewnątrz pomalować na matowy RAL?',
-          a: 'Tak — wykonujemy dedykowane osłony maskujące, dzięki którym wnętrze zyskuje warstwę przewodzącą, a strona widoczna estetyczny lakier 2K PU.',
+          a: 'Tak - wykonujemy dedykowane osłony maskujące, dzięki którym wnętrze zyskuje warstwę przewodzącą, a strona widoczna estetyczny lakier 2K PU.',
         },
         {
           q: 'Czy proces PVD nie deformuje obudów z uniepalnianego tworzywa PC/ABS V-0?',
@@ -749,7 +749,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'Jak szybko wyceniacie projekt na podstawie modelu 3D obudowy?',
-          a: 'Po przesłaniu pliku STEP/PDF i wymagań stref maskowania na metalizacja@staniax.pl przygotowujemy wycenę technologiczną w 24–48h.',
+          a: 'Po przesłaniu pliku STEP/PDF i wymagań stref maskowania na metalizacja@staniax.pl przygotowujemy wycenę technologiczną w 24-48h.',
         },
       ],
       relatedLinks: [
@@ -771,7 +771,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Selective internal Faraday-cage vacuum metallization and static-dissipative spray coatings for medical, industrial, and aerospace enclosures.',
       directAnswerQuestion: 'How do you add EMI/RFI shielding and ESD dissipation to injection-molded plastic enclosures?',
       directAnswer:
-        'Because ABS, polycarbonate, and nylon are electrical insulators transparent to RF interference, STANIAX selectively deposits continuous 99.99% aluminum films inside Ø 1200 mm PVD chambers or applies conductive/static-dissipative spray coatings (10⁵–10⁹ Ω/sq) while masking external cosmetic surfaces and isolation bosses.',
+        'Because ABS, polycarbonate, and nylon are electrical insulators transparent to RF interference, STANIAX selectively deposits continuous 99.99% aluminum films inside Ø 1200 mm PVD chambers or applies conductive/static-dissipative spray coatings (10⁵-10⁹ Ω/sq) while masking external cosmetic surfaces and isolation bosses.',
       specs: [
         { parameter: 'Functional Performance', value: 'EMI/RFI attenuation · controlled ESD static bleed · zero dust attraction' },
         { parameter: 'Deposition Technologies', value: 'High-vacuum planetary Al PVD + precision HVLP conductive spray' },
@@ -783,7 +783,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         {
           heading: 'Replacing Heavy Die-Cast Housings with Shielded Polymer Enclosures',
           paragraphs: [
-            'Medical diagnostic instruments, industrial PLC controllers, and telecom sensors increasingly replace machined aluminum housings with lightweight UL94 V-0 PC/ABS moldings—provided internal surfaces pass EMC compliance.',
+            'Medical diagnostic instruments, industrial PLC controllers, and telecom sensors increasingly replace machined aluminum housings with lightweight UL94 V-0 PC/ABS moldings - provided internal surfaces pass EMC compliance.',
             'Selective vacuum aluminum deposition and conductive coatings at STANIAX establish reliable grounding continuity across enclosure halves while allowing the exterior shell to be finished in custom 2K polyurethane RAL/NCS textures under the same roof.',
           ],
           bullets: [
@@ -820,7 +820,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'How fast can STANIAX quote from a 3D STEP file?',
-          a: 'Send your STEP drawing and masking callouts to metalizacja@staniax.pl for an engineering quotation within 24–48 hours.',
+          a: 'Send your STEP drawing and masking callouts to metalizacja@staniax.pl for an engineering quotation within 24-48 hours.',
         },
       ],
       relatedLinks: [
@@ -842,7 +842,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Selektive Innenmetallisierung im Hochvakuum und elektrostatisch ableitende Industrielacke für Elektronik-, Medizin- und Messgerätegehäuse.',
       directAnswerQuestion: 'Wie erhalten Kunststoffgehäuse eine zuverlässige EMV-Abschirmung oder ESD-Ableitfähigkeit?',
       directAnswer:
-        'Da ABS, Polycarbonat und Polyamid elektrisch isolieren, bringt STANIAX auf Gehäuseinnenseiten eine geschlossene 99,99-%-Aluminiumschicht im Ø-1200-mm-Hochvakuum oder leitfähige bzw. ESD-ableitende Lacksysteme (10⁵–10⁹ Ω/sq) auf — inklusive präziser Maskierung von Isolationsdom- und Außensichtflächen.',
+        'Da ABS, Polycarbonat und Polyamid elektrisch isolieren, bringt STANIAX auf Gehäuseinnenseiten eine geschlossene 99,99-%-Aluminiumschicht im Ø-1200-mm-Hochvakuum oder leitfähige bzw. ESD-ableitende Lacksysteme (10⁵-10⁹ Ω/sq) auf - inklusive präziser Maskierung von Isolationsdom- und Außensichtflächen.',
       specs: [
         { parameter: 'Technische Schutzfunktion', value: 'EMV-/HF-Störstrahlungsdämpfung · kontrollierte ESD-Ladungsableitung' },
         { parameter: 'Applikationsverfahren', value: 'Selektive Planeten-Vakuummetallisierung + HVLP-Leitlackierung' },
@@ -856,7 +856,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
           paragraphs: [
             'Hersteller von Medizingeräten, Industriesteuerungen, Sensorik und Funkmodulen ersetzen schwere Metallgehäuse zunehmend durch flammgeschützte PC/ABS-Spritzgussteile. Damit diese Baugruppen die EMV-Prüfung bestehen, erzeugt eine innere PVD-Aluminiumschicht oder Leitlackierung einen wirksamen Faradayschen Käfig.',
             'Weil das trockene Vakuumverfahren bei STANIAX ohne aggressive Beizbäder auskommt, bleiben bereits eingepresste Messing-Gewindeeinsätze und empfindliche Schnappverbindungen vollkommen unversehrt.',
-            'Parallel lackieren wir im selben Durchlauf die äußeren Sichtflächen Ihrer Gehäuse in abriebfesten 2K-PUR-Farbtönen nach RAL, NCS oder kundenspezifischer Feinstruktur — komplett montagefertig aus einer Hand.',
+            'Parallel lackieren wir im selben Durchlauf die äußeren Sichtflächen Ihrer Gehäuse in abriebfesten 2K-PUR-Farbtönen nach RAL, NCS oder kundenspezifischer Feinstruktur - komplett montagefertig aus einer Hand.',
           ],
           bullets: [
             'Sichere Kontaktierung an Gehäusedichtkanten und Erdungspunkten',
@@ -894,7 +894,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         },
         {
           q: 'Wie schnell erhalten deutsche OEM-Kunden ein Angebot nach STEP-Daten?',
-          a: 'Senden Sie Ihre 3D-Daten samt Maskierbereichen an metalizacja@staniax.pl — wir kalkulieren Ihr Angebot innerhalb von 24–48 Stunden.',
+          a: 'Senden Sie Ihre 3D-Daten samt Maskierbereichen an metalizacja@staniax.pl - wir kalkulieren Ihr Angebot innerhalb von 24-48 Stunden.',
         },
       ],
       relatedLinks: [

@@ -5,7 +5,7 @@ import type { BlogArticle } from './types'
 const article: BlogArticle = {
   "slug": "/news/lakierowanie-tworzyw-sztucznych",
   "lang": "pl",
-  "heading": "Lakierowanie tworzyw sztucznych – metody, przygotowanie powierzchni i dobór powłoki",
+  "heading": "Lakierowanie tworzyw sztucznych - metody, przygotowanie powierzchni i dobór powłoki",
   "metaTitle": "Jak lakierować tworzywa? Metody i dobór powłoki | STANIAX",
   "metaDescription": "Lakierowanie tworzyw sztucznych: przyczepność do ABS, PC i PP, przygotowanie detalu, natrysk a proszek, lakiery UV, wykończenia i testy jakości powłoki.",
   "lead": "Lakierowanie tworzyw sztucznych to jeden z tych procesów, w których o efekcie końcowym decyduje to, czego nie widać. Ładny kolor czy równy połysk to dopiero wierzch, a pod nim liczy się dobrze dobrany lakier, czysta i aktywna powierzchnia oraz odpowiednie warunki utwardzania. Jeśli któryś z tych elementów zawiedzie, powłoka może łuszczyć się, pękać albo odpadać przy pierwszym kontakcie z kremem do rąk czy środkiem czyszczącym.",
@@ -207,7 +207,7 @@ const article: BlogArticle = {
     },
     {
       "type": "h3",
-      "text": "PP i PE – aktywacja powierzchni i primer"
+      "text": "PP i PE - aktywacja powierzchni i primer"
     },
     {
       "type": "p",
@@ -285,7 +285,7 @@ const article: BlogArticle = {
     {
       "type": "h2",
       "id": "lakierowanie-natryskowe-a-proszkowe-ktora-metode-wybrac-dla-tworzyw",
-      "text": "Lakierowanie natryskowe a proszkowe – którą metodę wybrać dla tworzyw?"
+      "text": "Lakierowanie natryskowe a proszkowe - którą metodę wybrać dla tworzyw?"
     },
     {
       "type": "p",
@@ -494,7 +494,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Jeśli rozważasz to rozwiązanie, zajrzyj do artykułu [Metalizacja próżniowa – cena](/metalizacja-prozniowa), w którym wyjaśniamy, od czego zależy koszt takiego procesu."
+      "text": "Jeśli rozważasz to rozwiązanie, zajrzyj do artykułu [Metalizacja próżniowa - cena](/metalizacja-prozniowa), w którym wyjaśniamy, od czego zależy koszt takiego procesu."
     },
     {
       "type": "h3",
@@ -821,11 +821,11 @@ const article: BlogArticle = {
   ],
   "sources": [
     {
-      "label": "STANIAX – strona główna",
+      "label": "STANIAX - strona główna",
       "url": "/"
     },
     {
-      "label": "STANIAX – baza wiedzy",
+      "label": "STANIAX - baza wiedzy",
       "url": "/news"
     },
     {

@@ -65,7 +65,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             </tr>
             <tr>
               <td style="padding: 12px 16px; font-weight: 600; color: #334155; border-bottom: 1px solid #e2e8f0;">Telefon</td>
-              <td style="padding: 12px 16px; color: #1e293b; border-bottom: 1px solid #e2e8f0;">${phone || '—'}</td>
+              <td style="padding: 12px 16px; color: #1e293b; border-bottom: 1px solid #e2e8f0;">${phone || '-'}</td>
             </tr>
           </table>
           
@@ -84,7 +84,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { data, error } = await resend.emails.send({
       from: 'STANIAX Formularz <formularz@staniax.pl>',
       to: ['metalizacja@staniax.pl', 'filipsliwa.business.contact@gmail.com'],
-      subject: `Nowe zapytanie: ${serviceName ? `[${serviceName}] ` : ''}${projectType} — ${firstName} ${lastName || ''}`.trim(),
+      subject: `Nowe zapytanie: ${serviceName ? `[${serviceName}] ` : ''}${projectType} - ${firstName} ${lastName || ''}`.trim(),
       html: htmlContent,
       replyTo: email,
     })

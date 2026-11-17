@@ -319,7 +319,7 @@ export default function BlogArticlePage({ slug }: { slug: string }) {
                   Bezpłatna wycena
                 </p>
                 <p className="text-sm text-muted-foreground/90 mb-6 leading-relaxed">
-                  Wyślij rysunek lub zdjęcie detalu — doradzimy technologię i przygotujemy wycenę.
+                  Wyślij rysunek lub zdjęcie detalu - doradzimy technologię i przygotujemy wycenę.
                 </p>
                 <Link
                   to={servicePath || '/#contact'}

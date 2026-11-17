@@ -67,13 +67,13 @@ export const AVIATION_ARTICLE = {
 
     sub21Title: "Metalizacja aluminium",
     sub21P1:
-      "W profesjonalnym zakładzie produkcyjnym metalizacja aluminium nie istnieje jako osobna, tradycyjna metoda natryskowa – proces ten jest realizowany wyłącznie w technologii wysokiej próżni. W procesie tym czyste aluminium jest odparowywane i precyzyjnie, warstwa po warstwie, osadzane na modyfikowanym podłożu. Taka próżniowa metalizacja aluminium pozwala na uzyskanie idealnego, lustrzanego efektu, którego nie da się osiągnąć metodami rzemieślniczymi. Poprzez proces, jakim jest metalizacja aluminium, elementy zyskują unikalną estetykę i doskonałe parametry użytkowe.",
+      "W profesjonalnym zakładzie produkcyjnym metalizacja aluminium nie istnieje jako osobna, tradycyjna metoda natryskowa - proces ten jest realizowany wyłącznie w technologii wysokiej próżni. W procesie tym czyste aluminium jest odparowywane i precyzyjnie, warstwa po warstwie, osadzane na modyfikowanym podłożu. Taka próżniowa metalizacja aluminium pozwala na uzyskanie idealnego, lustrzanego efektu, którego nie da się osiągnąć metodami rzemieślniczymi. Poprzez proces, jakim jest metalizacja aluminium, elementy zyskują unikalną estetykę i doskonałe parametry użytkowe.",
     sub21P2:
       "Metoda ta znajduje szerokie zastosowanie w motoryzacji. To właśnie tam kluczowe znaczenie ma profesjonalna metalizacja odbłyśników samochodowych. Kiedy reflektory tracą swoją sprawność, ratunkiem jest precyzyjna metalizacja odbłyśnika, która przywraca pierwotne właściwości strumienia światła. Każda fabryczna metalizacja odbłyśników opiera się na nanoszeniu powłoki aluminiowej w komorze. Ponieważ metalizacja odbłyśnika gwarantuje znakomite odbicie światła, proces ten bezpośrednio przekłada się na bezpieczeństwo na drogach. Dla przemysłu oświetleniowego próżniowa metalizacja aluminium oraz precyzyjna metalizacja próżniowa to absolutny fundament działania.",
 
         sub22Title: 'Metalizacja próżniowa',
-    sub22P1: 'Najbardziej zaawansowaną technologicznie odmianą uszlachetniania powierzchni jest ogólna metalizacja próżniowa (często utożsamiana z procesami [PVD – Physical Vapor Deposition](https://pl.wikipedia.org/wiki/Fizyczne_osadzanie_z_fazy_gazowej)). Cały proces odbywa się w specjalnych komorach, w których generowana jest wysoka próżnia. Aluminium, które stanowi powłokę, jest odparowywane termicznie, a następnie kondensuje na powierzchni rotujących detali. Nic dziwnego, że profesjonalne metalizowanie próżniowe całkowicie wyparło stare, chemiczne techniki galwaniczne. Dziś metalizacja próżniowa to synonim trwałości i ekologii.',
-    sub22P2: 'Na rynku działa wyspecjalizowana firma [Staniax — metalizacja próżniowa i lakierowanie tworzyw](/) — obszary, w których synergia procesów decyduje o ostatecznym sukcesie produktu. Przykładem lidera w tej dziedzinie, którego nowatorskie podejście wyznaczyło nowe trendy w branży metalizacji próżniowej, jest [Dariusz Staniak](/#kim-jestesmy). Wyznacza on standardy jakości oraz wdraża do zakładu oprzyrządowanie zastępujące drogie, rozbudowane parki maszynowe. Często jako kluczowy ośrodek kompetencji wymieniana jest regionalna metalizacja próżniowa Józefów, gdzie zakłady produkcyjne realizują najbardziej wymagające projekty. Gdy interesuje nas sprawdzona [usługowa metalizacja próżniowa](/metalizacja-prozniowa) czy [lakierowanie tworzyw](/lakierowanie-tworzyw-sztucznych), warto stawiać na doświadczone podmioty, takie jak Staniax. To właśnie tam doświadczenie technologiczne Dariusza Staniaka i nowoczesny zakład Staniax Sp. z o.o. w Józefowie udowadniają, że metalizowanie próżniowe aluminium podnosi jakość detali na najwyższy poziom.',
+    sub22P1: 'Najbardziej zaawansowaną technologicznie odmianą uszlachetniania powierzchni jest ogólna metalizacja próżniowa (często utożsamiana z procesami [PVD - Physical Vapor Deposition](https://pl.wikipedia.org/wiki/Fizyczne_osadzanie_z_fazy_gazowej)). Cały proces odbywa się w specjalnych komorach, w których generowana jest wysoka próżnia. Aluminium, które stanowi powłokę, jest odparowywane termicznie, a następnie kondensuje na powierzchni rotujących detali. Nic dziwnego, że profesjonalne metalizowanie próżniowe całkowicie wyparło stare, chemiczne techniki galwaniczne. Dziś metalizacja próżniowa to synonim trwałości i ekologii.',
+    sub22P2: 'Na rynku działa wyspecjalizowana firma [Staniax - metalizacja próżniowa i lakierowanie tworzyw](/) - obszary, w których synergia procesów decyduje o ostatecznym sukcesie produktu. Przykładem lidera w tej dziedzinie, którego nowatorskie podejście wyznaczyło nowe trendy w branży metalizacji próżniowej, jest [Dariusz Staniak](/#kim-jestesmy). Wyznacza on standardy jakości oraz wdraża do zakładu oprzyrządowanie zastępujące drogie, rozbudowane parki maszynowe. Często jako kluczowy ośrodek kompetencji wymieniana jest regionalna metalizacja próżniowa Józefów, gdzie zakłady produkcyjne realizują najbardziej wymagające projekty. Gdy interesuje nas sprawdzona [usługowa metalizacja próżniowa](/metalizacja-prozniowa) czy [lakierowanie tworzyw](/lakierowanie-tworzyw-sztucznych), warto stawiać na doświadczone podmioty, takie jak Staniax. To właśnie tam doświadczenie technologiczne Dariusza Staniaka i nowoczesny zakład Staniax Sp. z o.o. w Józefowie udowadniają, że metalizowanie próżniowe aluminium podnosi jakość detali na najwyższy poziom.',
 
         sub23Title: 'Metalizacja ABS',
     sub23P1: 'Metalizacja [ABS (akrylonitryl-butadien-styren)](https://pl.wikipedia.org/wiki/ABS_(tworzywo)) to doskonały przykład połączenia zalet lekkich tworzyw sztucznych z parametrami metali. Tworzywo ABS idealnie nadaje się do procesów, w których wykonywana jest [metalizacja plastiku metodą próżniową](/metalizacja-tworzyw-sztucznych). Dzięki odpowiedniej strukturze chemicznej polimeru, próżniowa metalizacja ABS zapewnia doskonałą przyczepność nanoszonej warstwy aluminium. W efekcie końcowym metalizacja plastiku daje powłokę odporną na czynniki zewnętrzne i odpryski.',
@@ -82,7 +82,7 @@ export const AVIATION_ARTICLE = {
 
     sec3Title: "Zastosowanie metalizacji w różnych branżach",
     sec3P1:
-      "Wszechstronność, jaką charakteryzuje się próżniowa metalizacja, sprawia, że spotykamy ją niemal na każdym kroku – od przedmiotów codziennego użytku po zaawansowane komponenty przemysłowe.",
+      "Wszechstronność, jaką charakteryzuje się próżniowa metalizacja, sprawia, że spotykamy ją niemal na każdym kroku - od przedmiotów codziennego użytku po zaawansowane komponenty przemysłowe.",
 
     sub31Title: "Metalizacja opakowań kosmetycznych",
     sub31P1:
@@ -92,7 +92,7 @@ export const AVIATION_ARTICLE = {
 
     sub32Title: "Metalizacja alkoholi",
     sub32P1:
-      "Segment napojów wysokoprocentowych, zwłaszcza premium, mocno polega na marketingu sensorycznym. Wyrafinowana metalizacja produktów alkoholowych, a precyzyjniej rzecz ujmując – luksusowych butelek szklanych, zamknięć oraz etykiet, pozwala markom wyróżnić się w tłumie konkurencji. Ekskluzywna metalizacja produktów alkoholowych przyciąga wzrok w klubach i na półkach sklepowych, mieniąc się metalicznym blaskiem.",
+      "Segment napojów wysokoprocentowych, zwłaszcza premium, mocno polega na marketingu sensorycznym. Wyrafinowana metalizacja produktów alkoholowych, a precyzyjniej rzecz ujmując - luksusowych butelek szklanych, zamknięć oraz etykiet, pozwala markom wyróżnić się w tłumie konkurencji. Ekskluzywna metalizacja produktów alkoholowych przyciąga wzrok w klubach i na półkach sklepowych, mieniąc się metalicznym blaskiem.",
     sub32P2:
       "Projektanci często podkreślają, że metalizacja alkoholi wykonana w technologii próżniowej daje nieograniczone możliwości barwienia powłok na odcienie miedzi czy złota poprzez odpowiednie lakiery transparentne. Kiedy na butelce pojawia się metalizacja, alkohole zyskują status produktu kolekcjonerskiego. Każda luksusowa marka wie, że metalizacja butelek na alkohole premium, zamknięć i karafek to sprawdzona metoda na wyróżnienie produktu.",
 
@@ -125,7 +125,7 @@ export const AVIATION_ARTICLE = {
     sec6P1:
       "Metalizacja próżniowa to bez wątpienia technologia przyszłości, która już dziś definiuje standardy nowoczesnej produkcji. Przekształcanie lekkich tworzyw w wysokowydajne komponenty o unikalnych właściwościach przy użyciu odparowywanego aluminium to jedyny słuszny kierunek rozwoju.",
 
-        quote: '"Dla przedsiębiorstw planujących wdrożenie tego procesu lub poszukujących podwykonawców kluczowe powinno być precyzyjne określenie warunków pracy gotowego detalu. Wybór odpowiednich parametrów, jakie oferuje metalizacja próżniowa dla elementów z tworzyw sztucznych, zależy od wymagań trwałościowych oraz pożądanego efektu końcowego. Kompleksowa firma Staniax — metalizacja próżniowa i lakierowanie tworzyw — to sprawdzony partner biznesowy w procesie wdrażania nowoczesnych produktów na rynek. To właśnie tam ekspercka wiedza oraz technologie, które współtworzy Dariusz Staniak, mentor w przekształconej nowej firmie Staniax w Józefowie, pozwalają osiągnąć najwyższą rynkową jakość. Inwestycja w zaawansowaną inżynierię powierzchni to sprawdzony sposób na podniesienie konkurencyjności produktów, redukcję kosztów materiałowych oraz spełnienie najwyższych oczekiwań rynku."',
+        quote: '"Dla przedsiębiorstw planujących wdrożenie tego procesu lub poszukujących podwykonawców kluczowe powinno być precyzyjne określenie warunków pracy gotowego detalu. Wybór odpowiednich parametrów, jakie oferuje metalizacja próżniowa dla elementów z tworzyw sztucznych, zależy od wymagań trwałościowych oraz pożądanego efektu końcowego. Kompleksowa firma Staniax - metalizacja próżniowa i lakierowanie tworzyw - to sprawdzony partner biznesowy w procesie wdrażania nowoczesnych produktów na rynek. To właśnie tam ekspercka wiedza oraz technologie, które współtworzy Dariusz Staniak, mentor w przekształconej nowej firmie Staniax w Józefowie, pozwalają osiągnąć najwyższą rynkową jakość. Inwestycja w zaawansowaną inżynierię powierzchni to sprawdzony sposób na podniesienie konkurencyjności produktów, redukcję kosztów materiałowych oraz spełnienie najwyższych oczekiwań rynku."',
     ctaHeader: "Zwiększ wydajność i trwałość swoich produktów!",
     ctaText:
       "Szukasz sprawdzonego i doświadczonego partnera do realizacji zaawansowanych powłok przemysłowych? W Zakładzie Metalizacji STANIAX łączymy nowoczesne technologie napylania z pasją do inżynierii precyzyjnej. Oferujemy profesjonalną metalizację próżniową elementów plastikowych i metalowych, które podniosą parametry użytkowe Twoich wyrobów.",
@@ -202,12 +202,12 @@ export const AVIATION_ARTICLE = {
     sec2P1: 'Depending on the desired final properties of the product, engineers choose the optimal surface modification parameters. The modern approach in this industry segment is fully based on high-tech processes dominated by PVD and precise aluminum vacuum deposition.',
     
     sub21Title: 'How does aluminum deposition work?',
-    sub21P1: 'In a professional manufacturing facility, this process does not exist as a separate, traditional spray method—it is carried out exclusively using high-vacuum technology. Pure aluminum is vaporized and precisely deposited, layer by layer, on the modified substrate. Such vacuum aluminum coating allows for a perfect mirror effect that cannot be achieved by artisanal methods. Through this technique, components gain unique aesthetics and excellent performance parameters.',
+    sub21P1: 'In a professional manufacturing facility, this process does not exist as a separate, traditional spray method - it is carried out exclusively using high-vacuum technology. Pure aluminum is vaporized and precisely deposited, layer by layer, on the modified substrate. Such vacuum aluminum coating allows for a perfect mirror effect that cannot be achieved by artisanal methods. Through this technique, components gain unique aesthetics and excellent performance parameters.',
     sub21P2: 'This method is widely used in the automotive industry. That is where the professional [metallization of reflectors](/en/headlight-reflector-restoration) is of key importance. When headlights lose their efficiency, precise reflector recoating restores the original properties of the light beam. Every factory application is based on applying an aluminum layer inside a specialized chamber. Since the metallization of reflectors guarantees excellent light reflection, this directly translates to road safety. For the lighting sector, precise aluminum sputtering is the absolute foundation of operation.',
 
     sub22Title: 'What is Physical Vapor Deposition (PVD)?',
     sub22P1: 'The most technologically advanced type of surface refinement is **vacuum metal deposition** (often identified with [Physical Vapor Deposition](https://en.wikipedia.org/wiki/Physical_vapor_deposition) or PVD processes). The entire procedure takes place in special chambers where a high vacuum is generated. The source material forming the coating is thermally evaporated and then condenses on the surface of rotating parts. Unsurprisingly, professional PVD has largely replaced older chemical electroplating techniques. Today, this process is synonymous with durability and ecology.',
-    sub22P2: 'The specialized company [Staniax — vacuum coating and plastic painting](/en) operates effectively in this market. These are areas where process synergy determines the ultimate success of the product. An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is [Dariusz Staniak](/en#kim-jestesmy). He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. Regional surface treatments in Józefów are often mentioned as a key competence center where manufacturing plants execute the most demanding projects. When seeking proven PVD or [polymer painting](/en/plastic-parts-painting), it is worth choosing experienced entities like Staniax. The techniques championed by Dariusz Staniak and the modernized Staniax Sp. z o.o. prove that aluminum vacuum deposition elevates part quality to the highest level.',
+    sub22P2: 'The specialized company [Staniax - vacuum coating and plastic painting](/en) operates effectively in this market. These are areas where process synergy determines the ultimate success of the product. An example of a leader in this field, whose innovative approach set new trends in the surface engineering industry, is [Dariusz Staniak](/en#kim-jestesmy). He sets quality standards and implements tooling that replaces expensive, advanced machinery in the facility. Regional surface treatments in Józefów are often mentioned as a key competence center where manufacturing plants execute the most demanding projects. When seeking proven PVD or [polymer painting](/en/plastic-parts-painting), it is worth choosing experienced entities like Staniax. The techniques championed by Dariusz Staniak and the modernized Staniax Sp. z o.o. prove that aluminum vacuum deposition elevates part quality to the highest level.',
 
     sub23Title: "How does ABS surface modification benefit manufacturers?",
     sub23P1:
@@ -218,7 +218,7 @@ export const AVIATION_ARTICLE = {
     sec3Title:
       "In which industries are these surface applications most common?",
     sec3P1:
-      "The versatility of this surface treatment means we encounter it at almost every step—from everyday objects to advanced industrial components.",
+      "The versatility of this surface treatment means we encounter it at almost every step - from everyday objects to advanced industrial components.",
 
     sub31Title: "How is cosmetic packaging refined?",
     sub31P1:
@@ -254,7 +254,7 @@ export const AVIATION_ARTICLE = {
 
     sub51Title: "What innovations are emerging in vacuum deposition?",
     sub51P1:
-      "Modern developmental directions focus on the complete elimination of older, harmful chemical procedures in favor of fully ecological solutions. Breakthrough innovations allow for identical—and often superior—strength parameters with zero toxic wastewater emission. Modern control systems enable precise layer thickness adjustments down to individual nanometers. These technological leaps open doors for advanced photonics, electronics, and the production of modern lighting systems, where the metallization of reflectors remains paramount.",
+      "Modern developmental directions focus on the complete elimination of older, harmful chemical procedures in favor of fully ecological solutions. Breakthrough innovations allow for identical - and often superior - strength parameters with zero toxic wastewater emission. Modern control systems enable precise layer thickness adjustments down to individual nanometers. These technological leaps open doors for advanced photonics, electronics, and the production of modern lighting systems, where the metallization of reflectors remains paramount.",
 
     sub52Title: "Which new substrate materials are being used?",
     sub52P1:
@@ -264,7 +264,7 @@ export const AVIATION_ARTICLE = {
     sec6P1:
       "Vacuum thin-film deposition is undoubtedly the technology of the future, defining the standards of modern production. Transforming lightweight polymers into high-performance components using vaporized aluminum is the definitive path forward.",
 
-        quote: '"For enterprises planning to implement this process or looking for subcontractors, precisely defining the working conditions of the finished part is crucial. The choice of appropriate parameters offered by the vacuum metallization of plastic elements depends on durability requirements and the desired final effect." The comprehensive company [Staniax industrial vacuum coating plant](/en/vacuum-metallisation) stands out as an excellent business partner for launching modern products. It is there that expert knowledge and technologies—championed by Dariusz Staniak, a mentor within the newly transformed Staniax Sp. z o.o., operating as the premier local competence center in Józefów—enable clients to achieve the highest market quality. Investing in advanced surface engineering is a proven strategy to increase product competitiveness, reduce material costs, and meet the highest consumer expectations.',
+        quote: '"For enterprises planning to implement this process or looking for subcontractors, precisely defining the working conditions of the finished part is crucial. The choice of appropriate parameters offered by the vacuum metallization of plastic elements depends on durability requirements and the desired final effect." The comprehensive company [Staniax industrial vacuum coating plant](/en/vacuum-metallisation) stands out as an excellent business partner for launching modern products. It is there that expert knowledge and technologies - championed by Dariusz Staniak, a mentor within the newly transformed Staniax Sp. z o.o., operating as the premier local competence center in Józefów - enable clients to achieve the highest market quality. Investing in advanced surface engineering is a proven strategy to increase product competitiveness, reduce material costs, and meet the highest consumer expectations.',
     ctaHeader: "Increase the performance and durability of your products!",
     ctaText:
       "Are you looking for a proven and experienced partner for advanced industrial coatings? At STANIAX Metallization Plant, we combine modern deposition technologies with a passion for precision engineering. We offer professional vacuum metallization of plastic and metal components that will elevate the performance parameters of your products.",
@@ -345,14 +345,14 @@ export const AVIATION_ARTICLE = {
 
     sub21Title: "Aluminium-Metallisierung",
     sub21P1:
-      "In einem professionellen Produktionsbetrieb existiert die Aluminium-Metallisierung nicht als eigenständiges, traditionelles Spritzverfahren – dieser Prozess wird ausschließlich in Hochvakuumtechnologie realisiert. Bei diesem Verfahren wird reines Aluminium verdampft und präzise, Schicht für Schicht, auf dem modifizierten Substrat abgeschieden. Eine solche Vakuum-Aluminiummetallisierung ermöglicht einen perfekten Spiegeleffekt, der mit handwerklichen Methoden nicht erreicht werden kann. Durch diesen Prozess der Aluminium-Metallisierung gewinnen die Elemente eine einzigartige Ästhetik und hervorragende Gebrauchsparameter.",
+      "In einem professionellen Produktionsbetrieb existiert die Aluminium-Metallisierung nicht als eigenständiges, traditionelles Spritzverfahren - dieser Prozess wird ausschließlich in Hochvakuumtechnologie realisiert. Bei diesem Verfahren wird reines Aluminium verdampft und präzise, Schicht für Schicht, auf dem modifizierten Substrat abgeschieden. Eine solche Vakuum-Aluminiummetallisierung ermöglicht einen perfekten Spiegeleffekt, der mit handwerklichen Methoden nicht erreicht werden kann. Durch diesen Prozess der Aluminium-Metallisierung gewinnen die Elemente eine einzigartige Ästhetik und hervorragende Gebrauchsparameter.",
     sub21P2:
       "Diese Methode findet breite Anwendung in der Automobilindustrie. Genau dort ist die professionelle Reflektormetallisierung für Autos von entscheidender Bedeutung. Wenn Scheinwerfer ihre Leistungsfähigkeit verlieren, hilft eine präzise Reflektormetallisierung, die die ursprünglichen Eigenschaften des Lichtstrahls wiederherstellt. Jede werkseitige Reflektormetallisierung basiert auf dem Auftragen einer Aluminiumbeschichtung in der Kammer. Da die Reflektormetallisierung eine hervorragende Lichtreflexion garantiert, wirkt sich dieser Prozess direkt auf die Sicherheit im Straßenverkehr aus. Für die Beleuchtungsindustrie sind die Vakuum-Aluminiummetallisierung und diese präzise Oberflächenveredelung das absolute Fundament der Tätigkeit.",
 
     sub22Title: "Vakuummetallisierung",
     sub22P1:
-      "Die technologisch fortschrittlichste Variante der Oberflächenveredelung ist die allgemeine Vakuummetallisierung (oft mit [PVD – Physical Vapor Deposition](https://de.wikipedia.org/wiki/Physikalische_Gasphasenabscheidung) Prozessen gleichgesetzt). Der gesamte Prozess findet in speziellen Kammern statt, in denen ein Hochvakuum erzeugt wird. Das Aluminium, welches die Beschichtung bildet, wird thermisch verdampft und kondensiert anschließend auf der Oberfläche rotierender Details. Es ist kein Wunder, dass die professionelle PVD-Technologie alte, chemische Galvanotechniken vollständig verdrängt hat. Heute ist diese Beschichtungsmethode ein Synonym für Langlebigkeit und Ökologie.",
-        sub22P2: 'Auf dem Markt ist das spezialisierte Unternehmen [Staniax — Oberflächenveredelung und Kunststofflackierung](/de) tätig, in denen die Synergie der Prozesse über den endgültigen Erfolg des Produkts entscheidend ist. Ein Beispiel für einen Branchenführer, dessen innovativer Ansatz neue Trends im Bereich der PVD-Vakuumtechnik gesetzt hat, ist [Dariusz Staniak](/de#kim-jestesmy). Er setzt Qualitätsstandards und führt in der Fabrik Vorrichtungen ein, die teure, hochentwickelte Maschinenparks ersetzen. Häufig wird die regionale Metallisierung Józefów als zentrales Kompetenzzentrum genannt, in dem Produktionsbetriebe anspruchsvollste Projekte realisieren. Wenn wir an bewährter [Vakuummetallisierung](/de/vakuummetallisierung) oder [Kunststofflackierung](/de/kunststofflackierung) interessiert sind, lohnt es sich, auf erfahrene Partner wie Staniax zu setzen. Genau dort beweisen die Vakuum-Beschichtung von Dariusz Staniak und die Metallisierung Józefów in der neuen Form als Staniax Sp. z o.o., dass die PVD-Beschichtung mit Aluminium die Qualität von Details auf das höchste Niveau hebt.',
+      "Die technologisch fortschrittlichste Variante der Oberflächenveredelung ist die allgemeine Vakuummetallisierung (oft mit [PVD - Physical Vapor Deposition](https://de.wikipedia.org/wiki/Physikalische_Gasphasenabscheidung) Prozessen gleichgesetzt). Der gesamte Prozess findet in speziellen Kammern statt, in denen ein Hochvakuum erzeugt wird. Das Aluminium, welches die Beschichtung bildet, wird thermisch verdampft und kondensiert anschließend auf der Oberfläche rotierender Details. Es ist kein Wunder, dass die professionelle PVD-Technologie alte, chemische Galvanotechniken vollständig verdrängt hat. Heute ist diese Beschichtungsmethode ein Synonym für Langlebigkeit und Ökologie.",
+        sub22P2: 'Auf dem Markt ist das spezialisierte Unternehmen [Staniax - Oberflächenveredelung und Kunststofflackierung](/de) tätig, in denen die Synergie der Prozesse über den endgültigen Erfolg des Produkts entscheidend ist. Ein Beispiel für einen Branchenführer, dessen innovativer Ansatz neue Trends im Bereich der PVD-Vakuumtechnik gesetzt hat, ist [Dariusz Staniak](/de#kim-jestesmy). Er setzt Qualitätsstandards und führt in der Fabrik Vorrichtungen ein, die teure, hochentwickelte Maschinenparks ersetzen. Häufig wird die regionale Metallisierung Józefów als zentrales Kompetenzzentrum genannt, in dem Produktionsbetriebe anspruchsvollste Projekte realisieren. Wenn wir an bewährter [Vakuummetallisierung](/de/vakuummetallisierung) oder [Kunststofflackierung](/de/kunststofflackierung) interessiert sind, lohnt es sich, auf erfahrene Partner wie Staniax zu setzen. Genau dort beweisen die Vakuum-Beschichtung von Dariusz Staniak und die Metallisierung Józefów in der neuen Form als Staniax Sp. z o.o., dass die PVD-Beschichtung mit Aluminium die Qualität von Details auf das höchste Niveau hebt.',
 
     sub23Title: "ABS-Metallisierung",
         sub23P1: 'Die Metallisierung von [ABS (Acrylnitril-Butadien-Styrol)](https://de.wikipedia.org/wiki/Acrylnitril-Butadien-Styrol-Copolymer) ist ein perfektes Beispiel für die Kombination der Vorteile leichter Kunststoffe mit den Eigenschaften von Metallen. ABS-Kunststoff eignet sich ideal für Prozesse, bei denen eine [Kunststoffmetallisierung im Vakuumverfahren](/de/kunststoff-verchromen) durchgeführt wird. Dank der passenden chemischen Struktur des Polymers gewährleistet die Vakuum-ABS-Metallisierung eine hervorragende Haftung der aufgetragenen Aluminiumschicht. Am Ende führt die Kunststoffmetallisierung zu einer Beschichtung, die gegen äußere Einflüsse und Abplatzer beständig ist.',
@@ -361,7 +361,7 @@ export const AVIATION_ARTICLE = {
 
     sec3Title: "Anwendung der Metallisierung in verschiedenen Branchen",
     sec3P1:
-      "Die Vielseitigkeit, die die Vakuummetallisierung auszeichnet, sorgt dafür, dass wir ihr fast auf Schritt und Tritt begegnen – von Alltagsgegenständen bis hin zu hochmodernen Industriekomponenten.",
+      "Die Vielseitigkeit, die die Vakuummetallisierung auszeichnet, sorgt dafür, dass wir ihr fast auf Schritt und Tritt begegnen - von Alltagsgegenständen bis hin zu hochmodernen Industriekomponenten.",
 
     sub31Title: "Metallisierung von Kosmetikverpackungen",
     sub31P1:
@@ -641,7 +641,7 @@ export const BEAUTY_ARTICLE = {
     p2: "To understand the phenomenon of modern packaging, it is first worth exploring the technology behind it. Properly selected manufacturing processes, such as precise metallization inside a **metal vacuum** system and careful coating, allow for amazing visual effects on materials that do not naturally resemble precious metals.",
 
     sec1Title: "What is vacuum metallization?",
-        sec1P1: 'Vacuum metallization is an advanced technological process—often referred to as **vacuum metal deposition**—that involves depositing a thin layer of metal (typically [aluminum](https://en.wikipedia.org/wiki/Aluminium)) on the surface of another material under high vacuum conditions. Unlike processes such as thermal spray metallization, which is commonly used in heavy industry for corrosion protection of large steel structures, the vacuum technique yields a perfectly smooth, mirror-like finish of high aesthetic value. The metallization itself in this version is extremely precise, providing the effect of luxurious gold, silver, or copper without the need to use these expensive materials in their entirety.',
+        sec1P1: 'Vacuum metallization is an advanced technological process - often referred to as **vacuum metal deposition** - that involves depositing a thin layer of metal (typically [aluminum](https://en.wikipedia.org/wiki/Aluminium)) on the surface of another material under high vacuum conditions. Unlike processes such as thermal spray metallization, which is commonly used in heavy industry for corrosion protection of large steel structures, the vacuum technique yields a perfectly smooth, mirror-like finish of high aesthetic value. The metallization itself in this version is extremely precise, providing the effect of luxurious gold, silver, or copper without the need to use these expensive materials in their entirety.',
     sec1SubTitle: "History and development of the technology",
     sec1P2:
       "Although the application of thin metallic coatings has been known for decades, it was initially expensive and reserved for the optical or electronic industries. Over the years, the technology has become increasingly accessible. Today, vacuum metallization is standard in the production of elegant packaging. The development of machinery and modern lacquers has made this process not only faster but also significantly more environmentally friendly.",
@@ -660,7 +660,7 @@ export const BEAUTY_ARTICLE = {
     sub22Bullet2:
       "**Top coat:** Protects the thin metal layer from abrasion and allows for any color to be applied.",
     sub22P2:
-      "Appropriate lacquering combined with vacuum metallization makes it possible to achieve an unlimited palette of colors—from classic gold, through rose gold, to metallic purples and blues.",
+      "Appropriate lacquering combined with vacuum metallization makes it possible to achieve an unlimited palette of colors - from classic gold, through rose gold, to metallic purples and blues.",
 
     sec3Title: "Benefits of vacuum metallization in the beauty industry",
     sec3P1:
@@ -682,7 +682,7 @@ export const BEAUTY_ARTICLE = {
         sub33P1: 'It might seem that chemical processes do not go hand in hand with ecology. However, compared to solid metal elements, metallized plastic packaging is much lighter, which reduces the [carbon footprint](https://en.wikipedia.org/wiki/Carbon_footprint) during transport. What\'s more, modern service facilities use lacquers cured by [UV rays](https://en.wikipedia.org/wiki/Ultraviolet) (free of volatile organic compounds), making the technology increasingly "green".',
 
     sec4Title: "Examples of products with vacuum metallization",
-        sec4P1: 'This technology has found application in almost every segment of the beauty market. Poland is also a strong player on the European production map—for example, inquiries about services such as [vacuum metallization Józefów](/en#contact) and the STANIAX metallization plant, or other local production centers show that Polish companies represent an important base for international brands.',
+        sec4P1: 'This technology has found application in almost every segment of the beauty market. Poland is also a strong player on the European production map - for example, inquiries about services such as [vacuum metallization Józefów](/en#contact) and the STANIAX metallization plant, or other local production centers show that Polish companies represent an important base for international brands.',
 
     sub41Title: "Innovative cosmetics with metallization",
     sub41P1:
@@ -793,11 +793,11 @@ export const BEAUTY_ARTICLE = {
     tableTitle:
       "Vergleich der Metallisierungsanwendungen in Kosmetikverpackungen",
 
-        p1: 'Die Kosmetikbranche ist ein Bereich, in dem nicht nur die perfekte Zusammensetzung des Produkts zählt, sondern auch seine Verpackung. Kunden kaufen immer häufiger mit den Augen und suchen nach Premium-Produkten, die durch ihr Aussehen begeistern. Als Reaktion auf diese Bedürfnisse durchläuft der Markt für Kosmetikverpackungen eine echte Revolution, in deren Zentrum die [Vakuummetallisierung](/de/vakuummetallisierung) steht. In diesem Artikel untersuchen wir, wie diese Technologie – auch bekannt als **PVD-Beschichtung** – das Gesicht moderner Kosmetika verändert.',
+        p1: 'Die Kosmetikbranche ist ein Bereich, in dem nicht nur die perfekte Zusammensetzung des Produkts zählt, sondern auch seine Verpackung. Kunden kaufen immer häufiger mit den Augen und suchen nach Premium-Produkten, die durch ihr Aussehen begeistern. Als Reaktion auf diese Bedürfnisse durchläuft der Markt für Kosmetikverpackungen eine echte Revolution, in deren Zentrum die [Vakuummetallisierung](/de/vakuummetallisierung) steht. In diesem Artikel untersuchen wir, wie diese Technologie - auch bekannt als **PVD-Beschichtung** - das Gesicht moderner Kosmetika verändert.',
     p2: "Um das Phänomen moderner Verpackungen zu verstehen, lohnt es sich zunächst, die Technologie dahinter zu erforschen. Richtig gewählte Herstellungsprozesse wie präzise Metallisierung in einem **Metallvakuum**-System und sorgfältige Beschichtung ermöglichen erstaunliche visuelle Effekte auf Materialien, die von Natur aus nicht an Edelmetalle erinnern.",
 
     sec1Title: "Was ist Vakuummetallisierung?",
-        sec1P1: 'Vakuummetallisierung ist ein fortschrittlicher technologischer Prozess – oft auch als **Vakuum-Metallbedampfung** bezeichnet –, bei dem unter Hochvakuumbedingungen eine dünne Metallschicht (typischerweise [Aluminium](https://de.wikipedia.org/wiki/Aluminium)) auf der Oberfläche eines anderen Materials abgeschieden wird. Im Gegensatz zu Verfahren wie der thermischen Spritzmetallisierung, dem **Vakuumguss** (oder **Vakuumguss Metall**), liefert die Vakuumtechnik eine perfekt glatte, spiegelnde Oberfläche von hohem ästhetischem Wert. Die Metallisierung selbst ist in dieser Ausführung äußerst präzise und bietet den Zierteilen und Kappen das Aussehen von Gold, Silber oder Kupfer, ohne dass diese teuren Materialien in ihrer Gesamtheit verwendet werden müssen.',
+        sec1P1: 'Vakuummetallisierung ist ein fortschrittlicher technologischer Prozess - oft auch als **Vakuum-Metallbedampfung** bezeichnet -, bei dem unter Hochvakuumbedingungen eine dünne Metallschicht (typischerweise [Aluminium](https://de.wikipedia.org/wiki/Aluminium)) auf der Oberfläche eines anderen Materials abgeschieden wird. Im Gegensatz zu Verfahren wie der thermischen Spritzmetallisierung, dem **Vakuumguss** (oder **Vakuumguss Metall**), liefert die Vakuumtechnik eine perfekt glatte, spiegelnde Oberfläche von hohem ästhetischem Wert. Die Metallisierung selbst ist in dieser Ausführung äußerst präzise und bietet den Zierteilen und Kappen das Aussehen von Gold, Silber oder Kupfer, ohne dass diese teuren Materialien in ihrer Gesamtheit verwendet werden müssen.',
     sec1SubTitle: "Geschichte und Entwicklung der Technologie",
     sec1P2:
       "Obwohl das Auftragen dünner metallischer Schichten seit Jahrzehnten bekannt ist, war es anfangs teuer und der Optik- oder Elektronikindustrie vorbehalten. Im Laufe der Jahre wurde die Technologie immer zugänglicher. Heute ist dieses Beschichtungsverfahren Standard bei der Herstellung eleganter Verpackungen. Die Entwicklung von Maschinen und modernen Lacken hat diesen Prozess nicht nur schneller, sondern auch deutlich umweltfreundlicher gemacht.",
@@ -816,7 +816,7 @@ export const BEAUTY_ARTICLE = {
     sub22Bullet2:
       "**Decklack (Top coat):** Schützt die dünne Metallschicht vor Abrieb und ermöglicht das Auftragen jeder beliebigen Farbe.",
     sub22P2:
-      "Eine entsprechende Lackierung in Kombination mit dieser Dünnschichttechnologie ermöglicht eine unbegrenzte Farbpalette – von klassischem Gold über Roségold bis hin zu metallischen Violett- und Blautönen.",
+      "Eine entsprechende Lackierung in Kombination mit dieser Dünnschichttechnologie ermöglicht eine unbegrenzte Farbpalette - von klassischem Gold über Roségold bis hin zu metallischen Violett- und Blautönen.",
 
     sec3Title: "Vorteile der PVD-Veredelung in der Kosmetikindustrie",
     sec3P1:
@@ -838,7 +838,7 @@ export const BEAUTY_ARTICLE = {
         sub33P1: 'Es könnte den Anschein haben, dass chemische Prozesse nicht mit Ökologie einhergehen. Im Vergleich zu massiven Metallelementen sind metallisierte Kunststoffverpackungen jedoch viel leichter, was den [CO2-Fußabdruck](https://de.wikipedia.org/wiki/CO2-Bilanz) beim Transport reduziert. Darüber hinaus verwenden moderne Dienstleistungsbetriebe Lacke, die durch [UV-Strahlen](https://de.wikipedia.org/wiki/Ultraviolettstrahlung) ausgehärtet werden (frei von flüchtigen organischen Verbindungen), was die Technologie zunehmend "grüner" macht.',
 
     sec4Title: "Beispiele für Produkte mit PVD-Finish",
-        sec4P1: 'Diese Technologie hat in fast jedem Segment des Kosmetikmarktes Anwendung gefunden. Polen ist ebenfalls ein starker Akteur auf der europäischen Produktionskarte – beispielsweise zeigen Anfragen zu Dienstleistungen wie [Metallisierung Józefów](/de#contact) und dem STANIAX-Metallisierungsbetrieb oder anderen lokalen Produktionszentren, dass polnische Unternehmen eine wichtige Basis für internationale Marken darstellen.',
+        sec4P1: 'Diese Technologie hat in fast jedem Segment des Kosmetikmarktes Anwendung gefunden. Polen ist ebenfalls ein starker Akteur auf der europäischen Produktionskarte - beispielsweise zeigen Anfragen zu Dienstleistungen wie [Metallisierung Józefów](/de#contact) und dem STANIAX-Metallisierungsbetrieb oder anderen lokalen Produktionszentren, dass polnische Unternehmen eine wichtige Basis für internationale Marken darstellen.',
 
     sub41Title: "Innovative Kosmetika mit Metallisierung",
     sub41P1:
@@ -880,7 +880,7 @@ export const BEAUTY_ARTICLE = {
     a4: "Im Vergleich zu massiven Metallen reduzieren leichtere metallisierte Kunststoffverpackungen die Emissionen beim Transport. Zudem enthalten moderne UV-härtende Lacke keine flüchtigen organischen Verbindungen, was das Verfahren im Vergleich zu herkömmlichen Lösungen umweltschonend macht. Die Industrie arbeitet zudem intensiv an Beschichtungen, die das Kunststoff-Recycling nicht beeinträchtigen, um sich besser in die Kreislaufwirtschaft einzufügen.",
 
     q5: "Wo wird diese Technologie am häufigsten eingesetzt und was sind Produktbeispiele?",
-    a5: "Im Make-up-Bereich findet man sie in Lippenstift- und Lipgloss-Gehäusen sowie in Kompaktpudern und Paletten mit Spiegelfinish. Sie wird auch in der Parfümerie eingesetzt – für Kappen, Verschlüsse und Zerstäuber, wo sie die Gestaltung auffälliger und zugleich leichter Formen ermöglicht. Sogar flexible Verpackungen (wie Tuben) können flexible metallisierte Folien nutzen. Polen ist ein wichtiges Produktionszentrum in Europa, wie das wachsende Interesse an Metallisierungsdienstleistungen in lokalen Zentren belegt.",
+    a5: "Im Make-up-Bereich findet man sie in Lippenstift- und Lipgloss-Gehäusen sowie in Kompaktpudern und Paletten mit Spiegelfinish. Sie wird auch in der Parfümerie eingesetzt - für Kappen, Verschlüsse und Zerstäuber, wo sie die Gestaltung auffälliger und zugleich leichter Formen ermöglicht. Sogar flexible Verpackungen (wie Tuben) können flexible metallisierte Folien nutzen. Polen ist ein wichtiges Produktionszentrum in Europa, wie das wachsende Interesse an Metallisierungsdienstleistungen in lokalen Zentren belegt.",
 
     ctaHeader: "Erstellen Sie Verpackungen, die Ihre Kunden begeistern werden!",
     ctaText:
@@ -924,29 +924,29 @@ export const REFLECTORS_ARTICLE = {
     ctaWhy1:
       "**Współczynnik odbicia >92%:** Warstwa czystego aluminium 99,99% napylana w próżni (PVD) gwarantuje fabryczną geometrię snopa światła.",
     ctaWhy2:
-      "**Realizacja w 2–5 dni roboczych:** Szybka obsługa zleceń indywidualnych i warsztatowych (kurier w obie strony).",
+      "**Realizacja w 2-5 dni roboczych:** Szybka obsługa zleceń indywidualnych i warsztatowych (kurier w obie strony).",
     ctaWhy3:
       "**Oszczędność do 80%:** Regeneracja od 150 zł/szt. (pakiety B2B od 110 zł/szt.) jest wielokrotnie tańsza niż zakup nowych reflektorów OEM.",
     ctaSubhead:
       "Sprawdź pełną specyfikację techniczną, cennik i kalkulator regeneracji odbłyśników:",
     backToNewsList: "Powrót do aktualności",
     tableTitle:
-      "Polerowanie klosza, regeneracja wnętrza czy wymiana lampy – co wybrać?",
+      "Polerowanie klosza, regeneracja wnętrza czy wymiana lampy - co wybrać?",
     tableHeaders: ["Metoda", "Koszt (za szt.)", "Trwałość efektu", "Zakres"],
     tableRows: [
       [
         "Polerowanie klosza",
-        "150–300 zł",
-        "1–2 sezony",
+        "150-300 zł",
+        "1-2 sezony",
         "tylko zewnętrzna powierzchnia",
       ],
       [
         "Kompleksowa regeneracja PVD",
-        "150–700 zł",
-        "5–10 lat",
+        "150-700 zł",
+        "5-10 lat",
         "odbłyśnik PVD + klosz + uszczelki",
       ],
-      ["Nowa lampa (OEM)", "1 500–5 000+ zł", "fabryczna", "cały komplet"],
+      ["Nowa lampa (OEM)", "1 500-5 000+ zł", "fabryczna", "cały komplet"],
     ],
         metaTitle: 'Jak Działa Regeneracja Odbłyśników Reflektorów? | STANIAX',
     metaDesc:
@@ -955,104 +955,104 @@ export const REFLECTORS_ARTICLE = {
       "Poradnik techniczny: dlaczego odbłyśniki reflektorów matowieją, jak przebiega metalizacja próżniowa PVD aluminium i kiedy regenerować zamiast wymieniać.",
 
     introTitle:
-      "Regeneracja odbłyśników i reflektorów – szybka odpowiedź na najczęstsze pytania",
+      "Regeneracja odbłyśników i reflektorów - szybka odpowiedź na najczęstsze pytania",
     introP1:
-      "Jeśli zauważasz, że reflektory i odbłyśniki lamp przeciwmgielnych w Twoim aucie świecą słabiej niż kiedyś, mają żółtawy odcień lub dostałeś uwagę na przeglądzie technicznym – to sygnał, że pora na regenerację. Zmatowienie reflektorów może prowadzić do odmowy dopuszczenia pojazdu do ruchu, więc nie warto zwlekać. Polerowanie reflektorów poprawia ich wygląd i funkcjonalność, a regeneracja odbłyśników w reflektorach może zwiększyć ich wydajność nawet o 100%.",
+      "Jeśli zauważasz, że reflektory i odbłyśniki lamp przeciwmgielnych w Twoim aucie świecą słabiej niż kiedyś, mają żółtawy odcień lub dostałeś uwagę na przeglądzie technicznym - to sygnał, że pora na regenerację. Zmatowienie reflektorów może prowadzić do odmowy dopuszczenia pojazdu do ruchu, więc nie warto zwlekać. Polerowanie reflektorów poprawia ich wygląd i funkcjonalność, a regeneracja odbłyśników w reflektorach może zwiększyć ich wydajność nawet o 100%.",
     introP2:
-      "Regeneracja odbłyśników lamp samochodowych obejmuje kilka zakresów: polerowanie klosza – usunięcie zmatowień i mikrorys z zewnętrznej powierzchni; regenerację odbłyśników – odnowienie warstwy refleksyjnej wewnątrz lampy; oraz uszczelnienie i zabezpieczenie UV – ochrona przed ponownym matowieniem.",
-        introP3: 'Poprawa widoczności jest odczuwalna od razu, a koszt zaczyna się od ok. 150–300 zł za polerowanie klosza (sam wymontowany odbłyśnik od 150 zł/szt.); pełna regeneracja całej lampy z metalizacją odbłyśnika to 350–700 zł – wciąż wielokrotnie mniej niż zakup nowych lamp, gdzie np. reflektory bi xenon potrafią kosztować kilka tysięcy złotych za sztukę. Regeneracja reflektorów przywraca im pełną sprawność za ułamek ceny. W STANIAX specjalizujemy się w regeneracji odbłyśników metodami przemysłowymi – [metalizacją próżniową PVD](/regeneracja-reflektorow) wspieraną bezpyłowym lakierowaniem natryskowym podkładów wysokotemperaturowych i kloszy UV – co daje trwalszy efekt niż amatorskie polerowanie w garażu.',
+      "Regeneracja odbłyśników lamp samochodowych obejmuje kilka zakresów: polerowanie klosza - usunięcie zmatowień i mikrorys z zewnętrznej powierzchni; regenerację odbłyśników - odnowienie warstwy refleksyjnej wewnątrz lampy; oraz uszczelnienie i zabezpieczenie UV - ochrona przed ponownym matowieniem.",
+        introP3: 'Poprawa widoczności jest odczuwalna od razu, a koszt zaczyna się od ok. 150-300 zł za polerowanie klosza (sam wymontowany odbłyśnik od 150 zł/szt.); pełna regeneracja całej lampy z metalizacją odbłyśnika to 350-700 zł - wciąż wielokrotnie mniej niż zakup nowych lamp, gdzie np. reflektory bi xenon potrafią kosztować kilka tysięcy złotych za sztukę. Regeneracja reflektorów przywraca im pełną sprawność za ułamek ceny. W STANIAX specjalizujemy się w regeneracji odbłyśników metodami przemysłowymi - [metalizacją próżniową PVD](/regeneracja-reflektorow) wspieraną bezpyłowym lakierowaniem natryskowym podkładów wysokotemperaturowych i kloszy UV - co daje trwalszy efekt niż amatorskie polerowanie w garażu.',
 
     sec1Title: "Dlaczego reflektory ulegają zmatowieniu i tracą dawny blask?",
     sec1P1:
-      "Od końca lat 90. większość reflektorów wykonana jest z poliwęglanu, a nie ze szkła. Poliwęglan jest lekki i odporny na uderzenia, ale podatny na degradację – szczególnie pod wpływem promieni słonecznych. Fabryczna warstwa ochronna, o grubości zaledwie 15–25 mikrometrów, z czasem ulega degradacji, wystawiając tworzywo na bezpośredni kontakt z promieniowaniem UV.",
+      "Od końca lat 90. większość reflektorów wykonana jest z poliwęglanu, a nie ze szkła. Poliwęglan jest lekki i odporny na uderzenia, ale podatny na degradację - szczególnie pod wpływem promieni słonecznych. Fabryczna warstwa ochronna, o grubości zaledwie 15-25 mikrometrów, z czasem ulega degradacji, wystawiając tworzywo na bezpośredni kontakt z promieniowaniem UV.",
     sec1P2:
-      "Te czynniki prowadzą do stopniowego niszczenia klosza:\n- reflektory matowieją przez działanie promieni UV, które rozkładają strukturę poliwęglanu i tworzą chromofory – związki barwiące nadające żółty odcień,\n- kwaśne deszcze i sól drogowa uszkadzają lampy samochodowe, wżerając się w mikropęknięcia,\n- drobne kamyczki i piasek z drogi powodują mechaniczne zarysowania powierzchni,\n- warunki atmosferyczne i cykliczne zmiany temperatury przyspieszają utlenianie.",
+      "Te czynniki prowadzą do stopniowego niszczenia klosza:\n- reflektory matowieją przez działanie promieni UV, które rozkładają strukturę poliwęglanu i tworzą chromofory - związki barwiące nadające żółty odcień,\n- kwaśne deszcze i sól drogowa uszkadzają lampy samochodowe, wżerając się w mikropęknięcia,\n- drobne kamyczki i piasek z drogi powodują mechaniczne zarysowania powierzchni,\n- warunki atmosferyczne i cykliczne zmiany temperatury przyspieszają utlenianie.",
     sec1P3:
-      "Zmatowienie reflektorów pogarsza widoczność podczas jazdy – badania AAA wykazały, że mocno zdegradowane klosze przepuszczają tylko 20–30% światła w porównaniu z nowymi. W nowoczesnych lampach bi xenon, bi led i Full LED zmatowienie klosza i utrata odbicia przez odbłyśnik szczególnie mocno obniżają parametry świecenia – a to prosta droga do negatywnego wyniku badania technicznego. Matowe reflektory pogarszają bezpieczeństwo Twoje i innych użytkowników ruchu, bo skracają realny zasięg snopa światła.",
+      "Zmatowienie reflektorów pogarsza widoczność podczas jazdy - badania AAA wykazały, że mocno zdegradowane klosze przepuszczają tylko 20-30% światła w porównaniu z nowymi. W nowoczesnych lampach bi xenon, bi led i Full LED zmatowienie klosza i utrata odbicia przez odbłyśnik szczególnie mocno obniżają parametry świecenia - a to prosta droga do negatywnego wyniku badania technicznego. Matowe reflektory pogarszają bezpieczeństwo Twoje i innych użytkowników ruchu, bo skracają realny zasięg snopa światła.",
 
-    sec2Title: "Regeneracja reflektorów – zakres prac i możliwe metody",
+    sec2Title: "Regeneracja reflektorów - zakres prac i możliwe metody",
     sec2P1:
-      "Regeneracja reflektorów może oznaczać tylko polerowanie klosza albo kompleksową odnowę wnętrza lampy – warto jasno rozróżnić te dwa podejścia, bo ich skuteczność i cena są zupełnie różne.",
+      "Regeneracja reflektorów może oznaczać tylko polerowanie klosza albo kompleksową odnowę wnętrza lampy - warto jasno rozróżnić te dwa podejścia, bo ich skuteczność i cena są zupełnie różne.",
     sub21Title: "Polerowanie reflektorów",
     sub21P1:
-      "Podstawowa usługa to polerowanie reflektorów: zewnętrzna odnowa klosza polegająca na usunięciu zmatowień, mikrorys i nałożeniu warstwy ochronnej UV. Zmatowiałe klosze są idealnym kandydatem do takiej renowacji – o ile wnętrze lampy jest w dobrym stanie.",
+      "Podstawowa usługa to polerowanie reflektorów: zewnętrzna odnowa klosza polegająca na usunięciu zmatowień, mikrorys i nałożeniu warstwy ochronnej UV. Zmatowiałe klosze są idealnym kandydatem do takiej renowacji - o ile wnętrze lampy jest w dobrym stanie.",
     sub22Title: "Kompleksowa naprawa",
     sub22P1:
-      "Kompleksowa naprawa reflektorów samochodowych obejmuje: demontaż lampy z samochodu, rozklejenie obudowy, czyszczenie wnętrza, regenerację odbłyśników (metalizację próżniową), ewentualną wymianę uszczelek i ponowne sklejenie. Regeneracja odbłyśników podnosi jakość wiązki światła, przywracając parametry zbliżone do fabrycznych. Czas regeneracji reflektorów wynosi od 5 do 7 dni roboczych – w zależności od zakresu prac i technologii.",
+      "Kompleksowa naprawa reflektorów samochodowych obejmuje: demontaż lampy z samochodu, rozklejenie obudowy, czyszczenie wnętrza, regenerację odbłyśników (metalizację próżniową), ewentualną wymianę uszczelek i ponowne sklejenie. Regeneracja odbłyśników podnosi jakość wiązki światła, przywracając parametry zbliżone do fabrycznych. Czas regeneracji reflektorów wynosi od 5 do 7 dni roboczych - w zależności od zakresu prac i technologii.",
     sub22P2:
-      "W STANIAX najczęściej pracujemy na samych odbłyśnikach dostarczonych przez warsztaty lub producentów, stosując metalizację próżniową PVD dla uzyskania efektu lustrzanego i długiej żywotności powłoki. Zakres regeneracji zależy od stanu lamp – płytkie zarysowania wymagają innego podejścia niż przepalone odbłyśniki czy lampy zalane wodą. Dlatego ich regeneracja zawsze powinna zaczynać się od oceny specjalisty.",
+      "W STANIAX najczęściej pracujemy na samych odbłyśnikach dostarczonych przez warsztaty lub producentów, stosując metalizację próżniową PVD dla uzyskania efektu lustrzanego i długiej żywotności powłoki. Zakres regeneracji zależy od stanu lamp - płytkie zarysowania wymagają innego podejścia niż przepalone odbłyśniki czy lampy zalane wodą. Dlatego ich regeneracja zawsze powinna zaczynać się od oceny specjalisty.",
 
     sec3Title:
-      "Polerowanie lamp krok po kroku – jak przywrócić przejrzystość klosza",
+      "Polerowanie lamp krok po kroku - jak przywrócić przejrzystość klosza",
     sec3P1:
       "Polerowanie lamp to zadanie, które przy odpowiednim przygotowaniu wymaga staranności, ale jest wykonalne nawet w warunkach garażowych. Polerowanie reflektorów można wykonać w kilka godzin, a efekt bezpośrednio przekłada się na lepszą widoczność. Poniżej znajdziesz opis poszczególnych etapów.",
     sec3P2:
       "**Potrzebne narzędzia i materiały:**\n- taśma malarska do zabezpieczenia lakieru wokół lamp,\n- papiery ścierne wodne (gradacja 800, 1200, 2000, 3000) lub krążki ścierne,\n- polerka orbitalna lub wkrętarka z nasadką, gąbki polerskie,\n- pasta polerska do tworzyw (zestawy do renowacji zawierają papiery ścierne i pastę polerską),\n- środek odtłuszczający, lakier bezbarwny z filtrem UV.",
     sec3P3:
-      "**Etapy polerowania:**\n1. **Przygotowanie lamp** – dokładne umycie klosza, odtłuszczanie powierzchni, zabezpieczenie lakieru wokół reflektora taśmą.\n2. **Szlifowanie na mokro** – użyj papieru ściernego o gradacji 800 do 3000, zaczynając od najgrubszego. Ruchy poziome i pionowe, by uniknąć kierunkowych rys. Kontroluj temperaturę – nie przegrzewaj poliwęglanu.\n3. **Polerowanie właściwe** – niska prędkość polerki, umiarkowany docisk, praca partiami. Polerowanie reflektorów zwiększa ich przezroczystość i jasność już na tym etapie.\n4. **Zabezpieczenie UV** – polerowanie reflektorów wymaga nałożenia nowej powłoki zabezpieczającej. Lakierowanie reflektorów tworzy nową, twardą powłokę ochronną, która zapobiega ponownemu matowieniu. Zabezpiecz reflektory powłoką UV po polerowaniu – bez tego efekt zniknie w ciągu kilku miesięcy.",
+      "**Etapy polerowania:**\n1. **Przygotowanie lamp** - dokładne umycie klosza, odtłuszczanie powierzchni, zabezpieczenie lakieru wokół reflektora taśmą.\n2. **Szlifowanie na mokro** - użyj papieru ściernego o gradacji 800 do 3000, zaczynając od najgrubszego. Ruchy poziome i pionowe, by uniknąć kierunkowych rys. Kontroluj temperaturę - nie przegrzewaj poliwęglanu.\n3. **Polerowanie właściwe** - niska prędkość polerki, umiarkowany docisk, praca partiami. Polerowanie reflektorów zwiększa ich przezroczystość i jasność już na tym etapie.\n4. **Zabezpieczenie UV** - polerowanie reflektorów wymaga nałożenia nowej powłoki zabezpieczającej. Lakierowanie reflektorów tworzy nową, twardą powłokę ochronną, która zapobiega ponownemu matowieniu. Zabezpiecz reflektory powłoką UV po polerowaniu - bez tego efekt zniknie w ciągu kilku miesięcy.",
     sec3P4:
-      "Samo polerowanie z nałożeniem filtra UV kosztuje od 150 do 300 zł za lampę. Polerowanie poprawia widoczność na drodze o kilkanaście metrów – różnica jest zauważalna zwłaszcza nocą. Pamiętaj jednak, że polerowanie klosza bez demontażu lampy to rozwiązanie szybkie, ale nie zawsze wystarczające – jeśli odbłyśnik w środku jest wypalony lub skorodowany, samo czyszczenie zewnętrzne nie pomoże.",
+      "Samo polerowanie z nałożeniem filtra UV kosztuje od 150 do 300 zł za lampę. Polerowanie poprawia widoczność na drodze o kilkanaście metrów - różnica jest zauważalna zwłaszcza nocą. Pamiętaj jednak, że polerowanie klosza bez demontażu lampy to rozwiązanie szybkie, ale nie zawsze wystarczające - jeśli odbłyśnik w środku jest wypalony lub skorodowany, samo czyszczenie zewnętrzne nie pomoże.",
 
     sec4Title: "Przygotowanie lamp do kompleksowej regeneracji odbłyśników",
     sec4P1:
-      "Regeneracja odbłyśnika wymaga wyjęcia lampy z pojazdu i rozklejenia obudowy – to zazwyczaj wykonuje wyspecjalizowany warsztat, a STANIAX zajmuje się częścią powierzchniową odbłyśnika: metalizacją i powłokami.",
+      "Regeneracja odbłyśnika wymaga wyjęcia lampy z pojazdu i rozklejenia obudowy - to zazwyczaj wykonuje wyspecjalizowany warsztat, a STANIAX zajmuje się częścią powierzchniową odbłyśnika: metalizacją i powłokami.",
     sec4P2:
-      "**Jak warsztat lub klient B2B powinien przygotować elementy do wysyłki:**\n- demontaż reflektorów z auta – przygotowanie lamp zaczyna się od ostrożnego wyjęcia kompletnych lamp,\n- rozklejenie obudowy i wyjęcie odbłyśników z wnętrza,\n- usunięcie resztek starego kleju i zanieczyszczeń,\n- zabezpieczenie delikatnych miejsc przed uszkodzeniami mechanicznymi (unikać kontaktu z ostrymi elementami).",
+      "**Jak warsztat lub klient B2B powinien przygotować elementy do wysyłki:**\n- demontaż reflektorów z auta - przygotowanie lamp zaczyna się od ostrożnego wyjęcia kompletnych lamp,\n- rozklejenie obudowy i wyjęcie odbłyśników z wnętrza,\n- usunięcie resztek starego kleju i zanieczyszczeń,\n- zabezpieczenie delikatnych miejsc przed uszkodzeniami mechanicznymi (unikać kontaktu z ostrymi elementami).",
     sec4P3:
-      "Odbłyśniki nie powinny być wcześniej polerowane mechanicznie – uszkadza to ich geometrię i utrudnia poprawną metalizację próżniową. Powierzchnia odbłyśników jest przez STANIAX dodatkowo oczyszczana i przygotowywana: oczyszczenie z poprzedniej metalizacji wraz ze szlifowaniem powierzchni wewnętrznej, odtłuszczanie, nałożenie farby podkładowej, jeśli wymaga tego dany system. Wysyłka powinna wyglądać następująco: sztywne kartony, oddzielne zabezpieczenie każdego odbłyśnika folią bąbelkową, opis auta/modelu/rocznika – dzięki temu unikamy pomyłek. Wymiana reflektorów jest konieczna przy poważnych uszkodzeniach strukturalnych – ale to rzadkość; większość starych lamp da się skutecznie odnowić.",
+      "Odbłyśniki nie powinny być wcześniej polerowane mechanicznie - uszkadza to ich geometrię i utrudnia poprawną metalizację próżniową. Powierzchnia odbłyśników jest przez STANIAX dodatkowo oczyszczana i przygotowywana: oczyszczenie z poprzedniej metalizacji wraz ze szlifowaniem powierzchni wewnętrznej, odtłuszczanie, nałożenie farby podkładowej, jeśli wymaga tego dany system. Wysyłka powinna wyglądać następująco: sztywne kartony, oddzielne zabezpieczenie każdego odbłyśnika folią bąbelkową, opis auta/modelu/rocznika - dzięki temu unikamy pomyłek. Wymiana reflektorów jest konieczna przy poważnych uszkodzeniach strukturalnych - ale to rzadkość; większość starych lamp da się skutecznie odnowić.",
 
     sec5Title:
-      "Profesjonalna regeneracja odbłyśników w STANIAX – metalizacja próżniowa PVD i powłoki ochronne UV",
+      "Profesjonalna regeneracja odbłyśników w STANIAX - metalizacja próżniowa PVD i powłoki ochronne UV",
     sec5P1:
-      "Odbłyśnik to serce reflektora – kształtuje snop światła i decyduje o jakości oświetlenia. Jego wypalenie powoduje drastyczny spadek skuteczności nawet przy nowych żarówkach czy modułach LED. Regeneracja reflektorów zwiększa ich żywotność i poprawia bezpieczeństwo, przywracając odpowiednią ilość odbijanego światła.",
+      "Odbłyśnik to serce reflektora - kształtuje snop światła i decyduje o jakości oświetlenia. Jego wypalenie powoduje drastyczny spadek skuteczności nawet przy nowych żarówkach czy modułach LED. Regeneracja reflektorów zwiększa ich żywotność i poprawia bezpieczeństwo, przywracając odpowiednią ilość odbijanego światła.",
     sec5P2:
-      "Metalizacja próżniowa (PVD) polega na odparowaniu czystego aluminium 99,99% w komorze próżniowej (10⁻⁴ mbar) i nanoszeniu ultracienkiej, równomiernej warstwy na powierzchni odbłyśnika. Efekt lustrzany odpowiada fabrycznemu oryginałowi, a współczynnik odbicia kierunkowego przekracza 92%. Koszt regeneracji samego wymontowanego odbłyśnika zaczyna się od 150 zł/szt., a pełnej lampy z metalizacją próżniową wynosi około 350–700 zł za sztukę – wciąż wielokrotnie mniej niż nowa lampa.",
+      "Metalizacja próżniowa (PVD) polega na odparowaniu czystego aluminium 99,99% w komorze próżniowej (10⁻⁴ mbar) i nanoszeniu ultracienkiej, równomiernej warstwy na powierzchni odbłyśnika. Efekt lustrzany odpowiada fabrycznemu oryginałowi, a współczynnik odbicia kierunkowego przekracza 92%. Koszt regeneracji samego wymontowanego odbłyśnika zaczyna się od 150 zł/szt., a pełnej lampy z metalizacją próżniową wynosi około 350-700 zł za sztukę - wciąż wielokrotnie mniej niż nowa lampa.",
     sec5P3:
       "Uzupełnieniem procesu próżniowego jest bezpyłowe lakierowanie natryskowe podkładów wysokotemperaturowych (wygładzających wżery do gładkości optycznej) oraz powłok ochronnych UV i SiOx, dzięki czemu regenerowane odbłyśniki i klosze są odporne na temperaturę pracy reflektora do 220 °C oraz wilgoć. Ta usługa jest kierowana do kierowców, warsztatów, lakierni i producentów komponentów oświetleniowych.",
 
     sec6Title:
-      "Modernizacja oświetlenia – montaż soczewek bi LED, bi xenon i tuning lamp",
+      "Modernizacja oświetlenia - montaż soczewek bi LED, bi xenon i tuning lamp",
     sec6P1:
-      "Regeneracja to nie tylko naprawa – to też okazja do modernizacji oświetlenia, szczególnie w starszych modelach z reflektorami halogenowymi. Zamiast po prostu przywracać dawny blask, można poprawić parametry światła.",
+      "Regeneracja to nie tylko naprawa - to też okazja do modernizacji oświetlenia, szczególnie w starszych modelach z reflektorami halogenowymi. Zamiast po prostu przywracać dawny blask, można poprawić parametry światła.",
     sec6P2:
-      "Montaż soczewek bi led to coraz popularniejszy kierunek: soczewki bi led zapewniają lepiej skupiony snop światła, równomierne oświetlenie poboczy i niski pobór energii w porównaniu z klasycznymi żarówkami. Montaż soczewek Bi-LED podnosi jakość oświetlenia, a montaż projektorów LED zwiększa jasność oświetlenia o 100%. Tuning lamp zwiększa zasięg świateł w nocy – różnica jest odczuwalna zwłaszcza na drogach pozamiejskich.",
+      "Montaż soczewek bi led to coraz popularniejszy kierunek: soczewki bi led zapewniają lepiej skupiony snop światła, równomierne oświetlenie poboczy i niski pobór energii w porównaniu z klasycznymi żarówkami. Montaż soczewek Bi-LED podnosi jakość oświetlenia, a montaż projektorów LED zwiększa jasność oświetlenia o 100%. Tuning lamp zwiększa zasięg świateł w nocy - różnica jest odczuwalna zwłaszcza na drogach pozamiejskich.",
     sec6P3:
-      "Rozwiązania xenon i bi xenon pozostają nadal popularną alternatywą, choć rynek stopniowo przechodzi na technologię LED. Warto wiedzieć, że adaptacja lamp z UK wymaga przestawienia strumienia światła – to ważne przy imporcie samochodu z Wysp. Zamontowanie soczewek wymaga prawidłowego ustawienia linii odcięcia i dopasowania do przepisów, by nie oślepiać innych kierowców i innych użytkowników drogi. Dlatego montaż soczewek bi led należy powierzać wyspecjalizowanym warsztatom.",
+      "Rozwiązania xenon i bi xenon pozostają nadal popularną alternatywą, choć rynek stopniowo przechodzi na technologię LED. Warto wiedzieć, że adaptacja lamp z UK wymaga przestawienia strumienia światła - to ważne przy imporcie samochodu z Wysp. Zamontowanie soczewek wymaga prawidłowego ustawienia linii odcięcia i dopasowania do przepisów, by nie oślepiać innych kierowców i innych użytkowników drogi. Dlatego montaż soczewek bi led należy powierzać wyspecjalizowanym warsztatom.",
     sec6P4:
-      "Inne formy tuningu lamp – malowanie wnętrza reflektora, montaż ringów LED, dodatki DRL – mogą nadać autu nowoczesny wygląd. STANIAX jako lakiernia przemysłowa zapewnia wysokiej jakości lakierowanie dekoracyjne elementów wewnętrznych i zewnętrznych, podobnie jak w przypadku szyb i ramek lamp.",
+      "Inne formy tuningu lamp - malowanie wnętrza reflektora, montaż ringów LED, dodatki DRL - mogą nadać autu nowoczesny wygląd. STANIAX jako lakiernia przemysłowa zapewnia wysokiej jakości lakierowanie dekoracyjne elementów wewnętrznych i zewnętrznych, podobnie jak w przypadku szyb i ramek lamp.",
 
     sec7Title:
-      "Zabezpieczenie lamp po regeneracji – folia PPF, powłoki UV i lakierowanie",
+      "Zabezpieczenie lamp po regeneracji - folia PPF, powłoki UV i lakierowanie",
     sec7P1:
-      "Sama renowacja to połowa sukcesu – trwałość efektu zależy od zabezpieczenia na kolejne lata.",
+      "Sama renowacja to połowa sukcesu - trwałość efektu zależy od zabezpieczenia na kolejne lata.",
     sec7P2:
-      "Folia PPF to jedno z najskuteczniejszych zabezpieczeń kloszy reflektorów. Chroni reflektory przed uszkodzeniami zewnętrznymi – kamieniami, zarysowaniami i promieniowaniem UV. Profesjonalne oklejanie folią jest praktycznie niewidoczne, a trwałość sięga 5–10 lat.",
+      "Folia PPF to jedno z najskuteczniejszych zabezpieczeń kloszy reflektorów. Chroni reflektory przed uszkodzeniami zewnętrznymi - kamieniami, zarysowaniami i promieniowaniem UV. Profesjonalne oklejanie folią jest praktycznie niewidoczne, a trwałość sięga 5-10 lat.",
         sec7P3: 'Alternatywą są profesjonalne lakiery bezbarwne z filtrami UV, stosowane w lakierniach i przez STANIAX na elementach dekoracyjnych. Odnowione reflektory przekładają się na lepszą widoczność na drodze, a odpowiednie zabezpieczenie utrzymuje ten efekt. W zastosowaniach przemysłowych i dla producentów lamp STANIAX oferuje [powłoki ochronne UV](/lakierowanie-tworzyw-sztucznych) nakładane natryskowo, zapewniające wysoką odporność chemiczną i mechaniczną przy zachowaniu przejrzystości.',
     sec7P4:
-      "Po regeneracji nie zaniedbuj regularnego mycia lamp łagodnymi środkami i okresowej kontroli szczelności – woda wewnątrz reflektora szybko zniszczy nawet świeżo zregenerowane odbłyśniki. Unikaj agresywnych produktów chemicznych podczas szlifowania i czyszczenia, a auto parkuj w miarę możliwości w cieniu lub garażu.",
+      "Po regeneracji nie zaniedbuj regularnego mycia lamp łagodnymi środkami i okresowej kontroli szczelności - woda wewnątrz reflektora szybko zniszczy nawet świeżo zregenerowane odbłyśniki. Unikaj agresywnych produktów chemicznych podczas szlifowania i czyszczenia, a auto parkuj w miarę możliwości w cieniu lub garażu.",
 
     sec8Title: "Regeneracja reflektorów a bezpieczeństwo i opłacalność",
     sec8P1:
-      "Sprawne reflektory to dłuższa widoczność przed pojazdem, lepsze doświetlenie krawędzi jezdni i więcej czasu na reakcję w sytuacjach awaryjnych. Polerowanie poprawia widoczność na drodze, a kompleksowa regeneracja z metalizacją przywraca parametry bliskie fabrycznym – co bezpośrednio przekłada się na bezpieczeństwo jazdy wszystkich użytkowników drogi.",
+      "Sprawne reflektory to dłuższa widoczność przed pojazdem, lepsze doświetlenie krawędzi jezdni i więcej czasu na reakcję w sytuacjach awaryjnych. Polerowanie poprawia widoczność na drodze, a kompleksowa regeneracja z metalizacją przywraca parametry bliskie fabrycznym - co bezpośrednio przekłada się na bezpieczeństwo jazdy wszystkich użytkowników drogi.",
     sec8P2:
-      "Aspekt ekonomiczny jest równie istotny: regeneracja reflektorów samochodowych (zwłaszcza z metalizacją odbłyśników) jest wielokrotnie tańsza niż zakup nowych lamp, a jednocześnie wydłuża ich żywotność o kolejne lata. Naprawa zamiast wymiany oznacza też mniejszą ilość odpadów – bardziej odpowiedzialne podejście do eksploatacji samochodu.",
+      "Aspekt ekonomiczny jest równie istotny: regeneracja reflektorów samochodowych (zwłaszcza z metalizacją odbłyśników) jest wielokrotnie tańsza niż zakup nowych lamp, a jednocześnie wydłuża ich żywotność o kolejne lata. Naprawa zamiast wymiany oznacza też mniejszą ilość odpadów - bardziej odpowiedzialne podejście do eksploatacji samochodu.",
     sec8P3:
-      "W przypadku flot firmowych – aut dostawczych i służbowych – regularna renowacja lamp znacząco obniża koszty serwisu. Zanim zdecydujesz się na kosztowną wymianę kompletnej lampy, skonsultuj się z profesjonalistami współpracującymi ze STANIAX.",
+      "W przypadku flot firmowych - aut dostawczych i służbowych - regularna renowacja lamp znacząco obniża koszty serwisu. Zanim zdecydujesz się na kosztowną wymianę kompletnej lampy, skonsultuj się z profesjonalistami współpracującymi ze STANIAX.",
 
     sec9Title:
-      "STANIAX – partner B2B w regeneracji odbłyśników i obróbce powierzchni lamp",
+      "STANIAX - partner B2B w regeneracji odbłyśników i obróbce powierzchni lamp",
     sec9P1:
       "STANIAX to specjalista dla klientów biznesowych: producentów lamp, warsztatów samochodowych, lakierni i firm z branży automotive. Nasze główne kompetencje obejmują metalizację próżniową PVD odbłyśników i elementów dekoracyjnych, przemysłowe lakierowanie natryskowe tworzyw sztucznych, metali i szkła oraz nakładanie podkładów wysokotemperaturowych i powłok ochronnych UV o długiej żywotności.",
     sec9P2:
-      "Kładziemy nacisk na efekty lustrzane, wysoką estetykę powierzchni, powtarzalność serii i trwałość powłok – szczególnie istotne dla producentów reflektorów, lusterek i elementów wnętrz samochodów. Nasze doświadczenie obejmuje realizacje dla branży automotive: odbłyśniki do reflektorów halogenowych i bi xenon, elementy dekoracyjne kokpitów, osłony i ramki lamp – zawsze zgodnie z wymaganiami jakościowymi na poziomie OEM.",
+      "Kładziemy nacisk na efekty lustrzane, wysoką estetykę powierzchni, powtarzalność serii i trwałość powłok - szczególnie istotne dla producentów reflektorów, lusterek i elementów wnętrz samochodów. Nasze doświadczenie obejmuje realizacje dla branży automotive: odbłyśniki do reflektorów halogenowych i bi xenon, elementy dekoracyjne kokpitów, osłony i ramki lamp - zawsze zgodnie z wymaganiami jakościowymi na poziomie OEM.",
     sec9P3:
-      "Jeśli prowadzisz warsztat, lakiernię lub firmę produkującą komponenty oświetleniowe i szukasz partnera do regeneracji odbłyśników, wykończenia seryjnych lamp samochodowych lub projektów specjalnych związanych z metalizacją i lakierowaniem dekoracyjnym – [skontaktuj się z nami](/#contact). Wspólnie znajdziemy rozwiązanie dopasowane do Twoich potrzeb produkcyjnych.",
+      "Jeśli prowadzisz warsztat, lakiernię lub firmę produkującą komponenty oświetleniowe i szukasz partnera do regeneracji odbłyśników, wykończenia seryjnych lamp samochodowych lub projektów specjalnych związanych z metalizacją i lakierowaniem dekoracyjnym - [skontaktuj się z nami](/#contact). Wspólnie znajdziemy rozwiązanie dopasowane do Twoich potrzeb produkcyjnych.",
 
     faqTitle: "Najczęstsze pytania o regenerację reflektorów (FAQ)",
     faqItems: [
       {
         q: "Ile kosztuje regeneracja reflektorów?",
-        a: "Polerowanie klosza z nałożeniem powłoki UV to koszt 150–300 zł za lampę, a kompleksowa regeneracja z metalizacją odbłyśnika – 350–700 zł za sztukę. Dla porównania nowa lampa OEM kosztuje od 1 500 do ponad 5 000 zł.",
+        a: "Polerowanie klosza z nałożeniem powłoki UV to koszt 150-300 zł za lampę, a kompleksowa regeneracja z metalizacją odbłyśnika - 350-700 zł za sztukę. Dla porównania nowa lampa OEM kosztuje od 1 500 do ponad 5 000 zł.",
       },
       {
         q: "Ile trwa regeneracja reflektorów?",
@@ -1060,7 +1060,7 @@ export const REFLECTORS_ARTICLE = {
       },
       {
         q: "Czy zmatowione reflektory przejdą przegląd techniczny?",
-        a: "Mocno zdegradowane klosze przepuszczają tylko 20–30% światła, co grozi negatywnym wynikiem badania technicznego, a nawet odmową dopuszczenia pojazdu do ruchu. Regeneracja przywraca parametry świecenia i pozwala uniknąć problemów na przeglądzie.",
+        a: "Mocno zdegradowane klosze przepuszczają tylko 20-30% światła, co grozi negatywnym wynikiem badania technicznego, a nawet odmową dopuszczenia pojazdu do ruchu. Regeneracja przywraca parametry świecenia i pozwala uniknąć problemów na przeglądzie.",
       },
     ],
   },
@@ -1070,7 +1070,7 @@ export const REFLECTORS_ARTICLE = {
     articleBadge: "Technical Guide",
     readTime: "6 min read",
     heading:
-      "How Headlight Reflector Restoration & Polishing Works — Technical Driver’s Guide",
+      "How Headlight Reflector Restoration & Polishing Works - Technical Driver’s Guide",
     lead: "Headlights in every car serve a dual role: they ensure driving safety and affect the vehicle’s aesthetics. When they lose clarity, road visibility drops drastically. In this technical guide, we explain why reflectors burn out, how PVD aluminium vacuum deposition works, and when restoration beats replacement.",
     imageAlt:
       "Restored car headlight reflectors after PVD vacuum metallization",
@@ -1097,17 +1097,17 @@ export const REFLECTORS_ARTICLE = {
       "Restore full visibility and ensure safety for yourself and your passengers!",
     backToNewsList: "Back to news list",
     tableTitle:
-      "Lens polishing, interior regeneration, or lamp replacement – what to choose?",
+      "Lens polishing, interior regeneration, or lamp replacement - what to choose?",
     tableHeaders: ["Method", "Cost (per pc)", "Durability of effect", "Scope"],
     tableRows: [
-      ["Lens polishing", "150–300 PLN", "1–2 seasons", "only outer surface"],
+      ["Lens polishing", "150-300 PLN", "1-2 seasons", "only outer surface"],
       [
         "Comprehensive regeneration",
-        "350–700 PLN",
-        "3–5 years",
+        "350-700 PLN",
+        "3-5 years",
         "lens + reflector + gaskets",
       ],
-      ["New lamp (OEM)", "1,500–5,000+ PLN", "factory", "complete assembly"],
+      ["New lamp (OEM)", "1,500-5,000+ PLN", "factory", "complete assembly"],
     ],
         metaTitle: 'How Headlight Reflector Restoration Works | STANIAX',
     metaDesc:
@@ -1116,103 +1116,103 @@ export const REFLECTORS_ARTICLE = {
       "Technical guide: why headlight reflectors oxidize, how PVD aluminium vacuum deposition works, and when to restore instead of replacing.",
 
     introTitle:
-      "Reflector and headlight regeneration – quick answers to the most common questions",
+      "Reflector and headlight regeneration - quick answers to the most common questions",
     introP1:
-      "If you notice that the headlights and fog light reflectors in your car shine weaker than before, have a yellowish tint, or you received a remark during the technical inspection – it is a signal that it is time for regeneration. Clouding of headlights can lead to refusal of vehicle registration, so it is not worth waiting. Polishing headlights improves their appearance and functionality, and regenerating reflectors in headlights can increase their efficiency by up to 100%.",
+      "If you notice that the headlights and fog light reflectors in your car shine weaker than before, have a yellowish tint, or you received a remark during the technical inspection - it is a signal that it is time for regeneration. Clouding of headlights can lead to refusal of vehicle registration, so it is not worth waiting. Polishing headlights improves their appearance and functionality, and regenerating reflectors in headlights can increase their efficiency by up to 100%.",
     introP2:
-      "Car headlight reflector regeneration includes several scopes: lens polishing – removing cloudiness and micro-scratches from the outer surface; reflector regeneration – restoring the reflective layer inside the lamp; and sealing and UV protection – protecting against re-clouding.",
+      "Car headlight reflector regeneration includes several scopes: lens polishing - removing cloudiness and micro-scratches from the outer surface; reflector regeneration - restoring the reflective layer inside the lamp; and sealing and UV protection - protecting against re-clouding.",
     introP3:
-      "Improvement in visibility is felt immediately, and the cost starts from about 150–300 PLN for lens polishing (or from 150 PLN / ~€35 for a loose reflector bowl); full headlamp restoration with reflector metallization is 350–700 PLN – still many times less than buying new lamps, where bi-xenon headlights can cost several thousand PLN each. At STANIAX, we specialize in industrial reflector restoration – high-vacuum PVD metallization paired with cleanroom HVLP spray application of high-temp primers and UV lens hardcoats – delivering far greater durability than garage polishing.",
+      "Improvement in visibility is felt immediately, and the cost starts from about 150-300 PLN for lens polishing (or from 150 PLN / ~€35 for a loose reflector bowl); full headlamp restoration with reflector metallization is 350-700 PLN - still many times less than buying new lamps, where bi-xenon headlights can cost several thousand PLN each. At STANIAX, we specialize in industrial reflector restoration - high-vacuum PVD metallization paired with cleanroom HVLP spray application of high-temp primers and UV lens hardcoats - delivering far greater durability than garage polishing.",
 
     sec1Title: "Why do headlights become cloudy and lose their former shine?",
     sec1P1:
-      "Since the late 1990s, most headlights have been made of polycarbonate, not glass. Polycarbonate is lightweight and impact-resistant, but susceptible to degradation – especially under the influence of sunlight. The factory protective layer, with a thickness of only 15–25 micrometers, degrades over time, exposing the plastic to direct UV radiation.",
+      "Since the late 1990s, most headlights have been made of polycarbonate, not glass. Polycarbonate is lightweight and impact-resistant, but susceptible to degradation - especially under the influence of sunlight. The factory protective layer, with a thickness of only 15-25 micrometers, degrades over time, exposing the plastic to direct UV radiation.",
     sec1P2:
-      "These factors lead to the gradual destruction of the lens:\n- headlights become cloudy due to UV rays, which break down the polycarbonate structure and create chromophores – coloring compounds that give a yellow tint,\n- acid rain and road salt damage car lamps, eating into micro-cracks,\n- small stones and road sand cause mechanical scratches on the surface,\n- weather conditions and cyclic temperature changes accelerate oxidation.",
+      "These factors lead to the gradual destruction of the lens:\n- headlights become cloudy due to UV rays, which break down the polycarbonate structure and create chromophores - coloring compounds that give a yellow tint,\n- acid rain and road salt damage car lamps, eating into micro-cracks,\n- small stones and road sand cause mechanical scratches on the surface,\n- weather conditions and cyclic temperature changes accelerate oxidation.",
     sec1P3:
-      "Headlight clouding degrades visibility while driving – AAA studies showed that heavily degraded lenses transmit only 20–30% of light compared to new ones. In modern bi-xenon, bi-led, and Full LED lamps, lens clouding and reflector reflectivity loss particularly lower the light output parameters – which is a direct route to a negative technical inspection result. Cloudy headlights compromise your safety and that of other road users because they shorten the actual range of the light beam.",
+      "Headlight clouding degrades visibility while driving - AAA studies showed that heavily degraded lenses transmit only 20-30% of light compared to new ones. In modern bi-xenon, bi-led, and Full LED lamps, lens clouding and reflector reflectivity loss particularly lower the light output parameters - which is a direct route to a negative technical inspection result. Cloudy headlights compromise your safety and that of other road users because they shorten the actual range of the light beam.",
 
-    sec2Title: "Reflector regeneration – scope of work and possible methods",
+    sec2Title: "Reflector regeneration - scope of work and possible methods",
     sec2P1:
-      "Reflector regeneration can mean just lens polishing or a comprehensive renewal of the lamp's interior – it is worth distinguishing between these two approaches because their effectiveness and price are completely different.",
+      "Reflector regeneration can mean just lens polishing or a comprehensive renewal of the lamp's interior - it is worth distinguishing between these two approaches because their effectiveness and price are completely different.",
     sub21Title: "Headlight polishing",
     sub21P1:
-      "The basic service is headlight polishing: an external lens restoration consisting of removing cloudiness, micro-scratches, and applying a protective UV layer. Cloudy lenses are perfect candidates for such reno – as long as the lamp interior is in good condition.",
+      "The basic service is headlight polishing: an external lens restoration consisting of removing cloudiness, micro-scratches, and applying a protective UV layer. Cloudy lenses are perfect candidates for such reno - as long as the lamp interior is in good condition.",
     sub22Title: "Comprehensive repair",
     sub22P1:
-      "Comprehensive car headlight repair includes: dismantling the lamp from the car, unsealing the housing, cleaning the interior, reflector regeneration (vacuum metallization), optional gasket replacement, and resealing. Reflector regeneration improves the quality of the light beam, restoring parameters close to factory specifications. The headlight regeneration time is 5 to 7 business days – depending on the scope of work and technology.",
+      "Comprehensive car headlight repair includes: dismantling the lamp from the car, unsealing the housing, cleaning the interior, reflector regeneration (vacuum metallization), optional gasket replacement, and resealing. Reflector regeneration improves the quality of the light beam, restoring parameters close to factory specifications. The headlight regeneration time is 5 to 7 business days - depending on the scope of work and technology.",
     sub22P2:
-      "At STANIAX, we usually work on the reflectors themselves supplied by workshops or manufacturers, using vacuum PVD metallization to obtain a mirror effect and long coating lifetime. The scope of regeneration depends on the condition of the lamps – shallow scratches require a different approach than burned reflectors or lamps flooded with water. Therefore, their regeneration should always begin with an expert assessment.",
+      "At STANIAX, we usually work on the reflectors themselves supplied by workshops or manufacturers, using vacuum PVD metallization to obtain a mirror effect and long coating lifetime. The scope of regeneration depends on the condition of the lamps - shallow scratches require a different approach than burned reflectors or lamps flooded with water. Therefore, their regeneration should always begin with an expert assessment.",
 
-    sec3Title: "Step-by-step lamp polishing – how to restore lens clarity",
+    sec3Title: "Step-by-step lamp polishing - how to restore lens clarity",
     sec3P1:
       "Headlight polishing is a task that, with proper preparation, requires diligence but is doable even in garage conditions. Headlight polishing can be done in a few hours, and the effect directly translates to better visibility. Below you will find a description of the individual stages.",
     sec3P2:
       "**Needed tools and materials:**\n- masking tape to protect the paint around the lamps,\n- wet sandpaper (grades 800, 1200, 2000, 3000) or sanding discs,\n- orbital polisher or drill with adapter, polishing sponges,\n- polishing compound for plastics (restoration kits contain sandpaper and polishing paste),\n- degreasing agent, clear coat with UV filter.",
     sec3P3:
-      "**Polishing steps:**\n1. **Preparation of lamps** – thorough cleaning of the lens, degreasing the surface, protecting the paint around the headlight with tape.\n2. **Wet sanding** – use 800 to 3000 grit sandpaper, starting with the coarsest. Horizontal and vertical movements to avoid directional scratches. Control temperature – do not overheat polycarbonate.\n3. **Actual polishing** – low polisher speed, moderate pressure, work in sections. Polishing headlights increases their transparency and brightness already at this stage.\n4. **UV protection** – polishing headlights requires applying a new protective coating. Headlight painting creates a new, hard protective layer that prevents re-clouding. Protect headlights with a UV coating after polishing – without it, the effect will disappear within a few months.",
+      "**Polishing steps:**\n1. **Preparation of lamps** - thorough cleaning of the lens, degreasing the surface, protecting the paint around the headlight with tape.\n2. **Wet sanding** - use 800 to 3000 grit sandpaper, starting with the coarsest. Horizontal and vertical movements to avoid directional scratches. Control temperature - do not overheat polycarbonate.\n3. **Actual polishing** - low polisher speed, moderate pressure, work in sections. Polishing headlights increases their transparency and brightness already at this stage.\n4. **UV protection** - polishing headlights requires applying a new protective coating. Headlight painting creates a new, hard protective layer that prevents re-clouding. Protect headlights with a UV coating after polishing - without it, the effect will disappear within a few months.",
     sec3P4:
-      "Polishing alone with a UV filter costs 150 to 300 PLN per lamp. Polishing improves road visibility by several meters – the difference is noticeable especially at night. Remember, however, that lens polishing without dismantling the lamp is a quick solution but not always sufficient – if the reflector inside is burned or corroded, simple external cleaning will not help.",
+      "Polishing alone with a UV filter costs 150 to 300 PLN per lamp. Polishing improves road visibility by several meters - the difference is noticeable especially at night. Remember, however, that lens polishing without dismantling the lamp is a quick solution but not always sufficient - if the reflector inside is burned or corroded, simple external cleaning will not help.",
 
     sec4Title: "Preparing lamps for comprehensive reflector regeneration",
     sec4P1:
-      "Reflector regeneration requires removing the lamp from the vehicle and unsealing the housing – this is usually done by a specialized workshop, while STANIAX handles the surface part of the reflector: metallization and coatings.",
+      "Reflector regeneration requires removing the lamp from the vehicle and unsealing the housing - this is usually done by a specialized workshop, while STANIAX handles the surface part of the reflector: metallization and coatings.",
     sec4P2:
-      "**How B2B clients and workshops should prepare elements for shipping:**\n- dismantling headlights from the car – preparing lamps starts with carefully removing complete lamps,\n- unsealing the housing and removing the reflectors from the inside,\n- removing remains of old adhesive and dirt,\n- protecting delicate spots against mechanical damage (avoid contact with sharp objects).",
+      "**How B2B clients and workshops should prepare elements for shipping:**\n- dismantling headlights from the car - preparing lamps starts with carefully removing complete lamps,\n- unsealing the housing and removing the reflectors from the inside,\n- removing remains of old adhesive and dirt,\n- protecting delicate spots against mechanical damage (avoid contact with sharp objects).",
     sec4P3:
-      "Reflectors should not be mechanically polished beforehand – this damages their geometry and makes correct vacuum metallization difficult. The surface of the reflectors is additionally cleaned and prepared by STANIAX: removal of previous metallization along with sanding the inner surface, degreasing, and applying primer paint if required by the given system. Shipping should look like this: rigid cardboard boxes, individual protection of each reflector with bubble wrap, and descriptions of vehicle/model/year – thanks to this we avoid mistakes. Reflector replacement is necessary for severe structural damage – but this is rare; most old lamps can be effectively restored.",
+      "Reflectors should not be mechanically polished beforehand - this damages their geometry and makes correct vacuum metallization difficult. The surface of the reflectors is additionally cleaned and prepared by STANIAX: removal of previous metallization along with sanding the inner surface, degreasing, and applying primer paint if required by the given system. Shipping should look like this: rigid cardboard boxes, individual protection of each reflector with bubble wrap, and descriptions of vehicle/model/year - thanks to this we avoid mistakes. Reflector replacement is necessary for severe structural damage - but this is rare; most old lamps can be effectively restored.",
 
     sec5Title:
-      "Professional reflector regeneration at STANIAX – high-vacuum PVD and UV protective coatings",
+      "Professional reflector regeneration at STANIAX - high-vacuum PVD and UV protective coatings",
     sec5P1:
-      "The reflector is the heart of the headlight – it shapes the beam of light and determines lighting quality. Its burnout causes a drastic drop in efficiency even with new light bulbs or LED modules. Reflector regeneration increases their lifetime and improves safety, restoring the proper amount of reflected light.",
+      "The reflector is the heart of the headlight - it shapes the beam of light and determines lighting quality. Its burnout causes a drastic drop in efficiency even with new light bulbs or LED modules. Reflector regeneration increases their lifetime and improves safety, restoring the proper amount of reflected light.",
     sec5P2:
-      "Vacuum metallization (PVD) consists in evaporating 99.99% pure aluminum in a high-vacuum chamber (10⁻⁴ mbar) and applying an ultra-thin, even layer to the reflector surface. The mirror effect matches factory OEM optics, and directional specular reflection exceeds 92%. Loose reflector bowl PVD starts at ~150 PLN (€35), while complete headlamp restoration is about 350–700 PLN per piece – still many times less than a new lamp.",
+      "Vacuum metallization (PVD) consists in evaporating 99.99% pure aluminum in a high-vacuum chamber (10⁻⁴ mbar) and applying an ultra-thin, even layer to the reflector surface. The mirror effect matches factory OEM optics, and directional specular reflection exceeds 92%. Loose reflector bowl PVD starts at ~150 PLN (€35), while complete headlamp restoration is about 350-700 PLN per piece - still many times less than a new lamp.",
     sec5P3:
       "Complementing vacuum PVD, booth-applied high-temperature leveling primers and UV/SiOx protective coatings seal substrates smoothly, making restored reflectors resistant to 220 °C arc temperatures and moisture. This service supports drivers, workshops, paint shops, and lighting component manufacturers.",
 
     sec6Title:
-      "Lighting modernization – mounting of bi-LED, bi-xenon lenses and lamp tuning",
+      "Lighting modernization - mounting of bi-LED, bi-xenon lenses and lamp tuning",
     sec6P1:
-      "Regeneration is not just repair – it is also an opportunity to modernize the lighting, especially in older models with halogen headlights. Instead of just restoring the former shine, light parameters can be improved.",
+      "Regeneration is not just repair - it is also an opportunity to modernize the lighting, especially in older models with halogen headlights. Instead of just restoring the former shine, light parameters can be improved.",
     sec6P2:
-      "Mounting bi-led lenses is an increasingly popular direction: bi-led lenses provide a better-focused beam of light, even illumination of road edges, and low energy consumption compared to classic bulbs. Installing bi-LED lenses raises lighting quality, and mounting LED projectors increases light brightness by 100%. Lamp tuning increases headlight range at night – the difference is felt especially on out-of-town roads.",
+      "Mounting bi-led lenses is an increasingly popular direction: bi-led lenses provide a better-focused beam of light, even illumination of road edges, and low energy consumption compared to classic bulbs. Installing bi-LED lenses raises lighting quality, and mounting LED projectors increases light brightness by 100%. Lamp tuning increases headlight range at night - the difference is felt especially on out-of-town roads.",
     sec6P3:
-      "Xenon and bi-xenon solutions remain a popular alternative, although the market is gradually shifting to LED technology. It is worth knowing that adapting UK lamps requires changing the light beam direction – this is important when importing a car from the UK. Installing lenses requires correct alignment of the cutoff line and adaptation to regulations so as not to blind other drivers and other road users. Therefore, mounting bi-led lenses should be entrusted to specialized workshops.",
+      "Xenon and bi-xenon solutions remain a popular alternative, although the market is gradually shifting to LED technology. It is worth knowing that adapting UK lamps requires changing the light beam direction - this is important when importing a car from the UK. Installing lenses requires correct alignment of the cutoff line and adaptation to regulations so as not to blind other drivers and other road users. Therefore, mounting bi-led lenses should be entrusted to specialized workshops.",
     sec6P4:
-      "Other forms of lamp tuning – painting the interior of the reflector, mounting LED rings, DRL additions – can give the car a modern look. STANIAX as an industrial paint shop provides high-quality decorative painting of internal and external elements, similar to window and lamp frame painting.",
+      "Other forms of lamp tuning - painting the interior of the reflector, mounting LED rings, DRL additions - can give the car a modern look. STANIAX as an industrial paint shop provides high-quality decorative painting of internal and external elements, similar to window and lamp frame painting.",
 
     sec7Title:
-      "Protecting lamps after regeneration – PPF film, UV coatings and painting",
+      "Protecting lamps after regeneration - PPF film, UV coatings and painting",
     sec7P1:
-      "Restoration alone is half the success – the durability of the effect depends on protection for the following years.",
+      "Restoration alone is half the success - the durability of the effect depends on protection for the following years.",
     sec7P2:
-      "PPF film is one of the most effective protections for headlight lenses. It protects headlights against external damage – stones, scratches, and UV radiation. Professional wrapping with film is practically invisible, and the durability reaches 5–10 years.",
+      "PPF film is one of the most effective protections for headlight lenses. It protects headlights against external damage - stones, scratches, and UV radiation. Professional wrapping with film is practically invisible, and the durability reaches 5-10 years.",
         sec7P3: 'An alternative is professional clear coats with UV filters, used in paint shops and by STANIAX on decorative elements. Restored headlights translate to better road visibility, and appropriate protection maintains this effect. In industrial applications and for lamp manufacturers, STANIAX offers [UV protective coatings](/en/plastic-parts-painting) applied by spraying, providing high chemical and mechanical resistance while maintaining transparency.',
     sec7P4:
-      "After regeneration, do not neglect regular washing of the lamps with mild agents and periodic checks of sealing – water inside the headlight will quickly destroy even freshly regenerated reflectors. Avoid aggressive chemical products during sanding and cleaning, and park the car in the shade or garage if possible.",
+      "After regeneration, do not neglect regular washing of the lamps with mild agents and periodic checks of sealing - water inside the headlight will quickly destroy even freshly regenerated reflectors. Avoid aggressive chemical products during sanding and cleaning, and park the car in the shade or garage if possible.",
 
     sec8Title: "Reflector regeneration: safety and profitability",
     sec8P1:
-      "Working headlights mean longer visibility in front of the vehicle, better illumination of road edges, and more time to react in emergency situations. Polishing improves road visibility, and comprehensive regeneration with metallization restores parameters close to factory specifications – which directly translates to the driving safety of all road users.",
+      "Working headlights mean longer visibility in front of the vehicle, better illumination of road edges, and more time to react in emergency situations. Polishing improves road visibility, and comprehensive regeneration with metallization restores parameters close to factory specifications - which directly translates to the driving safety of all road users.",
     sec8P2:
-      "The economic aspect is equally important: car reflector regeneration (especially with reflector metallization) is many times cheaper than buying new lamps, while extending their life for years to come. Repair instead of replacement also means less waste – a more responsible approach to car operation.",
+      "The economic aspect is equally important: car reflector regeneration (especially with reflector metallization) is many times cheaper than buying new lamps, while extending their life for years to come. Repair instead of replacement also means less waste - a more responsible approach to car operation.",
     sec8P3:
-      "In the case of company fleets – delivery and service cars – regular lamp restoration significantly lowers maintenance costs. Before you decide on an expensive replacement of a complete lamp, consult with professionals cooperating with STANIAX.",
+      "In the case of company fleets - delivery and service cars - regular lamp restoration significantly lowers maintenance costs. Before you decide on an expensive replacement of a complete lamp, consult with professionals cooperating with STANIAX.",
 
     sec9Title:
-      "STANIAX – B2B partner in reflector regeneration and lamp surface treatment",
+      "STANIAX - B2B partner in reflector regeneration and lamp surface treatment",
     sec9P1:
       "STANIAX is a specialist for business clients: lamp manufacturers, car workshops, paint shops, and automotive companies. Our core competencies include vacuum PVD metallization of reflectors and decorative elements, industrial HVLP spray painting of plastics, metals, and glass, and application of high-temp primers and long-life UV protective coatings.",
     sec9P2:
-      "We focus on mirror effects, high surface aesthetics, series repeatability, and coating durability – particularly important for manufacturers of headlights, mirrors, and car interior elements. Our experience includes projects for the automotive industry: reflectors for halogen and bi-xenon headlights, decorative dashboard elements, covers and lamp frames – always in accordance with OEM-level quality requirements.",
-        sec9P3: 'If you run a workshop, paint shop, or lighting component manufacturing company and are looking for a partner for reflector regeneration, finish of series car lamps, or special projects related to metallization and decorative painting – [contact us](/en#contact). Together we will find a solution tailored to your production needs.',
+      "We focus on mirror effects, high surface aesthetics, series repeatability, and coating durability - particularly important for manufacturers of headlights, mirrors, and car interior elements. Our experience includes projects for the automotive industry: reflectors for halogen and bi-xenon headlights, decorative dashboard elements, covers and lamp frames - always in accordance with OEM-level quality requirements.",
+        sec9P3: 'If you run a workshop, paint shop, or lighting component manufacturing company and are looking for a partner for reflector regeneration, finish of series car lamps, or special projects related to metallization and decorative painting - [contact us](/en#contact). Together we will find a solution tailored to your production needs.',
 
     faqTitle: "Frequently Asked Questions (FAQ)",
     faqItems: [
       {
         q: "How much does headlight regeneration cost?",
-        a: "Polishing the lens with UV coating costs 150–300 PLN per lamp, and comprehensive regeneration with reflector metallization is 350–700 PLN per piece. For comparison, a new OEM lamp costs from 1,500 to over 5,000 PLN.",
+        a: "Polishing the lens with UV coating costs 150-300 PLN per lamp, and comprehensive regeneration with reflector metallization is 350-700 PLN per piece. For comparison, a new OEM lamp costs from 1,500 to over 5,000 PLN.",
       },
       {
         q: "How long does headlight regeneration take?",
@@ -1220,7 +1220,7 @@ export const REFLECTORS_ARTICLE = {
       },
       {
         q: "Will cloudy headlights pass a technical inspection?",
-        a: "Heavily degraded lenses transmit only 20–30% of light, which risks a negative technical inspection result, or even refusal to allow the vehicle to be driven. Regeneration restores lighting parameters and helps avoid problems during inspection.",
+        a: "Heavily degraded lenses transmit only 20-30% of light, which risks a negative technical inspection result, or even refusal to allow the vehicle to be driven. Regeneration restores lighting parameters and helps avoid problems during inspection.",
       },
     ],
   },
@@ -1258,7 +1258,7 @@ export const REFLECTORS_ARTICLE = {
       "Stellen Sie die volle Sicht wieder her und sorgen Sie für die Sicherheit von Ihnen und Ihren Passagieren!",
     backToNewsList: "Zurück zur Übersicht",
     tableTitle:
-      "Polieren der Streuscheibe, Innenregeneration oder Scheinwerfertausch – was wählen?",
+      "Polieren der Streuscheibe, Innenregeneration oder Scheinwerfertausch - was wählen?",
     tableHeaders: [
       "Methode",
       "Kosten (pro Stk.)",
@@ -1268,19 +1268,19 @@ export const REFLECTORS_ARTICLE = {
     tableRows: [
       [
         "Streuscheibe polieren",
-        "150–300 PLN",
-        "1–2 Saisons",
+        "150-300 PLN",
+        "1-2 Saisons",
         "nur äußere Oberfläche",
       ],
       [
         "Umfassende Regeneration",
-        "350–700 PLN",
-        "3–5 Jahre",
+        "350-700 PLN",
+        "3-5 Jahre",
         "Streuscheibe + Reflektor + Dichtungen",
       ],
       [
         "Neuer Scheinwerfer (OEM)",
-        "1.500–5.000+ PLN",
+        "1.500-5.000+ PLN",
         "werkseitig",
         "komplettes Set",
       ],
@@ -1292,104 +1292,104 @@ export const REFLECTORS_ARTICLE = {
       "Technischer Ratgeber: Warum Scheinwerferreflektoren erblinden, wie die PVD-Vakuummetallisierung funktioniert und wann sich die Aufbereitung lohnt.",
 
     introTitle:
-      "Regeneration von Scheinwerfern und Reflektoren – schnelle Antworten auf die häufigsten Fragen",
+      "Regeneration von Scheinwerfern und Reflektoren - schnelle Antworten auf die häufigsten Fragen",
     introP1:
-      "Wenn Sie bemerken, dass die Scheinwerfer und Nebelscheinwerfer-Reflektoren in Ihrem Auto schwächer als gewöhnlich leuchten, einen gelblichen Ton haben oder Sie beim TÜV eine Anmerkung erhalten haben – dann ist es Zeit für eine Regeneration. Ein Erblinden der Scheinwerfer kann dazu führen, dass das Fahrzeug nicht mehr zugelassen wird, weshalb man nicht zögern sollte. Das Polieren der Scheinwerfer verbessert deren Aussehen und Funktion, und die Regeneration der Scheinwerferreflektoren kann deren Leistung um bis zu 100 % steigern.",
+      "Wenn Sie bemerken, dass die Scheinwerfer und Nebelscheinwerfer-Reflektoren in Ihrem Auto schwächer als gewöhnlich leuchten, einen gelblichen Ton haben oder Sie beim TÜV eine Anmerkung erhalten haben - dann ist es Zeit für eine Regeneration. Ein Erblinden der Scheinwerfer kann dazu führen, dass das Fahrzeug nicht mehr zugelassen wird, weshalb man nicht zögern sollte. Das Polieren der Scheinwerfer verbessert deren Aussehen und Funktion, und die Regeneration der Scheinwerferreflektoren kann deren Leistung um bis zu 100 % steigern.",
     introP2:
-      "Die Regeneration von Scheinwerfern umfasst mehrere Bereiche: das Polieren der Streuscheibe – die Entfernung von Trübungen und Mikrokratzern von der äußeren Oberfläche; die Reflektoren Regeneration – das Erneuern der reflektierenden Schicht im Inneren der Lampe; sowie das Abdichten und der UV-Schutz – zum Schutz vor erneutem Erblinden.",
-        introP3: 'Die Verbesserung der Sicht ist sofort spürbar und die Kosten beginnen bei ca. 150–300 PLN für das Polieren der Streuscheibe (bzw. ab ca. 35 € / 150 PLN je ausgebautem Reflektor); eine vollständige Regeneration mit Reflektormetallisierung kostet 350–700 PLN – immer noch ein Vielfaches weniger als der Kauf neuer Lampen, bei denen Bi-Xenon-Scheinwerfer mehrere tausend PLN pro Stück kosten können. Die Scheinwerfer-Regeneration stellt die volle Leistung zu einem Bruchteil des Preises wieder her. Bei STANIAX spezialisieren wir uns auf die Reflektoren-Aufbereitung mit industriellen Methoden – [Vakuummetallisierung PVD](/de/scheinwerfer-reflektor-aufbereitung) kombiniert mit staubfreier Spritzlackierung hitzefester Primer und UV-Schutzlacke –, was dauerhaft hält.',
+      "Die Regeneration von Scheinwerfern umfasst mehrere Bereiche: das Polieren der Streuscheibe - die Entfernung von Trübungen und Mikrokratzern von der äußeren Oberfläche; die Reflektoren Regeneration - das Erneuern der reflektierenden Schicht im Inneren der Lampe; sowie das Abdichten und der UV-Schutz - zum Schutz vor erneutem Erblinden.",
+        introP3: 'Die Verbesserung der Sicht ist sofort spürbar und die Kosten beginnen bei ca. 150-300 PLN für das Polieren der Streuscheibe (bzw. ab ca. 35 € / 150 PLN je ausgebautem Reflektor); eine vollständige Regeneration mit Reflektormetallisierung kostet 350-700 PLN - immer noch ein Vielfaches weniger als der Kauf neuer Lampen, bei denen Bi-Xenon-Scheinwerfer mehrere tausend PLN pro Stück kosten können. Die Scheinwerfer-Regeneration stellt die volle Leistung zu einem Bruchteil des Preises wieder her. Bei STANIAX spezialisieren wir uns auf die Reflektoren-Aufbereitung mit industriellen Methoden - [Vakuummetallisierung PVD](/de/scheinwerfer-reflektor-aufbereitung) kombiniert mit staubfreier Spritzlackierung hitzefester Primer und UV-Schutzlacke -, was dauerhaft hält.',
     sec1Title: "Warum erblinden Scheinwerfer und verlieren ihren alten Glanz?",
     sec1P1:
-      "Seit Ende der 90er Jahre bestehen die meisten Scheinwerfer aus Polycarbonat statt aus Glas. Polycarbonat ist leicht und schlagfest, aber anfällig für Degradation – insbesondere unter Sonneneinstrahlung. Die werkseitige Schutzschicht mit einer Dicke von nur 15–25 Mikrometern baut sich mit der Zeit ab und setzt den Kunststoff direkter UV-Strahlung aus.",
+      "Seit Ende der 90er Jahre bestehen die meisten Scheinwerfer aus Polycarbonat statt aus Glas. Polycarbonat ist leicht und schlagfest, aber anfällig für Degradation - insbesondere unter Sonneneinstrahlung. Die werkseitige Schutzschicht mit einer Dicke von nur 15-25 Mikrometern baut sich mit der Zeit ab und setzt den Kunststoff direkter UV-Strahlung aus.",
     sec1P2:
-      "Diese Faktoren führen zur allmählichen Zerstörung der Streuscheibe:\n- Scheinwerfer erblinden durch UV-Strahlen, die die Polycarbonatstruktur abbauen und Chromophore bilden – färbende Verbindungen, die einen Gelbstich verursachen,\n- saurer Regen und Streusalz beschädigen Autoscheinwerfer, indem sie sich in Mikrorisse fressen,\n- feine Steinchen und Straßensand verursachen mechanische Kratzer auf der Oberfläche,\n- Witterungseinflüsse und zyklische Temperaturwechsel beschleunigen die Oxidation.",
+      "Diese Faktoren führen zur allmählichen Zerstörung der Streuscheibe:\n- Scheinwerfer erblinden durch UV-Strahlen, die die Polycarbonatstruktur abbauen und Chromophore bilden - färbende Verbindungen, die einen Gelbstich verursachen,\n- saurer Regen und Streusalz beschädigen Autoscheinwerfer, indem sie sich in Mikrorisse fressen,\n- feine Steinchen und Straßensand verursachen mechanische Kratzer auf der Oberfläche,\n- Witterungseinflüsse und zyklische Temperaturwechsel beschleunigen die Oxidation.",
     sec1P3:
-      "Erblindete Scheinwerfer verschlechtern die Sicht beim Fahren – AAA-Studien zeigten, dass stark degradierte Streuscheiben im Vergleich zu neuen nur 20–30 % des Lichts durchlassen. Bei modernen Bi-Xenon-, Bi-LED- und Full-LED-Scheinwerfern senken Streuscheibentrübung und Reflektor-Reflexionsverlust die Lichtleistungsparameter besonders stark – was ein direkter Weg zu einer nicht bestandenen Hauptuntersuchung ist. Matte Scheinwerfer gefährden Ihre Sicherheit und die anderer Verkehrsteilnehmer, da sie die tatsächliche Reichweite des Lichtkegels verkürzen.",
+      "Erblindete Scheinwerfer verschlechtern die Sicht beim Fahren - AAA-Studien zeigten, dass stark degradierte Streuscheiben im Vergleich zu neuen nur 20-30 % des Lichts durchlassen. Bei modernen Bi-Xenon-, Bi-LED- und Full-LED-Scheinwerfern senken Streuscheibentrübung und Reflektor-Reflexionsverlust die Lichtleistungsparameter besonders stark - was ein direkter Weg zu einer nicht bestandenen Hauptuntersuchung ist. Matte Scheinwerfer gefährden Ihre Sicherheit und die anderer Verkehrsteilnehmer, da sie die tatsächliche Reichweite des Lichtkegels verkürzen.",
 
     sec2Title:
-      "Scheinwerfer-Regeneration – Leistungsumfang und mögliche Methoden",
+      "Scheinwerfer-Regeneration - Leistungsumfang und mögliche Methoden",
     sec2P1:
-      "Die Scheinwerfer-Regeneration kann nur das Polieren der Streuscheibe oder eine umfassende Erneuerung des Lampeninneren bedeuten – es lohnt sich, zwischen diesen beiden Ansätzen klar zu unterscheiden, da sich Wirksamkeit und Preis stark unterscheiden.",
+      "Die Scheinwerfer-Regeneration kann nur das Polieren der Streuscheibe oder eine umfassende Erneuerung des Lampeninneren bedeuten - es lohnt sich, zwischen diesen beiden Ansätzen klar zu unterscheiden, da sich Wirksamkeit und Preis stark unterscheiden.",
     sub21Title: "Scheinwerfer polieren",
     sub21P1:
-      "Der Basisservice is das Polieren der Scheinwerfer: Eine äußere Erneuerung der Streuscheibe, die die Entfernung von Trübungen, Mikrokratzern und das Auftragen einer UV-Schutzschicht umfasst. Matte Streuscheiben sind ideale Kandidaten für eine solche Renovierung – sofern das Lampeninnere in gutem Zustand ist.",
+      "Der Basisservice is das Polieren der Scheinwerfer: Eine äußere Erneuerung der Streuscheibe, die die Entfernung von Trübungen, Mikrokratzern und das Auftragen einer UV-Schutzschicht umfasst. Matte Streuscheiben sind ideale Kandidaten für eine solche Renovierung - sofern das Lampeninnere in gutem Zustand ist.",
     sub22Title: "Umfassende Reparatur",
     sub22P1:
-      "Die umfassende Scheinwerferreparatur umfasst: Demontage der Lampe aus dem Auto, Öffnen des Gehäuses, Reinigung des Innenraums, Reflektoren Regeneration (Vakuummetallisierung), eventuellen Dichtungsaustausch und erneutes Verkleben. Die Reflektoren Regeneration erhöht die Qualität des Lichtstrahls und stellt dem Werkzustand nahekommende Parameter wieder her. Die Dauer der Scheinwerfer-Regeneration beträgt 5 bis 7 Werktage – je nach Leistungsumfang und Technologie.",
+      "Die umfassende Scheinwerferreparatur umfasst: Demontage der Lampe aus dem Auto, Öffnen des Gehäuses, Reinigung des Innenraums, Reflektoren Regeneration (Vakuummetallisierung), eventuellen Dichtungsaustausch und erneutes Verkleben. Die Reflektoren Regeneration erhöht die Qualität des Lichtstrahls und stellt dem Werkzustand nahekommende Parameter wieder her. Die Dauer der Scheinwerfer-Regeneration beträgt 5 bis 7 Werktage - je nach Leistungsumfang und Technologie.",
     sub22P2:
-      "Bei STANIAX arbeiten wir meist an Reflektoren, die von Werkstätten oder Herstellern geliefert werden. Wir verwenden die Vakuum-PVD-Metallisierung für einen Spiegeleffekt und eine lange Haltbarkeit der Beschichtung. Der Umfang der Regeneration hängt vom Zustand der Lampen ab – flache Kratzer erfordern einen anderen Ansatz als verbrannte Reflektoren oder mit Wasser überflutete Lampen. Daher sollte die Regeneration immer mit einer fachmännischen Bewertung beginnen.",
+      "Bei STANIAX arbeiten wir meist an Reflektoren, die von Werkstätten oder Herstellern geliefert werden. Wir verwenden die Vakuum-PVD-Metallisierung für einen Spiegeleffekt und eine lange Haltbarkeit der Beschichtung. Der Umfang der Regeneration hängt vom Zustand der Lampen ab - flache Kratzer erfordern einen anderen Ansatz als verbrannte Reflektoren oder mit Wasser überflutete Lampen. Daher sollte die Regeneration immer mit einer fachmännischen Bewertung beginnen.",
 
     sec3Title:
-      "Scheinwerfer polieren Schritt für Schritt – so stellen Sie die Klarheit der Streuscheibe wieder her",
+      "Scheinwerfer polieren Schritt für Schritt - so stellen Sie die Klarheit der Streuscheibe wieder her",
     sec3P1:
       "Das Polieren von Scheinwerfern ist eine Aufgabe, die bei entsprechender Vorbereitung Sorgfalt erfordert, aber auch unter Garagenbedingungen machbar ist. Das Scheinwerferpolieren lässt sich in wenigen Stunden erledigen, und die Wirkung spiegelt sich direkt in einer besseren Sicht wider. Nachfolgend finden Sie eine Beschreibung der einzelnen Phasen.",
     sec3P2:
       "**Benötigte Werkzeuge und Materialien:**\n- Malerband zum Schutz des Lacks um die Lampen herum,\n- Nassschleifpapier (Körnung 800, 1200, 2000, 3000) oder Schleifscheiben,\n- Exzenterpolierer oder Akkuschrauber mit Aufsatz, Polierschwämme,\n- Polierpaste für Kunststoffe (Renovierungssets enthalten Schleifpapier und Polierpaste),\n- Entfettungsmittel, Klarlack mit UV-Filter.",
     sec3P3:
-      "**Schritte zum Polieren:**\n1. **Vorbereitung der Lampen** – gründliche Reinigung der Streuscheibe, Entfetten der Oberfläche, Schutz des Lacks um den Scheinwerfer herum mit Klebeband.\n2. **Nassschleifen** – verwenden Sie Schleifpapier mit der Körnung 800 bis 3000, beginnend mit dem gröbsten. Horizontale und vertikale Bewegungen, um Richtungskratzer zu vermeiden. Kontrollieren Sie die Temperatur – Polycarbonat nicht überhitzen.\n3. **Eigentliches Polieren** – niedrige Polierergeschwindigkeit, mäßiger Druck, arbeiten in Abschnitten. Das Scheinwerferpolieren erhöht die Transparenz und Helligkeit bereits in dieser Phase.\n4. **UV-Schutz** – Scheinwerferpolieren erfordert das Auftragen einer neuen Schutzbeschichtung. Das Lackieren von Scheinwerfern erzeugt eine neue, harte Schutzschicht, die ein erneutes Erblinden verhindert. Schützen Sie die Scheinwerfer nach dem Polieren mit einer UV-Beschichtung – ohne diese verschwindet der Effekt innerhalb weniger Monate.",
+      "**Schritte zum Polieren:**\n1. **Vorbereitung der Lampen** - gründliche Reinigung der Streuscheibe, Entfetten der Oberfläche, Schutz des Lacks um den Scheinwerfer herum mit Klebeband.\n2. **Nassschleifen** - verwenden Sie Schleifpapier mit der Körnung 800 bis 3000, beginnend mit dem gröbsten. Horizontale und vertikale Bewegungen, um Richtungskratzer zu vermeiden. Kontrollieren Sie die Temperatur - Polycarbonat nicht überhitzen.\n3. **Eigentliches Polieren** - niedrige Polierergeschwindigkeit, mäßiger Druck, arbeiten in Abschnitten. Das Scheinwerferpolieren erhöht die Transparenz und Helligkeit bereits in dieser Phase.\n4. **UV-Schutz** - Scheinwerferpolieren erfordert das Auftragen einer neuen Schutzbeschichtung. Das Lackieren von Scheinwerfern erzeugt eine neue, harte Schutzschicht, die ein erneutes Erblinden verhindert. Schützen Sie die Scheinwerfer nach dem Polieren mit einer UV-Beschichtung - ohne diese verschwindet der Effekt innerhalb weniger Monate.",
     sec3P4:
-      "Das reine Polieren mit einem UV-Filter kostet 150 bis 300 PLN pro Lampe. Das Polieren verbessert die Sichtbarkeit auf der Straße um einige Meter – der Unterschied macht sich besonders nachts bemerkbar. Denken Sie jedoch daran, dass das Polieren der Streuscheibe ohne Demontage der Lampe eine schnelle Lösung, aber nicht immer ausreichend ist – wenn der Reflektor im Inneren verbrannt oder korrodiert ist, hilft eine einfache Außenreinigung nicht.",
+      "Das reine Polieren mit einem UV-Filter kostet 150 bis 300 PLN pro Lampe. Das Polieren verbessert die Sichtbarkeit auf der Straße um einige Meter - der Unterschied macht sich besonders nachts bemerkbar. Denken Sie jedoch daran, dass das Polieren der Streuscheibe ohne Demontage der Lampe eine schnelle Lösung, aber nicht immer ausreichend ist - wenn der Reflektor im Inneren verbrannt oder korrodiert ist, hilft eine einfache Außenreinigung nicht.",
 
     sec4Title: "Lampenvorbereitung für die umfassende Reflektoren Regeneration",
     sec4P1:
-      "Die Reflektoren Regeneration erfordert den Ausbau der Lampe aus dem Fahrzeug und das Lösen des Gehäuses – dies wird normalerweise von einer Fachwerkstatt durchgeführt, während STANIAX den Oberflächenteil des Reflektors übernimmt: Metallisierung und Beschichtungen.",
+      "Die Reflektoren Regeneration erfordert den Ausbau der Lampe aus dem Fahrzeug und das Lösen des Gehäuses - dies wird normalerweise von einer Fachwerkstatt durchgeführt, während STANIAX den Oberflächenteil des Reflektors übernimmt: Metallisierung und Beschichtungen.",
     sec4P2:
-      "**Versandvorbereitung für Werkstätten und B2B-Partner:**\n- Demontage der Scheinwerfer aus dem Auto – die Lampenvorbereitung beginnt mit dem vorsichtigen Ausbau der kompletten Scheinwerfer,\n- Öffnen des Gehäuses und Entnehmen der Reflektoren aus dem Inneren,\n- Entfernen von Resten des alten Klebers und Schmutz,\n- Schutz empfindlicher Stellen vor mechanischer Beschädigung (Kontakt mit scharfen Gegenständen vermeiden).",
+      "**Versandvorbereitung für Werkstätten und B2B-Partner:**\n- Demontage der Scheinwerfer aus dem Auto - die Lampenvorbereitung beginnt mit dem vorsichtigen Ausbau der kompletten Scheinwerfer,\n- Öffnen des Gehäuses und Entnehmen der Reflektoren aus dem Inneren,\n- Entfernen von Resten des alten Klebers und Schmutz,\n- Schutz empfindlicher Stellen vor mechanischer Beschädigung (Kontakt mit scharfen Gegenständen vermeiden).",
     sec4P3:
-      "Reflektoren sollten vorher nicht mechanisch poliert werden – dies beschädigt ihre Geometrie und erschwert eine korrekte Vakuummetallisierung. Die Oberfläche der Reflektoren wird von STANIAX zusätzlich gereinigt und vorbereitet: Entfernung der vorherigen Metallisierung zusammen mit dem Schleifen der Innenfläche, Entfetten und Auftragen einer Grundierung, falls das jeweilige System dies erfordert. Der Versand sollte wie folgt aussehen: feste Kartons, einzelner Schutz jedes Reflektors mit Luftpolsterfolie, Beschreibung von Auto/Modell/Baujahr – so vermeiden wir Fehler. Ein Austausch der Scheinwerfer ist nur bei schwerwiegenden strukturellen Schäden erforderlich – was jedoch selten vorkommt; die meisten alten Lampen lassen sich erfolgreich erneuern.",
+      "Reflektoren sollten vorher nicht mechanisch poliert werden - dies beschädigt ihre Geometrie und erschwert eine korrekte Vakuummetallisierung. Die Oberfläche der Reflektoren wird von STANIAX zusätzlich gereinigt und vorbereitet: Entfernung der vorherigen Metallisierung zusammen mit dem Schleifen der Innenfläche, Entfetten und Auftragen einer Grundierung, falls das jeweilige System dies erfordert. Der Versand sollte wie folgt aussehen: feste Kartons, einzelner Schutz jedes Reflektors mit Luftpolsterfolie, Beschreibung von Auto/Modell/Baujahr - so vermeiden wir Fehler. Ein Austausch der Scheinwerfer ist nur bei schwerwiegenden strukturellen Schäden erforderlich - was jedoch selten vorkommt; die meisten alten Lampen lassen sich erfolgreich erneuern.",
 
     sec5Title:
-      "Professionelle Reflektor-Aufbereitung bei STANIAX – PVD-Vakuum und UV-Schutzlacke",
+      "Professionelle Reflektor-Aufbereitung bei STANIAX - PVD-Vakuum und UV-Schutzlacke",
     sec5P1:
-      "Der Reflektor ist das Herzstück des Scheinwerfers – er formt den Lichtkegel und entscheidet über die Lichtqualität. Sein Ausbrennen führt zu einem drastischen Leistungsabfall, selbst bei neuen Glühbirnen oder LED-Modulen. Die Reflektoren Regeneration erhöht deren Lebensdauer und verbessert die Sicherheit, indem sie die richtige Menge an reflektiertem Licht wiederherstellt.",
+      "Der Reflektor ist das Herzstück des Scheinwerfers - er formt den Lichtkegel und entscheidet über die Lichtqualität. Sein Ausbrennen führt zu einem drastischen Leistungsabfall, selbst bei neuen Glühbirnen oder LED-Modulen. Die Reflektoren Regeneration erhöht deren Lebensdauer und verbessert die Sicherheit, indem sie die richtige Menge an reflektiertem Licht wiederherstellt.",
     sec5P2:
-      "Die Vakuummetallisierung (PVD) besteht darin, 99,99 % reines Aluminium im Hochvakuum (10⁻⁴ mbar) zu verdampfen und eine ultradünne, gleichmäßige Schicht auf die Reflektoroberfläche aufzutragen. Der Spiegeleffekt entspricht dem Werkszustand, und der gerichtete Reflexionsgrad liegt bei über 92 %. Ausgebaute Einzelreflektoren starten ab ca. 35 € (150 PLN), eine Komplettinstandsetzung liegt bei ca. 350–700 PLN pro Stück – immer noch um ein Vielfaches günstiger als ein Neuteil.",
+      "Die Vakuummetallisierung (PVD) besteht darin, 99,99 % reines Aluminium im Hochvakuum (10⁻⁴ mbar) zu verdampfen und eine ultradünne, gleichmäßige Schicht auf die Reflektoroberfläche aufzutragen. Der Spiegeleffekt entspricht dem Werkszustand, und der gerichtete Reflexionsgrad liegt bei über 92 %. Ausgebaute Einzelreflektoren starten ab ca. 35 € (150 PLN), eine Komplettinstandsetzung liegt bei ca. 350-700 PLN pro Stück - immer noch um ein Vielfaches günstiger als ein Neuteil.",
     sec5P3:
       "Ergänzend zur Vakuumbedampfung trägt STANIAX im Reinraum hitzefeste Glättprimer sowie vernetzte UV- und SiOx-Schutzschichten auf, wodurch regenerierte Reflektoren und Streuscheiben dauerhaft gegen Betriebstemperaturen bis 220 °C und Feuchtigkeit geschützt sind.",
 
     sec6Title:
-      "Beleuchtungsmodernisierung – Montage von Bi-LED-, Bi-Xenon-Linsen und Scheinwerfer-Tuning",
+      "Beleuchtungsmodernisierung - Montage von Bi-LED-, Bi-Xenon-Linsen und Scheinwerfer-Tuning",
     sec6P1:
-      "Die Regeneration ist nicht nur Reparatur – sie ist auch eine Gelegenheit, die Beleuchtung zu modernisieren, insbesondere bei älteren Modellen mit Halogenscheinwerfern. Anstatt nur den alten Glanz wiederherzustellen, können die Lichtparameter verbessert werden.",
+      "Die Regeneration ist nicht nur Reparatur - sie ist auch eine Gelegenheit, die Beleuchtung zu modernisieren, insbesondere bei älteren Modellen mit Halogenscheinwerfern. Anstatt nur den alten Glanz wiederherzustellen, können die Lichtparameter verbessert werden.",
     sec6P2:
-      "Die Montage von Bi-LED-Linsen wird immer beliebter: Bi-LED-Linsen sorgen für einen besser fokussierten Lichtkegel, eine gleichmäßige Ausleuchtung des Fahrbahnrandes und einen geringen Energieverbrauch im Vergleich zu klassischen Glühbirnen. Der Einbau von Bi-LED-Linsen erhöht die Lichtqualität, und die Montage von LED-Projektoren steigert die Helligkeit um 100%. Das Scheinwerfer-Tuning vergrößert die Leuchtweite bei Nacht – der Unterschied ist besonders auf Landstraßen spürbar.",
+      "Die Montage von Bi-LED-Linsen wird immer beliebter: Bi-LED-Linsen sorgen für einen besser fokussierten Lichtkegel, eine gleichmäßige Ausleuchtung des Fahrbahnrandes und einen geringen Energieverbrauch im Vergleich zu klassischen Glühbirnen. Der Einbau von Bi-LED-Linsen erhöht die Lichtqualität, und die Montage von LED-Projektoren steigert die Helligkeit um 100%. Das Scheinwerfer-Tuning vergrößert die Leuchtweite bei Nacht - der Unterschied ist besonders auf Landstraßen spürbar.",
     sec6P3:
-      "Xenon- und Bi-Xenon-Lösungen bleiben eine beliebte Alternative, obwohl sich der Markt allmählich auf LED-Technik verlagert. Es ist gut zu wissen, dass die Anpassung von Scheinwerfern aus UK das Verstellen des Lichtstrahls erfordert – das ist wichtig beim Import eines Autos aus Großbritannien. Die Montage von Linsen erfordert eine korrekte Einstellung der Hell-Dunkel-Grenze und die Anpassung an die Vorschriften, um andere Autofahrer und andere Verkehrsteilnehmer nicht zu blenden. Daher sollte die Montage von Bi-LED-Linsen Fachwerkstätten anvertraut werden.",
+      "Xenon- und Bi-Xenon-Lösungen bleiben eine beliebte Alternative, obwohl sich der Markt allmählich auf LED-Technik verlagert. Es ist gut zu wissen, dass die Anpassung von Scheinwerfern aus UK das Verstellen des Lichtstrahls erfordert - das ist wichtig beim Import eines Autos aus Großbritannien. Die Montage von Linsen erfordert eine korrekte Einstellung der Hell-Dunkel-Grenze und die Anpassung an die Vorschriften, um andere Autofahrer und andere Verkehrsteilnehmer nicht zu blenden. Daher sollte die Montage von Bi-LED-Linsen Fachwerkstätten anvertraut werden.",
     sec6P4:
-      "Andere Formen des Scheinwerfer-Tunings – Lackieren des Scheinwerferinnenraums, Montage von LED-Ringen, DRL-Ergänzungen – können dem Auto einen modernen Look verleihen. STANIAX als Industrielackiererei bietet hochwertiges dekoratives Lackieren von Innen- und Außenelementen, ähnlich wie bei Glas- und Scheinwerferrahmenlackierungen.",
+      "Andere Formen des Scheinwerfer-Tunings - Lackieren des Scheinwerferinnenraums, Montage von LED-Ringen, DRL-Ergänzungen - können dem Auto einen modernen Look verleihen. STANIAX als Industrielackiererei bietet hochwertiges dekoratives Lackieren von Innen- und Außenelementen, ähnlich wie bei Glas- und Scheinwerferrahmenlackierungen.",
 
     sec7Title:
-      "Schutz der Lampen nach der Regeneration – PPF-Folie, UV-Beschichtungen und Lackieren",
+      "Schutz der Lampen nach der Regeneration - PPF-Folie, UV-Beschichtungen und Lackieren",
     sec7P1:
-      "Die reinen Renovierungskosten sind nur der halbe Erfolg – die Haltbarkeit des Effekts hängt vom Schutz für die kommenden Jahre ab.",
+      "Die reinen Renovierungskosten sind nur der halbe Erfolg - die Haltbarkeit des Effekts hängt vom Schutz für die kommenden Jahre ab.",
     sec7P2:
-      "PPF-Folie ist einer der wirksamsten Schutze für Scheinwerferstreuscheiben. Sie schützt die Scheinwerfer vor äußeren Schäden – Steinen, Kratzern und UV-Strahlung. Professionelles Folieren ist praktisch unsichtbar, und die Haltbarkeit beträgt 5–10 Jahre.",
+      "PPF-Folie ist einer der wirksamsten Schutze für Scheinwerferstreuscheiben. Sie schützt die Scheinwerfer vor äußeren Schäden - Steinen, Kratzern und UV-Strahlung. Professionelles Folieren ist praktisch unsichtbar, und die Haltbarkeit beträgt 5-10 Jahre.",
     sec7P3:
       "Eine Alternative sind professionelle Klarlacke mit UV-Filtern, die in Lackierereien und von STANIAX auf dekorativen Elementen verwendet werden. Erneuerte Scheinwerfer bedeuten eine bessere Sicht auf der Straße, und ein entsprechender Schutz erhält diesen Effekt. Für industrielle Anwendungen und Scheinwerferhersteller bietet STANIAX im Spritzverfahren aufgetragene UV-Schutzlacke an, die eine hohe chemische und mechanische Beständigkeit bei gleichzeitiger Transparenz bieten.",
     sec7P4:
-      "Vernachlässigen Sie nach der Regeneration nicht das regelmäßige Reinigen der Scheinwerfer mit milden Mitteln und die regelmäßige Dichtheitskontrolle – Wasser im Scheinwerfer zerstört auch frisch regenerierte Reflektoren schnell. Vermeiden Sie aggressive chemische Produkte beim Schleifen und Reinigen und parken Sie das Auto nach Möglichkeit im Schatten oder in einer Garage.",
+      "Vernachlässigen Sie nach der Regeneration nicht das regelmäßige Reinigen der Scheinwerfer mit milden Mitteln und die regelmäßige Dichtheitskontrolle - Wasser im Scheinwerfer zerstört auch frisch regenerierte Reflektoren schnell. Vermeiden Sie aggressive chemische Produkte beim Schleifen und Reinigen und parken Sie das Auto nach Möglichkeit im Schatten oder in einer Garage.",
 
     sec8Title: "Scheinwerfer-Regeneration: Sicherheit und Rentabilität",
     sec8P1:
-      "Funktionstüchtige Scheinwerfer bedeuten eine größere Sichtweite vor dem Fahrzeug, eine bessere Ausleuchtung des Fahrbahnrandes und mehr Zeit zum Reagieren in Notsituationen. Das Polieren verbessert die Sicht auf der Straße, und eine umfassende Regeneration mit Metallisierung stellt Parameter nahe am Werkzustand wieder her – was sich direkt auf die Fahrsicherheit aller Verkehrsteilnehmer auswirkt.",
+      "Funktionstüchtige Scheinwerfer bedeuten eine größere Sichtweite vor dem Fahrzeug, eine bessere Ausleuchtung des Fahrbahnrandes und mehr Zeit zum Reagieren in Notsituationen. Das Polieren verbessert die Sicht auf der Straße, und eine umfassende Regeneration mit Metallisierung stellt Parameter nahe am Werkzustand wieder her - was sich direkt auf die Fahrsicherheit aller Verkehrsteilnehmer auswirkt.",
     sec8P2:
-      "Der wirtschaftliche Aspekt ist ebenso wichtig: Die Scheinwerfer-Regeneration (insbesondere mit Reflektoren Regeneration) ist um ein Vielfaches günstiger als der Kauf neuer Scheinwerfer und verlängert gleichzeitig deren Lebensdauer für die kommenden Jahre. Eine Reparatur statt eines Austauschs bedeutet auch weniger Abfall – ein verantwortungsvollerer Umgang mit dem Fahrzeugbetrieb.",
+      "Der wirtschaftliche Aspekt ist ebenso wichtig: Die Scheinwerfer-Regeneration (insbesondere mit Reflektoren Regeneration) ist um ein Vielfaches günstiger als der Kauf neuer Scheinwerfer und verlängert gleichzeitig deren Lebensdauer für die kommenden Jahre. Eine Reparatur statt eines Austauschs bedeutet auch weniger Abfall - ein verantwortungsvollerer Umgang mit dem Fahrzeugbetrieb.",
     sec8P3:
-      "Bei Firmenflotten – Liefer- und Dienstwagen – senkt eine regelmäßige Scheinwerferrenovierung die Wartungskosten erheblich. Bevor Sie sich für einen teuren Austausch eines kompletten Scheinwerfers entscheiden, wenden Sie sich an die mit STANIAX kooperierenden Fachleute.",
+      "Bei Firmenflotten - Liefer- und Dienstwagen - senkt eine regelmäßige Scheinwerferrenovierung die Wartungskosten erheblich. Bevor Sie sich für einen teuren Austausch eines kompletten Scheinwerfers entscheiden, wenden Sie sich an die mit STANIAX kooperierenden Fachleute.",
 
     sec9Title:
-      "STANIAX – B2B-Partner bei der Reflektoren Regeneration und Scheinwerfer-Oberflächenbehandlung",
+      "STANIAX - B2B-Partner bei der Reflektoren Regeneration und Scheinwerfer-Oberflächenbehandlung",
     sec9P1:
       "STANIAX ist ein Spezialist für Geschäftskunden: Scheinwerferhersteller, Kfz-Werkstätten, Lackierereien und Automotive-Unternehmen. Zu unseren Kernkompetenzen gehören die Vakuum-PVD-Metallisierung von Reflektoren und Dekorelementen, die industrielle Spritzlackierung von Kunststoffen, Metallen und Glas sowie das Auftragen hitzefester Grundierungen und langlebiger UV-Schutzlacke.",
     sec9P2:
-      "Wir legen Wert auf Spiegeleffekte, hohe Oberflächenästhetik, Serienwiederholbarkeit und Haltbarkeit der Beschichtung – besonders wichtig für Hersteller von Scheinwerfern, Spiegeln und Autoinnenraumteilen. Unsere Erfahrung umfasst Projekte für die Automotive-Branche: Reflektoren für Halogen- und Bi-Xenon-Scheinwerfer, dekorative Cockpitelemente, Abdeckungen und Scheinwerferrahmen – immer in Übereinstimmung mit Qualitätsanforderungen auf OEM-Niveau.",
-        sec9P3: 'Wenn Sie eine Werkstatt, eine Lackiererei oder einen Hersteller von Beleuchtungskomponenten betreiben und einen Partner für die Reflektoren Regeneration, die Veredelung von Serien-Autoscheinwerfern oder Spezialprojekte im Bereich Metallisierung und dekorativer Lackierung suchen – [kontaktieren Sie uns](/de#contact). Gemeinsam finden wir eine auf Ihre Produktionsbedürfnisse zugeschnittene Lösung.',
+      "Wir legen Wert auf Spiegeleffekte, hohe Oberflächenästhetik, Serienwiederholbarkeit und Haltbarkeit der Beschichtung - besonders wichtig für Hersteller von Scheinwerfern, Spiegeln und Autoinnenraumteilen. Unsere Erfahrung umfasst Projekte für die Automotive-Branche: Reflektoren für Halogen- und Bi-Xenon-Scheinwerfer, dekorative Cockpitelemente, Abdeckungen und Scheinwerferrahmen - immer in Übereinstimmung mit Qualitätsanforderungen auf OEM-Niveau.",
+        sec9P3: 'Wenn Sie eine Werkstatt, eine Lackiererei oder einen Hersteller von Beleuchtungskomponenten betreiben und einen Partner für die Reflektoren Regeneration, die Veredelung von Serien-Autoscheinwerfern oder Spezialprojekte im Bereich Metallisierung und dekorativer Lackierung suchen - [kontaktieren Sie uns](/de#contact). Gemeinsam finden wir eine auf Ihre Produktionsbedürfnisse zugeschnittene Lösung.',
 
     faqTitle: "Häufig gestellte Fragen (FAQ)",
     faqItems: [
       {
         q: "Wie viel kostet die Scheinwerfer-Regeneration?",
-        a: "Das Polieren der Streuscheibe mit UV-Beschichtung kostet 150–300 PLN pro Lampe, eine umfassende Regeneration mit Reflektormetallisierung 350–700 PLN pro Stück. Im Vergleich dazu kostet ein neuer OEM-Scheinwerfer ab 1.500 bis über 5.000 PLN.",
+        a: "Das Polieren der Streuscheibe mit UV-Beschichtung kostet 150-300 PLN pro Lampe, eine umfassende Regeneration mit Reflektormetallisierung 350-700 PLN pro Stück. Im Vergleich dazu kostet ein neuer OEM-Scheinwerfer ab 1.500 bis über 5.000 PLN.",
       },
       {
         q: "Wie lange dauert die Scheinwerfer-Regeneration?",
@@ -1397,7 +1397,7 @@ export const REFLECTORS_ARTICLE = {
       },
       {
         q: "Bestehen erblindete Scheinwerfer die Hauptuntersuchung?",
-        a: "Stark degradierte Streuscheiben lassen nur 20–30 % des Lichts durch, was zu einer nicht bestandenen Hauptuntersuchung oder sogar zum Entzug der Straßenzulassung führen kann. Die Regeneration stellt die Lichtwerte wieder her und vermeidet Probleme bei der HU.",
+        a: "Stark degradierte Streuscheiben lassen nur 20-30 % des Lichts durch, was zu einer nicht bestandenen Hauptuntersuchung oder sogar zum Entzug der Straßenzulassung führen kann. Die Regeneration stellt die Lichtwerte wieder her und vermeidet Probleme bei der HU.",
       },
     ],
   },

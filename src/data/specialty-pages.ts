@@ -154,51 +154,51 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
         id: 'bare-projector',
         serviceType: 'Sam odbłyśnik soczewkowy (dostarczony luzem)',
         scope: 'Czyszczenie, aktywacja, podkład HT, naparowanie Al 99,99% + SiOx',
-        turnaround: '2–3 dni robocze',
+        turnaround: '2-3 dni robocze',
         unitPriceMin: 150,
         unitPriceMax: 200,
         currencySymbol: 'zł',
-        priceLabel: '150 – 200 zł / szt.',
+        priceLabel: '150 - 200 zł / szt.',
         warranty: '24 miesiące',
       },
       {
         id: 'parabola-large',
         serviceType: 'Duży odbłyśnik paraboliczny / podwójny / motocyklowy',
         scope: 'Wypełnienie ubytków termicznych, wieloetapowe lakierowanie + PVD',
-        turnaround: '3–4 dni robocze',
+        turnaround: '3-4 dni robocze',
         unitPriceMin: 180,
         unitPriceMax: 260,
         currencySymbol: 'zł',
-        priceLabel: '180 – 260 zł / szt.',
+        priceLabel: '180 - 260 zł / szt.',
         warranty: '24 miesiące',
       },
       {
         id: 'steel-oldtimer',
         serviceType: 'Odbłyśnik metalowy zabytkowy (z czyszczeniem rdzy)',
         scope: 'Usuwanie korozji, grunt epoksydowy antykorozyjny, PVD lustrzane >92%',
-        turnaround: '4–6 dni roboczych',
+        turnaround: '4-6 dni roboczych',
         unitPriceMin: 200,
         unitPriceMax: 300,
         currencySymbol: 'zł',
-        priceLabel: '200 – 300 zł / szt.',
+        priceLabel: '200 - 300 zł / szt.',
         warranty: '24 miesiące',
       },
       {
         id: 'uv-lens-coat',
         serviceType: 'Lakierowanie zewnętrznego klosza poliwęglanowego (UV)',
         scope: 'Usunięcie starego hard-coatu + natrysk UV (polerowanie reflektorów cena / polerowanie lamp cena z warstwą ochronną)',
-        turnaround: '1–2 dni robocze',
+        turnaround: '1-2 dni robocze',
         unitPriceMin: 150,
         unitPriceMax: 220,
         currencySymbol: 'zł',
-        priceLabel: '150 – 220 zł / klosz',
+        priceLabel: '150 - 220 zł / klosz',
         warranty: '24 miesiące',
       },
       {
         id: 'b2b-fleet',
         serviceType: 'Pakiety warsztatowe B2B (≥ 10 odbłyśników w partii)',
         scope: 'Zbiorcza karuzela PVD dla serwisów autolampowych z Polski i UE',
-        turnaround: '48–72 h priorytet',
+        turnaround: '48-72 h priorytet',
         unitPriceMin: 110,
         unitPriceMax: 150,
         currencySymbol: 'zł',
@@ -210,11 +210,11 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       {
         heading: 'Od czego zależy końcowa cena regeneracji odbłyśnika w STANIAX?',
         paragraphs: [
-          'W zapytaniach kierowców takich jak regeneracja odbłyśników cena oraz regeneracja reflektorów cena kluczowy jest sposób dostarczenia części: najtańszą i najszybszą formą zlecenia — wybieraną przez 80% mechaników — jest wysłanie samych wymontowanych odbłyśników (np. po wyjęciu soczewki od tyłu reflektora w Audi A4 B6/B7, BMW E39/E46, Passacie B6 czy Mercedesie W211). Wtedy całkowity koszt za parę odbłyśników wynosi zazwyczaj 300–400 zł zamiast 2000–5000 zł za nowe lampy.',
+          'W zapytaniach kierowców takich jak regeneracja odbłyśników cena oraz regeneracja reflektorów cena kluczowy jest sposób dostarczenia części: najtańszą i najszybszą formą zlecenia - wybieraną przez 80% mechaników - jest wysłanie samych wymontowanych odbłyśników (np. po wyjęciu soczewki od tyłu reflektora w Audi A4 B6/B7, BMW E39/E46, Passacie B6 czy Mercedesie W211). Wtedy całkowity koszt za parę odbłyśników wynosi zazwyczaj 300-400 zł zamiast 2000-5000 zł za nowe lampy.',
           'Jeśli reflektor wymaga rozklejenia twardego kleju poliuretanowego (tzw. klej twardy Valeo/AL), dokładnego oczyszczenia ramki maskującej lub wymiany spękanego klosza zewnętrznego, koszt obejmuje dodatkowo bezpieczne otwarcie i hermetyczne złożenie obudowy bez parowania.',
         ],
         bullets: [
-          'Bezpłatna weryfikacja stanu przed procesem — gdy tworzywo jest przepalone na wylot, informujemy przed kosztami',
+          'Bezpłatna weryfikacja stanu przed procesem - gdy tworzywo jest przepalone na wylot, informujemy przed kosztami',
           'Brak ukrytych dopłat za pakowanie zwrotne w piankę antystatyczną',
           'Stałe cenniki hurtowe dla warsztatów specjalizujących się w autolampach oraz flot ciężarowych',
         ],
@@ -229,23 +229,23 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
     faq: [
       {
         q: 'Czy podana cena 150 zł dotyczy jednego odbłyśnika czy kompletu dwóch lamp?',
-        a: 'Kwota 150–200 zł dotyczy jednej sztuki pojedynczego odbłyśnika soczewkowego dostarczonego luzem. Komplet dwóch odbłyśników kosztuje standardowo 300–400 zł.',
+        a: 'Kwota 150-200 zł dotyczy jednej sztuki pojedynczego odbłyśnika soczewkowego dostarczonego luzem. Komplet dwóch odbłyśników kosztuje standardowo 300-400 zł.',
       },
       {
         q: 'Czy mogę dostarczyć wymontowane odbłyśniki osobiście bez wcześniejszego umawiania?',
-        a: 'Tak, zapraszamy od poniedziałku do piątku w godz. 07:00–17:00 do zakładu STANIAX w Józefowie przy ul. Wyszyńskiego 116A lub kurierem z całej Polski.',
+        a: 'Tak, zapraszamy od poniedziałku do piątku w godz. 07:00-17:00 do zakładu STANIAX w Józefowie przy ul. Wyszyńskiego 116A lub kurierem z całej Polski.',
       },
       {
         q: 'Czy otrzymam pisemną gwarancję lub fakturę VAT?',
-        a: 'Tak — na każde zlecenie wystawiamy paragon lub fakturę VAT oraz udzielamy 24-miesięcznej gwarancji na trwałość i odbicie powłoki PVD.',
+        a: 'Tak - na każde zlecenie wystawiamy paragon lub fakturę VAT oraz udzielamy 24-miesięcznej gwarancji na trwałość i odbicie powłoki PVD.',
       },
       {
         q: 'Jakie zniżki obowiązują dla warsztatów samochodowych wysyłających po kilka kompletów tygodniowo?',
-        a: 'Dla stałych partnerów serwisowych przygotowujemy indywidualną stawkę kontraktową obniżoną o 20–35% przy zbiorczym załadunku komory PVD.',
+        a: 'Dla stałych partnerów serwisowych przygotowujemy indywidualną stawkę kontraktową obniżoną o 20-35% przy zbiorczym załadunku komory PVD.',
       },
     ],
     relatedLinks: [
-      { label: 'Warszawa & Józefów — dojazd i punkt przyjęć', path: '/regeneracja-reflektorow/warszawa-jozefow' },
+      { label: 'Warszawa & Józefów - dojazd i punkt przyjęć', path: '/regeneracja-reflektorow/warszawa-jozefow' },
       { label: 'Porównanie: Regeneracja odbłyśnika vs zamiennik', path: '/porownanie/regeneracja-odblysnikow-vs-nowy-zamiennik' },
       { label: 'Porównanie: Polerowanie klosza vs PVD', path: '/porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd' },
       { label: 'Usługa: Regeneracja odbłyśników i reflektorów', path: '/regeneracja-reflektorow' },
@@ -262,7 +262,7 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       'Factory-direct rates from STANIAX Józefów plant for dismantled OEM projector bowls, vintage metal reflectors, and EU B2B headlamp workshops.',
     directAnswerQuestion: 'How much does vacuum PVD headlight reflector restoration cost?',
     directAnswer:
-      'Industrial PVD vacuum re-aluminizing of a single dismantled headlight reflector bowl at STANIAX ranges from €35 to €65 (~150–260 PLN) per unit (€70–€120 per pair) depending on cup size and heat pitting. Full assembly dismantling, outer lens UV hard-coating, and batch workshop logistics are quoted transparently via our rate matrix.',
+      'Industrial PVD vacuum re-aluminizing of a single dismantled headlight reflector bowl at STANIAX ranges from €35 to €65 (~150-260 PLN) per unit (€70-€120 per pair) depending on cup size and heat pitting. Full assembly dismantling, outer lens UV hard-coating, and batch workshop logistics are quoted transparently via our rate matrix.',
     calcTitle: 'Interactive Restoration Cost Estimator',
     calcIntro:
       'Select your reflector construction, quantity, and optional polycarbonate UV lens sealing to estimate your project cost.',
@@ -283,7 +283,7 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       },
       {
         id: 'xenon-projector',
-        label: 'Bi-Xenon / Xenon D1S–D3S Bowl (Hella / Valeo / AL)',
+        label: 'Bi-Xenon / Xenon D1S-D3S Bowl (Hella / Valeo / AL)',
         baseReflectorPrice: 45,
         lensUvAddonPrice: 35,
         dismantlingAddonPrice: 50,
@@ -324,51 +324,51 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
         id: 'bare-projector',
         serviceType: 'Compact Projector Bowl (shipped bare/dismantled)',
         scope: 'Strip, HT primer leveling, 99.99% aluminum PVD + SiOx protection',
-        turnaround: '2–3 working days',
+        turnaround: '2-3 working days',
         unitPriceMin: 35,
         unitPriceMax: 48,
         currencySymbol: '€',
-        priceLabel: '€35 – €48 / unit',
+        priceLabel: '€35 - €48 / unit',
         warranty: '24 months',
       },
       {
         id: 'parabola-large',
         serviceType: 'Large Parabolic / Twin / Motorcycle Reflector',
         scope: 'Pit filling, HT basecoat smoothing + >92% vacuum aluminum',
-        turnaround: '3–4 working days',
+        turnaround: '3-4 working days',
         unitPriceMin: 45,
         unitPriceMax: 65,
         currencySymbol: '€',
-        priceLabel: '€45 – €65 / unit',
+        priceLabel: '€45 - €65 / unit',
         warranty: '24 months',
       },
       {
         id: 'steel-oldtimer',
         serviceType: 'Classic Car Metal Reflector (rust-remediated)',
         scope: 'De-rusting, epoxy corrosion seal, bright mirror PVD + SiOx',
-        turnaround: '4–6 working days',
+        turnaround: '4-6 working days',
         unitPriceMin: 48,
         unitPriceMax: 72,
         currencySymbol: '€',
-        priceLabel: '€48 – €72 / unit',
+        priceLabel: '€48 - €72 / unit',
         warranty: '24 months',
       },
       {
         id: 'uv-lens-coat',
         serviceType: 'Outer Polycarbonate Lens Refinishing + UV Clearcoat',
         scope: 'Remove oxidized coat + spray crosslinked UV shield',
-        turnaround: '1–2 working days',
+        turnaround: '1-2 working days',
         unitPriceMin: 35,
         unitPriceMax: 52,
         currencySymbol: '€',
-        priceLabel: '€35 – €52 / lens',
+        priceLabel: '€35 - €52 / lens',
         warranty: '24 months',
       },
       {
         id: 'b2b-fleet',
         serviceType: 'Workshop Partner B2B Batch (10+ reflectors/shipment)',
         scope: 'Dedicated EU workshop PVD carousel priority slots',
-        turnaround: '48–72 h priority',
+        turnaround: '48-72 h priority',
         unitPriceMin: 26,
         unitPriceMax: 36,
         currencySymbol: '€',
@@ -399,11 +399,11 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
     faq: [
       {
         q: 'Do listed rates cover one bowl or a pair?',
-        a: 'Per-unit pricing covers one individual reflector bowl (~€35–€65); a matching left/right pair is double that rate minus optional B2B workshop tiers.',
+        a: 'Per-unit pricing covers one individual reflector bowl (~€35-€65); a matching left/right pair is double that rate minus optional B2B workshop tiers.',
       },
       {
         q: 'How fast is EU turnaround via DHL/DPD courier?',
-        a: 'Plant processing averages 2–4 working days, plus standard 2–3 day cross-border courier return.',
+        a: 'Plant processing averages 2-4 working days, plus standard 2-3 day cross-border courier return.',
       },
       {
         q: 'Does pricing include VAT / EU intracommunity reverse-charge billing?',
@@ -432,7 +432,7 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       'Direkte Werkspreise ab Werk Józefów für ausgebaute Kfz-Reflektoren, Oldtimer-Stahlspiegel sowie B2B-Sammelsendungen aus Deutschland und Österreich.',
     directAnswerQuestion: 'Was kostet es, einen Scheinwerfer-Reflektor im Vakuum neu bedampfen zu lassen?',
     directAnswer:
-      'Das industrielle Neu-Bedampfen eines einzelnen ausgebauten Scheinwerfer-Reflektors per PVD kostet bei STANIAX je nach Größe und Einbrandzustand ab ca. 35 bis 65 € pro Stück (Paarpreis ca. 70–120 €). Für Scheinwerferöffnung, äußere UV-Schutzlackierung sowie Werkstattsammler ab 10 Teilen gelten reduzierte Staffelpreise.',
+      'Das industrielle Neu-Bedampfen eines einzelnen ausgebauten Scheinwerfer-Reflektors per PVD kostet bei STANIAX je nach Größe und Einbrandzustand ab ca. 35 bis 65 € pro Stück (Paarpreis ca. 70-120 €). Für Scheinwerferöffnung, äußere UV-Schutzlackierung sowie Werkstattsammler ab 10 Teilen gelten reduzierte Staffelpreise.',
     calcTitle: 'Interaktiver Kostenrechner für Reflektoren',
     calcIntro:
       'Wählen Sie Bauart, Stückzahl und gewünschte Zusatzleistungen wie UV-Frontscheibenversiegelung.',
@@ -453,7 +453,7 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       },
       {
         id: 'xenon-projector',
-        label: 'Bi-Xenon / Xenon D1S–D3S Reflektor (Hella / Valeo)',
+        label: 'Bi-Xenon / Xenon D1S-D3S Reflektor (Hella / Valeo)',
         baseReflectorPrice: 45,
         lensUvAddonPrice: 35,
         dismantlingAddonPrice: 50,
@@ -494,51 +494,51 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
         id: 'bare-projector',
         serviceType: 'Kompakter Linsenreflektor (ausgebaut zugesendet)',
         scope: 'Entlackung, HT-Grundlack, PVD-Aluminium 99,99 % + SiOx-Schutz',
-        turnaround: '2–3 Werktage',
+        turnaround: '2-3 Werktage',
         unitPriceMin: 35,
         unitPriceMax: 48,
         currencySymbol: '€',
-        priceLabel: '35 – 48 € / Stück',
+        priceLabel: '35 - 48 € / Stück',
         warranty: '24 Monate',
       },
       {
         id: 'parabola-large',
         serviceType: 'Großparabol- / Doppelkammer- / Motorradreflektor',
         scope: 'Kraterausgleich, mehrstufige Egalisierung + >92 % Vakuumspiegel',
-        turnaround: '3–4 Werktage',
+        turnaround: '3-4 Werktage',
         unitPriceMin: 45,
         unitPriceMax: 65,
         currencySymbol: '€',
-        priceLabel: '45 – 65 € / Stück',
+        priceLabel: '45 - 65 € / Stück',
         warranty: '24 Monate',
       },
       {
         id: 'steel-oldtimer',
         serviceType: 'Klassiker-Metallreflektor (inkl. Entrostung)',
         scope: 'Korrosionsentfernung, Schutzprimer, hochreflektierendes PVD',
-        turnaround: '4–6 Werktage',
+        turnaround: '4-6 Werktage',
         unitPriceMin: 48,
         unitPriceMax: 72,
         currencySymbol: '€',
-        priceLabel: '48 – 72 € / Stück',
+        priceLabel: '48 - 72 € / Stück',
         warranty: '24 Monate',
       },
       {
         id: 'uv-lens-coat',
         serviceType: 'Frontscheiben-Sanierung Polycarbonat + UV-Lack',
         scope: 'Abschleifen der Verwitterung + vernetzter UV-Schutzlack (Scheinwerfer polieren Kosten inkl. Hardcoat)',
-        turnaround: '1–2 Werktage',
+        turnaround: '1-2 Werktage',
         unitPriceMin: 35,
         unitPriceMax: 52,
         currencySymbol: '€',
-        priceLabel: '35 – 52 € / Scheibe',
+        priceLabel: '35 - 52 € / Scheibe',
         warranty: '24 Monate',
       },
       {
         id: 'b2b-fleet',
         serviceType: 'Werkstatt-Sammelpaket B2B (≥ 10 Reflektoren)',
         scope: 'Priorisierte PVD-Kammerbelegung für Kfz-Partnerbetriebe',
-        turnaround: '48–72 Std. Express',
+        turnaround: '48-72 Std. Express',
         unitPriceMin: 26,
         unitPriceMax: 36,
         currencySymbol: '€',
@@ -550,7 +550,7 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       {
         heading: 'So senken Werkstätten und Privatkunden die Aufbereitungskosten maximal',
         paragraphs: [
-          'Rund 80 % unserer Kunden senden lediglich die ausgebauten Projektoren im stabilen Paket nach Józefów. So entfallen Kosten und Risiken für das Öffnen hart verklebter Scheinwerfergehäuse, während beide Achsen bereits für ca. 75–95 € wieder Neuwagen-Lichtstärke erreichen.',
+          'Rund 80 % unserer Kunden senden lediglich die ausgebauten Projektoren im stabilen Paket nach Józefów. So entfallen Kosten und Risiken für das Öffnen hart verklebter Scheinwerfergehäuse, während beide Achsen bereits für ca. 75-95 € wieder Neuwagen-Lichtstärke erreichen.',
           'Vor Arbeitsbeginn prüfen Techniker jede Brennkammer: Bei durchgeschmortem Kunststoff informieren wir umgehend vorab, ohne unnötige Kosten auszulösen.',
         ],
         bullets: [
@@ -570,11 +570,11 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
     faq: [
       {
         q: 'Gilt der Preis pro Einzelreflektor oder pro Fahrzeugpaar?',
-        a: 'Die Beträge ab 35–48 € gelten je Einzelreflektor; ein Satz aus linkem und rechtem Reflektor liegt bei rund 70–96 € zuzüglich Rückversand.',
+        a: 'Die Beträge ab 35-48 € gelten je Einzelreflektor; ein Satz aus linkem und rechtem Reflektor liegt bei rund 70-96 € zuzüglich Rückversand.',
       },
       {
         q: 'Wie lange dauert die Gesamtabwicklung ab Deutschland?',
-        a: 'Die Bearbeitung im Werk dauert 2–4 Werktage, der DHL-/DPD-Versand je Richtung meist 2 Werktage.',
+        a: 'Die Bearbeitung im Werk dauert 2-4 Werktage, der DHL-/DPD-Versand je Richtung meist 2 Werktage.',
       },
       {
         q: 'Können deutsche Werkstätten steuerfrei innergemeinschaftlich abrechnen?',
@@ -599,36 +599,36 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
   pl: {
     metaTitle: 'Regeneracja reflektorów Warszawa i Józefów | STANIAX',
     metaDesc:
-      'Regeneracja odbłyśników Warszawa – Józefów (20 min trasą S2/Wał Miedzeszyński). Przyjęcia osobiste pn–pt 07:00–17:00 przy ul. Wyszyńskiego 116A oraz kurier.',
+      'Regeneracja odbłyśników Warszawa - Józefów (20 min trasą S2/Wał Miedzeszyński). Przyjęcia osobiste pn-pt 07:00-17:00 przy ul. Wyszyńskiego 116A oraz kurier.',
     badge: 'Punkt przyjęć Mazowieckie & S2',
-    h1: 'Regeneracja reflektorów i odbłyśników — Warszawa, Józefów i Otwock',
+    h1: 'Regeneracja reflektorów i odbłyśników - Warszawa, Józefów i Otwock',
     subtitle:
       'Bezpośrednie przyjęcie w zakładzie metalizacji próżniowej STANIAX w Józefowie pod Warszawą oraz szybki serwis dla warsztatów ze stolicy i Mazowsza.',
     directAnswerQuestion: 'Gdzie w Warszawie i okolicach oddać odbłyśniki do bezpośredniej metalizacji PVD?',
     directAnswer:
-      'Zakład produkcyjny STANIAX działa w Józefowie pod Warszawą przy ul. kard. Stefana Wyszyńskiego 116A (ok. 20 minut z centrum Warszawy Wałem Miedzeszyńskim lub Południową Obwodnicą S2). Przyjmujemy wyjęte odbłyśniki i klosze osobiście od poniedziałku do piątku w godz. 07:00–17:00 oraz kurierem bez pośredników.',
-    plantCardTitle: 'Zakład Produkcyjny STANIAX — Punkt Przyjęć Warszawa/Józefów',
+      'Zakład produkcyjny STANIAX działa w Józefowie pod Warszawą przy ul. kard. Stefana Wyszyńskiego 116A (ok. 20 minut z centrum Warszawy Wałem Miedzeszyńskim lub Południową Obwodnicą S2). Przyjmujemy wyjęte odbłyśniki i klosze osobiście od poniedziałku do piątku w godz. 07:00-17:00 oraz kurierem bez pośredników.',
+    plantCardTitle: 'Zakład Produkcyjny STANIAX - Punkt Przyjęć Warszawa/Józefów',
     plantAddress: 'ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów',
-    plantHours: 'Poniedziałek – Piątek: 07:00 – 17:00',
+    plantHours: 'Poniedziałek - Piątek: 07:00 - 17:00',
     plantDirections: 'Dojazd: Trasa S2 (węzeł Wał Miedzeszyński / Lubelska S17) lub DW801, 4 km od południowej granicy Warszawy (Wawer).',
     plantRegNote:
-      'Uwaga logistyczna: Biuro rejestrowe spółki znajduje się przy ul. Grzybowskiej 5A w Warszawie (wyłącznie korespondencja formalna) — wszystkie lampy, odbłyśniki i serie produkcyjne przyjmujemy i odsyłamy w zakładzie w Józefowie.',
+      'Uwaga logistyczna: Biuro rejestrowe spółki znajduje się przy ul. Grzybowskiej 5A w Warszawie (wyłącznie korespondencja formalna) - wszystkie lampy, odbłyśniki i serie produkcyjne przyjmujemy i odsyłamy w zakładzie w Józefowie.',
     phone: '+48 882 488 844',
     email: 'metalizacja@staniax.pl',
     serviceRadiusTable: [
       {
         zone: 'Warszawa Wawer / Otwock / Józefów / Karczew',
-        distanceTime: '5–15 minut dojazdu do zakładu',
-        dropoffMode: 'Dowóz osobisty w godz. 07:00–17:00 · odbiór z pierwszej partii',
+        distanceTime: '5-15 minut dojazdu do zakładu',
+        dropoffMode: 'Dowóz osobisty w godz. 07:00-17:00 · odbiór z pierwszej partii',
       },
       {
         zone: 'Warszawa Centrum / Mokotów / Ursynów / Wilanów (S2)',
-        distanceTime: '18–25 minut Południową Obwodnicą S2 i Wałem Miedzeszyńskim',
+        distanceTime: '18-25 minut Południową Obwodnicą S2 i Wałem Miedzeszyńskim',
         dropoffMode: 'Osobiste dostarczenie wyjętych odbłyśników lub kurier lokalny',
       },
       {
         zone: 'Piaseczno / Konstancin-Jeziorna / Praga / Targówek / Marki',
-        distanceTime: '20–35 minut S2 lub Trasą Toruńską S8/S17',
+        distanceTime: '20-35 minut S2 lub Trasą Toruńską S8/S17',
         dropoffMode: 'Osobisty odbiór B2B lub paczkomat/kurier na ul. Wyszyńskiego 116A',
       },
       {
@@ -641,11 +641,11 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       {
         heading: 'Dlaczego warszawskie serwisy i kierowcy dostarczają odbłyśniki bezpośrednio do STANIAX?',
         paragraphs: [
-          'Frazy takie jak metalizacja próżniowa Warszawa, regeneracja lamp Warszawa czy regeneracja reflektorów Otwock prowadzą bezpośrednio do naszej hali pod Warszawą, ponieważ większość studiów detailingu w stolicy nie posiada własnych komór próżniowych — po zdemontowaniu reflektora wysyła same odbłyśniki do wyspecjalizowanej metalizerni przemysłowej i dolicza własną marżę pośrednika.',
+          'Frazy takie jak metalizacja próżniowa Warszawa, regeneracja lamp Warszawa czy regeneracja reflektorów Otwock prowadzą bezpośrednio do naszej hali pod Warszawą, ponieważ większość studiów detailingu w stolicy nie posiada własnych komór próżniowych - po zdemontowaniu reflektora wysyła same odbłyśniki do wyspecjalizowanej metalizerni przemysłowej i dolicza własną marżę pośrednika.',
           'Dostarczając wyjęte odbłyśniki (soczewki H7, Bi-Xenon, czasze motocyklowe lub lampy klasyków) bezpośrednio pod adres naszego zakładu w Józefowie przy ul. Wyszyńskiego 116A, omijasz pośredników i masz bezpośredni kontakt z technologami obsługującymi linie PVD od 1993 roku.',
         ],
         bullets: [
-          'Oszczędność czasu — przywóz osobisty rano 07:00–17:00 przyspiesza kwalifikację w komorze PVD',
+          'Oszczędność czasu - przywóz osobisty rano 07:00-17:00 przyspiesza kwalifikację w komorze PVD',
           'Wygodny dojazd bez korków centrum dzięki zjazdowi z obwodnicy S2 (Wał Miedzeszyński)',
           'Możliwość obejrzenia na miejscu próbników powłok PVD, lakierów UV oraz efektów chromu i złota',
         ],
@@ -653,7 +653,7 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       {
         heading: 'Współpraca B2B z warsztatami z Warszawy, Mazowsza i powiatu otwockiego',
         paragraphs: [
-          'Dla serwisów samochodowych, zakładów blacharsko-lakierniczych i specjalistów od retrofitów oświetlenia z aglomeracji warszawskiej prowadzimy obsługę cykliczną partii tygodniowych. Zamiast przetrzymywać klienta po 10 dni roboczych, odbłyśniki wracają z Józefowa w ciągu 2–3 dni z powłoką powyżej 92% odbicia światła i 24-miesięczną gwarancją.',
+          'Dla serwisów samochodowych, zakładów blacharsko-lakierniczych i specjalistów od retrofitów oświetlenia z aglomeracji warszawskiej prowadzimy obsługę cykliczną partii tygodniowych. Zamiast przetrzymywać klienta po 10 dni roboczych, odbłyśniki wracają z Józefowa w ciągu 2-3 dni z powłoką powyżej 92% odbicia światła i 24-miesięczną gwarancją.',
         ],
       },
     ],
@@ -663,16 +663,16 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
         a: 'Jako przemysłowa metalizernia przyjmujemy bezpośrednio wyjęte odbłyśniki lub zdemontowane lampy dostarczone osobiście lub kurierem. Demontaż zderzaka zalecamy w zaprzyjaźnionym serwisie mechanicznym.',
       },
       {
-        q: 'Gdzie dokładnie zawieźć części — na ul. Grzybowską w Warszawie czy do Józefowa?',
+        q: 'Gdzie dokładnie zawieźć części - na ul. Grzybowską w Warszawie czy do Józefowa?',
         a: 'Wyłącznie do zakładu produkcyjnego w Józefowie przy ul. kard. Stefana Wyszyńskiego 116A (05-420). Adres przy ul. Grzybowskiej 5A to wyłącznie siedziba rejestrowa spółki.',
       },
       {
         q: 'Czy zakład działa w soboty albo po godzinie 17:00?',
-        a: 'Standardowe przyjęcia i wydania trwają od poniedziałku do piątku w godz. 07:00–17:00. W pilnych sprawach flota lub warsztat może uzgodnić odbiór telefonicznie pod +48 882 488 844.',
+        a: 'Standardowe przyjęcia i wydania trwają od poniedziałku do piątku w godz. 07:00-17:00. W pilnych sprawach flota lub warsztat może uzgodnić odbiór telefonicznie pod +48 882 488 844.',
       },
       {
         q: 'Ile trwa napylenie odbłyśnika przy osobistym przywiezieniu z Warszawy?',
-        a: 'Standardowy cykl przygotowania podłoża, podkładu HT i metalizacji próżniowej (zarówno pojedyncza regeneracja lampy samochodowej, jak i komplet obu stron) zajmuje 2–4 dni robocze.',
+        a: 'Standardowy cykl przygotowania podłoża, podkładu HT i metalizacji próżniowej (zarówno pojedyncza regeneracja lampy samochodowej, jak i komplet obu stron) zajmuje 2-4 dni robocze.',
       },
     ],
     relatedLinks: [
@@ -686,27 +686,27 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
   en: {
     metaTitle: 'Headlight Restoration Warsaw & Józefów | STANIAX',
     metaDesc:
-      'Direct vacuum PVD headlight reflector restoration near Warsaw in Józefów (20 min via S2). Drop-off Mon–Fri 07:00–17:00 at ul. Wyszyńskiego 116A + courier.',
+      'Direct vacuum PVD headlight reflector restoration near Warsaw in Józefów (20 min via S2). Drop-off Mon-Fri 07:00-17:00 at ul. Wyszyńskiego 116A + courier.',
     badge: 'Warsaw Metro Plant Drop-Off',
-    h1: 'Headlight & Reflector Restoration — Warsaw & Józefów Plant',
+    h1: 'Headlight & Reflector Restoration - Warsaw & Józefów Plant',
     subtitle:
       'Direct workshop drop-off and B2B turnaround at our vacuum metallization plant 20 minutes southeast of central Warsaw.',
     directAnswerQuestion: 'Where can Warsaw drivers and repair shops deliver reflector bowls directly for PVD?',
     directAnswer:
-      'Deliver dismantled projector bowls and housings directly to STANIAX production plant in Józefów (ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów), just 20 minutes from central Warsaw via S2 Southern Bypass and Wał Miedzeszyński. Drop-offs run Mon–Fri 07:00–17:00, eliminating middleman markups.',
-    plantCardTitle: 'STANIAX Production Plant — Warsaw / Józefów',
+      'Deliver dismantled projector bowls and housings directly to STANIAX production plant in Józefów (ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów), just 20 minutes from central Warsaw via S2 Southern Bypass and Wał Miedzeszyński. Drop-offs run Mon-Fri 07:00-17:00, eliminating middleman markups.',
+    plantCardTitle: 'STANIAX Production Plant - Warsaw / Józefów',
     plantAddress: 'ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów',
-    plantHours: 'Monday – Friday: 07:00 – 17:00 CET',
+    plantHours: 'Monday - Friday: 07:00 - 17:00 CET',
     plantDirections: 'Access: 20 min from Warsaw center via S2 Bypass / Wał Miedzeszyński (DW801), 4 km south of Wawer.',
     plantRegNote:
-      'Logistics note: Registered office (ul. Grzybowska 5A, Warsaw) handles legal correspondence only — always deliver and ship parts directly to our Józefów plant.',
+      'Logistics note: Registered office (ul. Grzybowska 5A, Warsaw) handles legal correspondence only - always deliver and ship parts directly to our Józefów plant.',
     phone: '+48 882 488 844',
     email: 'metalizacja@staniax.pl',
     serviceRadiusTable: [
-      { zone: 'Józefów / Otwock / Warsaw Wawer', distanceTime: '5–15 min drive', dropoffMode: 'Direct counter drop-off Mon–Fri 07:00–17:00' },
-      { zone: 'Warsaw Center / Mokotów / Ursynów / Wilanów', distanceTime: '18–25 min via S2', dropoffMode: 'Personal delivery or same-day metro courier' },
-      { zone: 'Piaseczno / Praga / Marki / Warsaw West', distanceTime: '20–35 min via S2/S8', dropoffMode: 'Direct drop-off or tracked domestic courier' },
-      { zone: 'Nationwide Poland & European Union', distanceTime: '24–72 h parcel transit', dropoffMode: 'Insured return courier from plant floor' },
+      { zone: 'Józefów / Otwock / Warsaw Wawer', distanceTime: '5-15 min drive', dropoffMode: 'Direct counter drop-off Mon-Fri 07:00-17:00' },
+      { zone: 'Warsaw Center / Mokotów / Ursynów / Wilanów', distanceTime: '18-25 min via S2', dropoffMode: 'Personal delivery or same-day metro courier' },
+      { zone: 'Piaseczno / Praga / Marki / Warsaw West', distanceTime: '20-35 min via S2/S8', dropoffMode: 'Direct drop-off or tracked domestic courier' },
+      { zone: 'Nationwide Poland & European Union', distanceTime: '24-72 h parcel transit', dropoffMode: 'Insured return courier from plant floor' },
     ],
     sections: [
       {
@@ -716,7 +716,7 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
         ],
         bullets: [
           'Direct technical assessment of plastic cup heat distortion at intake',
-          'Express 2–4 business day PVD cycle directly in our Ø 1200 mm chambers',
+          'Express 2-4 business day PVD cycle directly in our Ø 1200 mm chambers',
           'Sample boards on display covering chrome, gold, and UV lens hard coats',
         ],
       },
@@ -735,7 +735,7 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       },
       {
         q: 'Which address receives deliveries in Warsaw area?',
-        a: 'Always use the plant address: ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów — not our downtown Grzybowska billing office.',
+        a: 'Always use the plant address: ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów - not our downtown Grzybowska billing office.',
       },
       {
         q: 'What are Warsaw/Józefów drop-off hours?',
@@ -743,7 +743,7 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       },
       {
         q: 'How long is standard PVD completion from intake?',
-        a: 'Typical turnaround for projector bowls is 2–4 working days.',
+        a: 'Typical turnaround for projector bowls is 2-4 working days.',
       },
     ],
     relatedLinks: [
@@ -757,33 +757,33 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
   de: {
     metaTitle: 'Scheinwerfer Aufbereitung Warschau & Józefów | STANIAX',
     metaDesc:
-      'Direktanlieferung im PVD-Werk STANIAX nahe Warschau in Józefów (20 Min über S2): Mo–Fr 07:00–17:00 Uhr, ul. Wyszyńskiego 116A & europaweiter Versand.',
+      'Direktanlieferung im PVD-Werk STANIAX nahe Warschau in Józefów (20 Min über S2): Mo-Fr 07:00-17:00 Uhr, ul. Wyszyńskiego 116A & europaweiter Versand.',
     badge: 'Werkstandort Raum Warschau',
-    h1: 'Scheinwerfer-Aufbereitung & PVD-Werk — Warschau / Józefów',
+    h1: 'Scheinwerfer-Aufbereitung & PVD-Werk - Warschau / Józefów',
     subtitle:
       'Persönliche Annahme für Betriebe aus Warschau/Masowien sowie zentraler Logistikeingang für DHL/DPD-Pakete aus Deutschland und Österreich.',
     directAnswerQuestion: 'Wo befindet sich das STANIAX-Vakuumwerk für persönliche Abgabe und Paketversand?',
     directAnswer:
       'Das Produktionswerk von STANIAX liegt verkehrsgünstig in Józefów bei Warschau (ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów), ca. 20 Minuten vom Warschauer Zentrum über den Südring S2. Warenannahme ist montags bis freitags von 07:00 bis 17:00 Uhr direkt ab Werk ohne Zwischenhändler.',
-    plantCardTitle: 'Produktionswerk STANIAX — Warschau / Józefów',
+    plantCardTitle: 'Produktionswerk STANIAX - Warschau / Józefów',
     plantAddress: 'ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów, Polen',
-    plantHours: 'Montag – Freitag: 07:00 – 17:00 Uhr',
+    plantHours: 'Montag - Freitag: 07:00 - 17:00 Uhr',
     plantDirections: 'Anfahrt: Über Warschauer Südring S2 (Ausfahrt Wał Miedzeszyński / S17), 4 km südlich von Warschau-Wawer.',
     plantRegNote:
-      'Logistikhinweis: Der Firmensitz in Warschau (ul. Grzybowska 5A) dient nur als Rechtsadresse — alle Bauteile und Reflektoren bitte direkt ans Werk Józefów senden.',
+      'Logistikhinweis: Der Firmensitz in Warschau (ul. Grzybowska 5A) dient nur als Rechtsadresse - alle Bauteile und Reflektoren bitte direkt ans Werk Józefów senden.',
     phone: '+48 882 488 844',
     email: 'metalizacja@staniax.pl',
     serviceRadiusTable: [
-      { zone: 'Józefów / Otwock / Warschau-Wawer', distanceTime: '5–15 Min. Fahrzeit', dropoffMode: 'Direktabgabe Mo–Fr 07:00–17:00 Uhr' },
-      { zone: 'Warschau Zentrum / Mokotów / Ursynów (S2)', distanceTime: '18–25 Min. über S2', dropoffMode: 'Persönliche Anlieferung oder Stadtkurier' },
+      { zone: 'Józefów / Otwock / Warschau-Wawer', distanceTime: '5-15 Min. Fahrzeit', dropoffMode: 'Direktabgabe Mo-Fr 07:00-17:00 Uhr' },
+      { zone: 'Warschau Zentrum / Mokotów / Ursynów (S2)', distanceTime: '18-25 Min. über S2', dropoffMode: 'Persönliche Anlieferung oder Stadtkurier' },
       { zone: 'Ganz Polen (Krakau, Breslau, Posen, Danzig)', distanceTime: '24 Std. Kurierlaufzeit', dropoffMode: 'Direkter Rückversand ab Vakuumwerk' },
-      { zone: 'Deutschland, Österreich & DACH-Region', distanceTime: '48–72 Std. DHL/DPD', dropoffMode: 'Versicherter Hin- und Rückversand für Werkstätten & Privat' },
+      { zone: 'Deutschland, Österreich & DACH-Region', distanceTime: '48-72 Std. DHL/DPD', dropoffMode: 'Versicherter Hin- und Rückversand für Werkstätten & Privat' },
     ],
     sections: [
       {
         heading: 'Direktzugang zum Vakuumbeschichter seit 1993',
         paragraphs: [
-          'Viele Kfz-Aufbereiter besitzen keine eigenen Großvakuumanlagen und versenden ausgebaute Teile weiter an Industriebetriebe. Durch Direkteinsendung nach Józefów sparen Werkstätten aus Warschau ebenso wie deutsche Betriebe Vermittlungsaufschläge und erhalten geprüfte >92 % Lichtreflexion in 2–4 Werktagen.',
+          'Viele Kfz-Aufbereiter besitzen keine eigenen Großvakuumanlagen und versenden ausgebaute Teile weiter an Industriebetriebe. Durch Direkteinsendung nach Józefów sparen Werkstätten aus Warschau ebenso wie deutsche Betriebe Vermittlungsaufschläge und erhalten geprüfte >92 % Lichtreflexion in 2-4 Werktagen.',
         ],
         bullets: [
           'Unmittelbare Prüfung auf Verzug oder Brandschäden bei Wareneingang',
@@ -807,15 +807,15 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       },
       {
         q: 'An welche der beiden STANIAX-Adressen muss mein Paket?',
-        a: 'Ausschließlich an das Werk: ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów — nicht an die Verwaltungsadresse in Warschau.',
+        a: 'Ausschließlich an das Werk: ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów - nicht an die Verwaltungsadresse in Warschau.',
       },
       {
         q: 'Wie sind die Öffnungszeiten für Selbstanlieferer?',
-        a: 'Montag bis Freitag durchgehend 07:00–17:00 Uhr.',
+        a: 'Montag bis Freitag durchgehend von 07:00 bis 17:00 Uhr direkt an der Warenannahme unseres Produktionswerks in Józefów.',
       },
       {
         q: 'Wie lange bleibt ein Reflektor im Werk?',
-        a: 'Regelbearbeitungszeit im Werk beträgt 2–4 Werktage ab Eingang.',
+        a: 'Regelbearbeitungszeit im Werk beträgt 2-4 Werktage ab Eingang.',
       },
     ],
     relatedLinks: [

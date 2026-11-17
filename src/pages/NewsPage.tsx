@@ -125,10 +125,10 @@ function NewsPage({ lang = "pl" as Lang }: { lang?: Lang }) {
                 </span>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
                   {activeLang === "pl"
-                    ? "Baza Wiedzy i Poradniki Techniczne — Metalizacja Próżniowa i Lakierowanie"
+                    ? "Baza Wiedzy i Poradniki Techniczne - Metalizacja Próżniowa i Lakierowanie"
                     : activeLang === "de"
-                      ? "Wissensdatenbank & Technische Ratgeber — Vakuummetallisierung & Lackierung"
-                      : "Knowledge Base & Technical Guides — Vacuum Metallization & Coating"}
+                      ? "Wissensdatenbank & Technische Ratgeber - Vakuummetallisierung & Lackierung"
+                      : "Knowledge Base & Technical Guides - Vacuum Metallization & Coating"}
                 </h1>
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
                   {text.newsDesc}

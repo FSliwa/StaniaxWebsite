@@ -140,7 +140,7 @@ function App() {
           <Route path="/en/news/reflector-regeneration-and-headlight-polishing" element={<ArticleReflectors lang="en" />} />
           <Route path="/de/news/scheinwerfer-reflektoren-regeneration-und-polieren" element={<ArticleReflectors lang="de" />} />
 
-          {/* Artykuły z plików .docx (src/data/blog-posts) — tylko PL */}
+          {/* Artykuły z plików .docx (src/data/blog-posts) - tylko PL */}
           {BLOG_POST_SLUGS.map((slug) => (
             <Route key={slug} path={slug} element={<BlogArticlePage slug={slug} />} />
           ))}

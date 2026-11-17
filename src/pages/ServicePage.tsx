@@ -723,7 +723,7 @@ export function ServicePage({ serviceId, lang = 'pl' }: ServicePageProps) {
                               key={ral.code}
                               type="button"
                               onClick={() => setSelectedRalCode(ral.code)}
-                              aria-label={`${ral.code} — ${ral.name}`}
+                              aria-label={`${ral.code} - ${ral.name}`}
                               aria-pressed={isSelected}
                               className={cn(
                                 'group flex flex-col items-center rounded-xl border p-2 transition-all',
@@ -808,7 +808,7 @@ export function ServicePage({ serviceId, lang = 'pl' }: ServicePageProps) {
                           {activeRal.category} · {activeFinish.gloss}
                         </span>
                         <h3 className="text-xl font-bold text-slate-950">
-                          {activeRal.code} — {activeRal.name}
+                          {activeRal.code} - {activeRal.name}
                         </h3>
                         <p className="text-sm text-slate-700 leading-relaxed">
                           {activeFinish.desc}
@@ -818,7 +818,7 @@ export function ServicePage({ serviceId, lang = 'pl' }: ServicePageProps) {
                       <ShimmerButton
                         onClick={() =>
                           handleSelectShowcaseVariant(
-                            `${activeRal.code} (${activeRal.name}) — ${activeFinish.label} [${activeFinish.gloss}]`
+                            `${activeRal.code} (${activeRal.name}) - ${activeFinish.label} [${activeFinish.gloss}]`
                           )
                         }
                         className="w-full justify-center"
@@ -1109,7 +1109,7 @@ export function ServicePage({ serviceId, lang = 'pl' }: ServicePageProps) {
                             : 'Production Plant & Shipping Address:'}
                       </p>
                       <p className="text-slate-700 mt-0.5">
-                        STANIAX Sp. z o.o. — ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów k. Warszawy
+                        STANIAX Sp. z o.o. - ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów k. Warszawy
                       </p>
                       <a
                         href="https://share.google/N7ybGPMOEDI3ZE31X"
@@ -1144,7 +1144,7 @@ export function ServicePage({ serviceId, lang = 'pl' }: ServicePageProps) {
                       </a>
                       <p className="text-xs text-slate-500 mt-0.5">
                         <Clock className="inline h-3.5 w-3.5 mr-1" />
-                        Pon. – Pt.: 07:00 – 17:00
+                        Pon. - Pt.: 07:00 - 17:00
                       </p>
                     </div>
                   </div>

@@ -79,20 +79,20 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           [
             'Vacuum metallization of loose reflector bowl only',
             'Chemical stripping, 220°C thermal base coat, 99.99% Al PVD vacuum deposition, protective top coat',
-            '2–3 business days',
-            '150 – 300 PLN / pc (approx. €35–€70)',
+            '2-3 business days',
+            '150 - 300 PLN / pc (approx. €35-€70)',
           ],
           [
             'Complete single headlamp restoration (H7 / Xenon / Bi-Xenon)',
             'Headlamp disassembly, projector reflector resilvering, lens cleaning, PC lens polishing + UV coat, resealing',
-            '3–5 business days',
-            '350 – 700 PLN / pc (approx. €80–€165)',
+            '3-5 business days',
+            '350 - 700 PLN / pc (approx. €80-€165)',
           ],
           [
             'Full pair headlamp rebuild (2 pcs) + electronics / LED / classics',
             'Complete pair restoration, PP/ABS bracket welding, ballast/LED repair or vintage steel reflector corrosion rebuild',
-            '4–7 business days',
-            '1,500 – 5,000+ PLN / pair',
+            '4-7 business days',
+            '1,500 - 5,000+ PLN / pair',
           ],
         ],
         footnote: 'Exact quotes are confirmed upon inspection or via photos attached to your inquiry. We offer B2B wholesale rates for automotive lighting workshops and classic car restorers across Europe.',
@@ -103,21 +103,21 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         h2: 'Why Do Headlights Lose Brightness and Why Lens Polishing Alone Fails?',
         paragraphs: [
           'Drivers who polish cloudy polycarbonate headlight lenses are often disappointed to find that low-beam visibility at night remains dangerously weak and fails MOT/TUV beam pattern inspections. In over 80% of projector headlights (Xenon, Bi-Xenon, and halogen H7 projectors), the root cause is a burnt reflector bowl hidden behind the glass projector lens.',
-          'HID xenon burners and halogen bulbs generate temperatures reaching 180–220°C directly above the arc chamber, combined with intense UV radiation. After 120,000 to 180,000 km of driving, the factory 80-nanometer aluminum layer suffers thermal degradation: it turns milky yellow, loses specular reflectance, and eventually burns down to bare black BMC/PPS composite or rusted steel. A burnt reflector absorbs up to 70% of the luminous flux instead of projecting it onto the road.',
+          'HID xenon burners and halogen bulbs generate temperatures reaching 180-220°C directly above the arc chamber, combined with intense UV radiation. After 120,000 to 180,000 km of driving, the factory 80-nanometer aluminum layer suffers thermal degradation: it turns milky yellow, loses specular reflectance, and eventually burns down to bare black BMC/PPS composite or rusted steel. A burnt reflector absorbs up to 70% of the luminous flux instead of projecting it onto the road.',
         ],
         subSections: [
           {
             h3: 'PVD Vacuum Reflector Resilvering vs DIY Chrome Spray Paint',
             body: 'Aerosol "chrome sprays" and reflective adhesive foils cannot survive inside an automotive headlamp optical assembly for three engineering reasons:',
             bullets: [
-              'Directional specular reflectance of chrome paint is only 45–55%, whereas high-vacuum PVD aluminum achieves >92% optical mirror reflection.',
-              'Aerosol resins outgas and soften at 80–90°C, filling the headlamp housing with solvent vapor that permanently fogs the inside of the lens.',
+              'Directional specular reflectance of chrome paint is only 45-55%, whereas high-vacuum PVD aluminum achieves >92% optical mirror reflection.',
+              'Aerosol resins outgas and soften at 80-90°C, filling the headlamp housing with solvent vapor that permanently fogs the inside of the lens.',
               'Only PVD vacuum deposition preserves nanometric surface smoothness (Ra < 0.02 µm) required for a razor-sharp ECE cut-off line.',
             ],
           },
           {
             h3: 'Polycarbonate Lens Restoration with Hard UV Lacquer',
-            body: 'Factory polycarbonate headlamp lenses are protected by a hard UV-absorbing clear coat. Abrasive polishing without reapplying a UV barrier leaves raw polycarbonate exposed to sunlight, causing it to turn yellow again within 3–6 months. At STANIAX, we wet-sand away the oxidized layer and apply an industrial UV-cured or 2K polyurethane clear coat resistant to stone chips and pressure washers.',
+            body: 'Factory polycarbonate headlamp lenses are protected by a hard UV-absorbing clear coat. Abrasive polishing without reapplying a UV barrier leaves raw polycarbonate exposed to sunlight, causing it to turn yellow again within 3-6 months. At STANIAX, we wet-sand away the oxidized layer and apply an industrial UV-cured or 2K polyurethane clear coat resistant to stone chips and pressure washers.',
           },
         ],
       },
@@ -142,11 +142,11 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       h2: 'Interactive Before & After Reflector Restoration Comparison',
       subtitle: 'Drag the slider (with mouse, touch, or Left/Right arrow keys) to compare a burnt, oxidized projector bowl with a reflector restored by PVD aluminum metallization at STANIAX.',
       ctaLabel: 'Request a quote for your headlights →',
-      beforeLabel: 'BEFORE — Burnt coating',
-      afterLabel: 'AFTER — 99.99% Al PVD Mirror',
+      beforeLabel: 'BEFORE - Burnt coating',
+      afterLabel: 'AFTER - 99.99% Al PVD Mirror',
       beforeAlt: 'Burnt and matte automotive headlight reflector bowl before restoration',
       afterAlt: 'Automotive headlight reflector bowl after PVD vacuum aluminum restoration at STANIAX',
-      sliderSummary: 'Restoring the reflector mirror increases road illumination by 200–300% compared to a burnt bowl, restoring full low-beam and high-beam range.',
+      sliderSummary: 'Restoring the reflector mirror increases road illumination by 200-300% compared to a burnt bowl, restoring full low-beam and high-beam range.',
     },
     processSection: {
       h2: 'Our 4-Stage Headlight Reflector Restoration Process',
@@ -174,7 +174,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           num: '04',
           title: 'Protective Top Coat & Hermetic Assembly',
           desc: 'We seal the aluminum with an organosilicon protective film, polish and UV-coat the outer polycarbonate lens, and pressure-test the sealed housing.',
-          param: '12–24 months durability warranty',
+          param: '12-24 months durability warranty',
         },
       ],
     },
@@ -205,19 +205,19 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         {
           badge: 'MAIL-IN SERVICE ACROSS EUROPE',
           h3: 'Fast Courier Turnaround for Disassembled Reflectors',
-          body: 'Ship your removed projector bowls or complete headlamps to our facility near Warsaw. We resilver and dispatch your parts back within 2–4 business days.',
+          body: 'Ship your removed projector bowls or complete headlamps to our facility near Warsaw. We resilver and dispatch your parts back within 2-4 business days.',
           spec: 'Facility address: ul. Wyszyńskiego 116A, 05-420 Józefów, Poland',
         },
         {
           badge: 'FOR LIGHTING WORKSHOPS (B2B)',
           h3: 'Wholesale Reflector Metallization Partnership',
           body: 'We provide priority vacuum chamber slots, consistent optical quality, and wholesale B2B pricing for headlamp retrofitters and automotive repair shops from 5+ units.',
-          spec: 'EU VAT Invoices · Express 24–48h partner turnaround',
+          spec: 'EU VAT Invoices · Express 24-48h partner turnaround',
         },
         {
           badge: 'CLASSIC CAR RESTORATION',
           h3: 'Authentic Rebuild of Vintage Metal Reflectors',
-          body: 'We restore original Bosch, Hella, Cibie, Carello, and Lucas reflectors — removing rust, leveling pits, and depositing pure PVD aluminum while preserving original glass markings.',
+          body: 'We restore original Bosch, Hella, Cibie, Carello, and Lucas reflectors - removing rust, leveling pits, and depositing pure PVD aluminum while preserving original glass markings.',
           spec: 'Full anti-corrosion epoxy-acrylic foundation before PVD',
         },
       ],
@@ -238,7 +238,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           badge: 'MULTI-CHAMBER HEADLAMPS',
           h3: 'Vacuum Metallization of Main Reflectors & Decorative Bezels',
           desc: 'Mirror aluminum deposition on complex multi-surface PC/ABS and thermoset reflectors without orange peel or dust inclusions.',
-          param: 'Al layer thickness: 80–100 nm + protective Top Coat',
+          param: 'Al layer thickness: 80-100 nm + protective Top Coat',
           imageKey: 'reflectors2',
           alt: 'Multi-chamber automotive headlight reflectors coated with mirror aluminum in vacuum chamber',
         },
@@ -258,11 +258,11 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: 'How much does headlight reflector restoration cost?',
-          a: 'Vacuum metallizing a single disassembled reflector bowl costs 150–300 PLN (approx. €35–€70) depending on size and substrate condition. Complete restoration of an entire headlamp (opening the housing, reflector PVD resilvering, projector cleaning, outer lens polishing with UV hard coat, and resealing) costs 350–700 PLN per lamp, while complex adaptive LED/Xenon or vintage full-pair rebuilds range from 1,500 to 5,000+ PLN per pair.',
+          a: 'Vacuum metallizing a single disassembled reflector bowl costs 150-300 PLN (approx. €35-€70) depending on size and substrate condition. Complete restoration of an entire headlamp (opening the housing, reflector PVD resilvering, projector cleaning, outer lens polishing with UV hard coat, and resealing) costs 350-700 PLN per lamp, while complex adaptive LED/Xenon or vintage full-pair rebuilds range from 1,500 to 5,000+ PLN per pair.',
         },
         {
           q: 'How long does the restoration take and can I ship parts by courier?',
-          a: 'Yes, we process mail-in orders from all over Poland and the EU. Loose reflector bowls are recoated and shipped back within 2–3 business days of arrival at our Józefów plant. Complete headlamps take 3–5 business days.',
+          a: 'Yes, we process mail-in orders from all over Poland and the EU. Loose reflector bowls are recoated and shipped back within 2-3 business days of arrival at our Józefów plant. Complete headlamps take 3-5 business days.',
         },
         {
           q: 'Is it better to restore original OEM headlights or buy cheap aftermarket replacements?',
@@ -278,7 +278,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: 'How long does a vacuum-metallized reflector last?',
-          a: 'With our 220°C thermosetting base coat and pure aluminum PVD layer, durability matches a brand-new OEM reflector — typically 5 to 8 years or 150,000+ km when used with standard-wattage (35W HID / 55W halogen) road-legal bulbs.',
+          a: 'With our 220°C thermosetting base coat and pure aluminum PVD layer, durability matches a brand-new OEM reflector - typically 5 to 8 years or 150,000+ km when used with standard-wattage (35W HID / 55W halogen) road-legal bulbs.',
         },
       ],
     },
@@ -323,13 +323,13 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
 
   'vacuum-metallization': {
     navLabel: 'Vacuum metallisation (PVD)',
-    shortSummary: 'Industrial PVD vacuum metalizing & vacuum metallising with 99.99% aluminum — mirror chrome, gold, copper, and EMI/RFI shielding coatings.',
+    shortSummary: 'Industrial PVD vacuum metalizing & vacuum metallising with 99.99% aluminum - mirror chrome, gold, copper, and EMI/RFI shielding coatings.',
     metaTitle: 'Vacuum Metallisation & PVD Vacuum Metalizing | STANIAX',
     metaDesc: 'Industrial vacuum metallisation (vacuum metalizing / PVD coating) at STANIAX Poland. Mirror chrome, gold, inox & reflective 99.99% Al coatings for B2B.',
     breadcrumbLabel: 'Vacuum metallisation (PVD)',
     heroBadge: 'PVD Technology Developed Since 1993 (Dariusz Staniak · STANIAX Sp. z o.o.)',
     h1: 'Vacuum Metallisation & PVD Vacuum Metalizing Services',
-    lead: 'Vacuum metallisation (also spelled vacuum metallising or vacuum metalizing — Physical Vapor Deposition, PVD) is an advanced thin-film process that deposits a nanometric metallic layer inside a high-vacuum chamber. At our STANIAX production plant in Józefów near Warsaw, we coat plastics, metals, glass, and ceramics with mirror-grade 99.99% aluminum, gold, copper, and functional optical or EMI-shielding films.',
+    lead: 'Vacuum metallisation (also spelled vacuum metallising or vacuum metalizing - Physical Vapor Deposition, PVD) is an advanced thin-film process that deposits a nanometric metallic layer inside a high-vacuum chamber. At our STANIAX production plant in Józefów near Warsaw, we coat plastics, metals, glass, and ceramics with mirror-grade 99.99% aluminum, gold, copper, and functional optical or EMI-shielding films.',
     ctaPrimaryLabel: 'Request a vacuum metallisation quote →',
     ctaSecondaryLabel: 'Explore the 4-layer PVD architecture ↓',
     heroImageKey: 'vacuumHero',
@@ -361,7 +361,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       cardSubtitle: 'Integrated surface pre-treatment, Base Coat leveling, high-vacuum PVD deposition, and tinted Top Coat line',
       highlights: [
         'Thermal evaporation of 99.99% pure aluminum in high-vacuum chambers equipped with planetary rotation fixtures for uniform 3D coverage.',
-        'Complete 3-coat system: Leveling Base Coat + PVD Metallic Layer (50–120 nm) + Protective Top Coat (UV-cured or 2K polyurethane/acrylic).',
+        'Complete 3-coat system: Leveling Base Coat + PVD Metallic Layer (50-120 nm) + Protective Top Coat (UV-cured or 2K polyurethane/acrylic).',
         'Custom Top Coat tinting for any metallic finish: mirror chrome, 14K/18K/24K gold, rose gold, copper, brass, titanium, brushed inox, and dark chrome.',
         'In-house engineering and fabrication of custom planetary jigs, satellites, and precision masks tailored to complex client geometries.',
         'Functional vacuum coatings: >92% reflective optical mirrors, IR heat shields, and conductive EMI/RFI shielding on electronics enclosures.',
@@ -373,19 +373,19 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             'Chamber operating pressure',
-            '10⁻⁴ – 5×10⁻⁵ mbar (high vacuum)',
+            '10⁻⁴ - 5×10⁻⁵ mbar (high vacuum)',
             'Zero gas inclusions, maximum metallic density and mirror clarity',
             'Digital high-vacuum gauges on every cycle',
           ],
           [
             'PVD aluminum layer thickness',
-            '50 – 120 nanometers (0.05 – 0.12 µm)',
+            '50 - 120 nanometers (0.05 - 0.12 µm)',
             'Zero dimensional impact on threads, snap-fits, or assembly tolerances',
             'Optical transmission & surface resistance control',
           ],
           [
             'Total lacquer system (Base + Top)',
-            '15 – 35 µm (tailored to substrate)',
+            '15 - 35 µm (tailored to substrate)',
             'Levels injection molding micro-roughness (Ra < 0.02 µm) and provides UV/wear durability',
             'Ultrasonic / eddy-current film thickness gauge',
           ],
@@ -411,15 +411,15 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
             h3: 'Role of the Base Coat and Top Coat in Vacuum Metallising',
             body: 'Every STANIAX vacuum metallisation system is engineered as four synergistic layers:',
             bullets: [
-              'Layer 1 — Chemically cleaned & deionized substrate: degreased and blown with ionized air to neutralize static charges that attract dust.',
-              'Layer 2 — Leveling Base Coat: fills polymer flow lines and mold micro-scratches, forming a glass-smooth film with surface energy tuned for aluminum bonding.',
-              'Layer 3 — 99.99% Aluminum PVD Film: delivers 100% metallic luster, optical reflection (>92%), or electromagnetic shielding.',
-              'Layer 4 — Protective Top Coat: seals the aluminum against abrasion, hand sweat, cosmetics, alcohols, and UV rays, while allowing transparent dye tinting.',
+              'Layer 1 - Chemically cleaned & deionized substrate: degreased and blown with ionized air to neutralize static charges that attract dust.',
+              'Layer 2 - Leveling Base Coat: fills polymer flow lines and mold micro-scratches, forming a glass-smooth film with surface energy tuned for aluminum bonding.',
+              'Layer 3 - 99.99% Aluminum PVD Film: delivers 100% metallic luster, optical reflection (>92%), or electromagnetic shielding.',
+              'Layer 4 - Protective Top Coat: seals the aluminum against abrasion, hand sweat, cosmetics, alcohols, and UV rays, while allowing transparent dye tinting.',
             ],
           },
           {
-            h3: 'Vacuum Metallisation vs Electroplating — B2B Cost & Material Comparison',
-            body: 'Traditional galvanic chrome plating is restricted to metals and special plating-grade ABS etched in hazardous chromic acid baths. PVD vacuum metalizing eliminates toxic Cr6+ effluent, reduces unit production costs by 30–50%, and coats almost any engineering plastic (PC, PMMA, PA, PP, PS, BMC/SMC), glass, or metal.',
+            h3: 'Vacuum Metallisation vs Electroplating - B2B Cost & Material Comparison',
+            body: 'Traditional galvanic chrome plating is restricted to metals and special plating-grade ABS etched in hazardous chromic acid baths. PVD vacuum metalizing eliminates toxic Cr6+ effluent, reduces unit production costs by 30-50%, and coats almost any engineering plastic (PC, PMMA, PA, PP, PS, BMC/SMC), glass, or metal.',
           },
         ],
       },
@@ -462,12 +462,12 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           id: 'basecoat',
           label: '02. Leveling Base Coat',
           badge: 'OPTICAL SMOOTHING',
-          title: 'Adhesion-Promoting & Leveling Primer (10–20 µm)',
+          title: 'Adhesion-Promoting & Leveling Primer (10-20 µm)',
           description: 'Forms a glass-smooth film that bridges mold texture and micro-pores. Without a high-gloss Base Coat, the nanometric metal layer would appear dull.',
           specs: [
-            { label: 'Layer thickness', value: '10 – 20 µm' },
+            { label: 'Layer thickness', value: '10 - 20 µm' },
             { label: 'Cured surface roughness', value: 'Ra < 0.02 µm (optical mirror grade)' },
-            { label: 'Curing method', value: 'Thermal convection oven (60–180°C) or UV tunnel' },
+            { label: 'Curing method', value: 'Thermal convection oven (60-180°C) or UV tunnel' },
           ],
           previewStyle: 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)',
         },
@@ -475,10 +475,10 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           id: 'aluminum-pvd',
           label: '03. 99.99% Aluminum PVD',
           badge: 'HIGH-VACUUM CHAMBER',
-          title: 'Vacuum-Deposited Pure Aluminum Layer (50–120 nm)',
+          title: 'Vacuum-Deposited Pure Aluminum Layer (50-120 nm)',
           description: 'Deposited at 10⁻⁴ mbar high vacuum to provide mirror chrome brilliance, 98% light reflectance, and EMI/RFI shielding conductivity.',
           specs: [
-            { label: 'Metal film thickness', value: '50 – 120 nm (0.05 – 0.12 µm)' },
+            { label: 'Metal film thickness', value: '50 - 120 nm (0.05 - 0.12 µm)' },
             { label: 'Metal purity', value: '99.99% vacuum-grade aluminum' },
             { label: 'Visible reflectance', value: '>92% across visible spectrum' },
           ],
@@ -491,7 +491,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           title: 'Clear Chrome or Tinted Gold / Copper / Titanium Top Coat',
           description: 'Seals the delicate aluminum layer against abrasion, corrosion, fragrances, and UV light. Transparent metal-complex dyes create gold, copper, or dark chrome shades.',
           specs: [
-            { label: 'Top coat thickness', value: '10 – 20 µm (2K polyurethane / acrylic / UV)' },
+            { label: 'Top coat thickness', value: '10 - 20 µm (2K polyurethane / acrylic / UV)' },
             { label: 'Available metallic shades', value: 'Chrome, 14K/24K Gold, Rose Gold, Copper, Titanium, Inox' },
             { label: 'Gloss range', value: 'High Gloss (>90 GU), Brushed Satin, or Matte' },
           ],
@@ -556,14 +556,14 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         {
           badge: 'INJECTION MOLDERS & OEMs',
           h3: 'Direct Finishing Partner for Injection Molding Plants',
-          body: 'We act as your external surface finishing department — receiving raw molded parts directly from your presses and shipping finished, QC-inspected metallized components.',
+          body: 'We act as your external surface finishing department - receiving raw molded parts directly from your presses and shipping finished, QC-inspected metallized components.',
           spec: 'Capacity from pilot runs to thousands of pieces per day',
         },
         {
           badge: 'R&D & 3D PRINT PROTOTYPING',
           h3: 'Metallization of SLA/SLS Prototypes & Color Sampling',
           body: 'We produce rapid color samples (chrome, gold, satin, gunmetal) on 3D-printed prototypes and pilot molds so design teams can approve finishes before mass tooling.',
-          spec: 'Rapid sample turnaround in 48–72h',
+          spec: 'Rapid sample turnaround in 48-72h',
         },
         {
           badge: 'OPTICS & TECHNICAL LIGHTING',
@@ -609,7 +609,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: 'How does PVD vacuum metallisation differ from traditional electroplating?',
-          a: 'PVD vacuum metallisation evaporates 99.99% pure aluminum inside a high-vacuum chamber over a leveling Base Coat and seals it with a protective Top Coat. Unlike galvanic electroplating, it uses zero toxic hexavalent chromium (Cr6+) or acid baths, works on virtually any plastic (not just plating-grade ABS), glass, and metal, and allows effortless tinting into gold, rose gold, copper, or dark chrome at a 30–50% lower unit cost.',
+          a: 'PVD vacuum metallisation evaporates 99.99% pure aluminum inside a high-vacuum chamber over a leveling Base Coat and seals it with a protective Top Coat. Unlike galvanic electroplating, it uses zero toxic hexavalent chromium (Cr6+) or acid baths, works on virtually any plastic (not just plating-grade ABS), glass, and metal, and allows effortless tinting into gold, rose gold, copper, or dark chrome at a 30-50% lower unit cost.',
         },
         {
           q: 'Which materials can be coated using vacuum metalizing?',
@@ -617,15 +617,15 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: 'Does vacuum metallisation alter part dimensions or clog threads?',
-          a: 'The PVD aluminum layer itself is only 50–120 nanometers (0.05–0.12 µm) thick, which is dimensionally negligible. The complete lacquer system (Base Coat + Top Coat) adds 15–35 µm. Where tight mechanical fits or threads exist, we mask critical mating surfaces on our custom fixtures.',
+          a: 'The PVD aluminum layer itself is only 50-120 nanometers (0.05-0.12 µm) thick, which is dimensionally negligible. The complete lacquer system (Base Coat + Top Coat) adds 15-35 µm. Where tight mechanical fits or threads exist, we mask critical mating surfaces on our custom fixtures.',
         },
         {
           q: 'What is your minimum order quantity (MOQ) and lead time?',
-          a: 'We have no prohibitive MOQ — we quote single prototypes and sampling runs as well as multi-thousand-piece serial contracts. Standard production lead time is 5–10 business days, with 2–4 day express processing for prototypes.',
+          a: 'We have no prohibitive MOQ - we quote single prototypes and sampling runs as well as multi-thousand-piece serial contracts. Standard production lead time is 5-10 business days, with 2-4 day express processing for prototypes.',
         },
         {
           q: 'Is vacuum-metallized coating resistant to UV, scratches, and chemicals?',
-          a: 'Yes. Operational durability is governed by the Top Coat. Depending on your specification, we apply hard UV-cured top coats (2H–4H pencil hardness for cosmetic packaging) or flexible 2K polyurethane/acrylic automotive-grade clear coats with UV absorbers for outdoor durability.',
+          a: 'Yes. Operational durability is governed by the Top Coat. Depending on your specification, we apply hard UV-cured top coats (2H-4H pencil hardness for cosmetic packaging) or flexible 2K polyurethane/acrylic automotive-grade clear coats with UV absorbers for outdoor durability.',
         },
         {
           q: 'How should injection-molded parts be prepared before shipping to STANIAX?',
@@ -656,7 +656,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           path: '/en/plastic-parts-painting',
-          anchorText: 'Industrial Plastic Parts Painting — Piano Black, Soft-Touch & RAL',
+          anchorText: 'Industrial Plastic Parts Painting - Piano Black, Soft-Touch & RAL',
           badge: 'COMPLEMENTARY SERVICE',
           desc: 'Liquid spray painting for plastic housings and decorative components.',
         },
@@ -673,7 +673,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
 
   'plastic-metallization': {
     navLabel: 'Plastic chrome plating',
-    shortSummary: 'Vacuum plastic chrome plating & polymer metallization (ABS, PC, PP, PMMA, PA) — mirror chrome, 24K gold, brushed satin, and dark chrome.',
+    shortSummary: 'Vacuum plastic chrome plating & polymer metallization (ABS, PC, PP, PMMA, PA) - mirror chrome, 24K gold, brushed satin, and dark chrome.',
     metaTitle: 'Plastic Chrome Plating & Polymer Metallization | STANIAX',
     metaDesc: 'Professional plastic chrome plating and vacuum metallization of plastics at STANIAX. Mirror chrome, gold, rose gold & satin on ABS, PC, PP, PMMA & 3D prints.',
     breadcrumbLabel: 'Plastic chrome plating & metallization',
@@ -695,7 +695,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         value: 12,
         suffix: '+',
         label: 'Metallic color finishes',
-        detail: 'Mirror chrome, 14K–24K gold, rose gold, copper, brass, titanium, gunmetal & satin nickel',
+        detail: 'Mirror chrome, 14K-24K gold, rose gold, copper, brass, titanium, gunmetal & satin nickel',
       },
       {
         value: 100,
@@ -723,7 +723,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             'ABS / SAN / ASA',
-            'Medium surface energy (38–42 mN/m), excellent wettability',
+            'Medium surface energy (38-42 mN/m), excellent wettability',
             'Antistatic wash + acrylic-polyurethane or UV leveling Base Coat',
             'Automotive emblems, air vents, appliance housings, cosmetic compacts, trophies',
           ],
@@ -746,22 +746,22 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
             'Under-hood automotive parts, projector housings, technical handles',
           ],
         ],
-        footnote: 'Unsure which polymer your part is molded from? Send us sample parts — our lab will run adhesion trials and recommend the optimal coating stack.',
+        footnote: 'Unsure which polymer your part is molded from? Send us sample parts - our lab will run adhesion trials and recommend the optimal coating stack.',
       },
     },
     editorialSections: [
       {
         h2: 'Why Vacuum Plastic Chrome Plating Is Replacing Galvanic Electroplating',
         paragraphs: [
-          'Strict EU REACH regulations restricting hexavalent chromium trioxide, combined with the push for lightweight product design, have made PVD vacuum plastic chrome plating the industry standard. An injection-molded polymer part coated with a nanometric aluminum mirror and a hard clear coat looks identical to galvanic chrome while weighing 60–70% less than a die-cast ZnAl or brass component.',
+          'Strict EU REACH regulations restricting hexavalent chromium trioxide, combined with the push for lightweight product design, have made PVD vacuum plastic chrome plating the industry standard. An injection-molded polymer part coated with a nanometric aluminum mirror and a hard clear coat looks identical to galvanic chrome while weighing 60-70% less than a die-cast ZnAl or brass component.',
           'For cosmetic packaging brands, plumbing fixture manufacturers, lighting producers, and automotive suppliers, this delivers two major advantages: lower molding costs (using standard PP, PS, or ABS resins) and unlimited metallic color options that wet electroplating cannot produce.',
         ],
         subSections: [
           {
             h3: 'Eliminating Injection Molding Defects Before Mirror Metallization',
-            body: 'A mirror chrome finish magnifies any surface flaw from the injection mold — weld lines, sink marks, splay, or internal stress. At STANIAX we optimize the coating process to mask minor molding imperfections:',
+            body: 'A mirror chrome finish magnifies any surface flaw from the injection mold - weld lines, sink marks, splay, or internal stress. At STANIAX we optimize the coating process to mask minor molding imperfections:',
             bullets: [
-              'We adjust Base Coat film build (12–25 µm) and flow characteristics to level fine mold tooling marks without flooding sharp edges.',
+              'We adjust Base Coat film build (12-25 µm) and flow characteristics to level fine mold tooling marks without flooding sharp edges.',
               'We perform thermal annealing on stressed PC and PMMA parts prior to coating to eliminate solvent-induced crazing.',
               'We use ionized air knives right before spraying so electrostatically charged plastic does not attract airborne fibers.',
             ],
@@ -775,12 +775,12 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       {
         h2: 'Full Spectrum of Metallic Shades on Plastic Substrates',
         paragraphs: [
-          'By tinting the protective Top Coat with lightfast transparent dyes, we can produce multiple product tiers from a single injection mold — for example, a standard line in Mirror Chrome, a luxury line in 24K Gold, and a limited edition in Rose Gold or Dark Chrome.',
+          'By tinting the protective Top Coat with lightfast transparent dyes, we can produce multiple product tiers from a single injection mold - for example, a standard line in Mirror Chrome, a luxury line in 24K Gold, and a limited edition in Rose Gold or Dark Chrome.',
         ],
         subSections: [
           {
             h3: 'High-Gloss Mirror Chrome vs Anti-Fingerprint Satin Nickel / Inox',
-            body: 'Incorporating matting agents into the Top Coat creates a cool, brushed satin aluminum, titanium, or stainless steel (Inox) look that resists fingerprints — ideal for coffee machines, audio equipment, flush plates, and car interiors.',
+            body: 'Incorporating matting agents into the Top Coat creates a cool, brushed satin aluminum, titanium, or stainless steel (Inox) look that resists fingerprints - ideal for coffee machines, audio equipment, flush plates, and car interiors.',
           },
         ],
       },
@@ -797,9 +797,9 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           title: 'High-Gloss Mirror Chrome on ABS, PC & PP',
           description: 'Flawless silver mirror coating (>92% reflection) replacing galvanic chrome on automotive emblems, lighting bezels, flush buttons, and packaging closures.',
           specs: [
-            { label: '60° Gloss level', value: '92 – 98 GU (full optical mirror)' },
+            { label: '60° Gloss level', value: '92 - 98 GU (full optical mirror)' },
             { label: 'Color tone', value: 'Cool silver chrome / pure aluminum' },
-            { label: 'Top Coat pencil hardness', value: '2H – 4H (UV-cured system)' },
+            { label: 'Top Coat pencil hardness', value: '2H - 4H (UV-cured system)' },
           ],
           previewStyle: 'linear-gradient(135deg, #cbd5e1 0%, #ffffff 48%, #64748b 100%)',
         },
@@ -823,7 +823,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           title: 'Brushed Satin Nickel, Titanium & Smoked Dark Chrome (Gunmetal)',
           description: 'Sophisticated technical metallic finish with anti-fingerprint properties for modern appliances, audio gear, sanitary ware, and automotive dechroming.',
           specs: [
-            { label: '60° Gloss level', value: '15 – 45 GU (satin) or 85 GU (Dark Chrome)' },
+            { label: '60° Gloss level', value: '15 - 45 GU (satin) or 85 GU (Dark Chrome)' },
             { label: 'Tactile benefit', value: 'Minimizes visible fingerprints and smudges' },
             { label: 'Abrasion resistance', value: 'Heavy-duty 2K polyurethane protective top coat' },
           ],
@@ -901,7 +901,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           badge: 'FURNITURE & SANITARY HARDWARE',
           h3: 'Lightweight Replacements for ZnAl & Brass Castings',
           body: 'Switch from costly polished metal castings to injection-molded plastics finished with wear-resistant PVD chrome, satin nickel, or brushed brass.',
-          spec: 'Reduces unit component cost by 35–50%',
+          spec: 'Reduces unit component cost by 35-50%',
         },
       ],
     },
@@ -945,7 +945,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: 'How much does plastic chrome plating cost?',
-          a: 'For serial B2B production, unit pricing depends on part dimensions (how many pieces fit on a vacuum chamber planetary drum), substrate type, and Top Coat specification — ranging from a few euro cents for small cosmetic caps to a few euros for larger housings. For single automotive restoration parts (grilles, emblems), custom quotes start around 150–250 PLN (€35–€60).',
+          a: 'For serial B2B production, unit pricing depends on part dimensions (how many pieces fit on a vacuum chamber planetary drum), substrate type, and Top Coat specification - ranging from a few euro cents for small cosmetic caps to a few euros for larger housings. For single automotive restoration parts (grilles, emblems), custom quotes start around 150-250 PLN (€35-€60).',
         },
         {
           q: 'Will chrome plating on plastic peel or rub off during daily use?',
@@ -982,13 +982,13 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       links: [
         {
           path: '/en/plastic-parts-painting',
-          anchorText: 'Industrial Plastic Parts Painting — Piano Black, Soft-Touch & RAL',
+          anchorText: 'Industrial Plastic Parts Painting - Piano Black, Soft-Touch & RAL',
           badge: 'LIQUID PLASTIC COATING',
           desc: 'Explore opaque, matte, textured, and haptic Soft-Touch painting on injection-molded plastics.',
         },
         {
           path: '/en/vacuum-metallisation',
-          anchorText: 'PVD Vacuum Metallisation — Chamber Specs & 4-Layer Physics',
+          anchorText: 'PVD Vacuum Metallisation - Chamber Specs & 4-Layer Physics',
           badge: 'PVD TECHNOLOGY',
           desc: 'Deep dive into high-vacuum aluminum evaporation and functional coatings.',
         },
@@ -1005,7 +1005,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
 
   'plastic-painting': {
     navLabel: 'Plastic parts painting',
-    shortSummary: 'Industrial plastic spray painting (ABS, PC, PP, PA, PMMA) — Piano Black high gloss, haptic Soft-Touch, deep matte, textured, and custom RAL/NCS colors.',
+    shortSummary: 'Industrial plastic spray painting (ABS, PC, PP, PA, PMMA) - Piano Black high gloss, haptic Soft-Touch, deep matte, textured, and custom RAL/NCS colors.',
     metaTitle: 'Plastic Parts Painting & Industrial Coating | STANIAX',
     metaDesc: 'Industrial plastic parts painting at STANIAX (Warsaw, Poland). Piano Black high gloss, Soft-Touch rubberized finish, matte, texture & full RAL/NCS/Pantone.',
     breadcrumbLabel: 'Industrial plastic parts painting',
@@ -1055,30 +1055,30 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             'Piano Black / High Gloss 2K & UV',
-            '90 – 96 GU (mirror gloss)',
-            'High surface hardness (2H–3H), deep color saturation, chemical and micro-scratch resistance',
+            '90 - 96 GU (mirror gloss)',
+            'High surface hardness (2H-3H), deep color saturation, chemical and micro-scratch resistance',
             'Automotive interior trims, audio/TV bezels, luxury cosmetic jars and caps',
           ],
           [
             'Deep Matte & Architectural Satin',
-            '3 – 10 GU (matte) / 20 – 35 GU (satin)',
+            '3 - 10 GU (matte) / 20 - 35 GU (satin)',
             'Zero glare, clean technical look, low fingerprint visibility',
             'Lighting fixtures, camera/sensor housings, consumer electronics, furniture',
           ],
           [
             'Soft-Touch (Haptic PUR Coating)',
-            '2 – 5 GU (velvety ultramatte)',
+            '2 - 5 GU (velvety ultramatte)',
             'Warm, rubberized anti-slip grip, sound/vibration damping, high flexibility',
             'Medical handpieces, powerbanks, cosmetic closures, tool & appliance grips',
           ],
           [
             'Structural Texture (Fine / Coarse)',
-            '5 – 15 GU (grained texture)',
+            '5 - 15 GU (grained texture)',
             'Hides molding sink marks, weld lines, and glass-fiber surfacing in a single pass',
             'Industrial enclosures, diagnostic instruments, POS terminals, machine covers',
           ],
         ],
-        footnote: 'Every solvent blend and curing profile (40–80°C) is matched to the specific polymer to prevent warping or environmental stress cracking (ESC).',
+        footnote: 'Every solvent blend and curing profile (40-80°C) is matched to the specific polymer to prevent warping or environmental stress cracking (ESC).',
       },
     },
     editorialSections: [
@@ -1123,8 +1123,8 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           title: 'Mirror-Deep Piano Black / High Gloss 2K & UV',
           description: 'Glass-smooth high-gloss finish cured via 2K polyurethane or UV radiation. Used on automotive center consoles, audio faceplates, and luxury packaging.',
           specs: [
-            { label: '60° Gloss rating', value: '90 – 96 GU' },
-            { label: 'Pencil hardness', value: '2H – 3H (micro-scratch resistant)' },
+            { label: '60° Gloss rating', value: '90 - 96 GU' },
+            { label: 'Pencil hardness', value: '2H - 3H (micro-scratch resistant)' },
             { label: 'Target substrates', value: 'ABS, PC/ABS, PMMA, PS, composites' },
           ],
           previewStyle: 'linear-gradient(135deg, #090d16 0%, #334155 48%, #020617 100%)',
@@ -1136,7 +1136,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           title: 'Velvety Elastic Soft-Touch Coating with Non-Slip Grip',
           description: 'Two-component polyurethane system producing a warm, leather-like or satin rubber tactile feel with zero light reflection.',
           specs: [
-            { label: '60° Gloss rating', value: '2 – 5 GU (non-reflective ultramatte)' },
+            { label: '60° Gloss rating', value: '2 - 5 GU (non-reflective ultramatte)' },
             { label: 'Tactile feel', value: 'Velvety soft / ergonomic anti-slip grip' },
             { label: 'Durability', value: 'Resistant to hand sweat, cosmetics, and hydrolysis' },
           ],
@@ -1149,7 +1149,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           title: 'Uniform Matte or Satin in Full RAL & NCS Palette',
           description: 'Clean architectural and industrial finish that hides fingerprints and resists common cleaning agents and UV yellowing.',
           specs: [
-            { label: '60° Gloss rating', value: '5 – 12 GU (matte) / 20 – 35 GU (satin)' },
+            { label: '60° Gloss rating', value: '5 - 12 GU (matte) / 20 - 35 GU (satin)' },
             { label: 'Color matching', value: 'Full RAL, NCS, Pantone or client master sample' },
             { label: 'UV stability', value: 'UV absorbers prevent yellowing and fading' },
           ],
@@ -1176,7 +1176,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           description: 'Ideal for large injection-molded or vacuum-formed housings with sink marks or weld lines. Conceals substrate imperfections without costly sanding.',
           specs: [
             { label: 'Surface profile', value: 'Repeatable fine or medium micro-texture' },
-            { label: 'Dry film thickness', value: '30 – 60 µm (high hiding power)' },
+            { label: 'Dry film thickness', value: '30 - 60 µm (high hiding power)' },
             { label: 'Impact resistance', value: 'Excellent scratch and scuff resistance' },
           ],
           previewStyle: 'linear-gradient(135deg, #334155 0%, #1e293b 50%, #0f172a 100%)',
@@ -1203,12 +1203,12 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           num: '03',
           title: 'Basecoat & Top Coat Spray Application',
           desc: 'In our cleanroom spray booths we apply the RAL/NCS color base and clear/textured top coat (Piano Black, matte, or Soft-Touch).',
-          param: 'Controlled 20–45 µm film build',
+          param: 'Controlled 20-45 µm film build',
         },
         {
           num: '04',
           title: 'Low-Temp Thermal / UV Curing & Quality Check',
-          desc: 'Parts cure at a safe 50–70°C or in a UV tunnel, followed by glossmeter, color (ΔE), and cross-cut adhesion verification.',
+          desc: 'Parts cure at a safe 50-70°C or in a UV tunnel, followed by glossmeter, color (ΔE), and cross-cut adhesion verification.',
           param: '100% visual batch inspection',
         },
       ],
@@ -1363,7 +1363,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
     breadcrumbLabel: 'Glass & ceramic painting',
     heroBadge: 'Thermal Curing up to 180°C + UV · Alcohol & Bottling-Line Resistant',
     h1: 'Glass Bottle Coating, Perfume Flacon & Ceramic Painting',
-    lead: 'Specialized glass and ceramic painting at STANIAX transforms standard clear glassware — perfume flacons, premium spirits bottles, cosmetic jars, lighting globes, and candle vessels — into bespoke luxury packaging. We execute full opaque Pantone/RAL coatings, translucent tints, smooth ombre gradients, acid-free frosted glass (frost), haptic Soft-Touch, and vacuum metallized gold/chrome finishes.',
+    lead: 'Specialized glass and ceramic painting at STANIAX transforms standard clear glassware - perfume flacons, premium spirits bottles, cosmetic jars, lighting globes, and candle vessels - into bespoke luxury packaging. We execute full opaque Pantone/RAL coatings, translucent tints, smooth ombre gradients, acid-free frosted glass (frost), haptic Soft-Touch, and vacuum metallized gold/chrome finishes.',
     ctaPrimaryLabel: 'Get a glass & ceramic painting quote →',
     ctaSecondaryLabel: 'Explore decorative glass effects ↓',
     heroImageKey: 'glassPaintHero',
@@ -1407,19 +1407,19 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             'Translucent Tint & Ombre Gradient',
-            '50 – 90% (crystal-clear color)',
+            '50 - 90% (crystal-clear color)',
             'Haze-free dye systems; seamless vertical fade from saturated color to clear glass',
             'Perfume flacons, skincare jars, lighting globes, decorative candle holders',
           ],
           [
             'Frosted Glass Effect (Acid-Free Frost)',
-            '30 – 60% (diffused light)',
+            '30 - 60% (diffused light)',
             'Silky matte light-diffusing film resistant to oily fingerprints and wet condensation',
             'Vodka & gin bottles, cosmetic dropper bottles, LED luminaire diffusers',
           ],
           [
             'Full Opaque (Gloss / Matte / Soft-Touch)',
-            '0 – 5% (UV barrier protection)',
+            '0 - 5% (UV barrier protection)',
             'Blocks UV/visible light to protect photosensitive formulas (retinol, vitamin C, natural oils)',
             'Dermocosmetic jars & serum bottles, limited-edition spirits bottles',
           ],
@@ -1443,10 +1443,10 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         subSections: [
           {
             h3: 'Ethanol Resistance & Bottling Line Durability',
-            body: 'Perfume flacons and spirits bottles face extreme chemical and mechanical stress: splashes of 80–96% ethyl alcohol and essential oils during filling, ice-bucket immersion, and bottle-to-bottle abrasion on conveyor lines. STANIAX guarantees durability through:',
+            body: 'Perfume flacons and spirits bottles face extreme chemical and mechanical stress: splashes of 80-96% ethyl alcohol and essential oils during filling, ice-bucket immersion, and bottle-to-bottle abrasion on conveyor lines. STANIAX guarantees durability through:',
             bullets: [
               'Silane adhesion promoters creating covalent Si-O-Si chemical bonds with the silicate glass surface.',
-              'High-temperature thermal baking (150–180°C) or UV crosslinking for maximum pencil hardness and chemical resistance.',
+              'High-temperature thermal baking (150-180°C) or UV crosslinking for maximum pencil hardness and chemical resistance.',
               'Precision neck finish masking (FEA 15/18/20 and screw threads) ensuring leak-free crimping of parfum atomizers.',
             ],
           },
@@ -1459,7 +1459,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       {
         h2: 'Coating and Metallization of Ceramics, Porcelain & Candle Vessels',
         paragraphs: [
-          'Alongside packaging glass, we coat and vacuum-metallize ceramic candle jars, porcelainware, flower pots, and technical ceramics — using pore-sealing primers on bisque ceramics and silane activation on glazed surfaces.',
+          'Alongside packaging glass, we coat and vacuum-metallize ceramic candle jars, porcelainware, flower pots, and technical ceramics - using pore-sealing primers on bisque ceramics and silane activation on glazed surfaces.',
         ],
       },
     ],
@@ -1488,8 +1488,8 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           title: 'Acid-Free Frosted Glass Effect & Velvety Soft-Touch on Glass',
           description: 'Refined satin matte finish that diffuses light without hazardous acid etching. Available in natural ice frost or tinted in any pastel or dark shade.',
           specs: [
-            { label: '60° Gloss rating', value: '4 – 12 GU (silky anti-fingerprint matte)' },
-            { label: 'Curing profile', value: 'Thermal oven bake at 150–180°C' },
+            { label: '60° Gloss rating', value: '4 - 12 GU (silky anti-fingerprint matte)' },
+            { label: 'Curing profile', value: 'Thermal oven bake at 150-180°C' },
             { label: 'Sustainability', value: '100% compatible with standard glass cullet recycling' },
           ],
           previewStyle: 'linear-gradient(135deg, #cbd5e1 0%, #f1f5f9 50%, #94a3b8 100%)',
@@ -1543,7 +1543,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       h2: 'Glassware & Ceramic Products Coated at STANIAX',
       subtitle: 'Serving niche indie launches as well as high-volume European packaging contracts.',
       row1: [
-        'Perfume Flacons (15 ml – 200 ml)',
+        'Perfume Flacons (15 ml - 200 ml)',
         'Cosmetic Cream Jars & Candle Vessels',
         'Spirits & Wine Bottles (0.5 L / 0.7 L / 1.0 L / Magnum)',
         'Essential Oil & Serum Dropper Bottles',
@@ -1567,7 +1567,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           badge: 'PERFUMERY & SKINCARE BRANDS',
           h3: 'Custom Flacons & Jars Starting from Small Runs',
           body: 'Avoid 200,000-unit glassworks minimums. Supply stock clear glass bottles and let STANIAX create bespoke ombre, frosted,Soft-Touch, or 24K gold finishes.',
-          spec: 'Pre-production color sampling in 3–5 business days',
+          spec: 'Pre-production color sampling in 3-5 business days',
         },
         {
           badge: 'SPIRITS & BEVERAGE PRODUCERS',
@@ -1714,7 +1714,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       },
     ],
     scopeSection: {
-      h2: 'Industrial Wet Paint Shop Capabilities — Substrates & Coating Systems',
+      h2: 'Industrial Wet Paint Shop Capabilities - Substrates & Coating Systems',
       intro: 'Liquid spray painting is essential wherever powder coating fails due to its 200°C oven cure, thick orange-peel film that clogs fine threads, or inability to produce metallic, Piano Black, or haptic Soft-Touch finishes.',
       cardTitle: 'Scope of Industrial Spray Painting at STANIAX',
       cardSubtitle: 'Multi-coat anti-corrosion and decorative liquid systems for machinery, electronics, lighting, defense, and POS',
@@ -1722,7 +1722,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         'Coating ferrous and non-ferrous metals: carbon steel, stainless steel, galvanized steel, aluminum, ZnAl die-castings, and brass (using 2K epoxy and Wash Primer foundations).',
         'Coating composites (fiberglass GRP/FRP, carbon fiber, epoxy resins), MDF, and injection-molded engineering plastics.',
         'Industrial two-component (2K) liquid chemistries: polyurethane (PUR), epoxy (EP), acrylic, alkyd, waterborne, and UV-curable coatings.',
-        'Four gloss and texture levels for any RAL/NCS color: High Gloss (>85 GU), Satin / Semi-Matte (25–45 GU), Deep Matte (<10 GU), and Fine Industrial Texture.',
+        'Four gloss and texture levels for any RAL/NCS color: High Gloss (>85 GU), Satin / Semi-Matte (25-45 GU), Deep Matte (<10 GU), and Fine Industrial Texture.',
         'CAD-guided technical masking prior to painting: protecting threaded holes, EMC grounding pads, bearing seats, and bonding zones.',
         'Full QA instrumentation: dry film thickness (DFT per ISO 2808), cross-cut adhesion (ISO 2409), and 60° gloss/color verification.',
       ],
@@ -1732,14 +1732,14 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             'Curing temperature',
-            '20 – 80°C (plastics, composites, assemblies) or up to 160°C (metal/glass)',
-            '180 – 200°C (heat-resistant metals only)',
+            '20 - 80°C (plastics, composites, assemblies) or up to 160°C (metal/glass)',
+            '180 - 200°C (heat-resistant metals only)',
             'Coats plastics, laminates, bonded assemblies, and porous ZnAl castings without outgassing blisters',
           ],
           [
             'Dry film thickness (DFT) & detail',
-            '15 – 45 µm (thin, high-definition film)',
-            '60 – 120 µm (thick film that rounds sharp edges)',
+            '15 - 45 µm (thin, high-definition film)',
+            '60 - 120 µm (thick film that rounds sharp edges)',
             'Preserves crisp engravings, tight mechanical fits, and fine threads without paint buildup',
           ],
           [
@@ -1762,7 +1762,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       {
         h2: 'When Is Wet Industrial Spray Painting Superior to Powder Coating?',
         paragraphs: [
-          'Product engineers and procurement teams frequently choose wet spray painting at STANIAX over powder coating in two critical scenarios: first, when coating pressure die-cast aluminum or zinc-aluminum (ZnAl) housings. In a 200°C powder oven, trapped air in die-casting micro-pores expands and "outgasses," leaving pinholes and craters. By curing our 2K epoxy-polyurethane wet systems at 60–80°C, we eliminate outgassing completely.',
+          'Product engineers and procurement teams frequently choose wet spray painting at STANIAX over powder coating in two critical scenarios: first, when coating pressure die-cast aluminum or zinc-aluminum (ZnAl) housings. In a 200°C powder oven, trapped air in die-casting micro-pores expands and "outgasses," leaving pinholes and craters. By curing our 2K epoxy-polyurethane wet systems at 60-80°C, we eliminate outgassing completely.',
           'Second, when an appliance or luminaire combines aluminum extrusions, steel brackets, and ABS/PC plastic covers that must match in the exact same NCS or RAL shade and gloss level.',
         ],
         subSections: [
@@ -1771,7 +1771,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
             body: 'Non-ferrous alloys and stainless steel form passive oxide layers that reject standard paints. Our pre-treatment protocol includes:',
             bullets: [
               'Multi-stage chemical degreasing and mechanical scuffing/abrasive conditioning to increase surface area.',
-              'Two-component epoxy primers (2K EP) and reactive etch primers (Wash Primer) delivering C2–C4 corrosion protection and 5B adhesion.',
+              'Two-component epoxy primers (2K EP) and reactive etch primers (Wash Primer) delivering C2-C4 corrosion protection and 5B adhesion.',
               'Spray surfacer filling of casting pores and weld seams on aluminum castings and fiberglass laminates prior to topcoating.',
             ],
           },
@@ -1797,25 +1797,25 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         {
           id: 'gloss',
           label: 'High Gloss',
-          gloss: '85 – 95 GU',
+          gloss: '85 - 95 GU',
           desc: 'Deep mirror brilliance and easy-clean surface for decorative trims and premium enclosures.',
         },
         {
           id: 'satin',
           label: 'Satin / Semi-Matte',
-          gloss: '25 – 45 GU',
+          gloss: '25 - 45 GU',
           desc: 'The most versatile industrial finish combining high scratch resistance with refined low sheen.',
         },
         {
           id: 'matte',
           label: 'Deep Matte',
-          gloss: '4 – 10 GU',
+          gloss: '4 - 10 GU',
           desc: 'Contemporary, non-reflective architectural and technical finish.',
         },
         {
           id: 'structure',
           label: 'Fine Industrial Texture',
-          gloss: '8 – 15 GU',
+          gloss: '8 - 15 GU',
           desc: 'Micro-grained texture that hides machining marks, welds, casting pores, and handling scuffs.',
         },
       ],
@@ -1840,7 +1840,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           num: '03',
           title: 'Top Coat Spraying (RAL / NCS / Special Effect)',
           desc: 'Inside our downdraft spray booth we apply 2K polyurethane or acrylic top coats in the specified shade, gloss, or texture.',
-          param: 'Uniform 25–60 µm DFT',
+          param: 'Uniform 25-60 µm DFT',
         },
         {
           num: '04',
@@ -1930,7 +1930,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: 'How does wet industrial spray painting differ from powder coating?',
-          a: 'Wet spray painting cures at low temperatures (20–80°C), allowing us to coat plastics, composites, MDF, bonded assemblies, and porous ZnAl/Al die-castings that would warp or blister in a 200°C powder oven. Wet painting also applies a much thinner film (15–45 µm) that preserves fine threads and sharp engravings, and enables mirror Piano Black, true metallics, and Soft-Touch finishes.',
+          a: 'Wet spray painting cures at low temperatures (20-80°C), allowing us to coat plastics, composites, MDF, bonded assemblies, and porous ZnAl/Al die-castings that would warp or blister in a 200°C powder oven. Wet painting also applies a much thinner film (15-45 µm) that preserves fine threads and sharp engravings, and enables mirror Piano Black, true metallics, and Soft-Touch finishes.',
         },
         {
           q: 'Which materials can you coat in your spray paint shop?',
@@ -1942,7 +1942,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: 'Can you paint a small batch in a custom NCS or Pantone color?',
-          a: 'Yes. Our in-house mixing lab formulates any RAL Classic, RAL Design, NCS, or Pantone shade — or matches a physical master sample — starting from just 1 liter of paint, making short series and prototypes highly cost-effective.',
+          a: 'Yes. Our in-house mixing lab formulates any RAL Classic, RAL Design, NCS, or Pantone shade - or matches a physical master sample - starting from just 1 liter of paint, making short series and prototypes highly cost-effective.',
         },
         {
           q: 'What is the maximum part size you can spray paint?',
@@ -1950,7 +1950,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: 'What is the standard turnaround time for industrial spray painting?',
-          a: 'Standard production batches take 4–8 business days. For urgent prototypes, trade-show models, and line-stop shortages, we offer an express 48–72h service upon prior scheduling.',
+          a: 'Standard production batches take 4-8 business days. For urgent prototypes, trade-show models, and line-stop shortages, we offer an express 48-72h service upon prior scheduling.',
         },
       ],
     },
@@ -1971,19 +1971,19 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       links: [
         {
           path: '/en/plastic-parts-painting',
-          anchorText: 'Industrial Plastic Parts Painting — Soft-Touch & Piano Black Systems',
+          anchorText: 'Industrial Plastic Parts Painting - Soft-Touch & Piano Black Systems',
           badge: 'PLASTIC COATING',
           desc: 'Dedicated specifications for injection-molded ABS, PC, PP, and PA components.',
         },
         {
           path: '/en/glass-and-ceramic-painting',
-          anchorText: 'Glass Bottle Coating & Ceramic Painting — Ombre, Frost & Opaque',
+          anchorText: 'Glass Bottle Coating & Ceramic Painting - Ombre, Frost & Opaque',
           badge: 'GLASS & CERAMICS',
           desc: 'Thermally cured decorative and protective coatings on glassware and ceramics.',
         },
         {
           path: '/en/vacuum-metallisation',
-          anchorText: 'PVD Vacuum Metallisation — Mirror Chrome & Gold Coatings',
+          anchorText: 'PVD Vacuum Metallisation - Mirror Chrome & Gold Coatings',
           badge: 'PVD METALLIZATION',
           desc: 'Combine wet spray painting with high-vacuum aluminum deposition for mirror metal finishes.',
         },

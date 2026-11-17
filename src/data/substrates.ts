@@ -84,14 +84,14 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Kompleksowa obróbka powierzchniowa dla elementów z ABS i blendów PC/ABS: wykończenia chrom, złoto, piano black i powłoki ochronne UV.',
       directAnswerQuestion: 'Jak uzyskuje się trwały efekt chromu lub lakieru klasy A na tworzywie ABS?',
       directAnswer:
-        'Tworzywo ABS i mieszanki PC/ABS odgazowuje się i odtłuszcza antystatycznie, po czym nakłada podkład poziomujący UV eliminujący ślady formy wtryskowej, warstwę Al 99,99% (50–150 nm) w próżni 10⁻⁴ mbar oraz topcoat UV/2K PU (15–25 µm). Powłoka osiąga klasę przyczepności 0 wg ISO 2409 bez kruchości typowej dla galwanizacji.',
+        'Tworzywo ABS i mieszanki PC/ABS odgazowuje się i odtłuszcza antystatycznie, po czym nakłada podkład poziomujący UV eliminujący ślady formy wtryskowej, warstwę Al 99,99% (50-150 nm) w próżni 10⁻⁴ mbar oraz topcoat UV/2K PU (15-25 µm). Powłoka osiąga klasę przyczepności 0 wg ISO 2409 bez kruchości typowej dla galwanizacji.',
       specs: [
         { parameter: 'Obsługiwane gatunki', value: 'ABS standard, ABS wysokoudarowy, blendy PC/ABS, ASA' },
-        { parameter: 'Temperatura odkształcenia HDT', value: '82–108 °C — suszenie lakierów w oknie poniżej 75 °C' },
-        { parameter: 'Energia powierzchniowa przed primerem', value: '38–42 mN/m (jonizacja i mycie antystatyczne)' },
+        { parameter: 'Temperatura odkształcenia HDT', value: '82-108 °C - suszenie lakierów w oknie poniżej 75 °C' },
+        { parameter: 'Energia powierzchniowa przed primerem', value: '38-42 mN/m (jonizacja i mycie antystatyczne)' },
         { parameter: 'Dostępne stosy powłok', value: 'PVD chrom/złoto + UV, Piano Black 2K PU (>92 GU), Soft-Touch' },
         { parameter: 'Odporność i norma przyczepności', value: 'ISO 2409 Gt 0 · ΔE < 0,8 · test potu i detergentów' },
-        { parameter: 'Średnica komór i czas serii', value: 'Komory do Ø 1200 mm · serie B2B w 3–7 dni roboczych' },
+        { parameter: 'Średnica komór i czas serii', value: 'Komory do Ø 1200 mm · serie B2B w 3-7 dni roboczych' },
       ],
       sections: [
         {
@@ -157,14 +157,14 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Engineered primer, mirror aluminum deposition, and UV/2K PU topcoat stacks for molding precision and series B2B repeatability on ABS resins.',
       directAnswerQuestion: 'How do you achieve mirror chrome or Class-A paint finishes on molded ABS parts?',
       directAnswer:
-        'Molded ABS and PC/ABS parts undergo antistatic ionization cleaning and low-stress thermal conditioning below 75 °C, followed by a UV leveling basecoat, 50–150 nm pure 99.99% aluminum vacuum deposition at 10⁻⁴ mbar, and a 15–25 µm UV or 2K polyurethane clearcoat achieving ISO 2409 Class 0 adhesion.',
+        'Molded ABS and PC/ABS parts undergo antistatic ionization cleaning and low-stress thermal conditioning below 75 °C, followed by a UV leveling basecoat, 50-150 nm pure 99.99% aluminum vacuum deposition at 10⁻⁴ mbar, and a 15-25 µm UV or 2K polyurethane clearcoat achieving ISO 2409 Class 0 adhesion.',
       specs: [
         { parameter: 'Resin Grades Supported', value: 'General purpose & high-impact ABS, PC/ABS, ASA' },
-        { parameter: 'Heat Deflection Window', value: 'HDT 82–108 °C — thermal cure strictly capped <75 °C' },
+        { parameter: 'Heat Deflection Window', value: 'HDT 82-108 °C - thermal cure strictly capped <75 °C' },
         { parameter: 'Leveling & Roughness Target', value: 'UV basecoat smooths mold tool marks down to Ra < 0.05 µm' },
         { parameter: 'Available Stacks', value: 'Mirror chrome/gold PVD, Piano Black 2K PU (>92 GU), matte <5 GU' },
         { parameter: 'QA Standards', value: 'ISO 2409 Class 0 adhesion · ΔE < 0.8 color consistency' },
-        { parameter: 'Capacity & Turnaround', value: 'Ø 1200 mm planetary vacuum chambers · 3–7 days B2B turnaround' },
+        { parameter: 'Capacity & Turnaround', value: 'Ø 1200 mm planetary vacuum chambers · 3-7 days B2B turnaround' },
       ],
       sections: [
         {
@@ -196,7 +196,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       faq: [
         {
           q: 'Should ABS parts stay free of silicone mold release before shipping to STANIAX?',
-          a: 'Yes — please mold parts dry or using paintable release agents and pack with antistatic interleaves to prevent cratering and scratches.',
+          a: 'Yes - please mold parts dry or using paintable release agents and pack with antistatic interleaves to prevent cratering and scratches.',
         },
         {
           q: 'Which custom metallic shades are possible on ABS plastics?',
@@ -230,14 +230,14 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Spannungsarme Vorbehandlung, PVD-Reinaluminium und UV-/2K-PUR-Systeme für Verkleidungsteile, Kosmetikverschlüsse und Geräteblenden.',
       directAnswerQuestion: 'Wie erzielt man auf ABS-Spritzgussteilen dauerhaften Chrom- oder Class-A-Lackglanz?',
       directAnswer:
-        'ABS und PC/ABS werden antistatisch ionisiert, bei unter 75 °C mit einem nivellierenden UV-Grundlack versiegelt, im Vakuum (10⁻⁴ mbar) mit 50–150 nm Reinaluminium bedampft und mit 15–25 µm UV-/2K-PUR-Decklack geschützt. Ergebnis: Gitterschnitt Gt 0 nach ISO 2409 ohne Galvanik-Versprödung.',
+        'ABS und PC/ABS werden antistatisch ionisiert, bei unter 75 °C mit einem nivellierenden UV-Grundlack versiegelt, im Vakuum (10⁻⁴ mbar) mit 50-150 nm Reinaluminium bedampft und mit 15-25 µm UV-/2K-PUR-Decklack geschützt. Ergebnis: Gitterschnitt Gt 0 nach ISO 2409 ohne Galvanik-Versprödung.',
       specs: [
         { parameter: 'Werkstoffvarianten', value: 'Standard-ABS, schlagzähes ABS, PC/ABS, ASA' },
-        { parameter: 'Formbeständigkeit HDT', value: '82–108 °C — Trocknung konsequent unter 75 °C gesteuert' },
+        { parameter: 'Formbeständigkeit HDT', value: '82-108 °C - Trocknung konsequent unter 75 °C gesteuert' },
         { parameter: 'Oberflächennivellierung', value: 'UV-Primer glättet Werkzeugspuren bis Ra < 0,05 µm' },
         { parameter: 'Verfügbare Schichtaufbauten', value: 'Chrom/Gold PVD + UV, Piano Black 2K PUR (>92 GU), Matt <5 GU' },
         { parameter: 'Prüfnormen', value: 'ISO 2409 Gt 0 · ΔE < 0,8 · Schweiß-, Alkohol- und Kosmetiktest' },
-        { parameter: 'Kapazität & Lieferzeit', value: 'Kammern bis Ø 1200 mm · Serienfertigung in 3–7 Werktagen' },
+        { parameter: 'Kapazität & Lieferzeit', value: 'Kammern bis Ø 1200 mm · Serienfertigung in 3-7 Werktagen' },
       ],
       sections: [
         {
@@ -289,7 +289,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         },
         {
           q: 'Können auch Muster vor dem Serienanlauf getestet werden?',
-          a: 'Selbstverständlich — wir fertigen Kleinmuster zur Freigabe inklusive Haftungs- und Farbprotokoll.',
+          a: 'Selbstverständlich - wir fertigen Kleinmuster zur Freigabe inklusive Haftungs- und Farbprotokoll.',
         },
       ],
       relatedLinks: [
@@ -314,10 +314,10 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Wysokopróżniowe naparowanie aluminium na optyce reflektorowej, kloszach, soczewkach i komponentach pracujących do 220 °C.',
       directAnswerQuestion: 'Jak metalizuje się poliwęglan (PC) i tworzywa wysokotemperaturowe Ultem PEI bez zaciemnień w próżni?',
       directAnswer:
-        'Poliwęglan PC i polieteroimid Ultem PEI chłoną wilgoć, co powoduje mgłę i pęcherze przy szybkim obniżaniu ciśnienia w komorze. W STANIAX stosujemy kontrolowane dosuszanie, primer termostabilny do 220 °C oraz wysokopróżniową metalizację Al 99,99% z pasywacją SiOx — uzyskując odbicie kierunkowe powyżej 92% bez efektu tęczowania.',
+        'Poliwęglan PC i polieteroimid Ultem PEI chłoną wilgoć, co powoduje mgłę i pęcherze przy szybkim obniżaniu ciśnienia w komorze. W STANIAX stosujemy kontrolowane dosuszanie, primer termostabilny do 220 °C oraz wysokopróżniową metalizację Al 99,99% z pasywacją SiOx - uzyskując odbicie kierunkowe powyżej 92% bez efektu tęczowania.',
       specs: [
         { parameter: 'Obsługiwane polimery optyczne/HT', value: 'Poliwęglan PC, PC-HT, Ultem PEI, PSU, PPS, termoutwardzalne BMC' },
-        { parameter: 'Maksymalna stabilność powłoki', value: 'Do 135 °C (PC-HT) oraz 200–220 °C na podłożach PEI / BMC / metal' },
+        { parameter: 'Maksymalna stabilność powłoki', value: 'Do 135 °C (PC-HT) oraz 200-220 °C na podłożach PEI / BMC / metal' },
         { parameter: 'Współczynnik odbicia optyki', value: '>92% w pełnym widmie światła widzialnego (Al 99,99% + SiOx)' },
         { parameter: 'Ochrona zewnętrzna dla kloszy PC', value: 'Twardy lakier UV hamujący żółknięcie i ścieranie poliwęglanu' },
         { parameter: 'Kontrola odgazowania', value: 'Wstępne kondycjonowanie i dedykowana bariera podkładowa' },
@@ -344,7 +344,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       ],
       applications: [
         'Odbłyśniki i maskownice lamp samochodowych LED, Bi-Xenon, Matrix oraz H7',
-        'Komponenty lotnicze z Ultem PEI — zgodnie ze studium wdrożenia aerospace STANIAX',
+        'Komponenty lotnicze z Ultem PEI - zgodnie ze studium wdrożenia aerospace STANIAX',
         'Odbłyśniki przemysłowych opraw oświetleniowych LED, halogenowych i stadionowych',
         'Wizjery, klosze i pokrywy poliwęglanowe chronione twardym lakierem UV',
       ],
@@ -358,7 +358,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           a: 'Stosujemy bezagresywne rozcieńczalniki i systemy UV o minimalnej zawartości wolnych rozpuszczalników, dopasowane specjalnie do wrażliwości chemicznej PC.',
         },
         {
-          q: 'Czy można metalizować częściowo — zostawiając przezroczyste okienko świetlne na PC?',
+          q: 'Czy można metalizować częściowo - zostawiając przezroczyste okienko świetlne na PC?',
           a: 'Tak, wykonujemy maskowanie selektywne krawędzi i soczewek przed załadunkiem do komory PVD.',
         },
         {
@@ -388,7 +388,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Polycarbonate and high-temp Ultem PEI absorb ambient moisture that causes cloudy aluminum bloom inside a vacuum chamber. STANIAX performs pre-conditioning degassing, applies non-aggressive UV or high-temp barrier primers (up to 220 °C on PEI/BMC), deposits 99.99% aluminum (>92% reflectance), and seals optics with SiOx.',
       specs: [
         { parameter: 'High-Spec Resins', value: 'Optical PC, High-Temp PC-HT, Ultem PEI, PSU, thermoset BMC' },
-        { parameter: 'Thermal Service Rating', value: 'Up to 135 °C (PC-HT) and 200–220 °C on PEI/BMC reflectors' },
+        { parameter: 'Thermal Service Rating', value: 'Up to 135 °C (PC-HT) and 200-220 °C on PEI/BMC reflectors' },
         { parameter: 'Specular Light Return', value: '>92% reflectance with Al 99.99% + thin SiOx barrier' },
         { parameter: 'Clear Polycarbonate Shield', value: 'Industrial abrasion- & UV-resistant hard clearcoat' },
         { parameter: 'Chamber Control', value: 'Pre-bake moisture conditioning + antistatic ionization' },
@@ -409,7 +409,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         {
           heading: 'SiOx Protective Passivation vs Decorative UV Topcoats',
           paragraphs: [
-            'Internal projector optics require bare-metal reflectance (>92%) coupled with corrosion shielding from headlamp condensation — achieved cleanly via sub-micron SiOx sealing. Exposed polycarbonate housings and lenses receive thicker UV-crosslinked clearcoats blocking road abrasion and yellowing.',
+            'Internal projector optics require bare-metal reflectance (>92%) coupled with corrosion shielding from headlamp condensation - achieved cleanly via sub-micron SiOx sealing. Exposed polycarbonate housings and lenses receive thicker UV-crosslinked clearcoats blocking road abrasion and yellowing.',
             'Our tooling department fabricates custom silicone shields so complex PC-HT headlamp bezels and light-guide frames receive razor-sharp transitions between high-reflection PVD zones and low-gloss black anti-glare surfaces in a single integrated production flow.',
           ],
         },
@@ -423,7 +423,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       faq: [
         {
           q: 'Do you metallize Ultem PEI parts for aerospace or medical instrumentation?',
-          a: 'Yes — see our aerospace partnership case detailing vacuum metallization of PEI structural skins for weight reduction and shielding.',
+          a: 'Yes - see our aerospace partnership case detailing vacuum metallization of PEI structural skins for weight reduction and shielding.',
         },
         {
           q: 'Why can conventional primers melt or craze polycarbonate?',
@@ -460,7 +460,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Da PC und Ultem PEI Feuchtigkeit aufnehmen, entstehen im Vakuum schnell Regenbogen- oder Milchschleier. STANIAX vortrocknet gezielt, appliziert spannungsfreie Sperrprimer (bis 220 °C auf PEI/BMC), bedampft 99,99 % Reinaluminium (>92 % Reflexion) und versiegelt optisch neutral per SiOx-Passivierung.',
       specs: [
         { parameter: 'Verarbeitete Werkstoffe', value: 'Optisches PC, PC-HT, Ultem PEI, PSU, Duroplast BMC' },
-        { parameter: 'Temperaturbeständigkeit', value: 'Bis 135 °C (PC-HT) bzw. 200–220 °C auf PEI/BMC' },
+        { parameter: 'Temperaturbeständigkeit', value: 'Bis 135 °C (PC-HT) bzw. 200-220 °C auf PEI/BMC' },
         { parameter: 'Reflexionsgrad', value: '>92 % gerichtet durch Al 99,99 % + SiOx-Schutz' },
         { parameter: 'Frontscheibenschutz PC', value: 'Abrieb- und UV-stabiler Industrieklarlack gegen Vergilbung' },
         { parameter: 'Prozesssicherheit', value: 'Vortrocknungs-Temperung + Ionisierung gegen Ausgasen' },
@@ -536,13 +536,13 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       polymerCode: 'PP / PP+EPDM / HDPE',
       h1: 'Lakierowanie i metalizacja PVD polipropylenu (PP / PP+EPDM)',
       subtitle:
-        'Przemysłowe przezwyciężanie niskiej energii powierzchniowej poliolefin — od nakrętek i elementów AGD po zderzaki oraz obudowy techniczne.',
+        'Przemysłowe przezwyciężanie niskiej energii powierzchniowej poliolefin - od nakrętek i elementów AGD po zderzaki oraz obudowy techniczne.',
       directAnswerQuestion: 'Jak uzyskać przyczepność powłoki klasy 0 ISO 2409 na polipropylenie (PP) i polietylenie (PE)?',
       directAnswer:
-        'Surowy polipropylen (PP) ma energię powierzchniową ok. 29–31 mN/m, przez co farba i metal spływają lub odpadają płatami. W STANIAX podnosimy energię powierzchniową powyżej 44 mN/m metodą aktywacji płomieniowej lub plazmowej, nakładamy specjalny primer chlorowany/poliolefinowy, a następnie system 2K PU lub PVD z lakierem UV (ISO 2409 klasa 0).',
+        'Surowy polipropylen (PP) ma energię powierzchniową ok. 29-31 mN/m, przez co farba i metal spływają lub odpadają płatami. W STANIAX podnosimy energię powierzchniową powyżej 44 mN/m metodą aktywacji płomieniowej lub plazmowej, nakładamy specjalny primer chlorowany/poliolefinowy, a następnie system 2K PU lub PVD z lakierem UV (ISO 2409 klasa 0).',
       specs: [
-        { parameter: 'Energia przed aktywacją', value: 'Niska (niepolarna): ~29–31 mN/m — brak zwilżalności' },
-        { parameter: 'Energia po aktywacji STANIAX', value: '≥44–48 mN/m (weryfikacja tuszami testowymi Dyne)' },
+        { parameter: 'Energia przed aktywacją', value: 'Niska (niepolarna): ~29-31 mN/m - brak zwilżalności' },
+        { parameter: 'Energia po aktywacji STANIAX', value: '≥44-48 mN/m (weryfikacja tuszami testowymi Dyne)' },
         { parameter: 'Metody przygotowania', value: 'Aktywacja płomieniowa 3D, plazma atmosferyczna, primer CPO' },
         { parameter: 'Odporność testowa', value: 'ISO 2409 Gt 0 · zginanie bez łuszczenia na cienkich zawiasach' },
         { parameter: 'Wykończenia końcowe', value: 'Mat satyna, głęboki połysk 2K, Soft-Touch, metalizacja PVD chrom/złoto' },
@@ -552,7 +552,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           heading: 'Bariera polipropylenowa: dlaczego „zwykły” lakier nie trzyma się PP i PP+EPDM?',
           paragraphs: [
             'Polipropylen (PP), jego mieszanki elastomerowe PP+EPDM (np. zderzaki i listwy zewnętrzne) oraz polietylen PE należą do niepolarnych poliolefin. Ich łańcuchy węglowodorowe nie zawierają grup tlenowych zdolnych do wytworzenia wiązań chemicznych z tradycyjnymi żywicami akrylowymi lub poliuretanowymi.',
-            'Bez precyzyjnego utlenienia warstwy wierzchniej powłoka zachowuje się jak naklejka na teflonie — przechodzi wzrokowo odbiór w lakierni, by po kilku tygodniach odprysnąć pod paznokciem lub myjką ciśnieniową.',
+            'Bez precyzyjnego utlenienia warstwy wierzchniej powłoka zachowuje się jak naklejka na teflonie - przechodzi wzrokowo odbiór w lakierni, by po kilku tygodniach odprysnąć pod paznokciem lub myjką ciśnieniową.',
           ],
           bullets: [
             'Weryfikacja napięcia powierzchniowego tuszami kalibrowanymi przed lakierowaniem każdej partii',
@@ -584,7 +584,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         },
         {
           q: 'Czy lakier na zderzakowym PP+EPDM pęknie przy lekkim ugięciu elementu?',
-          a: 'Nie — do mieszanek elastomerowych stosujemy plastyfikowane systemy 2K PUR o wysokiej elastyczności w ujemnych temperaturach.',
+          a: 'Nie - do mieszanek elastomerowych stosujemy plastyfikowane systemy 2K PUR o wysokiej elastyczności w ujemnych temperaturach.',
         },
         {
           q: 'Dlaczego przejście z ABS na PP z powłoką w STANIAX się opłaca?',
@@ -610,10 +610,10 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Turning low-surface-energy polyolefins into durable coated Class-A housings, mono-material cosmetic closures, and flexible automotive trim.',
       directAnswerQuestion: 'How do you achieve permanent paint or PVD adhesion on polypropylene (PP)?',
       directAnswer:
-        'Raw polypropylene exhibits low surface tension (~29–31 mN/m), causing conventional paints and metals to peel immediately. STANIAX raises surface energy above 44 mN/m via flame or atmospheric plasma treatment, applies a specialized polyolefin adhesion promoter (CPO primer), and cures elastic 2K PU or UV-PVD layers to ISO 2409 Class 0.',
+        'Raw polypropylene exhibits low surface tension (~29-31 mN/m), causing conventional paints and metals to peel immediately. STANIAX raises surface energy above 44 mN/m via flame or atmospheric plasma treatment, applies a specialized polyolefin adhesion promoter (CPO primer), and cures elastic 2K PU or UV-PVD layers to ISO 2409 Class 0.',
       specs: [
-        { parameter: 'Raw Polyolefin Tension', value: 'Non-polar 29–31 mN/m (poor wettability untreated)' },
-        { parameter: 'Activated Surface Target', value: '≥44–48 mN/m (checked via Dyne inks before coating)' },
+        { parameter: 'Raw Polyolefin Tension', value: 'Non-polar 29-31 mN/m (poor wettability untreated)' },
+        { parameter: 'Activated Surface Target', value: '≥44-48 mN/m (checked via Dyne inks before coating)' },
         { parameter: 'Activation Chemistry', value: '3D robotics flame oxidation, plasma + chlorinated primer' },
         { parameter: 'Flexibility & Peel Rating', value: 'ISO 2409 Class 0 · passes cold-flex cracking on PP+EPDM' },
         { parameter: 'Finish Options', value: 'Mirror PVD chrome/gold, 2K satin matte, Soft-Touch velvet' },
@@ -622,7 +622,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         {
           heading: 'Solving Polyolefin Low Surface Energy at Production Scale',
           paragraphs: [
-            'Polypropylene and PP+EPDM blends carry chemically inert hydrocarbon backbones lacking polar oxygen sites. Without precision surface activation immediately before primer spraying, coatings behave like tape on waxed paper — failing cross-hatch adhesion and pressure-wash tests.',
+            'Polypropylene and PP+EPDM blends carry chemically inert hydrocarbon backbones lacking polar oxygen sites. Without precision surface activation immediately before primer spraying, coatings behave like tape on waxed paper - failing cross-hatch adhesion and pressure-wash tests.',
             'At STANIAX, automated surface activation converts non-polar surface chains cleanly without warping thin mono-material closures, paired with Dyne-ink QC checks before any paint gun triggers.',
           ],
           bullets: [
@@ -648,7 +648,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       faq: [
         {
           q: 'Can polypropylene be metallized to look indistinguishable from plated chrome?',
-          a: 'Yes — following plasma/flame activation and UV leveling primer, vacuum-deposited aluminum reflects identically on PP and ABS.',
+          a: 'Yes - following plasma/flame activation and UV leveling primer, vacuum-deposited aluminum reflects identically on PP and ABS.',
         },
         {
           q: 'How do you guarantee coating batch adhesion on PP?',
@@ -679,13 +679,13 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       polymerCode: 'PP / PP+EPDM / HDPE',
       h1: 'Lackierung und PVD-Beschichtung von Polypropylen (PP)',
       subtitle:
-        'Prozesssichere Überwindung niedriger Oberflächenspannung — von Monomaterial-Kosmetikverschlüssen bis zu elastischen PP+EPDM-Anbauteilen.',
+        'Prozesssichere Überwindung niedriger Oberflächenspannung - von Monomaterial-Kosmetikverschlüssen bis zu elastischen PP+EPDM-Anbauteilen.',
       directAnswerQuestion: 'Wie erreicht man dauerhafte Lack- oder PVD-Haftung (ISO 2409 Gt 0) auf Polypropylen (PP)?',
       directAnswer:
-        'Unbehandeltes Polypropylen besitzt lediglich 29–31 mN/m Oberflächenspannung, sodass Lacke sofort abperlen. STANIAX aktiviert PP per Beflammung oder Plasma auf ≥44 mN/m, appliziert einen speziellen Polyolefin-Haftprimer (CPO) und lackiert elastische 2K-PUR- oder UV-PVD-Systeme mit Bestnote Gt 0 nach ISO 2409.',
+        'Unbehandeltes Polypropylen besitzt lediglich 29-31 mN/m Oberflächenspannung, sodass Lacke sofort abperlen. STANIAX aktiviert PP per Beflammung oder Plasma auf ≥44 mN/m, appliziert einen speziellen Polyolefin-Haftprimer (CPO) und lackiert elastische 2K-PUR- oder UV-PVD-Systeme mit Bestnote Gt 0 nach ISO 2409.',
       specs: [
-        { parameter: 'Rohspannung PP / PE', value: 'Unpolar ~29–31 mN/m (ohne Vorbehandlung nicht lackierbar)' },
-        { parameter: 'Zielspannung nach Aktivierung', value: '≥44–48 mN/m (Dyne-Testtinten-Prüfung)' },
+        { parameter: 'Rohspannung PP / PE', value: 'Unpolar ~29-31 mN/m (ohne Vorbehandlung nicht lackierbar)' },
+        { parameter: 'Zielspannung nach Aktivierung', value: '≥44-48 mN/m (Dyne-Testtinten-Prüfung)' },
         { parameter: 'Vorbehandlungsmethode', value: '3D-Beflammung, Atmosphärenplasma, CPO-Primer' },
         { parameter: 'Qualitätsnachweis', value: 'ISO 2409 Gt 0 · kälteelastisch auf PP+EPDM' },
         { parameter: 'Oberflächenoptionen', value: 'Spiegelchrom/Gold PVD, 2K-Satinmatt, Soft-Touch, RAL/NCS' },
@@ -758,15 +758,15 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       metaDesc:
         'Lakierowanie i metalizacja poliamidu PA6/PA66 GF30 w STANIAX: wygrzewanie odgazowujące, krycie włókna szklanego, odporność na oleje, glikol i 150 °C.',
       badge: 'Matryca materiałów: PA6 / PA66 GF30',
-      polymerCode: 'PA6 / PA66 + GF15–35%',
+      polymerCode: 'PA6 / PA66 + GF15-35%',
       h1: 'Lakierowanie przemysłowe i PVD poliamidu (PA6 / PA66 GF)',
       subtitle:
         'Krycie tekstury włókna szklanego, odporność chemiczna na oleje oraz powłoki techniczne do detali podmaskowych i maszyn.',
       directAnswerQuestion: 'Jak uniknąć pęcherzyków i widocznej struktury włókna przy lakierowaniu poliamidu PA6/PA66 GF?',
       directAnswer:
-        'Poliamidy PA6 i PA66 z włóknem szklanym wchłaniają do 2–3% wilgoci, która uwalnia się w piecu i tworzy pęcherze („gazowanie”), a nierówny skurcz ujawnia fakturę włókien. STANIAX stosuje wstępne wygrzewanie w temperaturze 95–110 °C, wypełniające podkłady epoksydowe/2K oraz powłoki PU lub PVD odporne na oleje i 150 °C.',
+        'Poliamidy PA6 i PA66 z włóknem szklanym wchłaniają do 2-3% wilgoci, która uwalnia się w piecu i tworzy pęcherze („gazowanie”), a nierówny skurcz ujawnia fakturę włókien. STANIAX stosuje wstępne wygrzewanie w temperaturze 95-110 °C, wypełniające podkłady epoksydowe/2K oraz powłoki PU lub PVD odporne na oleje i 150 °C.',
       specs: [
-        { parameter: 'Obsługiwane poliamidy', value: 'PA6, PA66, PA12 oraz kompozyty z włóknem szklanym GF15–GF35' },
+        { parameter: 'Obsługiwane poliamidy', value: 'PA6, PA66, PA12 oraz kompozyty z włóknem szklanym GF15-GF35' },
         { parameter: 'Kondycjonowanie wstępne', value: 'Kontrolowane odwilżanie termiczne przed podkładem (brak gazowania)' },
         { parameter: 'Wyrównanie włókna GF', value: 'Wysokowypełniające podkłady 2K maskujące fakturę włókna szklanego' },
         { parameter: 'Odporność chemiczna i temp.', value: 'Oleje silnikowe, smary, glikol, paliwa · ciągła praca do 150 °C' },
@@ -786,9 +786,9 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           ],
         },
         {
-          heading: 'Alternatywa dla aluminium odlewanego ciśnieniowo — lekkie zamienniki PA+PVD',
+          heading: 'Alternatywa dla aluminium odlewanego ciśnieniowo - lekkie zamienniki PA+PVD',
           paragraphs: [
-            'Projektanci przemysłowi zastępują ciężkie korpusy aluminiowe wypraskami z PA6/PA66 GF, a następnie zlecają nam wykończenie metaliczne PVD lub ochronny natrysk 2K. Daje to redukcję masy o 40–55% bez kompromisu wizualnego czy ochronnego.',
+            'Projektanci przemysłowi zastępują ciężkie korpusy aluminiowe wypraskami z PA6/PA66 GF, a następnie zlecają nam wykończenie metaliczne PVD lub ochronny natrysk 2K. Daje to redukcję masy o 40-55% bez kompromisu wizualnego czy ochronnego.',
           ],
         },
       ],
@@ -805,7 +805,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         },
         {
           q: 'Dlaczego na PA66 pojawiają się czasem drobne kratery w zwykłych lakierniach?',
-          a: 'Powoduje je para wodna uwalniająca się z poliamidu podczas wygrzewania lakieru — bez wstępnego wypalenia wilgoci powłoka się zapowietrza.',
+          a: 'Powoduje je para wodna uwalniająca się z poliamidu podczas wygrzewania lakieru - bez wstępnego wypalenia wilgoci powłoka się zapowietrza.',
         },
         {
           q: 'Czy powłoka na poliamidzie wytrzymuje kontakt z olejem i benzyną?',
@@ -829,15 +829,15 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       metaDesc:
         'Industrial PA6/PA66 GF30 nylon painting and PVD metallizing at STANIAX: pre-bake moisture control, glass-fiber leveling, oil/glycol resistance up to 150°C.',
       badge: 'Substrate Matrix: PA6 / PA66 GF30',
-      polymerCode: 'PA6 / PA66 + GF15–35%',
+      polymerCode: 'PA6 / PA66 + GF15-35%',
       h1: 'Industrial Coating & Metallization of Polyamide (PA6 / PA66 GF)',
       subtitle:
         'Moisture degassing, high-build fiber smoothing, and chemical-resistant 2K PU or PVD finishes for structural nylon housings and automotive parts.',
       directAnswerQuestion: 'How do you prevent pinholing and visible glass fibers when coating glass-filled PA6/PA66?',
       directAnswer:
-        'Polyamide resins absorb 2–3% ambient moisture that outgasses as micro-blisters during oven curing, while glass fibers create rough surface texture. STANIAX performs controlled pre-bake degassing at 95–110 °C, applies high-build filling 2K primers, and finishes with chemical-resistant 2K PU or UV-PVD layers.',
+        'Polyamide resins absorb 2-3% ambient moisture that outgasses as micro-blisters during oven curing, while glass fibers create rough surface texture. STANIAX performs controlled pre-bake degassing at 95-110 °C, applies high-build filling 2K primers, and finishes with chemical-resistant 2K PU or UV-PVD layers.',
       specs: [
-        { parameter: 'Grades Processed', value: 'Unfilled PA6/PA12 and 15–35% glass-filled PA66 GF30' },
+        { parameter: 'Grades Processed', value: 'Unfilled PA6/PA12 and 15-35% glass-filled PA66 GF30' },
         { parameter: 'Degassing Control', value: 'Pre-bake dehydration step preventing outgassing pinholes' },
         { parameter: 'Fiber Texture Leveling', value: 'High-build epoxy/PU primers mask exposed glass strands' },
         { parameter: 'Chemical & Heat Resistance', value: 'Engine oils, coolant glycol, road salt · continuous 150 °C' },
@@ -853,7 +853,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           bullets: [
             'Eliminates crater blisters and dry pinholes on heated curing cycles',
             'Withstands oils, hydraulic fluids, fuels, and glycol splash',
-            '40–55% component weight reduction vs painted ZnAl or cast aluminum',
+            '40-55% component weight reduction vs painted ZnAl or cast aluminum',
           ],
         },
         {
@@ -873,7 +873,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       faq: [
         {
           q: 'Do you paint or metallize SLS/MJF 3D-printed PA12 nylon parts?',
-          a: 'Yes — porous sintered PA12 parts receive sealing primers, mechanical leveling, and smooth 2K or PVD mirror coats.',
+          a: 'Yes - porous sintered PA12 parts receive sealing primers, mechanical leveling, and smooth 2K or PVD mirror coats.',
         },
         {
           q: 'Why do regular coatings bubble on nylon parts during baking?',
@@ -901,15 +901,15 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       metaDesc:
         'Industrielle Beschichtung von Polyamid PA6/PA66 GF30 bei STANIAX: Entgasungs-Vortrocknung, Glasfaser-Glättung, Öl- & Glykolbeständigkeit bis 150 °C.',
       badge: 'Materialmatrix: PA6 / PA66 GF30',
-      polymerCode: 'PA6 / PA66 + GF15–35 %',
+      polymerCode: 'PA6 / PA66 + GF15-35 %',
       h1: 'Lackierung und PVD-Metallisierung von Polyamid (PA6 / PA66 GF)',
       subtitle:
         'Ausgasungsschutz, Porenfüller für glasfaserverstärkte Spritzgussteile und medienfeste 2K-PUR-Industrielacke.',
       directAnswerQuestion: 'Wie verhindert man Kocherblasen und sichtbare Glasfasern beim Lackieren von PA6/PA66?',
       directAnswer:
-        'Polyamide nehmen 2–3 % Luftfeuchtigkeit auf, was im Einbrennofen Bläschen verursacht, während Glasfasern raue Oberflächen zeichnen. STANIAX trocknet PA6/PA66 gezielt bei 95–110 °C vor, füllt Poren mit High-Build-2K-Grundierungen und lackiert öl- und temperaturfeste 2K-PUR- oder PVD-Systeme bis 150 °C.',
+        'Polyamide nehmen 2-3 % Luftfeuchtigkeit auf, was im Einbrennofen Bläschen verursacht, während Glasfasern raue Oberflächen zeichnen. STANIAX trocknet PA6/PA66 gezielt bei 95-110 °C vor, füllt Poren mit High-Build-2K-Grundierungen und lackiert öl- und temperaturfeste 2K-PUR- oder PVD-Systeme bis 150 °C.',
       specs: [
-        { parameter: 'Werkstoffe', value: 'Unverstärktes PA6/PA12 sowie glasfaserverstärktes PA66 GF15–35' },
+        { parameter: 'Werkstoffe', value: 'Unverstärktes PA6/PA12 sowie glasfaserverstärktes PA66 GF15-35' },
         { parameter: 'Entgasung & Trocknung', value: 'Kontrollierte Vortemperung verhindert Ausgasungskrater' },
         { parameter: 'Füllgrundierung', value: 'Dickschicht-2K-Primer egalisiert Glasfaserstrukturen zuverlässig' },
         { parameter: 'Medienbeständigkeit', value: 'Motorenöl, Kraftstoffe, Glykol, Streusalz · Dauerlast bis 150 °C' },
@@ -925,13 +925,13 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           bullets: [
             'Keine Ausgasungskrater während des thermischen Einbrennens',
             'Vollständig medienbeständig gegen Öle, Fette und Frostschutzmittel',
-            '40–55 % Gewichtsvorteil gegenüber beschichtetem Druckguss',
+            '40-55 % Gewichtsvorteil gegenüber beschichtetem Druckguss',
           ],
         },
         {
           heading: 'Veredelung von PA12-SLS/MJF-3D-Druckteilen',
           paragraphs: [
-            'Poröse Lasersinter-Prototypen aus PA12 dichten wir mittels mehrstufiger Füller- und Schliffprozesse präzise ab — als ideale Vorstufe für Sichtlackierung oder Vakuummetallisierung.',
+            'Poröse Lasersinter-Prototypen aus PA12 dichten wir mittels mehrstufiger Füller- und Schliffprozesse präzise ab - als ideale Vorstufe für Sichtlackierung oder Vakuummetallisierung.',
             'Dies verkürzt Markteinführungen für deutsche Sondermaschinenbauer, weil Kleinserien aus der additiven Fertigung bereits wie serienreife Spritzgussgehäuse auftreten.',
           ],
         },
@@ -979,7 +979,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
 
   glass: {
     pl: {
-      metaTitle: 'Flakony perfum i butelki szklane — PVD i silany | STANIAX',
+      metaTitle: 'Flakony perfum i butelki szklane - PVD i silany | STANIAX',
       metaDesc:
         'Przemysłowe lakierowanie i metalizacja szkła (flakony perfum, butelki, słoiki beauty): powłoki silanowe odporne na alkohol 96%, mrożenie i gradienty ombre.',
       badge: 'Matryca materiałów: Szkło & Ceramika',
@@ -1002,10 +1002,10 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           heading: 'Adhezja kowalencyjna do krzemionki i odporność na perfumy wysokoprocentowe',
           paragraphs: [
             'Flakon perfumeryjny lub butelka ekskluzywnego alkoholu ma bezpośredni i wielokrotny kontakt ze stężonym alkoholem etylowym, olejkami eterycznymi oraz transportem zbiorczym. Klasyczna farba meblowa czy samochodowa odpada od szkła po kontakcie z wodą lub pojedynczą kroplą perfum przy atomizerze.',
-            'W STANIAX pracujemy na przemysłowych systemach dedykowanych wyłącznie dla hutniczego szkła opakowaniowego i technicznego. Promotory silanowe tworzą mostki chemiczne Si–O–C bezpośrednio z matrycą szkła, a sieciowanie UV lub wygrzewanie tworzy twardą powłokę przechodzącą restrykcyjne próby namaczania alkoholowego.',
+            'W STANIAX pracujemy na przemysłowych systemach dedykowanych wyłącznie dla hutniczego szkła opakowaniowego i technicznego. Promotory silanowe tworzą mostki chemiczne Si-O-C bezpośrednio z matrycą szkła, a sieciowanie UV lub wygrzewanie tworzy twardą powłokę przechodzącą restrykcyjne próby namaczania alkoholowego.',
           ],
           bullets: [
-            'Ekologiczna alternatywa dla trawienia kwasem HF — satynowy efekt „szronienia / frosted” w dowolnym kolorze',
+            'Ekologiczna alternatywa dla trawienia kwasem HF - satynowy efekt „szronienia / frosted” w dowolnym kolorze',
             'Półprzezroczyste barwienia dymione, rubinowe i bursztynowe pozwalające kontrolować poziom płynu',
             'Możliwość łączenia na jednej butelce metalizacji próżniowej lustra (PVD) z gradientem barwnym ombre',
           ],
@@ -1013,7 +1013,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         {
           heading: 'Personalizacja seryjnych butelek bez kosztów nowych form hutniczych',
           paragraphs: [
-            'Uruchomienie dedykowanej masy barwionego szkła w hucie wymaga zamówień przekraczających setki tysięcy sztuk jednej referencji. Przemysłowe lakierowanie oraz PVD na standardowym bezbarwnym szkle flintowym w STANIAX pozwala marce beauty lub spirytusowej wdrożyć edycje sezonowe, gradienty oraz eleganckie złocenia od kilku tysięcy sztuk w 3–7 dni.',
+            'Uruchomienie dedykowanej masy barwionego szkła w hucie wymaga zamówień przekraczających setki tysięcy sztuk jednej referencji. Przemysłowe lakierowanie oraz PVD na standardowym bezbarwnym szkle flintowym w STANIAX pozwala marce beauty lub spirytusowej wdrożyć edycje sezonowe, gradienty oraz eleganckie złocenia od kilku tysięcy sztuk w 3-7 dni.',
           ],
         },
       ],
@@ -1025,7 +1025,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       ],
       faq: [
         {
-          q: 'Czy lakier na flakonie wytrzyma rozlane perfumy z 80–96% zawartością alkoholu?',
+          q: 'Czy lakier na flakonie wytrzyma rozlane perfumy z 80-96% zawartością alkoholu?',
           a: 'Tak. Każdy stosowany w STANIAX system do szkła perfumeryjnego jest testowany na odporność na czysty etanol, zapobiegając rozmiękaniu przy szyjce atomizera.',
         },
         {
@@ -1063,7 +1063,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Smooth glass rejects regular paints unless bonded chemically. STANIAX prepares glass via silane organofunctional adhesion promoters and thermal/UV curing cycles compatible with 99.99% aluminum PVD and Pantone spray lacquers. Finishes pass ISO 2409 Class 0 cross-hatch tests and withstand 96% perfumery ethanol without softening.',
       specs: [
         { parameter: 'Container Formats', value: 'Perfume flacons, cosmetic jars, spirits bottles, candle vessels' },
-        { parameter: 'Bonding Mechanism', value: 'Organosilane primers forming covalent Si–O–C glass linkages' },
+        { parameter: 'Bonding Mechanism', value: 'Organosilane primers forming covalent Si-O-C glass linkages' },
         { parameter: 'Perfumery QA Standard', value: '96% ethanol, fragrance oils & transit rub resistance tested' },
         { parameter: 'Decorative Portfolio', value: 'HF-free frosted matte, translucent tints, gradient ombre, PVD mirror' },
         { parameter: 'Color Tolerance', value: 'Pantone / RAL / NCS spectrophotometric matching (ΔE < 0.8)' },
@@ -1084,7 +1084,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         {
           heading: 'Transforming Stock Glass Without Expensive Furnace Color Campaigns',
           paragraphs: [
-            'Ordering custom furnace-colored glass runs often demands 100,000+ bottle MOQs. Coating off-the-shelf clear flint stock glass with STANIAX lets indie beauty brands and craft distilleries launch signature matte, chrome PVD, or ruby-lacquered SKUs at manageable batch quantities within 3–7 days.',
+            'Ordering custom furnace-colored glass runs often demands 100,000+ bottle MOQs. Coating off-the-shelf clear flint stock glass with STANIAX lets indie beauty brands and craft distilleries launch signature matte, chrome PVD, or ruby-lacquered SKUs at manageable batch quantities within 3-7 days.',
             'Each production lot undergoes spectrophotometric color verification (ΔE < 0.8), cross-hatch tape adhesion testing after water immersion, and carton-rub abrasion checks so luxury flacons arrive on high-speed filling lines free of scratches or collar-fit issues.',
           ],
         },
@@ -1098,7 +1098,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       faq: [
         {
           q: 'Do coated perfume flacons resist 96% ethanol spills around the crimp neck?',
-          a: 'Yes — every perfumery coating system undergoes 96% ethanol wipe and immersion testing prior to batch approval.',
+          a: 'Yes - every perfumery coating system undergoes 96% ethanol wipe and immersion testing prior to batch approval.',
         },
         {
           q: 'Can you achieve an acid-etched frosted glass look without hazardous HF acid?',
@@ -1106,7 +1106,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         },
         {
           q: 'Can a single bottle combine gradient color and chrome/gold PVD?',
-          a: 'Yes — vacuum metallized mirror or half-mirror fade combined with UV ombre tints creates high-shelf-impact packaging.',
+          a: 'Yes - vacuum metallized mirror or half-mirror fade combined with UV ombre tints creates high-shelf-impact packaging.',
         },
         {
           q: 'What order sizes are practical for European bottle coating at STANIAX?',
@@ -1129,13 +1129,13 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
       polymerCode: 'Kalk-Natron- & Borosilikatglas',
       h1: 'Glaslackierung und PVD-Metallisierung für Flakons & Flaschen',
       subtitle:
-        'Silan-vernetzte Lacksysteme und Vakuum-Aluminium für Kosmetikflakons, Spirituosenflaschen und Kerzengläser — von Satin-Frost bis Chrom-Spiegel.',
+        'Silan-vernetzte Lacksysteme und Vakuum-Aluminium für Kosmetikflakons, Spirituosenflaschen und Kerzengläser - von Satin-Frost bis Chrom-Spiegel.',
       directAnswerQuestion: 'Wie haften Industrielacke und PVD-Schichten dauerhaft und ethanolfest auf glattem Glas?',
       directAnswer:
-        'Unporöses Verpackungsglas erfordert Silan-Haftvermittler für eine kovalente Anbindung an die SiO₂-Oberfläche. STANIAX veredelt Glasflakons mit wasserbasierten/UV-Lacksystemen oder 99,99 % PVD-Aluminium inklusive Schutzlack — geprüft auf ISO 2409 Gt 0 sowie 96 % Parfümethanol ohne Anquellen.',
+        'Unporöses Verpackungsglas erfordert Silan-Haftvermittler für eine kovalente Anbindung an die SiO₂-Oberfläche. STANIAX veredelt Glasflakons mit wasserbasierten/UV-Lacksystemen oder 99,99 % PVD-Aluminium inklusive Schutzlack - geprüft auf ISO 2409 Gt 0 sowie 96 % Parfümethanol ohne Anquellen.',
       specs: [
         { parameter: 'Gebindearten', value: 'Parfümflakons, Cremetiegel, Spirituosenflaschen, Kerzengläser' },
-        { parameter: 'Haftbrücke', value: 'Organosilan-Primer mit kovalenter Si–O–C-Bindung zum Glas' },
+        { parameter: 'Haftbrücke', value: 'Organosilan-Primer mit kovalenter Si-O-C-Bindung zum Glas' },
         { parameter: 'Chemikalienfestigkeit', value: '96 % Ethanol-, Parfümöl- und Kartonscheuer-Beständigkeit' },
         { parameter: 'Design-Effekte', value: 'Flusssäurefreie Satinierung (Frost), Ombré-Verlauf, Spiegel-PVD' },
         { parameter: 'Farbgenauigkeit', value: 'Pantone-, RAL- & NCS-Rezepte mit ΔE < 0,8' },
@@ -1155,7 +1155,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         {
           heading: 'Standardglas individuell veredeln ohne teure Hüttenmindestmengen',
           paragraphs: [
-            'Eingefärbte Glasschmelzen ab Glashütte erfordern oft sechsstellige Stückzahlen. Durch industrielle Spritzlackierung und PVD auf neutralem Weißglas realisieren Marken bei STANIAX bereits ab mittelgroßen Auflagen exklusive Sondereditionen binnen 3–7 Werktagen.',
+            'Eingefärbte Glasschmelzen ab Glashütte erfordern oft sechsstellige Stückzahlen. Durch industrielle Spritzlackierung und PVD auf neutralem Weißglas realisieren Marken bei STANIAX bereits ab mittelgroßen Auflagen exklusive Sondereditionen binnen 3-7 Werktagen.',
             'Auf Wunsch schützen spezielle Masken den Gewindehals präzise vor Lackeintrag, damit Krimppumpen und Verschlüsse sauber aufsetzen. Ebenso bereiten wir glatte Mantelflächen gezielt für nachfolgenden Siebdruck, Heißfolienprägung oder Etikettierung mit hoher Haftkraft vor.',
           ],
         },
@@ -1180,7 +1180,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         },
         {
           q: 'Erzeugen Sie Frostglas-Optik umweltfreundlich ohne Säure?',
-          a: 'Ja, per feinstkörniger Satin-Spritzlackierung ganz ohne Flusssäurebad — inklusive freier Pantone-Einfärbung.',
+          a: 'Ja, per feinstkörniger Satin-Spritzlackierung ganz ohne Flusssäurebad - inklusive freier Pantone-Einfärbung.',
         },
         {
           q: 'Sind Kombinationen aus Ombré-Farbverlauf und Gold-PVD machbar?',
