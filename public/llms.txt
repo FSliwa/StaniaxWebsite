@@ -150,8 +150,9 @@
 - Solutions, VS Comparisons & Substrate Matrix: https://www.staniax.pl/sitemap-solutions.xml
 
 ## Company NAP & Contact Details
-- **Legal Entity:** STANIAX Spółka z ograniczoną odpowiedzialnością
+- **Legal Entity:** STANIAX Spółka z ograniczoną odpowiedzialnością (KRS: 0001182026 · NIP / VAT EU: PL5253052509 · REGON: 542156053 · Share Capital: 150,000.00 PLN)
 - **Production Plant (Courier & Workshop Deliveries):** ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów, Poland
 - **Registered Office:** ul. Grzybowska 5A, 00-132 Warszawa, Poland
 - **Phone:** +48 882 488 844
 - **E-mail:** metalizacja@staniax.pl | office@staniax.pl
+- **Opening Hours:** Monday – Friday 07:00 – 17:00 CET

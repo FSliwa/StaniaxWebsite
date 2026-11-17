@@ -139,7 +139,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
     breadcrumbLabel: "Regeneracja reflektorów i odbłyśników",
     heroBadge: "Józefów k. Warszawy + wysyłka kurierska 24/48h w całej Polsce",
     h1: "Regeneracja reflektorów i odbłyśników samochodowych metodą próżniową",
-    lead: "Przywracamy fabryczną sprawność świetlną reflektorom samochodowym, motocyklowym oraz zabytkowym. Nasza regeneracja reflektorów i regeneracja lamp samochodowych w zakładzie STANIAX w Józefowie pod Warszawą polega na usunięciu wypalonej powłoki, nałożeniu lakieru podkładowego wysokotemperaturowego i próżniowym napyleniu czystego aluminium (99,9% Al) z warstwą ochronną krzemoorganiczną.",
+    lead: "Przywracamy fabryczną sprawność świetlną reflektorom samochodowym, motocyklowym oraz klasykom — kompleksowe odnawianie lamp samochodowych, renowacja reflektorów zabytkowych, czyszczenie lamp samochodowych z osadów i regeneracja lampy samochodowej po wypaleniu soczewki. Nasza regeneracja reflektorów i regeneracja lamp samochodowych w zakładzie STANIAX w Józefowie pod Warszawą polega na usunięciu wypalonej powłoki, nałożeniu lakieru podkładowego wysokotemperaturowego i próżniowym napyleniu czystego aluminium (99,99% Al) z warstwą ochronną krzemoorganiczną.",
     ctaPrimaryLabel: "Wyceń regenerację reflektorów →",
     ctaSecondaryLabel: "Sprawdź cennik i zakres naprawy ↓",
     heroImageKey: "reflectorsHero",
@@ -178,7 +178,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       highlights: [
         "Chemiczne usunięcie starej, zmatowiałej lub wypalonej warstwy aluminium i utlenionego podkładu bez naruszania geometrii czaszy.",
         "Aplikacja termoutwardzalnego lakieru podkładowego (Base Coat) odpornego na temperatury pracy żarników ksenonowych do 220°C.",
-        "Metalizacja próżniowa PVD czystym aluminium 99,9% w komorze wysokiej próżni (10⁻⁴ mbar) dająca efekt lustra optycznego.",
+        "Metalizacja próżniowa PVD czystym aluminium 99,99% w komorze wysokiej próżni (10⁻⁴ mbar) dająca efekt lustra optycznego.",
         "Zabezpieczenie powierzchni warstwą ochronną (Top Coat / polimeryzacja plazmowa) chroniącą przed utlenianiem i wilgocią.",
         "Wieloetapowe polerowanie reflektorów i kloszy poliwęglanowych (PC) wraz z aplikacją trwałego lakieru lub powłoki kwarcowej UV.",
         "Rozklejanie i ponowne hermetyczne sklejanie lamp na nowym szczeliwie butylowym lub kleju twardym z testem ciśnieniowym szczelności.",
@@ -196,7 +196,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Metalizacja samego odbłyśnika (dostarczonego luzem)",
-            "Zmycie starej powłoki, podkład wysokotemperaturowy, napylanie próżniowe Al 99,9%, zabezpieczenie antykorozyjne",
+            "Zmycie starej powłoki, podkład wysokotemperaturowy, napylanie próżniowe Al 99,99%, zabezpieczenie antykorozyjne",
             "2–3 dni robocze",
             "150 – 300 zł / szt.",
           ],
@@ -229,7 +229,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
             h3: "Metalizacja próżniowa odbłyśników a domowe „chromowanie w sprayu”",
             body: "Na rynku wtórnym można spotkać farby określane jako „chrom w sprayu” lub oklejanie odbłyśników folią lustrzaną. Takie metody nie sprawdzają się w układach optycznych reflektorów samochodowych z trzech powodów inżynieryjnych:",
             bullets: [
-              "Współczynnik odbicia kierunkowego farby chromowej wynosi zaledwie 45–55%, podczas gdy napylone próżniowo aluminium 99,9% osiąga 96–98% refleksji zwierciadlanej.",
+              "Współczynnik odbicia kierunkowego farby chromowej wynosi zaledwie 45–55%, podczas gdy napylone próżniowo aluminium 99,99% osiąga >92% refleksji zwierciadlanej.",
               "Farby aerozolowe gazują i miękną już przy 80–90°C, co powoduje zadymienie wnętrza lampy i osadzanie tłustego nalotu na wewnętrznej stronie klosza oraz soczewki.",
               "Tylko próżniowa metalizacja odbłyśników (PVD) daje nanometryczną gładkość (Ra < 0,02 µm) niezbędną do uzyskania ostrej linii odcięcia światłocienia wymaganej podczas przeglądu technicznego.",
             ],
@@ -260,10 +260,10 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
     showcase: {
       h2: "Porównaj efekt PRZED i PO regeneracji odbłyśnika w próżni",
       subtitle:
-        "Przesuń suwak (myszką, palcem lub strzałkami klawiatury), aby zobaczyć różnicę między wypalonym, zmatowiałym odbłyśnikiem a czaszą po napyleniu próżniowym aluminium 99,9% w STANIAX.",
+        "Przesuń suwak (myszką, palcem lub strzałkami klawiatury), aby zobaczyć różnicę między wypalonym, zmatowiałym odbłyśnikiem a czaszą po napyleniu próżniowym aluminium 99,99% w STANIAX.",
       ctaLabel: "Zamów wycenę regeneracji swoich reflektorów →",
       beforeLabel: "PRZED — Wypalona powłoka",
-      afterLabel: "PO — Metalizacja próżniowa Al 99,9%",
+      afterLabel: "PO — Metalizacja próżniowa Al 99,99%",
       beforeAlt:
         "Wypalony i zmatowiały odbłyśnik reflektora samochodowego przed regeneracją",
       afterAlt:
@@ -291,8 +291,8 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: "03",
           title: "Napylanie próżniowe czystego aluminium PVD",
-          desc: "W komorze wysokiej próżni (10⁻⁴ mbar) odparowujemy termicznie aluminium o czystości 99,9%, które kondensuje na rotujących odbłyśnikach w postaci jednorodnego lustra optycznego.",
-          param: "Refleksja światła 96–98%",
+          desc: "W komorze wysokiej próżni (10⁻⁴ mbar) odparowujemy termicznie aluminium o czystości 99,99%, które kondensuje na rotujących odbłyśnikach w postaci jednorodnego lustra optycznego.",
+          param: "Refleksja światła >92%",
         },
         {
           num: "04",
@@ -354,8 +354,8 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           badge: "BI-XENON / SOCZEWKI",
-          h3: "Seria odbłyśników soczewkowych Hella i Valeo po napyleniu Al 99,9%",
-          desc: "Kompleksowa regeneracja wypalonych czasz magnezowych i kompozytowych BMC z odtworzeniem 98% refleksji zwierciadlanej w górnej strefie nad żarnikiem.",
+          h3: "Seria odbłyśników soczewkowych Hella i Valeo po napyleniu Al 99,99%",
+          desc: "Kompleksowa regeneracja wypalonych czasz magnezowych i kompozytowych BMC z odtworzeniem >92% refleksji zwierciadlanej w górnej strefie nad żarnikiem.",
           param: "Wzrost natężenia światła: +260% (pomiar luksomierzem)",
           imageKey: "reflectors1",
           alt: "Zregenerowane odbłyśniki soczewkowe Bi-Xenon po metalizacji próżniowej w STANIAX",
@@ -401,7 +401,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Czy po regeneracji reflektor przejdzie przegląd na stacji kontroli pojazdów?",
-          a: "Tak. Próżniowa metalizacja odbłyśnika odtwarza 96–98% fabrycznego współczynnika odbicia kierunkowego oraz idealnie ostrą granicę światła i cienia (cut-off line). Dzięki temu strumień świetlny spełnia wymagania diagnostyczne na stacji kontroli pojazdów i nie oślepia kierowców jadących z naprzeciwka.",
+          a: "Tak. Próżniowa metalizacja odbłyśnika odtwarza >92% fabrycznego współczynnika odbicia kierunkowego oraz idealnie ostrą granicę światła i cienia (cut-off line). Dzięki temu strumień świetlny spełnia wymagania diagnostyczne na stacji kontroli pojazdów i nie oślepia kierowców jadących z naprzeciwka.",
         },
         {
           q: "Na jak długo wystarcza zregenerowany odbłyśnik i polerowany klosz?",
@@ -454,10 +454,10 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
   "vacuum-metallization": {
     navLabel: "Metalizacja próżniowa",
     shortSummary:
-      "Przemysłowe napylanie próżniowe PVD aluminium (99,9% Al) nadające lustrzany efekt chromu, złota, miedzi i powłok technicznych EMI/RFI.",
+      "Przemysłowe napylanie próżniowe PVD aluminium (99,99% Al) nadające lustrzany efekt chromu, złota, miedzi i powłok technicznych EMI/RFI.",
     metaTitle: "Metalizacja Próżniowa PVD — Usługi Przemysłowe | STANIAX",
     metaDesc:
-      "Usługowa metalizacja próżniowa PVD w STANIAX (Józefów k. Warszawy). Powłoki lustrzane Al 99,9%, chrom, złoto, inox dla przemysłu, oświetlenia i opakowań.",
+      "Usługowa metalizacja próżniowa PVD w STANIAX (Józefów k. Warszawy). Powłoki lustrzane Al 99,99%, chrom, złoto, inox dla przemysłu, oświetlenia i opakowań.",
     breadcrumbLabel: "Metalizacja próżniowa PVD",
     heroBadge:
       "Technologia PVD rozwijana od 1993 r. (Dariusz Staniak · STANIAX Sp. z o.o.)",
@@ -501,7 +501,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       cardSubtitle:
         "Kompleksowa linia przygotowania powierzchni, lakierowania podkładowego, napylania próżniowego i barwienia Top Coat",
       highlights: [
-        "Napylanie próżniowe czystego aluminium (99,9% Al) w komorach wysokiej próżni z planetarnym systemem rotacji wsadu zapewniającym równomierne pokrycie 3D.",
+        "Napylanie próżniowe czystego aluminium (99,99% Al) w komorach wysokiej próżni z planetarnym systemem rotacji wsadu zapewniającym równomierne pokrycie 3D.",
         "Pełny układ trójwarstwowy: Lakier podkładowy (Base Coat) + Warstwa metaliczna PVD (50–120 nm) + Lakier nawierzchniowy (Top Coat UV lub 2K).",
         "Barwienie lakieru nawierzchniowego na dowolny odcień metaliczny: lustrzany chrom, złoto 14K/18K/24K, różowe złoto (rose gold), miedź, mosiądz, tytan, inox oraz czarny chrom.",
         "Własna produkcja i adaptacja specjalistycznego oprzyrządowania (satelitów, uchwytów i masek) pod nietypowe kształty detali klienta.",
@@ -561,7 +561,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
             bullets: [
               "Warstwa 1 — Podłoże przygotowane chemicznie i antystatycznie: odtłuszczone w izopropanolu/kąpieli wodnej i zjonizowane powietrzem w celu usunięcia ładunków elektrostatycznych przyciągających kurz.",
               "Warstwa 2 — Lakier podkładowy (Base Coat): wypełnia linie płynięcia tworzywa, pory i mikro-rysy formy wtryskowej, tworząc szklistą powierzchnię o napięciu powierzchniowym zoptymalizowanym pod adhezję aluminium.",
-              "Warstwa 3 — Aluminium PVD (99,9%): nadaje 100% metaliczny blask, nieprzezroczystość świetlną oraz właściwości refleksyjne lub ekranujące.",
+              "Warstwa 3 — Aluminium PVD (99,99%): nadaje 100% metaliczny blask, nieprzezroczystość świetlną oraz właściwości refleksyjne lub ekranujące.",
               "Warstwa 4 — Lakier nawierzchniowy (Top Coat): zamyka mikropory aluminium, chroni przed ścieraniem, potem dłoni, alkoholami i promieniowaniem UV oraz pozwala barwić powłokę pigmentami transparentnymi.",
             ],
           },
@@ -641,11 +641,11 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           id: "aluminum-pvd",
-          label: "03. Aluminium PVD 99,9%",
+          label: "03. Aluminium PVD 99,99%",
           badge: "KOMORA WYSOKIEJ PRÓŻNI",
           title: "Próżniowo napylona warstwa czystego aluminium (50–120 nm)",
           description:
-            "Osadzana w próżni 10⁻⁴ mbar warstwa metalu odpowiedzialna za lustrzany połysk, refleksyjność świetlną (98%) oraz przewodnictwo ekranujące EMI/RFI.",
+            "Osadzana w próżni 10⁻⁴ mbar warstwa metalu odpowiedzialna za lustrzany połysk, refleksyjność świetlną (>92%) oraz przewodnictwo ekranujące EMI/RFI.",
           specs: [
             {
               label: "Grubość warstwy metalu",
@@ -653,11 +653,11 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Czystość metalu",
-              value: "Aluminium 99,9% (gatunek próżniowy)",
+              value: "Aluminium 99,99% (gatunek próżniowy)",
             },
             {
               label: "Współczynnik odbicia",
-              value: "96 – 98% w paśmie widzialnym VIS",
+              value: ">92% w paśmie widzialnym VIS",
             },
           ],
           previewStyle:
@@ -760,7 +760,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           badge: "OPTYKA I OŚWIETLENIE PRZEMYSŁOWE",
-          h3: "Zwierciadła techniczne o refleksji 98%",
+          h3: "Zwierciadła techniczne o refleksji >92%",
           body: "Metalizujemy rastry, reflektory halowe, szperacze i elementy aparatury medycznej wymagające najwyższej czystości optycznej i odporności na podwyższoną temperaturę pracy.",
           spec: "Podkłady wysokotemperaturowe do 220°C",
         },
@@ -805,7 +805,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: "Czym różni się metalizacja próżniowa PVD od tradycyjnego chromowania galwanicznego?",
-          a: "Metalizacja próżniowa PVD to proces fizycznego osadzania par metalu (aluminium 99,9%) w komorze wysokiej próżni w połączeniu z lakierowaniem podkładowym i nawierzchniowym. W przeciwieństwie do galwanizacji nie używa toksycznego chromu sześciowartościowego (Cr6+) ani kąpieli kwasowych, pozwala pokrywać niemal każde tworzywo sztuczne (nie tylko specjalny ABS galwaniczny), szkło i metale, a przy tym zapewnia łatwe barwienie na odcienie złota, miedzi, różowego złota czy czarnego chromu przy niższym koszcie jednostkowym.",
+          a: "Metalizacja próżniowa PVD to proces fizycznego osadzania par metalu (aluminium 99,99%) w komorze wysokiej próżni w połączeniu z lakierowaniem podkładowym i nawierzchniowym. W przeciwieństwie do galwanizacji nie używa toksycznego chromu sześciowartościowego (Cr6+) ani kąpieli kwasowych, pozwala pokrywać niemal każde tworzywo sztuczne (nie tylko specjalny ABS galwaniczny), szkło i metale, a przy tym zapewnia łatwe barwienie na odcienie złota, miedzi, różowego złota czy czarnego chromu przy niższym koszcie jednostkowym.",
         },
         {
           q: "Jakie materiały można poddać procesowi metalizacji próżniowej?",
@@ -1014,7 +1014,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           badge: "NAJCZĘŚCIEJ WYBIERANY",
           title: "Klasyczny lustrzany chrom PVD na ABS, PC i PP",
           description:
-            "Idealnie gładka, srebrzysta powłoka o refleksji >95% zastępująca chrom galwaniczny. Stosowana w emblematach motoryzacyjnych, oprawach oświetleniowych, przyciskach i zamknięciach opakowań.",
+            "Idealnie gładka, srebrzysta powłoka o refleksji >92% zastępująca chrom galwaniczny. Stosowana w emblematach motoryzacyjnych, oprawach oświetleniowych, przyciskach i zamknięciach opakowań.",
           specs: [
             {
               label: "Stopień połysku (60°)",
@@ -1104,7 +1104,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: "03",
           title: "Zimne napylanie aluminium w próżni PVD",
-          desc: "W komorze próżniowej osadzamy warstwę aluminium 99,9% bez przegrzewania wypraski (temperatura detalu nie przekracza progu odkształcenia HDT tworzywa).",
+          desc: "W komorze próżniowej osadzamy warstwę aluminium 99,99% bez przegrzewania wypraski (temperatura detalu nie przekracza progu odkształcenia HDT tworzywa).",
           param: "Zero deformacji cienkich ścianek",
         },
         {
@@ -2347,7 +2347,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           badge: "SERIE PRODUKCYJNE NA ZAWIESZKACH",
-          h3: "Seryjne malowanie natryskowe elementów o złożonej geometrii 3D",
+          h3: "Seryjne malowanie natryskowe elementów 3D — standard nowoczesnych lakierni przemysłowych",
           desc: "Równomierne pokrycie trudno dostępnych zakamarków i krawędzi na dedykowanych stojakach obrotowych.",
           param: "100% powtarzalności koloru RAL/NCS w partii",
           imageKey: "sprayPaint3",

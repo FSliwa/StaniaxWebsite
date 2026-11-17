@@ -623,8 +623,9 @@ function renderSiteChrome({ lang, currentPath, alternates, bridge, bodyHtml }) {
         <p class="font-bold text-white">STANIAX Sp. z o.o.</p>
         <p class="text-sm text-slate-300">${escapeHtml(labels.footerPlantPrefix)} ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów${escapeHtml(labels.footerCountrySuffix)}</p>
         <p class="text-sm text-slate-300">${escapeHtml(labels.footerHqPrefix)} ul. Grzybowska 5A, 00-132 Warszawa${escapeHtml(labels.footerCountrySuffix)}</p>
-        <p class="text-sm text-slate-300">Tel.: <a href="tel:+48882488844" class="text-blue-400 underline">+48 882 488 844</a></p>
+        <p class="text-sm text-slate-300">Tel.: <a href="tel:+48882488844" class="text-blue-400 underline">+48 882 488 844</a> (pn.–pt. 07:00–17:00)</p>
         <p class="text-sm text-slate-300">E-mail: <a href="mailto:metalizacja@staniax.pl" class="text-blue-400 underline">metalizacja@staniax.pl</a> · <a href="mailto:office@staniax.pl" class="text-blue-400 underline">office@staniax.pl</a></p>
+        <p class="text-xs text-slate-400">KRS: 0001182026 · NIP: 5253052509 · REGON: 542156053 · Kapitał zakładowy: 150 000,00 zł</p>
       </div>
       <div class="space-y-3">
         <p class="text-xs uppercase tracking-widest text-blue-400 font-bold">${escapeHtml(labels.footerServicesTitle)}</p>
@@ -2607,6 +2608,20 @@ function renderGalleryPage(lang, currentPath, bridge, galleryItems) {
         <a href="${escapeHtml(SERVICE_SLUGS["glass-painting"][lang])}" class="text-blue-700 font-semibold underline">${escapeHtml(meta.linkLabels.glassPaint)}</a> ${escapeHtml(meta.linkLabels.conjunction)}
         <a href="${escapeHtml(SERVICE_SLUGS["spray-painting"][lang])}" class="text-blue-700 font-semibold underline">${escapeHtml(meta.linkLabels.sprayPaint)}</a>.
       </p>
+      <p class="leading-relaxed">${escapeHtml(
+        lang === "pl"
+          ? "Każda seria produkcyjna przechodzi w zakładzie STANIAX weryfikację przyczepności siatką nacięć wg ISO 2409 (klasa Gt 0), kontrolę powtarzalności odcienia ΔE < 0,8 oraz odbiór jakościowy pod światłem inspekcyjnym przed wysyłką kurierską lub paletową."
+          : lang === "de"
+            ? "Jedes Serienlos durchläuft im STANIAX-Werk eine Gitterschnittprüfung nach DIN EN ISO 2409 (Gt 0), eine Farbtonkontrolle ΔE < 0,8 sowie eine dokumentierte Sichtprüfung vor dem Paletten- oder Paketversand."
+            : "Every production batch at STANIAX undergoes ISO 2409 cross-cut adhesion testing (Class Gt 0), ΔE < 0.8 color repeatability control, and final inspection prior to EU parcel or pallet dispatch.",
+      )}</p>
+      <p class="leading-relaxed">${escapeHtml(
+        lang === "pl"
+          ? "Przed uruchomieniem produkcji wielkoseryjnej wykonujemy próbki wzorcowe na powierzonych detalach z ABS, PC, PP, PA, metalu lub szkła — prześlij zapytanie ze zdjęciem lub modelem 3D na metalizacja@staniax.pl."
+          : lang === "de"
+            ? "Vor Serienfreigabe erstellen wir verbindliche Grenzmuster direkt auf Ihren Originalteilen aus ABS, PC, PP, PA, Metallguss oder Verpackungsglas — senden Sie Ihre Anfrage an metalizacja@staniax.pl."
+            : "Prior to serial release, we prepare reference approval samples on your actual ABS, PC, PP, PA, metal, or glass components — send photos or STEP files to metalizacja@staniax.pl.",
+      )}</p>
     </div>
   </section>`;
 

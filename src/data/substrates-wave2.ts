@@ -67,7 +67,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         {
           heading: 'Regeneracja lamp LED i matrycowych zwierciadeł samochodowych',
           paragraphs: [
-            'W nowszych reflektorach Full LED oraz Bi-LED strumień diod mocy odbija się od wielosekcyjnych zwierciadeł z wysokotemperaturowego poliwęglanu PC-HT. Przegrzanie radiatora lub nieszczelność odpowietrznika powoduje utlenienie warstwy aluminium — nasza linia PVD odtwarza lustro bez konieczności zakupu nowej lampy LED za 4000–9000 zł.',
+            'Skuteczna regeneracja lamp ledowych samochodowych (Full LED oraz Bi-LED) wynika z faktu, że strumień diod mocy odbija się od wielosekcyjnych zwierciadeł z wysokotemperaturowego poliwęglanu PC-HT. Przegrzanie radiatora lub nieszczelność odpowietrznika powoduje utlenienie warstwy aluminium — nasza linia PVD odtwarza lustro bez konieczności zakupu nowej lampy LED za 4000–9000 zł.',
           ],
         },
       ],
@@ -837,7 +837,7 @@ export const SUBSTRATES_WAVE2: Record<Wave2SubstrateId, Record<Lang, SubstrateLo
         'Selektive PVD-Aluminium-Abschirmung (EMV/EMI/RFI) und ableitfähige ESD-Lackierung für Kunststoffgehäuse aus PC/ABS, PC und PA im Industriewerk STANIAX.',
       badge: 'Elektronik & Medizintechnik: EMV / ESD',
       polymerCode: 'Leitfähiges Al-PVD & ESD-Lacke (PC/ABS · PA)',
-      h1: 'EMV-/EMI-Abschirmbeschichtung und ableitfähige ESD-Lackierung auf Kunststoffen',
+      h1: 'EMV-, EMI- & RFI-Abschirmung sowie ableitfähige ESD-Beschichtung auf Kunststoffen',
       subtitle:
         'Selektive Innenmetallisierung im Hochvakuum und elektrostatisch ableitende Industrielacke für Elektronik-, Medizin- und Messgerätegehäuse.',
       directAnswerQuestion: 'Wie erhalten Kunststoffgehäuse eine zuverlässige EMV-Abschirmung oder ESD-Ableitfähigkeit?',

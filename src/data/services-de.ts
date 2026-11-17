@@ -104,12 +104,12 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
     heroBadge:
       "Werk Józefów bei Warschau · Schneller EU-Kurierversand (DE / AT / PL)",
     h1: "Scheinwerfer Reflektor neu bedampfen & Scheinwerfer Aufbereitung",
-    lead: "Wir stellen die werkseitige Lichtleistung von PKW-, Motorrad- und Oldtimer-Scheinwerfern wieder her. Beim Scheinwerfer Reflektor neu bedampfen (Reflektor neu beschichten) und der Scheinwerfer Aufbereitung im Werk STANIAX entfernen wir die verbrannte Altschicht chemisch, tragen einen bis 220°C hitzebeständigen Grundlack auf und bedampfen den Reflektor im Hochvakuum (PVD) mit 99,9% reinem Aluminium inklusive Silizium-Schutzschicht.",
+    lead: "Wir stellen die werkseitige Lichtleistung von PKW-, Motorrad- und Oldtimer-Scheinwerfern wieder her. Beim Scheinwerfer Reflektor neu bedampfen (Reflektor neu beschichten) und der Scheinwerfer Aufbereitung im Werk STANIAX entfernen wir die verbrannte Altschicht chemisch, tragen einen bis 220°C hitzebeständigen Grundlack auf und bedampfen den Reflektor im Hochvakuum (PVD) mit 99,99% reinem Aluminium inklusive Silizium-Schutzschicht.",
     ctaPrimaryLabel: "Reflektor-Aufbereitung anfragen →",
     ctaSecondaryLabel: "Preisliste & Leistungsumfang ansehen ↓",
     heroImageKey: "reflectorsHero",
     heroImageAlt:
-      "Im Hochvakuum neu bedampfte Scheinwerfer-Reflektoren mit 99,9% Aluminium-Spiegelschicht bei STANIAX",
+      "Im Hochvakuum neu bedampfte Scheinwerfer-Reflektoren mit 99,99% Aluminium-Spiegelschicht bei STANIAX",
     metrics: [
       {
         value: 150,
@@ -123,7 +123,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         suffix: "%",
         label: "Lichtreflexion der Al-Schicht",
         detail:
-          "Gerichteter Reflexionsgrad der im Hochvakuum aufgedampften 99,9% Aluminiumschicht",
+          "Gerichteter Reflexionsgrad der im Hochvakuum aufgedampften 99,99% Aluminiumschicht",
       },
       {
         value: 3,
@@ -143,7 +143,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       highlights: [
         "Chemisches Entlacken der verbrannten, vergilbten oder oxidierten Aluminiumschicht ohne Veränderung der parabolischen Brennweite.",
         "Staubfreie Applikation eines hitzebeständigen Thermoplast-/Duroplast-Grundlacks (Base Coat) für Dauerbetriebstemperaturen bis 220°C.",
-        "Hochvakuum-Bedampfung (10⁻⁴ mbar) mit 99,9% Reinstaluminium für einen optischen Hochglanzspiegel.",
+        "Hochvakuum-Bedampfung (10⁻⁴ mbar) mit 99,99% Reinstaluminium für einen optischen Hochglanzspiegel.",
         "Versiegelung mit einer organischen Silizium-Schutzschicht (Top Coat) gegen Oxidation, Feuchtigkeit und Anlaufen.",
         "Mehrstufiges Schleifen und Polieren matter Polycarbonat-Streuscheiben inklusive dauerhafter 2K/UV-Klarlackversiegelung.",
         "Fachgerechtes Öffnen und hermetisches Neuverkleben kompletter Scheinwerfer mit frischem Butyl- oder Hartkleber inkl. Dichtigkeitstest.",
@@ -161,7 +161,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             "Einzelnen Reflektor neu bedampfen (lose angeliefert)",
-            "Chemisches Entschichten, 220°C Hochtemperatur-Grundierung, PVD-Aluminiumbedampfung 99,9%, Top-Coat-Schutz",
+            "Chemisches Entschichten, 220°C Hochtemperatur-Grundierung, PVD-Aluminiumbedampfung 99,99%, Top-Coat-Schutz",
             "2–3 Werktage",
             "150 – 300 PLN / Stk. (ca. 35 – 70 €)",
           ],
@@ -194,7 +194,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             h3: "Reflektor im Hochvakuum neu bedampfen vs. Chromspray aus der Dose",
             body: "Sogenanntes „Chromspray“ oder Chromfolie sind für optische Scheinwerferreflektoren aus drei physikalischen Gründen ungeeignet:",
             bullets: [
-              "Chromlack erreicht nur 45–55% gerichtete Reflexion, während im PVD-Vakuum aufgedampftes 99,9% Aluminium 96–98% Spiegelreflexion bietet.",
+              "Während ein einfaches Scheinwerfer-Aufbereitungsset nur die äußere Streuscheibe poliert und Chromlack lediglich 45–55% Reflexion erreicht, nutzen professionelle Scheinwerfer-Aufbereiter unsere Werkslinie, während im PVD-Vakuum aufgedampftes 99,99% Aluminium >92% Spiegelreflexion bietet.",
               "Sprühdosenlacke gasen bereits ab 80–90°C aus und schlagen sich als milchiger Nebel dauerhaft auf der Innenseite von Linse und Streuscheibe nieder.",
               "Nur die PVD-Vakuummetallisierung erhält die nanometergenaue Oberflächengüte (Ra < 0,02 µm) für eine TÜV-konforme Hell-Dunkel-Grenze.",
             ],
@@ -228,11 +228,11 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         "Bewegen Sie den Schieberegler (mit Maus, Finger oder Pfeiltasten), um den verbrannten Reflektor mit dem im Hochvakuum neu bedampften Spiegel von STANIAX zu vergleichen.",
       ctaLabel: "Angebot für Ihre Scheinwerfer anfordern →",
       beforeLabel: "VORHER — Verbrannte Schicht",
-      afterLabel: "NACHHER — PVD Aluminium 99,9%",
+      afterLabel: "NACHHER — PVD Aluminium 99,99%",
       beforeAlt:
         "Verbrannter und matter Scheinwerfer-Reflektor vor der Aufbereitung",
       afterAlt:
-        "Scheinwerfer-Reflektor nach dem Neu-Bedampfen mit 99,9% Aluminium im Vakuum bei STANIAX",
+        "Scheinwerfer-Reflektor nach dem Neu-Bedampfen mit 99,99% Aluminium im Vakuum bei STANIAX",
       sliderSummary:
         "Nach dem Neu-Bedampfen im Vakuum steigt die Lichtausbeute auf der Straße um durchschnittlich 200–300% gegenüber einem verbrannten Reflektor.",
     },
@@ -255,9 +255,9 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           num: "03",
-          title: "PVD-Hochvakuumbedampfung mit 99,9% Aluminium",
+          title: "PVD-Hochvakuumbedampfung mit 99,99% Aluminium",
           desc: "In der Hochvakuumkammer (10⁻⁴ mbar) wird reines Aluminium thermisch verdampft und schlägt sich als makelloser Spiegel auf den rotierenden Reflektoren nieder.",
-          param: "96–98% gerichtete Lichtreflexion",
+          param: ">92% gerichtete Lichtreflexion",
         },
         {
           num: "04",
@@ -319,8 +319,8 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           badge: "BI-XENON PROJEKTOREN",
-          h3: "Serie von Hella- & Valeo-Projektorreflektoren nach 99,9% Al PVD",
-          desc: "Vollständige Regenerierung verbrannter Magnesium- und BMC-Schalen mit 98% Spiegelreflexion im thermisch hochbelasteten Scheitelbereich.",
+          h3: "Serie von Hella- & Valeo-Projektorreflektoren nach 99,99% Al PVD",
+          desc: "Vollständige Regenerierung verbrannter Magnesium- und BMC-Schalen mit >92% Spiegelreflexion im thermisch hochbelasteten Scheitelbereich.",
           param: "Lichtstromsteigerung am Messgerät: +260%",
           imageKey: "reflectors1",
           alt: "Im Vakuum neu bedampfte Bi-Xenon Scheinwerfer-Reflektoren bei STANIAX",
@@ -366,7 +366,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Besteht der Scheinwerfer nach dem Neu-Bedampfen die TÜV- / HU-Hauptuntersuchung?",
-          a: "Ja. Durch die PVD-Vakuumbedampfung werden 96–98% des ursprünglichen Reflexionsgrades und die exakte Hell-Dunkel-Grenze wiederhergestellt, sodass das Lichtbild alle Anforderungen bei der Hauptuntersuchung (TÜV/DEKRA) erfüllt.",
+          a: "Ja. Durch die PVD-Vakuumbedampfung werden >92% des ursprünglichen Reflexionsgrades und die exakte Hell-Dunkel-Grenze wiederhergestellt, sodass das Lichtbild alle Anforderungen bei der Hauptuntersuchung (TÜV/DEKRA) erfüllt.",
         },
         {
           q: "Wie lange hält die neue PVD-Aluminiumschicht im Scheinwerfer?",
@@ -421,15 +421,15 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
   "vacuum-metallization": {
     navLabel: "Vakuummetallisierung (PVD)",
     shortSummary:
-      "Industrielle PVD Vakuummetallisierung & Metallisierung mit 99,9% Aluminium — Spiegelchrom, Gold, Kupfer sowie optische und EMI/RFI-Funktionsschichten.",
+      "Industrielle PVD Vakuummetallisierung & Metallisierung mit 99,99% Aluminium — Spiegelchrom, Gold, Kupfer sowie optische und EMI/RFI-Funktionsschichten.",
     metaTitle: "Vakuummetallisierung & PVD-Beschichtung Industrie | STANIAX",
     metaDesc:
-      "Industrielle Vakuummetallisierung (PVD-Bedampfung & Metallisierung Kunststoff/Metall/Glas) bei STANIAX. 99,9% Al Spiegelchrom, Gold, Inox & EMI-Schutz.",
+      "Industrielle Vakuummetallisierung (PVD-Bedampfung & Metallisierung Kunststoff/Metall/Glas) bei STANIAX. 99,99% Al Spiegelchrom, Gold, Inox & EMI-Schutz.",
     breadcrumbLabel: "Vakuummetallisierung (PVD)",
     heroBadge:
       "PVD-Oberflächentechnik seit 1993 (Dariusz Staniak · STANIAX Sp. z o.o.)",
     h1: "Vakuummetallisierung & industrielle PVD-Beschichtung im Hochvakuum",
-    lead: "Die Vakuummetallisierung (Physical Vapor Deposition — PVD-Vakuumbedampfung) ist ein hochpräzises Dünnschichtverfahren, bei dem im Hochvakuum eine nanometerdünne Metallschicht abgeschieden wird. Im Produktionswerk STANIAX in Józefów bei Warschau realisieren wir die Lohn-Metallisierung von Kunststoffen, Metallen, Glas und Keramik mit spiegelndem 99,9% Aluminium, Chrom-, Gold-, Kupfer- und technischen Reflexions- oder EMV-Schichten.",
+    lead: "Die Vakuummetallisierung (Physical Vapor Deposition — PVD-Vakuumbedampfung) ist ein hochpräzises Dünnschichtverfahren, bei dem im Hochvakuum eine nanometerdünne Metallschicht abgeschieden wird. Im Produktionswerk STANIAX in Józefów bei Warschau realisieren wir die Lohn-Metallisierung von Kunststoffen, Metallen, Glas und Keramik mit spiegelndem 99,99% Aluminium, Chrom-, Gold-, Kupfer- und technischen Reflexions- oder EMV-Schichten.",
     ctaPrimaryLabel: "Vakuummetallisierung anfragen →",
     ctaSecondaryLabel: "4-Schicht-Aufbau & Parameter prüfen ↓",
     heroImageKey: "vacuumHero",
@@ -466,11 +466,11 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       cardSubtitle:
         "Vollständige Prozesskette: Vorbehandlung, Base-Coat-Glättung, PVD-Hochvakuumbedampfung und Top-Coat-Farbgebung",
       highlights: [
-        "Vakuumbedampfung mit 99,9% Reinstaluminium in Hochvakuumkammern mit planetarischer Chargenrotation für gleichmäßige 3D-Beschichtung.",
+        "Vakuumbedampfung mit 99,99% Reinstaluminium in Hochvakuumkammern mit planetarischer Chargenrotation für gleichmäßige 3D-Beschichtung.",
         "Komplettes Dreischichtsystem: Ausgleichender Grundlack (Base Coat) + PVD-Metallschicht (50–120 nm) + Schutzlack (Top Coat UV oder 2K-PUR).",
         "Einfärbung des Decklacks in jeden gewünschten Metallton: Spiegelchrom, 14K/18K/24K Gold, Roségold, Kupfer, Messing, Titan, Edelstahl-Inox und Schwarzchrom.",
         "Eigener Vorrichtungsbau (Satelliten, Warenträger und Maskierungen) für komplexe Bauteilgeometrien unserer B2B-Kunden.",
-        "Funktionale Metallisierung: Technische Spiegel (98% Reflexion), IR-Wärmeschutzschichten und leitfähige EMV/EMI-Abschirmung für Elektronikgehäuse.",
+        "Funktionale Metallisierung: Technische Spiegel (>92% Reflexion), IR-Wärmeschutzschichten und leitfähige EMV/EMI-Abschirmung für Elektronikgehäuse.",
         "Qualitätssicherung jeder Charge: Gitterschnittprüfung nach ISO 2409, Glanzgradmessung (GU) sowie Abrieb- und Chemikalienbeständigkeitstests.",
       ],
       table: {
@@ -516,7 +516,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       {
         h2: "Funktionsprinzip der Vakuummetallisierung & Aufbau des 4-Schicht-Systems",
         paragraphs: [
-          "Bei der thermischen PVD-Vakuummetallisierung wird hochreines Metall unter Hochvakuum verdampft. Nach dem Evakuieren der Kammer auf ca. 10⁻⁴ mbar wird 99,9%iges Aluminium auf Wolfram-Verdampfern schlagartig erhitzt. Da keine Luftmoleküle den Weg behindern, bewegen sich die Aluminiumatome geradlinig durch die Kammer und kondensieren gleichmäßig auf den kühleren Bauteilen, die auf einem Planetengestell rotieren.",
+          "Bei der thermischen PVD-Vakuummetallisierung wird hochreines Metall unter Hochvakuum verdampft. Nach dem Evakuieren der Kammer auf ca. 10⁻⁴ mbar wird 99,99%iges Aluminium auf Wolfram-Verdampfern schlagartig erhitzt. Da keine Luftmoleküle den Weg behindern, bewegen sich die Aluminiumatome geradlinig durch die Kammer und kondensieren gleichmäßig auf den kühleren Bauteilen, die auf einem Planetengestell rotieren.",
           "Da die aufgedampfte Metallschicht weniger als 0,1 Mikrometer dünn ist, bildet sie die Mikrotopografie des Untergrunds exakt ab. Um auf einem Spritzgussteil oder Druckgussteil einen tiefen, verzerrungsfreien Spiegelglanz zu erzielen, wird die Vakuumbedampfung mit präziser Lackiertechnik kombiniert.",
         ],
         subSections: [
@@ -526,7 +526,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             bullets: [
               "Schicht 1 — Chemisch gereinigtes & entladenes Substrat: Entfettet und mit ionisierter Druckluft abgeblasen, um elektrostatische Staubanziehung zu verhindern.",
               "Schicht 2 — Glättender Base Coat (Grundlack): Füllt Fließlinien und Mikroriefen der Spritzgussform und erzeugt eine spiegelglatte Fläche (Ra < 0,02 µm).",
-              "Schicht 3 — 99,9% Aluminium-PVD-Schicht: Sorgt für 100% metallischen Spiegelglanz, 98% Lichtreflexion oder elektrische Schirmwirkung.",
+              "Schicht 3 — 99,99% Aluminium-PVD-Schicht: Sorgt für 100% metallischen Spiegelglanz, >92% Lichtreflexion oder elektrische Schirmwirkung.",
               "Schicht 4 — Schützender Top Coat (Decklack): Versiegelt das Aluminium gegen Abrieb, Handschweiß, Kosmetika, Alkohol und UV-Strahlung und ermöglicht die Farbgebung.",
             ],
           },
@@ -574,7 +574,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Maximale Bauteilgröße",
-              value: "Bis Ø 1000 mm / Länge bis 1200 mm",
+              value: "Ø-1200-mm-Kammer (Bauteil bis Ø 1000 × 1200 mm)",
             },
             {
               label: "Oberflächenvorbereitung",
@@ -605,12 +605,12 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           id: "aluminum-pvd",
-          label: "03. Aluminium PVD 99,9%",
+          label: "03. Aluminium PVD 99,99%",
           badge: "HOCHVAKUUMKAMMER",
           title:
             "Im Hochvakuum aufgedampfte Reinstaluminiumschicht (50–120 nm)",
           description:
-            "Bei 10⁻⁴ mbar abgeschiedene Metallschicht für perfekten Chromspiegelglanz, 98% Lichtreflexion und EMV-Abschirmung.",
+            "Bei 10⁻⁴ mbar abgeschiedene Metallschicht für perfekten Chromspiegelglanz, >92% Lichtreflexion und EMV-Abschirmung.",
           specs: [
             {
               label: "Metallschichtdicke",
@@ -618,11 +618,11 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Reinheitsgrad",
-              value: "99,9% Reinstaluminium (Vakuumqualität)",
+              value: "99,99% Reinstaluminium (Vakuumqualität)",
             },
             {
               label: "Reflexionsgrad VIS",
-              value: "96 – 98% im sichtbaren Lichtspektrum",
+              value: ">92% im sichtbaren Lichtspektrum",
             },
           ],
           previewStyle:
@@ -724,7 +724,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           badge: "OPTIK & LICHTTECHNIK",
-          h3: "Technische Spiegel mit 98% Reflexionsgrad",
+          h3: "Technische Spiegel mit >92% Reflexionsgrad",
           body: "Beschichtung von Hallenstrahlern, Lichtrastern und medizinischen Leuchten mit temperaturstabilen Grundlacken bis 220°C.",
           spec: "Kein Ausgasen unter Dauerwärmebelastung",
         },
@@ -768,7 +768,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: "Worin unterscheidet sich die PVD-Vakuummetallisierung vom galvanischen Verchromen?",
-          a: "Bei der PVD-Vakuummetallisierung wird 99,9%iges Aluminium im Hochvakuum auf einen glättenden Grundlack aufgedampft und mit einem Schutzlack versiegelt. Im Gegensatz zur Galvanik kommt das Verfahren komplett ohne giftiges Chrom(VI) und Säurebäder aus, beschichtet fast alle Kunststoffe (nicht nur Galvanik-ABS), Glas und Metalle und ermöglicht Farbtöne wie Gold, Roségold, Kupfer oder Schwarzchrom bei 30–50% niedrigeren Stückkosten.",
+          a: "Bei der PVD-Vakuummetallisierung wird 99,99%iges Aluminium im Hochvakuum auf einen glättenden Grundlack aufgedampft und mit einem Schutzlack versiegelt. Im Gegensatz zur Galvanik kommt das Verfahren komplett ohne giftiges Chrom(VI) und Säurebäder aus, beschichtet fast alle Kunststoffe (nicht nur Galvanik-ABS), Glas und Metalle und ermöglicht Farbtöne wie Gold, Roségold, Kupfer oder Schwarzchrom bei 30–50% niedrigeren Stückkosten.",
         },
         {
           q: "Welche Werkstoffe können im Vakuum metallisiert werden?",
@@ -977,7 +977,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           badge: "MEISTGEWÄHLTER EFFEKT",
           title: "Klassisches Hochglanz-Spiegelchrom auf ABS, PC & PP",
           description:
-            "Makellose silberne Spiegelschicht (>95% Reflexion) als Ersatz für galvanisches Chrom auf KFZ-Emblemen, Leuchtenblenden, Drückerplatten und Verschlüssen.",
+            "Makellose silberne Spiegelschicht (>92% Reflexion) als Ersatz für galvanisches Chrom auf KFZ-Emblemen, Leuchtenblenden, Drückerplatten und Verschlüssen.",
           specs: [
             {
               label: "Glanzgrad (60°)",
@@ -1067,7 +1067,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: "03",
           title: "Kaltes PVD-Aluminium-Aufdampfen im Vakuum",
-          desc: "In der Hochvakuumkammer scheiden wir 99,9% Aluminium ab, wobei die Bauteiltemperatur weit unter der Wärmeformbeständigkeit (HDT) bleibt.",
+          desc: "In der Hochvakuumkammer scheiden wir 99,99% Aluminium ab, wobei die Bauteiltemperatur weit unter der Wärmeformbeständigkeit (HDT) bleibt.",
           param: "Kein Verzug dünner Wandstärken",
         },
         {
@@ -1635,7 +1635,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           path: "/de/spritzlackierung",
           anchorText:
-            "Industrielle Spritzlackierung (RAL / NCS auf Metall, Guss & Komposit)",
+            "Industrielle Spritzlackierung (Spritzlackieren im B2B-Serienauftrag) (RAL / NCS auf Metall, Guss & Komposit)",
           badge: "INDUSTRIELACKIEREREI",
           desc: "Nasslackierung für Aluminium, Stahl, Druckguss und Multimaterial-Baugruppen.",
         },

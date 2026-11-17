@@ -146,7 +146,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         {
           heading: 'Fizyka przyczepności: dlaczego galwanizacja nie chwyta polipropylenu ani szkła?',
           paragraphs: [
-            'Klasyczna galwanizacja tworzyw sztucznych opiera się na chemicznym wytrawianiu fazy butadienowej w kopolimerze ABS w gorącej mieszaninie kwasu siarkowego i trójtlenku chromu. W tworzywie powstają mikrojamki kotwiczące warstwę chemicznie redukowanego niklu, na którym dopiero narasta miedź i chrom galwaniczny.',
+            'Klasyczna galwanizacja tworzyw sztucznych (potocznie galwanizacja plastiku) opiera się na chemicznym wytrawianiu fazy butadienowej w kopolimerze ABS w gorącej mieszaninie kwasu siarkowego i trójtlenku chromu. W tworzywie powstają mikrojamki kotwiczące warstwę chemicznie redukowanego niklu, na którym dopiero narasta miedź i chrom galwaniczny.',
             'Polipropylen (PP), poliamid (PA), poliwęglan (PC) czy opakowania szklane nie zawierają faz podatnych na takie trawienie. W zakładzie STANIAX barierę adhezji rozwiązuje aktywacja plazmowa lub płomieniowa oraz dopasowany system bazowych lakierów primerowych przed załadunkiem do komory próżniowej.',
           ],
           bullets: [
@@ -265,7 +265,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         {
           heading: 'Why Chemical Bath Electroplating Fails on Polypropylene, Polyamide, and Glass',
           paragraphs: [
-            'Conventional plastic electroplating depends on dissolving butadiene rubber domains embedded within ABS polymer chains using hot chromic-sulfuric acid. Those microscopic cavities mechanically lock in electroless nickel before electrolytic copper and chrome layers grow.',
+            'Conventional plastic electroplating (electroplating plastic in acid baths) depends on dissolving butadiene rubber domains embedded within ABS polymer chains using hot chromic-sulfuric acid. Those microscopic cavities mechanically lock in electroless nickel before electrolytic copper and chrome layers grow.',
             'Polymers like PP, PA6, polycarbonate, or soda-lime glass lack etchable rubber phases. At STANIAX, atmospheric plasma activation paired with custom adhesion primers creates covalent bonding across diverse industrial substrates inside a single clean workflow.',
           ],
           bullets: [
@@ -675,7 +675,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       metaDesc:
         'Vakuummetallisierung PVD vs. chemisches Spritzchrom (AgNO3): kein Vergilben, bis 220 °C hitzefest für Reflektoren und reproduzierbare B2B-Serienqualität.',
       badge: 'Qualitäts- & Kostenvergleich',
-      h1: 'Vakuummetallisierung PVD vs. Spritzchrom-Verfahren',
+      h1: 'PVD-Metallisierung im Hochvakuum vs. Spritzchrom-Verfahren',
       subtitle:
         'Warum Serienhersteller und Scheinwerferbetriebe echtes Vakuum-Aluminium PVD dem nasschemischen Silbernitrat-Spritzlack vorziehen.',
       sideALabel: 'Vakuummetallisierung PVD (99,99 % Al)',

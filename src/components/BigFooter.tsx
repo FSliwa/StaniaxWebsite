@@ -235,7 +235,12 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
           </motion.div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-8 text-xs font-mono text-gray-400 uppercase tracking-widest border-t border-white/5 pt-8">
-            <p>&copy; {currentYear} STANIAX Sp.&nbsp;z&nbsp;o.o. All rights reserved.</p>
+            <div className="space-y-1.5 text-center md:text-left">
+              <p>&copy; {currentYear} STANIAX Sp.&nbsp;z&nbsp;o.o. All rights reserved.</p>
+              <p className="text-[11px] text-gray-500 normal-case tracking-normal">
+                STANIAX Sp. z o.o. · ul. Grzybowska 5A, 00-132 Warszawa · KRS: 0001182026 (Sąd Rejonowy dla m.st. Warszawy, XIII Wydział Gospodarczy KRS) · NIP: 5253052509 · REGON: 542156053 · Kapitał zakładowy: 150&nbsp;000,00&nbsp;zł
+              </p>
+            </div>
             <div className="flex flex-wrap items-center gap-6">
               <Link to={privacyPath} className="hover:text-white transition-colors">
                 {lang === 'pl'

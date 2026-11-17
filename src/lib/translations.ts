@@ -40,7 +40,7 @@ export const translations = {
     oNas: "O Nas",
     kimJestesmy: "Kim\nJesteśmy",
     kimJestesmyText1:
-      "Witamy w\u00a0STANIAX Sp.\u00a0z\u00a0o.o. (z\u00a0siedzibą w\u00a0Warszawie) — firmie specjalizującej się w\u00a0metalizacji próżniowej i\u00a0lakierowaniu natryskowym. Wysoka jakość, którą oferujemy naszym kontrahentom, jest gwarantem dobrej współpracy. Taką jakość czerpiemy od naszego mentora — Dariusza Staniak, który od 1993 roku stał się liderem metalizacji próżniowej na Mazowszu w\u00a0Józefowie koło Otwocka. Dziś STANIAX jest kontynuacją jego wiedzy i\u00a0doświadczenia.",
+      "Witamy w\u00a0STANIAX Sp.\u00a0z\u00a0o.o. (z\u00a0siedzibą w\u00a0Warszawie) — firmie specjalizującej się w\u00a0metalizacji próżniowej i\u00a0lakierowaniu natryskowym. Wysoka jakość, którą oferujemy naszym kontrahentom, jest gwarantem dobrej współpracy. Taką jakość czerpiemy od naszego mentora — Dariusza Staniaka, który od 1993 roku stał się liderem metalizacji próżniowej na Mazowszu w\u00a0Józefowie koło Otwocka. Dziś STANIAX jest kontynuacją jego wiedzy i\u00a0doświadczenia.",
     kimJestesmyText2:
       "Zespół wysoko wykwalifikowanych pracowników sprawia, że jakość naszych usług stawia nas w\u00a0czołówce podobnych firm w\u00a0Polsce. Zaletą naszą jest precyzja oraz możliwość szybkiego przeorganizowania otrzymanych zleceń — zwłaszcza dla klientów, którzy muszą wdrożyć nowe wzory.",
     wykwalifikowanyZespol: "Wykwalifikowany zespół",

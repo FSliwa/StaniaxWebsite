@@ -78,6 +78,13 @@ export function buildOrganizationAndLocalBusinessGraph(lang: Lang = "pl") {
       name: "STANIAX Sp. z o.o.",
       alternateName: "Zakład Metalizacji Próżniowej STANIAX — Dariusz Staniak",
       legalName: "STANIAX Spółka z ograniczoną odpowiedzialnością",
+      taxID: "5253052509",
+      vatID: "PL5253052509",
+      identifier: [
+        { "@type": "PropertyValue", name: "KRS", value: "0001182026" },
+        { "@type": "PropertyValue", name: "NIP", value: "5253052509" },
+        { "@type": "PropertyValue", name: "REGON", value: "542156053" },
+      ],
       url: `${SITE_ORIGIN}/`,
       logo: `${SITE_ORIGIN}/staniax-logo.png`,
       image: `${SITE_ORIGIN}/staniax-logo.png`,

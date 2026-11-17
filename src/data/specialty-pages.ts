@@ -186,7 +186,7 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       {
         id: 'uv-lens-coat',
         serviceType: 'Lakierowanie zewnętrznego klosza poliwęglanowego (UV)',
-        scope: 'Usunięcie starego hard-coatu + natrysk bezbarwnego lakieru UV',
+        scope: 'Usunięcie starego hard-coatu + natrysk UV (polerowanie reflektorów cena / polerowanie lamp cena z warstwą ochronną)',
         turnaround: '1–2 dni robocze',
         unitPriceMin: 150,
         unitPriceMax: 220,
@@ -210,7 +210,7 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       {
         heading: 'Od czego zależy końcowa cena regeneracji odbłyśnika w STANIAX?',
         paragraphs: [
-          'Najtańszą i najszybszą formą zlecenia — wybieraną przez 80% mechaników i majsterkowiczów — jest wysłanie samych wymontowanych odbłyśników (np. po wyjęciu soczewki od tyłu reflektora w Audi A4 B6/B7, BMW E39/E46, Passacie B6 czy Mercedesie W211). Wtedy całkowity koszt za parę odbłyśników wynosi zazwyczaj 300–400 zł zamiast 2000–5000 zł za nowe lampy.',
+          'W zapytaniach kierowców takich jak regeneracja odbłyśników cena oraz regeneracja reflektorów cena kluczowy jest sposób dostarczenia części: najtańszą i najszybszą formą zlecenia — wybieraną przez 80% mechaników — jest wysłanie samych wymontowanych odbłyśników (np. po wyjęciu soczewki od tyłu reflektora w Audi A4 B6/B7, BMW E39/E46, Passacie B6 czy Mercedesie W211). Wtedy całkowity koszt za parę odbłyśników wynosi zazwyczaj 300–400 zł zamiast 2000–5000 zł za nowe lampy.',
           'Jeśli reflektor wymaga rozklejenia twardego kleju poliuretanowego (tzw. klej twardy Valeo/AL), dokładnego oczyszczenia ramki maskującej lub wymiany spękanego klosza zewnętrznego, koszt obejmuje dodatkowo bezpieczne otwarcie i hermetyczne złożenie obudowy bez parowania.',
         ],
         bullets: [
@@ -233,7 +233,7 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       },
       {
         q: 'Czy mogę dostarczyć wymontowane odbłyśniki osobiście bez wcześniejszego umawiania?',
-        a: 'Tak, zapraszamy od poniedziałku do piątku w godz. 07:00–15:00 do zakładu STANIAX w Józefowie przy ul. Wyszyńskiego 116A lub kurierem z całej Polski.',
+        a: 'Tak, zapraszamy od poniedziałku do piątku w godz. 07:00–17:00 do zakładu STANIAX w Józefowie przy ul. Wyszyńskiego 116A lub kurierem z całej Polski.',
       },
       {
         q: 'Czy otrzymam pisemną gwarancję lub fakturę VAT?',
@@ -526,7 +526,7 @@ export const HEADLIGHT_PRICING_PAGE: Record<Lang, PricingLocalePage> = {
       {
         id: 'uv-lens-coat',
         serviceType: 'Frontscheiben-Sanierung Polycarbonat + UV-Lack',
-        scope: 'Abschleifen der Verwitterung + vernetzter UV-Schutzlack',
+        scope: 'Abschleifen der Verwitterung + vernetzter UV-Schutzlack (Scheinwerfer polieren Kosten inkl. Hardcoat)',
         turnaround: '1–2 Werktage',
         unitPriceMin: 35,
         unitPriceMax: 52,
@@ -599,17 +599,17 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
   pl: {
     metaTitle: 'Regeneracja reflektorów Warszawa i Józefów | STANIAX',
     metaDesc:
-      'Regeneracja odbłyśników Warszawa – Józefów (20 min trasą S2/Wał Miedzeszyński). Przyjęcia osobiste pn–pt 07:00–15:00 przy ul. Wyszyńskiego 116A oraz kurier.',
+      'Regeneracja odbłyśników Warszawa – Józefów (20 min trasą S2/Wał Miedzeszyński). Przyjęcia osobiste pn–pt 07:00–17:00 przy ul. Wyszyńskiego 116A oraz kurier.',
     badge: 'Punkt przyjęć Mazowieckie & S2',
     h1: 'Regeneracja reflektorów i odbłyśników — Warszawa, Józefów i Otwock',
     subtitle:
       'Bezpośrednie przyjęcie w zakładzie metalizacji próżniowej STANIAX w Józefowie pod Warszawą oraz szybki serwis dla warsztatów ze stolicy i Mazowsza.',
     directAnswerQuestion: 'Gdzie w Warszawie i okolicach oddać odbłyśniki do bezpośredniej metalizacji PVD?',
     directAnswer:
-      'Zakład produkcyjny STANIAX działa w Józefowie pod Warszawą przy ul. kard. Stefana Wyszyńskiego 116A (ok. 20 minut z centrum Warszawy Wałem Miedzeszyńskim lub Południową Obwodnicą S2). Przyjmujemy wyjęte odbłyśniki i klosze osobiście od poniedziałku do piątku w godz. 07:00–15:00 oraz kurierem bez pośredników.',
+      'Zakład produkcyjny STANIAX działa w Józefowie pod Warszawą przy ul. kard. Stefana Wyszyńskiego 116A (ok. 20 minut z centrum Warszawy Wałem Miedzeszyńskim lub Południową Obwodnicą S2). Przyjmujemy wyjęte odbłyśniki i klosze osobiście od poniedziałku do piątku w godz. 07:00–17:00 oraz kurierem bez pośredników.',
     plantCardTitle: 'Zakład Produkcyjny STANIAX — Punkt Przyjęć Warszawa/Józefów',
     plantAddress: 'ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów',
-    plantHours: 'Poniedziałek – Piątek: 07:00 – 15:00',
+    plantHours: 'Poniedziałek – Piątek: 07:00 – 17:00',
     plantDirections: 'Dojazd: Trasa S2 (węzeł Wał Miedzeszyński / Lubelska S17) lub DW801, 4 km od południowej granicy Warszawy (Wawer).',
     plantRegNote:
       'Uwaga logistyczna: Biuro rejestrowe spółki znajduje się przy ul. Grzybowskiej 5A w Warszawie (wyłącznie korespondencja formalna) — wszystkie lampy, odbłyśniki i serie produkcyjne przyjmujemy i odsyłamy w zakładzie w Józefowie.',
@@ -619,7 +619,7 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       {
         zone: 'Warszawa Wawer / Otwock / Józefów / Karczew',
         distanceTime: '5–15 minut dojazdu do zakładu',
-        dropoffMode: 'Dowóz osobisty w godz. 07:00–15:00 · odbiór z pierwszej partii',
+        dropoffMode: 'Dowóz osobisty w godz. 07:00–17:00 · odbiór z pierwszej partii',
       },
       {
         zone: 'Warszawa Centrum / Mokotów / Ursynów / Wilanów (S2)',
@@ -641,11 +641,11 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       {
         heading: 'Dlaczego warszawskie serwisy i kierowcy dostarczają odbłyśniki bezpośrednio do STANIAX?',
         paragraphs: [
-          'Większość studiów regeneracji lamp w Warszawie i dużych miastach nie posiada własnych komór próżniowych — po zdemontowaniu reflektora wysyła same odbłyśniki do wyspecjalizowanej metalizerni przemysłowej i dolicza własną marżę pośrednika.',
+          'Frazy takie jak metalizacja próżniowa Warszawa, regeneracja lamp Warszawa czy regeneracja reflektorów Otwock prowadzą bezpośrednio do naszej hali pod Warszawą, ponieważ większość studiów detailingu w stolicy nie posiada własnych komór próżniowych — po zdemontowaniu reflektora wysyła same odbłyśniki do wyspecjalizowanej metalizerni przemysłowej i dolicza własną marżę pośrednika.',
           'Dostarczając wyjęte odbłyśniki (soczewki H7, Bi-Xenon, czasze motocyklowe lub lampy klasyków) bezpośrednio pod adres naszego zakładu w Józefowie przy ul. Wyszyńskiego 116A, omijasz pośredników i masz bezpośredni kontakt z technologami obsługującymi linie PVD od 1993 roku.',
         ],
         bullets: [
-          'Oszczędność czasu — przywóz osobisty rano 07:00–15:00 przyspiesza kwalifikację w komorze PVD',
+          'Oszczędność czasu — przywóz osobisty rano 07:00–17:00 przyspiesza kwalifikację w komorze PVD',
           'Wygodny dojazd bez korków centrum dzięki zjazdowi z obwodnicy S2 (Wał Miedzeszyński)',
           'Możliwość obejrzenia na miejscu próbników powłok PVD, lakierów UV oraz efektów chromu i złota',
         ],
@@ -667,12 +667,12 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
         a: 'Wyłącznie do zakładu produkcyjnego w Józefowie przy ul. kard. Stefana Wyszyńskiego 116A (05-420). Adres przy ul. Grzybowskiej 5A to wyłącznie siedziba rejestrowa spółki.',
       },
       {
-        q: 'Czy zakład działa w soboty albo po godzinie 15:00?',
-        a: 'Standardowe przyjęcia i wydania trwają od poniedziałku do piątku w godz. 07:00–15:00. W pilnych sprawach flota lub warsztat może uzgodnić odbiór telefonicznie pod +48 882 488 844.',
+        q: 'Czy zakład działa w soboty albo po godzinie 17:00?',
+        a: 'Standardowe przyjęcia i wydania trwają od poniedziałku do piątku w godz. 07:00–17:00. W pilnych sprawach flota lub warsztat może uzgodnić odbiór telefonicznie pod +48 882 488 844.',
       },
       {
         q: 'Ile trwa napylenie odbłyśnika przy osobistym przywiezieniu z Warszawy?',
-        a: 'Standardowy cykl przygotowania podłoża, podkładu HT i metalizacji próżniowej zajmuje 2–4 dni robocze.',
+        a: 'Standardowy cykl przygotowania podłoża, podkładu HT i metalizacji próżniowej (zarówno pojedyncza regeneracja lampy samochodowej, jak i komplet obu stron) zajmuje 2–4 dni robocze.',
       },
     ],
     relatedLinks: [
@@ -686,24 +686,24 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
   en: {
     metaTitle: 'Headlight Restoration Warsaw & Józefów | STANIAX',
     metaDesc:
-      'Direct vacuum PVD headlight reflector restoration near Warsaw in Józefów (20 min via S2). Drop-off Mon–Fri 07:00–15:00 at ul. Wyszyńskiego 116A + courier.',
+      'Direct vacuum PVD headlight reflector restoration near Warsaw in Józefów (20 min via S2). Drop-off Mon–Fri 07:00–17:00 at ul. Wyszyńskiego 116A + courier.',
     badge: 'Warsaw Metro Plant Drop-Off',
     h1: 'Headlight & Reflector Restoration — Warsaw & Józefów Plant',
     subtitle:
       'Direct workshop drop-off and B2B turnaround at our vacuum metallization plant 20 minutes southeast of central Warsaw.',
     directAnswerQuestion: 'Where can Warsaw drivers and repair shops deliver reflector bowls directly for PVD?',
     directAnswer:
-      'Deliver dismantled projector bowls and housings directly to STANIAX production plant in Józefów (ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów), just 20 minutes from central Warsaw via S2 Southern Bypass and Wał Miedzeszyński. Drop-offs run Mon–Fri 07:00–15:00, eliminating middleman markups.',
+      'Deliver dismantled projector bowls and housings directly to STANIAX production plant in Józefów (ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów), just 20 minutes from central Warsaw via S2 Southern Bypass and Wał Miedzeszyński. Drop-offs run Mon–Fri 07:00–17:00, eliminating middleman markups.',
     plantCardTitle: 'STANIAX Production Plant — Warsaw / Józefów',
     plantAddress: 'ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów',
-    plantHours: 'Monday – Friday: 07:00 – 15:00 CET',
+    plantHours: 'Monday – Friday: 07:00 – 17:00 CET',
     plantDirections: 'Access: 20 min from Warsaw center via S2 Bypass / Wał Miedzeszyński (DW801), 4 km south of Wawer.',
     plantRegNote:
       'Logistics note: Registered office (ul. Grzybowska 5A, Warsaw) handles legal correspondence only — always deliver and ship parts directly to our Józefów plant.',
     phone: '+48 882 488 844',
     email: 'metalizacja@staniax.pl',
     serviceRadiusTable: [
-      { zone: 'Józefów / Otwock / Warsaw Wawer', distanceTime: '5–15 min drive', dropoffMode: 'Direct counter drop-off Mon–Fri 07:00–15:00' },
+      { zone: 'Józefów / Otwock / Warsaw Wawer', distanceTime: '5–15 min drive', dropoffMode: 'Direct counter drop-off Mon–Fri 07:00–17:00' },
       { zone: 'Warsaw Center / Mokotów / Ursynów / Wilanów', distanceTime: '18–25 min via S2', dropoffMode: 'Personal delivery or same-day metro courier' },
       { zone: 'Piaseczno / Praga / Marki / Warsaw West', distanceTime: '20–35 min via S2/S8', dropoffMode: 'Direct drop-off or tracked domestic courier' },
       { zone: 'Nationwide Poland & European Union', distanceTime: '24–72 h parcel transit', dropoffMode: 'Insured return courier from plant floor' },
@@ -739,7 +739,7 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       },
       {
         q: 'What are Warsaw/Józefów drop-off hours?',
-        a: 'Plant reception operates Monday through Friday from 07:00 to 15:00; call +48 882 488 844 for urgent commercial fleet handoffs.',
+        a: 'Plant reception operates Monday through Friday from 07:00 to 17:00; call +48 882 488 844 for urgent commercial fleet handoffs.',
       },
       {
         q: 'How long is standard PVD completion from intake?',
@@ -757,24 +757,24 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
   de: {
     metaTitle: 'Scheinwerfer Aufbereitung Warschau & Józefów | STANIAX',
     metaDesc:
-      'Direktanlieferung im PVD-Werk STANIAX nahe Warschau in Józefów (20 Min über S2): Mo–Fr 07:00–15:00 Uhr, ul. Wyszyńskiego 116A & europaweiter Versand.',
+      'Direktanlieferung im PVD-Werk STANIAX nahe Warschau in Józefów (20 Min über S2): Mo–Fr 07:00–17:00 Uhr, ul. Wyszyńskiego 116A & europaweiter Versand.',
     badge: 'Werkstandort Raum Warschau',
     h1: 'Scheinwerfer-Aufbereitung & PVD-Werk — Warschau / Józefów',
     subtitle:
       'Persönliche Annahme für Betriebe aus Warschau/Masowien sowie zentraler Logistikeingang für DHL/DPD-Pakete aus Deutschland und Österreich.',
     directAnswerQuestion: 'Wo befindet sich das STANIAX-Vakuumwerk für persönliche Abgabe und Paketversand?',
     directAnswer:
-      'Das Produktionswerk von STANIAX liegt verkehrsgünstig in Józefów bei Warschau (ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów), ca. 20 Minuten vom Warschauer Zentrum über den Südring S2. Warenannahme ist montags bis freitags von 07:00 bis 15:00 Uhr direkt ab Werk ohne Zwischenhändler.',
+      'Das Produktionswerk von STANIAX liegt verkehrsgünstig in Józefów bei Warschau (ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów), ca. 20 Minuten vom Warschauer Zentrum über den Südring S2. Warenannahme ist montags bis freitags von 07:00 bis 17:00 Uhr direkt ab Werk ohne Zwischenhändler.',
     plantCardTitle: 'Produktionswerk STANIAX — Warschau / Józefów',
     plantAddress: 'ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów, Polen',
-    plantHours: 'Montag – Freitag: 07:00 – 15:00 Uhr',
+    plantHours: 'Montag – Freitag: 07:00 – 17:00 Uhr',
     plantDirections: 'Anfahrt: Über Warschauer Südring S2 (Ausfahrt Wał Miedzeszyński / S17), 4 km südlich von Warschau-Wawer.',
     plantRegNote:
       'Logistikhinweis: Der Firmensitz in Warschau (ul. Grzybowska 5A) dient nur als Rechtsadresse — alle Bauteile und Reflektoren bitte direkt ans Werk Józefów senden.',
     phone: '+48 882 488 844',
     email: 'metalizacja@staniax.pl',
     serviceRadiusTable: [
-      { zone: 'Józefów / Otwock / Warschau-Wawer', distanceTime: '5–15 Min. Fahrzeit', dropoffMode: 'Direktabgabe Mo–Fr 07:00–15:00 Uhr' },
+      { zone: 'Józefów / Otwock / Warschau-Wawer', distanceTime: '5–15 Min. Fahrzeit', dropoffMode: 'Direktabgabe Mo–Fr 07:00–17:00 Uhr' },
       { zone: 'Warschau Zentrum / Mokotów / Ursynów (S2)', distanceTime: '18–25 Min. über S2', dropoffMode: 'Persönliche Anlieferung oder Stadtkurier' },
       { zone: 'Ganz Polen (Krakau, Breslau, Posen, Danzig)', distanceTime: '24 Std. Kurierlaufzeit', dropoffMode: 'Direkter Rückversand ab Vakuumwerk' },
       { zone: 'Deutschland, Österreich & DACH-Region', distanceTime: '48–72 Std. DHL/DPD', dropoffMode: 'Versicherter Hin- und Rückversand für Werkstätten & Privat' },
@@ -811,7 +811,7 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       },
       {
         q: 'Wie sind die Öffnungszeiten für Selbstanlieferer?',
-        a: 'Montag bis Freitag durchgehend 07:00–15:00 Uhr.',
+        a: 'Montag bis Freitag durchgehend 07:00–17:00 Uhr.',
       },
       {
         q: 'Wie lange bleibt ein Reflektor im Werk?',

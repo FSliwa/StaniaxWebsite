@@ -33,7 +33,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
     breadcrumbLabel: 'Headlight reflector restoration',
     heroBadge: 'Józefów near Warsaw + Fast Courier Turnaround Across Europe',
     h1: 'Headlight Reflector Restoration & Vacuum Aluminum Resilvering',
-    lead: 'We restore factory luminous intensity to automotive, motorcycle, and classic vehicle headlamps. Our headlight reflector restoration and headlamp reflector resilvering service at STANIAX (Józefów near Warsaw) strips burnt factory coatings, applies a high-temperature 220°C base coat, and deposits 99.9% pure aluminum in a high-vacuum PVD chamber with an anti-oxidation top coat.',
+    lead: 'We restore factory luminous intensity to automotive, motorcycle, and classic vehicle headlamps. Our headlight reflector restoration and headlamp reflector resilvering service at STANIAX (Józefów near Warsaw) strips burnt factory coatings, applies a high-temperature 220°C base coat, and deposits 99.99% pure aluminum in a high-vacuum PVD chamber with an anti-oxidation top coat.',
     ctaPrimaryLabel: 'Get a headlight restoration quote →',
     ctaSecondaryLabel: 'View pricing & restoration scope ↓',
     heroImageKey: 'reflectorsHero',
@@ -49,7 +49,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         value: 98,
         suffix: '%',
         label: 'Optical mirror reflectance',
-        detail: 'Specular reflection coefficient of 99.9% pure PVD aluminum deposited in high vacuum',
+        detail: 'Specular reflection coefficient of 99.99% pure PVD aluminum deposited in high vacuum',
       },
       {
         value: 3,
@@ -66,7 +66,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       highlights: [
         'Chemical stripping of burnt, yellowed, or oxidized aluminum and degraded base coat without altering the parabolic focal geometry.',
         'Dust-free application of a thermosetting high-temperature Base Coat engineered to withstand continuous 220°C bulb heat.',
-        'High-vacuum PVD deposition (10⁻⁴ mbar) of 99.9% pure aluminum creating a true optical mirror finish.',
+        'High-vacuum PVD deposition (10⁻⁴ mbar) of 99.99% pure aluminum creating a true optical mirror finish.',
         'Protective organosilicon Top Coat sealing the aluminum film against moisture, road salt, and tarnishing.',
         'Multi-stage polycarbonate (PC) lens wet sanding, polishing, and application of a permanent UV-blocking clear lacquer.',
         'Professional headlamp unsealing and resealing using fresh butyl sealant or OEM hard adhesive with pressure leak testing.',
@@ -78,7 +78,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         rows: [
           [
             'Vacuum metallization of loose reflector bowl only',
-            'Chemical stripping, 220°C thermal base coat, 99.9% Al PVD vacuum deposition, protective top coat',
+            'Chemical stripping, 220°C thermal base coat, 99.99% Al PVD vacuum deposition, protective top coat',
             '2–3 business days',
             '150 – 300 PLN / pc (approx. €35–€70)',
           ],
@@ -110,7 +110,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
             h3: 'PVD Vacuum Reflector Resilvering vs DIY Chrome Spray Paint',
             body: 'Aerosol "chrome sprays" and reflective adhesive foils cannot survive inside an automotive headlamp optical assembly for three engineering reasons:',
             bullets: [
-              'Directional specular reflectance of chrome paint is only 45–55%, whereas high-vacuum PVD aluminum achieves 96–98% optical mirror reflection.',
+              'Directional specular reflectance of chrome paint is only 45–55%, whereas high-vacuum PVD aluminum achieves >92% optical mirror reflection.',
               'Aerosol resins outgas and soften at 80–90°C, filling the headlamp housing with solvent vapor that permanently fogs the inside of the lens.',
               'Only PVD vacuum deposition preserves nanometric surface smoothness (Ra < 0.02 µm) required for a razor-sharp ECE cut-off line.',
             ],
@@ -143,7 +143,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       subtitle: 'Drag the slider (with mouse, touch, or Left/Right arrow keys) to compare a burnt, oxidized projector bowl with a reflector restored by PVD aluminum metallization at STANIAX.',
       ctaLabel: 'Request a quote for your headlights →',
       beforeLabel: 'BEFORE — Burnt coating',
-      afterLabel: 'AFTER — 99.9% Al PVD Mirror',
+      afterLabel: 'AFTER — 99.99% Al PVD Mirror',
       beforeAlt: 'Burnt and matte automotive headlight reflector bowl before restoration',
       afterAlt: 'Automotive headlight reflector bowl after PVD vacuum aluminum restoration at STANIAX',
       sliderSummary: 'Restoring the reflector mirror increases road illumination by 200–300% compared to a burnt bowl, restoring full low-beam and high-beam range.',
@@ -166,9 +166,9 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           num: '03',
-          title: 'High-Vacuum 99.9% Aluminum PVD Deposition',
-          desc: 'Inside our high-vacuum chamber (10⁻⁴ mbar), 99.9% pure aluminum is thermally evaporated onto planetary rotating reflectors to form a flawless mirror.',
-          param: '96–98% specular light reflection',
+          title: 'High-Vacuum 99.99% Aluminum PVD Deposition',
+          desc: 'Inside our high-vacuum chamber (10⁻⁴ mbar), 99.99% pure aluminum is thermally evaporated onto planetary rotating reflectors to form a flawless mirror.',
+          param: '>92% specular light reflection',
         },
         {
           num: '04',
@@ -228,8 +228,8 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           badge: 'BI-XENON PROJECTOR BOWLS',
-          h3: 'Batch of Hella & Valeo Projector Reflectors After 99.9% Al PVD',
-          desc: 'Complete restoration of burnt magnesium and BMC composite bowls, restoring 98% specular reflection in the high-heat upper arc zone.',
+          h3: 'Batch of Hella & Valeo Projector Reflectors After 99.99% Al PVD',
+          desc: 'Complete restoration of burnt magnesium and BMC composite bowls, restoring >92% specular reflection in the high-heat upper arc zone.',
           param: 'Luxmeter road output increase: +260%',
           imageKey: 'reflectors1',
           alt: 'Restored Bi-Xenon projector headlight reflectors after vacuum metallization at STANIAX',
@@ -274,7 +274,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: 'Will restored headlights pass technical roadworthiness inspection (MOT / TUV)?',
-          a: 'Yes. PVD vacuum metallization restores 96–98% of factory directional reflection and preserves the exact parabolic geometry, resulting in a crisp low-beam cut-off line that passes inspection without dazzling oncoming traffic.',
+          a: 'Yes. PVD vacuum metallization restores >92% of factory directional reflection and preserves the exact parabolic geometry, resulting in a crisp low-beam cut-off line that passes inspection without dazzling oncoming traffic.',
         },
         {
           q: 'How long does a vacuum-metallized reflector last?',
@@ -305,7 +305,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           path: '/en/plastic-chrome-plating',
-          anchorText: 'Plastic Chrome Plating & Polymer Metallization (ABS, PC, PP)',
+          anchorText: 'Plastic Chrome Plating, chrome plating on plastic, chroming plastic, and PVD coating plastic & Polymer Metallization (ABS, PC, PP)',
           badge: 'RELATED SERVICE',
           desc: 'Mirror chrome, gold, and satin finishes on headlight bezels, grilles, emblems, and trims.',
         },
@@ -323,13 +323,13 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
 
   'vacuum-metallization': {
     navLabel: 'Vacuum metallisation (PVD)',
-    shortSummary: 'Industrial PVD vacuum metalizing & vacuum metallising with 99.9% aluminum — mirror chrome, gold, copper, and EMI/RFI shielding coatings.',
+    shortSummary: 'Industrial PVD vacuum metalizing & vacuum metallising with 99.99% aluminum — mirror chrome, gold, copper, and EMI/RFI shielding coatings.',
     metaTitle: 'Vacuum Metallisation & PVD Vacuum Metalizing | STANIAX',
-    metaDesc: 'Industrial vacuum metallisation (vacuum metalizing / PVD coating) at STANIAX Poland. Mirror chrome, gold, inox & reflective 99.9% Al coatings for B2B.',
+    metaDesc: 'Industrial vacuum metallisation (vacuum metalizing / PVD coating) at STANIAX Poland. Mirror chrome, gold, inox & reflective 99.99% Al coatings for B2B.',
     breadcrumbLabel: 'Vacuum metallisation (PVD)',
     heroBadge: 'PVD Technology Developed Since 1993 (Dariusz Staniak · STANIAX Sp. z o.o.)',
     h1: 'Vacuum Metallisation & PVD Vacuum Metalizing Services',
-    lead: 'Vacuum metallisation (also spelled vacuum metallising or vacuum metalizing — Physical Vapor Deposition, PVD) is an advanced thin-film process that deposits a nanometric metallic layer inside a high-vacuum chamber. At our STANIAX production plant in Józefów near Warsaw, we coat plastics, metals, glass, and ceramics with mirror-grade 99.9% aluminum, gold, copper, and functional optical or EMI-shielding films.',
+    lead: 'Vacuum metallisation (also spelled vacuum metallising or vacuum metalizing — Physical Vapor Deposition, PVD) is an advanced thin-film process that deposits a nanometric metallic layer inside a high-vacuum chamber. At our STANIAX production plant in Józefów near Warsaw, we coat plastics, metals, glass, and ceramics with mirror-grade 99.99% aluminum, gold, copper, and functional optical or EMI-shielding films.',
     ctaPrimaryLabel: 'Request a vacuum metallisation quote →',
     ctaSecondaryLabel: 'Explore the 4-layer PVD architecture ↓',
     heroImageKey: 'vacuumHero',
@@ -360,11 +360,11 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       cardTitle: 'STANIAX Vacuum Metallisation Plant Capabilities',
       cardSubtitle: 'Integrated surface pre-treatment, Base Coat leveling, high-vacuum PVD deposition, and tinted Top Coat line',
       highlights: [
-        'Thermal evaporation of 99.9% pure aluminum in high-vacuum chambers equipped with planetary rotation fixtures for uniform 3D coverage.',
+        'Thermal evaporation of 99.99% pure aluminum in high-vacuum chambers equipped with planetary rotation fixtures for uniform 3D coverage.',
         'Complete 3-coat system: Leveling Base Coat + PVD Metallic Layer (50–120 nm) + Protective Top Coat (UV-cured or 2K polyurethane/acrylic).',
         'Custom Top Coat tinting for any metallic finish: mirror chrome, 14K/18K/24K gold, rose gold, copper, brass, titanium, brushed inox, and dark chrome.',
         'In-house engineering and fabrication of custom planetary jigs, satellites, and precision masks tailored to complex client geometries.',
-        'Functional vacuum coatings: 98% reflective optical mirrors, IR heat shields, and conductive EMI/RFI shielding on electronics enclosures.',
+        'Functional vacuum coatings: >92% reflective optical mirrors, IR heat shields, and conductive EMI/RFI shielding on electronics enclosures.',
         'Batch quality assurance: ISO 2409 cross-cut adhesion testing, 60° glossmeter verification (GU), and chemical/abrasion resistance checks.',
       ],
       table: {
@@ -403,7 +403,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       {
         h2: 'How Does PVD Vacuum Metalizing Work and Why Is It a 4-Layer System?',
         paragraphs: [
-          'In surface engineering, thermal evaporation vacuum metallization (PVD) relies on vaporizing pure metal inside an evacuated chamber. Once atmospheric air is pumped down to 10⁻⁴ mbar, 99.9% aluminum mounted on tungsten filaments is flash-heated above its vaporization point. Because no air molecules obstruct their path, aluminum atoms travel in straight trajectories and condense uniformly onto cooler parts rotating on planetary spindles.',
+          'In surface engineering, thermal evaporation vacuum metallization (PVD) relies on vaporizing pure metal inside an evacuated chamber. Once atmospheric air is pumped down to 10⁻⁴ mbar, 99.99% aluminum mounted on tungsten filaments is flash-heated above its vaporization point. Because no air molecules obstruct their path, aluminum atoms travel in straight trajectories and condense uniformly onto cooler parts rotating on planetary spindles.',
           'Because the condensed metallic film is less than 0.1 micrometers thick, it replicates the exact microscopic topography of the underlying surface. Achieving a deep, distortion-free mirror on an injection-molded polymer or die-cast part requires pairing vacuum deposition with precision organic coating technology.',
         ],
         subSections: [
@@ -413,7 +413,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
             bullets: [
               'Layer 1 — Chemically cleaned & deionized substrate: degreased and blown with ionized air to neutralize static charges that attract dust.',
               'Layer 2 — Leveling Base Coat: fills polymer flow lines and mold micro-scratches, forming a glass-smooth film with surface energy tuned for aluminum bonding.',
-              'Layer 3 — 99.9% Aluminum PVD Film: delivers 100% metallic luster, optical reflection (up to 98%), or electromagnetic shielding.',
+              'Layer 3 — 99.99% Aluminum PVD Film: delivers 100% metallic luster, optical reflection (>92%), or electromagnetic shielding.',
               'Layer 4 — Protective Top Coat: seals the aluminum against abrasion, hand sweat, cosmetics, alcohols, and UV rays, while allowing transparent dye tinting.',
             ],
           },
@@ -453,7 +453,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           description: 'Component prepared via chemical degreasing, flame/plasma activation (for low-energy polyolefins like PP/PE), and antistatic ionized air de-dusting.',
           specs: [
             { label: 'Compatible substrates', value: 'ABS, PC, PC/ABS, PMMA, PS, PP, PA, ZnAl, steel, glass' },
-            { label: 'Max part dimensions', value: 'Up to Ø 1000 mm / length up to 1200 mm' },
+            { label: 'Max part dimensions', value: 'Ø 1200 mm chamber (max part up to Ø 1000 × 1200 mm)' },
             { label: 'Surface preparation', value: '100% electrostatic charge neutralization' },
           ],
           previewStyle: 'linear-gradient(135deg, #334155 0%, #475569 100%)',
@@ -473,14 +473,14 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           id: 'aluminum-pvd',
-          label: '03. 99.9% Aluminum PVD',
+          label: '03. 99.99% Aluminum PVD',
           badge: 'HIGH-VACUUM CHAMBER',
           title: 'Vacuum-Deposited Pure Aluminum Layer (50–120 nm)',
           description: 'Deposited at 10⁻⁴ mbar high vacuum to provide mirror chrome brilliance, 98% light reflectance, and EMI/RFI shielding conductivity.',
           specs: [
             { label: 'Metal film thickness', value: '50 – 120 nm (0.05 – 0.12 µm)' },
-            { label: 'Metal purity', value: '99.9% vacuum-grade aluminum' },
-            { label: 'Visible reflectance', value: '96 – 98% across visible spectrum' },
+            { label: 'Metal purity', value: '99.99% vacuum-grade aluminum' },
+            { label: 'Visible reflectance', value: '>92% across visible spectrum' },
           ],
           previewStyle: 'linear-gradient(135deg, #e2e8f0 0%, #ffffff 45%, #94a3b8 100%)',
         },
@@ -518,7 +518,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: '03',
           title: 'High-Vacuum PVD Aluminum Deposition',
-          desc: 'The planetary rack enters the vacuum chamber where 99.9% aluminum is thermally evaporated at 10⁻⁴ mbar for uniform 360° metallic coverage.',
+          desc: 'The planetary rack enters the vacuum chamber where 99.99% aluminum is thermally evaporated at 10⁻⁴ mbar for uniform 360° metallic coverage.',
           param: 'Uniform 3D nanometric film',
         },
         {
@@ -609,7 +609,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: 'How does PVD vacuum metallisation differ from traditional electroplating?',
-          a: 'PVD vacuum metallisation evaporates 99.9% pure aluminum inside a high-vacuum chamber over a leveling Base Coat and seals it with a protective Top Coat. Unlike galvanic electroplating, it uses zero toxic hexavalent chromium (Cr6+) or acid baths, works on virtually any plastic (not just plating-grade ABS), glass, and metal, and allows effortless tinting into gold, rose gold, copper, or dark chrome at a 30–50% lower unit cost.',
+          a: 'PVD vacuum metallisation evaporates 99.99% pure aluminum inside a high-vacuum chamber over a leveling Base Coat and seals it with a protective Top Coat. Unlike galvanic electroplating, it uses zero toxic hexavalent chromium (Cr6+) or acid baths, works on virtually any plastic (not just plating-grade ABS), glass, and metal, and allows effortless tinting into gold, rose gold, copper, or dark chrome at a 30–50% lower unit cost.',
         },
         {
           q: 'Which materials can be coated using vacuum metalizing?',
@@ -795,7 +795,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           label: 'Mirror Chrome PVD',
           badge: 'MOST POPULAR FINISH',
           title: 'High-Gloss Mirror Chrome on ABS, PC & PP',
-          description: 'Flawless silver mirror coating (>95% reflection) replacing galvanic chrome on automotive emblems, lighting bezels, flush buttons, and packaging closures.',
+          description: 'Flawless silver mirror coating (>92% reflection) replacing galvanic chrome on automotive emblems, lighting bezels, flush buttons, and packaging closures.',
           specs: [
             { label: '60° Gloss level', value: '92 – 98 GU (full optical mirror)' },
             { label: 'Color tone', value: 'Cool silver chrome / pure aluminum' },
@@ -850,7 +850,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: '03',
           title: 'Cold PVD Aluminum Vacuum Deposition',
-          desc: 'Inside the high-vacuum chamber we deposit 99.9% aluminum while keeping part temperature well below the polymer heat deflection point (HDT).',
+          desc: 'Inside the high-vacuum chamber we deposit 99.99% aluminum while keeping part temperature well below the polymer heat deflection point (HDT).',
           param: 'Zero warping of thin walls',
         },
         {

@@ -606,59 +606,59 @@ const techSpecsData: TechSpec[] = [
   {
     id: "metalizacja",
     method: "Metalizacja Próżniowa",
-    temperature: "200-500°C",
-    thickness: "0.05-0.5 μm",
+    temperature: "45-75°C (detal)",
+    thickness: "80-120 nm Al + podkład/top UV",
     applications: "Nakrętki, opakowania, reflektory, elementy dekoracyjne",
     advantages: [
       "Efekt chromu i złota",
-      "Ekologiczny proces",
-      "Lustrzany połysk",
-      "Wysoka powtarzalność",
+      "Ekologiczny proces (bez Cr6+)",
+      "Lustrzany połysk >92%",
+      "Wysoka powtarzalność ΔE < 0,8",
     ],
-    materials: "Al, Cr, Au, Ag",
+    materials: "Al 99,99% + lakiery UV / 2K PU",
   },
   {
     id: "lakierowanie-tworzyw",
     method: "Lakierowanie Tworzyw",
-    temperature: "20-80°C",
-    thickness: "20-100 μm",
+    temperature: "20-75°C",
+    thickness: "20-60 μm",
     applications:
       "Opakowania kosmetyczne, elementy dekoracyjne, detale motoryzacyjne",
     advantages: [
-      "Szeroka paleta kolorów",
-      "Efekty specjalne",
-      "Odporność na zarysowania",
+      "Szeroka paleta kolorów RAL/NCS",
+      "Efekty specjalne i Soft-Touch",
+      "Odporność na zarysowania ISO 2409",
       "Trwałość wykończenia",
     ],
-    materials: "Lakiery UV, wodne, rozpuszczalnikowe",
+    materials: "Lakiery UV, 2K PU, wodorozcieńczalne",
   },
   {
     id: "lakierowanie-szkla",
     method: "Lakierowanie Szkła",
-    temperature: "150-200°C",
-    thickness: "10-50 μm",
+    temperature: "60-180°C / UV",
+    thickness: "15-45 μm",
     applications: "Butelki, flakony, elementy ceramiczne, szkło dekoracyjne",
     advantages: [
       "Efekty frosted i satynowe",
-      "Gradienty kolorystyczne",
-      "Odporność na zmywanie",
+      "Gradienty kolorystyczne ombre",
+      "Odporność na 96% etanol",
       "Zgodność z normami kosmetycznymi",
     ],
-    materials: "Lakiery organiczne, nieorganiczne",
+    materials: "Promotory silanowe + lakiery UV / 2K",
   },
   {
     id: "odblyśniki",
     method: "Odbłyśniki w Metalizacji",
-    temperature: "200-400°C",
-    thickness: "0.1-1 μm",
-    applications: "Reflektory, klosze lamp, elementy oświetleniowe",
+    temperature: "odporność do 220°C",
+    thickness: "80-120 nm Al + SiOx",
+    applications: "Reflektory H7, Bi-Xenon, LED, klosze lamp, oprawy",
     advantages: [
-      "Współczynnik odbicia >95%",
-      "Wysoka trwałość",
-      "Odporność termiczna",
-      "Precyzja geometryczna",
+      "Współczynnik odbicia >92%",
+      "24 miesiące gwarancji",
+      "Odporność termiczna nad żarnikiem",
+      "Zachowana homologacja ECE",
     ],
-    materials: "Al, Ag + warstwa ochronna",
+    materials: "Al 99,99% + bariera plazmowa SiOx",
   },
 ];
 
@@ -1917,11 +1917,11 @@ function HomePage({ lang = "pl" }: HomePageProps) {
                     {(() => {
                       const text = t(lang, "kimJestesmyText1");
                       const nameMap: Record<string, string> = {
-                        pl: "Dariusza Staniak",
+                        pl: "Dariusza Staniaka",
                         en: "Dariusz Staniak",
                         de: "Dariusz Staniak",
                       };
-                      const name = nameMap[lang] || "Dariusza Staniak";
+                      const name = nameMap[lang] || "Dariusza Staniaka";
                       const parts = text.split(name);
                       if (parts.length === 2) {
                         return (

@@ -225,7 +225,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Industrielle ABS- und PC/ABS-Beschichtung bei STANIAX: Spiegelchrom/Gold PVD, Piano-Black UV/2K-PUR-Lackierung und ISO 2409 Gitterschnitt Gt 0 ohne Rissbildung.',
       badge: 'Materialmatrix: ABS / PC+ABS',
       polymerCode: 'ABS / PC+ABS (ASTM D4673)',
-      h1: 'PVD-Vakuummetallisierung und Lackierung von ABS-Kunststoffen',
+      h1: 'PVD-Metallisierung im Hochvakuum und Lackierung von ABS-Kunststoffen',
       subtitle:
         'Spannungsarme Vorbehandlung, PVD-Reinaluminium und UV-/2K-PUR-Systeme für Verkleidungsteile, Kosmetikverschlüsse und Geräteblenden.',
       directAnswerQuestion: 'Wie erzielt man auf ABS-Spritzgussteilen dauerhaften Chrom- oder Class-A-Lackglanz?',
@@ -452,7 +452,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Vakuummetallisierung von Polycarbonat (PC), PC-HT, BMC und Ultem PEI bei STANIAX: >92 % Lichtreflexion bis 220 °C, Entgasungskontrolle und UV-Hartlack.',
       badge: 'Materialmatrix: PC / PEI Ultem / BMC',
       polymerCode: 'PC / PC-HT / Ultem PEI',
-      h1: 'Vakuummetallisierung von Polycarbonat (PC), Ultem PEI und BMC',
+      h1: 'PVD-Metallisierung von Polycarbonat (PC), Ultem PEI und BMC',
       subtitle:
         'Kontrollierte Entgasung und Reinaluminium-PVD für Fahrzeugscheinwerfer, LED-Optik, Luftfahrtkomponenten und UV-Hartlacke.',
       directAnswerQuestion: 'Wie werden Polycarbonat (PC) und Ultem PEI ohne Ausgasungsschleier vakuummetallisiert?',
@@ -605,7 +605,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Industrial painting and PVD metallizing of polypropylene PP, PP+EPDM, and HDPE at STANIAX: flame/plasma activation (>44 mN/m), CPO primer & ISO 2409 Class 0.',
       badge: 'Substrate Matrix: PP / PE / EPDM',
       polymerCode: 'PP / PP+EPDM / HDPE',
-      h1: 'Industrial Coating & PVD Metallization of Polypropylene (PP)',
+      h1: 'Industrial Coating & PVD Metallizing of Polypropylene (PP)',
       subtitle:
         'Turning low-surface-energy polyolefins into durable coated Class-A housings, mono-material cosmetic closures, and flexible automotive trim.',
       directAnswerQuestion: 'How do you achieve permanent paint or PVD adhesion on polypropylene (PP)?',
@@ -677,7 +677,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Professionelle Beschichtung von Polypropylen (PP), PP+EPDM und PE bei STANIAX: Flamm-/Plasmavorbehandlung >44 mN/m, Haftprimer und ISO 2409 Gt 0.',
       badge: 'Materialmatrix: PP / PE / EPDM',
       polymerCode: 'PP / PP+EPDM / HDPE',
-      h1: 'Lackierung und PVD-Metallisierung von Polypropylen (PP)',
+      h1: 'Lackierung und PVD-Beschichtung von Polypropylen (PP)',
       subtitle:
         'Prozesssichere Überwindung niedriger Oberflächenspannung — von Monomaterial-Kosmetikverschlüssen bis zu elastischen PP+EPDM-Anbauteilen.',
       directAnswerQuestion: 'Wie erreicht man dauerhafte Lack- oder PVD-Haftung (ISO 2409 Gt 0) auf Polypropylen (PP)?',
@@ -979,12 +979,12 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
 
   glass: {
     pl: {
-      metaTitle: 'Lakierowanie i metalizacja szkła PVD | STANIAX',
+      metaTitle: 'Flakony perfum i butelki szklane — PVD i silany | STANIAX',
       metaDesc:
         'Przemysłowe lakierowanie i metalizacja szkła (flakony perfum, butelki, słoiki beauty): powłoki silanowe odporne na alkohol 96%, mrożenie i gradienty ombre.',
       badge: 'Matryca materiałów: Szkło & Ceramika',
       polymerCode: 'Szkło sodowo-wapniowe / borokrzemowe',
-      h1: 'Lakierowanie i metalizacja próżniowa szkła, flakonów oraz butelek',
+      h1: 'Zdobienie próżniowe PVD i powłoki silanowe flakonów oraz butelek szklanych',
       subtitle:
         'Powłoki krzemoorganiczne i próżniowe PVD na szkle bez użycia kwasu fluorowodorowego: pełne krycie, transparent, frosted, gradient i lustro chrom/złoto.',
       directAnswerQuestion: 'Jak uzyskuje się odporne na perfumy i zmywanie powłoki lakierowane lub metaliczne na szkle?',

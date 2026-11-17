@@ -113,7 +113,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       breadLabel: 'PVD vs Malowanie proszkowe',
     },
     en: {
-      metaTitle: 'PVD Vacuum Metallization vs Chrome Powder Coating | STANIAX',
+      metaTitle: 'PVD Metallization vs Chrome Powder Coating | STANIAX',
       metaDesc:
         'Engineering comparison of PVD vacuum metallization vs chrome-effect powder coating: >92% mirror reflectance vs ~55%, 60°C polymer safety vs 190°C curing.',
       badge: 'Surface Comparison: PVD vs Powder',
