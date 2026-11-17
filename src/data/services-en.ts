@@ -46,21 +46,22 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         detail: 'Starting net price for vacuum metallizing a single disassembled reflector bowl',
       },
       {
-        value: 98,
+        prefix: '>',
+        value: 95,
         suffix: '%',
         label: 'Optical mirror reflectance',
         detail: 'Specular reflection coefficient of 99.99% pure PVD aluminum deposited in high vacuum',
       },
       {
-        value: 3,
-        suffix: ' days',
-        label: 'Average mail-in turnaround',
-        detail: 'Standard processing time for reflectors shipped to our facility by courier',
+        value: 5,
+        suffix: '-7 days',
+        label: 'Standard turnaround time',
+        detail: 'Standard processing time for supplied reflectors at our Józefów facility near Warsaw',
       },
     ],
     scopeSection: {
       h2: 'Headlight Restoration Scope & Transparent Pricing Table',
-      intro: 'Every headlight restoration begins with an optical and thermal inspection of the projector bowl or free-form reflector, housing seal integrity, and polycarbonate lens clarity. We process both loose disassembled reflector bowls and complete H4/H7, Xenon D1S/D2S/D3S, Bi-Xenon, adaptive AFS, and Bi-LED headlamp assemblies.',
+      intro: 'Every headlight restoration begins with an optical and thermal inspection of the projector bowl or free-form reflector, housing seal integrity, and polycarbonate lens clarity. At STANIAX we specialize in the industrial surface-treatment stage on supplied H4/H7, Xenon D1S/D2S/D3S, Bi-Xenon, AFS, and LED reflectors and trims (lamp removal from the vehicle and housing unsealing are typically handled by a specialized automotive workshop).',
       cardTitle: 'What does STANIAX headlight reflector restoration include?',
       cardSubtitle: 'OEM-grade PVD vacuum metallization matching Hella, Valeo, Bosch, AL, and Koito optical specifications',
       highlights: [
@@ -69,7 +70,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         'High-vacuum PVD deposition (10⁻⁴ mbar) of 99.99% pure aluminum creating a true optical mirror finish.',
         'Protective organosilicon Top Coat sealing the aluminum film against moisture, road salt, and tarnishing.',
         'Multi-stage polycarbonate (PC) lens wet sanding, polishing, and application of a permanent UV-blocking clear lacquer.',
-        'Professional headlamp unsealing and resealing using fresh butyl sealant or OEM hard adhesive with pressure leak testing.',
+        'Spray metallization and decorative coating of internal headlamp bezels, frames, and optical trims supplied by workshops.',
         'Classic car and vintage motorcycle steel/brass reflector restoration with corrosion pit filling and PVD resilvering.',
       ],
       table: {
@@ -77,25 +78,25 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         headers: ['Service Option', 'Technological Scope of Work', 'Turnaround Time', 'Indicative Price'],
         rows: [
           [
-            'Vacuum metallization of loose reflector bowl only',
-            'Chemical stripping, 220°C thermal base coat, 99.99% Al PVD vacuum deposition, protective top coat',
-            '2-3 business days',
+            'Vacuum metallization of supplied reflector bowl at STANIAX',
+            'Chemical stripping, thermal base coat, PVD aluminum vacuum deposition, UV protective coat',
+            '5-7 business days',
             '150 - 300 PLN / pc (approx. €35-€70)',
           ],
           [
-            'Complete single headlamp restoration (H7 / Xenon / Bi-Xenon)',
-            'Headlamp disassembly, projector reflector resilvering, lens cleaning, PC lens polishing + UV coat, resealing',
-            '3-5 business days',
+            'Reference: Full headlamp regeneration (workshop + STANIAX PVD)',
+            'Housing unsealing at specialized auto workshop + STANIAX reflector PVD & UV lens coating',
+            '5-7 business days',
             '350 - 700 PLN / pc (approx. €80-€165)',
           ],
           [
-            'Full pair headlamp rebuild (2 pcs) + electronics / LED / classics',
-            'Complete pair restoration, PP/ABS bracket welding, ballast/LED repair or vintage steel reflector corrosion rebuild',
-            '4-7 business days',
-            '1,500 - 5,000+ PLN / pair',
+            'Classic car steel reflectors / B2B workshop batches',
+            'Anti-corrosion foundation rebuild on vintage metal bowls or multi-unit B2B workshop batches',
+            '5-7 business days',
+            'Individual quote',
           ],
         ],
-        footnote: 'Exact quotes are confirmed upon inspection or via photos attached to your inquiry. We offer B2B wholesale rates for automotive lighting workshops and classic car restorers across Europe.',
+        footnote: 'Exact quotes are confirmed upon inspection or via photos attached to your inquiry. We prepare custom B2B quotations for automotive lighting workshops, paint shops, and classic car restorers across Europe.',
       },
     },
     editorialSections: [
@@ -173,8 +174,8 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: '04',
           title: 'Protective Top Coat & Hermetic Assembly',
-          desc: 'We seal the aluminum with an organosilicon protective film, polish and UV-coat the outer polycarbonate lens, and pressure-test the sealed housing.',
-          param: '12-24 months durability warranty',
+          desc: 'We seal the deposited aluminum with a protective UV coating resistant to headlamp operating temperatures and moisture, followed by optical quality inspection.',
+          param: '3-5 years coating durability',
         },
       ],
     },
@@ -194,7 +195,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       row2: [
         'Polycarbonate Lens Polishing + UV Coat',
         'Burnt Bulb Socket Reconstruction',
-        'New Butyl Sealant Hermetic Resealing',
+        'Spray Metallization for Specialized Batches',
         'Interior Bezel & Trim Chrome Plating',
         'Projector Glass Lens Ultrasonic Cleaning',
         'PP / ABS Headlamp Bracket Plastic Welding',
@@ -205,14 +206,14 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         {
           badge: 'MAIL-IN SERVICE ACROSS EUROPE',
           h3: 'Fast Courier Turnaround for Disassembled Reflectors',
-          body: 'Ship your removed projector bowls or complete headlamps to our facility near Warsaw. We resilver and dispatch your parts back within 2-4 business days.',
+          body: 'Ship your removed projector bowls and lamp components to our facility near Warsaw. We resilver and dispatch your parts back within 5-7 business days.',
           spec: 'Facility address: ul. Wyszyńskiego 116A, 05-420 Józefów, Poland',
         },
         {
           badge: 'FOR LIGHTING WORKSHOPS (B2B)',
           h3: 'Wholesale Reflector Metallization Partnership',
           body: 'We provide priority vacuum chamber slots, consistent optical quality, and wholesale B2B pricing for headlamp retrofitters and automotive repair shops from 5+ units.',
-          spec: 'EU VAT Invoices · Express 24-48h partner turnaround',
+          spec: 'EU VAT Invoices · Custom B2B batch quotes for partner workshops',
         },
         {
           badge: 'CLASSIC CAR RESTORATION',
@@ -258,11 +259,11 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: 'How much does headlight reflector restoration cost?',
-          a: 'Vacuum metallizing a single disassembled reflector bowl costs 150-300 PLN (approx. €35-€70) depending on size and substrate condition. Complete restoration of an entire headlamp (opening the housing, reflector PVD resilvering, projector cleaning, outer lens polishing with UV hard coat, and resealing) costs 350-700 PLN per lamp, while complex adaptive LED/Xenon or vintage full-pair rebuilds range from 1,500 to 5,000+ PLN per pair.',
+          a: 'Vacuum metallizing a single supplied (disassembled) reflector bowl at STANIAX costs 150-300 PLN (approx. €35-€70) depending on size and substrate condition. Removing the lamp from the car and unsealing the housing is typically performed by a specialized automotive workshop, bringing total market cost of full headlamp restoration (workshop + STANIAX metallization) to roughly 350-700 PLN per lamp.',
         },
         {
           q: 'How long does the restoration take and can I ship parts by courier?',
-          a: 'Yes, we process mail-in orders from all over Poland and the EU. Loose reflector bowls are recoated and shipped back within 2-3 business days of arrival at our Józefów plant. Complete headlamps take 3-5 business days.',
+          a: 'Yes, we process mail-in orders from workshops and clients across Poland and the EU. Standard reflector regeneration turnaround at our Józefów plant is 5-7 business days from parcel arrival.',
         },
         {
           q: 'Is it better to restore original OEM headlights or buy cheap aftermarket replacements?',
@@ -278,16 +279,16 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: 'How long does a vacuum-metallized reflector last?',
-          a: 'With our 220°C thermosetting base coat and pure aluminum PVD layer, durability matches a brand-new OEM reflector - typically 5 to 8 years or 150,000+ km when used with standard-wattage (35W HID / 55W halogen) road-legal bulbs.',
+          a: 'With our 220°C thermosetting base coat and pure aluminum PVD layer, durability matches a brand-new OEM reflector - typically up to 5 years (3-5 years of regular road operation) when used with standard-wattage (35W HID / 55W halogen) road-legal bulbs.',
         },
       ],
     },
     quoteSection: {
       h2: 'Request a Free Headlight Reflector Restoration Quote',
-      intro: 'Tell us your car model, headlamp type (H7, Xenon, Bi-Xenon, LED, classic), and whether you are shipping loose reflector bowls or complete lamps. We reply within 24 business hours.',
+      intro: 'Tell us your car model, headlamp type (H7, Xenon, Bi-Xenon, LED, classic), and how many disassembled reflector bowls or lamp trims you are shipping. We reply within 24 business hours.',
       projectTypes: [
         'Reflector bowl vacuum metallization only (mail-in / in-person)',
-        'Complete headlight restoration (reflectors + lenses + resealing)',
+        'Vacuum & spray metallization of reflectors and internal lamp trims',
         'Polycarbonate lens polishing + UV protective clear coat',
         'Classic car / vintage motorcycle headlight restoration',
         'B2B workshop partnership (batch reflector resilvering)',
@@ -453,7 +454,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           description: 'Component prepared via chemical degreasing, flame/plasma activation (for low-energy polyolefins like PP/PE), and antistatic ionized air de-dusting.',
           specs: [
             { label: 'Compatible substrates', value: 'ABS, PC, PC/ABS, PMMA, PS, PP, PA, ZnAl, steel, glass' },
-            { label: 'Max part dimensions', value: 'Ø 1200 mm chamber (max part up to Ø 1000 × 1200 mm)' },
+            { label: 'Part dimensions', value: 'Precision small series and large housings on rotary fixtures' },
             { label: 'Surface preparation', value: '100% electrostatic charge neutralization' },
           ],
           previewStyle: 'linear-gradient(135deg, #334155 0%, #475569 100%)',
@@ -563,7 +564,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           badge: 'R&D & 3D PRINT PROTOTYPING',
           h3: 'Metallization of SLA/SLS Prototypes & Color Sampling',
           body: 'We produce rapid color samples (chrome, gold, satin, gunmetal) on 3D-printed prototypes and pilot molds so design teams can approve finishes before mass tooling.',
-          spec: 'Rapid sample turnaround in 48-72h',
+          spec: 'Express 2-3 business day prototype mode',
         },
         {
           badge: 'OPTICS & TECHNICAL LIGHTING',
@@ -621,7 +622,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: 'What is your minimum order quantity (MOQ) and lead time?',
-          a: 'We have no prohibitive MOQ - we quote single prototypes and sampling runs as well as multi-thousand-piece serial contracts. Standard production lead time is 5-10 business days, with 2-4 day express processing for prototypes.',
+          a: 'We have no prohibitive MOQ - we quote single prototypes and sampling runs as well as multi-thousand-piece serial contracts. Standard production lead time is 5-10 business days, with 2-3 business day express processing for prototypes.',
         },
         {
           q: 'Is vacuum-metallized coating resistant to UV, scratches, and chemicals?',
@@ -812,7 +813,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           specs: [
             { label: 'Available shades', value: '14K / 18K / 24K Gold, Champagne, Rose Gold, Copper' },
             { label: 'Chemical resistance', value: 'Resistant to ethanol, perfumes & cosmetic oils' },
-            { label: 'Batch color consistency', value: 'Controlled to ΔE < 1.0 across production runs' },
+            { label: 'Batch color consistency', value: 'High color and gloss repeatability across production runs' },
           ],
           previewStyle: 'linear-gradient(135deg, #d97706 0%, #fef08a 48%, #92400e 100%)',
         },
@@ -1208,7 +1209,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: '04',
           title: 'Low-Temp Thermal / UV Curing & Quality Check',
-          desc: 'Parts cure at a safe 50-70°C or in a UV tunnel, followed by glossmeter, color (ΔE), and cross-cut adhesion verification.',
+          desc: 'Parts cure at a safe 50-70°C or in a UV tunnel, followed by glossmeter, reference shade, and ISO 2409 cross-cut adhesion verification.',
           param: '100% visual batch inspection',
         },
       ],
@@ -1273,7 +1274,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           badge: 'SERIAL B2B PRODUCTION',
           h3: 'Repeatable Coating of Technical & Decorative Moldings',
           desc: 'Custom spray jigs ensure identical film thickness and shade consistency across every part in the batch.',
-          param: 'Inter-batch color tolerance: ΔE < 0.8',
+          param: 'High inter-batch color and gloss repeatability',
           imageKey: 'plasticPaint2',
           alt: 'Serial industrial painting of plastic components on custom racks at STANIAX',
         },
@@ -1567,7 +1568,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           badge: 'PERFUMERY & SKINCARE BRANDS',
           h3: 'Custom Flacons & Jars Starting from Small Runs',
           body: 'Avoid 200,000-unit glassworks minimums. Supply stock clear glass bottles and let STANIAX create bespoke ombre, frosted,Soft-Touch, or 24K gold finishes.',
-          spec: 'Pre-production color sampling in 3-5 business days',
+          spec: 'Express pre-production color sampling in 2-3 business days',
         },
         {
           badge: 'SPIRITS & BEVERAGE PRODUCERS',
@@ -1701,16 +1702,16 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         detail: 'Plus 1,950 NCS architectural colors, Pantone matching, and custom sample formulation',
       },
       {
-        value: 1200,
-        suffix: ' mm',
-        label: 'Maximum component length',
-        detail: 'Coating everything from millimeter-scale precision parts to 1.2 m enclosures and frames',
+        value: 25,
+        suffix: '+ yrs',
+        label: 'Surface coating experience',
+        detail: 'Over 25 years of industrial spray coating expertise on plastics, glass, and metals near Warsaw',
       },
       {
-        value: 48,
-        suffix: ' h',
+        value: 3,
+        suffix: ' days',
         label: 'Express prototype turnaround',
-        detail: 'Rapid booth color changeovers for pilot runs, R&D prototypes, and urgent B2B batches',
+        detail: 'Express 2-3 business day prototype mode and 5-10 business days for serial production batches',
       },
     ],
     scopeSection: {
@@ -1871,7 +1872,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         'Soft-Touch Coatings on Metal & Plastic',
         'Metallic, Pearlescent & Anodized-Look Paints',
         'Thread & EMC Grounding Pad Masking',
-        'Express 48h Prototype & Short-Run Coating',
+        'Express 2-3 Day Prototype & Short-Run Coating',
       ],
       b2bCards: [
         {
@@ -1890,7 +1891,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           badge: 'SIGNAGE, POS & INDUSTRIAL DESIGN',
           h3: 'Class-A Finishes on Composites, MDF & 3D Models',
           body: 'We prime, sand, and spray trade-show models, 3D channel letters, retail displays, and bespoke furniture in mirror gloss or velvet matte.',
-          spec: 'Booth capacity up to 1200 mm component length',
+          spec: 'Custom fixtures for precision small parts and industrial housings',
         },
       ],
     },
@@ -1946,11 +1947,11 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: 'What is the maximum part size you can spray paint?',
-          a: 'Our spray booths accommodate everything from millimeter-sized precision components mounted on custom racks up to housings, profiles, and weldments 1200 mm in length.',
+          a: 'Our spray booths accommodate everything from millimeter-sized precision components mounted on custom racks up to larger industrial enclosures, covers, and structural parts.',
         },
         {
           q: 'What is the standard turnaround time for industrial spray painting?',
-          a: 'Standard production batches take 4-8 business days. For urgent prototypes, trade-show models, and line-stop shortages, we offer an express 48-72h service upon prior scheduling.',
+          a: 'Standard serial production projects take 5-10 business days. For urgent R&D prototypes and pre-series samples, we offer an express 2-3 business day mode upon scheduling.',
         },
       ],
     },

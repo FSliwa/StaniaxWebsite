@@ -137,9 +137,9 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
     metaDesc:
       "Regeneracja reflektorów i lamp samochodowych w Józefowie k. Warszawy i wysyłkowo. Metalizacja próżniowa odbłyśników od 150 zł, polerowanie kloszy + UV.",
     breadcrumbLabel: "Regeneracja reflektorów i odbłyśników",
-    heroBadge: "Józefów k. Warszawy + wysyłka kurierska 24/48h w całej Polsce",
+    heroBadge: "Józefów k. Warszawy + obsługa wysyłkowa dla warsztatów i kierowców w całej Polsce",
     h1: "Regeneracja reflektorów i odbłyśników samochodowych metodą próżniową",
-    lead: "Przywracamy fabryczną sprawność świetlną reflektorom samochodowym, motocyklowym oraz klasykom - kompleksowe odnawianie lamp samochodowych, renowacja reflektorów zabytkowych, czyszczenie lamp samochodowych z osadów i regeneracja lampy samochodowej po wypaleniu soczewki. Nasza regeneracja reflektorów i regeneracja lamp samochodowych w zakładzie STANIAX w Józefowie pod Warszawą polega na usunięciu wypalonej powłoki, nałożeniu lakieru podkładowego wysokotemperaturowego i próżniowym napyleniu czystego aluminium (99,99% Al) z warstwą ochronną krzemoorganiczną.",
+    lead: "Przywracamy fabryczną sprawność świetlną reflektorom samochodowym, motocyklowym oraz klasykom - kompleksowe odnawianie lamp samochodowych, renowacja reflektorów zabytkowych, czyszczenie lamp samochodowych z osadów i regeneracja lampy samochodowej po wypaleniu soczewki. Nasza regeneracja reflektorów i regeneracja lamp samochodowych w zakładzie STANIAX w Józefowie pod Warszawą polega na usunięciu wypalonej powłoki, nałożeniu lakieru podkładowego wysokotemperaturowego i próżniowym napyleniu czystego aluminium (99,99% Al) z trwałą powłoką ochronną UV.",
     ctaPrimaryLabel: "Wyceń regenerację reflektorów →",
     ctaSecondaryLabel: "Sprawdź cennik i zakres naprawy ↓",
     heroImageKey: "reflectorsHero",
@@ -154,24 +154,25 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           "Cena netto za metalizację próżniową pojedynczego zdemontowanego odbłyśnika",
       },
       {
-        value: 98,
+        prefix: ">",
+        value: 95,
         suffix: "%",
         label: "Odbicie światła powłoki Al",
         detail:
           "Współczynnik refleksji zwierciadlanej napylonego aluminium w próżni PVD",
       },
       {
-        value: 3,
-        suffix: " dni",
-        label: "Czas realizacji wysyłkowej",
+        value: 5,
+        suffix: "-7 dni",
+        label: "Czas realizacji zlecenia",
         detail:
-          "Standardowy czas metalizacji odbłyśników nadesłanych kurierem lub do Paczkomatu",
+          "Standardowy czas regeneracji dostarczonych odbłyśników w zakładzie w Józefowie i wysyłkowo",
       },
     ],
     scopeSection: {
       h2: "Zakres regeneracji lamp samochodowych i cennik usług",
       intro:
-        "Każda naprawa lamp samochodowych rozpoczyna się od diagnostyki stanu powierzchni odbłyśnika soczewki lub reflektora swobodnego (FF), szczelności obudowy oraz przejrzystości klosza poliwęglanowego. Realizujemy zarówno metalizację samych dostarczonych odbłyśników, jak i kompleksową regenerację całych reflektorów H4/H7, Xenon D1S/D2S/D3S, Bi-Xenon, skrętnych AFS oraz modułów Bi-LED.",
+        "Każda naprawa lamp samochodowych rozpoczyna się od diagnostyki stanu powierzchni odbłyśnika soczewki lub reflektora swobodnego (FF), szczelności obudowy oraz przejrzystości klosza poliwęglanowego. W STANIAX specjalizujemy się w części powierzchniowej regeneracji: metalizacji próżniowej PVD i natryskowej oraz powłokach ochronnych UV dostarczonych odbłyśników H4/H7, Xenon D1S/D2S/D3S, Bi-Xenon, AFS i LED (wyjęcie lampy z pojazdu oraz rozklejenie obudowy wykonuje zazwyczaj wyspecjalizowany warsztat samochodowy).",
       cardTitle: "Co obejmuje profesjonalna regeneracja reflektorów w STANIAX?",
       cardSubtitle:
         "Pełny proces technologiczny zgodny z reżimem fabrycznym producentów oświetlenia Hella, Valeo, Bosch, Koito i AL",
@@ -179,9 +180,9 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         "Chemiczne usunięcie starej, zmatowiałej lub wypalonej warstwy aluminium i utlenionego podkładu bez naruszania geometrii czaszy.",
         "Aplikacja termoutwardzalnego lakieru podkładowego (Base Coat) odpornego na temperatury pracy żarników ksenonowych do 220°C.",
         "Metalizacja próżniowa PVD czystym aluminium 99,99% w komorze wysokiej próżni (10⁻⁴ mbar) dająca efekt lustra optycznego.",
-        "Zabezpieczenie powierzchni warstwą ochronną (Top Coat / polimeryzacja plazmowa) chroniącą przed utlenianiem i wilgocią.",
+        "Zabezpieczenie powierzchni przemysłową powłoką ochronną (Top Coat UV) chroniącą przed utlenianiem, temperaturą i wilgocią.",
         "Wieloetapowe polerowanie reflektorów i kloszy poliwęglanowych (PC) wraz z aplikacją trwałego lakieru lub powłoki kwarcowej UV.",
-        "Rozklejanie i ponowne hermetyczne sklejanie lamp na nowym szczeliwie butylowym lub kleju twardym z testem ciśnieniowym szczelności.",
+        "Metalizacja natryskowa i lakierowanie dekoracyjne ramek wewnętrznych oraz maskownic reflektorów dostarczonych po demontażu warsztatowym.",
         "Regeneracja i metalizacja odbłyśników do aut zabytkowych (klasyków, youngtimerów), motocykli, ciągników siodłowych i maszyn rolniczych.",
       ],
       table: {
@@ -195,26 +196,26 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         ],
         rows: [
           [
-            "Metalizacja samego odbłyśnika (dostarczonego luzem)",
-            "Zmycie starej powłoki, podkład wysokotemperaturowy, napylanie próżniowe Al 99,99%, zabezpieczenie antykorozyjne",
-            "2-3 dni robocze",
-            "150 - 300 zł / szt.",
+            "Metalizacja dostarczonego odbłyśnika w STANIAX (luzem)",
+            "Zmycie starej powłoki, podkład wysokotemperaturowy, napylanie próżniowe Al, warstwa ochronna UV",
+            "5-7 dni roboczych",
+            "od 150 - 300 zł / szt.",
           ],
           [
-            "Kompleksowa regeneracja reflektora standardowego (H7 / Xenon / Bi-Xenon)",
-            "Rozklejenie lampy, regeneracja odbłyśnika soczewki, czyszczenie wnętrza i soczewki, polerowanie klosza + powłoka UV, hermetyzacja",
-            "3-5 dni roboczych",
+            "Orientacyjnie: Pełna regeneracja lampy (warsztat + metalizacja STANIAX)",
+            "Demontaż i rozklejenie w wyspecjalizowanym warsztacie + metalizacja odbłyśnika i powłoka UV klosza",
+            "5-7 dni roboczych",
             "350 - 700 zł / szt.",
           ],
           [
-            "Kompleksowa renowacja kpl. lamp (2 szt.) + elektronika / LED / klasyki",
-            "Pełna odbudowa pary reflektorów, spawanie uchwytów PP/ABS, naprawa przetwornic/modułów LED lub renowacja stalowych luster aut zabytkowych",
-            "4-7 dni roboczych",
-            "1 500 - 5 000+ zł / kpl.",
+            "Renowacja odbłyśników stalowych klasyków / serie warsztatowe B2B",
+            "Odrdzewianie i odbudowa podkładowa luster zabytkowych lub zbiorczy wsad odbłyśników dla warsztatu",
+            "5-7 dni roboczych",
+            "Wycena indywidualna",
           ],
         ],
         footnote:
-          "Dokładną wycenę potwierdzamy po oględzinach lub na podstawie zdjęć przesłanych w formularzu. Dla warsztatów samochodowych i serwisów oświetlenia oferujemy stałe rabaty B2B.",
+          "Dokładną wycenę potwierdzamy po oględzinach lub na podstawie zdjęć przesłanych w formularzu. Dla warsztatów samochodowych i producentów komponentów oświetleniowych przygotowujemy indywidualne wyceny B2B.",
       },
     },
     editorialSections: [
@@ -297,8 +298,8 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: "04",
           title: "Warstwa ochronna Top Coat i kontrola ogniskowej",
-          desc: "Zabezpieczamy napylone aluminium powłoką krzemoorganiczną chroniącą przed wilgocią i utlenianiem, a przy całych lampach polerujemy klosz, nakładamy filtr UV i testujemy szczelność.",
-          param: "12-24 m-ce gwarancji trwałości",
+          desc: "Zabezpieczamy napylone aluminium powłoką ochronną UV odporną na temperaturę pracy reflektora i wilgoć oraz kontrolujemy jakość powłoki przed wysyłką do warsztatu lub klienta.",
+          param: "Trwałość efektu do 5 lat (3-5 lat)",
         },
       ],
     },
@@ -319,7 +320,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       row2: [
         "Polerowanie kloszy PC + lakier UV",
         "Naprawa wypalonych gniazd żarówek",
-        "Hermetyzacja na nowym kleju butylowym",
+        "Metalizacja natryskowa wybranych serii detali",
         "Metalizacja ramek i dekorów wnętrza lampy",
         "Czyszczenie soczewek projekcyjnych",
         "Spawanie uchwytów reflektorów PP / ABS",
@@ -330,14 +331,14 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         {
           badge: "DLA KIEROWCÓW INDYWIDUALNYCH",
           h3: "Regeneracja wysyłkowa w całej Polsce (Paczkomat / Kurier)",
-          body: "Wyślij do nas same wymontowane odbłyśniki lub kompletne reflektory. Po wykonaniu metalizacji próżniowej odsyłamy bezpiecznie zapakowane części w ciągu 2-4 dni roboczych.",
+          body: "Wyślij do nas wymontowane odbłyśniki i elementy lamp (po rozklejeniu obudowy w warsztacie). Po wykonaniu metalizacji próżniowej odsyłamy bezpiecznie zapakowane części w ciągu 5-7 dni roboczych.",
           spec: "Odbiór osobisty: Józefów k. Warszawy (ul. Wyszyńskiego 116A)",
         },
         {
           badge: "DLA WARSZTATÓW I SERWISÓW LAMP",
           h3: "Stała współpraca B2B na metalizację odbłyśników",
           body: "Dla firm zajmujących się przeróbką i naprawą reflektorów oferujemy priorytetowe wsady komory próżniowej, powtarzalną jakość lustra i cennik hurtowy od 5 sztuk w partii.",
-          spec: "Faktura VAT 23% · Krótkie terminy 24-48h dla partnerów",
+          spec: "Faktura VAT 23% · Wycena indywidualna serii B2B dla warsztatów",
         },
         {
           badge: "RENOWACJA KLASYKÓW I MOTOCYKLI",
@@ -385,11 +386,11 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: "Ile kosztuje regeneracja odbłyśników, a ile kompleksowa regeneracja całych reflektorów?",
-          a: "Metalizacja próżniowa samego dostarczonego (wymontowanego z lampy) odbłyśnika kosztuje od 150 do 300 zł za sztukę w zależności od jego wielkości i materiału (tworzywo BMC/PPS lub metal). Kompleksowa regeneracja całego reflektora (rozklejenie lampy, metalizacja odbłyśnika, czyszczenie soczewki, polerowanie klosza z powłoką UV i ponowne sklejenie) wynosi zazwyczaj 350-700 zł za sztukę, a przy zaawansowanych lampach skrętnych LED/Xenon lub renowacji kompletu z elektroniką 1 500-5 000+ zł za parę.",
+          a: "Metalizacja próżniowa dostarczonego (wymontowanego z lampy) odbłyśnika w STANIAX kosztuje od 150 do 300 zł za sztukę w zależności od jego wielkości i materiału (tworzywo BMC/PPS lub metal). Wyjęcie lampy z pojazdu i rozklejenie obudowy wykonuje zazwyczaj wyspecjalizowany warsztat samochodowy, a łączny koszt rynkowy pełnej regeneracji reflektora (usługa warsztatu + metalizacja odbłyśnika i powłoka UV) wynosi około 350-700 zł za sztukę.",
         },
         {
           q: "Jak długo trwa regeneracja reflektorów i czy realizujecie usługę wysyłkowo?",
-          a: "Tak, obsługujemy klientów z całej Polski i UE wysyłkowo. Regeneracja samych odbłyśników trwa 2-3 dni robocze od momentu doręczenia paczki do naszego zakładu w Józefowie (ul. Wyszyńskiego 116A). Kompleksowa regeneracja całych lamp trwa średnio 3-5 dni roboczych. Części odsyłamy kurierem lub do Paczkomatu InPost w bezpiecznych opakowaniach wielowarstwowych.",
+          a: "Tak, obsługujemy warsztaty i klientów z całej Polski oraz UE wysyłkowo. Czas regeneracji odbłyśników i reflektorów wynosi standardowo od 5 do 7 dni roboczych od doręczenia elementów do naszego zakładu w Józefowie (ul. Wyszyńskiego 116A). Części odsyłamy kurierem lub do Paczkomatu InPost w bezpiecznych opakowaniach wielowarstwowych.",
         },
         {
           q: "Czy lepiej zregenerować oryginalny reflektor OEM, czy kupić nowy zamiennik?",
@@ -412,7 +413,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
     quoteSection: {
       h2: "Bezpłatna wycena regeneracji reflektorów i odbłyśników",
       intro:
-        "Opisz model samochodu, typ reflektorów (H7, Xenon, Bi-Xenon, LED, klasyk) oraz wskaż, czy chcesz wysłać same odbłyśniki, czy kompletne lampy. Odpowiadamy w ciągu 24 godzin w dni robocze.",
+        "Opisz model samochodu, typ reflektorów (H7, Xenon, Bi-Xenon, LED, klasyk) oraz wskaż, liczbę i rodzaj wymontowanych odbłyśników lub kloszy do regeneracji. Odpowiadamy w ciągu 24 godzin w dni robocze.",
       projectTypes: [
         "Metalizacja samych odbłyśników (wysyłkowo / osobiście)",
         "Kompleksowa regeneracja reflektorów (odbłyśniki + klosze + klejenie)",
@@ -609,7 +610,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Maksymalny wymiar wsadu",
-              value: "Do Ø 1000 mm / długość do 1200 mm",
+              value: "Drobne detale seryjne i gabarytowe korpusy na zawieszkach",
             },
             {
               label: "Czystość powierzchni",
@@ -756,7 +757,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           badge: "PROTOTYPOWANIE I DRUK 3D",
           h3: "Metalizacja prototypów SLA/SLS i krótkich serii wdrożeniowych",
           body: "Wykonujemy próby technologiczne oraz wzorce kolorystyczne (chrom, złoto, satyna) dla projektantów wzornictwa przemysłowego i działów R&D przed uruchomieniem produkcji wielkoseryjnej.",
-          spec: "Szybkie próby wzorców w 48-72h",
+          spec: "Tryb ekspresowy 2-3 dni robocze dla prototypów",
         },
         {
           badge: "OPTYKA I OŚWIETLENIE PRZEMYSŁOWE",
@@ -817,7 +818,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Jaka jest minimalna wielkość zamówienia (MOQ) i czas realizacji?",
-          a: "Nie narzucamy sztywnego zaporowego MOQ - wyceniamy zarówno pojedyncze detale i serie prototypowe (od kilku sztuk), jak i zamówienia wielkoseryjne liczone w dziesiątkach tysięcy elementów. Standardowy czas realizacji partii produkcyjnych wynosi 5-10 dni roboczych, a prób i prototypów 2-4 dni robocze.",
+          a: "Nie narzucamy sztywnego zaporowego MOQ - wyceniamy zarówno pojedyncze detale i serie prototypowe (od kilku sztuk), jak i zamówienia wielkoseryjne liczone w dziesiątkach tysięcy elementów. Standardowy czas realizacji partii produkcyjnych wynosi 5-10 dni roboczych, a prób i prototypów 2-3 dni robocze w trybie ekspresowym.",
         },
         {
           q: "Czy powłoka metalizowana próżniowo jest odporna na ścieranie, UV i warunki zewnętrzne?",
@@ -1051,7 +1052,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Powtarzalność koloru",
-              value: "Kontrola wzorca ΔE < 1,0 między partiami",
+              value: "Wysoka powtarzalność koloru i połysku między partiami",
             },
           ],
           previewStyle:
@@ -1614,7 +1615,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           badge: "SERIE PRODUKCYJNE B2B",
           h3: "Powtarzalne lakierowanie elementów technicznych i dekoracyjnych",
           desc: "Zastosowanie dedykowanego oprzyrządowania lakierniczego zapewniającego identyczną grubość warstwy na każdym detalu w partii.",
-          param: "Odchyłka barwna między partiami: ΔE < 0,8",
+          param: "Wysoka powtarzalność koloru i połysku serii",
           imageKey: "plasticPaint2",
           alt: "Seria przemysłowa elementów plastikowych podczas procesu lakierowania w STANIAX",
         },
@@ -1972,7 +1973,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           badge: "PERFUMERIA I KOSMETYKI",
           h3: "Personalizacja flakonów i słoiczków już od krótkich serii",
           body: "Nie musisz zamawiać 200 000 butelek w hucie szkła. Dostarcz do nas standardowe bezbarwne szkło, a stworzymy dla Twojej marki unikalne wykończenie ombre, matowe lub złote.",
-          spec: "Wzorce przedprodukcyjne (sampling) w ciągu 3-5 dni",
+          spec: "Wzorce przedprodukcyjne (sampling) w trybie ekspresowym 2-3 dni",
         },
         {
           badge: "BRANŻA SPIRYTUSOWA I NAPOJE",
@@ -2116,18 +2117,18 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           "Plus pełna paleta NCS (1950 odcieni), Pantone oraz recepturowanie wg wzorca klienta",
       },
       {
-        value: 1200,
-        suffix: " mm",
-        label: "Maksymalny gabaryt detalu",
+        value: 25,
+        suffix: "+ lat",
+        label: "Doświadczenia w branży",
         detail:
-          "Malowanie zarówno drobnych detali precyzyjnych, jak i obudów oraz konstrukcji do 1,2 m",
+          "Wieloletnia praktyka zespołu w lakierowaniu przemysłowym tworzyw, szkła i metali w Józefowie",
       },
       {
-        value: 48,
-        suffix: " h",
+        value: 3,
+        suffix: " dni",
         label: "Tryb ekspresowy dla prototypów",
         detail:
-          "Szybkie przezbrajanie kabin lakierniczych pod krótkie serie wdrożeniowe i pilne zlecenia B2B",
+          "Ekspresowa realizacja prototypów w 2-3 dni robocze oraz serie produkcyjne w 5-10 dni roboczych",
       },
     ],
     scopeSection: {
@@ -2301,7 +2302,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         "Powłoki Soft-Touch na metalu i tworzywach",
         "Lakiery metaliczne, perłowe i anodowane",
         "Maskowanie gwintów i stref stykowych EMC",
-        "Lakierowanie krótkich serii i prototypów 48h",
+        "Lakierowanie krótkich serii i prototypów (2-3 dni)",
       ],
       b2bCards: [
         {
@@ -2320,7 +2321,7 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
           badge: "REKLAMA, POS I WZORNICTWO",
           h3: "Wykończenia klasy A-Surface na laminatach, MDF i druku 3D",
           body: "Szpachlujemy, gruntujemy i lakierujemy na wysoki połysk lub mat makiety targowe, litery przestrzenne, stojaki ekspozycyjne i meble komercyjne.",
-          spec: "Wymiary elementów do 1200 mm w komorze natryskowej",
+          spec: "Elastyczne zawieszki pod detale drobne i obudowy gabarytowe",
         },
       ],
     },
@@ -2378,11 +2379,11 @@ export const SERVICES_PL: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Jakie są maksymalne wymiary elementów malowanych w kabinie STANIAX?",
-          a: "W naszych kabinach lakierniczych malujemy zarówno drobne elementy precyzyjne o wymiarach kilku milimetrów (mocowane na dedykowanych stelażach), jak i gabarytowe obudowy, profile oraz konstrukcje o długości do 1200 mm.",
+          a: "W naszych kabinach lakierniczych malujemy zarówno drobne elementy precyzyjne o wymiarach kilku milimetrów (mocowane na dedykowanych stelażach), jak i większe obudowy urządzeń, osłony oraz detale konstrukcyjne.",
         },
         {
           q: "Jaki jest czas realizacji zlecenia w lakierni przemysłowej?",
-          a: "Standardowy czas realizacji dla partii produkcyjnych wynosi 4-8 dni roboczych. Dla pilnych projektów wdrożeniowych, prototypów i uzupełnień stanów magazynowych oferujemy tryb ekspresowy 48-72h po wcześniejszym uzgodnieniu z technologiem.",
+          a: "Standardowy czas realizacji dla projektów produkcyjnych wynosi 5-10 dni roboczych. Dla prototypów i pilnych wzorców wdrożeniowych oferujemy tryb ekspresowy 2-3 dni robocze po uzgodnieniu z technologiem.",
         },
       ],
     },

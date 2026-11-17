@@ -824,7 +824,7 @@ function getGeoChromeCopy(lang) {
       colScope: "Process Scope",
       colTime: "Turnaround",
       colPrice: "Estimated Rate",
-      colWarranty: "Warranty",
+      colWarranty: "Durability",
       radiusHeading: "Drop-Off Zones & Courier Coverage",
       colZone: "District / Region",
       colDist: "Travel / Transit Time",
@@ -852,7 +852,7 @@ function getGeoChromeCopy(lang) {
       colScope: "Bearbeitungsumfang",
       colTime: "Durchlaufzeit",
       colPrice: "Richtpreis",
-      colWarranty: "Garantie",
+      colWarranty: "Haltbarkeit",
       radiusHeading: "Einzugsgebiet & Paketlogistik",
       colZone: "Stadtteil / Region",
       colDist: "Fahrzeit / Laufzeit",
@@ -879,7 +879,7 @@ function getGeoChromeCopy(lang) {
     colScope: "Zakres technologiczny",
     colTime: "Czas realizacji",
     colPrice: "Cena orientacyjna",
-    colWarranty: "Gwarancja",
+    colWarranty: "Trwałość efektu",
     radiusHeading: "Strefy dojazdu i wysyłki (Warszawa, Mazowsze, Polska)",
     colZone: "Dzielnica / Region",
     colDist: "Dojazd / Tranzyt",
@@ -1718,17 +1718,17 @@ function renderServicePage(serviceId, lang, bridge, resolveAsset) {
       ? `<section id="kalkulator-pvd" class="container mx-auto max-w-6xl px-6 py-10 space-y-4">
     <h2 class="text-2xl font-black text-slate-950">${escapeHtml(
       lang === "pl"
-        ? "Kalkulator wsadu komory próżniowej Ø 1200 mm i doboru powłoki PVD"
+        ? "Kalkulator partii produkcyjnej PVD i doboru układu powłokowego"
         : lang === "de"
-          ? "PVD-Kammerrechner Ø 1200 mm für B2B-Serien"
-          : "Ø 1200 mm PVD Chamber Batch & Primer Stack Calculator",
+          ? "PVD-Serien- und Schichtaufbau-Rechner für B2B-Projekte"
+          : "Industrial PVD Batch & Primer Stack Calculator",
     )}</h2>
     <p class="text-slate-700">${escapeHtml(
       lang === "pl"
-        ? "Orientacyjna pojemność wsadu planetarnego Ø 1200 mm: małe detale (20-65 mm, np. nakrętki kosmetyczne) ~900 szt./cykl; średnie detale (80-240 mm, np. odbłyśniki i flakony) ~140 szt./cykl; duże korpusy i klosze (250-550 mm) ~28 szt./cykl. Dobór powłoki PVD i napylanie aluminium 99,99% pod ABS, PC, PP, PA, szkło oraz druk 3D SLS."
+        ? "Orientacyjna pojemność wsadu komory próżniowej: małe detale (20-65 mm, np. nakrętki kosmetyczne) ~900 szt./cykl; średnie detale (80-240 mm, np. odbłyśniki i flakony) ~140 szt./cykl; duże korpusy i klosze (250-550 mm) ~28 szt./cykl. Dobór powłoki PVD i napylanie aluminium 99,99% pod ABS, PC, PP, PA, szkło oraz druk 3D SLS."
         : lang === "de"
-          ? "Richtkapazität der Ø-1200-mm-Planetenkammer: Kleinteile (20-65 mm) ca. 900 Stk./Zyklus; mittelgroße Bauteile (80-240 mm) ca. 140 Stk./Zyklus; Großgehäuse (250-550 mm) ca. 28 Stk./Zyklus - abgestimmt auf ABS, PC, PP, PA, Glas und PA12-3D-Druck."
-          : "Typical Ø 1200 mm planetary rack capacity: small closures (20-65 mm) ~900 pcs/cycle; medium bezels & reflectors (80-240 mm) ~140 pcs/cycle; large housings (250-550 mm) ~28 pcs/cycle across ABS, PC, PP, PA, glass, and SLS 3D prints.",
+          ? "Richtkapazität der Hochvakuum-Planetenkammer: Kleinteile (20-65 mm) ca. 900 Stk./Zyklus; mittelgroße Bauteile (80-240 mm) ca. 140 Stk./Zyklus; Großgehäuse (250-550 mm) ca. 28 Stk./Zyklus - abgestimmt auf ABS, PC, PP, PA, Glas und PA12-3D-Druck."
+          : "Typical high-vacuum planetary rack capacity: small closures (20-65 mm) ~900 pcs/cycle; medium bezels & reflectors (80-240 mm) ~140 pcs/cycle; large housings (250-550 mm) ~28 pcs/cycle across ABS, PC, PP, PA, glass, and SLS 3D prints.",
     )}</p>
   </section>`
       : ""
@@ -2749,10 +2749,10 @@ function renderGalleryPage(lang, currentPath, bridge, galleryItems) {
       </p>
       <p class="leading-relaxed">${escapeHtml(
         lang === "pl"
-          ? "Każda seria produkcyjna przechodzi w zakładzie STANIAX weryfikację przyczepności siatką nacięć wg ISO 2409 (klasa Gt 0), kontrolę powtarzalności odcienia ΔE < 0,8 oraz odbiór jakościowy pod światłem inspekcyjnym przed wysyłką kurierską lub paletową."
+          ? "Każda seria produkcyjna przechodzi w zakładzie STANIAX weryfikację przyczepności siatką nacięć wg ISO 2409 (klasa Gt 0), kontrolę powtarzalności odcienia i połysku oraz odbiór jakościowy pod światłem inspekcyjnym przed wysyłką kurierską lub paletową."
           : lang === "de"
-            ? "Jedes Serienlos durchläuft im STANIAX-Werk eine Gitterschnittprüfung nach DIN EN ISO 2409 (Gt 0), eine Farbtonkontrolle ΔE < 0,8 sowie eine dokumentierte Sichtprüfung vor dem Paletten- oder Paketversand."
-            : "Every production batch at STANIAX undergoes ISO 2409 cross-cut adhesion testing (Class Gt 0), ΔE < 0.8 color repeatability control, and final inspection prior to EU parcel or pallet dispatch.",
+            ? "Jedes Serienlos durchläuft im STANIAX-Werk eine Gitterschnittprüfung nach DIN EN ISO 2409 (Gt 0), eine strenge Farbton- und Glanzgradkontrolle sowie eine dokumentierte Sichtprüfung vor dem Paletten- oder Paketversand."
+            : "Every production batch at STANIAX undergoes ISO 2409 cross-cut adhesion testing (Class Gt 0), batch-to-batch color and gloss repeatability control, and final inspection prior to EU parcel or pallet dispatch.",
       )}</p>
       <p class="leading-relaxed">${escapeHtml(
         lang === "pl"

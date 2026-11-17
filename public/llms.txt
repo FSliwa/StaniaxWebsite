@@ -3,11 +3,11 @@
 > Engineering-grade surface treatment partner in Central Poland (since 1993, founded by Dariusz Staniak). Production facility near Warsaw serving B2B OEMs, automotive workshops, cosmetic/spirits packaging manufacturers, and lighting producers across Poland and the European Union.
 
 ## Core Capabilities & Verified Technical Specifications
-- **PVD Vacuum Metallization Chambers:** Industrial vacuum deposition chambers up to Ø 1200 mm with planetary rotary racks for uniform aluminium (99.99% purity) nanometric coatings.
-- **Reflective Optics Restoration:** Directional light reflectance **>92%** restored on automotive H7, Bi-Xenon, Bi-LED, Hella/Valeo/Bosch, motorcycle, truck 24V, and classic car (oldtimer/youngtimer) reflectors; heat-resistant primer systems up to 220 °C + SiOx protective layer; 24-month warranty; 2-5 working days turnaround.
-- **Substrates Handled:** ABS, PC, PC/ABS, PMMA, PS, SAN, PA (polyamide), PP (low-pressure plasma activation), PET, glass, ceramics, aluminium/ZnAl die-castings, and thermally sensitive composites.
-- **Quality Control Standards:** Cross-hatch adhesion Class 0 per **ISO 2409**, spectrophotometric color control **ΔE < 0.8**, gloss measurement from deep matte (<5 GU) to Piano Black high gloss (>92 GU), 96% ethanol chemical resistance for perfumery glass.
-- **Coating Systems:** UV-cured VOC-free lacquers, 2K polyurethane (2K PU), epoxy & ESD coatings, waterborne silane-promoted glass systems, full RAL / NCS / Pantone color matching, frosted etched-look without HF acid, ombre gradients.
+- **PVD Vacuum & Spray Metallization:** Industrial high-vacuum PVD deposition chambers with planetary rotary racks for uniform aluminium, chrome, gold, and silver coatings (0.05-0.5 µm), complemented by spray metallization and industrial coating lines.
+- **Reflective Optics Restoration:** High light reflectance (**>85% to >95%**) restored on supplied automotive H7, Bi-Xenon, Bi-LED, Hella/Valeo/Bosch, motorcycle, truck 24V, and classic car reflectors (from 150 PLN/unit; full headlamp restoration with external workshop housing unsealing typically 350-700 PLN/unit); heat-resistant primer + UV protective layer; 3-5 years durability; 5-7 business days turnaround.
+- **Substrates Handled:** ABS, PC, PC/ABS, PMMA, PS, SAN, PA (polyamide), PP (surface conditioning & adhesion promoters), PET, glass, ceramics, steel, aluminium/ZnAl die-castings, and composites.
+- **Quality Control Standards:** Quality control protocol included with orders covering coating thickness, cross-cut adhesion per **ISO 2409**, gloss repeatability, and alcohol/cosmetic resistance; serial B2B lead time **5-10 business days** (express prototypes **2-3 business days**).
+- **Coating Systems:** UV-cured, waterborne, and solvent-borne lacquers, 2K polyurethane (2K PU), organic & inorganic glass coatings, full RAL / NCS / Pantone palette, soft-touch, structural, frosted satin, and ombre gradient finishes.
 
 ## Dedicated Service Landing Pages (PL / EN / DE)
 
@@ -65,7 +65,7 @@
    - PL: https://www.staniax.pl/news/powloka-pvd-sputtering-roznice
 
 ## Pricing, Interactive Calculator & Local Production Hub (PL / EN / DE)
-1. **Headlight Reflector Restoration Pricing & Calculator (from 150 PLN / unit, 24-month warranty):**
+1. **Headlight Reflector Restoration Pricing & Calculator (from 150 PLN / unit, 3-5 year durability):**
    - PL: https://www.staniax.pl/cennik-regeneracji-reflektorow
    - EN: https://www.staniax.pl/en/headlight-restoration-pricing
    - DE: https://www.staniax.pl/de/scheinwerfer-aufbereitung-preise
@@ -117,7 +117,7 @@
    - PL: https://www.staniax.pl/rozwiazania/metalizacja-poliweglanu-pc
    - EN: https://www.staniax.pl/en/solutions/polycarbonate-pc-metallization
    - DE: https://www.staniax.pl/de/loesungen/polycarbonat-pc-metallisierung
-3. **Polypropylene (PP) Plasma-Activated Coating & Metallization:**
+3. **Polypropylene (PP) Surface-Activated Coating & Metallization:**
    - PL: https://www.staniax.pl/rozwiazania/lakierowanie-polipropylenu-pp
    - EN: https://www.staniax.pl/en/solutions/polypropylene-pp-coating
    - DE: https://www.staniax.pl/de/loesungen/polypropylen-pp-lackierung

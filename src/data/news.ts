@@ -89,9 +89,9 @@ export const NEWS_ITEMS_BY_LANG: Record<'pl' | 'en' | 'de', NewsItemData[]> = {
       date: '18 maja 2025',
       category: 'Jakość i Normy',
       excerpt:
-        'Nasz zespół technologiczny wdrożył rozszerzone procedury kontroli siatki nacięć ISO 2409 oraz spektrofotometrii ΔE dla serii kosmetycznych i motoryzacyjnych.',
+        'Nasz zespół technologiczny rozwija procedury kontroli przyczepności metodą siatki nacięć ISO 2409 oraz pomiaru połysku i powtarzalności barwy dla serii B2B.',
       homeSummary:
-        'Badania adhezji metodą siatki nacięć klasy 5B, pomiar połysku GU oraz kontrola barwy ΔE przy lakierowaniu tworzyw.',
+        'Badania adhezji metodą siatki nacięć klasy 5B, pomiar połysku GU oraz wysoka powtarzalność barwy przy lakierowaniu tworzyw.',
       ctaLabel: 'Sprawdź standardy lakierowania tworzyw B2B',
       imageKey: 'externalUnsplash',
       externalImageUrl: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop&crop=center',
@@ -152,7 +152,7 @@ export const NEWS_ITEMS_BY_LANG: Record<'pl' | 'en' | 'de', NewsItemData[]> = {
       date: 'May 18, 2025',
       category: 'Quality & Standards',
       excerpt:
-        'Our engineering team expanded ISO 2409 cross-cut adhesion testing, 60-degree gloss unit (GU) verification, and ΔE < 0.8 spectrophotometry protocols for high-volume cosmetic flacons, ABS housings, and automotive headlamp reflector batches across all vacuum chambers.',
+        'Our engineering team expanded ISO 2409 cross-cut adhesion testing, 60-degree gloss unit (GU) verification, and batch-to-batch color consistency protocols for high-volume cosmetic flacons, ABS housings, and automotive headlamp reflector batches across all vacuum chambers.',
       homeSummary:
         'Cross-cut adhesion Class 5B validation, GU gloss repeatability, and color consistency for industrial plastic parts painting.',
       ctaLabel: 'Explore industrial plastic painting QA',
@@ -215,7 +215,7 @@ export const NEWS_ITEMS_BY_LANG: Record<'pl' | 'en' | 'de', NewsItemData[]> = {
       date: '18. Mai 2025',
       category: 'Qualität & Normen',
       excerpt:
-        'Unser Ingenieurteam hat erweiterte Prüfprotokolle nach ISO 2409 und ΔE-Spektralfotometrie für Kosmetik- und Automotive-Serien eingeführt.',
+        'Unser Ingenieurteam hat erweiterte Prüfprotokolle nach ISO 2409 sowie Glanzgrad- und Farbkonstanzprüfungen für Kosmetik- und Automotive-Serien eingeführt.',
       homeSummary:
         'Gitterschnittprüfung Klasse 5B, GU-Glanzgradkontrolle und reproduzierbare RAL-/NCS-Serienlackierung auf Kunststoffteilen.',
       ctaLabel: 'Standards der Kunststofflackierung ansehen',
@@ -273,7 +273,7 @@ export const NEWS_PAGE_CONTENT = {
         },
       ],
       closing:
-        'Planujesz wdrożenie seryjne detali z tworzyw ABS, PC, PMMA, szkła lub odlewów metalowych? Przed zleceniem serii wykonujemy testy technologiczne na dostarczonych wzorcach, dobieramy parametry zawieszek rotacyjnych i potwierdzamy odcień w palecie RAL, NCS lub Pantone z tolerancją spektrofotometryczną ΔE.',
+        'Planujesz wdrożenie seryjne detali z tworzyw ABS, PC, PMMA, szkła lub odlewów metalowych? Przed zleceniem serii wykonujemy testy technologiczne na dostarczonych wzorcach, dobieramy parametry zawieszek rotacyjnych i potwierdzamy powtarzalny odcień w palecie RAL, NCS lub Pantone na wzorcach referencyjnych.',
     },
   },
   en: {
@@ -322,7 +322,7 @@ export const NEWS_PAGE_CONTENT = {
         },
       ],
       closing:
-        'Before scaling ABS, polycarbonate, glass, or die-cast parts into full serial production, our Józefów engineering lab performs pre-production sample trials, fixture optimization, and spectrophotometric color matching across RAL, NCS, and Pantone standards.',
+        'Before scaling ABS, polycarbonate, glass, or die-cast parts into full serial production, our Józefów engineering lab performs pre-production sample trials, fixture optimization, and reference-sample color matching across RAL, NCS, and Pantone standards.',
     },
   },
   de: {
@@ -351,7 +351,7 @@ export const NEWS_PAGE_CONTENT = {
     editorialGuide: {
       title: 'STANIAX-Ingenieurstandards für PVD-Metallisierung & Industrielackierung',
       intro:
-        'Alle Fachbeiträge unserer Wissensdatenbank basieren unmittelbar auf der Serienpraxis unseres Werks in Józefów bei Warschau. Seit über 25 Jahren verbinden wir hochreine 99,99-%-Aluminium-PVD-Vakuummetallisierung in Kammern bis Ø 1200 mm mit HVLP-Nasslackierung, thermischer Einbrenntechnik und UV-Schutzlacken. Unsere Praxisleitfäden unterstützen Konstrukteure, industrielle Einkäufer, Verpackungsentwickler und Kfz-Fachbetriebe dabei, die optimale Oberflächentechnologie zwischen Hochvakuumbedampfung, Kunststoffverchromung und Mehrschichtlackierung fundiert auszuwählen.',
+        'Alle Fachbeiträge unserer Wissensdatenbank basieren unmittelbar auf der Serienpraxis unseres Werks in Józefów bei Warschau. Seit über 25 Jahren verbinden wir hochreine 99,99-%-Aluminium-PVD-Vakuummetallisierung in industriellen Hochvakuumkammern mit HVLP-Nasslackierung, thermischer Einbrenntechnik und UV-Schutzlacken. Unsere Praxisleitfäden unterstützen Konstrukteure, industrielle Einkäufer, Verpackungsentwickler und Kfz-Fachbetriebe dabei, die optimale Oberflächentechnologie zwischen Hochvakuumbedampfung, Kunststoffverchromung und Mehrschichtlackierung fundiert auszuwählen.',
       standardsTitle: 'Technische Prüfkriterien & Prozessparameter in der Serienfertigung',
       standards: [
         {
@@ -376,7 +376,7 @@ export const NEWS_PAGE_CONTENT = {
         },
       ],
       closing:
-        'Vor dem Serienanlauf erstellen unsere Verfahrenstechniker technische Erstbemusterungen an Ihren Originalteilen, optimieren die Trommel- und Satellitenbestückung für wirtschaftliche Stückkosten und stimmen Farbtöne nach RAL, NCS oder Pantone per ΔE-Spektralfotometer exakt und reproduzierbar ab.',
+        'Vor dem Serienanlauf erstellen unsere Verfahrenstechniker technische Erstbemusterungen an Ihren Originalteilen, optimieren die Trommel- und Satellitenbestückung für wirtschaftliche Stückkosten und stimmen Farbtöne nach RAL, NCS oder Pantone anhand verbindlicher Referenzmuster exakt und reproduzierbar ab.',
     },
   },
 } as const

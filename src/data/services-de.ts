@@ -119,24 +119,25 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           "Ca. 35 € netto für die PVD-Vakuumbedampfung eines einzelnen ausgebauten Reflektors",
       },
       {
-        value: 98,
+        prefix: ">",
+        value: 95,
         suffix: "%",
         label: "Lichtreflexion der Al-Schicht",
         detail:
           "Gerichteter Reflexionsgrad der im Hochvakuum aufgedampften 99,99% Aluminiumschicht",
       },
       {
-        value: 3,
-        suffix: " Tage",
+        value: 5,
+        suffix: "-7 Tage",
         label: "Bearbeitungszeit im Werk",
         detail:
-          "Standard-Durchlaufzeit für per Paketdienst eingesandte Scheinwerfer-Reflektoren",
+          "Reguläre Durchlaufzeit für angelieferte Scheinwerfer-Reflektoren im Werk Józefów",
       },
     ],
     scopeSection: {
       h2: "Leistungsumfang der Scheinwerfer Aufbereitung & Preisübersicht",
       intro:
-        "Jede Scheinwerfer-Instandsetzung beginnt mit einer Prüfung der Projektor-Reflektorschale oder des Freiformreflektors, der Gehäusedichtigkeit sowie der Polycarbonat-Streuscheibe. Wir bearbeiten sowohl einzeln eingesandte Reflektoren als auch komplette H4/H7-, Xenon- (D1S/D2S/D3S), Bi-Xenon-, Kurvenlicht- (AFS) und Bi-LED-Scheinwerfer.",
+        "Jede Scheinwerfer-Instandsetzung beginnt mit einer Prüfung der Projektor-Reflektorschale oder des Freiformreflektors, der Gehäusedichtigkeit sowie der Polycarbonat-Streuscheibe. Bei STANIAX spezialisieren wir uns auf die Oberflächentechnik angelieferter H4/H7-, Xenon- (D1S/D2S/D3S), Bi-Xenon-, AFS- und LED-Reflektoren (Ausbau aus dem Fahrzeug und Öffnen verklebter Gehäuse erfolgen in der Regel durch eine spezialisierte Kfz-Fachwerkstatt).",
       cardTitle: "Was umfasst das Reflektor neu bedampfen bei STANIAX?",
       cardSubtitle:
         "Industrielles PVD-Verfahren nach OEM-Standards für Hella, Valeo, Bosch, AL und Koito",
@@ -146,7 +147,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         "Hochvakuum-Bedampfung (10⁻⁴ mbar) mit 99,99% Reinstaluminium für einen optischen Hochglanzspiegel.",
         "Versiegelung mit einer organischen Silizium-Schutzschicht (Top Coat) gegen Oxidation, Feuchtigkeit und Anlaufen.",
         "Mehrstufiges Schleifen und Polieren matter Polycarbonat-Streuscheiben inklusive dauerhafter 2K/UV-Klarlackversiegelung.",
-        "Fachgerechtes Öffnen und hermetisches Neuverkleben kompletter Scheinwerfer mit frischem Butyl- oder Hartkleber inkl. Dichtigkeitstest.",
+        "Spritzmetallisierung und dekorative Lackierung von Innenblenden, Rahmen und Scheinwerferbauteilen für Fachwerkstätten.",
         "Restaurierung von Stahl- und Messingreflektoren für Oldtimer, Youngtimer, Traktoren und klassische Motorräder.",
       ],
       table: {
@@ -160,26 +161,26 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         ],
         rows: [
           [
-            "Einzelnen Reflektor neu bedampfen (lose angeliefert)",
-            "Chemisches Entschichten, 220°C Hochtemperatur-Grundierung, PVD-Aluminiumbedampfung 99,99%, Top-Coat-Schutz",
-            "2-3 Werktage",
-            "150 - 300 PLN / Stk. (ca. 35 - 70 €)",
+            "Angelieferten Einzelreflektor neu bedampfen (STANIAX)",
+            "Chemisches Entschichten, Hochtemperatur-Grundierung, PVD-Aluminiumbedampfung, UV-Schutzschicht",
+            "5-7 Werktage",
+            "ab 150 - 300 PLN / Stk. (ca. 35 - 70 €)",
           ],
           [
-            "Komplette Aufbereitung eines Standard-Scheinwerfers (H7 / Xenon / Bi-Xenon)",
-            "Öffnen des Gehäuses, Reflektor neu bedampfen, Linsenreinigung, Streuscheibe polieren + UV-Lack, Neuabdichtung",
-            "3-5 Werktage",
-            "350 - 700 PLN / Stk. (ca. 80 - 165 €)",
+            "Richtwert: Komplettregenerierung (Fachwerkstatt + STANIAX PVD)",
+            "Gehäuseöffnung in externer Kfz-Werkstatt + PVD-Reflektorbedampfung & UV-Streuscheibenschutz",
+            "5-7 Werktage",
+            "ca. 350 - 700 PLN / Stk. (ca. 80 - 165 €)",
           ],
           [
-            "Komplettrestaurierung Scheinwerfer-Paar (2 Stk.) + Elektronik / LED / Oldtimer",
-            "Vollständige Überholung beider Lampen, PP/ABS-Halter schweißen, Vorschaltgeräte/LED oder Oldtimer-Entrostung",
-            "4-7 Werktage",
-            "1.500 - 5.000+ PLN / Paar",
+            "Oldtimer-Stahlreflektoren / B2B-Werkstattserien",
+            "Entrostung & Korrosionsschutzaufbau historischer Metallreflektoren oder B2B-Sammellose",
+            "5-7 Werktage",
+            "Individuelles Angebot",
           ],
         ],
         footnote:
-          "Den genauen Preis bestätigen wir nach Begutachtung oder anhand von Fotos im Anfrageformular. Für KFZ-Werkstätten und Oldtimer-Restauratoren bieten wir B2B-Mengenrabatte.",
+          "Den genauen Preis bestätigen wir nach Begutachtung oder anhand von Fotos im Anfrageformular. Für KFZ-Werkstätten, Lackierereien und Oldtimer-Restauratoren erstellen wir individuelle B2B-Angebote.",
       },
     },
     editorialSections: [
@@ -262,8 +263,8 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: "04",
           title: "Top-Coat-Versiegelung & Dichtheitsprüfung",
-          desc: "Wir schützen die Aluminiumschicht vor Oxidation, polieren und lackieren bei Komplettlampen die Streuscheibe mit UV-Schutz und testen die Dichtheit.",
-          param: "12-24 Monate Haltbarkeitsgarantie",
+          desc: "Wir versiegeln die aufgedampfte Aluminiumschicht mit einem hitze- und feuchtigkeitsbeständigen UV-Schutzlack und führen eine optische Endkontrolle durch.",
+          param: "Haltbarkeit bis zu 5 Jahre (3-5 Jahre)",
         },
       ],
     },
@@ -284,7 +285,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       row2: [
         "Streuscheiben polieren + UV-Schutzlack",
         "Instandsetzung verbrannter Lampenfassungen",
-        "Neuabdichtung mit Butyl-Dichtmasse",
+        "Spritzmetallisierung für spezielle Kleinserien",
         "Verchromen von Zierblenden & Rahmen",
         "Ultraschallreinigung der Projektorlinsen",
         "Kunststoffschweißen von PP/ABS-Haltern",
@@ -295,13 +296,13 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           badge: "VERSANDSERVICE DEUTSCHLAND & EU",
           h3: "Schneller Rückversand für ausgebaute Reflektoren",
-          body: "Senden Sie uns Ihre ausgebauten Reflektorschalen oder kompletten Scheinwerfer per DHL/DPD/UPS nach Józefów bei Warschau. Nach 2-4 Werktagen geht das Paket sicher verpackt zurück.",
+          body: "Senden Sie uns Ihre ausgebauten Reflektorschalen und Scheinwerferteile per DHL/DPD/UPS nach Józefów bei Warschau. Nach 5-7 Werktagen im Werk geht das Paket sicher verpackt zurück.",
           spec: "Werkadresse: ul. Wyszyńskiego 116A, 05-420 Józefów, Polen",
         },
         {
           badge: "FÜR KFZ-WERKSTÄTTEN (B2B)",
           h3: "Serien-Bedampfung für Scheinwerfer-Instandsetzer",
-          body: "Für Betriebe im Bereich Scheinwerfer-Umbau und Reparatur bieten wir feste Kammerkapazitäten, reproduzierbare Spiegelqualität und B2B-Staffelpreise ab 5 Stück.",
+          body: "Für Betriebe im Bereich Scheinwerfer-Umbau und Reparatur bieten wir feste Kammerkapazitäten, reproduzierbare Spiegelqualität und individuelle B2B-Konditionen für Partnerwerkstätten.",
           spec: "Netto-Innergemeinschaftliche Rechnung (0% USt. mit USt-IdNr.)",
         },
         {
@@ -350,11 +351,11 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
       items: [
         {
           q: "Was kostet es, einen Scheinwerfer Reflektor neu bedampfen zu lassen?",
-          a: "Das reine Neu-Bedampfen eines ausgebaut angelieferten Reflektors kostet je nach Größe und Material zwischen 150 und 300 PLN (ca. 35-70 €) pro Stück. Eine Komplettaufbereitung des gesamten Scheinwerfers (Gehäuse öffnen, Reflektor bedampfen, Linse reinigen, Streuscheibe polieren + UV-Lack, neu abdichten) liegt meist bei 350-700 PLN (ca. 80-165 €) pro Scheinwerfer.",
+          a: "Das Neu-Bedampfen eines ausgebaut angelieferten Reflektors bei STANIAX kostet je nach Größe und Material ab 150 bis 300 PLN (ca. 35-70 €) pro Stück. Der Ausbau aus dem Fahrzeug und das Öffnen verklebter Gehäuse erfolgen in der Regel durch eine spezialisierte Kfz-Werkstatt; die gesamten Markt-Richtkosten einer Komplettregenerierung liegen meist bei ca. 350-700 PLN (ca. 80-165 €) pro Scheinwerfer.",
         },
         {
           q: "Wie lange dauert die Aufbereitung inklusive Versand aus Deutschland oder Österreich?",
-          a: "Die Bearbeitung loser Reflektoren in unserem Werk dauert nur 2-3 Werktage ab Paketeingang (bei kompletten Scheinwerfern 3-5 Werktage). Inklusive versichertem Hin- und Rückversand per DHL/DPD/UPS aus Deutschland oder Österreich erhalten Sie Ihre Teile in der Regel nach rund 6-9 Werktagen zurück.",
+          a: "Die reguläre Bearbeitungszeit im Werk Józefów beträgt 5-7 Werktage ab Paketeingang. Zuzüglich versichertem Hin- und Rückversand per DHL/DPD/UPS aus Deutschland oder Österreich planen Werkstätten meist rund 8-11 Werktage Gesamtlaufzeit ein.",
         },
         {
           q: "Lohnt sich die Aufbereitung von Original-Scheinwerfern gegenüber billigen Nachbauten?",
@@ -377,7 +378,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
     quoteSection: {
       h2: "Kostenloses Angebot für Scheinwerfer- & Reflektor-Aufbereitung anfordern",
       intro:
-        "Nennen Sie uns Ihr Fahrzeugmodell, den Scheinwerfertyp (H7, Xenon, Bi-Xenon, LED, Oldtimer) und ob Sie lose Reflektoren oder komplette Lampen einsenden möchten. Wir antworten innerhalb von 24 Stunden.",
+        "Nennen Sie uns Ihr Fahrzeugmodell, den Scheinwerfertyp (H7, Xenon, Bi-Xenon, LED, Oldtimer) und welche ausgebauten Reflektoren oder Scheinwerferblenden Sie einsenden möchten. Wir antworten innerhalb von 24 Stunden.",
       projectTypes: [
         "Nur lose Reflektoren neu bedampfen (Postversand / Abgabe)",
         "Komplette Scheinwerfer-Aufbereitung (Reflektor + Streuscheibe + Abdichten)",
@@ -574,7 +575,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Maximale Bauteilgröße",
-              value: "Ø-1200-mm-Kammer (Bauteil bis Ø 1000 × 1200 mm)",
+              value: "Präzise Kleinteile und großformatige Gehäuse auf Drehgestellen",
             },
             {
               label: "Oberflächenvorbereitung",
@@ -780,7 +781,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Wie hoch ist die Mindestbestellmenge (MOQ) und wie lang ist die Lieferzeit?",
-          a: "Wir haben keine starre Mindestmenge - wir kalkulieren sowohl Einzelprototypen und Musterreihen als auch Großserien in Hunderttausender-Stückzahlen. Die reguläre Durchlaufzeit beträgt 5-10 Werktage (Muster 2-4 Werktage).",
+          a: "Wir haben keine starre Mindestmenge - wir kalkulieren sowohl Einzelprototypen und Musterreihen als auch Großserien in Hunderttausender-Stückzahlen. Die reguläre Durchlaufzeit beträgt 5-10 Werktage (Express-Muster 2-3 Werktage).",
         },
         {
           q: "Ist die metallisierte Oberfläche abriebfest, UV-stabil und witterungsbeständig?",
@@ -1014,7 +1015,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
             },
             {
               label: "Farbkonstanz in Serie",
-              value: "Kontrolliert auf ΔE < 1,0 zwischen den Chargen",
+              value: "Hohe Farb- und Glanzgradkonstanz zwischen den Chargen",
             },
           ],
           previewStyle:
@@ -1497,7 +1498,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         {
           num: "04",
           title: "Niedertemperatur- / UV-Härtung & Qualitätsprüfung",
-          desc: "Aushärtung bei bauteilfreundlichen 50-70°C oder im UV-Tunnel, gefolgt von Glanzgrad-, Farbmetrik- (ΔE) und Gitterschnittprüfung.",
+          desc: "Aushärtung bei bauteilfreundlichen 50-70°C oder im UV-Tunnel, gefolgt von Glanzgrad-, Referenzmuster- und ISO-2409-Gitterschnittprüfung.",
           param: "100% Sichtkontrolle der Charge",
         },
       ],
@@ -1564,7 +1565,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           badge: "B2B-SERIENFERTIGUNG",
           h3: "Reproduzierbare Lackierung technischer & dekorativer Formteile",
           desc: "Maßgefertigte Lackieraufnahmen sichern identische Schichtdicken und Farbtöne über die gesamte Serie.",
-          param: "Farbabweichung zwischen Chargen: ΔE < 0,8",
+          param: "Hohe Farb- und Glanzgradwiederholbarkeit",
           imageKey: "plasticPaint2",
           alt: "Industrielle Serienlackierung von Kunststoffteilen auf Warenträgern bei STANIAX",
         },
@@ -1920,7 +1921,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           badge: "PARFÜMERIE & KOSMETIKMARKEN",
           h3: "Individuelle Flakons & Tiegel schon ab kleinen Serien",
           body: "Umgehen Sie Mindestmengen von 200.000 Stück in der Glashütte. Liefern Sie Standard-Klarglas an - wir veredeln es in Ihrem Wunsch-Pantone, Ombre, Frost oder 24K Gold.",
-          spec: "Vorserien-Bemusterung (Sampling) in 3-5 Werktagen",
+          spec: "Express-Vorserienbemusterung in 2-3 Werktagen",
         },
         {
           badge: "SPIRITUOSEN- & GETRÄNKEINDUSTRIE",
@@ -2066,18 +2067,18 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           "Plus 1.950 NCS-Farbtöne, Pantone-Abmusterung und individuelle Farbrezeptierung",
       },
       {
-        value: 1200,
-        suffix: " mm",
-        label: "Maximale Bauteillänge",
+        value: 25,
+        suffix: "+ J.",
+        label: "Branchenerfahrung",
         detail:
-          "Lackierung von millimetergroßen Präzisionsteilen bis zu 1,2 m langen Gehäusen und Profilen",
+          "Über 25 Jahre Erfahrung in der industriellen Lackierung von Kunststoffen, Glas und Metallen",
       },
       {
-        value: 48,
-        suffix: " h",
+        value: 3,
+        suffix: " Tage",
         label: "Express-Modus für Prototypen",
         detail:
-          "Schnelle Farbwechsel in der Kabine für Vorserien, Muster und eilige B2B-Aufträge",
+          "Express-Bemusterung in 2-3 Werktagen sowie Serienfertigung in regulär 5-10 Werktagen",
       },
     ],
     scopeSection: {
@@ -2250,7 +2251,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         "Soft-Touch-Beschichtung auf Metall & Kunststoff",
         "Metallic-, Perleffekt- & Eloxal-Lackierungen",
         "Maskierung von Gewinden & EMV-Erdungsflächen",
-        "Express-Prototypenlackierung in 48h",
+        "Express-Prototypenlackierung in 2-3 Werktagen",
       ],
       b2bCards: [
         {
@@ -2269,7 +2270,7 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
           badge: "WERBETECHNIK, POS & DESIGN",
           h3: "Class-A-Oberflächen auf GFK, MDF & 3D-Modellen",
           body: "Wir füllern, schleifen und lackieren Messemodelle, 3D-Buchstaben, Verkaufsdisplays und Objektmöbel in Spiegelglanz oder Samtmatt.",
-          spec: "Kabinenkapazität für Bauteile bis 1200 mm Länge",
+          spec: "Flexible Aufnahmen für Präzisionsteile und Industriegehäuse",
         },
       ],
     },
@@ -2327,11 +2328,11 @@ export const SERVICES_DE: Record<ServiceId, ServiceLocaleContent> = {
         },
         {
           q: "Wie groß dürfen die Bauteile für die Spritzlackierkabine maximal sein?",
-          a: "Wir lackieren sowohl millimetergroße Kleinteile auf Spezialgestellen als auch Gehäuse, Profile und Schweißbaugruppen bis zu einer Länge von 1200 mm.",
+          a: "Wir lackieren sowohl millimetergroße Präzisionsteile auf Spezialgestellen als auch größere Gerätegehäuse, Abdeckungen und Industriebaugruppen.",
         },
         {
           q: "Wie lang ist die Lieferzeit bei Lohnlackieraufträgen?",
-          a: "Die reguläre Durchlaufzeit für Serienaufträge liegt bei 4-8 Werktagen. Für eilige Prototypen, Messemodelle oder Engpässe bieten wir nach Absprache einen 48-72h-Express-Service an.",
+          a: "Die reguläre Durchlaufzeit für Serienprojekte liegt bei 5-10 Werktagen. Für Prototypen und eilige Erstmuster bieten wir einen Expressmodus von 2-3 Werktagen an.",
         },
       ],
     },

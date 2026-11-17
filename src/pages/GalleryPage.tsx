@@ -1149,10 +1149,10 @@ function GalleryPage({ lang = "pl" as Lang }: { lang?: Lang }) {
           </p>
           <p>
             {activeLang === "pl"
-              ? "Każda partia produkcyjna przechodzi w zakładzie STANIAX kontrolę przyczepności metodą siatki nacięć wg ISO 2409 (klasa Gt 0), weryfikację powtarzalności barwy ΔE < 0,8 oraz odbiór wizualny pod oświetleniem inspekcyjnym. Na życzenie działów R&D i zakupów przygotowujemy wzorce referencyjne na powierzonych wypraskach z ABS, PC, PP, PA lub flakonach szklanych."
+              ? "Każda partia produkcyjna przechodzi w zakładzie STANIAX kontrolę przyczepności metodą siatki nacięć wg ISO 2409 (klasa Gt 0), weryfikację powtarzalności barwy i połysku oraz odbiór wizualny pod oświetleniem inspekcyjnym. Na życzenie działów R&D i zakupów przygotowujemy wzorce referencyjne na powierzonych wypraskach z ABS, PC, PP, PA lub flakonach szklanych."
               : activeLang === "de"
-                ? "Jedes Produktionslos durchläuft im STANIAX-Werk eine Gitterschnittprüfung nach DIN EN ISO 2409 (Gt 0), eine Farbtonkontrolle ΔE < 0,8 sowie eine optische Endprüfung unter Prüflightspektrum. Für Einkaufs- und F&E-Abteilungen bemustern wir vorab Originalbauteile aus ABS, PC, PP, PA oder Verpackungsglas."
-                : "Every production batch at STANIAX undergoes ISO 2409 cross-cut adhesion verification (Class Gt 0), spectrophotometric ΔE < 0.8 color consistency checks, and optical inspection prior to dispatch. We produce pre-series approval samples directly on client-supplied ABS, PC, PP, PA moldings or glass flacons."}
+                ? "Jedes Produktionslos durchläuft im STANIAX-Werk eine Gitterschnittprüfung nach DIN EN ISO 2409 (Gt 0), eine strenge Farbton- und Glanzgradkontrolle sowie eine optische Endprüfung unter Prüflightspektrum. Für Einkaufs- und F&E-Abteilungen bemustern wir vorab Originalbauteile aus ABS, PC, PP, PA oder Verpackungsglas."
+                : "Every production batch at STANIAX undergoes ISO 2409 cross-cut adhesion verification (Class Gt 0), strict batch-to-batch color and gloss consistency checks, and optical inspection prior to dispatch. We produce pre-series approval samples directly on client-supplied ABS, PC, PP, PA moldings or glass flacons."}
           </p>
         </div>
       </section>

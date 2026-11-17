@@ -22,44 +22,44 @@ interface MaterialSpec {
 const SIZE_PRESETS: SizePreset[] = [
   {
     id: 'small',
-    pcsPerCycle: 900,
+    pcsPerCycle: 600,
     label: {
       pl: 'Małe detale (20-65 mm)',
       en: 'Small components (20-65 mm)',
       de: 'Kleinteile (20-65 mm)',
     },
     examples: {
-      pl: 'Nakrętki perfum, atomizery, przyciski, emblematy (~900 szt./wsad Ø 1200 mm)',
-      en: 'Cosmetic caps, collars, buttons, emblems (~900 pcs / Ø 1200 mm cycle)',
-      de: 'Kosmetikkappen, Tasten, Embleme (~900 Stk. / Ø 1200 mm Kammerzyklus)',
+      pl: 'Nakrętki perfum, atomizery, przyciski, emblematy (wysoka gęstość na bębnie PVD)',
+      en: 'Cosmetic caps, collars, buttons, emblems (high-density rotary PVD rack)',
+      de: 'Kosmetikkappen, Tasten, Embleme (hohe Packungsdichte auf Drehgestell)',
     },
   },
   {
     id: 'medium',
-    pcsPerCycle: 140,
+    pcsPerCycle: 120,
     label: {
       pl: 'Średnie detale (80-240 mm)',
       en: 'Medium parts (80-240 mm)',
       de: 'Mittelgroße Bauteile (80-240 mm)',
     },
     examples: {
-      pl: 'Odbłyśniki, flakony 100 ml, ramki dekoracyjne (~140 szt./wsad Ø 1200 mm)',
-      en: 'Reflector bowls, 100 ml flacons, trim bezels (~140 pcs / Ø 1200 mm cycle)',
-      de: 'Reflektoren, 100-ml-Flakons, Zierblenden (~140 Stk. / Ø 1200 mm Zyklus)',
+      pl: 'Odbłyśniki reflektorów, flakony 100 ml, ramki dekoracyjne',
+      en: 'Reflector bowls, 100 ml flacons, decorative trim bezels',
+      de: 'Scheinwerferreflektoren, 100-ml-Flakons, Zierblenden',
     },
   },
   {
     id: 'large',
-    pcsPerCycle: 28,
+    pcsPerCycle: 24,
     label: {
       pl: 'Duże korpusy i klosze (250-550 mm)',
       en: 'Large housings & optics (250-550 mm)',
       de: 'Großgehäuse & Leuchtenoptik (250-550 mm)',
     },
     examples: {
-      pl: 'Oprawy przemysłowe LED, osłony maszyn, panele (~28 szt./wsad Ø 1200 mm)',
-      en: 'Industrial LED reflectors, machine shrouds, panels (~28 pcs / Ø 1200 mm cycle)',
-      de: 'Hallenstrahler-Optiken, Gehäuseabdeckungen (~28 Stk. / Ø 1200 mm Zyklus)',
+      pl: 'Oprawy oświetleniowe, osłony przemysłowe, panele dekoracyjne',
+      en: 'Lighting reflectors, industrial shrouds, decorative panels',
+      de: 'Leuchtenoptiken, Gehäuseabdeckungen, Dekorpanele',
     },
   },
 ]
@@ -69,54 +69,54 @@ const MATERIAL_SPECS: MaterialSpec[] = [
     id: 'abs',
     code: 'ABS / PC+ABS',
     stack: {
-      pl: 'Mycie jonizujące + podkład UV wyrównujący + Al 99,99% PVD + topcoat UV (ISO 2409 Gt 0)',
-      en: 'Ionized wash + UV leveling basecoat + 99.99% Al PVD + UV topcoat (ISO 2409 Gt 0)',
-      de: 'Ionisierte Reinigung + UV-Glättprimer + 99,99 % Al PVD + UV-Decklack (ISO 2409 Gt 0)',
+      pl: 'Odtłuszczanie antystatyczne + lakier podkładowy UV + aluminium PVD + lakier ochronny UV (ISO 2409)',
+      en: 'Antistatic prep + UV leveling basecoat + aluminum PVD + UV protective topcoat (ISO 2409)',
+      de: 'Antistatische Reinigung + UV-Grundlack + Aluminium-PVD + UV-Schutzlack (ISO 2409)',
     },
   },
   {
     id: 'pc',
-    code: 'PC / PC-HT / PEI',
+    code: 'PC / PC-HT / BMC',
     stack: {
-      pl: 'Odgazowanie termiczne + podkład barierowy wysokotemp. + Al 99,99% + pasywacja SiOx (>92% odbicia)',
-      en: 'Moisture pre-bake + barrier primer + 99.99% Al + SiOx passivation (>92% reflectance)',
-      de: 'Vortrocknung + Sperrgrundierung + 99,99 % Al + SiOx-Passivierung (>92 % Reflexion)',
+      pl: 'Przygotowanie powierzchni + podkład wysokotemperaturowy + aluminium PVD + powłoka ochronna UV',
+      en: 'Surface conditioning + high-temp barrier primer + aluminum PVD + UV protective layer',
+      de: 'Oberflächenvorbereitung + Hitzeschutzprimer + Aluminium-PVD + UV-Schutzschicht',
     },
   },
   {
     id: 'pp',
     code: 'PP / PP+EPDM',
     stack: {
-      pl: 'Aktywacja płomieniowa/plazmowa (≥44 mN/m) + promotor CPO + podkład UV + powłoka PVD',
-      en: 'Flame/plasma activation (≥44 mN/m) + CPO adhesion promoter + UV base + PVD stack',
-      de: 'Flamm-/Plasmaaktivierung (≥44 mN/m) + CPO-Haftvermittler + UV-Basis + PVD-Schicht',
+      pl: 'Przygotowanie fizykochemiczne powierzchni + promotor przyczepności do poliolefin + podkład UV + powłoka PVD',
+      en: 'Physicochemical surface prep + polyolefin adhesion promoter + UV basecoat + PVD finish',
+      de: 'Oberflächenvorbereitung + Polyolefin-Haftvermittler + UV-Basis + PVD-Schicht',
     },
   },
   {
     id: 'pa',
     code: 'PA6 / PA66 GF',
     stack: {
-      pl: 'Kondycjonowanie wilgoci + podkład wypełniający 2K EP/PU + metalizacja PVD + lakier 2K PU',
-      en: 'Thermal degassing + high-build 2K primer + PVD metallization + 2K PU clearcoat',
-      de: 'Temper-Entgasung + 2K-Füllprimer + PVD-Metallisierung + 2K-PUR-Schutzlack',
+      pl: 'Wygrzewanie kondycjonujące + podkład wypełniający 2K + metalizacja PVD + lakier nawierzchniowy 2K',
+      en: 'Thermal conditioning + high-build 2K primer + PVD metallization + 2K protective clearcoat',
+      de: 'Vortrocknung + 2K-Füllprimer + PVD-Metallisierung + 2K-Decklack',
     },
   },
   {
     id: 'glass',
     code: 'Szkło / Ceramika',
     stack: {
-      pl: 'Promotor organosilanowy Si-O-C + napylanie PVD chrom/złoto + lakier odporny na 96% etanol',
-      en: 'Organosilane coupling primer + chrome/gold PVD + 96% ethanol-resistant topcoat',
-      de: 'Organosilan-Haftbrücke + Chrom-/Gold-PVD + 96-%-ethanolfester Schutzlack',
+      pl: 'Promotor adhezji do szkła + napylanie PVD chrom/złoto + lakier odporny na alkohol i ścieranie',
+      en: 'Glass adhesion promoter + chrome/gold PVD + alcohol- and abrasion-resistant topcoat',
+      de: 'Glas-Haftvermittler + Chrom-/Gold-PVD + alkohol- und abriebfester Decklack',
     },
   },
   {
     id: 'sls3d',
-    code: 'Druk 3D SLS / SLA',
+    code: 'Prototypy i Druk 3D',
     stack: {
-      pl: 'Uszczelnianie porowatości PA12 / żywicy + podkład wygładzający + PVD aluminium 99,99%',
-      en: 'PA12/resin pore sealing + high-build smoothing primer + 99.99% Al PVD finish',
-      de: 'Porenversiegelung für PA12/Harz + Glättgrundierung + 99,99 % Al PVD-Spiegel',
+      pl: 'Uszczelnianie porowatości podkładem wypełniającym + warstwa wygładzająca + PVD aluminium',
+      en: 'Pore-sealing filler primer + smoothing basecoat + vacuum aluminum PVD',
+      de: 'Porenversiegelung per Füllprimer + Glättschicht + Vakuum-Aluminium-PVD',
     },
   },
 ]
@@ -137,42 +137,42 @@ const COPY: Record<
   }
 > = {
   pl: {
-    badge: 'Kalkulator inżynieryjny wsadu PVD Ø 1200 mm',
-    title: 'Oszacuj wsad komory próżniowej, stos powłok PVD i czas realizacji serii B2B',
+    badge: 'Kalkulator orientacyjny partii produkcyjnej PVD',
+    title: 'Dobierz układ powłokowy PVD i sprawdź orientacyjny czas realizacji serii B2B',
     subtitle:
-      'Dobierz gabaryt detalu, tworzywo oraz wielkość partii, aby sprawdzić orientacyjną liczbę cykli planetarnych w komorach Ø 1200 mm oraz zalecaną technologię przygotowania podłoża.',
-    sizeLabel: '1. Gabaryt detalu na satelicie komory',
-    matLabel: '2. Materiał podłoża (polimer / szkło)',
+      'Wybierz gabaryt detalu, materiał podłoża oraz wielkość partii - dla prototypów oferujemy tryb ekspresowy 2-3 dni robocze, a dla projektów produkcyjnych standardowo 5-10 dni roboczych.',
+    sizeLabel: '1. Gabaryt detalu na oprzyrządowaniu komory',
+    matLabel: '2. Materiał podłoża (tworzywo / szkło)',
     batchLabel: '3. Wielkość partii produkcyjnej (szt.)',
-    cyclesLabel: 'Szacowana liczba wsadów komory Ø 1200 mm',
-    leadTimeLabel: 'Orientacyjny czas realizacji w zakładzie Józefów',
-    stackLabel: 'Rekomendowany stos technologiczny powłoki PVD:',
+    cyclesLabel: 'Szacowana liczba wsadów produkcyjnych',
+    leadTimeLabel: 'Standardowy czas realizacji w zakładzie Józefów',
+    stackLabel: 'Rekomendowany układ technologiczny powłoki:',
     cta: 'Przejdź do formularza wyceny tej serii',
   },
   en: {
-    badge: 'Ø 1200 mm PVD Chamber Batch Calculator',
-    title: 'Estimate Vacuum Chamber Cycles, Coating Stack & B2B Lead Time',
+    badge: 'Industrial PVD Batch & Coating Estimator',
+    title: 'Select Recommended Coating Stack & Estimate B2B Production Lead Time',
     subtitle:
-      'Select component dimensions, substrate polymer, and batch volume to calculate planetary rack cycles in our Ø 1200 mm chambers and recommended primer chemistry.',
-    sizeLabel: '1. Component envelope on planetary rack',
+      'Choose component size, substrate material, and batch quantity - express prototype mode takes 2-3 business days, while serial production runs take 5-10 business days.',
+    sizeLabel: '1. Component size category',
     matLabel: '2. Substrate material',
     batchLabel: '3. Production batch quantity (pcs)',
-    cyclesLabel: 'Estimated Ø 1200 mm chamber cycles',
-    leadTimeLabel: 'Estimated plant turnaround (Józefów)',
-    stackLabel: 'Recommended PVD & primer engineering stack:',
+    cyclesLabel: 'Estimated rotary chamber cycles',
+    leadTimeLabel: 'Standard plant turnaround (Józefów)',
+    stackLabel: 'Recommended PVD & primer stack:',
     cta: 'Request B2B quotation for this batch',
   },
   de: {
-    badge: 'PVD-Kammerrechner Ø 1200 mm für B2B-Serien',
-    title: 'Kammerzyklen, Schichtaufbau und Durchlaufzeit für Ihre Serie berechnen',
+    badge: 'PVD-Serien- & Schichtaufbau-Rechner',
+    title: 'Schichtaufbau und voraussichtliche Durchlaufzeit für Ihre Serie prüfen',
     subtitle:
-      'Wählen Sie Bauteilgröße, Werkstoff und Losgröße, um die Belegung unserer Ø-1200-mm-Planetenkammern sowie das passende Primersystem zu ermitteln.',
-    sizeLabel: '1. Bauteilgröße auf dem Planetengestell',
+      'Wählen Sie Bauteilgröße, Werkstoff und Losgröße - für Prototypen bieten wir einen Expressmodus von 2-3 Werktagen, Serienprojekte dauern regulär 5-10 Werktage.',
+    sizeLabel: '1. Bauteilgröße auf dem Drehgestell',
     matLabel: '2. Substratwerkstoff',
     batchLabel: '3. Serienlosgröße (Stück)',
-    cyclesLabel: 'Geschätzte Kammerzyklen (Ø 1200 mm)',
-    leadTimeLabel: 'Voraussichtliche Durchlaufzeit ab Werk Józefów',
-    stackLabel: 'Empfohlener PVD- & Primer-Schichtaufbau:',
+    cyclesLabel: 'Geschätzte Produktionszyklen',
+    leadTimeLabel: 'Standard-Durchlaufzeit ab Werk Józefów',
+    stackLabel: 'Empfohlener PVD- & Lackschichtaufbau:',
     cta: 'Unverbindliches Serienangebot anfordern',
   },
 }
@@ -188,18 +188,18 @@ export function B2bChamberCalculator({ lang }: { lang: Lang }) {
   const cycles = Math.max(1, Math.ceil(batchQty / sizeSpec.pcsPerCycle))
 
   const leadTime =
-    cycles <= 3
+    cycles <= 1
       ? lang === 'pl'
-        ? '3-5 dni roboczych'
+        ? '2-3 dni robocze (tryb ekspresowy / prototypy)'
         : lang === 'de'
-          ? '3-5 Werktage'
-          : '3-5 business days'
+          ? '2-3 Werktage (Express / Prototypen)'
+          : '2-3 business days (express / prototypes)'
       : cycles <= 12
         ? lang === 'pl'
-          ? '5-8 dni roboczych'
+          ? '5-10 dni roboczych (produkcja seryjna)'
           : lang === 'de'
-            ? '5-8 Werktage'
-            : '5-8 business days'
+            ? '5-10 Werktage (Serienproduktion)'
+            : '5-10 business days (serial production)'
         : lang === 'pl'
           ? 'Harmonogram tygodniowy (dostawy transzowe B2B)'
           : lang === 'de'

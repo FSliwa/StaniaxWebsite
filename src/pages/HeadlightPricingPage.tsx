@@ -38,7 +38,7 @@ const TABLE_HEADERS: Record<
     colScope: 'Zakres technologiczny',
     colTime: 'Czas realizacji',
     colPrice: 'Cena orientacyjna',
-    colWarranty: 'Gwarancja',
+    colWarranty: 'Trwałość efektu',
   },
   en: {
     home: 'Home',
@@ -47,7 +47,7 @@ const TABLE_HEADERS: Record<
     colScope: 'Process Scope',
     colTime: 'Turnaround',
     colPrice: 'Estimated Rate',
-    colWarranty: 'Warranty',
+    colWarranty: 'Durability',
   },
   de: {
     home: 'Startseite',
@@ -56,7 +56,7 @@ const TABLE_HEADERS: Record<
     colScope: 'Bearbeitungsumfang',
     colTime: 'Durchlaufzeit',
     colPrice: 'Richtpreis',
-    colWarranty: 'Garantie',
+    colWarranty: 'Haltbarkeit',
   },
 }
 

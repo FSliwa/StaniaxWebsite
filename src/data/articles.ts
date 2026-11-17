@@ -922,11 +922,11 @@ export const REFLECTORS_ARTICLE = {
       "Szukasz sprawdzonego wykonawcy, który przywróci Twoim lampom fabryczną sprawność? W Zakładzie Metalizacji STANIAX realizujemy próżniową regenerację odbłyśników metodą PVD w Józefowie oraz wysyłkowo dla klientów z całej Polski.",
     ctaWhyTitle: "Dlaczego warto wybrać technologię PVD w STANIAX?",
     ctaWhy1:
-      "**Współczynnik odbicia >92%:** Warstwa czystego aluminium 99,99% napylana w próżni (PVD) gwarantuje fabryczną geometrię snopa światła.",
+      "**Trwałość do 5 lat:** Warstwa aluminium nakładana w próżni (metodą PVD) gwarantuje fabryczne parametry odbicia światła.",
     ctaWhy2:
-      "**Realizacja w 2-5 dni roboczych:** Szybka obsługa zleceń indywidualnych i warsztatowych (kurier w obie strony).",
+      "**Realizacja w 5-7 dni roboczych:** Szybkie wykonanie zlecenia, w tym regeneracji wysyłkowej dla warsztatów i klientów z całej Polski.",
     ctaWhy3:
-      "**Oszczędność do 80%:** Regeneracja od 150 zł/szt. (pakiety B2B od 110 zł/szt.) jest wielokrotnie tańsza niż zakup nowych reflektorów OEM.",
+      "**Oszczędność do 90%:** Regeneracja (od 150 zł/szt.) jest wielokrotnie tańsza niż zakup nowych reflektorów OEM.",
     ctaSubhead:
       "Sprawdź pełną specyfikację techniczną, cennik i kalkulator regeneracji odbłyśników:",
     backToNewsList: "Powrót do aktualności",
@@ -941,10 +941,10 @@ export const REFLECTORS_ARTICLE = {
         "tylko zewnętrzna powierzchnia",
       ],
       [
-        "Kompleksowa regeneracja PVD",
-        "150-700 zł",
-        "5-10 lat",
-        "odbłyśnik PVD + klosz + uszczelki",
+        "Kompleksowa regeneracja",
+        "350-700 zł",
+        "3-5 lat",
+        "klosz + odbłyśnik + uszczelki",
       ],
       ["Nowa lampa (OEM)", "1 500-5 000+ zł", "fabryczna", "cały komplet"],
     ],
@@ -960,7 +960,7 @@ export const REFLECTORS_ARTICLE = {
       "Jeśli zauważasz, że reflektory i odbłyśniki lamp przeciwmgielnych w Twoim aucie świecą słabiej niż kiedyś, mają żółtawy odcień lub dostałeś uwagę na przeglądzie technicznym - to sygnał, że pora na regenerację. Zmatowienie reflektorów może prowadzić do odmowy dopuszczenia pojazdu do ruchu, więc nie warto zwlekać. Polerowanie reflektorów poprawia ich wygląd i funkcjonalność, a regeneracja odbłyśników w reflektorach może zwiększyć ich wydajność nawet o 100%.",
     introP2:
       "Regeneracja odbłyśników lamp samochodowych obejmuje kilka zakresów: polerowanie klosza - usunięcie zmatowień i mikrorys z zewnętrznej powierzchni; regenerację odbłyśników - odnowienie warstwy refleksyjnej wewnątrz lampy; oraz uszczelnienie i zabezpieczenie UV - ochrona przed ponownym matowieniem.",
-        introP3: 'Poprawa widoczności jest odczuwalna od razu, a koszt zaczyna się od ok. 150-300 zł za polerowanie klosza (sam wymontowany odbłyśnik od 150 zł/szt.); pełna regeneracja całej lampy z metalizacją odbłyśnika to 350-700 zł - wciąż wielokrotnie mniej niż zakup nowych lamp, gdzie np. reflektory bi xenon potrafią kosztować kilka tysięcy złotych za sztukę. Regeneracja reflektorów przywraca im pełną sprawność za ułamek ceny. W STANIAX specjalizujemy się w regeneracji odbłyśników metodami przemysłowymi - [metalizacją próżniową PVD](/regeneracja-reflektorow) wspieraną bezpyłowym lakierowaniem natryskowym podkładów wysokotemperaturowych i kloszy UV - co daje trwalszy efekt niż amatorskie polerowanie w garażu.',
+        introP3: 'Poprawa widoczności jest odczuwalna od razu, a koszt zaczyna się od ok. 150-300 zł za polerowanie klosza (sam wymontowany odbłyśnik od 150 zł/szt.); pełna regeneracja całej lampy z metalizacją odbłyśnika to 350-700 zł - wciąż wielokrotnie mniej niż zakup nowych lamp, gdzie np. reflektory bi xenon potrafią kosztować kilka tysięcy złotych za sztukę. Regeneracja reflektorów przywraca im pełną sprawność za ułamek ceny. W STANIAX specjalizujemy się w regeneracji odbłyśników metodami przemysłowymi - [metalizacją próżniową PVD](/regeneracja-reflektorow) i metalizacją natryskową - co daje trwalszy efekt niż amatorskie polerowanie w garażu.',
 
     sec1Title: "Dlaczego reflektory ulegają zmatowieniu i tracą dawny blask?",
     sec1P1:
@@ -1002,13 +1002,13 @@ export const REFLECTORS_ARTICLE = {
       "Odbłyśniki nie powinny być wcześniej polerowane mechanicznie - uszkadza to ich geometrię i utrudnia poprawną metalizację próżniową. Powierzchnia odbłyśników jest przez STANIAX dodatkowo oczyszczana i przygotowywana: oczyszczenie z poprzedniej metalizacji wraz ze szlifowaniem powierzchni wewnętrznej, odtłuszczanie, nałożenie farby podkładowej, jeśli wymaga tego dany system. Wysyłka powinna wyglądać następująco: sztywne kartony, oddzielne zabezpieczenie każdego odbłyśnika folią bąbelkową, opis auta/modelu/rocznika - dzięki temu unikamy pomyłek. Wymiana reflektorów jest konieczna przy poważnych uszkodzeniach strukturalnych - ale to rzadkość; większość starych lamp da się skutecznie odnowić.",
 
     sec5Title:
-      "Profesjonalna regeneracja odbłyśników w STANIAX - metalizacja próżniowa PVD i powłoki ochronne UV",
+      "Profesjonalna regeneracja odbłyśników w STANIAX - metalizacja próżniowa i natryskowa",
     sec5P1:
       "Odbłyśnik to serce reflektora - kształtuje snop światła i decyduje o jakości oświetlenia. Jego wypalenie powoduje drastyczny spadek skuteczności nawet przy nowych żarówkach czy modułach LED. Regeneracja reflektorów zwiększa ich żywotność i poprawia bezpieczeństwo, przywracając odpowiednią ilość odbijanego światła.",
     sec5P2:
-      "Metalizacja próżniowa (PVD) polega na odparowaniu czystego aluminium 99,99% w komorze próżniowej (10⁻⁴ mbar) i nanoszeniu ultracienkiej, równomiernej warstwy na powierzchni odbłyśnika. Efekt lustrzany odpowiada fabrycznemu oryginałowi, a współczynnik odbicia kierunkowego przekracza 92%. Koszt regeneracji samego wymontowanego odbłyśnika zaczyna się od 150 zł/szt., a pełnej lampy z metalizacją próżniową wynosi około 350-700 zł za sztukę - wciąż wielokrotnie mniej niż nowa lampa.",
+      "Metalizacja próżniowa (PVD) polega na odparowaniu aluminium w komorze próżniowej i nanoszeniu ultracienkiej, równomiernej warstwy na powierzchni odbłyśnika. Efekt lustrzany jest porównywalny z fabrycznym, a współczynnik odbicia sięga ponad 85%. Koszt kompleksowej regeneracji z metalizacją próżniową wynosi około 350-700 zł za sztukę (sam dostarczony odbłyśnik od 150 zł/szt.) - wciąż wielokrotnie mniej niż nowa lampa.",
     sec5P3:
-      "Uzupełnieniem procesu próżniowego jest bezpyłowe lakierowanie natryskowe podkładów wysokotemperaturowych (wygładzających wżery do gładkości optycznej) oraz powłok ochronnych UV i SiOx, dzięki czemu regenerowane odbłyśniki i klosze są odporne na temperaturę pracy reflektora do 220 °C oraz wilgoć. Ta usługa jest kierowana do kierowców, warsztatów, lakierni i producentów komponentów oświetleniowych.",
+      "Metalizacja natryskowa stanowi alternatywę dla niektórych serii detali, gdy wymagana jest grubsza lub specyficzna powłoka. STANIAX stosuje przemysłowe systemy lakiernicze i powłoki ochronne UV, dzięki czemu regenerowane odbłyśniki są odporne na temperaturę pracy reflektora oraz wilgoć. Ta usługa jest kierowana głównie do warsztatów, lakierni i producentów komponentów oświetleniowych, ale pośrednio korzystają na niej kierowcy, których lampy odzyskują fabryczne parametry i atrakcyjny wygląd.",
 
     sec6Title:
       "Modernizacja oświetlenia - montaż soczewek bi LED, bi xenon i tuning lamp",
@@ -1042,7 +1042,7 @@ export const REFLECTORS_ARTICLE = {
     sec9Title:
       "STANIAX - partner B2B w regeneracji odbłyśników i obróbce powierzchni lamp",
     sec9P1:
-      "STANIAX to specjalista dla klientów biznesowych: producentów lamp, warsztatów samochodowych, lakierni i firm z branży automotive. Nasze główne kompetencje obejmują metalizację próżniową PVD odbłyśników i elementów dekoracyjnych, przemysłowe lakierowanie natryskowe tworzyw sztucznych, metali i szkła oraz nakładanie podkładów wysokotemperaturowych i powłok ochronnych UV o długiej żywotności.",
+      "STANIAX to specjalista dla klientów biznesowych: producentów lamp, warsztatów samochodowych, lakierni i firm z branży automotive. Nasze główne kompetencje obejmują metalizację próżniową PVD odbłyśników i elementów dekoracyjnych, metalizację natryskową, lakierowanie tworzyw sztucznych, metali i szkła oraz nakładanie farb podkładowych i powłok ochronnych UV o długiej żywotności.",
     sec9P2:
       "Kładziemy nacisk na efekty lustrzane, wysoką estetykę powierzchni, powtarzalność serii i trwałość powłok - szczególnie istotne dla producentów reflektorów, lusterek i elementów wnętrz samochodów. Nasze doświadczenie obejmuje realizacje dla branży automotive: odbłyśniki do reflektorów halogenowych i bi xenon, elementy dekoracyjne kokpitów, osłony i ramki lamp - zawsze zgodnie z wymaganiami jakościowymi na poziomie OEM.",
     sec9P3:
@@ -1122,7 +1122,7 @@ export const REFLECTORS_ARTICLE = {
     introP2:
       "Car headlight reflector regeneration includes several scopes: lens polishing - removing cloudiness and micro-scratches from the outer surface; reflector regeneration - restoring the reflective layer inside the lamp; and sealing and UV protection - protecting against re-clouding.",
     introP3:
-      "Improvement in visibility is felt immediately, and the cost starts from about 150-300 PLN for lens polishing (or from 150 PLN / ~€35 for a loose reflector bowl); full headlamp restoration with reflector metallization is 350-700 PLN - still many times less than buying new lamps, where bi-xenon headlights can cost several thousand PLN each. At STANIAX, we specialize in industrial reflector restoration - high-vacuum PVD metallization paired with cleanroom HVLP spray application of high-temp primers and UV lens hardcoats - delivering far greater durability than garage polishing.",
+      "Improvement in visibility is felt immediately, and the cost starts from about 150-300 PLN for lens polishing (or from 150 PLN / ~€35 for a loose reflector bowl); full headlamp restoration with reflector metallization is 350-700 PLN - still many times less than buying new lamps, where bi-xenon headlights can cost several thousand PLN each. At STANIAX, we specialize in reflector regeneration using industrial methods - vacuum PVD metallization and spray metallization - which yields a more durable effect than amateur polishing in a garage.",
 
     sec1Title: "Why do headlights become cloudy and lose their former shine?",
     sec1P1:
@@ -1163,13 +1163,13 @@ export const REFLECTORS_ARTICLE = {
       "Reflectors should not be mechanically polished beforehand - this damages their geometry and makes correct vacuum metallization difficult. The surface of the reflectors is additionally cleaned and prepared by STANIAX: removal of previous metallization along with sanding the inner surface, degreasing, and applying primer paint if required by the given system. Shipping should look like this: rigid cardboard boxes, individual protection of each reflector with bubble wrap, and descriptions of vehicle/model/year - thanks to this we avoid mistakes. Reflector replacement is necessary for severe structural damage - but this is rare; most old lamps can be effectively restored.",
 
     sec5Title:
-      "Professional reflector regeneration at STANIAX - high-vacuum PVD and UV protective coatings",
+      "Professional reflector regeneration at STANIAX - vacuum and spray metallization",
     sec5P1:
       "The reflector is the heart of the headlight - it shapes the beam of light and determines lighting quality. Its burnout causes a drastic drop in efficiency even with new light bulbs or LED modules. Reflector regeneration increases their lifetime and improves safety, restoring the proper amount of reflected light.",
     sec5P2:
-      "Vacuum metallization (PVD) consists in evaporating 99.99% pure aluminum in a high-vacuum chamber (10⁻⁴ mbar) and applying an ultra-thin, even layer to the reflector surface. The mirror effect matches factory OEM optics, and directional specular reflection exceeds 92%. Loose reflector bowl PVD starts at ~150 PLN (€35), while complete headlamp restoration is about 350-700 PLN per piece - still many times less than a new lamp.",
+      "Vacuum metallization (PVD) consists in evaporating aluminum in a vacuum chamber and applying an ultra-thin, even layer to the reflector surface. The mirror effect is comparable to the factory finish, and the reflection coefficient reaches over 85%. Loose reflector bowl PVD starts at ~150 PLN (€35), while complete headlamp regeneration is about 350-700 PLN per piece - still many times less than a new lamp.",
     sec5P3:
-      "Complementing vacuum PVD, booth-applied high-temperature leveling primers and UV/SiOx protective coatings seal substrates smoothly, making restored reflectors resistant to 220 °C arc temperatures and moisture. This service supports drivers, workshops, paint shops, and lighting component manufacturers.",
+      "Spray metallization is an alternative for some series of details when a thicker or specific coating is required. STANIAX uses industrial coating systems and UV protective coatings, making regenerated reflectors resistant to headlight operating temperatures and moisture. This service is aimed primarily at workshops, paint shops, and lighting component manufacturers, while drivers benefit as their headlights regain factory output and appearance.",
 
     sec6Title:
       "Lighting modernization - mounting of bi-LED, bi-xenon lenses and lamp tuning",
@@ -1203,7 +1203,7 @@ export const REFLECTORS_ARTICLE = {
     sec9Title:
       "STANIAX - B2B partner in reflector regeneration and lamp surface treatment",
     sec9P1:
-      "STANIAX is a specialist for business clients: lamp manufacturers, car workshops, paint shops, and automotive companies. Our core competencies include vacuum PVD metallization of reflectors and decorative elements, industrial HVLP spray painting of plastics, metals, and glass, and application of high-temp primers and long-life UV protective coatings.",
+      "STANIAX is a specialist for business clients: lamp manufacturers, car workshops, paint shops, and automotive companies. Our core competencies include vacuum PVD metallization of reflectors and decorative elements, spray metallization, painting of plastics, metals, and glass, and application of primers and long-life UV protective coatings.",
     sec9P2:
       "We focus on mirror effects, high surface aesthetics, series repeatability, and coating durability - particularly important for manufacturers of headlights, mirrors, and car interior elements. Our experience includes projects for the automotive industry: reflectors for halogen and bi-xenon headlights, decorative dashboard elements, covers and lamp frames - always in accordance with OEM-level quality requirements.",
         sec9P3: 'If you run a workshop, paint shop, or lighting component manufacturing company and are looking for a partner for reflector regeneration, finish of series car lamps, or special projects related to metallization and decorative painting - [contact us](/en#contact). Together we will find a solution tailored to your production needs.',
@@ -1297,7 +1297,7 @@ export const REFLECTORS_ARTICLE = {
       "Wenn Sie bemerken, dass die Scheinwerfer und Nebelscheinwerfer-Reflektoren in Ihrem Auto schwächer als gewöhnlich leuchten, einen gelblichen Ton haben oder Sie beim TÜV eine Anmerkung erhalten haben - dann ist es Zeit für eine Regeneration. Ein Erblinden der Scheinwerfer kann dazu führen, dass das Fahrzeug nicht mehr zugelassen wird, weshalb man nicht zögern sollte. Das Polieren der Scheinwerfer verbessert deren Aussehen und Funktion, und die Regeneration der Scheinwerferreflektoren kann deren Leistung um bis zu 100 % steigern.",
     introP2:
       "Die Regeneration von Scheinwerfern umfasst mehrere Bereiche: das Polieren der Streuscheibe - die Entfernung von Trübungen und Mikrokratzern von der äußeren Oberfläche; die Reflektoren Regeneration - das Erneuern der reflektierenden Schicht im Inneren der Lampe; sowie das Abdichten und der UV-Schutz - zum Schutz vor erneutem Erblinden.",
-        introP3: 'Die Verbesserung der Sicht ist sofort spürbar und die Kosten beginnen bei ca. 150-300 PLN für das Polieren der Streuscheibe (bzw. ab ca. 35 € / 150 PLN je ausgebautem Reflektor); eine vollständige Regeneration mit Reflektormetallisierung kostet 350-700 PLN - immer noch ein Vielfaches weniger als der Kauf neuer Lampen, bei denen Bi-Xenon-Scheinwerfer mehrere tausend PLN pro Stück kosten können. Die Scheinwerfer-Regeneration stellt die volle Leistung zu einem Bruchteil des Preises wieder her. Bei STANIAX spezialisieren wir uns auf die Reflektoren-Aufbereitung mit industriellen Methoden - [Vakuummetallisierung PVD](/de/scheinwerfer-reflektor-aufbereitung) kombiniert mit staubfreier Spritzlackierung hitzefester Primer und UV-Schutzlacke -, was dauerhaft hält.',
+        introP3: 'Die Verbesserung der Sicht ist sofort spürbar und die Kosten beginnen bei ca. 150-300 PLN für das Polieren der Streuscheibe (bzw. ab ca. 35 € / 150 PLN je ausgebautem Reflektor); eine vollständige Regeneration mit Reflektormetallisierung kostet 350-700 PLN - immer noch ein Vielfaches weniger als der Kauf neuer Lampen, bei denen Bi-Xenon-Scheinwerfer mehrere tausend PLN pro Stück kosten können. Die Scheinwerfer-Regeneration stellt die volle Leistung zu einem Bruchteil des Preises wieder her. Bei STANIAX spezialisieren wir uns auf die Reflektoren-Regeneration mit industriellen Methoden - [Vakuummetallisierung PVD](/de/scheinwerfer-reflektor-aufbereitung) und Spritzmetallisierung -, was dauerhafter wirkt als Amateurpolieren in der Garage.',
     sec1Title: "Warum erblinden Scheinwerfer und verlieren ihren alten Glanz?",
     sec1P1:
       "Seit Ende der 90er Jahre bestehen die meisten Scheinwerfer aus Polycarbonat statt aus Glas. Polycarbonat ist leicht und schlagfest, aber anfällig für Degradation - insbesondere unter Sonneneinstrahlung. Die werkseitige Schutzschicht mit einer Dicke von nur 15-25 Mikrometern baut sich mit der Zeit ab und setzt den Kunststoff direkter UV-Strahlung aus.",
@@ -1339,13 +1339,13 @@ export const REFLECTORS_ARTICLE = {
       "Reflektoren sollten vorher nicht mechanisch poliert werden - dies beschädigt ihre Geometrie und erschwert eine korrekte Vakuummetallisierung. Die Oberfläche der Reflektoren wird von STANIAX zusätzlich gereinigt und vorbereitet: Entfernung der vorherigen Metallisierung zusammen mit dem Schleifen der Innenfläche, Entfetten und Auftragen einer Grundierung, falls das jeweilige System dies erfordert. Der Versand sollte wie folgt aussehen: feste Kartons, einzelner Schutz jedes Reflektors mit Luftpolsterfolie, Beschreibung von Auto/Modell/Baujahr - so vermeiden wir Fehler. Ein Austausch der Scheinwerfer ist nur bei schwerwiegenden strukturellen Schäden erforderlich - was jedoch selten vorkommt; die meisten alten Lampen lassen sich erfolgreich erneuern.",
 
     sec5Title:
-      "Professionelle Reflektor-Aufbereitung bei STANIAX - PVD-Vakuum und UV-Schutzlacke",
+      "Professionelle Reflektoren-Regeneration bei STANIAX - Vakuum- und Spritzmetallisierung",
     sec5P1:
       "Der Reflektor ist das Herzstück des Scheinwerfers - er formt den Lichtkegel und entscheidet über die Lichtqualität. Sein Ausbrennen führt zu einem drastischen Leistungsabfall, selbst bei neuen Glühbirnen oder LED-Modulen. Die Reflektoren Regeneration erhöht deren Lebensdauer und verbessert die Sicherheit, indem sie die richtige Menge an reflektiertem Licht wiederherstellt.",
     sec5P2:
-      "Die Vakuummetallisierung (PVD) besteht darin, 99,99 % reines Aluminium im Hochvakuum (10⁻⁴ mbar) zu verdampfen und eine ultradünne, gleichmäßige Schicht auf die Reflektoroberfläche aufzutragen. Der Spiegeleffekt entspricht dem Werkszustand, und der gerichtete Reflexionsgrad liegt bei über 92 %. Ausgebaute Einzelreflektoren starten ab ca. 35 € (150 PLN), eine Komplettinstandsetzung liegt bei ca. 350-700 PLN pro Stück - immer noch um ein Vielfaches günstiger als ein Neuteil.",
+      "Die Vakuummetallisierung (PVD) besteht darin, Aluminium in einer Vakuumkammer zu verdampfen und eine ultradünne, gleichmäßige Schicht auf die Reflektoroberfläche aufzutragen. Der Spiegeleffekt ist mit der Werksausführung vergleichbar, und der Reflexionsgrad liegt bei über 85 %. Ausgebaute Einzelreflektoren starten ab ca. 35 € (150 PLN), eine Komplettinstandsetzung liegt bei ca. 350-700 PLN pro Stück - immer noch um ein Vielfaches günstiger als ein Neuteil.",
     sec5P3:
-      "Ergänzend zur Vakuumbedampfung trägt STANIAX im Reinraum hitzefeste Glättprimer sowie vernetzte UV- und SiOx-Schutzschichten auf, wodurch regenerierte Reflektoren und Streuscheiben dauerhaft gegen Betriebstemperaturen bis 220 °C und Feuchtigkeit geschützt sind.",
+      "Die Spritzmetallisierung stellt eine Alternative für bestimmte Serien dar, wenn eine dickere oder spezifische Beschichtung erforderlich ist. STANIAX setzt industrielle Lacksysteme und UV-Schutzlacke ein, wodurch regenerierte Reflektoren unempfindlich gegen Scheinwerferbetriebstemperaturen und Feuchtigkeit sind.",
 
     sec6Title:
       "Beleuchtungsmodernisierung - Montage von Bi-LED-, Bi-Xenon-Linsen und Scheinwerfer-Tuning",
@@ -1380,7 +1380,7 @@ export const REFLECTORS_ARTICLE = {
     sec9Title:
       "STANIAX - B2B-Partner bei der Reflektoren Regeneration und Scheinwerfer-Oberflächenbehandlung",
     sec9P1:
-      "STANIAX ist ein Spezialist für Geschäftskunden: Scheinwerferhersteller, Kfz-Werkstätten, Lackierereien und Automotive-Unternehmen. Zu unseren Kernkompetenzen gehören die Vakuum-PVD-Metallisierung von Reflektoren und Dekorelementen, die industrielle Spritzlackierung von Kunststoffen, Metallen und Glas sowie das Auftragen hitzefester Grundierungen und langlebiger UV-Schutzlacke.",
+      "STANIAX ist ein Spezialist für Geschäftskunden: Scheinwerferhersteller, Kfz-Werkstätten, Lackierereien und Automotive-Unternehmen. Zu unseren Kernkompetenzen gehören die Vakuum-PVD-Metallisierung von Reflektoren und Dekorelementen, die Spritzmetallisierung, das Lackieren von Kunststoffen, Metallen und Glas sowie das Auftragen von Grundierungen und langlebigen UV-Schutzlacken.",
     sec9P2:
       "Wir legen Wert auf Spiegeleffekte, hohe Oberflächenästhetik, Serienwiederholbarkeit und Haltbarkeit der Beschichtung - besonders wichtig für Hersteller von Scheinwerfern, Spiegeln und Autoinnenraumteilen. Unsere Erfahrung umfasst Projekte für die Automotive-Branche: Reflektoren für Halogen- und Bi-Xenon-Scheinwerfer, dekorative Cockpitelemente, Abdeckungen und Scheinwerferrahmen - immer in Übereinstimmung mit Qualitätsanforderungen auf OEM-Niveau.",
         sec9P3: 'Wenn Sie eine Werkstatt, eine Lackiererei oder einen Hersteller von Beleuchtungskomponenten betreiben und einen Partner für die Reflektoren Regeneration, die Veredelung von Serien-Autoscheinwerfern oder Spezialprojekte im Bereich Metallisierung und dekorativer Lackierung suchen - [kontaktieren Sie uns](/de#contact). Gemeinsam finden wir eine auf Ihre Produktionsbedürfnisse zugeschnittene Lösung.',

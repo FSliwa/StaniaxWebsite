@@ -159,10 +159,10 @@ function ArticleAviation({ lang = 'pl' as Lang }: { lang?: Lang }) {
               <div className="flex flex-wrap gap-3 text-xs sm:text-sm font-bold">
                 <Link to={vacuumMetalPath} className="text-blue-700 underline hover:text-blue-800">
                   {activeLang === 'pl'
-                    ? '→ Usługowa Metalizacja Próżniowa PVD (komory Ø 1200 mm)'
+                    ? '→ Usługowa Metalizacja Próżniowa PVD (komory wysokiej próżni)'
                     : activeLang === 'de'
-                      ? '→ PVD-Vakuummetallisierung im Lohnauftrag (Kammern Ø 1200 mm)'
-                      : '→ Contract PVD Vacuum Metallisation (Ø 1200 mm Chambers)'}
+                      ? '→ PVD-Vakuummetallisierung im Lohnauftrag (Hochvakuumkammern)'
+                      : '→ Contract PVD Vacuum Metallisation (High-Vacuum Chambers)'}
                 </Link>
                 <Link to={plasticMetalPath} className="text-blue-700 underline hover:text-blue-800">
                   {activeLang === 'pl'

@@ -60,7 +60,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           heading: 'Dlaczego proszkowy „chrom” nigdy nie daje głębi lustra PVD?',
           paragraphs: [
             'Lakiery proszkowe sprzedawane jako „chrom” zawierają płatki aluminium zatopione w grubej żywicy poliestrowej lub epoksydowej. Po wypaleniu w 190 °C i nałożeniu bezbarwnego topcoatu płatki ulegają częściowej dezorientacji, przez co powierzchnia przypomina polerowane srebro lub jasny szary metalik, a nie lustro.',
-            'W komorach próżniowych STANIAX (Ø 1200 mm) napylanie aluminium odbywa się w fazie gazowej przy ciśnieniu 10⁻⁴ mbar na idealnie wypoziomowany podkład UV. Warstwa metalu o grubości 80-120 nm tworzy ciągłą taflę zwierciadlaną, którą można zabarwić na chrom, 24-karatowe złoto, miedź lub tytan z dokładnością ΔE < 0,8.',
+            'W komorach wysokiej próżni STANIAX napylanie aluminium odbywa się w fazie gazowej przy ciśnieniu 10⁻⁴ mbar na idealnie wypoziomowany podkład UV. Warstwa metalu o grubości 80-120 nm tworzy ciągłą taflę zwierciadlaną, którą można zabarwić na chrom, 24-karatowe złoto, miedź lub tytan z wysoką powtarzalnością odcienia.',
           ],
           bullets: [
             'Możliwość powlekania detali z ABS, PC, polipropylenu, poliamidu, szkła oraz odlewów ZnAl i stali',
@@ -71,7 +71,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         {
           heading: 'Kiedy łączyć podkład proszkowy z metalizacją próżniową na stali i ZnAl?',
           paragraphs: [
-            'W przypadku zabytkowych stalowych odbłyśników, korpusów lamp motocyklowych lub porowatych odlewów ciśnieniowych ZnAl po piaskowaniu doskonałe rezultaty daje proces hybrydowy: wypełnienie wżerów podkładem epoksydowym, nałożenie gładkiej bazy lakierniczej oraz finalne napylanie próżniowe PVD z bezbarwnym lakierem UV lub SiOx.',
+            'W przypadku zabytkowych stalowych odbłyśników, korpusów lamp motocyklowych lub porowatych odlewów ciśnieniowych ZnAl po piaskowaniu doskonałe rezultaty daje proces hybrydowy: wypełnienie wżerów podkładem epoksydowym, nałożenie gładkiej bazy lakierniczej oraz finalne napylanie próżniowe PVD z bezbarwnym lakierem ochronnym UV lub 2K.',
           ],
         },
       ],
@@ -101,7 +101,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Jaki jest czas realizacji serii PVD względem lakierni proszkowej?',
-          a: 'Serie przemysłowe B2B realizujemy w 3-7 dni roboczych, a odbłyśniki samochodowe w 2-4 dni robocze w zakładzie w Józefowie.',
+          a: 'Serie przemysłowe B2B realizujemy w 5-10 dni roboczych (prototypy 2-3 dni), a odbłyśniki samochodowe w 5-7 dni roboczych w zakładzie w Józefowie.',
         },
       ],
       relatedLinks: [
@@ -140,7 +140,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           heading: 'Why Chrome Powder Cannot Match Vapor-Deposited Aluminum',
           paragraphs: [
             'So-called chrome powders suspend leafing aluminum pigments inside a thick polyester or epoxy resin matrix. Once baked at 190 °C and sealed under clear powder, pigment leafing shifts, dulling the surface into bright silver rather than an image-forming mirror.',
-            'Inside STANIAX Ø 1200 mm high-vacuum chambers (10⁻⁴ mbar), 99.99% aluminum condenses atom-by-atom onto a flow-leveled UV basecoat. The resulting 80-120 nm metallic film achieves >92% specular reflectance and can be tinted to chrome, 24k gold, rose gold, or smoked titanium within ΔE < 0.8.',
+            'Inside STANIAX industrial high-vacuum chambers (10⁻⁴ mbar), 99.99% aluminum condenses atom-by-atom onto a flow-leveled UV basecoat. The resulting 80-120 nm metallic film achieves >92% specular reflectance and can be tinted to chrome, 24k gold, rose gold, or smoked titanium with high batch-to-batch color consistency.',
           ],
           bullets: [
             'Compatible with injection-molded ABS, PC, PP, PA66, glass flacons, and ZnAl/aluminum castings',
@@ -151,7 +151,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         {
           heading: 'Hybrid Anticorrosion Base + PVD Mirror for Classic Steel & Castings',
           paragraphs: [
-            'For corroded vintage steel headlamp bowls and sandblasted ZnAl housings, STANIAX applies an epoxy anticorrosion seal followed by a high-leveling thermal primer, high-vacuum PVD aluminum, and SiOx or 2K polyurethane protection - combining rust immunity with optical brilliance.',
+            'For corroded vintage steel headlamp bowls and sandblasted ZnAl housings, STANIAX applies an epoxy anticorrosion seal followed by a high-leveling thermal primer, high-vacuum PVD aluminum, and UV or 2K polyurethane protection - combining rust immunity with optical brilliance.',
           ],
         },
       ],
@@ -181,7 +181,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'What is the typical B2B turnaround at STANIAX?',
-          a: '3-7 business days for serial industrial batches and 2-4 days for automotive reflectors at our Józefów facility.',
+          a: '5-10 business days for serial industrial batches (2-3 days express prototypes) and 5-7 business days for automotive reflectors at our Józefów facility.',
         },
       ],
       relatedLinks: [
@@ -220,7 +220,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           heading: 'Warum Chrom-Pulverlacke keinen echten PVD-Spiegel erreichen',
           paragraphs: [
             'Sogenannte Chrom-Effektpulver bestehen aus Aluminiumplättchen in einer dicken Polyester- oder Epoxidharzmatrix. Beim Einbrennen bei 190 °C und anschließendem Überpulvern mit Klarlack kippen die Pigmente leicht ab, sodass optisch nur ein helles Felgensilber statt eines klaren Spiegels entsteht.',
-            'In den Ø-1200-mm-Hochvakuumkammern von STANIAX kondensiert 99,99-prozentiges Aluminium bei 10⁻⁴ mbar auf einem glatt verlaufenden UV-Primer. Die nanometrische Metallschicht erzeugt über 92 Prozent gerichtete Reflexion und lässt sich präzise in Chrom, Gold, Kupfer oder Rauchchrom (ΔE < 0,8) einfärben.',
+            'In den industriellen Hochvakuumkammern von STANIAX kondensiert 99,99-prozentiges Aluminium bei 10⁻⁴ mbar auf einem glatt verlaufenden UV-Primer. Die nanometrische Metallschicht erzeugt über 92 Prozent gerichtete Reflexion und lässt sich präzise in Chrom, Gold, Kupfer oder Rauchchrom mit hoher Chargenkonstanz einfärben.',
             'Zudem vermeidet das Niedertemperatur-Verfahren Ausgasungsblasen auf porösem Aluminium- und Zinkdruckguss (ZnAl), die im 200-°C-Pulverofen regelmäßig zu Ausschuss führen. Jedes Fertigungslos wird im Werk Józefów nach DIN EN ISO 2409 (Gitterschnitt Gt 0) geprüft und sicher für den EU-Versand verpackt.',
           ],
           bullets: [
@@ -232,7 +232,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         {
           heading: 'Wann ein Hybridaufbau auf Oldtimer-Stahlreflektoren sinnvoll ist',
           paragraphs: [
-            'Bei angerosteten Stahlreflektoren klassischer Fahrzeuge kombinieren wir Entrostung und korrosionsschützende Epoxid-Grundierung mit einem hochglatten Hitzeschutzprimer sowie anschließender PVD-Aluminiumbedampfung und SiOx-Versiegelung - für langlebige HU/TÜV-Lichtwerte.',
+            'Bei angerosteten Stahlreflektoren klassischer Fahrzeuge kombinieren wir Entrostung und korrosionsschützende Epoxid-Grundierung mit einem hochglatten Hitzeschutzprimer sowie anschließender PVD-Aluminiumbedampfung und UV-Schutzversiegelung - für langlebige HU/TÜV-Lichtwerte.',
           ],
         },
       ],
@@ -262,7 +262,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Wie schnell liefert STANIAX Serienlose nach Deutschland?',
-          a: 'Industrieserien fertigen wir in 3-7 Werktagen, Scheinwerferreflektoren in 2-4 Werktagen ab Eingang in Józefów.',
+          a: 'Industrieserien fertigen wir in 5-10 Werktagen (Prototypen 2-3 Tage), Scheinwerferreflektoren in 5-7 Werktagen ab Eingang in Józefów.',
         },
       ],
       relatedLinks: [
@@ -295,8 +295,8 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       comparisonRows: [
         { parameter: 'Fizyczna natura warstwy', optionA: 'Czysty metal Al 99,99% napylony w próżni', optionB: 'Rozpuszczalna folia PVA z tuszem drukarskim' },
         { parameter: 'Efekt lustra (chrom / złoto)', optionA: '>92% odbicia zwierciadlanego bez dystorsji', optionB: 'Brak prawdziwego lustra; rozciąganie na rogach' },
-        { parameter: 'Wydajność seryjna B2B', optionA: 'Setki/tysiące sztuk na cykl komory Ø 1200 mm', optionB: 'Ręczne zanurzanie pojedynczych elementów' },
-        { parameter: 'Powtarzalność koloru między partiami', optionA: 'Kontrola spektrofotometryczna ΔE < 0,8', optionB: 'Zależna od kąta zanurzenia i temperatury wody' },
+        { parameter: 'Wydajność seryjna B2B', optionA: 'Setki/tysiące sztuk na cykl komory próżniowej', optionB: 'Ręczne zanurzanie pojedynczych elementów' },
+        { parameter: 'Powtarzalność koloru między partiami', optionA: 'Wysoka powtarzalność koloru i połysku serii', optionB: 'Zależna od kąta zanurzenia i temperatury wody' },
         { parameter: 'Odporność termiczna w reflektorze', optionA: 'Do 220 °C z podkładem wysokotemperaturowym', optionB: 'Folia żółknie i odspaja się powyżej 80 °C' },
       ],
       sections: [
@@ -344,7 +344,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Ile sztuk mieści jeden wsad komory PVD w STANIAX?',
-          a: 'W zależności od wymiaru od ok. 30 dużych obudów do blisko 1000 drobnych nakrętek w jednym cyklu komory Ø 1200 mm.',
+          a: 'W zależności od wymiaru od ok. 30 dużych obudów do blisko 1000 drobnych nakrętek w jednym cyklu komory wysokiej próżni.',
         },
       ],
       relatedLinks: [
@@ -374,8 +374,8 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       comparisonRows: [
         { parameter: 'Physical Coating Layer', optionA: '99.99% pure vapor-deposited aluminum metal', optionB: 'Dissolved PVA film with printed graphic inks' },
         { parameter: 'Mirror Specular Clarity', optionA: '>92% true mirror without curvature distortion', optionB: 'No true mirror; pattern stretches on deep draws' },
-        { parameter: 'Production Throughput', optionA: 'Up to ~900 small parts per Ø 1200 mm cycle', optionB: 'Manual piece-by-piece water dipping' },
-        { parameter: 'Batch-to-Batch Consistency', optionA: 'Spectrophotometric control ΔE < 0.8', optionB: 'Varies with dip angle and water temperature' },
+        { parameter: 'Production Throughput', optionA: 'High-density rotary chamber cycles (hundreds of parts)', optionB: 'Manual piece-by-piece water dipping' },
+        { parameter: 'Batch-to-Batch Consistency', optionA: 'High batch-to-batch color and gloss consistency', optionB: 'Varies with dip angle and water temperature' },
         { parameter: 'Thermal Stability', optionA: 'Up to 220 °C with high-temp reflector primer', optionB: 'Degrades above 80 °C; unsuitable for optics' },
       ],
       sections: [
@@ -423,7 +423,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'How many closures fit into a single STANIAX vacuum cycle?',
-          a: 'Approximately 600-1,000 small cosmetic caps per Ø 1200 mm planetary cycle.',
+          a: 'Approximately 600-1,000 small cosmetic caps per high-vacuum planetary cycle.',
         },
       ],
       relatedLinks: [
@@ -437,7 +437,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
     de: {
       metaTitle: 'Vakuummetallisierung vs. Wassertransferdruck | STANIAX',
       metaDesc:
-        'PVD-Vakuummetallisierung vs. Wassertransferdruck (Hydrografik): >92 % echter Aluminiumspiegel statt PVA-Druckfolie, Serienkonstanz ΔE < 0,8 & ISO 2409.',
+        'PVD-Vakuummetallisierung vs. Wassertransferdruck (Hydrografik): >92 % echter Aluminiumspiegel statt PVA-Druckfolie, hohe Serienkonstanz & ISO 2409.',
       badge: 'Vergleich: PVD vs. Hydrografik',
       h1: 'PVD-Vakuummetallisierung vs. Wassertransferdruck (Hydrografik)',
       subtitle:
@@ -453,8 +453,8 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
       comparisonRows: [
         { parameter: 'Schichtaufbau', optionA: '99,99 % Reinaluminium aus der Gasphase', optionB: 'Aufgelöste PVA-Trägerfolie mit Druckfarbe' },
         { parameter: 'Spiegelbild & Reflexion', optionA: '>92 % scharfer Echtspiegel ohne Verzug', optionB: 'Kein echter Spiegel; Folienverzug an Radien' },
-        { parameter: 'Serienkapazität B2B', optionA: 'Bis ca. 900 Kleinteile je Ø-1200-mm-Zyklus', optionB: 'Manuelles Einzeltauchen im Wasserbecken' },
-        { parameter: 'Farbkonstanz (Charge zu Charge)', optionA: 'Spektralphotometrisch geregelt ΔE < 0,8', optionB: 'Schwankt mit Eintauchwinkel & Wassertemperatur' },
+        { parameter: 'Serienkapazität B2B', optionA: 'Hohe Packungsdichte je Hochvakuum-Kammerzyklus', optionB: 'Manuelles Einzeltauchen im Wasserbecken' },
+        { parameter: 'Farbkonstanz (Charge zu Charge)', optionA: 'Hohe Farb- und Glanzgradkonstanz je Charge', optionB: 'Schwankt mit Eintauchwinkel & Wassertemperatur' },
         { parameter: 'Hitzefestigkeit im Scheinwerfer', optionA: 'Bis 220 °C mit Hitzeschutzprimer', optionB: 'Vergilbt und reißt oberhalb von 80 °C' },
       ],
       sections: [
@@ -467,14 +467,14 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           ],
           bullets: [
             'Beständig gegen 96 % Parfümethanol, Handschweiß und Innenraumreiniger',
-            'Niedrige Stückkosten in Klein- und Großserien dank Ø-1200-mm-Kammervolumen',
+            'Wirtschaftliche Stückkosten in Klein- und Großserien durch Drehgestelle',
             'Kombinierbar mit Klavierlack (>92 GU) und Soft-Touch-Lackierung im selben Werk',
           ],
         },
         {
           heading: 'Wann welche Oberflächentechnik im Fahrzeug- und Produktdesign überzeugt',
           paragraphs: [
-            'Während Hydrografik reine Musterdekore abdeckt, erfüllt die PVD-Vakuummetallisierung sämtliche optischen und mechanischen Lastenhefte europäischer OEM-Serienprojekte bei kurzen Lieferzeiten von 3-7 Werktagen.',
+            'Während Hydrografik reine Musterdekore abdeckt, erfüllt die PVD-Vakuummetallisierung sämtliche optischen und mechanischen Lastenhefte europäischer OEM-Serienprojekte bei regulären Lieferzeiten von 5-10 Werktagen (Prototypen 2-3 Tage).',
             'Speziell bei komplex geformten Zierblenden, Marken-Emblemen, Spiegelkappen und Lüftungsdüsen aus ABS oder PC/ABS garantiert die Gasphasenabscheidung kantenscharfe Konturen ohne Folienverzug. Zudem lassen sich Teilbereiche per Präzisionsmaskierung selektiv verspiegeln oder mit matten Kontrastflächen kombinieren.',
           ],
         },
@@ -504,7 +504,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         },
         {
           q: 'Wie viele Teile passen in eine Kammerladung bei STANIAX?',
-          a: 'Je nach Bauteilgeometrie zwischen rund 30 Großteilen und bis zu 900 Kosmetikkappen pro Ø-1200-mm-Zyklus.',
+          a: 'Je nach Bauteilgeometrie zwischen rund 30 Großteilen und bis zu 900 Kosmetikkappen pro Hochvakuum-Kammerzyklus.',
         },
       ],
       relatedLinks: [
@@ -519,242 +519,244 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
 
   'pvd-vs-biled-retrofit': {
     pl: {
-      metaTitle: 'Regeneracja odbłyśników PVD vs przeróbka Bi-LED | STANIAX',
+      metaTitle: 'Regeneracja odbłyśników PVD vs soczewki Bi-LED | STANIAX',
       metaDesc:
-        'Regeneracja odbłyśnika PVD w STANIAX (od 150 zł/szt.) vs przeróbka lamp na soczewki Bi-LED: homologacja ECE, przegląd SKP, polisa OC/AC i strumień >92%.',
-      badge: 'Porównanie: Regeneracja OEM vs Bi-LED',
-      h1: 'Regeneracja odbłyśników PVD vs przeróbka reflektorów na soczewki Bi-LED',
+        'Regeneracja fabrycznego odbłyśnika PVD w STANIAX (od 150 zł/szt.) vs modernizacja lamp na soczewki Bi-LED w warsztacie: koszty, optyka, przepisy i trwałość.',
+      badge: 'Porównanie: Regeneracja PVD vs Modernizacja Bi-LED',
+      h1: 'Regeneracja odbłyśników PVD vs modernizacja reflektorów na soczewki Bi-LED',
       subtitle:
-        'Porównanie prawne, optyczne i kosztowe fabrycznej renowacji odbłyśnika H7 / Bi-Xenon z montażem niehomologowanych projektorów Bi-LED.',
-      sideALabel: 'Regeneracja OEM PVD (STANIAX)',
-      sideBLabel: 'Przeróbka / Retrofit na Bi-LED',
-      directAnswerQuestion: 'Czy lepiej zregenerować fabryczny odbłyśnik PVD, czy przerobić lampy na soczewki Bi-LED?',
+        'Porównanie techniczne i kosztowe przywrócenia fabrycznego lustra odbłyśnika H7 / Bi-Xenon metodą PVD z kompleksowym montażem projektorów Bi-LED w wyspecjalizowanym warsztacie.',
+      sideALabel: 'Regeneracja odbłyśnika PVD (STANIAX)',
+      sideBLabel: 'Modernizacja na soczewki Bi-LED (warsztat)',
+      directAnswerQuestion: 'Kiedy wybrać regenerację fabrycznego odbłyśnika PVD, a kiedy montaż soczewek Bi-LED?',
       directAnswer:
-        'Regeneracja fabrycznego odbłyśnika metodą PVD w STANIAX (od 150-250 zł/szt.) przywraca >92% fabrycznego odbicia światła przy 100% zachowaniu homologacji drogowej ECE, sterowania AFS i ważności ubezpieczenia OC/AC. Przeróbka lampy H7/Xenon na niehomologowaną soczewkę Bi-LED kosztuje 1500-3500 zł i formalnie unieważnia homologację reflektora.',
-      verdictTitle: 'Werdykt prawny i techniczny dla kierowców oraz flot',
+        'Regeneracja oryginalnego odbłyśnika metodą PVD w STANIAX (od 150-250 zł/szt. dostarczonego odbłyśnika, realizacja 5-7 dni roboczych) przywraca fabryczne parametry odbicia światła przy 100% zachowaniu oryginalnej konstrukcji, homologacji ECE i systemów skrętnych AFS. Montaż soczewek Bi-LED (1500-3500 zł w wyspecjalizowanym warsztacie) to kierunek modernizacji starszych lamp halogenowych, wymagający prawidłowego ustawienia linii odcięcia i dopasowania do przepisów.',
+      verdictTitle: 'Rekomendacja techniczna i budżetowa dla kierowców oraz warsztatów',
       verdictSummary:
-        'W pojazdach poruszających się po drogach publicznych UE regeneracja oryginalnego odbłyśnika PVD zwraca pełną moc świateł mijania bez ryzyka zatrzymania dowodu rejestracyjnego na SKP lub odmowy wypłaty odszkodowania po kolizji.',
+        'Jeśli reflektor posiada fabryczną soczewkę Xenon/Bi-Xenon/H7 lub zależy Ci na pełnej zgodności z fabryczną homologacją w ułamku ceny nowej lampy, metalizacja próżniowa odbłyśnika jest rozwiązaniem optymalnym. Przy kompleksowym tuningu starszych lamp w wyspecjalizowanym warsztacie STANIAX wspiera także lakierowanie dekoracyjne ramek i wnętrz reflektorów.',
       comparisonRows: [
-        { parameter: 'Homologacja drogowa ECE i przegląd SKP', optionA: '100% zachowana fabryczna homologacja lampy', optionB: 'Utrata homologacji przy zmianie źródła światła' },
-        { parameter: 'Koszt kompletu (lewa + prawa strona)', optionA: '300 - 600 zł za parę samych odbłyśników', optionB: '1 500 - 3 500 zł za przeróbkę reflektorów' },
-        { parameter: 'Ochrona ubezpieczeniowa OC / AC', optionA: 'Pełna zgodność ze specyfikacją producenta OEM', optionB: 'Ryzyko regresu ubezpieczyciela po wypadku nocnym' },
-        { parameter: 'Kompatybilność z CANBUS i skrętnym AFS', optionA: 'Plug & Play bez błędów na desce rozdzielczej', optionB: 'Wymaga adapterów, rezystorów i cięcia kosza' },
-        { parameter: 'Serwisowalność po latach', optionA: 'Wymiana standardowego żarnika D1S/D2S/D3S lub H7', optionB: 'Awaria niewymiennego modułu = ponowne rozklejanie' },
+        { parameter: 'Zgodność z fabryczną homologacją lampy', optionA: '100% zachowana oryginalna konstrukcja i oznaczenia ECE', optionB: 'Wymaga prawidłowego ustawienia linii odcięcia i dopasowania do przepisów' },
+        { parameter: 'Koszt usługi (komplet lewa + prawa strona)', optionA: 'od 300 - 600 zł za parę dostarczonych odbłyśników (700-1400 zł z usługą warsztatu)', optionB: '1 500 - 3 500 zł za kompleksową modernizację w warsztacie' },
+        { parameter: 'Charakterystyka wiązki światła', optionA: 'Powrót do fabrycznego snopa światła i pełnego zasięgu OEM', optionB: 'Skupiony snop LED, równomierne pobocze i niższy pobór energii' },
+        { parameter: 'Kompatybilność z CANBUS i skrętnym AFS', optionA: '100% Plug & Play z fabrycznymi przetwornicami i silniczkami', optionB: 'Wymaga adaptacji mocowań i elektroniki przez specjalistyczny serwis' },
+        { parameter: 'Serwisowalność w kolejnych latach', optionA: 'Łatwa wymiana standardowej żarówki H7 lub żarnika D1S/D2S/D3S', optionB: 'Zintegrowany moduł LED serwisowany przez warsztat oświetleniowy' },
       ],
       sections: [
         {
-          heading: 'Dlaczego kierowcy mylnie obwiniają technologię Xenon lub H7 zamiast wypalonego odbłyśnika?',
+          heading: 'Dlaczego sprawne reflektory Xenon i H7 po regeneracji PVD odzyskują pełną moc?',
           paragraphs: [
-            'Sprawny fabryczny projektor Bi-Xenon (Hella E55, Intemo, Valeo, Bosch AL) z nowym odbłyśnikiem PVD oraz markowym żarnikiem generuje szeroką, równomierną wiązkę ponad 3200 lumenów. Wrażenie „świeczek zamiast świateł” wynika niemal zawsze z utlenienia i wypalenia górnej części czaszy odbłyśnika po 150 000 km.',
-            'Zamiast wycinać fabryczne mocowania pod chińskie projektory Bi-LED, napylenie świeżego aluminium 99,99% z powłoką ochronną SiOx w komorze próżniowej STANIAX przywraca parametry salonowe w 2-4 dni robocze - za ułamek ceny przeróbki.',
+            'W wielu autach wrażenie słabych świateł nie wynika z przestarzałej konstrukcji lampy, lecz z wypalenia warstwy aluminium na odbłyśniku nad żarnikiem. Próżniowe napylenie nowej warstwy aluminium z powłoką ochronną UV w komorze STANIAX przywraca fabryczną sprawność w 5-7 dni roboczych bez ingerencji w instalację elektryczną.',
+            'Z kolei w starszych modelach z reflektorami halogenowymi kierowcy decydujący się na tuning oświetlenia powierzają wyspecjalizowanym warsztatom montaż soczewek Bi-LED lub Bi-Xenon, a elementy dekoracyjne i ramki przekazują do lakierni przemysłowej STANIAX.',
           ],
           bullets: [
-            'Idealna linia światłocienia na przyrządzie diagnostycznym SKP i niemieckim TÜV/HU',
-            'Obsługa zarówno odbłyśników H7/Xenon, jak i fabrycznych matrycowych odbłyśników LED OEM',
-            '24 miesiące pisemnej gwarancji na powłokę próżniową PVD w zakładzie Józefów',
+            'Zachowana ostra granica światłocienia na stacji kontroli pojazdów',
+            'Regeneracja zarówno odbłyśników H7/Xenon, jak i zwierciadeł z fabrycznych lamp LED',
+            'Trwałość powłoki do 5 lat (standardowo 3-5 lat eksploatacji)',
           ],
         },
         {
-          heading: 'Regeneracja oryginalnych reflektorów LED OEM bez wymiany całej lampy',
+          heading: 'Współpraca STANIAX z warsztatami modernizującymi i regenerującymi oświetlenie',
           paragraphs: [
-            'Jeżeli samochód fabrycznie wyjechał z salonu z reflektorami LED i doszło do zmatowienia wewnętrznych zwierciadeł poliwęglanowych PC-HT, STANIAX regeneruje oryginalne czasze LED z zachowaniem fabrycznej homologacji.',
+            'Wyjęcie lampy z samochodu, rozklejenie obudowy czy montaż projektorów wykonuje wyspecjalizowany warsztat samochodowy, natomiast STANIAX realizuje przemysłową metalizację próżniową i natryskową odbłyśników oraz dekoracyjne lakierowanie maskownic i elementów wewnętrznych lamp.',
           ],
         },
       ],
-      whenChooseATitle: 'Wybierz regenerację odbłyśnika PVD, gdy:',
+      whenChooseATitle: 'Wybierz regenerację odbłyśnika PVD w STANIAX, gdy:',
       whenChooseA: [
-        'Poruszasz się po drogach publicznych w Polsce i UE oraz cenisz pełną legalność ECE.',
-        'Chcesz odzyskać do +250% więcej światła na mokrym asfalcie w budżecie 300-600 zł za parę.',
-        'Zależy Ci na bezproblemowym działaniu systemów skrętnych AFS/Dynamic Xenon.',
+        'Chcesz zachować 100% oryginalną konstrukcję i fabryczną homologację reflektora ECE.',
+        'Szukasz ekonomicznej naprawy (od 150 zł/szt. dostarczonego odbłyśnika) o trwałości do 5 lat.',
+        'Zależy Ci na bezbłędnym działaniu fabrycznych systemów skrętnych AFS i poziomowania.',
       ],
-      whenChooseBTitle: 'Przeróbka Bi-LED ma sens wyłącznie, gdy:',
+      whenChooseBTitle: 'Modernizację na soczewki Bi-LED w wyspecjalizowanym warsztacie rozważ, gdy:',
       whenChooseB: [
-        'Budujesz pojazd ściśle torowy, rajdowy lub przeprawowy off-road nieporuszający się po drogach publicznych.',
+        'Modernizujesz starsze reflektory halogenowe w specjalistycznym serwisie, który prawidłowo ustawi linię odcięcia i zadba o zgodność z przepisami.',
+        'Łączysz przebudowę oświetlenia z tuningiem wizualnym wnętrza lampy (np. lakierowaniem ramek i maskownic).',
       ],
       faq: [
         {
-          q: 'Czy policja lub diagnosta SKP może zatrzymać dowód za przeróbkę H7/Xenon na Bi-LED?',
-          a: 'Tak. Zmiana rodzaju źródła światła niezgodna z oznaczeniem homologacyjnym na kloszu (np. HC/HR lub DC/DR) skutkuje wynikiem negatywnym badania technicznego.',
+          q: 'Na co zwrócić uwagę przy wyborze między regeneracją PVD a montażem Bi-LED?',
+          a: 'Regeneracja PVD odtwarza fabryczną warstwę odbijającą bez zmiany źródła światła, dzięki czemu zachowuje pełną homologację. Montaż soczewek Bi-LED poprawia skupienie światła w starszych autach, ale wymaga powierzenia prac wyspecjalizowanemu warsztatowi i dopasowania do przepisów, by nie oślepiać innych kierowców.',
         },
         {
-          q: 'Czy zregenerowany w STANIAX odbłyśnik Bi-Xenon świeci jak nowy oryginał?',
-          a: 'Tak, warstwa aluminium 99,99% z barierą SiOx daje >92% refleksyjności kierunkowej - identycznie z nową częścią OEM.',
+          q: 'Czy zregenerowany w STANIAX odbłyśnik Bi-Xenon odzyskuje fabryczny blask?',
+          a: 'Tak, próżniowe napylenie aluminium z warstwą ochronną UV przywraca lustrzany połysk porównywalny z fabrycznym oryginałem.',
         },
         {
-          q: 'Czy regenerujecie również odbłyśniki z fabrycznych lamp LED?',
-          a: 'Tak, odnawiamy poliwęglanowe i metalowe zwierciadła fabrycznych modułów LED oraz Bi-LED.',
+          q: 'Czy STANIAX lakieruje również ramki i wnętrza tuningowanych lamp?',
+          a: 'Tak, jako lakiernia przemysłowa wykonujemy trwałe lakierowanie dekoracyjne wewnętrznych ramek i elementów reflektorów dla warsztatów i klientów.',
         },
         {
-          q: 'Jak szybko mogę wysłać wymontowane soczewki do Józefowa?',
-          a: 'Wystarczy spakować same odbłyśniki i wysłać kurierem na ul. kard. Stefana Wyszyńskiego 116A, 05-420 Józefów - odsyłamy w 2-4 dni robocze.',
+          q: 'Ile trwa regeneracja wymontowanych odbłyśników wysłanych do Józefowa?',
+          a: 'Standardowy czas realizacji dla odbłyśników nadesłanych kurierem na ul. kard. Stefana Wyszyńskiego 116A w Józefowie wynosi 5-7 dni roboczych.',
         },
       ],
       relatedLinks: [
         { label: 'Cennik i kalkulator regeneracji', path: '/cennik-regeneracji-reflektorow' },
         { label: 'Rozwiązanie: Soczewki Bi-Xenon i LED', path: '/rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led' },
-        { label: 'Porównanie: Regeneracja vs Zamiennik', path: '/porownanie/regeneracja-odblysnikow-vs-nowy-zamiennik' },
+        { label: 'Poradnik: Regeneracja i modernizacja lamp', path: '/news/regeneracja-odblysnikow-reflektorow-samochodowych' },
         { label: 'Lokalizacja: Warszawa i Józefów', path: '/regeneracja-reflektorow/warszawa-jozefow' },
       ],
-      breadLabel: 'PVD OEM vs Przeróbka Bi-LED',
+      breadLabel: 'PVD OEM vs Soczewki Bi-LED',
     },
     en: {
-      metaTitle: 'OEM Reflector PVD Restoration vs Bi-LED Retrofit | STANIAX',
+      metaTitle: 'OEM Reflector PVD Restoration vs Bi-LED Lenses | STANIAX',
       metaDesc:
-        'Compare OEM headlight reflector PVD restoration vs aftermarket Bi-LED projector retrofits: ECE/TÜV road legality, insurance compliance, >92% output, and cost.',
+        'Compare OEM headlight reflector PVD restoration at STANIAX vs workshop Bi-LED projector modernization: beam output, ECE compliance, cost, and durability.',
       badge: 'Headlight Comparison: OEM PVD vs Bi-LED',
-      h1: 'OEM Headlight Reflector PVD Restoration vs Bi-LED Projector Retrofit',
+      h1: 'OEM Headlight Reflector PVD Restoration vs Bi-LED Projector Modernization',
       subtitle:
-        'Legal, photometric, and financial analysis of restoring factory H7/Bi-Xenon reflector bowls versus cutting housings for aftermarket Bi-LED projectors.',
+        'Technical and financial comparison between restoring factory H7/Bi-Xenon reflector bowls via vacuum PVD and commissioning a specialized workshop Bi-LED upgrade.',
       sideALabel: 'OEM Reflector PVD Restoration (STANIAX)',
-      sideBLabel: 'Aftermarket Bi-LED Conversion',
-      directAnswerQuestion: 'Should you restore burnt OEM reflector bowls with PVD or retrofit aftermarket Bi-LED projectors?',
+      sideBLabel: 'Workshop Bi-LED Lens Modernization',
+      directAnswerQuestion: 'When should you restore OEM reflector bowls with PVD versus upgrading to Bi-LED lenses?',
       directAnswer:
-        'Restoring the factory OEM reflector bowl via high-vacuum 99.99% aluminum PVD at STANIAX (€35-€65/unit) recovers >92% factory beam intensity while keeping 100% ECE type-approval, adaptive AFS cornering electronics, and motor insurance validity. Cutting halogen/xenon housings for uncertified Bi-LED modules voids ECE homologation on European public roads.',
-      verdictTitle: 'Legal & Photometric Verdict',
+        'Restoring your original OEM reflector bowl via vacuum aluminum PVD at STANIAX (from ~€35/150 PLN per supplied bowl, 5-7 business days) recovers factory beam output while keeping 100% original ECE homologation and AFS electronics. Mounting Bi-LED lenses at a specialized workshop (€400-€900) is a popular modernization path for older halogen headlamps that requires accurate cutoff alignment and regulatory verification.',
+      verdictTitle: 'Technical & Financial Recommendation',
       verdictSummary:
-        'For any road-registered vehicle in the EU/UK, PVD restoration of the original Hella, Valeo, Bosch, or Koito bowl delivers new-car night visibility at ~20% of conversion cost with zero inspection or insurance liability.',
+        'When your vehicle already features quality Hella, Valeo, Bosch, or Koito optics, PVD reflector restoration delivers factory road visibility at a fraction of conversion cost. For custom headlamp tuning projects, STANIAX also supports workshops with industrial decorative painting of internal bezels and frames.',
       comparisonRows: [
-        { parameter: 'ECE Road Homologation & MOT/TÜV', optionA: '100% factory type-approval preserved', optionB: 'Voids lens light-source certification' },
-        { parameter: 'Typical Pair Cost (Left + Right)', optionA: '€75 - €140 for loose reflector bowls', optionB: '€400 - €900 for full retrofit conversion' },
-        { parameter: 'Insurance Coverage Compliance', optionA: 'Full OEM specification compliance', optionB: 'Risk of claim dispute after night collisions' },
-        { parameter: 'Adaptive AFS & CANBUS Electronics', optionA: '100% plug-and-play factory fit', optionB: 'Requires bracket cutting & CANBUS resistors' },
-        { parameter: 'Long-Term Serviceability', optionA: 'Uses standard replaceable D1S/D2S/H7 bulbs', optionB: 'Integrated LED chip failure requires re-splitting' },
+        { parameter: 'Factory ECE Type-Approval', optionA: '100% original lamp design and markings preserved', optionB: 'Requires accurate cutoff alignment and regulatory checks' },
+        { parameter: 'Typical Pair Cost (Left + Right)', optionA: '€75 - €140 for supplied bowls (~€170-€330 incl. workshop)', optionB: '€400 - €900 for full specialist workshop conversion' },
+        { parameter: 'Beam Characteristics', optionA: 'Restores factory OEM parabola distribution and range', optionB: 'Focused LED beam, wide road-edge light, low power draw' },
+        { parameter: 'Adaptive AFS & CANBUS Electronics', optionA: '100% plug-and-play with original ballasts and motors', optionB: 'Requires custom bracket mounting and CANBUS adaptation' },
+        { parameter: 'Long-Term Serviceability', optionA: 'Uses standard replaceable D1S/D2S/H7 bulbs', optionB: 'Integrated LED projector serviced by lighting specialist' },
       ],
       sections: [
         {
-          heading: 'Why Factory Xenon Appears Dim Only Because the Bowl Oxidized',
+          heading: 'Why Factory Xenon and H7 Projectors Regain Full Output After PVD',
           paragraphs: [
-            'A healthy OEM Bi-Xenon projector (Hella E55, EvoX-R/Intemo, Valeo, AL Bosch) paired with a fresh D1S/D2S burner projects over 3,200 lumens across a wide, glare-free cutoff. Drivers assume Xenon is outdated only because the factory aluminum film above the arc tube burns brown after 8-10 years.',
-            'Recoating those exact OEM bowls in STANIAX Ø 1200 mm vacuum chambers with high-temp primer, 99.99% aluminum, and SiOx passivation restores showroom lux readings in 2-4 working days without irreversibly modifying headlamp brackets.',
+            'In most 8-to-12-year-old vehicles, weak low beams stem from oxidized aluminum directly above the bulb rather than outdated projector design. Evaporating fresh aluminum with a UV protective coating in STANIAX vacuum chambers restores factory performance in 5-7 business days without cutting OEM frames.',
+            'Conversely, owners of older halogen models seeking lighting modernization often entrust specialized workshops with Bi-LED or Bi-Xenon projector installation, while relying on STANIAX for industrial painting of internal trims and bezels.',
           ],
           bullets: [
-            'Razor-sharp ECE R112 / R98 beam cutoff on workshop headlamp aligners',
-            'Also restores factory-fitted OEM LED reflector cups molded in PC-HT',
-            'Backed by a 24-month industrial PVD adhesion and reflectivity warranty',
+            'Crisp low-beam cutoff step on MOT/TÜV alignment testers',
+            'Supports H7, Xenon, classic metal bowls, and factory OEM LED reflectors',
+            '3-5 years (up to 5 years) of durable thermal and moisture resistance',
           ],
         },
         {
-          heading: 'Fast EU Courier Workflow for Workshops & Fleet Operators',
+          heading: 'B2B Cooperation With Automotive Lighting Workshops',
           paragraphs: [
-            'Mechanics unbolt the two projector bowls from behind the headlamp frame where accessible and ship them in a compact parcel to Józefów, eliminating expensive bumper/headlamp lens splitting.',
+            'Headlamp removal from the car, housing unsealing, and projector retrofitting are performed by specialized automotive workshops, while STANIAX handles vacuum and spray metallization of reflectors plus decorative coating of internal headlamp trims.',
           ],
         },
       ],
-      whenChooseATitle: 'Choose OEM PVD Restoration when:',
+      whenChooseATitle: 'Choose OEM PVD Restoration at STANIAX when:',
       whenChooseA: [
-        'Driving on public roads requiring legal MOT, TÜV, or SKP roadworthiness inspections.',
-        'Preserving dynamic cornering AFS motors and OEM wiring harnesses.',
-        'Seeking maximum lumen recovery per euro spent.',
+        'You want to preserve 100% factory ECE type-approval and original OEM optics.',
+        'You want maximum night-visibility recovery at minimal cost (from ~€35/bowl).',
+        'Your vehicle uses dynamic cornering AFS motors and OEM ballasts.',
       ],
-      whenChooseBTitle: 'Consider Bi-LED Conversion only when:',
+      whenChooseBTitle: 'Consider Workshop Bi-LED Modernization when:',
       whenChooseB: [
-        'Building closed-circuit track, rally, or off-road competition vehicles.',
+        'Upgrading older halogen headlamps at a specialized workshop with proper cutoff alignment and regulatory compliance checks.',
+        'Combining lighting modernization with custom decorative painting of internal bezels and shrouds.',
       ],
       faq: [
         {
-          q: 'Does converting a halogen or xenon lamp to Bi-LED void EU road approval?',
-          a: 'Yes. Changing the homologated light source category stamped on the headlamp housing invalidates ECE type approval.',
+          q: 'What is the key difference between PVD restoration and Bi-LED modernization?',
+          a: 'PVD restoration renews the original reflective coating without altering the certified light source. Bi-LED installation modernizes older lamps with higher brightness and lower energy draw, provided a specialist workshop aligns the cutoff properly and respects road regulations.',
         },
         {
-          q: 'How bright is a PVD-restored Bi-Xenon bowl compared to new?',
-          a: 'Directional reflectance exceeds 92%, matching brand-new OEM Hella/Valeo optics.',
+          q: 'How bright is a PVD-restored Bi-Xenon bowl?',
+          a: 'Vacuum aluminum metallization restores mirror reflection comparable to a brand-new factory reflector.',
         },
         {
-          q: 'Do you also recoat factory OEM LED reflector optics?',
-          a: 'Yes, we metallize degraded factory PC-HT and die-cast OEM LED reflector sub-assemblies.',
+          q: 'Does STANIAX also paint internal headlamp bezels for custom builds?',
+          a: 'Yes, as an industrial paint shop we apply durable decorative coatings to internal frames, shrouds, and trim rings.',
         },
         {
           q: 'What is the turnaround for shipped projector bowls?',
-          a: '2-4 business days inside our Józefów facility plus insured courier transit.',
+          a: '5-7 business days at our Józefów facility near Warsaw plus insured courier transit.',
         },
       ],
       relatedLinks: [
         { label: 'Headlight Restoration Pricing', path: '/en/headlight-restoration-pricing' },
         { label: 'Solution: Bi-Xenon & LED Projectors', path: '/en/solutions/bixenon-projector-and-led-reflector-restoration' },
-        { label: 'Compare: OEM vs Aftermarket Lamp', path: '/en/compare/reflector-restoration-vs-aftermarket-headlight' },
+        { label: 'Guide: Reflector & Lamp Modernization', path: '/en/news/reflector-regeneration-and-headlight-polishing' },
         { label: 'Warsaw & Józefów Plant Hub', path: '/en/headlight-restoration/warsaw-jozefow' },
       ],
-      breadLabel: 'OEM PVD vs Bi-LED Retrofit',
+      breadLabel: 'OEM PVD vs Bi-LED Lenses',
     },
     de: {
-      metaTitle: 'Reflektor PVD bedampfen vs. Bi-LED-Umbau | STANIAX',
+      metaTitle: 'Reflektor PVD bedampfen vs. Bi-LED-Linsen | STANIAX',
       metaDesc:
-        'Original-Reflektor PVD neu bedampfen (ab ca. 35 €) vs. Bi-LED-Umbau: Erhalt der ECE-Bauartgenehmigung für HU/TÜV, AFS-Kurvenlicht & >92 % Lichtreflexion.',
+        'Original-Reflektor PVD neu bedampfen bei STANIAX (ab ca. 35 €) vs. Bi-LED-Modernisierung in der Fachwerkstatt: Lichtausbeute, Vorschriften & Kosten.',
       badge: 'Scheinwerfer-Vergleich: OEM PVD vs. Bi-LED',
-      h1: 'Original-Reflektor PVD bedampfen vs. Umrüstung auf Bi-LED-Projektoren',
+      h1: 'Original-Reflektor PVD bedampfen vs. Modernisierung auf Bi-LED-Linsen',
       subtitle:
-        'Rechtlicher, lichttechnischer und wirtschaftlicher Vergleich zwischen werkseitiger PVD-Neuverspiegelung und nachträglichem Bi-LED-Umbau.',
+        'Technischer und wirtschaftlicher Vergleich zwischen werkseitiger PVD-Neuverspiegelung und fachgerechter Bi-LED-Modernisierung durch spezialisierte Werkstätten.',
       sideALabel: 'OEM-Reflektor PVD bedampfen (STANIAX)',
-      sideBLabel: 'Nachträglicher Bi-LED-Umbau',
-      directAnswerQuestion: 'Sollte man blinde Reflektoren PVD-bedampfen lassen oder auf Nachrüst-Bi-LED-Linsen umbauen?',
+      sideBLabel: 'Bi-LED-Modernisierung (Fachwerkstatt)',
+      directAnswerQuestion: 'Wann lohnt sich das PVD-Bedampfen des Originalreflektors und wann eine Bi-LED-Modernisierung?',
       directAnswer:
-        'Das PVD-Bedampfen des Originalreflektors bei STANIAX (ab ca. 35-60 €/Stück) stellt >92 % Werksreflexion wieder her und erhält die ECE-Bauartgenehmigung, das AFS-Kurvenlicht sowie den vollen Versicherungsschutz für die HU/TÜV-Prüfung. Ein Umbau von H7- oder Xenon-Scheinwerfern auf ungeprüfte Bi-LED-Module führt im öffentlichen Straßenverkehr zum Erlöschen der Betriebserlaubnis.',
-      verdictTitle: 'Rechtliches & technisches Urteil für DACH-Fahrzeuge',
+        'Das PVD-Bedampfen des angelieferten Originalreflektors bei STANIAX (ab ca. 35-60 €/Stück, 5-7 Werktage im Werk) stellt die werkseitige Reflexionsleistung unter 100 % Erhalt der Original-Bauartgenehmigung und AFS-Kurvenlichttechnik wieder her. Die Montage von Bi-LED-Linsen in einer spezialisierten Fachwerkstatt (450-1.000 €) ist eine beliebte Modernisierung älterer Halogenscheinwerfer, die eine exakte Einstellung der Hell-Dunkel-Grenze und Beachtung der Zulassungsvorschriften erfordert.',
+      verdictTitle: 'Technisches & wirtschaftliches Fazit',
       verdictSummary:
-        'Für straßenzugelassene Pkw und Lkw in Deutschland, Österreich und Polen bietet die PVD-Neuverspiegelung des Originalreflektors volle Neuwagen-Leuchtkraft ohne HU-Beanstandung oder Regressrisiko bei Nachtunfällen.',
+        'Bei vorhandenen Hella-, Valeo- oder Bosch-Projektoren liefert die PVD-Neuverspiegelung des Originalreflektors volle Leuchtkraft zum Bruchteil eines Komplettumbaus. Für Scheinwerfer-Tuning-Projekte übernimmt STANIAX zudem die industrielle Dekorlackierung von Innenblenden und Rahmen.',
       comparisonRows: [
-        { parameter: 'ECE-Zulassung & HU / TÜV / Pickerl', optionA: '100 % Erhalt der Original-Bauartgenehmigung', optionB: 'Erlöschen der Betriebserlaubnis des Scheinwerfers' },
-        { parameter: 'Kosten für beide Fahrzeugseiten', optionA: 'Ca. 75 - 140 € für ausgebaute Reflektoren', optionB: '450 - 1.000 € für Komplettumbau' },
-        { parameter: 'Kfz-Haftpflicht & Kaskoschutz', optionA: 'Uneingeschränkt serienkonform', optionB: 'Gefahr von Kürzungen bei Blendungsunfällen' },
-        { parameter: 'Kurvenlicht (AFS) & Bordelektronik', optionA: '100 % Plug-and-Play ohne Fehlermeldung', optionB: 'Fräsarbeiten am Tragrahmen & Lastwiderstände nötig' },
-        { parameter: 'Wartungsfreundlichkeit', optionA: 'Normale D1S/D2S/H7-Leuchtmittel wechselbar', optionB: 'Bei Platinendefekt erneutes Öffnen der Lampe' },
+        { parameter: 'Original-Bauartgenehmigung & Prüfzeichen', optionA: '100 % Erhalt der unveränderten Serienkonstruktion', optionB: 'Erfordert exakte Hell-Dunkel-Grenze und Prüfung der Vorschriften' },
+        { parameter: 'Kosten für beide Fahrzeugseiten', optionA: 'Ca. 75 - 140 € für angelieferte Reflektoren (ca. 170-330 € inkl. Werkstatt)', optionB: '450 - 1.000 € für kompletten Fachwerkstatt-Umbau' },
+        { parameter: 'Lichtcharakteristik', optionA: 'Werkstreue Lichtverteilung und volle Serienreichweite', optionB: 'Fokussierter LED-Lichtkegel und geringer Energieverbrauch' },
+        { parameter: 'Kurvenlicht (AFS) & Bordelektronik', optionA: '100 % Plug-and-Play mit Original-Steuergeräten', optionB: 'Mechanische & elektronische Anpassung durch Fachbetrieb nötig' },
+        { parameter: 'Wartungsfreundlichkeit', optionA: 'Standard-Leuchtmittel D1S/D2S/H7 jederzeit wechselbar', optionB: 'Integriertes LED-Modul wird über Fachbetrieb gewartet' },
       ],
       sections: [
         {
-          heading: 'Warum Bi-Xenon nur wegen verbrannter Spiegelschalen schwach wirkt',
+          heading: 'Warum Bi-Xenon- und H7-Scheinwerfer nach PVD wieder wie ab Werk leuchten',
           paragraphs: [
-            'Ein intakter Hella-, Valeo- oder Bosch-AL-Xenonprojektor liefert mit frischem Brenner über 3.200 Lumen und eine gestochen scharfe Hell-Dunkel-Grenze. Dass Scheinwerfer nach acht bis zehn Jahren kaum noch die Fahrbahn ausleuchten, liegt fast immer am abgedampften Aluminium direkt über dem Lichtbogen.',
-            'Wenn Sie Ihren Scheinwerfer Reflektor neu verspiegeln lassen, trägt STANIAX im Hochvakuum (10⁻⁴ mbar) hitzefesten Spezialprimer, 99,99 % Reinaluminium und eine schützende SiOx-Schicht auf. Binnen 2-4 Werktagen erreicht der Originalscheinwerfer wieder exakte Neuwagenwerte.',
-            'Gerade bei strengen deutschen HU-/TÜV-Kontrollen prüfen Sachverständige gezielt die Kennzeichnung auf Gehäuse und Streuscheibe (DC/DR bzw. HC/HR). Mit dem neu bedampften Originalreflektor bleibt jedes Prüfzeichen 100 % gültig.',
+            'Dass Scheinwerfer nach einigen Betriebsjahren schwach wirken, liegt fast immer an der thermisch gealterten Aluminiumschicht über dem Brenner. STANIAX trägt im Vakuum hitzefesten Grundlack, reines Aluminium und UV-Schutzlack auf - binnen 5-7 Werktagen erreicht der Reflektor wieder Werksparameter.',
+            'Bei älteren Halogenscheinwerfern nutzen viele Fahrzeughalter die Gelegenheit zur Beleuchtungsmodernisierung mit Bi-LED- oder Bi-Xenon-Linsen in spezialisierten Fachwerkstätten, während STANIAX als Industrielackiererei Innenblenden und Zierrahmen veredelt.',
           ],
           bullets: [
-            'Kein Zerschneiden von Originalhalterungen oder Stellmotoren',
-            'Auch für werkseitige OEM-LED-Reflektorschalen aus PC-HT geeignet',
-            '24 Monate Garantie auf Schichthaftung und >92 % gerichtete Lichtreflexion',
+            'Saubere Hell-Dunkel-Grenze am Einstellgerät ohne Blendung des Gegenverkehrs',
+            'Geeignet für H7-, Xenon-, Oldtimer- sowie werkseitige OEM-LED-Reflektoren',
+            '3 bis 5 Jahre Haltbarkeit im regulären Scheinwerferbetrieb',
           ],
         },
         {
-          heading: 'Einfacher Paketversand aus Deutschland und Österreich nach Józefów',
+          heading: 'Arbeitsteilung zwischen Kfz-Fachwerkstatt und PVD-Werk STANIAX',
           paragraphs: [
-            'Bei vielen Modellen (z. B. Audi A6, BMW E60/E65, Passat, Avensis) lässt sich die Projektoreinheit rückseitig ohne Öffnen der Frontscheibe entnehmen und kostengünstig per DHL/DPD an unser Werk senden.',
+            'Ausbau der Scheinwerfer, Öffnen der Gehäuse und Linsenmontage erfolgen durch spezialisierte Kfz-Werkstätten, während STANIAX die industrielle Vakuum- und Spritzmetallisierung der Reflektoren sowie die Lackierung von Rahmenteilen ausführt.',
           ],
         },
       ],
-      whenChooseATitle: 'Originalreflektor bedampfen lassen, wenn:',
+      whenChooseATitle: 'Originalreflektor bei STANIAX bedampfen lassen, wenn:',
       whenChooseA: [
-        'Das Fahrzeug regulär im öffentlichen Straßenverkehr (HU/TÜV) bewegt wird.',
-        'Dynamisches Kurvenlicht (AFS) und Original-Steuergeräte fehlerfrei weiterlaufen sollen.',
+        'Die originale ECE-Bauartgenehmigung und Serienoptik zu 100 % erhalten bleiben sollen.',
+        'Dynamisches Kurvenlicht (AFS) und Original-Vorschaltgeräte unverändert weiterlaufen sollen.',
         'Maximale Lichtausbeute zum Bruchteil eines Umbaus oder Neukaufs gewünscht ist.',
       ],
-      whenChooseBTitle: 'Bi-LED-Umbau nur erwägen, wenn:',
+      whenChooseBTitle: 'Bi-LED-Modernisierung in einer Fachwerkstatt erwägen, wenn:',
       whenChooseB: [
-        'Reine Motorsport-, Tracktool- oder Offroad-Fahrzeuge außerhalb der StVZO aufgebaut werden.',
+        'Ältere Halogenscheinwerfer durch einen Fachbetrieb modernisiert werden, der Hell-Dunkel-Grenze und Vorschriften fachgerecht berücksichtigt.',
+        'Gleichzeitig ein optisches Scheinwerfer-Tuning (z. B. Lackierung des Scheinwerferinnenraums) geplant ist.',
       ],
       faq: [
         {
-          q: 'Erlischt beim Einbau von Bi-LED-Linsen in Xenon-Scheinwerfer die Zulassung?',
-          a: 'Ja, gemäß StVZO und ECE-Regelung erlischt die Bauartgenehmigung des Scheinwerfers bei Änderung der geprüften Lichtquelle.',
+          q: 'Worin liegt der Hauptunterschied zwischen PVD-Aufbereitung und Bi-LED-Umbau?',
+          a: 'Die PVD-Regeneration erneuert lediglich die Spiegelschicht des Originalbauteils unter vollem Erhalt der Bauartgenehmigung. Ein Bi-LED-Einbau modernisiert ältere Scheinwerfer spürbar, gehört aber in die Hände spezialisierter Fachwerkstätten mit korrekter Einstellung der Hell-Dunkel-Grenze und Beachtung der Vorschriften.',
         },
         {
-          q: 'Wie hell leuchtet ein neu verspiegelter Bi-Xenon-Reflektor?',
-          a: 'Mit >92 % gerichteter Aluminiumreflexion entspricht die Beleuchtungsstärke in Lux wieder einem fabrikneuen Originalteil.',
+          q: 'Wie hell leuchtet ein neu bedampfter Bi-Xenon-Reflektor?',
+          a: 'Der Spiegeleffekt nach der Vakuummetallisierung ist mit der Werksausführung vergleichbar und stellt die volle Leuchtweite wieder her.',
         },
         {
-          q: 'Können auch originale Werks-LED-Reflektoren neu bedampft werden?',
-          a: 'Ja, wir beschichten ermüdete PC-HT- und Druckguss-Spiegelschalen aus serienmäßigen LED-Scheinwerfern.',
+          q: 'Lackiert STANIAX auch Scheinwerferblenden und Rahmen?',
+          a: 'Ja, als Industrielackiererei beschichten wir Innenblenden, Zierringe und Gehäuseteile in Wunschfarben und Spezialeffekten.',
         },
         {
-          q: 'Wie lange dauert das Scheinwerfer bedampfen inklusive Rückversand?',
-          a: 'Die Werkslaufzeit in Józefów beträgt 2-4 Werktage zuzüglich 2 Tagen versichertem Paketlauf nach Deutschland.',
+          q: 'Wie lange dauert die Bearbeitung eingesandter Reflektoren im Werk?',
+          a: 'Die reguläre Durchlaufzeit in unserem Werk in Józefów beträgt 5-7 Werktage zuzüglich Paketversand.',
         },
       ],
       relatedLinks: [
         { label: 'Preise & Rechner: Aufbereitung', path: '/de/scheinwerfer-aufbereitung-preise' },
         { label: 'Lösung: Bi-Xenon & LED-Reflektoren', path: '/de/loesungen/bi-xenon-linsen-und-led-scheinwerfer-bedampfen' },
-        { label: 'Vergleich: Reflektor vs. Nachbau', path: '/de/vergleich/reflektor-aufbereitung-vs-nachbau' },
+        { label: 'Ratgeber: Regeneration & Modernisierung', path: '/de/news/scheinwerfer-reflektoren-regeneration-und-polieren' },
         { label: 'Werkstandort Warschau & Józefów', path: '/de/scheinwerfer-aufbereitung/warschau-jozefow' },
       ],
-      breadLabel: 'OEM-PVD vs. Bi-LED-Umbau',
+      breadLabel: 'OEM-PVD vs. Bi-LED-Linsen',
     },
   },
 
@@ -792,7 +794,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           bullets: [
             'Krystaliczna przejrzystość optyczna bez efektu falowania soczewki',
             'Jednoczesna możliwość regeneracji wypalonego odbłyśnika PVD w jednym zleceniu',
-            '24-miesięczna gwarancja na brak żółknięcia i łuszczenia warstwy ochronnej',
+            'Trwałość powłoki ochronnej 3-5 lat bez żółknięcia i łuszczenia',
           ],
         },
         {
@@ -871,7 +873,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           bullets: [
             'Distortion-free optical clarity meeting MOT / TÜV / ECE beam scatter standards',
             'Option to combine exterior UV lens coating with internal PVD reflector resilvering',
-            '24-month warranty against peeling, hazing, and UV yellowing',
+            '3-5 year durability against peeling, hazing, and UV yellowing',
           ],
         },
         {
@@ -951,7 +953,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
           bullets: [
             'Kristallklare Optik ohne Verzerrung der Hell-Dunkel-Grenze',
             'Ideale Kombination mit dem PVD-Bedampfen matter Innenreflektoren',
-            '24 Monate Gewährleistung gegen Abblättern und erneutes Vergilben',
+            '3 bis 5 Jahre Haltbarkeit gegen Abblättern und erneutes Vergilben',
           ],
         },
         {

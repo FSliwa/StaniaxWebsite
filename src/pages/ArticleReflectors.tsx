@@ -148,7 +148,7 @@ export default function ArticleReflectors({ lang = 'pl' as Lang }: { lang?: Lang
             <div className="mb-8 rounded-2xl border border-blue-200 bg-blue-50/90 p-5 text-slate-900 shadow-sm">
               <p className="text-sm font-semibold">
                 {activeLang === 'pl'
-                  ? 'Szukasz wyceny i cennika usługi regeneracji odbłyśników (od 150 zł/szt.; pakiety B2B od 110 zł/szt.)?'
+                  ? 'Szukasz wyceny i cennika usługi regeneracji odbłyśników (od 150 zł/szt., wycena indywidualna B2B)?'
                   : activeLang === 'de'
                     ? 'Suchen Sie Preise und Kalkulator für die Scheinwerfer-Reflektor-Aufbereitung (ab ca. 35 €/Stk.)?'
                     : 'Looking for pricing and an online calculator for headlight reflector restoration (from ~€35 / 150 PLN per bowl)?'}{' '}

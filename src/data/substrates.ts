@@ -90,8 +90,8 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         { parameter: 'Temperatura odkształcenia HDT', value: '82-108 °C - suszenie lakierów w oknie poniżej 75 °C' },
         { parameter: 'Energia powierzchniowa przed primerem', value: '38-42 mN/m (jonizacja i mycie antystatyczne)' },
         { parameter: 'Dostępne stosy powłok', value: 'PVD chrom/złoto + UV, Piano Black 2K PU (>92 GU), Soft-Touch' },
-        { parameter: 'Odporność i norma przyczepności', value: 'ISO 2409 Gt 0 · ΔE < 0,8 · test potu i detergentów' },
-        { parameter: 'Średnica komór i czas serii', value: 'Komory do Ø 1200 mm · serie B2B w 3-7 dni roboczych' },
+        { parameter: 'Odporność i norma przyczepności', value: 'ISO 2409 Gt 0 · wysoka powtarzalność barwy · test potu i detergentów' },
+        { parameter: 'Komory i czas realizacji serii', value: 'Komory wysokiej próżni · serie B2B w 5-10 dni roboczych (prototypy 2-3 dni)' },
       ],
       sections: [
         {
@@ -163,8 +163,8 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         { parameter: 'Heat Deflection Window', value: 'HDT 82-108 °C - thermal cure strictly capped <75 °C' },
         { parameter: 'Leveling & Roughness Target', value: 'UV basecoat smooths mold tool marks down to Ra < 0.05 µm' },
         { parameter: 'Available Stacks', value: 'Mirror chrome/gold PVD, Piano Black 2K PU (>92 GU), matte <5 GU' },
-        { parameter: 'QA Standards', value: 'ISO 2409 Class 0 adhesion · ΔE < 0.8 color consistency' },
-        { parameter: 'Capacity & Turnaround', value: 'Ø 1200 mm planetary vacuum chambers · 3-7 days B2B turnaround' },
+        { parameter: 'QA Standards', value: 'ISO 2409 Class 0 adhesion · high batch color consistency' },
+        { parameter: 'Capacity & Turnaround', value: 'Planetary high-vacuum chambers · 5-10 business days B2B turnaround (2-3d express)' },
       ],
       sections: [
         {
@@ -182,7 +182,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         {
           heading: 'Custom Tints, Satin Metals, and High-Gloss Spray Systems on PC/ABS',
           paragraphs: [
-            'Beyond silver mirror chrome, dyeing our protective UV topcoats produces gold, champagne, copper, bronze, or deep smoked black directly over aluminum vapor film at tight batch tolerances (ΔE < 0.8).',
+            'Beyond silver mirror chrome, dyeing our protective UV topcoats produces gold, champagne, copper, bronze, or deep smoked black directly over aluminum vapor film at tight batch tolerances (high batch consistency).',
             'Non-metallized zones and tactile bezels can be finished seamlessly in Piano Black (>92 GU) or soft-touch velvet 2K polyurethane spray coatings inside filtered clean booths.',
           ],
         },
@@ -236,8 +236,8 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         { parameter: 'Formbeständigkeit HDT', value: '82-108 °C - Trocknung konsequent unter 75 °C gesteuert' },
         { parameter: 'Oberflächennivellierung', value: 'UV-Primer glättet Werkzeugspuren bis Ra < 0,05 µm' },
         { parameter: 'Verfügbare Schichtaufbauten', value: 'Chrom/Gold PVD + UV, Piano Black 2K PUR (>92 GU), Matt <5 GU' },
-        { parameter: 'Prüfnormen', value: 'ISO 2409 Gt 0 · ΔE < 0,8 · Schweiß-, Alkohol- und Kosmetiktest' },
-        { parameter: 'Kapazität & Lieferzeit', value: 'Kammern bis Ø 1200 mm · Serienfertigung in 3-7 Werktagen' },
+        { parameter: 'Prüfnormen', value: 'ISO 2409 Gt 0 · hohe Farbkonstanz · Schweiß-, Alkohol- und Kosmetiktest' },
+        { parameter: 'Kapazität & Lieferzeit', value: 'Hochvakuum-Planetenkammern · Serienfertigung in 5-10 Werktagen (Express 2-3 Tage)' },
       ],
       sections: [
         {
@@ -314,11 +314,11 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Wysokopróżniowe naparowanie aluminium na optyce reflektorowej, kloszach, soczewkach i komponentach pracujących do 220 °C.',
       directAnswerQuestion: 'Jak metalizuje się poliwęglan (PC) i tworzywa wysokotemperaturowe Ultem PEI bez zaciemnień w próżni?',
       directAnswer:
-        'Poliwęglan PC i polieteroimid Ultem PEI chłoną wilgoć, co powoduje mgłę i pęcherze przy szybkim obniżaniu ciśnienia w komorze. W STANIAX stosujemy kontrolowane dosuszanie, primer termostabilny do 220 °C oraz wysokopróżniową metalizację Al 99,99% z pasywacją SiOx - uzyskując odbicie kierunkowe powyżej 92% bez efektu tęczowania.',
+        'Poliwęglan PC i polieteroimid Ultem PEI chłoną wilgoć, co powoduje mgłę i pęcherze przy szybkim obniżaniu ciśnienia w komorze. W STANIAX stosujemy kontrolowane dosuszanie, primer termostabilny do 220 °C oraz wysokopróżniową metalizację Al 99,99% z pasywacją UV - uzyskując odbicie kierunkowe powyżej 92% bez efektu tęczowania.',
       specs: [
         { parameter: 'Obsługiwane polimery optyczne/HT', value: 'Poliwęglan PC, PC-HT, Ultem PEI, PSU, PPS, termoutwardzalne BMC' },
         { parameter: 'Maksymalna stabilność powłoki', value: 'Do 135 °C (PC-HT) oraz 200-220 °C na podłożach PEI / BMC / metal' },
-        { parameter: 'Współczynnik odbicia optyki', value: '>92% w pełnym widmie światła widzialnego (Al 99,99% + SiOx)' },
+        { parameter: 'Współczynnik odbicia optyki', value: 'Wysoki współczynnik odbicia w paśmie widzialnym (Al PVD + warstwa ochronna)' },
         { parameter: 'Ochrona zewnętrzna dla kloszy PC', value: 'Twardy lakier UV hamujący żółknięcie i ścieranie poliwęglanu' },
         { parameter: 'Kontrola odgazowania', value: 'Wstępne kondycjonowanie i dedykowana bariera podkładowa' },
       ],
@@ -362,8 +362,8 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           a: 'Tak, wykonujemy maskowanie selektywne krawędzi i soczewek przed załadunkiem do komory PVD.',
         },
         {
-          q: 'Dlaczego używacie powłoki SiOx zamiast lakieru na odbłyśnikach ze strefą gorącą?',
-          a: 'Nanometryczna warstwa SiOx nie ogranicza współczynnika odbicia (>92%) i w przeciwieństwie do grubego lakieru organicznego nie pęka przy temperaturach do 220 °C.',
+          q: 'Jak zabezpieczana jest warstwa aluminium na odbłyśnikach pracujących w wysokiej temperaturze?',
+          a: 'Stosujemy cienkowarstwowe zabezpieczenie ochronne oraz przemysłowe powłoki UV i podkłady wysokotemperaturowe, dzięki czemu odbłyśnik jest odporny na temperaturę pracy reflektora i wilgoć.',
         },
       ],
       relatedLinks: [
@@ -385,11 +385,11 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Outgassing-controlled aluminum PVD for automotive lighting optics, aerospace cabins, LED luminaires, and UV-protected lenses.',
       directAnswerQuestion: 'How is polycarbonate (PC) and Ultem PEI metallized without vacuum hazing or solvent crazing?',
       directAnswer:
-        'Polycarbonate and high-temp Ultem PEI absorb ambient moisture that causes cloudy aluminum bloom inside a vacuum chamber. STANIAX performs pre-conditioning degassing, applies non-aggressive UV or high-temp barrier primers (up to 220 °C on PEI/BMC), deposits 99.99% aluminum (>92% reflectance), and seals optics with SiOx.',
+        'Polycarbonate and high-temp Ultem PEI absorb ambient moisture that causes cloudy aluminum bloom inside a vacuum chamber. STANIAX performs pre-conditioning degassing, applies non-aggressive UV or high-temp barrier primers (up to 220 °C on PEI/BMC), deposits 99.99% aluminum (>92% reflectance), and seals optics with a protective topcoat.',
       specs: [
         { parameter: 'High-Spec Resins', value: 'Optical PC, High-Temp PC-HT, Ultem PEI, PSU, thermoset BMC' },
         { parameter: 'Thermal Service Rating', value: 'Up to 135 °C (PC-HT) and 200-220 °C on PEI/BMC reflectors' },
-        { parameter: 'Specular Light Return', value: '>92% reflectance with Al 99.99% + thin SiOx barrier' },
+        { parameter: 'Specular Light Return', value: 'High mirror reflectance with PVD aluminum + protective barrier' },
         { parameter: 'Clear Polycarbonate Shield', value: 'Industrial abrasion- & UV-resistant hard clearcoat' },
         { parameter: 'Chamber Control', value: 'Pre-bake moisture conditioning + antistatic ionization' },
       ],
@@ -407,9 +407,9 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           ],
         },
         {
-          heading: 'SiOx Protective Passivation vs Decorative UV Topcoats',
+          heading: 'Reflector Protective Topcoats vs Exterior Lens UV Hard-Coats',
           paragraphs: [
-            'Internal projector optics require bare-metal reflectance (>92%) coupled with corrosion shielding from headlamp condensation - achieved cleanly via sub-micron SiOx sealing. Exposed polycarbonate housings and lenses receive thicker UV-crosslinked clearcoats blocking road abrasion and yellowing.',
+            'Internal projector optics require bare-metal reflectance (>92%) coupled with corrosion shielding from headlamp condensation - achieved cleanly via ultra-thin protective topcoat sealing. Exposed polycarbonate housings and lenses receive thicker UV-crosslinked clearcoats blocking road abrasion and yellowing.',
             'Our tooling department fabricates custom silicone shields so complex PC-HT headlamp bezels and light-guide frames receive razor-sharp transitions between high-reflection PVD zones and low-gloss black anti-glare surfaces in a single integrated production flow.',
           ],
         },
@@ -457,11 +457,11 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         'Kontrollierte Entgasung und Reinaluminium-PVD für Fahrzeugscheinwerfer, LED-Optik, Luftfahrtkomponenten und UV-Hartlacke.',
       directAnswerQuestion: 'Wie werden Polycarbonat (PC) und Ultem PEI ohne Ausgasungsschleier vakuummetallisiert?',
       directAnswer:
-        'Da PC und Ultem PEI Feuchtigkeit aufnehmen, entstehen im Vakuum schnell Regenbogen- oder Milchschleier. STANIAX vortrocknet gezielt, appliziert spannungsfreie Sperrprimer (bis 220 °C auf PEI/BMC), bedampft 99,99 % Reinaluminium (>92 % Reflexion) und versiegelt optisch neutral per SiOx-Passivierung.',
+        'Da PC und Ultem PEI Feuchtigkeit aufnehmen, entstehen im Vakuum schnell Regenbogen- oder Milchschleier. STANIAX vortrocknet gezielt, appliziert spannungsfreie Sperrprimer (bis 220 °C auf PEI/BMC), bedampft 99,99 % Reinaluminium (>92 % Reflexion) und versiegelt die Spiegelschicht mit einer dünnen Schutzschicht.',
       specs: [
         { parameter: 'Verarbeitete Werkstoffe', value: 'Optisches PC, PC-HT, Ultem PEI, PSU, Duroplast BMC' },
         { parameter: 'Temperaturbeständigkeit', value: 'Bis 135 °C (PC-HT) bzw. 200-220 °C auf PEI/BMC' },
-        { parameter: 'Reflexionsgrad', value: '>92 % gerichtet durch Al 99,99 % + SiOx-Schutz' },
+        { parameter: 'Reflexionsgrad', value: 'Hoher Spiegelreflexionsgrad durch PVD-Aluminium + Schutzschicht' },
         { parameter: 'Frontscheibenschutz PC', value: 'Abrieb- und UV-stabiler Industrieklarlack gegen Vergilbung' },
         { parameter: 'Prozesssicherheit', value: 'Vortrocknungs-Temperung + Ionisierung gegen Ausgasen' },
       ],
@@ -479,9 +479,9 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           ],
         },
         {
-          heading: 'SiOx-Schutzschicht vs. UV-Klarlack auf Frontscheiben',
+          heading: 'Dünnschicht-Reflektorschutz vs. UV-Klarlack auf Frontscheiben',
           paragraphs: [
-            'Während Reflektor-Innenflächen durch ultradünne SiOx-Versiegelung maximale Reflexion behalten, schützt ein dickerer UV-Klarlack exponierte Polycarbonatscheiben dauerhaft vor UV-Strahlung und Waschstraßenabrieb.',
+            'Während Reflektor-Innenflächen durch eine ultradünne Schutzversiegelung maximale Reflexion behalten, schützt ein dickerer UV-Klarlack exponierte Polycarbonatscheiben dauerhaft vor UV-Strahlung und Waschstraßenabrieb.',
             'Auch komplexe Scheinwerfermasken aus PC-HT mit partiellen Chromeinsätzen realisieren wir mithilfe maßgefertigter Silikonschablonen sauber getrennt in mattschwarze Designzonen und hochglänzende Spiegelflächen.',
           ],
         },
@@ -489,7 +489,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           heading: 'Hochvakuum-Prozessführung für optische LED- und Luftfahrtteile',
           paragraphs: [
             'Bei stark thermisch belasteten Bauteilen aus PEI Ultem oder duroplastischem BMC überwachen wir die Vakuumkammerkurve elektronisch auf Restdruck und Verdampfungsrate des 99,99 %-Reinaluminiums. Dadurch entsteht eine extrem dichte, korrosionsstabile Spiegelschicht ohne lokale Überhitzung am Spritzgusskörper.',
-            'Anschließend wird direkt in derselben Prozesssequenz die plasmaunterstützte SiOx-Schutzschicht abgeschieden, welche die hochreflektierende Aluminiumoberfläche vor Kondenswasser, Schwefelverbindungen und Reinigungschemikalien schützt. So erreichen Scheinwerferreflektoren, Kollimatoren und optische Sensoren dauerhaft über 92 Prozent gerichtete Lichtreflexion ohne Mikrorisse oder Delamination im Dauerbetrieb. Jedes Bauteil wird vor dem Verpacken im Prüffeld unter gerichtetem Prüflightspektrum auf makellose Spiegelhomogenität, saubere Kantenabdeckung und Maßhaltigkeit an den Aufnahmepunkten kontrolliert. Für Serienabrufe stellen wir auf Wunsch komplette Erstmusterdokumentationen bereit.',
+            'Anschließend wird eine transparente Schutzschicht aufgetragen, welche die hochreflektierende Aluminiumoberfläche vor Kondenswasser, Schwefelverbindungen und Reinigungschemikalien schützt. So erreichen Scheinwerferreflektoren, Kollimatoren und optische Sensoren dauerhaft über 92 Prozent gerichtete Lichtreflexion ohne Mikrorisse oder Delamination im Dauerbetrieb. Jedes Bauteil wird vor dem Verpacken im Prüffeld unter gerichtetem Prüflightspektrum auf makellose Spiegelhomogenität, saubere Kantenabdeckung und Maßhaltigkeit an den Aufnahmepunkten kontrolliert. Für Serienabrufe stellen wir auf Wunsch komplette Erstmusterdokumentationen bereit.',
           ],
         },
       ],
@@ -513,8 +513,8 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           a: 'Ja, über passgenaue Abdeckschablonen werden optische Austrittsfenster sauber ausgespart.',
         },
         {
-          q: 'Schützt SiOx den Al-Spiegel dauerhaft vor Feuchte?',
-          a: 'Ja, die anorganische Siliziumoxid-Schutzschicht blockt Feuchtigkeit und Abgase im Scheinwerfergehäuse ab, ohne die Lichtausbeute zu mindern.',
+          q: 'Ist der neue Aluminiumspiegel dauerhaft gegen Feuchtigkeit geschützt?',
+          a: 'Ja, die transparente Schutzversiegelung schützt die aufgedampfte Aluminiumschicht dauerhaft vor Feuchtigkeit und Oxidation im Scheinwerfergehäuse.',
         },
       ],
       relatedLinks: [
@@ -885,7 +885,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         },
         {
           q: 'Can PA66 parts match strict corporate machinery RAL codes?',
-          a: 'Yes, we match custom RAL, NCS, and industrial equipment fleet color standards with spectrophotometric ΔE verification.',
+          a: 'Yes, we match custom RAL, NCS, and industrial equipment fleet color standards with strict reference sample color verification.',
         },
       ],
       relatedLinks: [
@@ -964,7 +964,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         },
         {
           q: 'Sind Maschinen-Hausfarben nach RAL exakt darstellbar?',
-          a: 'Ja, jede Serienlieferung wird per Spektralphotometer (ΔE < 0,8) geprüft.',
+          a: 'Ja, jede Serienlieferung wird anhand verbindlicher Referenzmuster auf Farb- und Glanzgradkonstanz geprüft.',
         },
       ],
       relatedLinks: [
@@ -995,7 +995,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         { parameter: 'Promotor przyczepności', value: 'Silanowe primery krzemoorganiczne wiążące kowalencyjnie z SiO₂ szkła' },
         { parameter: 'Odporność chemiczna beauty', value: 'Test 96% etanolu, olejki zapachowe, test tarcia i zarysowań paznokciem' },
         { parameter: 'Efekty optyczne i dotykowe', value: 'Efekt mrożonego szkła bez kwasu HF, ombre, transparent, lustro PVD, Soft-Touch' },
-        { parameter: 'Kontrola barwy', value: 'Pełna zgodność wzorników Pantone / RAL / NCS z tolerancją ΔE < 0,8' },
+        { parameter: 'Kontrola barwy', value: 'Pełna zgodność wzorników Pantone / RAL / NCS i wysoka powtarzalność partii' },
       ],
       sections: [
         {
@@ -1013,7 +1013,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         {
           heading: 'Personalizacja seryjnych butelek bez kosztów nowych form hutniczych',
           paragraphs: [
-            'Uruchomienie dedykowanej masy barwionego szkła w hucie wymaga zamówień przekraczających setki tysięcy sztuk jednej referencji. Przemysłowe lakierowanie oraz PVD na standardowym bezbarwnym szkle flintowym w STANIAX pozwala marce beauty lub spirytusowej wdrożyć edycje sezonowe, gradienty oraz eleganckie złocenia od kilku tysięcy sztuk w 3-7 dni.',
+            'Uruchomienie dedykowanej masy barwionego szkła w hucie wymaga zamówień przekraczających setki tysięcy sztuk jednej referencji. Przemysłowe lakierowanie oraz PVD na standardowym bezbarwnym szkle flintowym w STANIAX pozwala marce beauty lub spirytusowej wdrożyć edycje sezonowe, gradienty oraz eleganckie złocenia od kilku tysięcy sztuk w 5-10 dni roboczych.',
           ],
         },
       ],
@@ -1066,7 +1066,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         { parameter: 'Bonding Mechanism', value: 'Organosilane primers forming covalent Si-O-C glass linkages' },
         { parameter: 'Perfumery QA Standard', value: '96% ethanol, fragrance oils & transit rub resistance tested' },
         { parameter: 'Decorative Portfolio', value: 'HF-free frosted matte, translucent tints, gradient ombre, PVD mirror' },
-        { parameter: 'Color Tolerance', value: 'Pantone / RAL / NCS spectrophotometric matching (ΔE < 0.8)' },
+        { parameter: 'Color Consistency', value: 'Pantone / RAL / NCS reference matching with high batch repeatability' },
       ],
       sections: [
         {
@@ -1085,7 +1085,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
           heading: 'Transforming Stock Glass Without Expensive Furnace Color Campaigns',
           paragraphs: [
             'Ordering custom furnace-colored glass runs often demands 100,000+ bottle MOQs. Coating off-the-shelf clear flint stock glass with STANIAX lets indie beauty brands and craft distilleries launch signature matte, chrome PVD, or ruby-lacquered SKUs at manageable batch quantities within 3-7 days.',
-            'Each production lot undergoes spectrophotometric color verification (ΔE < 0.8), cross-hatch tape adhesion testing after water immersion, and carton-rub abrasion checks so luxury flacons arrive on high-speed filling lines free of scratches or collar-fit issues.',
+            'Each production lot undergoes strict reference shade and gloss verification, cross-hatch tape adhesion testing after water immersion, and carton-rub abrasion checks so luxury flacons arrive on high-speed filling lines free of scratches or collar-fit issues.',
           ],
         },
       ],
@@ -1138,7 +1138,7 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         { parameter: 'Haftbrücke', value: 'Organosilan-Primer mit kovalenter Si-O-C-Bindung zum Glas' },
         { parameter: 'Chemikalienfestigkeit', value: '96 % Ethanol-, Parfümöl- und Kartonscheuer-Beständigkeit' },
         { parameter: 'Design-Effekte', value: 'Flusssäurefreie Satinierung (Frost), Ombré-Verlauf, Spiegel-PVD' },
-        { parameter: 'Farbgenauigkeit', value: 'Pantone-, RAL- & NCS-Rezepte mit ΔE < 0,8' },
+        { parameter: 'Farbgenauigkeit', value: 'Pantone-, RAL- & NCS-Rezepte mit hoher Chargenkonstanz' },
       ],
       sections: [
         {
@@ -1155,14 +1155,14 @@ export const SUBSTRATES: Record<SubstrateId, Record<Lang, SubstrateLocalePage>> 
         {
           heading: 'Standardglas individuell veredeln ohne teure Hüttenmindestmengen',
           paragraphs: [
-            'Eingefärbte Glasschmelzen ab Glashütte erfordern oft sechsstellige Stückzahlen. Durch industrielle Spritzlackierung und PVD auf neutralem Weißglas realisieren Marken bei STANIAX bereits ab mittelgroßen Auflagen exklusive Sondereditionen binnen 3-7 Werktagen.',
+            'Eingefärbte Glasschmelzen ab Glashütte erfordern oft sechsstellige Stückzahlen. Durch industrielle Spritzlackierung und PVD auf neutralem Weißglas realisieren Marken bei STANIAX bereits ab mittelgroßen Auflagen exklusive Sondereditionen binnen 5-10 Werktagen.',
             'Auf Wunsch schützen spezielle Masken den Gewindehals präzise vor Lackeintrag, damit Krimppumpen und Verschlüsse sauber aufsetzen. Ebenso bereiten wir glatte Mantelflächen gezielt für nachfolgenden Siebdruck, Heißfolienprägung oder Etikettierung mit hoher Haftkraft vor.',
           ],
         },
         {
           heading: 'Logistik & Palettenhandling für europäische Abfüller',
           paragraphs: [
-            'Glasflakons und schwere Spirituosenflaschen liefern Abfüller aus Polen, Deutschland und Österreich direkt auf Zwischenlagen nach Józefów. Nach der Einbrenn- bzw. UV-Vernetzung durchläuft jede Charge eine visuelle Lichtkontrolle auf Läufer, Staubeinschlüsse und exakte Spektralwerte ΔE < 0,8.',
+            'Glasflakons und schwere Spirituosenflaschen liefern Abfüller aus Polen, Deutschland und Österreich direkt auf Zwischenlagen nach Józefów. Nach der Einbrenn- bzw. UV-Vernetzung durchläuft jede Charge eine visuelle Lichtkontrolle auf Läufer, Staubeinschlüsse und exakte Spektralwerte wysokiej powtarzalności.',
             'Darüber hinaus unterziehen wir Rückstellmuster jeder Produktionscharge einem verschärften Immersionstest mit 96-prozentigem Parfümethanol, einem Kondenswassertest sowie einer Abriebprüfung für den automatisierten Karton- und Etikettierdurchlauf. Durch staubfreie Neuverpackung in Zellstoff-Gefachen oder thermoformierten Trays können die veredelten Flakons ohne Zwischenreinigung direkt in Ihre Abfülllinie eingespeist werden. Auf Wunsch realisieren unsere Lackierer mehrstufige Farbverläufe, transparente Edelstein-Lasuren, matte Soft-Feel-Haptiken oder kombinierte Gold- und Platin-PVD-Spiegelzonen mit gestochen scharfen Sichtfenstern für die Füllstandskontrolle. Für Markenhersteller und Lohnabfüller aus dem DACH-Raum bemustern wir Ihre Originalflakons kurzfristig in mehreren Farb- und Glanzabstufungen nach Pantone-, RAL- oder NCS-Vorgabe.',
           ],
         },

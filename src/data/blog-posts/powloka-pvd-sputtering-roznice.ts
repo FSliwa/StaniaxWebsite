@@ -322,7 +322,7 @@ const article: BlogArticle = {
     },
     {
       "type": "p",
-      "text": "Właściwości zależą przede wszystkim od tego, co osadzamy. Warstwa aluminium daje wysoki współczynnik odbicia: odbija ok. 88-92% promieniowania w paśmie bliskiego nadfioletu i światła widzialnego (ponad 92% odbicia kierunkowego w paśmie widzialnym dla Al 99,99% zabezpieczonego SiOx). Twarda warstwa azotku tytanu ma natomiast twardość rzędu 1800-2100 HV i chroni krawędź narzędzia."
+      "text": "Właściwości zależą przede wszystkim od tego, co osadzamy. Warstwa aluminium daje wysoki współczynnik odbicia: według literatury odbija 85-90% światła w zakresie widzialnym i bliskim nadfiolecie. Twarda warstwa azotku tytanu ma natomiast twardość rzędu 1800-2100 HV i chroni krawędź narzędzia."
     },
     {
       "type": "p",

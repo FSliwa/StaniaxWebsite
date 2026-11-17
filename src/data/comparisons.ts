@@ -138,7 +138,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Czas realizacji serii B2B',
-          optionA: '3-7 dni roboczych w komorach do Ø 1200 mm',
+          optionA: '5-10 dni roboczych w komorach wysokiej próżni (prototypy 2-3 dni)',
           optionB: '10-21 dni roboczych w zautomatyzowanych liniach wannowych',
         },
       ],
@@ -159,7 +159,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Koszt jednostkowy i podatność konstrukcyjna w małych oraz średnich seriach',
           paragraphs: [
             'Linie galwaniczne projektuje się pod wielomilionowe nakłady detali samochodowych o stałej geometrii, ponieważ utrzymanie i regeneracja wanien chemicznych wymaga ciągłego obrotu. Przy partiach od 500 do 100 000 sztuk (np. podzespoły AGD, obudowy sensorów, serie limitowane beauty) narzut na przyrządowanie galwaniczne bywa nieopłacalny.',
-            'W technologii PVD w Józefowie stosujemy obrotowe zawieszki planetarne w komorach o średnicy do 1200 mm. Pozwala to ekonomicznie powlekać zarówno próbki prototypowe do akceptacji jakościowej, jak i cykliczne partie kontraktowe bez ryzyka pękania powłoki na zatrzaskach montażowych.',
+            'W technologii PVD w Józefowie stosujemy obrotowe zawieszki planetarne w przemysłowych komorach wysokiej próżni. Pozwala to ekonomicznie powlekać zarówno próbki prototypowe do akceptacji jakościowej, jak i cykliczne partie kontraktowe bez ryzyka pękania powłoki na zatrzaskach montażowych.',
           ],
         },
         {
@@ -189,7 +189,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Czy w PVD można uzyskać kolor ciemnego chromu lub 24k złota na plastiku?',
-          a: 'Tak. Barwnik wprowadza się do wierzchniej warstwy lakieru ochronnego UV po procesie naparowania aluminium, co daje powtarzalną barwę przy tolerancji ΔE poniżej 0,8.',
+          a: 'Tak. Barwnik wprowadza się do wierzchniej warstwy lakieru ochronnego UV po procesie naparowania aluminium, co daje wysoką powtarzalność barwy i połysku między kolejnymi partiami.',
         },
         {
           q: 'Jaka jest minimalna partia B2B do metalizacji próżniowej w STANIAX?',
@@ -257,7 +257,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Lead Time (B2B Batches)',
-          optionA: '3-7 working days in Ø 1200 mm planetary vacuum chambers',
+          optionA: '5-10 business days in planetary high-vacuum chambers (2-3 days express)',
           optionB: '10-21 working days across automated chemical rack lines',
         },
       ],
@@ -278,7 +278,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Unit Economics for Mid-Volume and High-SKU Production Runs',
           paragraphs: [
             'Rack-based electroplating lines amortize high chemical maintenance overheads only when running massive homogeneous batches. Changing colors or small batch fixtures becomes cost-prohibitive.',
-            'Planetary jigging inside STANIAX Ø 1200 mm vacuum chambers allows rapid batch turnarounds from prototype tooling approvals up to tens of thousands of production units per month with flexible tinting directly in the UV topcoat.',
+            'Planetary jigging inside STANIAX industrial high-vacuum chambers allows rapid batch turnarounds from prototype tooling approvals up to tens of thousands of production units per month with flexible tinting directly in the UV topcoat.',
           ],
         },
         {
@@ -376,7 +376,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Durchlaufzeit B2B-Serien',
-          optionA: '3-7 Werktage in Vakuumkammern bis Ø 1200 mm',
+          optionA: '5-10 Werktage in Hochvakuumkammern (Express-Muster 2-3 Tage)',
           optionB: '10-21 Werktage in Durchlauf-Galvanikstraßen',
         },
       ],
@@ -390,14 +390,14 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           bullets: [
             'Keine Spannungsrisskorrosion an dünnwandigen Spritzgussteilen',
             '96-%-Ethanolbeständigkeit des UV-Decklacks für Parfümflakons',
-            'Konstante Farbsteuerung (ΔE < 0,8) bei Gold- und Chromserien',
+            'Hohe Farb- und Glanzgradkonstanz bei Gold- und Chromserien',
           ],
         },
         {
           heading: 'Wirtschaftlichkeit bei Klein-, Mittel- und Variantenserien',
           paragraphs: [
             'Galvanikbäder verlangen hohe Mindestdurchsätze und teure Gestellanpassungen pro Teilgeometrie. Bei Losgrößen von einigen Hundert bis 100 000 Stück pro Jahr verursachen Rüstkosten oft unrentable Stückpreise.',
-            'Planetenaufnahmen in Ø 1200 mm Vakuumkammern ermöglichen bei STANIAX wirtschaftliche Abmusterungen ebenso wie termingerechte Just-in-Time-Serienlieferungen nach Deutschland, Österreich und in die Schweiz.',
+            'Planetenaufnahmen in industriellen Hochvakuumkammern ermöglichen bei STANIAX wirtschaftliche Abmusterungen ebenso wie termingerechte Just-in-Time-Serienlieferungen nach Deutschland, Österreich und in die Schweiz.',
           ],
         },
         {
@@ -431,7 +431,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Wie schnell liefert STANIAX Serienaufträge nach Deutschland?',
-          a: 'Die Produktionszeit beträgt 3-7 Werktage; der palettierte Rückversand in den DACH-Raum dauert je nach Region weitere 2-3 Werktage.',
+          a: 'Die Produktionszeit beträgt 5-10 Werktage (Express-Muster 2-3 Werktage); der palettierte Rückversand in den DACH-Raum dauert je nach Region weitere 2-3 Werktage.',
         },
         {
           q: 'Können Musterteile vor der Serienfreigabe bemustert werden?',
@@ -488,7 +488,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Kontrola jakości i odpad',
-          optionA: 'Zamknięty cykl z tolerancją połysku >92% oraz ΔE < 0,8',
+          optionA: 'Zamknięty cykl próżniowy o lustrzanym połysku i wysokiej powtarzalności',
           optionB: 'Wysoka zależność od operatora i wilgotności powietrza (duży odsetek poprawek)',
         },
         {
@@ -507,7 +507,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           bullets: [
             'Brak żółknięcia srebra i brak rozpuszczania warstwy pod wpływem ciepła lampy',
             'Współczynnik odbicia kierunkowego przekraczający 92%',
-            'Bezpieczna hermetyzacja opcjonalną warstwą tlenków krzemu SiOx',
+            'Trwałe zabezpieczenie napylonego metalu bezbarwną warstwą ochronną UV',
           ],
         },
         {
@@ -520,8 +520,8 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         {
           heading: 'Kiedy ma zastosowanie chromowanie natryskowe?',
           paragraphs: [
-            'Jedynym racjonalnym obszarem dla srebrzenia natryskowego pozostają gabaryty wykraczające poza średnicę komór próżniowych (>1,2 m), np. jednoczęściowe zderzaki tuningowe, rzeźby wystawiennicze lub wielkoformatowe elementy architektoniczne o pojedynczym nakładzie.',
-            'Wszystkie komponenty mieszczące się w komorze do Ø 1200 mm - od detali samochodowych po kapsle i obudowy elektroniki - zyskują na trwałości oraz cenie dzięki metalizacji PVD.',
+            'Jedynym racjonalnym obszarem dla srebrzenia natryskowego pozostają gabaryty wykraczające poza gabaryty komór próżniowych, np. jednoczęściowe zderzaki tuningowe, rzeźby wystawiennicze lub wielkoformatowe elementy architektoniczne o pojedynczym nakładzie.',
+            'Wszystkie komponenty mieszczące się w naszych komorach wysokiej próżni - od detali samochodowych po kapsle i obudowy elektroniki - zyskują na trwałości oraz cenie dzięki metalizacji PVD.',
           ],
         },
       ],
@@ -533,7 +533,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       ],
       whenChooseBTitle: 'Rozważ natrysk srebra tylko, gdy:',
       whenChooseB: [
-        'Element ma gabaryty przekraczające 1200 mm (np. duży zderzak w jednym kawałku).',
+        'Element ma skrajnie duży gabaryt przekraczający wymiar komory próżniowej (np. cały zderzak).',
         'Jest to pojedyncza sztuka ekspozycyjna bez obciążeń termicznych.',
         'Tolerujesz manualną zmienność odcienia przy krawędziach.',
       ],
@@ -544,7 +544,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Jaka jest maksymalna wielkość detalu do komory PVD w STANIAX?',
-          a: 'Dysponujemy komorami próżniowymi o średnicy roboczej do 1200 mm - zapraszamy do przesłania rysunku STEP/DXF lub wymiarów gabarytowych.',
+          a: 'Dobieramy oprzyrządowanie komory indywidualnie pod geometrię detalu - zapraszamy do przesłania rysunku STEP/DXF lub wymiarów gabarytowych.',
         },
         {
           q: 'Dlaczego niektóre warsztaty malują odbłyśniki chromem w sprayu zamiast PVD?',
@@ -552,7 +552,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Czy PVD wymaga zabezpieczenia dodatkowym lakierem wierzchnim?',
-          a: 'Na detalach dekoracyjnych (kapsle, plastiki, szkło) zawsze nakładamy twardy lakier UV lub 2K PU; natomiast na optyce wewnętrznej reflektorów stosuje się cienką pasywację SiOx, aby nie tłumić odbicia światła.',
+          a: 'Na detalach dekoracyjnych (kapsle, plastiki, szkło) zawsze nakładamy twardy lakier UV lub 2K PU; natomiast na optyce wewnętrznej reflektorów stosujemy cienkowarstwowe zabezpieczenie ochronne dobrane tak, aby nie tłumić odbicia światła.',
         },
       ],
       relatedLinks: [
@@ -587,7 +587,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'UV & Tarnish Resistance',
-          optionA: 'Color-stable with HALS-stabilized UV clearcoats (ΔE < 0.8)',
+          optionA: 'Color-stable with HALS-stabilized UV clearcoats and high repeatability',
           optionB: 'High tendency toward yellow tinting and silver-sulfide darkening',
         },
         {
@@ -597,7 +597,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Uniformity in Deep Recesses',
-          optionA: 'Uniform planetary rotation inside Ø 1200 mm vacuum chamber',
+          optionA: 'Uniform planetary rotation inside industrial high-vacuum chamber',
           optionB: 'Prone to runs, DI-water stains, and shadowed corners',
         },
         {
@@ -616,12 +616,12 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Why Spray-On Chrome Fails Inside Xenon and H7 Headlamp Projectors',
           paragraphs: [
             'Projector bowls around H7 halogen or D1S/D3S HID burners routinely reach 150-190 °C alongside intense internal UV exposure. Thick organic 2K automotive clearcoats used in spray-silver systems outgas and yellow rapidly under projector heat.',
-            'At STANIAX, headlight reflectors undergo thermal stripper cleaning, specialized high-temp primer curing, and direct aluminum vacuum deposition capped with protective SiOx passivation - restoring >92% light reflection with zero optical distortion.',
+            'At STANIAX, headlight reflectors undergo thermal stripper cleaning, specialized high-temp primer curing, and direct aluminum vacuum deposition capped with a thin protective topcoat - restoring >92% light reflection with zero optical distortion.',
           ],
           bullets: [
             'No yellow amber shift or clearcoat peeling under continuous bulb heat',
             'Direct light reflection >92% verified on rebuilt OEM projectors',
-            '24-month warranty backed by industrial chamber control',
+            '3-5 year coating durability backed by industrial quality control',
           ],
         },
         {
@@ -640,7 +640,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       ],
       whenChooseBTitle: 'Spray chrome is only practical when:',
       whenChooseB: [
-        'A display sculpture or oversized body kit exceeds 1,200 mm dimensions.',
+        'An oversized architectural display or full bumper exceeds vacuum chamber dimensions.',
         'The part is strictly decorative indoors with zero heat load.',
         'Only a single prototype prop needs temporary silver sheen.',
       ],
@@ -655,7 +655,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'What is STANIAX maximum chamber size?',
-          a: 'Our industrial chambers accommodate racks up to Ø 1200 mm, covering automotive grilles, luminaires, and high-density planetary packaging fixtures.',
+          a: 'Our industrial rotary chambers accommodate everything from small closures to automotive trims and luminaire reflectors - send us part dimensions for fixture verification.',
         },
         {
           q: 'Can spray-chromed parts that turned yellow be stripped and re-coated with PVD?',
@@ -704,7 +704,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Reproduzierbarkeit',
-          optionA: 'Geregelte Kammerprozesse mit ΔE < 0,8 in Planetenkörben',
+          optionA: 'Geregelte Hochvakuumprozesse mit hoher Chargenkonstanz',
           optionB: 'Stark abhängig von Luftfeuchtigkeit und Handführung',
         },
         {
@@ -718,19 +718,19 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Warum Spritzchrom im Xenon- oder H7-Scheinwerfer versagt',
           paragraphs: [
             'Im Brennraum moderner Projektorlinsen herrschen dauerhaft Temperaturen über 150 °C. Zweikomponenten-Klarlacke eines Spritzchrom-Aufbaus beginnen unter dieser thermischen Last zu vergilben und beeinträchtigen die Hell-Dunkel-Grenze.',
-            'Bei STANIAX wird der Reflektor entlackt, mit hitzebeständigem Spezialprimer egalisiert, im Hochvakuum mit 99,99 % Aluminium bedampft und abschließend mit SiOx passiviert - für dauerhafte >92 % Lichtreflexion.',
+            'Bei STANIAX wird der Reflektor entlackt, mit hitzebeständigem Spezialprimer egalisiert, im Hochvakuum mit 99,99 % Aluminium bedampft und abschließend mit einer dünnen Schutzschicht versiegelt - für dauerhafte >92 % Lichtreflexion.',
           ],
           bullets: [
             'Kein Ausgasen und kein Anlaufen der Streuscheibe von innen',
             'Konstante Bündelung des Lichtkegels nach HU/TÜV-Vorgaben',
-            '24 Monate Gewährleistung auf PVD-Neuverspiegelung',
+            '3 bis 5 Jahre Haltbarkeit der PVD-Neuverspiegelung',
           ],
         },
         {
           heading: 'Prozesssicherheit für Verpackungen und Sichtblenden',
           paragraphs: [
             'Kappen und Flakons der Kosmetikindustrie verlangen null Läufer in Feingewinden und reproduzierbaren Glanz (>92 GU). Im Vakuumprozess schließen UV-Lacke die Aluminiumschicht staubfrei und wischfest ab - ganz ohne DI-Wasserflecken.',
-            'Da die Bedampfung im geschlossenen Hochvakuum von 10⁻⁴ mbar erfolgt, entstehen keinerlei chemische Silberniederschläge in Hinterschneidungen oder Rastnasen. Jede Charge durchläuft im Werk Józefów die Gitterschnittprüfung nach ISO 2409 (Klasse Gt 0) sowie die Farbortkontrolle ΔE < 0,8 für Gold-, Kupfer- und Rauchchrom-Nuancen.',
+            'Da die Bedampfung im geschlossenen Hochvakuum von 10⁻⁴ mbar erfolgt, entstehen keinerlei chemische Silberniederschläge in Hinterschneidungen oder Rastnasen. Jede Charge durchläuft im Werk Józefów die Gitterschnittprüfung nach ISO 2409 (Klasse Gt 0) sowie die strenge Referenzmusterkontrolle für Gold-, Kupfer- und Rauchchrom-Nuancen.',
           ],
         },
       ],
@@ -738,11 +738,11 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       whenChooseA: [
         'Reflektoren, Leuchten oder hitzebelastete Kunststoffteile beschichtet werden.',
         'Konstante Serienqualität ohne Vergilben und mit kurzen Taktzeiten zählt.',
-        'Bauteile unter 1200 mm Kammerdurchmesser liegen.',
+        'Bauteile für die Aufnahme auf rotierenden Vakuumgestellen ausgelegt sind.',
       ],
       whenChooseBTitle: 'Spritzchrom nur erwägen, wenn:',
       whenChooseB: [
-        'Großskulpturen >1,2 m nicht in eine Vakuumkammer passen.',
+        'Übergroße Großskulpturen das Volumen einer Vakuumkammer überschreiten.',
         'Es sich um kalte Innenraum-Einzelstücke ohne Langzeitanforderung handelt.',
       ],
       faq: [
@@ -752,7 +752,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Welche Maximalmaße fasst Ihre Vakuumkammer in Józefów?',
-          a: 'Unsere Industrieanlagen verarbeiten Gestelle bis Ø 1200 mm - ideal sowohl für Einzelelemente als auch für Serien.',
+          a: 'Unsere Hochvakuumanlagen verarbeiten sowohl kompakte Kleinteile auf Drehgestellen als auch größere Gehäuse und Reflektoren - senden Sie uns Ihre Bauteilmaße.',
         },
         {
           q: 'Können verbrannte oder fehlversuchte Reflektoren gerettet werden?',
@@ -793,7 +793,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       comparisonRows: [
         {
           parameter: 'Koszt całkowity na jedną lampę',
-          optionA: '150-250 zł (sam odbłyśnik) lub 350-550 zł komplet z rozklejeniem',
+          optionA: 'od 150-250 zł (dostarczony odbłyśnik w STANIAX); ok. 350-700 zł pełna naprawa z warsztatem',
           optionB: '600-1 800 zł zamiennik lub 3 500-9 000 zł nowy reflektor ASO',
         },
         {
@@ -803,7 +803,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Współczynnik odbicia światła',
-          optionA: '>92% po próżniowym naparowaniu Al 99,99% z pasywacją SiOx',
+          optionA: 'Wysoki współczynnik odbicia po próżniowym napyleniu Al z warstwą ochronną UV',
           optionB: 'Zależny od partii (75-85%), cienka warstwa w tanich kopiach',
         },
         {
@@ -813,7 +813,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Szczelność klosza i odporność na parowanie',
-          optionA: 'Testy szczelności oraz profesjonalny klej butylowy przy składaniu',
+          optionA: 'Zachowanie fabrycznej obudowy OEM po ponownym uszczelnieniu w warsztacie',
           optionB: 'Cienkie uszczelki odlewane niskim kosztem, częsta kondensacja pary',
         },
         {
@@ -839,7 +839,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Co z lampami używanymi z demontażu?',
           paragraphs: [
             'Zakup używanego reflektora z rynku wtórnego obarczony jest ukrytą wadą: po 8-12 latach eksploatacji niemal każdy odbłyśnik z soczewką H7 lub Bi-Xenon jest już w 50-80% zmatowiały nad ogniskiem żarówki. Kupując „igłę z anglii lub allegro”, kierowca nierzadko płaci 800 zł za identycznie wypalony element albo za lampę z angielskim profilem asymetrii świecącą w lewo.',
-            'Regeneracja własnych oryginalnych lamp w zakładzie STANIAX z użyciem czystego aluminium próżniowego rozwiązuje problem u źródła i obejmuje pisemną gwarancję na 24 miesiące.',
+            'Regeneracja oryginalnych odbłyśników w zakładzie STANIAX metodą próżniową rozwiązuje problem u źródła i zapewnia trwałość efektu do 5 lat (3-5 lat eksploatacji).',
           ],
         },
         {
@@ -868,11 +868,11 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Jak długo trwa regeneracja z wysyłką kurierską do STANIAX?',
-          a: 'Sam proces w naszym zakładzie w Józefowie zajmuje standardowo 2-4 dni robocze; z wysyłką w obie strony kierowca lub warsztat zamyka temat w tydzień.',
+          a: 'Proces regeneracji w naszym zakładzie w Józefowie zajmuje standardowo 5-7 dni roboczych dla zleceń indywidualnych i warsztatowych z całej Polski.',
         },
         {
           q: 'Czy regenerujecie odbłyśniki również przy zachowaniu klosza w całości?',
-          a: 'Tak - obsługujemy zarówno same wyjęte odbłyśniki (najtaniej od 150 zł), jak i całe kompletne reflektory rozklejane i uszczelniane przez warsztat partnerski.',
+          a: 'W STANIAX wykonujemy metalizację i powłoki na dostarczonych odbłyśnikach (od 150 zł/szt.), natomiast wyjęcie lampy z auta i rozklejenie obudowy realizuje wyspecjalizowany warsztat samochodowy.',
         },
         {
           q: 'Czy odbłyśnik po metalizacji próżniowej wytrzyma mocne żarówki H7 i D1S?',
@@ -902,7 +902,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         'PVD vacuum re-aluminizing of your original OEM reflector restores >92% directional light reflectance while retaining factory ECE beam precision and adaptive AFS actuators at 60-80% below replacement cost. Budget aftermarket lamps frequently exhibit uneven cutoff patterns, rapid outer-lens hazing, and early condensation.',
       verdictTitle: 'Optical & Financial Verdict',
       verdictSummary:
-        'Keeping genuine OEM housings with freshly metallized reflectors and sealed electronics guarantees clean MOT/inspection cutoffs, exact body panel fitment, and 24-month chamber warranty.',
+        'Keeping genuine OEM housings with freshly metallized reflectors and sealed electronics guarantees clean MOT/inspection cutoffs, exact body panel fitment, and 3-5 year PVD coating durability.',
       comparisonRows: [
         {
           parameter: 'Cost per Headlight',
@@ -916,7 +916,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Reflective Coating Quality',
-          optionA: '99.99% vacuum aluminum (>92% R) + protective SiOx barrier',
+          optionA: 'High-vacuum PVD aluminum + protective UV barrier',
           optionB: 'Thinner vapor coats without long-term thermal top stabilization',
         },
         {
@@ -968,7 +968,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'How fast can European workshops receive returned bowls?',
-          a: 'Production turnaround in Józefów is 2-4 working days, plus 2-3 days DPD/DHL transit across the EU.',
+          a: 'Standard production turnaround in Józefów is 5-7 business days, plus 2-3 days DPD/DHL courier transit across the EU.',
         },
         {
           q: 'Do you handle dismantled reflectors shipped directly?',
@@ -1002,7 +1002,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         'Das Neu-Bedampfen des Original-Reflektors per PVD stellt über 92 % Lichtreflexion samt exakter ECE-Hell-Dunkel-Grenze und voller Kurvenlicht-Funktion (AFS) wieder her - bei 60-80 % Ersparnis gegenüber Neuteilen. Günstige Nachbauten zeigen häufig Streulicht, fehlende Steuergeräte und vergilbende Scheiben.',
       verdictTitle: 'Technisches Fazit für TÜV/HU & Budget',
       verdictSummary:
-        'Wer das originale Marken-Gehäuse bewahrt und den Reflektor im Vakuum neu verspiegelt, erhält werkstreue Straßenausleuchtung, perfekte Spaltmaße und volle 24-Monats-Garantie.',
+        'Wer das originale Marken-Gehäuse bewahrt und den Reflektor im Vakuum neu verspiegelt, erhält werkstreue Straßenausleuchtung, perfekte Spaltmaße und 3-5 Jahre Haltbarkeit.',
       comparisonRows: [
         {
           parameter: 'Kosten pro Scheinwerfer',
@@ -1016,7 +1016,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Beschichtungshaltbarkeit',
-          optionA: 'Reinaluminium 99,99 % (>92 % Reflexion) + SiOx-Schutz',
+          optionA: 'PVD-Vakuumaluminium + hitzefeste UV-Schutzschicht',
           optionB: 'Oft dünne Aufdampfschichten ohne robuste Schutzversiegelung',
         },
         {
@@ -1069,7 +1069,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Wie läuft der Postversand aus Deutschland nach Józefów ab?',
-          a: 'Senden Sie gut gepolsterte ausgebaute Reflektoren per DHL/DPD an unser Werk; nach 2-4 Werktagen Produktion treten sie den versicherten Rückweg an.',
+          a: 'Senden Sie gut gepolsterte ausgebaute Reflektoren per DHL/DPD an unser Werk; nach 5-7 Werktagen Produktion treten sie den versicherten Rückweg an.',
         },
         {
           q: 'Hält die Beschichtung 55W-Halogen und Xenon-Hitze aus?',
@@ -1077,7 +1077,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Können verchromte Reflektoren von innen sauber bleiben?',
-          a: 'Die SiOx-Schutzschicht bewahrt die Spiegelfläche vor Feuchtigkeit und Kondensatflecken.',
+          a: 'Ja, die transparente Schutzschicht bewahrt die aufgedampfte Spiegelfläche dauerhaft vor Feuchtigkeit, Oxidation und Kondensatflecken im Gehäuse.',
         },
       ],
       relatedLinks: [
@@ -1120,7 +1120,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Technologia trwałej naprawy',
-          optionA: 'Próżniowe naparowanie Al 99,99% + SiOx w komorze PVD',
+          optionA: 'Próżniowe napylanie aluminium PVD + warstwa ochronna UV',
           optionB: 'Szlifowanie gradacyjne + twardy lakier UV lub natrysk poliuretanu',
         },
         {
@@ -1174,7 +1174,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           q: 'Ile kosztuje kompleksowa regeneracja: odbłyśnik PVD + lakierowanie klosza UV?',
-          a: 'Zależy od konstrukcji lampy (klej butylowy vs twardy poliuretanowy). Aktualne widełki znajdziesz w naszym dedykowanym kalkulatorze i cenniku regeneracji reflektorów.',
+          a: 'Metalizacja dostarczonego odbłyśnika w STANIAX zaczyna się od 150 zł/szt., natomiast pełna regeneracja z demontażem i rozklejeniem w warsztacie to rynkowo ok. 350-700 zł za lampę.',
         },
         {
           q: 'Czy po regeneracji odbłyśnika trzeba ustawiać światła na stacji diagnostycznej?',
@@ -1222,7 +1222,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Proper Repair Method',
-          optionA: '99.99% aluminum PVD deposition + SiOx inside vacuum chamber',
+          optionA: 'High-vacuum aluminum PVD deposition + protective UV coat',
           optionB: 'Precision sanding followed by crosslinked UV-cured protective clearcoat',
         },
         {
@@ -1317,7 +1317,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
         },
         {
           parameter: 'Fachgerechte Instandsetzung',
-          optionA: 'Vakuum-Aluminium 99,99 % + SiOx in der STANIAX-Kammer',
+          optionA: 'PVD-Vakuumaluminium + Schutzschicht in der STANIAX-Kammer',
           optionB: 'Schliff + echter UV-härtender Schutzlack (keine bloße Politur)',
         },
         {
@@ -1343,7 +1343,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
           heading: 'Warum bloße Paste ohne UV-Klarlack nicht ausreicht',
           paragraphs: [
             'Beim Nassschleifen wird die werkseitige UV-Hartbeschichtung abgetragen. Ohne industrielle UV-Klarlack-Versiegelung oxidiert rohes Polycarbonat unter Sonneneinstrahlung rapide nach.',
-            'Erst das Zusammenspiel aus innerer PVD-Aluminiumbedampfung (99,99 % Al + SiOx-Topcoat) und äußerer UV-Hardcoat-Lackierung stellt sowohl den Lichtstrom in Lumen als auch die Steinschlag- und Witterungsbeständigkeit moderner Projektionsscheinwerfer für viele Jahre wieder her. Werkstätten und Fahrzeughalter erhalten so volle Nachtsicht und bestehende HU-Werte ohne den Kauf teurer Originalersatzteile.',
+            'Erst das Zusammenspiel aus innerer PVD-Aluminiumbedampfung (mit Schutz-Topcoat) und äußerer UV-Hardcoat-Lackierung stellt sowohl den Lichtstrom in Lumen als auch die Steinschlag- und Witterungsbeständigkeit moderner Projektionsscheinwerfer für viele Jahre wieder her. Werkstätten und Fahrzeughalter erhalten so volle Nachtsicht und bestehende HU-Werte ohne den Kauf teurer Originalersatzteile.',
           ],
         },
       ],
@@ -1351,7 +1351,7 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
       whenChooseA: [
         'Trotz klarer Frontscheibe kaum Licht auf nassem Asphalt ankommt.',
         'Xenon- oder H7-Linsen von innen milchig erscheinen.',
-        'Der TÜV/HU eine zu geringe Beleuchtungsstärke bemängelt.',
+        'Der TÜV/HU eine zu geringe Beleuchtungsstärke bemängelt und der Reflektor sichtbar gealtert ist.',
       ],
       whenChooseBTitle: 'Außen-UV-Lackierung genügt, wenn:',
       whenChooseB: [
