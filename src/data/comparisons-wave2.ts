@@ -59,7 +59,7 @@ export const COMPARISONS_WAVE2: Record<Wave2ComparisonId, Record<Lang, Compariso
         {
           heading: 'Dlaczego proszkowy „chrom” nigdy nie daje głębi lustra PVD?',
           paragraphs: [
-            'Lakiery proszkowe sprzedawane jako „chrom” zawierają płatki aluminium zatopione w grubej żywicy poliestrowej lub epoksydowej. Po wypaleniu w 190 °C i nałożeniu bezbarwnego topcoatu płatki ulegają częściowej dezorientacji, przez co powierzchnia przypomina polerowane srebro lub jasny szary metalik, a nie lustro.',
+            'Osoby wyszukujące frazę „malowanie proszkowe chrom” zwykle oczekują efektu lustra. Lakiery proszkowe sprzedawane jako „chrom” zawierają jednak płatki aluminium zatopione w grubej żywicy poliestrowej lub epoksydowej. Po wypaleniu w 190 °C i nałożeniu bezbarwnego topcoatu płatki ulegają częściowej dezorientacji, przez co powierzchnia przypomina polerowane srebro lub jasny szary metalik, a nie lustro.',
             'W komorach wysokiej próżni STANIAX napylanie aluminium odbywa się w fazie gazowej przy ciśnieniu 10⁻⁴ mbar na idealnie wypoziomowany podkład UV. Warstwa metalu o grubości 80-120 nm tworzy ciągłą taflę zwierciadlaną, którą można zabarwić na chrom, 24-karatowe złoto, miedź lub tytan z wysoką powtarzalnością odcienia.',
           ],
           bullets: [

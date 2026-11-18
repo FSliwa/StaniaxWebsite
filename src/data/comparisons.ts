@@ -1154,6 +1154,13 @@ export const COMPARISONS: Record<ComparisonId, Record<Lang, ComparisonLocalePage
             'Pozostawienie gołego poliwęglanu jedynie nawoskowanego skutkuje szybkim ponownym zażółceniem pod wpływem słońca. W profesjonalnej regeneracji zewnętrznej w STANIAX stosuje się natryskowe lakierowanie bezbarwnym systemem UV o wysokiej odporności na ścieranie i chemię z myjni.',
           ],
         },
+        {
+          heading: 'Polerowanie lamp samochodowych, renowacja i regeneracja reflektorów samochodowych - co obejmuje każda usługa?',
+          paragraphs: [
+            'Polerowanie lamp samochodowych i polerowanie reflektorów samochodowych dotyczy wyłącznie zewnętrznego klosza: usuwa zmatowienie i żółty nalot, a koszt zaczyna się od ok. 150-300 zł. Trwały efekt daje dopiero zabezpieczenie klosza lakierem z filtrem UV, ponieważ odsłonięty poliwęglan ponownie matowieje.',
+            'Renowacja lamp samochodowych i pełna regeneracja reflektorów samochodowych obejmuje także wnętrze lampy: demontaż z auta, rozklejenie obudowy i czyszczenie reflektorów samochodowych wykonuje wyspecjalizowany warsztat, a STANIAX odnawia dostarczone odbłyśniki metodą metalizacji próżniowej PVD. Łączny koszt takiej regeneracji lamp samochodowych wynosi zwykle 350-700 zł za sztukę, a czas pracy w zakładzie to 5-7 dni roboczych.',
+          ],
+        },
       ],
       whenChooseATitle: 'Potrzebujesz regeneracji PVD odbłyśnika, gdy:',
       whenChooseA: [

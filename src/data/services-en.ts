@@ -477,7 +477,7 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
           label: '03. 99.99% Aluminum PVD',
           badge: 'HIGH-VACUUM CHAMBER',
           title: 'Vacuum-Deposited Pure Aluminum Layer (50-120 nm)',
-          description: 'Deposited at 10⁻⁴ mbar high vacuum to provide mirror chrome brilliance, 98% light reflectance, and EMI/RFI shielding conductivity.',
+          description: 'Deposited at 10⁻⁴ mbar high vacuum to provide mirror chrome brilliance, >95% light reflectance, and EMI/RFI shielding conductivity.',
           specs: [
             { label: 'Metal film thickness', value: '50 - 120 nm (0.05 - 0.12 µm)' },
             { label: 'Metal purity', value: '99.99% vacuum-grade aluminum' },
@@ -1315,6 +1315,10 @@ export const SERVICES_EN: Record<ServiceId, ServiceLocaleContent> = {
         {
           q: 'Can you paint glass-fiber reinforced plastics like PA6 + GF30?',
           a: 'Yes. Glass-filled polyamides (PA+GF) are hygroscopic and have protruding micro-fibers. We pre-bake them to outgas moisture, apply a high-build smoothing primer to bury the fibers, and finish with a smooth or textured top coat.',
+        },
+        {
+          q: 'Is aerosol paint for plastic as durable as industrial plastic parts painting?',
+          a: 'Retail aerosol paint for plastic or a typical spray paint for plastic works for small DIY touch-ups, but it lacks controlled surface preparation, adhesion promoters, and curing. For serial parts, STANIAX applies UV, waterborne, or solvent-borne systems in a spray booth and verifies adhesion per ISO 2409, giving a uniform finish across the whole batch.',
         },
       ],
     },

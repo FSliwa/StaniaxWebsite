@@ -653,7 +653,14 @@ export const LOCAL_WARSAW_PAGE: Record<Lang, LocalHubLocalePage> = {
       {
         heading: 'Współpraca B2B z warsztatami z Warszawy, Mazowsza i powiatu otwockiego',
         paragraphs: [
-          'Dla serwisów samochodowych, zakładów blacharsko-lakierniczych i specjalistów od retrofitów oświetlenia z aglomeracji warszawskiej prowadzimy obsługę cykliczną partii tygodniowych. Zamiast przetrzymywać klienta po 10 dni roboczych, odbłyśniki wracają z Józefowa standardowo w 5-7 dni roboczych (w trybie ekspresowym dla stałych serii 2-3 dni) z fabrycznym lustrem PVD i trwałością do 5 lat.',
+          'Dla serwisów samochodowych, zakładów blacharsko-lakierniczych i specjalistów od retrofitów oświetlenia z aglomeracji warszawskiej prowadzimy obsługę cykliczną partii tygodniowych. Odbłyśniki wracają z Józefowa standardowo w 5-7 dni roboczych z odnowionym lustrem PVD i trwałością efektu do 5 lat.',
+        ],
+      },
+      {
+        heading: 'Naprawa lamp samochodowych i czyszczenie reflektorów w Warszawie - kto wykonuje który etap?',
+        paragraphs: [
+          'Kompleksowa naprawa lamp samochodowych i naprawa reflektorów samochodowych obejmuje demontaż lampy z auta, rozklejenie obudowy, czyszczenie lamp samochodowych od wewnątrz, regenerację odbłyśników, ewentualną wymianę uszczelek i ponowne sklejenie. Prace mechaniczne przy lampie wykonuje wyspecjalizowany warsztat, a zakład STANIAX w Józefowie odpowiada za część powierzchniową: metalizację próżniową odbłyśników i powłoki ochronne UV.',
+          'Dzięki takiemu podziałowi renowacja lamp samochodowych dla klientów z Warszawy i Otwocka kosztuje zwykle 350-700 zł za lampę (sam dostarczony odbłyśnik od 150 zł/szt.), czyli wielokrotnie mniej niż nowy reflektor. Samo czyszczenie reflektorów samochodowych i polerowanie klosza poprawia przejrzystość, ale nie przywraca jasności, jeśli odbłyśnik za soczewką jest wypalony.',
         ],
       },
     ],
