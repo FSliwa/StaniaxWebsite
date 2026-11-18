@@ -1334,6 +1334,42 @@ export function ServicePage({ serviceId, lang = 'pl' }: ServicePageProps) {
                     </span>
                     <ArrowRight weight="bold" className="h-4 w-4" />
                   </ShimmerButton>
+                  <div className="pt-1 text-center text-xs text-slate-400">
+                    {lang === 'en' ? (
+                      <>
+                        Data Controller: STANIAX Sp. z o.o. Details:{' '}
+                        <Link
+                          to="/en/privacy-policy"
+                          className="underline hover:text-white"
+                        >
+                          Privacy Policy (GDPR)
+                        </Link>
+                        .
+                      </>
+                    ) : lang === 'de' ? (
+                      <>
+                        Verantwortlicher: STANIAX Sp. z o.o. Details:{' '}
+                        <Link
+                          to="/de/datenschutz"
+                          className="underline hover:text-white"
+                        >
+                          Datenschutzerklärung
+                        </Link>
+                        .
+                      </>
+                    ) : (
+                      <>
+                        Administratorem danych jest STANIAX Sp. z o.o. Szczegóły:{' '}
+                        <Link
+                          to="/polityka-prywatnosci"
+                          className="underline hover:text-white"
+                        >
+                          Polityka prywatności RODO
+                        </Link>
+                        .
+                      </>
+                    )}
+                  </div>
                 </form>
               </div>
             </div>

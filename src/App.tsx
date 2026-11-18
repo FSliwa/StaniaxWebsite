@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import React, { Suspense, lazy, useEffect } from 'react'
 import { ScrollProgress } from './components/ui/ScrollProgress'
+import { CookieBanner } from './components/CookieBanner'
 import { SERVICE_ORDER, SERVICE_SLUGS } from './data/services'
 import { COMPARISON_ORDER, COMPARISON_SLUGS } from './data/comparisons'
 import { SUBSTRATE_ORDER, SUBSTRATE_SLUGS } from './data/substrates'
@@ -162,6 +163,7 @@ function App() {
           <Route path="*" element={<NotFoundPage lang={detectedLang} />} />
         </Routes>
       </Suspense>
+      <CookieBanner lang={detectedLang} />
     </>
   )
 }

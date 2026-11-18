@@ -23,7 +23,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CookieBanner } from "@/components/CookieBanner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { VideoGalleryTransition } from "@/components/VideoGalleryTransition";
@@ -2950,6 +2949,42 @@ function HomePage({ lang = "pl" }: HomePageProps) {
                         : t(lang, "wyslijZapytanie")}
                     </Button>
                   </div>
+                  <div className="mt-3 text-right text-xs text-slate-500">
+                    {lang === "en" ? (
+                      <>
+                        Data Controller: STANIAX Sp. z o.o. Details:{" "}
+                        <Link
+                          to="/en/privacy-policy"
+                          className="underline hover:text-slate-800"
+                        >
+                          Privacy Policy (GDPR)
+                        </Link>
+                        .
+                      </>
+                    ) : lang === "de" ? (
+                      <>
+                        Verantwortlicher: STANIAX Sp. z o.o. Details:{" "}
+                        <Link
+                          to="/de/datenschutz"
+                          className="underline hover:text-slate-800"
+                        >
+                          Datenschutzerklärung
+                        </Link>
+                        .
+                      </>
+                    ) : (
+                      <>
+                        Administratorem danych jest STANIAX Sp. z o.o. Szczegóły:{" "}
+                        <Link
+                          to="/polityka-prywatnosci"
+                          className="underline hover:text-slate-800"
+                        >
+                          Polityka prywatności RODO
+                        </Link>
+                        .
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -3247,8 +3282,6 @@ function HomePage({ lang = "pl" }: HomePageProps) {
             <BigFooter lang={lang} />
           </Suspense>
         </section>
-
-        <CookieBanner lang={lang} />
 
         {/* Mobile Floating CTA Button */}
         <button

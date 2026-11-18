@@ -5,6 +5,7 @@ import { applySeoHead } from "@/lib/seo";
 import { SiteHeader } from '@/components/SiteHeader'
 import { BigFooter } from '@/components/BigFooter'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { openCookieSettings } from '@/components/CookieBanner'
 import { LEGAL_DATA } from '@/data/legal'
 
 interface LegalPageProps {
@@ -70,6 +71,39 @@ export function LegalPage({ type, lang = 'pl' }: LegalPageProps) {
             <p className="text-base text-slate-700 leading-relaxed">
               {text.lead}
             </p>
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <button
+                type="button"
+                onClick={openCookieSettings}
+                className="inline-flex items-center rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-blue-700 cursor-pointer"
+              >
+                {lang === "pl"
+                  ? "Zmień ustawienia plików cookies"
+                  : lang === "de"
+                    ? "Cookie-Einstellungen ändern"
+                    : "Change cookie settings"}
+              </button>
+              <Link
+                to={
+                  type === "privacy"
+                    ? LEGAL_DATA.cookies.alternates[lang]
+                    : LEGAL_DATA.privacy.alternates[lang]
+                }
+                className="inline-flex items-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-800 transition-colors hover:border-blue-600 hover:text-blue-700"
+              >
+                {type === "privacy"
+                  ? lang === "pl"
+                    ? "Zobacz Politykę plików cookies →"
+                    : lang === "de"
+                      ? "Zur Cookie-Richtlinie →"
+                      : "View Cookie Policy →"
+                  : lang === "pl"
+                    ? "Zobacz Politykę prywatności RODO →"
+                    : lang === "de"
+                      ? "Zur Datenschutzerklärung →"
+                      : "View Privacy Policy (GDPR) →"}
+              </Link>
+            </div>
           </div>
 
           <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm">

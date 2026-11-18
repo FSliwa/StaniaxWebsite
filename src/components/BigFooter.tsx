@@ -1,4 +1,5 @@
 import { MagneticButton } from '@/components/ui/MagneticButton'
+import { openCookieSettings } from '@/components/CookieBanner'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
@@ -256,6 +257,17 @@ export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
                     ? 'Cookie-Richtlinie'
                     : 'Cookie Policy'}
               </Link>
+              <button
+                type="button"
+                onClick={openCookieSettings}
+                className="hover:text-white transition-colors uppercase cursor-pointer"
+              >
+                {lang === 'pl'
+                  ? 'Ustawienia cookies'
+                  : lang === 'de'
+                    ? 'Cookie-Einstellungen'
+                    : 'Cookie Settings'}
+              </button>
             </div>
           </div>
         </div>

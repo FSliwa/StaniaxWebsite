@@ -4,7 +4,32 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { t, type Lang } from '@/lib/translations'
 
-const STORAGE_KEY = 'staniax-cookie-consent'
+export const COOKIE_STORAGE_KEY = 'staniax-cookie-consent'
+export const OPEN_COOKIE_SETTINGS_EVENT = 'staniax:open-cookie-settings'
+
+export function openCookieSettings() {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(OPEN_COOKIE_SETTINGS_EVENT))
+  }
+}
+
+function clearAnalyticsCookies() {
+  if (typeof document === 'undefined' || typeof window === 'undefined') return
+  const host = window.location.hostname
+  const rootDomain = host.replace(/^www\./, '')
+  const domains = ['', host, `.${host}`, rootDomain, `.${rootDomain}`]
+  const cookies = document.cookie ? document.cookie.split(';') : []
+  for (const rawCookie of cookies) {
+    const eqIdx = rawCookie.indexOf('=')
+    const name = (eqIdx > -1 ? rawCookie.slice(0, eqIdx) : rawCookie).trim()
+    if (name === '_ga' || name.startsWith('_ga_') || name === '_gid' || name === '_gat') {
+      for (const d of domains) {
+        const domainAttr = d ? `; domain=${d}` : ''
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; path=/${domainAttr}; SameSite=Lax`
+      }
+    }
+  }
+}
 
 type CookieBannerProps = {
   className?: string
@@ -16,15 +41,27 @@ export function CookieBanner({ className, lang = 'pl' }: CookieBannerProps) {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const consent = window.localStorage.getItem(STORAGE_KEY)
-    if (!consent) {
+    try {
+      const consent = window.localStorage.getItem(COOKIE_STORAGE_KEY)
+      if (!consent) {
+        setIsVisible(true)
+      }
+    } catch {
       setIsVisible(true)
+    }
+
+    const handleOpen = () => setIsVisible(true)
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleOpen)
+    return () => {
+      window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleOpen)
     }
   }, [])
 
   const handleAccept = () => {
     if (typeof window !== 'undefined') {
-      window.localStorage.setItem(STORAGE_KEY, 'accepted')
+      try {
+        window.localStorage.setItem(COOKIE_STORAGE_KEY, 'accepted')
+      } catch {}
       if (typeof (window as any).updateStaniaxConsent === 'function') {
         ;(window as any).updateStaniaxConsent(true)
       }
@@ -34,10 +71,13 @@ export function CookieBanner({ className, lang = 'pl' }: CookieBannerProps) {
 
   const handleReject = () => {
     if (typeof window !== 'undefined') {
-      window.localStorage.setItem(STORAGE_KEY, 'rejected')
+      try {
+        window.localStorage.setItem(COOKIE_STORAGE_KEY, 'rejected')
+      } catch {}
       if (typeof (window as any).updateStaniaxConsent === 'function') {
         ;(window as any).updateStaniaxConsent(false)
       }
+      clearAnalyticsCookies()
     }
     setIsVisible(false)
   }
@@ -51,6 +91,13 @@ export function CookieBanner({ className, lang = 'pl' }: CookieBannerProps) {
         ? 'Nur notwendige'
         : 'Tylko niezbędne'
 
+  const dialogLabel =
+    lang === 'en'
+      ? 'Cookie consent settings'
+      : lang === 'de'
+        ? 'Cookie-Einstellungen'
+        : 'Komunikat o plikach cookies'
+
   const cookiesPath =
     lang === 'en'
       ? '/en/cookie-policy'
@@ -62,7 +109,7 @@ export function CookieBanner({ className, lang = 'pl' }: CookieBannerProps) {
     <div
       role="dialog"
       aria-live="polite"
-      aria-label="Komunikat o plikach cookies"
+      aria-label={dialogLabel}
       className={cn(
         'fixed bottom-6 left-1/2 z-50 w-[min(90vw,32rem)] -translate-x-1/2 rounded-3xl border border-white/40 bg-slate-900/95 p-6 text-white shadow-2xl backdrop-blur-md',
         className
