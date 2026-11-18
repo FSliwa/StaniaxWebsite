@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { t, type Lang } from '@/lib/translations'
@@ -24,11 +25,38 @@ export function CookieBanner({ className, lang = 'pl' }: CookieBannerProps) {
   const handleAccept = () => {
     if (typeof window !== 'undefined') {
       window.localStorage.setItem(STORAGE_KEY, 'accepted')
+      if (typeof (window as any).updateStaniaxConsent === 'function') {
+        ;(window as any).updateStaniaxConsent(true)
+      }
+    }
+    setIsVisible(false)
+  }
+
+  const handleReject = () => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(STORAGE_KEY, 'rejected')
+      if (typeof (window as any).updateStaniaxConsent === 'function') {
+        ;(window as any).updateStaniaxConsent(false)
+      }
     }
     setIsVisible(false)
   }
 
   if (!isVisible) return null
+
+  const rejectLabel =
+    lang === 'en'
+      ? 'Necessary only'
+      : lang === 'de'
+        ? 'Nur notwendige'
+        : 'Tylko niezbędne'
+
+  const cookiesPath =
+    lang === 'en'
+      ? '/en/cookie-policy'
+      : lang === 'de'
+        ? '/de/cookie-richtlinie'
+        : '/polityka-cookies'
 
   return (
     <div
@@ -51,19 +79,29 @@ export function CookieBanner({ className, lang = 'pl' }: CookieBannerProps) {
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <Button
-            size="lg"
-            className="w-full sm:w-auto bg-white text-slate-950 hover:bg-white/90"
-            onClick={handleAccept}
-          >
-            {t(lang, 'cookieAccept')}
-          </Button>
-          <a
-            href="/polityka-cookies"
-            className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70 transition-colors hover:text-white"
+          <div className="flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto">
+            <Button
+              size="lg"
+              className="w-full sm:w-auto bg-white text-slate-950 hover:bg-white/90 font-bold"
+              onClick={handleAccept}
+            >
+              {t(lang, 'cookieAccept')}
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full sm:w-auto border-white/30 bg-transparent text-white hover:bg-white/10"
+              onClick={handleReject}
+            >
+              {rejectLabel}
+            </Button>
+          </div>
+          <Link
+            to={cookiesPath}
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-white/70 transition-colors hover:text-white text-center sm:text-right"
           >
             {t(lang, 'cookieMore')}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

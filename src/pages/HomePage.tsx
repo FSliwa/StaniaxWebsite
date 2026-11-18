@@ -1,27 +1,62 @@
-import { useState, useEffect, useRef, useMemo, type CSSProperties, type ReactNode, lazy, Suspense } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform, AnimatePresence, type MotionValue } from 'framer-motion'
-import { useNavigate, Link, useLocation } from 'react-router-dom'
-import { t, type Lang } from '@/lib/translations'
-import { ScrambleText } from '@/components/ui/ScrambleText'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { CookieBanner } from '@/components/CookieBanner'
-import { AnimatedSection } from '@/components/AnimatedSection'
-import { VideoGalleryTransition } from '@/components/VideoGalleryTransition'
+import {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  type CSSProperties,
+  type ReactNode,
+  lazy,
+  Suspense,
+} from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+  type MotionValue,
+} from "framer-motion";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import { t, type Lang } from "@/lib/translations";
+import { ScrambleText } from "@/components/ui/ScrambleText";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { CookieBanner } from "@/components/CookieBanner";
+import { SiteHeader } from "@/components/SiteHeader";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { VideoGalleryTransition } from "@/components/VideoGalleryTransition";
+import { applySeoHead } from "@/lib/seo";
+import {
+  SERVICE_ORDER,
+  SERVICE_SLUGS,
+  SERVICES,
+  type ServiceId,
+} from "@/data/services";
+import { getHomeEngineeringHub } from "@/data/hub-links";
+import { BeforeAfterSlider } from "@/components/ui/BeforeAfterSlider";
+import { NumberTicker } from "@/components/ui/NumberTicker";
 
-const WhyStaniaxContent = lazy(() => import('@/components/WhyStaniaxContent').then(module => ({ default: module.WhyStaniaxContent })))
+const WhyStaniaxContent = lazy(() =>
+  import("@/components/WhyStaniaxContent").then((module) => ({
+    default: module.WhyStaniaxContent,
+  })),
+);
 
-import { MagneticButton } from '@/components/ui/MagneticButton'
-import { SpotlightCard } from '@/components/ui/SpotlightCard'
-import { TiltCard } from '@/components/ui/TiltCard'
-import { LazyVideo } from '@/components/ui/LazyVideo'
-import { SmoothScroll } from '@/components/SmoothScroll'
+import { MagneticButton } from "@/components/ui/MagneticButton";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
+import { TiltCard } from "@/components/ui/TiltCard";
+import { LazyVideo } from "@/components/ui/LazyVideo";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
-const BigFooter = lazy(() => import('@/components/BigFooter').then(module => ({ default: module.BigFooter })))
-import { toast, Toaster } from 'sonner'
-import { cn } from '@/lib/utils'
+const BigFooter = lazy(() =>
+  import("@/components/BigFooter").then((module) => ({
+    default: module.BigFooter,
+  })),
+);
+import { toast, Toaster } from "sonner";
+import { cn } from "@/lib/utils";
 import {
   Factory,
   ArrowRight,
@@ -41,60 +76,60 @@ import {
   Question,
   CaretDown,
   CaretUp,
-  ArrowDown
-} from '@phosphor-icons/react'
-import bridgeSectionVideo from '@/assets/whatsapp-video-2026-03-18.mp4'
-import serviceImg1 from '@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG'
-import serviceImg2 from '@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG'
-import serviceImg3 from '@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG'
-import projectImgAutomotive from '@/assets/IMG_0990-2575648632.jpeg'
-import projectImgAerospace from '@/assets/airplane-04-1600x900.jpg'
-import projectImgIndustrial from '@/assets/roboty-fabryka-590199267.jpg'
-import projectImgPrototype from '@/assets/budowa-prototypow-maszyn-800914852.webp'
-import automotiveBefore from '@/assets/automotive-before.jpeg'
-import automotiveAfter from '@/assets/automotive-after.jpeg'
-import elementyPrzemyslowePrzed from '@/assets/elementy-przemyslowe-przed.jpeg'
-import elementyPrzemyslowePo from '@/assets/elementy-przemyslowe-po.mp4'
-import industrialBefore from '@/assets/industrial-before.jpeg'
-import industrialAfter from '@/assets/industrial-after.jpeg'
+  ArrowDown,
+} from "@phosphor-icons/react";
+import bridgeSectionVideo from "@/assets/whatsapp-video-2026-03-18.mp4";
+import serviceImg1 from "@/assets/482dc07a-e7ec-4a67-a180-35c9f97aa5e3.JPG";
+import serviceImg2 from "@/assets/4b131dc0-12bf-4aee-bca5-bee6a42b2e68.JPG";
+import serviceImg3 from "@/assets/688dc033-2f1e-4b6e-94e4-728b7278993a.JPG";
+import projectImgAutomotive from "@/assets/IMG_0990-2575648632.jpeg";
+import projectImgAerospace from "@/assets/airplane-04-1600x900.jpg";
+import projectImgIndustrial from "@/assets/roboty-fabryka-590199267.jpg";
+import projectImgPrototype from "@/assets/budowa-prototypow-maszyn-800914852.webp";
+import automotiveBefore from "@/assets/automotive-before.jpeg";
+import automotiveAfter from "@/assets/automotive-after.jpeg";
+import elementyPrzemyslowePrzed from "@/assets/elementy-przemyslowe-przed.jpeg";
+import elementyPrzemyslowePo from "@/assets/elementy-przemyslowe-po.mp4";
+import industrialBefore from "@/assets/industrial-before.jpeg";
+import industrialAfter from "@/assets/industrial-after.jpeg";
 
-import packagingBefore from '@/assets/packaging-before.png'
-import packagingAfter from '@/assets/packaging-after.png'
+import packagingBefore from "@/assets/packaging-before.png";
+import packagingAfter from "@/assets/packaging-after.png";
 
-import whyChooseImg1 from '@/assets/Dlaczego Staniax V1.png'
-import whyChooseImg2 from '@/assets/Dlaczego Staniax V2.png'
-import whyChooseImg3 from '@/assets/Dlaczego Staniax V3.png'
+import whyChooseImg1 from "@/assets/Dlaczego Staniax V1.png";
+import whyChooseImg2 from "@/assets/Dlaczego Staniax V2.png";
+import whyChooseImg3 from "@/assets/Dlaczego Staniax V3.png";
 
-import spinningMachineImg from '@/assets/spinning_machine.jpeg'
-import colorfulPackagingImg from '@/assets/colorful_packaging.png'
-import threeReflectorsImg from '@/assets/three_reflectors_1765869273944.png'
-import vacuumMetalizationImg from '@/assets/vacuum-metalization.jpg'
-import productionDesignImg from '@/assets/production-design.png'
-import productionManufacturingImg from '@/assets/production-manufacturing.png'
-import productionQualityImg from '@/assets/production-quality.png'
-import automotivePartAfterImg from '@/assets/automotive_part_after_coating_1765868408448.png'
-import whatsappImg1 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35.jpeg'
-import whatsappImg2 from '@/assets/WhatsApp Image 2025-10-29 at 20.55.35-2.jpeg'
-import whatsappHeroImg from '@/assets/whatsapp-hero-2026-03-05.jpeg'
-import whatsapp180620 from '@/assets/whatsapp-18-06-20.jpeg'
-import tekstAkapituImg from '@/assets/Tekst akapitu-2.jpg'
-import lakierowanieTworzyw1 from '@/assets/lakierowanie-tworzyw-1.jpeg'
-import lakierowanieTworzyw2 from '@/assets/lakierowanie-tworzyw-2.jpeg'
-import lakierowanieTworzyw3 from '@/assets/lakierowanie-tworzyw-3.jpeg'
-import lakierowanieTworzyw4 from '@/assets/lakierowanie-tworzyw-4.jpeg'
-import lakierowanieSzkla1 from '@/assets/lakierowanie-szkla-1.jpeg'
-import lakierowanieSzkla2 from '@/assets/lakierowanie-szkla-2.jpeg'
-import lakierowanieSzkla3 from '@/assets/lakierowanie-szkla-3.jpeg'
-import lakierowanieSzkla4 from '@/assets/lakierowanie-szkla-4.jpeg'
-import lakierowanieNatryskowe1 from '@/assets/lakierowanie-natryskowe-1.jpeg'
-import lakierowanieNatryskowe2 from '@/assets/lakierowanie-natryskowe-2.jpeg'
-import lakierowanieNatryskowe3 from '@/assets/lakierowanie-natryskowe-3.jpeg'
-import lakierowanieNatryskowe4 from '@/assets/lakierowanie-natryskowe-4.jpeg'
-import lakierowanieNatryskoweV2_1 from '@/assets/lakierowanie-natryskowe-v2-1.mp4'
-import lakierowanieNatryskoweV2_2 from '@/assets/lakierowanie-natryskowe-v2-2.jpeg'
-import whatsapp104132 from '@/assets/whatsapp-10-41-32.jpeg'
-import odblysniki1 from '@/assets/odblysniki-nowe-1.jpeg'
-import odblysniki2 from '@/assets/odblysniki-nowe-2.jpeg'
+import spinningMachineImg from "@/assets/spinning_machine.jpeg";
+import colorfulPackagingImg from "@/assets/colorful_packaging.png";
+import threeReflectorsImg from "@/assets/three_reflectors_1765869273944.png";
+import vacuumMetalizationImg from "@/assets/vacuum-metalization.jpg";
+import productionDesignImg from "@/assets/production-design.png";
+import productionManufacturingImg from "@/assets/production-manufacturing.png";
+import productionQualityImg from "@/assets/production-quality.png";
+import automotivePartAfterImg from "@/assets/automotive_part_after_coating_1765868408448.png";
+import whatsappImg1 from "@/assets/WhatsApp Image 2025-10-29 at 20.55.35.jpeg";
+import whatsappImg2 from "@/assets/WhatsApp Image 2025-10-29 at 20.55.35-2.jpeg";
+import whatsappHeroImg from "@/assets/whatsapp-hero-2026-03-05.jpeg";
+import whatsapp180620 from "@/assets/whatsapp-18-06-20.jpeg";
+import tekstAkapituImg from "@/assets/Tekst akapitu-2.jpg";
+import lakierowanieTworzyw1 from "@/assets/lakierowanie-tworzyw-1.jpeg";
+import lakierowanieTworzyw2 from "@/assets/lakierowanie-tworzyw-2.jpeg";
+import lakierowanieTworzyw3 from "@/assets/lakierowanie-tworzyw-3.jpeg";
+import lakierowanieTworzyw4 from "@/assets/lakierowanie-tworzyw-4.jpeg";
+import lakierowanieSzkla1 from "@/assets/lakierowanie-szkla-1.jpeg";
+import lakierowanieSzkla2 from "@/assets/lakierowanie-szkla-2.jpeg";
+import lakierowanieSzkla3 from "@/assets/lakierowanie-szkla-3.jpeg";
+import lakierowanieSzkla4 from "@/assets/lakierowanie-szkla-4.jpeg";
+import lakierowanieNatryskowe1 from "@/assets/lakierowanie-natryskowe-1.jpeg";
+import lakierowanieNatryskowe2 from "@/assets/lakierowanie-natryskowe-2.jpeg";
+import lakierowanieNatryskowe3 from "@/assets/lakierowanie-natryskowe-3.jpeg";
+import lakierowanieNatryskowe4 from "@/assets/lakierowanie-natryskowe-4.jpeg";
+import lakierowanieNatryskoweV2_1 from "@/assets/lakierowanie-natryskowe-v2-1.mp4";
+import lakierowanieNatryskoweV2_2 from "@/assets/lakierowanie-natryskowe-v2-2.jpeg";
+import whatsapp104132 from "@/assets/whatsapp-10-41-32.jpeg";
+import odblysniki1 from "@/assets/odblysniki-nowe-1.jpeg";
+import odblysniki2 from "@/assets/odblysniki-nowe-2.jpeg";
 
 const languages = [
   { text: "Metalizacja próżniowa", flag: "🇵🇱", lang: "pl" },
@@ -102,22 +137,22 @@ const languages = [
   { text: "Vakuummetallisierung", flag: "🇩🇪", lang: "de" },
   { text: "Métallisation sous vide", flag: "🇫🇷", lang: "fr" },
   { text: "Metallizzazione sotto vuoto", flag: "🇮🇹", lang: "it" },
-  { text: "Vacuümmetallisatie", flag: "🇳🇱", lang: "nl" }
-]
+  { text: "Vacuümmetallisatie", flag: "🇳🇱", lang: "nl" },
+];
 
 type HomePageProps = {
-  lang?: 'pl' | 'en' | 'de'
-}
+  lang?: "pl" | "en" | "de";
+};
 
 function RotatingText({ className }: { className?: string }) {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % languages.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
+      setIndex((prev) => (prev + 1) % languages.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="h-[1.5em] overflow-visible relative inline-flex items-center gap-2 py-2">
@@ -130,494 +165,687 @@ function RotatingText({ className }: { className?: string }) {
           transition={{ duration: 0.5, ease: "circOut" }}
           className="flex items-center gap-2 absolute top-0 left-0 whitespace-nowrap"
         >
-          <span className="text-xl sm:text-2xl lg:text-3xl shadow-sm rounded-full overflow-hidden flex-shrink-0 opacity-90" role="img" aria-label={`Flag for ${languages[index].lang}`}>
+          <span
+            className="text-xl sm:text-2xl lg:text-3xl shadow-sm rounded-full overflow-hidden flex-shrink-0 opacity-90"
+            role="img"
+            aria-label={`Flag for ${languages[index].lang}`}
+          >
             {languages[index].flag}
           </span>
-          <span className={cn("text-2xl sm:text-3xl lg:text-4xl font-medium uppercase tracking-tighter", className)}>
+          <span
+            className={cn(
+              "text-2xl sm:text-3xl lg:text-4xl font-medium uppercase tracking-tighter",
+              className,
+            )}
+          >
             {languages[index].text}
           </span>
         </motion.div>
       </AnimatePresence>
     </div>
-  )
+  );
 }
 
 type NavItem =
-  | { id: string; label: string; type: 'section' }
-  | { id: string; label: string; type: 'route'; path: string }
+  | { id: string; label: string; type: "section" }
+  | { id: string; label: string; type: "route"; path: string };
 
 const languageLinks = [
   { flag: "🇵🇱", lang: "pl", path: "/", label: "Polski" },
   { flag: "🇬🇧", lang: "en", path: "/en", label: "English" },
   { flag: "🇩🇪", lang: "de", path: "/de", label: "Deutsch" },
-]
+];
 
 function getNavItems(lang: Lang): NavItem[] {
   return [
-    { id: 'kim-jestesmy', label: t(lang, 'oStaniax'), type: 'section' },
-    { id: 'about', label: t(lang, 'oferta'), type: 'section' },
-    { id: 'projects', label: t(lang, 'realizacje'), type: 'section' },
-    { id: 'gallery', label: t(lang, 'galeria'), type: 'route', path: '/gallery' },
-    { id: 'news', label: t(lang, 'aktualnosci'), type: 'route', path: '/news' },
-    { id: 'contact', label: t(lang, 'kontakt'), type: 'section' }
-  ]
+    { id: "kim-jestesmy", label: t(lang, "oStaniax"), type: "section" },
+    { id: "about", label: t(lang, "oferta"), type: "section" },
+    { id: "projects", label: t(lang, "realizacje"), type: "section" },
+    {
+      id: "gallery",
+      label: t(lang, "galeria"),
+      type: "route",
+      path: "/gallery",
+    },
+    { id: "news", label: t(lang, "aktualnosci"), type: "route", path: "/news" },
+    { id: "contact", label: t(lang, "kontakt"), type: "section" },
+  ];
 }
 
 type ServiceItem = {
-  id: string
-  title: string
-  description: string
-  icon: ReactNode
-  image: string
-  images?: string[]
-  alt: string
-  tagline: string
+  id: string;
+  title: string;
+  description: string;
+  icon: ReactNode;
+  image: string;
+  images?: string[];
+  alt: string;
+  tagline: string;
   details?: {
-    features: string[]
-    applications: string[]
-    advantages: string[]
-  }
-}
+    features: string[];
+    applications: string[];
+    advantages: string[];
+  };
+};
 
 type ProjectItem = {
-  id: string
-  title: string
-  icon: ReactNode
-  image: string
-  description: string
-  details: string
-  category: string
-  year: string
-}
+  id: string;
+  title: string;
+  icon: ReactNode;
+  image: string;
+  description: string;
+  details: string;
+  category: string;
+  year: string;
+};
 
 type AboutTileConfig = {
-  id: string
-  image: string
-  alt: string
-  drift: number
-  overlay: ReactNode
-  overlayDelay?: number
-  colSpan?: number
-}
+  id: string;
+  image: string;
+  alt: string;
+  drift: number;
+  overlay: ReactNode;
+  overlayDelay?: number;
+  colSpan?: number;
+};
 
 const servicesData: ServiceItem[] = [
   {
-    id: 'vacuum-metallization',
-    title: 'Metalizacja Próżniowa',
+    id: "vacuum-metallization",
+    title: "Metalizacja Próżniowa",
     description:
-      'Zaawansowana technologia napylania próżniowego nadająca efekt chromu, złota i innych metali na różnych podłożach. Ekologiczna alternatywa dla chromowania.',
+      "Zaawansowana technologia napylania próżniowego nadająca efekt chromu, złota i innych metali na różnych podłożach. Ekologiczna alternatywa dla chromowania.",
     icon: <Gear className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
     images: [lakierowanieNatryskoweV2_1],
-    alt: 'Proces metalizacji próżniowej',
-    tagline: 'Perfekcyjne powłoki metaliczne',
+    alt: "Proces metalizacji próżniowej",
+    tagline: "Perfekcyjne powłoki metaliczne",
     details: {
-      features: ['Napylanie aluminium, chromu, złota', 'Grubość powłoki 0.05-0.5 μm', 'Wysoki połysk lustrzany', 'Proces przyjazny środowisku'],
-      applications: ['Elementy dekoracyjne samochodów', 'Opakowania kosmetyków', 'Reflektory i odbłyśniki', 'Gadżety reklamowe'],
-      advantages: ['Efekt chromu bez użycia chromu', 'Niska emisja CO2', 'Możliwość metalizacji skomplikowanych kształtów', 'Krótki czas realizacji']
-    }
+      features: [
+        "Napylanie aluminium, chromu, złota",
+        "Grubość powłoki 0.05-0.5 μm",
+        "Wysoki połysk lustrzany",
+        "Proces przyjazny środowisku",
+      ],
+      applications: [
+        "Elementy dekoracyjne samochodów",
+        "Opakowania kosmetyków",
+        "Reflektory i odbłyśniki",
+        "Gadżety reklamowe",
+      ],
+      advantages: [
+        "Efekt chromu bez użycia chromu",
+        "Niska emisja CO2",
+        "Możliwość metalizacji skomplikowanych kształtów",
+        "Czas realizacji 5-10 dni roboczych",
+      ],
+    },
   },
   {
-    id: 'plastic-painting',
-    title: 'Lakierowanie Tworzyw',
-    description: 'Precyzyjne lakierowanie detali z tworzyw sztucznych. Oferujemy pełną gamę kolorów i wykończeń, od matu po wysoki połysk, z gwarancją trwałości.',
+    id: "plastic-metallization",
+    title: "Metalizacja Tworzyw Sztucznych",
+    description:
+      "Przemysłowe napylanie próżniowe detali wtryskowych ABS, PC, PMMA, PA, PP i PET po odpowiednim przygotowaniu fizykochemicznym powierzchni i gruntowaniu UV.",
+    icon: <Robot className="w-16 h-16 text-white/80 icon-welding-effect" />,
+    image: colorfulPackagingImg,
+    images: [packagingBefore, packagingAfter],
+    alt: "Metalizacja tworzyw sztucznych ABS, PC, PP i opakowań kosmetycznych",
+    tagline: "Od surowej wypraski do lustra",
+    details: {
+      features: [
+        "Obsługa ABS, PC, PMMA, PS, SAN, PA, PP i PET",
+        "Dedykowane promotory adhezji i podkłady UV",
+        "Wielogniazdowe uchwyty obrotowe w komorach próżniowych",
+        "Kontrola przyczepności powłoki wg ISO 2409",
+      ],
+      applications: [
+        "Nakrętki, słoiczki i atomizery kosmetyczne",
+        "Emblematy, kratki i listwy automotive",
+        "Przyciski, pokrętła i ramki AGD / RTV",
+        "Obudowy urządzeń medycznych i pomiarowych",
+      ],
+      advantages: [
+        "Brak odkształceń termicznych cienkich wyprasek",
+        "Wysoka powtarzalność odcienia między partiami",
+        "Odporność na alkohol i kosmetyki",
+        "Wsparcie technologiczne przed uruchomieniem serii",
+      ],
+    },
+  },
+  {
+    id: "plastic-painting",
+    title: "Lakierowanie Tworzyw",
+    description:
+      "Precyzyjne lakierowanie detali z tworzyw sztucznych. Oferujemy pełną gamę kolorów i wykończeń, od matu po wysoki połysk, z gwarancją trwałości.",
     icon: <Shield className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: lakierowanieTworzyw1,
-    images: [lakierowanieTworzyw1, lakierowanieTworzyw2, lakierowanieTworzyw3, lakierowanieTworzyw4],
-    alt: 'Lakierowanie elementów z tworzyw sztucznych',
-    tagline: 'Estetyka i Ochrona',
+    images: [
+      lakierowanieTworzyw1,
+      lakierowanieTworzyw2,
+      lakierowanieTworzyw3,
+      lakierowanieTworzyw4,
+    ],
+    alt: "Lakierowanie elementów z tworzyw sztucznych",
+    tagline: "Estetyka i Ochrona",
     details: {
-      features: ['Lakiery UV, wodne i rozpuszczalnikowe', 'Efekty specjalne: perłowe, metaliczne', 'Wykończenia mat, półmat, połysk', 'Lakierowanie wielowarstwowe'],
-      applications: ['Obudowy elektroniki', 'Elementy AGD', 'Części motoryzacyjne', 'Opakowania premium'],
-      advantages: ['Odporność na zarysowania', 'Trwałość kolorów', 'Ochrona przed UV', 'Możliwość naprawy lokalnej']
-    }
+      features: [
+        "Lakiery UV, wodne i rozpuszczalnikowe",
+        "Efekty specjalne: perłowe, metaliczne",
+        "Wykończenia mat, półmat, połysk",
+        "Lakierowanie wielowarstwowe",
+      ],
+      applications: [
+        "Obudowy elektroniki",
+        "Elementy AGD",
+        "Części motoryzacyjne",
+        "Opakowania premium",
+      ],
+      advantages: [
+        "Odporność na zarysowania",
+        "Trwałość kolorów",
+        "Ochrona przed UV",
+        "Możliwość naprawy lokalnej",
+      ],
+    },
   },
   {
-    id: 'glass-painting',
-    title: 'Lakierowanie Szkła',
-    description: 'Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.',
+    id: "glass-painting",
+    title: "Lakierowanie Szkła",
+    description:
+      "Specjalistyczne lakierowanie szkła i ceramiki. Tworzymy unikalne efekty dekoracyjne, w tym przejścia tonalne i powłoki transparentne.",
     icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: lakierowanieSzkla1,
-    images: [lakierowanieSzkla1, lakierowanieSzkla2, lakierowanieSzkla3, lakierowanieSzkla4],
-    alt: 'Lakierowanie butelek szklanych',
-    tagline: 'Dekoracja Premium',
+    images: [
+      lakierowanieSzkla1,
+      lakierowanieSzkla2,
+      lakierowanieSzkla3,
+      lakierowanieSzkla4,
+    ],
+    alt: "Lakierowanie butelek szklanych",
+    tagline: "Dekoracja Premium",
     details: {
-      features: ['Lakiery organiczne i nieorganiczne', 'Efekty frosted i satynowe', 'Gradienty kolorystyczne', 'Powłoki hydrofobowe'],
-      applications: ['Butelki perfum i kosmetyków', 'Flakoniki farmaceutyczne', 'Szkło dekoracyjne', 'Opakowania alkoholi premium'],
-      advantages: ['Wyjątkowa estetyka', 'Odporność na zmywanie', 'Możliwość personalizacji', 'Zgodność z normami kosmetycznymi']
-    }
+      features: [
+        "Lakiery organiczne i nieorganiczne",
+        "Efekty frosted i satynowe",
+        "Gradienty kolorystyczne",
+        "Powłoki hydrofobowe",
+      ],
+      applications: [
+        "Butelki perfum i kosmetyków",
+        "Flakoniki farmaceutyczne",
+        "Szkło dekoracyjne",
+        "Opakowania alkoholi premium",
+      ],
+      advantages: [
+        "Wyjątkowa estetyka",
+        "Odporność na zmywanie",
+        "Możliwość personalizacji",
+        "Zgodność z normami kosmetycznymi",
+      ],
+    },
   },
   {
-    id: 'reflectors',
-    title: 'Odbłyśniki w Metalizacji',
-    description: 'Produkcja wysokiej jakości odbłyśników i reflektorów. Metalizacja zapewniająca maksymalny współczynnik odbicia światła dla branży oświetleniowej i motoryzacyjnej.',
+    id: "reflectors",
+    title: "Odbłyśniki w Metalizacji",
+    description:
+      "Produkcja i regeneracja wysokiej jakości odbłyśników i reflektorów. Metalizacja zapewniająca maksymalny współczynnik odbicia światła dla branży oświetleniowej i motoryzacyjnej.",
     icon: <Target className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: serviceImg1,
     images: [odblysniki1, odblysniki2],
-    alt: 'Metalizowane odbłyśniki',
-    tagline: 'Maksymalna Refleksja',
+    alt: "Metalizowane odbłyśniki",
+    tagline: "Maksymalna Refleksja",
     details: {
-      features: ['Współczynnik odbicia >95%', 'Powłoki aluminiowe i srebrne', 'Warstwa ochronna lakierem', 'Precyzja geometryczna'],
-      applications: ['Reflektory samochodowe', 'Oprawy oświetleniowe LED', 'Lampy przemysłowe', 'Systemy optyczne'],
-      advantages: ['Maksymalna wydajność świetlna', 'Długa żywotność', 'Odporność termiczna', 'Zgodność z normami ECE']
-    }
+      features: [
+        "Współczynnik odbicia >95%",
+        "Powłoki aluminiowe i srebrne",
+        "Warstwa ochronna lakierem",
+        "Precyzja geometryczna",
+      ],
+      applications: [
+        "Reflektory samochodowe",
+        "Oprawy oświetleniowe LED",
+        "Lampy przemysłowe",
+        "Systemy optyczne",
+      ],
+      advantages: [
+        "Maksymalna wydajność świetlna",
+        "Trwałość do 5 lat",
+        "Odporność termiczna",
+        "Czas realizacji 5-7 dni roboczych",
+      ],
+    },
   },
   {
-    id: 'spray-painting',
-    title: 'Lakierowanie Natryskowe',
+    id: "spray-painting",
+    title: "Lakierowanie Natryskowe",
     description:
-      'Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.',
-    icon: <Flask className="w-16 h-16 text-white/80 icon-welding-effect" />,
+      "Profesjonalne lakierowanie natryskowe tworzyw, szkła i metali. Pełna gama kolorów RAL i NCS, efekty specjalne soft-touch, strukturalne i antypoślizgowe.",
+    icon: <Wrench className="w-16 h-16 text-white/80 icon-welding-effect" />,
     image: lakierowanieNatryskowe1,
-    images: [whatsapp104132, lakierowanieNatryskoweV2_2, lakierowanieNatryskowe3, lakierowanieNatryskowe4],
-    alt: 'Lakierowanie natryskowe elementów',
-    tagline: 'Uniwersalne Wykończenie',
+    images: [
+      whatsapp104132,
+      lakierowanieNatryskoweV2_2,
+      lakierowanieNatryskowe3,
+      lakierowanieNatryskowe4,
+    ],
+    alt: "Lakierowanie natryskowe elementów",
+    tagline: "Uniwersalne Wykończenie",
     details: {
-      features: ['Pełna paleta RAL i NCS', 'Efekty soft-touch i strukturalne', 'Lakierowanie wielowarstwowe', 'Gruntowanie i podkładowanie'],
-      applications: ['Obudowy urządzeń', 'Elementy meblarskie', 'Detale przemysłowe', 'Prototypy i krótkie serie'],
-      advantages: ['Szybka realizacja', 'Elastyczność kolorystyczna', 'Odporność na ścieranie', 'Możliwość napraw lokalnych']
-    }
-  }
-]
+      features: [
+        "Pełna paleta RAL i NCS",
+        "Efekty soft-touch i strukturalne",
+        "Lakierowanie wielowarstwowe",
+        "Gruntowanie i podkładowanie",
+      ],
+      applications: [
+        "Obudowy urządzeń",
+        "Elementy meblarskie",
+        "Detale przemysłowe",
+        "Prototypy i krótkie serie",
+      ],
+      advantages: [
+        "Szybka realizacja",
+        "Elastyczność kolorystyczna",
+        "Odporność na ścieranie",
+        "Możliwość napraw lokalnych",
+      ],
+    },
+  },
+];
 
 const projectsData: ProjectItem[] = [
   {
-    id: 'cosmetics',
-    title: 'Opakowania Kosmetyczne',
+    id: "cosmetics",
+    title: "Opakowania Kosmetyczne",
     icon: <Gear className="w-16 h-16 mx-auto mb-2 opacity-90" />,
-    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&h=800&fit=crop&crop=center',
-    description: 'Metalizacja próżniowa opakowań i nakrętek dla branży kosmetycznej',
-    details: 'Nadanie efektu chromu, złota i lustrzanego połysku na elementach opakowań kosmetycznych. Trwałe i estetyczne wykończenie premium.',
-    category: 'Kosmetyka',
-    year: '2024'
+    image:
+      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&h=800&fit=crop&crop=center",
+    description:
+      "Metalizacja próżniowa opakowań i nakrętek dla branży kosmetycznej",
+    details:
+      "Nadanie efektu chromu, złota i lustrzanego połysku na elementach opakowań kosmetycznych. Trwałe i estetyczne wykończenie premium.",
+    category: "Kosmetyka",
+    year: "2024",
   },
   {
-    id: 'packaging',
-    title: 'Opakowania Dekoracyjne',
+    id: "packaging",
+    title: "Opakowania Dekoracyjne",
     icon: <Shield className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: projectImgAerospace,
-    description: 'Lakierowanie i metalizacja elementów opakowań premium',
-    details: 'Metalizacja próżniowa i lakierowanie opakowań z tworzyw sztucznych — nakrętki, butelki, zamknięcia. Efekty lustrzane, matowe i kolorowe.',
-    category: 'Opakowania',
-    year: '2024'
+    description: "Lakierowanie i metalizacja elementów opakowań premium",
+    details:
+      "Metalizacja próżniowa i lakierowanie opakowań z tworzyw sztucznych - nakrętki, butelki, zamknięcia. Efekty lustrzane, matowe i kolorowe.",
+    category: "Opakowania",
+    year: "2024",
   },
   {
-    id: 'decorations',
-    title: 'Elementy Dekoracyjne',
+    id: "decorations",
+    title: "Elementy Dekoracyjne",
     icon: <Target className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: projectImgAutomotive,
-    description: 'Metalizacja i lakierowanie elementów wystroju wnętrz',
-    details: 'Efekty chromu, złota i srebra na detalach dekoracyjnych z tworzyw sztucznych. Realizacje dla branży wyposażenia wnętrz i oświetlenia.',
-    category: 'Dekoracje',
-    year: '2024'
+    description: "Metalizacja i lakierowanie elementów wystroju wnętrz",
+    details:
+      "Efekty chromu, złota i srebra na detalach dekoracyjnych z tworzyw sztucznych. Realizacje dla branży wyposażenia wnętrz i oświetlenia.",
+    category: "Dekoracje",
+    year: "2024",
   },
   {
-    id: 'automotive',
-    title: 'Detale Motoryzacyjne',
+    id: "automotive",
+    title: "Detale Motoryzacyjne",
     icon: <Wrench className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: projectImgIndustrial,
-    description: 'Metalizacja elementów wykończeniowych pojazdów',
-    details: 'Elementy wykończeniowe, listwy, emblematy i komponenty wnętrz pojazdów z efektem metalu. Odporność na warunki eksploatacji.',
-    category: 'Motoryzacja',
-    year: '2024'
+    description: "Metalizacja elementów wykończeniowych pojazdów",
+    details:
+      "Elementy wykończeniowe, listwy, emblematy i komponenty wnętrz pojazdów z efektem metalu. Odporność na warunki eksploatacji.",
+    category: "Motoryzacja",
+    year: "2024",
   },
   {
-    id: 'glass',
-    title: 'Szkło i Ceramika',
+    id: "glass",
+    title: "Szkło i Ceramika",
     icon: <Factory className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: serviceImg2,
-    description: 'Lakierowanie szkła i ceramiki dla efektów dekoracyjnych',
-    details: 'Lakierowanie butelek, flakonów i elementów ceramicznych. Efekty frosted, satynowe, kolorowe gradienty.',
-    category: 'Szkło',
-    year: '2024'
+    description: "Lakierowanie szkła i ceramiki dla efektów dekoracyjnych",
+    details:
+      "Lakierowanie butelek, flakonów i elementów ceramicznych. Efekty frosted, satynowe, kolorowe gradienty.",
+    category: "Szkło",
+    year: "2024",
   },
   {
-    id: 'reflectors',
-    title: 'Odbłyśniki i Reflektory',
+    id: "reflectors",
+    title: "Odbłyśniki i Reflektory",
     icon: <Trophy className="w-16 h-16 mx-auto mb-2 opacity-90" />,
     image: projectImgPrototype,
-    description: 'Metalizacja próżniowa reflektorów i elementów odblaskowych',
-    details: 'Wysokiej jakości powłoki odblaskowe na reflektorach, kloszach lamp i elementach oświetleniowych.',
-    category: 'Odbłyśniki',
-    year: '2024'
-  }
-]
+    description: "Metalizacja próżniowa reflektorów i elementów odblaskowych",
+    details:
+      "Wysokiej jakości powłoki odblaskowe na reflektorach, kloszach lamp i elementach oświetleniowych.",
+    category: "Odbłyśniki",
+    year: "2024",
+  },
+];
 
 // CASE STUDIES DATA for Carousel
 type CaseStudy = {
-  id: string
-  title: string
-  subtitle: string
-  imageBefore: string
-  imageAfter: string
-  videoAfter?: string
-  metrics: Array<{ value: string; label: string }>
-  badge: string
-}
+  id: string;
+  title: string;
+  subtitle: string;
+  imageBefore: string;
+  imageAfter: string;
+  videoAfter?: string;
+  metrics: Array<{ value: string; label: string }>;
+  badge: string;
+};
 
 const caseStudiesData: CaseStudy[] = [
   {
-    id: 'industrial-elements',
-    title: 'Elementy Przemysłowe',
-    subtitle: 'Powłoki metalizacyjne na komponentach przemysłowych i maszynowych — wytrzymałość i precyzja wykonania',
-    imageBefore: elementyPrzemyslowePrzed,
-    imageAfter: elementyPrzemyslowePrzed,
+    id: "industrial-elements",
+    title: "Elementy Przemysłowe",
+    subtitle:
+      "Powłoki metalizacyjne na komponentach przemysłowych i maszynowych - wytrzymałość i precyzja wykonania",
+    imageBefore: automotiveBefore,
+    imageAfter: automotiveAfter,
     videoAfter: elementyPrzemyslowePo,
     metrics: [
-      { value: '25+', label: 'Lat doświadczenia' },
-      { value: '2500+', label: 'Projektów' },
-      { value: 'Premium', label: 'Jakość' }
+      { value: "25+", label: "Lat doświadczenia" },
+      { value: "2500+", label: "Projektów" },
+      { value: "Premium", label: "Jakość" },
     ],
-    badge: 'Solidność'
+    badge: "Solidność",
   },
   {
-    id: 'cosmetics-packaging',
-    title: 'Opakowania Kosmetyczne',
-    subtitle: 'Metalizacja próżniowa opakowań kosmetycznych — efekt złota, srebra i chromu na nakrętkach, butelkach i słoiczkach',
+    id: "cosmetics-packaging",
+    title: "Opakowania Kosmetyczne",
+    subtitle:
+      "Metalizacja próżniowa opakowań kosmetycznych - efekt złota, srebra i chromu na nakrętkach, butelkach i słoiczkach",
     imageBefore: packagingBefore,
     imageAfter: packagingAfter,
     metrics: [
-      { value: '2 mln+', label: 'Sztuk/Rok' },
-      { value: '100%', label: 'Powtarzalność' }
+      { value: "2 mln+", label: "Sztuk/Rok" },
+      { value: "100%", label: "Powtarzalność" },
     ],
-    badge: 'Efekt Premium'
+    badge: "Efekt Premium",
   },
   {
-    id: 'automotive-parts',
-    title: 'Detale Motoryzacyjne',
-    subtitle: 'Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych — trwały efekt chromu',
+    id: "automotive-parts",
+    title: "Detale Motoryzacyjne",
+    subtitle:
+      "Metalizacja próżniowa reflektorów, elementów wykończeniowych i komponentów motoryzacyjnych - trwały efekt chromu",
     imageBefore: industrialBefore,
     imageAfter: industrialAfter,
     metrics: [
-      { value: '100%', label: 'Kontrola jakości' },
-      { value: '10K+', label: 'Detali/msc' }
+      { value: "100%", label: "Kontrola jakości" },
+      { value: "10K+", label: "Detali/msc" },
     ],
-    badge: 'Najwyższa Jakość'
-  }
-]
+    badge: "Najwyższa Jakość",
+  },
+];
 
 // BRAND SHOWCASE DATA - Trusted Companies & Certifications
 const brandShowcaseData = [
-  { name: 'Kosmetyka', logo: 'KOSM' },
-  { name: 'Opakowania', logo: 'OPAK' },
-  { name: 'Motoryzacja', logo: 'MOTO' },
-  { name: 'Oświetlenie', logo: 'OŚWT' },
-  { name: 'Dekoracje', logo: 'DEKO' },
-  { name: 'Szkło', logo: 'SZKŁ' },
-  { name: 'Ceramika', logo: 'CERA' }
-]
+  { name: "Kosmetyka", logo: "KOSM" },
+  { name: "Opakowania", logo: "OPAK" },
+  { name: "Motoryzacja", logo: "MOTO" },
+  { name: "Oświetlenie", logo: "OŚWT" },
+  { name: "Dekoracje", logo: "DEKO" },
+  { name: "Szkło", logo: "SZKŁ" },
+  { name: "Ceramika", logo: "CERA" },
+];
 
 // TECH SPECS DATA - Interactive Comparison Table
 type TechSpec = {
-  id: string
-  method: string
-  temperature: string
-  thickness: string
-  applications: string
-  advantages: string[]
-  materials: string
-}
+  id: string;
+  method: string;
+  temperature: string;
+  thickness: string;
+  applications: string;
+  advantages: string[];
+  materials: string;
+};
 
 const techSpecsData: TechSpec[] = [
   {
-    id: 'metalizacja',
-    method: 'Metalizacja Próżniowa',
-    temperature: '200-500°C',
-    thickness: '0.05-0.5 μm',
-    applications: 'Nakrętki, opakowania, reflektory, elementy dekoracyjne',
+    id: "metalizacja",
+    method: "Metalizacja Próżniowa",
+    temperature: "200-500°C",
+    thickness: "0.05-0.5 μm",
+    applications: "Nakrętki, opakowania, reflektory, elementy dekoracyjne",
     advantages: [
-      'Efekt chromu i złota',
-      'Ekologiczny proces',
-      'Lustrzany połysk',
-      'Wysoka powtarzalność'
+      "Efekt chromu i złota",
+      "Ekologiczny proces",
+      "Lustrzany połysk",
+      "Wysoka powtarzalność",
     ],
-    materials: 'Al, Cr, Au, Ag'
+    materials: "Al, Cr, Au, Ag",
   },
   {
-    id: 'lakierowanie-tworzyw',
-    method: 'Lakierowanie Tworzyw',
-    temperature: '20-80°C',
-    thickness: '20-100 μm',
-    applications: 'Opakowania kosmetyczne, elementy dekoracyjne, detale motoryzacyjne',
+    id: "lakierowanie-tworzyw",
+    method: "Lakierowanie Tworzyw",
+    temperature: "20-80°C",
+    thickness: "20-100 μm",
+    applications:
+      "Opakowania kosmetyczne, elementy dekoracyjne, detale motoryzacyjne",
     advantages: [
-      'Szeroka paleta kolorów',
-      'Efekty specjalne',
-      'Odporność na zarysowania',
-      'Trwałość wykończenia'
+      "Szeroka paleta kolorów",
+      "Efekty specjalne",
+      "Odporność na zarysowania",
+      "Trwałość wykończenia",
     ],
-    materials: 'Lakiery UV, wodne, rozpuszczalnikowe'
+    materials: "Lakiery UV, wodne, rozpuszczalnikowe",
   },
   {
-    id: 'lakierowanie-szkla',
-    method: 'Lakierowanie Szkła',
-    temperature: '150-200°C',
-    thickness: '10-50 μm',
-    applications: 'Butelki, flakony, elementy ceramiczne, szkło dekoracyjne',
+    id: "lakierowanie-szkla",
+    method: "Lakierowanie Szkła",
+    temperature: "150-200°C",
+    thickness: "10-50 μm",
+    applications: "Butelki, flakony, elementy ceramiczne, szkło dekoracyjne",
     advantages: [
-      'Efekty frosted i satynowe',
-      'Gradienty kolorystyczne',
-      'Odporność na zmywanie',
-      'Zgodność z normami kosmetycznymi'
+      "Efekty frosted i satynowe",
+      "Gradienty kolorystyczne",
+      "Odporność na zmywanie",
+      "Zgodność z normami kosmetycznymi",
     ],
-    materials: 'Lakiery organiczne, nieorganiczne'
+    materials: "Lakiery organiczne, nieorganiczne",
   },
   {
-    id: 'odblyśniki',
-    method: 'Odbłyśniki w Metalizacji',
-    temperature: '200-400°C',
-    thickness: '0.1-1 μm',
-    applications: 'Reflektory, klosze lamp, elementy oświetleniowe',
+    id: "odblyśniki",
+    method: "Odbłyśniki w Metalizacji",
+    temperature: "200-400°C",
+    thickness: "0.1-1 μm",
+    applications: "Reflektory, klosze lamp, elementy oświetleniowe",
     advantages: [
-      'Współczynnik odbicia >95%',
-      'Wysoka trwałość',
-      'Odporność termiczna',
-      'Precyzja geometryczna'
+      "Współczynnik odbicia >95%",
+      "Wysoka trwałość",
+      "Odporność termiczna",
+      "Precyzja geometryczna",
     ],
-    materials: 'Al, Ag + warstwa ochronna'
-  }
-]
+    materials: "Al, Ag + warstwa ochronna",
+  },
+];
 
 const aboutTilesData: AboutTileConfig[] = [
   {
-    id: 'tile-lab',
+    id: "tile-lab",
     image: serviceImg1,
-    alt: 'Naukowiec w laboratorium badawczym',
+    alt: "Naukowiec w laboratorium badawczym",
     drift: -3,
     overlay: <Flask className="w-12 h-12 text-white/80" />,
-    overlayDelay: 0.15
+    overlayDelay: 0.15,
   },
   {
-    id: 'tile-shield',
+    id: "tile-shield",
     image: serviceImg2,
-    alt: 'Kontrola jakości metalowej powierzchni',
+    alt: "Kontrola jakości metalowej powierzchni",
     drift: 3,
     overlay: <Shield className="w-12 h-12 text-white/80" />,
-    overlayDelay: 0.1
+    overlayDelay: 0.1,
   },
   {
-    id: 'tile-factory',
+    id: "tile-factory",
     image: serviceImg3,
-    alt: 'Wnętrze hali produkcyjnej STANIAX',
+    alt: "Wnętrze hali produkcyjnej STANIAX",
     drift: 5,
     overlay: (
       <div className="text-center text-white">
         <Factory className="w-16 h-16 mx-auto mb-3 opacity-90" />
-        <p className="text-sm font-bold uppercase tracking-widest">Nowoczesny Park Maszynowy</p>
+        <p className="text-sm font-bold uppercase tracking-widest">
+          Nowoczesny Park Maszynowy
+        </p>
       </div>
     ),
     colSpan: 3,
-    overlayDelay: 0.25
-  }
-]
+    overlayDelay: 0.25,
+  },
+];
 
 // FAQ DATA
 type FAQItem = {
-  id: string
-  question: string
-  answer: string
-  category: 'process' | 'technology' | 'business'
-}
+  id: string;
+  question: string;
+  answer: string;
+  category: "process" | "technology" | "business";
+};
 
 const faqData: FAQItem[] = [
   {
-    id: 'faq-seo-1',
-    question: 'Na czym dokładnie polega regeneracja odbłyśników i proces metalizacji?',
-    answer: 'Profesjonalna regeneracja odbłyśników to złożony proces regeneracji, który w pierwszej fazie polega na całkowitym usunięciu zniszczonej powłoki aluminium wraz z podkładem. Następnie na detal aplikuje się warstwę termoodpornego podkładu. Właściwy proces metalizacji próżniowej odbywa się w specjalnej komorze próżniowej, gdzie detal w trakcie metalizacji próżniowej jest pokrywany cienka warstwą aluminium wysokiej czystości. Następnie w określony sposób nałożenie zabezpieczającego lakieru tworzy trwałą powłokę ochronną. Tak uzyskane powłoki gwarantują idealne odbicie światła. Alternatywny proces metalizacji natryskowej znajduje zastosowanie przy innych materiałach.',
-    category: 'technology'
+    id: "faq-seo-1",
+    question:
+      "Na czym dokładnie polega regeneracja odbłyśników i proces metalizacji?",
+    answer:
+      "Profesjonalna regeneracja odbłyśników to złożony proces regeneracji, który w pierwszej fazie polega na całkowitym usunięciu zniszczonej powłoki aluminium wraz z podkładem. Następnie na detal aplikuje się warstwę termoodpornego podkładu. Właściwy proces metalizacji próżniowej odbywa się w specjalnej komorze próżniowej, gdzie detal w trakcie metalizacji próżniowej jest pokrywany cienka warstwą aluminium wysokiej czystości. Następnie w określony sposób nałożenie zabezpieczającego lakieru tworzy trwałą powłokę ochronną. Tak uzyskane powłoki gwarantują idealne odbicie światła. Alternatywny proces metalizacji natryskowej znajduje zastosowanie przy innych materiałach.",
+    category: "technology",
   },
   {
-    id: 'faq-1',
-    question: 'Jak przygotować projekt do metalizacji?',
-    answer: 'Przygotowanie projektu wymaga: 1) Dostarczenia rysunków technicznych lub modeli 3D, 2) Określenia wymagań dotyczących grubości powłoki i właściwości, 3) Wskazania obszarów krytycznych wymagających szczególnej ochrony, 4) Informacji o warunkach eksploatacji elementu.',
-    category: 'process'
+    id: "faq-1",
+    question: "Jak przygotować projekt do metalizacji?",
+    answer:
+      "Przygotowanie projektu wymaga: 1) Dostarczenia rysunków technicznych lub modeli 3D, 2) Określenia wymagań dotyczących grubości powłoki i właściwości, 3) Wskazania obszarów krytycznych wymagających szczególnej ochrony, 4) Informacji o warunkach eksploatacji elementu.",
+    category: "process",
   },
   {
-    id: 'faq-2',
-    question: 'Jaką technologię metalizacji wybrać dla mojego projektu?',
-    answer: 'Wybór zależy od zastosowania: dla opakowań kosmetycznych polecamy powłoki złote i chromowe zapewniające efekt premium, dla elementów motoryzacyjnych - metalizację aluminium o wysokiej odporności, dla detali dekoracyjnych - powłoki lustrzane i satynowe. Nasz zespół pomoże dobrać optymalne rozwiązanie.',
-    category: 'technology'
+    id: "faq-2",
+    question: "Jaką technologię metalizacji wybrać dla mojego projektu?",
+    answer:
+      "Wybór zależy od zastosowania: dla opakowań kosmetycznych polecamy powłoki złote i chromowe zapewniające efekt premium, dla elementów motoryzacyjnych - metalizację aluminium o wysokiej odporności, dla detali dekoracyjnych - powłoki lustrzane i satynowe. Nasz zespół pomoże dobrać optymalne rozwiązanie.",
+    category: "technology",
   },
   {
-    id: 'faq-3',
-    question: 'Jaki jest minimalny czas realizacji zamówienia?',
-    answer: 'Standardowy czas realizacji to 5-10 dni roboczych dla projektów produkcyjnych. Dla prototypów oferujemy tryb ekspresowy 2-3 dni. Dokładny czas zależy od złożoności projektu, ilości elementów i wybranej technologii.',
-    category: 'business'
+    id: "faq-3",
+    question: "Jaki jest minimalny czas realizacji zamówienia?",
+    answer:
+      "Standardowy czas realizacji to 5-10 dni roboczych dla projektów produkcyjnych. Dla prototypów oferujemy tryb ekspresowy 2-3 dni. Dokładny czas zależy od złożoności projektu, ilości elementów i wybranej technologii.",
+    category: "business",
   },
   {
-    id: 'faq-4',
-    question: 'Czy metalizacja zwiększa trwałość elementów?',
-    answer: 'Tak, metalizacja znacząco zwiększa trwałość - powłoki metaliczne podnoszą odporność na ścieranie o 200-400%, zabezpieczają przed korozją, zwiększają twardość powierzchni i mogą przedłużyć żywotność elementów nawet o 300%.',
-    category: 'technology'
+    id: "faq-4",
+    question: "Czy metalizacja zwiększa trwałość elementów?",
+    answer:
+      "Tak, metalizacja znacząco zwiększa trwałość - powłoki metaliczne podnoszą odporność na ścieranie o 200-400%, zabezpieczają przed korozją, zwiększają twardość powierzchni i mogą przedłużyć żywotność elementów nawet o 300%.",
+    category: "technology",
   },
   {
-    id: 'faq-5',
-    question: 'Jakie materiały mogą być metalizowane?',
-    answer: 'Metalizować możemy większość materiałów inżynieryjnych: stale narzędziowe, stale nierdzewne, aluminium, miedź, tytan, ceramikę techniczną, a także wybrane tworzywa sztuczne po odpowiednim przygotowaniu powierzchni.',
-    category: 'process'
+    id: "faq-5",
+    question: "Jakie materiały mogą być metalizowane?",
+    answer:
+      "Metalizować możemy większość materiałów inżynieryjnych: stale narzędziowe, stale nierdzewne, aluminium, miedź, tytan, ceramikę techniczną, a także wybrane tworzywa sztuczne po odpowiednim przygotowaniu powierzchni.",
+    category: "process",
   },
   {
-    id: 'faq-6',
-    question: 'Czy oferujecie certyfikaty jakości?',
-    answer: 'Do każdego zamówienia dołączamy protokół kontroli jakości z pomiarami grubości powłoki, adhezji i innych parametrów. Dla branży lotniczej i medycznej oferujemy dodatkową dokumentację zgodną z wymaganiami sektorowymi.',
-    category: 'business'
-  }
-]
+    id: "faq-6",
+    question: "Czy oferujecie certyfikaty jakości?",
+    answer:
+      "Do każdego zamówienia dołączamy protokół kontroli jakości z pomiarami grubości powłoki, adhezji i innych parametrów. Dla branży lotniczej i medycznej oferujemy dodatkową dokumentację zgodną z wymaganiami sektorowymi.",
+    category: "business",
+  },
+];
 
 type AboutTileMotionProps = {
-  config: AboutTileConfig
-  scrollProgress: MotionValue<number>
-  prefersReducedMotion: boolean
-}
+  config: AboutTileConfig;
+  scrollProgress: MotionValue<number>;
+  prefersReducedMotion: boolean;
+};
 
-function AboutTileMotion({ config, scrollProgress, prefersReducedMotion }: AboutTileMotionProps) {
-  const translateY = useTransform(scrollProgress, [0, 1], [0, config.drift])
+function AboutTileMotion({
+  config,
+  scrollProgress,
+  prefersReducedMotion,
+}: AboutTileMotionProps) {
+  const translateY = useTransform(scrollProgress, [0, 1], [0, config.drift]);
 
   if (prefersReducedMotion) {
     return (
       <IndustrialImage
         src={config.image}
         alt={config.alt}
-        className={config.colSpan === 3 ? 'aspect-[3/2] col-span-3' : config.colSpan === 2 ? 'aspect-[2/1] col-span-2' : 'aspect-square'}
+        className={
+          config.colSpan === 3
+            ? "aspect-[3/2] col-span-3"
+            : config.colSpan === 2
+              ? "aspect-[2/1] col-span-2"
+              : "aspect-square"
+        }
       >
         {config.overlay}
       </IndustrialImage>
-    )
+    );
   }
 
   return (
     <motion.div
-      className={config.colSpan === 3 ? 'col-span-3 aspect-[3/2]' : config.colSpan === 2 ? 'col-span-2 aspect-[2/1]' : 'aspect-square'}
-      style={{ y: translateY, willChange: 'transform' }}
+      className={
+        config.colSpan === 3
+          ? "col-span-3 aspect-[3/2]"
+          : config.colSpan === 2
+            ? "col-span-2 aspect-[2/1]"
+            : "aspect-square"
+      }
+      style={{ y: translateY, willChange: "transform" }}
     >
-      <IndustrialImage src={config.image} alt={config.alt} className="h-full w-full">
+      <IndustrialImage
+        src={config.image}
+        alt={config.alt}
+        className="h-full w-full"
+      >
         <motion.div
           className="flex h-full items-center justify-center"
           initial={{ opacity: 0.35 }}
           whileInView={{ opacity: [0.4, 0.85, 0.4] }}
-          transition={{ delay: config.overlayDelay ?? 0, duration: 4, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' }}
+          transition={{
+            delay: config.overlayDelay ?? 0,
+            duration: 4,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "mirror",
+          }}
           viewport={{ once: false, amount: 0.6 }}
-          style={{ willChange: 'opacity' }}
+          style={{ willChange: "opacity" }}
         >
           {config.overlay}
         </motion.div>
       </IndustrialImage>
     </motion.div>
-  )
+  );
 }
 
 type IndustrialImageProps = {
-  src?: string
-  alt: string
-  className?: string
-  children?: ReactNode
-  variant?: 'image' | 'graphic'
-  style?: CSSProperties
-}
+  src?: string;
+  alt: string;
+  className?: string;
+  children?: ReactNode;
+  variant?: "image" | "graphic";
+  style?: CSSProperties;
+};
 
-function IndustrialImage({ src, alt, className, children, variant = 'image', style }: IndustrialImageProps) {
+function IndustrialImage({
+  src,
+  alt,
+  className,
+  children,
+  variant = "image",
+  style,
+}: IndustrialImageProps) {
   return (
-    <div className={`relative overflow-hidden rounded-2xl ${className ?? ''}`}>
-      {variant === 'image' && src ? (
+    <div className={`relative overflow-hidden rounded-2xl ${className ?? ""}`}>
+      {variant === "image" && src ? (
         <img
           src={src}
           alt={alt}
@@ -638,592 +866,619 @@ function IndustrialImage({ src, alt, className, children, variant = 'image', sty
         </div>
       )}
     </div>
-  )
+  );
 }
 
 type CountUpProps = {
-  end: number
-  duration?: number
-  suffix?: string
-  shouldStart: boolean
-}
+  end: number;
+  duration?: number;
+  suffix?: string;
+  shouldStart: boolean;
+};
 
-function CountUp({ end, duration = 2000, suffix = '', shouldStart }: CountUpProps) {
-  const [count, setCount] = useState(0)
-  const [hasStarted, setHasStarted] = useState(false)
+function CountUp({
+  end,
+  duration = 2000,
+  suffix = "",
+  shouldStart,
+}: CountUpProps) {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    if (!shouldStart || hasStarted) return
+    if (!shouldStart || hasStarted) return;
 
-    setHasStarted(true)
-    let startTime: number
+    setHasStarted(true);
+    let startTime: number;
     const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime
-      const progress = Math.min((currentTime - startTime) / duration, 1)
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
 
       // Easing function (easeOutCubic)
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setCount(Math.floor(eased * end))
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * end));
 
       if (progress < 1) {
-        requestAnimationFrame(animate)
+        requestAnimationFrame(animate);
       }
-    }
-    requestAnimationFrame(animate)
-  }, [shouldStart, end, duration, hasStarted])
+    };
+    requestAnimationFrame(animate);
+  }, [shouldStart, end, duration, hasStarted]);
 
-  return <span>{count}{suffix}</span>
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
 }
 
-function HomePage({ lang = 'pl' }: HomePageProps) {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const navItems = getNavItems(lang)
+function HomePage({ lang = "pl" }: HomePageProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const navItems = getNavItems(lang);
 
-  const renderTextWithBold = (textKey: any, boldTerms: Record<Lang, string>, isDark: boolean = false) => {
-    const text = t(lang, textKey)
-    const term = boldTerms[lang]
-    if (!term) return text
-    const parts = text.split(term)
+  const renderTextWithBold = (
+    textKey: any,
+    boldTerms: Record<Lang, string>,
+    isDark: boolean = false,
+  ) => {
+    const text = t(lang, textKey);
+    const term = boldTerms[lang];
+    if (!term) return text;
+    const parts = text.split(term);
     if (parts.length === 2) {
       return (
         <>
           {parts[0]}
-          <strong className={isDark ? "text-white font-semibold" : "text-gray-900 font-semibold"}>
+          <strong
+            className={
+              isDark
+                ? "text-white font-semibold"
+                : "text-gray-900 font-semibold"
+            }
+          >
             {term}
           </strong>
           {parts[1]}
         </>
-      )
+      );
     }
-    return text
-  }
+    return text;
+  };
 
-  // Dynamic SEO Metadata updates
+  // Dynamic SEO Metadata & JSON-LD Graph updates
   useEffect(() => {
-    const title = t(lang, 'metaTitle')
-    const description = t(lang, 'metaDesc')
+    const title = t(lang, "metaTitle");
+    const description = t(lang, "metaDesc");
+    const canonicalPath = lang === "pl" ? "/" : `/${lang}`;
+    const faqItems = faqData.map((_, index) => ({
+      q: t(lang, `faq${index + 1}q` as any),
+      a: t(lang, `faq${index + 1}a` as any),
+    }));
 
-    const originalTitle = document.title
-    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
-    const ogTitle = document.querySelector('meta[property="og:title"]')
-    const originalOgTitle = ogTitle?.getAttribute('content')
-    const ogDesc = document.querySelector('meta[property="og:description"]')
-    const originalOgDesc = ogDesc?.getAttribute('content')
-    
-    document.title = title
-    
-    const metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) {
-      metaDesc.setAttribute('content', description)
-    }
-    
-    if (ogTitle) {
-      ogTitle.setAttribute('content', title)
-    }
-    
-    if (ogDesc) {
-      ogDesc.setAttribute('content', description)
-    }
-
-    // Canonical link update
-    let canonical = document.querySelector('link[rel="canonical"]')
-    let createdCanonical = false
-    if (!canonical) {
-      canonical = document.createElement('link')
-      canonical.setAttribute('rel', 'canonical')
-      document.head.appendChild(canonical)
-      createdCanonical = true
-    }
-    const originalCanonical = canonical.getAttribute('href')
-    const canonicalUrl = `https://www.staniax.pl${lang === 'pl' ? '' : '/' + lang}`
-    canonical.setAttribute('href', canonicalUrl)
-
-    return () => {
-      document.title = originalTitle
-      if (metaDesc && originalDescription) {
-        metaDesc.setAttribute('content', originalDescription)
-      }
-      if (ogTitle && originalOgTitle) {
-        ogTitle.setAttribute('content', originalOgTitle)
-      }
-      if (ogDesc && originalOgDesc) {
-        ogDesc.setAttribute('content', originalOgDesc)
-      }
-      if (canonical) {
-        if (originalCanonical) {
-          canonical.setAttribute('href', originalCanonical)
-        } else if (createdCanonical) {
-          document.head.removeChild(canonical)
-        }
-      }
-    }
-  }, [lang])
+    applySeoHead({
+      title,
+      description,
+      path: canonicalPath,
+      lang,
+      alternates: {
+        pl: "/",
+        en: "/en",
+        de: "/de",
+        xDefault: "/",
+      },
+      faq: faqItems,
+    });
+  }, [lang]);
 
   // Scroll to hash section on mount or hash change
   useEffect(() => {
-    const hash = location.hash
+    const hash = location.hash;
     if (hash) {
-      const id = hash.replace('#', '')
-      const section = document.getElementById(id)
+      const id = hash.replace("#", "");
+      const section = document.getElementById(id);
       if (section) {
         const timer = setTimeout(() => {
-          const lenis = (window as any).lenis
+          const lenis = (window as any).lenis;
           if (lenis) {
             lenis.scrollTo(section, {
               offset: -80,
               duration: 1.2,
-            })
+            });
           } else {
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            section.scrollIntoView({ behavior: "smooth", block: "start" });
           }
-        }, 300)
-        return () => clearTimeout(timer)
+        }, 300);
+        return () => clearTimeout(timer);
       }
     }
-  }, [location.hash])
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrollY, setScrollY] = useState(0)
-  const [activeSection, setActiveSection] = useState(0)
-  const isTransitioning = useRef(false)
-  const [headerTheme, setHeaderTheme] = useState<'light' | 'dark'>('dark')
+  }, [location.hash]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState(0);
+  const isTransitioning = useRef(false);
+  const [headerTheme, setHeaderTheme] = useState<"light" | "dark">("dark");
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: ''
-  })
-  const [activeService, setActiveService] = useState<string>(servicesData[0]?.id ?? '')
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null)
-  const [isServiceModalOpen, setIsServiceModalOpen] = useState(false)
-  const projectsSectionRef = useRef<HTMLDivElement | null>(null)
-  const projectCardsRef = useRef<HTMLDivElement[]>([])
-  const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null)
-  const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null)
-  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 })
-  const aboutMosaicRef = useRef<HTMLDivElement | null>(null)
-  const prefersReducedMotion = useReducedMotion() ?? false
-
-
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [activeService, setActiveService] = useState<string>(
+    servicesData[0]?.id ?? "",
+  );
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(
+    null,
+  );
+  const [isServiceModalOpen, setIsServiceModalOpen] = useState(false);
+  const projectsSectionRef = useRef<HTMLDivElement | null>(null);
+  const projectCardsRef = useRef<HTMLDivElement[]>([]);
+  const [focusedProjectId, setFocusedProjectId] = useState<string | null>(null);
+  const [hoveredProjectId, setHoveredProjectId] = useState<string | null>(null);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const aboutMosaicRef = useRef<HTMLDivElement | null>(null);
+  const prefersReducedMotion = useReducedMotion() ?? false;
 
   // NEW: Animation states
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const [isDesktop, setIsDesktop] = useState(false)
-  const metricsRef = useRef<HTMLDivElement | null>(null)
-  const [metricsVisible, setMetricsVisible] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const metricsRef = useRef<HTMLDivElement | null>(null);
+  const [metricsVisible, setMetricsVisible] = useState(false);
 
   // Vibor.it Style: Wavy Line
-  const [wavyLineVisible, setWavyLineVisible] = useState(false)
-  const [wavyLinePath, setWavyLinePath] = useState('')
-  const wavyLineContainerRef = useRef<HTMLDivElement | null>(null)
+  const [wavyLineVisible, setWavyLineVisible] = useState(false);
+  const [wavyLinePath, setWavyLinePath] = useState("");
+  const wavyLineContainerRef = useRef<HTMLDivElement | null>(null);
 
   // CASE STUDIES CAROUSEL STATE
-  const [activeSlide, setActiveSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const [beforeAfterSlider, setBeforeAfterSlider] = useState(50) // percentage for before/after slider
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [beforeAfterSlider, setBeforeAfterSlider] = useState(50); // percentage for before/after slider
 
   // MOBILE FLOATING CTA STATE
-  const [showFloatingCTA, setShowFloatingCTA] = useState(false)
+  const [showFloatingCTA, setShowFloatingCTA] = useState(false);
 
   // SCROLL TO TOP BUTTON STATE
-  const [showScrollTop, setShowScrollTop] = useState(false)
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   // FAQ ACCORDION STATE
-  const [expandedFAQs, setExpandedFAQs] = useState<Set<string>>(new Set())
+  const [expandedFAQs, setExpandedFAQs] = useState<Set<string>>(new Set());
 
   // TECH SPECS TABLE STATE
-  const [selectedFilter, setSelectedFilter] = useState<string>('all')
-  const [compareMode, setCompareMode] = useState(false)
-  const [selectedForCompare, setSelectedForCompare] = useState<string[]>([])
-  const [expandedRow, setExpandedRow] = useState<string | null>(null)
+  const [selectedFilter, setSelectedFilter] = useState<string>("all");
+  const [compareMode, setCompareMode] = useState(false);
+  const [selectedForCompare, setSelectedForCompare] = useState<string[]>([]);
+  const [expandedRow, setExpandedRow] = useState<string | null>(null);
 
   // SMART CONTACT FORM STATE
   const [smartFormData, setSmartFormData] = useState({
-    projectType: '',
-    technology: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: '',
-    file: null as File | null
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+    projectType: "",
+    technology: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+    file: null as File | null,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // STICKY SIDE NAVIGATION STATE
-  const [activeSectionIndex, setActiveSectionIndex] = useState(0)
-  const sectionIds = ['top', 'metrics', 'about', 'projects', 'contact']
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+  const sectionIds = ["top", "metrics", "about", "projects", "contact"];
 
   useEffect(() => {
-    let ticking = false
+    let ticking = false;
 
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY
-          const windowHeight = window.innerHeight
-          const documentHeight = document.documentElement.scrollHeight
-          const scrollableDistance = documentHeight - windowHeight
-          const progress = scrollableDistance > 0 ? (currentScrollY / scrollableDistance) * 100 : 0
+          const currentScrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight;
+          const scrollableDistance = documentHeight - windowHeight;
+          const progress =
+            scrollableDistance > 0
+              ? (currentScrollY / scrollableDistance) * 100
+              : 0;
 
-          let heroBottom = 0
-          const heroSection = document.getElementById('top')
+          let heroBottom = 0;
+          const heroSection = document.getElementById("top");
           if (heroSection) {
-            heroBottom = heroSection.getBoundingClientRect().bottom
+            heroBottom = heroSection.getBoundingClientRect().bottom;
           }
 
-          let metricsSectionTop = 0
-          const metricsSection = document.getElementById('metrics')
+          let metricsSectionTop = 0;
+          const metricsSection = document.getElementById("metrics");
           if (metricsSection) {
-            metricsSectionTop = metricsSection.getBoundingClientRect().top
+            metricsSectionTop = metricsSection.getBoundingClientRect().top;
           }
 
-          setScrollY(currentScrollY)
-          setScrollProgress(progress)
+          setScrollY(currentScrollY);
+          setScrollProgress(progress);
 
-          if (heroSection && window.innerWidth < 640) { // sm breakpoint
-            setShowFloatingCTA(heroBottom < 100)
+          if (heroSection && window.innerWidth < 640) {
+            // sm breakpoint
+            setShowFloatingCTA(heroBottom < 100);
           } else {
-            setShowFloatingCTA(false)
+            setShowFloatingCTA(false);
           }
 
-          setShowScrollTop(currentScrollY > 300)
+          setShowScrollTop(currentScrollY > 300);
 
           if (metricsSection) {
-            setWavyLineVisible(metricsSectionTop <= windowHeight * 0.5)
+            setWavyLineVisible(metricsSectionTop <= windowHeight * 0.5);
           }
 
-          ticking = false
-        })
-        ticking = true
+          ticking = false;
+        });
+        ticking = true;
       }
-    }
+    };
 
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
-    if (typeof document === 'undefined') return
-    const body = document.body
+    if (typeof document === "undefined") return;
+    const body = document.body;
     if (isMenuOpen) {
-      body.classList.add('overflow-hidden')
+      body.classList.add("overflow-hidden");
     } else {
-      body.classList.remove('overflow-hidden')
+      body.classList.remove("overflow-hidden");
     }
-    return () => body.classList.remove('overflow-hidden')
-  }, [isMenuOpen])
+    return () => body.classList.remove("overflow-hidden");
+  }, [isMenuOpen]);
 
   // Desktop detection
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === "undefined") return;
 
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024)
-    checkDesktop()
-    window.addEventListener('resize', checkDesktop)
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
 
     return () => {
-      window.removeEventListener('resize', checkDesktop)
-    }
-  }, [])
+      window.removeEventListener("resize", checkDesktop);
+    };
+  }, []);
 
   // Auto-play carousel for case studies
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
-    }, 5000) // Change slide every 5 seconds
+      setActiveSlide((prev) => (prev + 1) % caseStudiesData.length);
+    }, 5000); // Change slide every 5 seconds
 
-    return () => clearInterval(interval)
-  }, [isAutoPlaying])
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
 
   // Sticky Side Navigation - Track active section
   useEffect(() => {
     const observerOptions = {
       root: null,
       threshold: 0.4,
-      rootMargin: '-20% 0px -20% 0px'
-    }
+      rootMargin: "-20% 0px -20% 0px",
+    };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const index = sectionIds.indexOf(entry.target.id)
+          const index = sectionIds.indexOf(entry.target.id);
           if (index !== -1) {
-            setActiveSectionIndex(index)
+            setActiveSectionIndex(index);
           }
         }
-      })
-    }
+      });
+    };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions)
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions,
+    );
 
     sectionIds.forEach((id) => {
-      const element = document.getElementById(id)
-      if (element) observer.observe(element)
-    })
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   // Intersection Observer for Metrics Section (Counter Animation)
   useEffect(() => {
-    if (!metricsRef.current || prefersReducedMotion) return
+    if (!metricsRef.current || prefersReducedMotion) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !metricsVisible) {
-            setMetricsVisible(true)
+            setMetricsVisible(true);
           }
-        })
+        });
       },
       {
         root: null,
         threshold: 0.3,
-        rootMargin: '0px'
-      }
-    )
+        rootMargin: "0px",
+      },
+    );
 
-    observer.observe(metricsRef.current)
+    observer.observe(metricsRef.current);
 
     return () => {
-      observer.disconnect()
-    }
-  }, [metricsVisible, prefersReducedMotion])
+      observer.disconnect();
+    };
+  }, [metricsVisible, prefersReducedMotion]);
 
   // Wavy Line Path Generation
   useEffect(() => {
-    if (!wavyLineContainerRef.current || prefersReducedMotion) return
+    if (!wavyLineContainerRef.current || prefersReducedMotion) return;
 
     const generateWavyPath = () => {
-      const container = wavyLineContainerRef.current
-      if (!container) return ''
+      const container = wavyLineContainerRef.current;
+      if (!container) return "";
 
-      const height = container.offsetHeight
-      const amplitude = 15 // Wave amplitude
-      const frequency = 0.01 // Wave frequency
+      const height = container.offsetHeight;
+      const amplitude = 15; // Wave amplitude
+      const frequency = 0.01; // Wave frequency
 
-      let path = 'M 0 0'
+      let path = "M 0 0";
       for (let y = 0; y <= height; y += 5) {
-        const x = Math.sin(y * frequency) * amplitude
-        path += ` L ${x} ${y}`
+        const x = Math.sin(y * frequency) * amplitude;
+        path += ` L ${x} ${y}`;
       }
 
-      return path
-    }
+      return path;
+    };
 
     const updatePath = () => {
-      setWavyLinePath(generateWavyPath())
-    }
+      setWavyLinePath(generateWavyPath());
+    };
 
-    updatePath()
-    window.addEventListener('resize', updatePath)
+    updatePath();
+    window.addEventListener("resize", updatePath);
 
-    return () => window.removeEventListener('resize', updatePath)
-  }, [prefersReducedMotion])
+    return () => window.removeEventListener("resize", updatePath);
+  }, [prefersReducedMotion]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === "undefined") return;
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (prefersReducedMotion) {
       projectCardsRef.current.forEach((card) => {
         if (card) {
-          card.style.opacity = '1'
-          card.style.transform = 'none'
+          card.style.opacity = "1";
+          card.style.transform = "none";
         }
-      })
-      return
+      });
+      return;
     }
 
-    let ctx: gsap.Context | undefined
-    let isMounted = true
+    let ctx: gsap.Context | undefined;
+    let isMounted = true;
 
-      ; (async () => {
-        const [{ gsap: gsapInstance }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')])
-        if (!isMounted) return
+    (async () => {
+      const [{ gsap: gsapInstance }, { ScrollTrigger }] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
+      if (!isMounted) return;
 
-        gsapInstance.registerPlugin(ScrollTrigger)
+      gsapInstance.registerPlugin(ScrollTrigger);
 
-        ctx = gsapInstance.context(() => {
-          const cards = projectCardsRef.current.filter((card): card is HTMLDivElement => Boolean(card))
-          if (!cards.length) return
+      ctx = gsapInstance.context(() => {
+        const cards = projectCardsRef.current.filter(
+          (card): card is HTMLDivElement => Boolean(card),
+        );
+        if (!cards.length) return;
 
-          gsapInstance.set(cards, { opacity: 0, y: 16, scale: 0.96 })
-          gsapInstance.to(cards, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.85,
-            ease: 'power3.out',
-            stagger: 0.12,
-            scrollTrigger: {
-              trigger: projectsSectionRef.current,
-              start: 'top 75%',
-              once: true
-            }
-          })
-        }, projectsSectionRef)
-      })()
+        gsapInstance.set(cards, { opacity: 0, y: 16, scale: 0.96 });
+        gsapInstance.to(cards, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.85,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: projectsSectionRef.current,
+            start: "top 75%",
+            once: true,
+          },
+        });
+      }, projectsSectionRef);
+    })();
 
     return () => {
-      isMounted = false
-      ctx?.revert()
-    }
-  }, [])
+      isMounted = false;
+      ctx?.revert();
+    };
+  }, []);
 
   useEffect(() => {
-    const sectionIds = ['top', 'video-gallery', 'why-staniax', 'footer', ...navItems.filter((item) => item.type === 'section').map((item) => item.id)]
+    const sectionIds = [
+      "top",
+      "video-gallery",
+      "why-staniax",
+      "footer",
+      ...navItems
+        .filter((item) => item.type === "section")
+        .map((item) => item.id),
+    ];
 
     const sections = sectionIds
       .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => Boolean(section))
+      .filter((section): section is HTMLElement => Boolean(section));
 
-    if (!sections.length) return
+    if (!sections.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
-          .filter((entry) => entry.isIntersecting && entry.intersectionRatio > 0.1)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+          .filter(
+            (entry) => entry.isIntersecting && entry.intersectionRatio > 0.1,
+          )
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
         if (visible && visible.target instanceof HTMLElement) {
-          const theme = visible.target.dataset.theme === 'dark' ? 'dark' : 'light'
-          setHeaderTheme((prev) => (prev === theme ? prev : theme))
+          const theme =
+            visible.target.dataset.theme === "dark" ? "dark" : "light";
+          setHeaderTheme((prev) => (prev === theme ? prev : theme));
         }
       },
       {
         root: null,
         threshold: [0.1, 0.2, 0.3, 0.5, 0.7],
-        rootMargin: '-80px 0px -60% 0px'
-      }
-    )
+        rootMargin: "-80px 0px -60% 0px",
+      },
+    );
 
-    sections.forEach((section) => observer.observe(section))
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section))
-      observer.disconnect()
-    }
-  }, [])
+      sections.forEach((section) => observer.unobserve(section));
+      observer.disconnect();
+    };
+  }, []);
 
   // Removed conflicting wheel event listener to allow natural scrolling with Lenis
 
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id)
+    const section = document.getElementById(id);
     if (section) {
       // Try to use Lenis if available for smooth scrolling
-      const lenis = (window as any).lenis
+      const lenis = (window as any).lenis;
       if (lenis) {
         lenis.scrollTo(section, {
           offset: -80, // Offset for header
           duration: 0.3,
-          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-        })
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
       } else {
         // Fallback to native smooth scroll
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
-  }
+  };
 
-  const sectionOrder = ['video-gallery', 'why-staniax', 'metrics', 'kim-jestesmy', 'about', 'projects', 'faq', 'contact', 'dane-kontaktowe', 'footer']
+  const sectionOrder = [
+    "video-gallery",
+    "why-staniax",
+    "metrics",
+    "kim-jestesmy",
+    "about",
+    "projects",
+    "faq",
+    "contact",
+    "dane-kontaktowe",
+    "footer",
+  ];
 
   const scrollToNextSection = () => {
-    const currentScrollY = window.scrollY + window.innerHeight / 3
+    const currentScrollY = window.scrollY + window.innerHeight / 3;
     for (let i = 0; i < sectionOrder.length - 1; i++) {
-      const section = document.getElementById(sectionOrder[i])
-      const nextSection = document.getElementById(sectionOrder[i + 1])
+      const section = document.getElementById(sectionOrder[i]);
+      const nextSection = document.getElementById(sectionOrder[i + 1]);
       if (section && nextSection) {
-        const sectionTop = section.offsetTop
-        const nextTop = nextSection.offsetTop
+        const sectionTop = section.offsetTop;
+        const nextTop = nextSection.offsetTop;
         if (currentScrollY >= sectionTop && currentScrollY < nextTop) {
-          scrollToSection(sectionOrder[i + 1])
-          return
+          scrollToSection(sectionOrder[i + 1]);
+          return;
         }
       }
     }
     // If at the very top or before first section, scroll to first section
     if (sectionOrder.length > 0) {
-      scrollToSection(sectionOrder[0])
+      scrollToSection(sectionOrder[0]);
     }
-  }
+  };
 
   // Confetti animation
   const triggerConfetti = () => {
-    const colors = ['#1d4ed8', '#3b82f6', '#60a5fa', '#93c5fd']
-    const confettiCount = 50
+    const colors = ["#1d4ed8", "#3b82f6", "#60a5fa", "#93c5fd"];
+    const confettiCount = 50;
 
     for (let i = 0; i < confettiCount; i++) {
-      const confetti = document.createElement('div')
-      confetti.className = 'confetti'
-      confetti.style.left = Math.random() * 100 + 'vw'
-      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
-      confetti.style.animationDelay = Math.random() * 0.5 + 's'
-      confetti.style.animationDuration = 2 + Math.random() * 2 + 's'
-      document.body.appendChild(confetti)
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.backgroundColor =
+        colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.animationDelay = Math.random() * 0.5 + "s";
+      confetti.style.animationDuration = 2 + Math.random() * 2 + "s";
+      document.body.appendChild(confetti);
 
-      setTimeout(() => confetti.remove(), 4000)
+      setTimeout(() => confetti.remove(), 4000);
     }
-  }
+  };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
-      toast.error(t(lang, 'toastFormError'))
-      return
+    e.preventDefault();
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.message
+    ) {
+      toast.error(t(lang, "toastFormError"));
+      return;
     }
 
-    triggerConfetti()
-    toast.success(t(lang, 'toastFormSuccess'))
+    triggerConfetti();
+    toast.success(t(lang, "toastFormSuccess"));
     setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      message: ''
-    })
-  }
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+  };
 
   const handleInputChange = (field: keyof typeof formData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-  }
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
-  const isDarkHeaderContext = headerTheme === 'dark'
+  const isDarkHeaderContext = headerTheme === "dark";
 
   // Menu classes - White text on dark background for better visibility
-  const menuBackgroundClass = 'bg-slate-950/95 text-white'
-  const menuMutedClass = 'text-white/70'
-  const menuBorderClass = 'border-white/20'
-  const menuButtonClass = 'border-white/20 text-white hover:bg-white hover:text-slate-950'
-  const menuPrimaryTextClass = 'text-white'
-  const menuIconClass = 'text-white/70'
+  const menuBackgroundClass = "bg-slate-950/95 text-white";
+  const menuMutedClass = "text-white/70";
+  const menuBorderClass = "border-white/20";
+  const menuButtonClass =
+    "border-white/20 text-white hover:bg-white hover:text-slate-950";
+  const menuPrimaryTextClass = "text-white";
+  const menuIconClass = "text-white/70";
 
   const handleNavClick = (item: NavItem) => {
-    if (item.type === 'section') {
-      scrollToSection(item.id)
+    if (item.type === "section") {
+      scrollToSection(item.id);
     } else {
-      navigate(item.path)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      navigate(item.path);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    setIsMenuOpen(false)
-  }
+    setIsMenuOpen(false);
+  };
 
   return (
     <SmoothScroll>
-      <main className="min-h-screen bg-white selection:bg-blue-500/30">
+      <div className="min-h-screen bg-white selection:bg-blue-500/30">
         {/* Scroll Progress Bar */}
         <div
           className="scroll-progress"
           style={{ width: `${scrollProgress}%` }}
           aria-hidden="true"
         />
-
-        {/* STICKY SIDE NAVIGATION REMOVED */}
 
         {/* Progress Line "Laser" */}
         <motion.div
@@ -1233,1517 +1488,1819 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
 
         <Toaster position="top-right" richColors />
 
-        <header
-          className={cn(
-            'fixed top-0 w-full transition-all duration-500',
-            isMenuOpen ? 'z-[100]' : 'z-50',
-            scrollY > 32
-              ? 'bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-[0_15px_60px_rgba(15,23,42,0.18)]'
-              : 'bg-transparent border-transparent'
-          )}
-        >
-          <div
-            className={cn(
-              'w-full flex items-center justify-between py-4 sm:py-5 transition-colors duration-300',
-              'px-6 lg:px-24 xl:px-36',
-              isMenuOpen
-                ? 'text-foreground'
-                : scrollY > 32
-                  ? 'text-foreground'
-                  : isDarkHeaderContext
-                    ? 'text-white'
-                    : 'text-foreground'
-            )}
+        <SiteHeader lang={lang} />
+
+        <main>
+          {/* HERO & GALLERY SECTION */}
+          <section id="video-gallery" data-theme="light">
+            <VideoGalleryTransition lang={lang} />
+          </section>
+
+          {/* FEATURE HIGHLIGHT */}
+          <section id="why-staniax" data-theme="light">
+            <Suspense
+              fallback={
+                <div className="h-[400px] w-full flex items-center justify-center bg-gray-50">
+                  <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              }
+            >
+              <WhyStaniaxContent lang={lang} />
+            </Suspense>
+          </section>
+
+          {/* Sekcja Liczb/Metryk - Trust Indicators z NumberTicker */}
+          <section
+            ref={metricsRef}
+            id="metrics"
+            data-theme="light"
+            className="relative py-20 lg:py-32 bg-white overflow-hidden"
           >
-            <div className="flex flex-col items-start">
-              <div
-                onClick={() => {
-                  const lenis = (window as any).lenis
-                  if (lenis) {
-                    lenis.scrollTo(0, { duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) })
-                  } else {
-                    window.scrollTo({ top: 0, behavior: 'smooth' })
-                  }
-                }}
-                className="group text-left flex items-start gap-3 sm:gap-4 cursor-pointer"
-                role="button"
-                tabIndex={0}
-                aria-label="Przewiń na górę"
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }
-                }}
-              >
-                <div
-                  className={cn(
-                    'text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter transition-colors duration-500 shrink-0',
-                    isMenuOpen
-                      ? 'text-slate-700'
-                      : isDarkHeaderContext
-                        ? 'text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]'
-                        : scrollY > 32
-                          ? 'text-blue-900/85'
-                          : 'text-slate-700/90'
-                  )}
-                >
-                  STANIAX
-                </div>
-                <div
-                  className={cn(
-                    'hidden sm:flex flex-col justify-center tracking-wide uppercase transition-colors duration-500 leading-none',
-                    isMenuOpen
-                      ? 'text-slate-500'
-                      : isDarkHeaderContext
-                        ? 'text-white/70'
-                        : scrollY > 32
-                          ? 'text-blue-700/60'
-                          : 'text-slate-500/70'
-                  )}
-                >
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight whitespace-nowrap m-0 p-0">{t(lang, 'navHeaderLine1')}</div>
-                 <div className="text-xl sm:text-2xl lg:text-3xl font-medium leading-tight mt-0.5 m-0 p-0">{t(lang, 'navHeaderLine2')}</div>
-                </div>
-              </div>
-              <div className="h-8 overflow-visible relative w-full flex items-center min-w-[220px] -mt-1">
-                <div className="flex items-center gap-2">
-                  {languageLinks.map((l) => (
-                    <a
-                      key={l.lang}
-                      href={l.path}
-                      aria-label={l.label}
-                      className={cn(
-                        'text-xl sm:text-2xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative z-[60]',
-                        lang === l.lang ? 'opacity-100 scale-110' : 'opacity-50 hover:opacity-90'
-                      )}
-                    >
-                      {l.flag}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center gap-5">
-                <Button
-                onClick={() => scrollToSection('contact')}
-                className={cn(
-                  'hidden sm:inline-flex border-2 transition-all duration-500 text-base font-bold px-6 h-12',
-                  isMenuOpen
-                    ? 'border-foreground/15 text-foreground bg-transparent hover:bg-foreground hover:text-background'
-                    : isDarkHeaderContext
-                      ? 'border-white/40 text-white bg-transparent hover:bg-white hover:text-foreground'
-                      : scrollY > 32
-                        ? 'border-blue-900/30 text-blue-900/85 bg-transparent hover:bg-blue-900 hover:text-white'
-                        : 'border-slate-900 text-slate-900 bg-white shadow-lg hover:bg-slate-900 hover:text-white'
-                )}
-              >
-                {t(lang, 'kontakt')}
-              </Button>
-              <button
-                className={cn(
-                  'relative h-11 w-11 sm:h-14 sm:w-14 rounded-full border-2 backdrop-blur-md flex items-center justify-center transition-all duration-500',
-                  isMenuOpen
-                    ? 'border-foreground/30 bg-background text-foreground'
-                    : isDarkHeaderContext
-                      ? 'border-white/30 bg-white/10 text-white hover:border-white/60'
-                      : scrollY > 32
-                        ? 'border-blue-900/20 bg-white/70 text-blue-900/85 hover:border-blue-900/40'
-                        : 'border-slate-900 bg-white text-slate-900 hover:bg-slate-900 hover:text-white shadow-lg'
-                )}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label="Przełącz nawigację"
-                aria-expanded={isMenuOpen}
-              >
-                <span
-                  className={cn(
-                    'absolute h-0.5 w-6 sm:w-7 rounded-full bg-current transition-all duration-300',
-                    isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-1.5'
-                  )}
-                />
-                <span
-                  className={cn(
-                    'absolute h-0.5 w-4 sm:w-5 rounded-full bg-current transition-all duration-300',
-                    isMenuOpen ? 'w-6 sm:w-7 translate-y-0 -rotate-45' : 'translate-y-1.5'
-                  )}
-                />
-              </button>
-            </div>
-          </div>
-        </header>
+            <div
+              className="bg-decoration bg-decoration-blue float-animation"
+              style={{
+                width: "300px",
+                height: "300px",
+                top: "10%",
+                left: "5%",
+              }}
+            />
+            <div
+              className="bg-decoration bg-decoration-orange float-animation"
+              style={{
+                width: "250px",
+                height: "250px",
+                bottom: "15%",
+                right: "10%",
+                animationDelay: "2s",
+              }}
+            />
 
-        {/* Backdrop - OUTSIDE header */}
-        <div
-          className={cn(
-            'fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300',
-            isMenuOpen ? 'pointer-events-auto opacity-100 z-[110]' : 'pointer-events-none opacity-0 z-[-1]'
-          )}
-          onClick={() => setIsMenuOpen(false)}
-          aria-hidden={!isMenuOpen}
-        />
-
-        {/* Side Menu - Slide-in from Right - OUTSIDE header */}
-        <div
-          className={cn(
-            'fixed inset-y-0 right-0 w-full max-w-md transform transition-transform duration-500 ease-in-out z-[120] overflow-y-auto',
-            menuBackgroundClass,
-            'backdrop-blur-2xl border-l border-white/10',
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          )}
-          aria-hidden={!isMenuOpen}
-        >
-          <div className="flex h-full flex-col justify-between px-6 py-8">
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>Nawigacja</p>
-              </div>
-              <button
-                onClick={() => setIsMenuOpen(false)}
-                className="text-white/70 hover:text-white transition-colors"
-                aria-label="Zamknij menu"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            <div className="flex flex-col gap-8">
-              <nav className="space-y-4">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.id}
-                    to={item.type === 'route' ? (item.path || '/') : `/#${item.id}`}
-                    onClick={(e) => {
-                      if (item.type === 'section') {
-                        e.preventDefault();
-                        handleNavClick(item);
-                      } else {
-                        setIsMenuOpen(false);
-                      }
-                    }}
-                    className={cn(
-                      'group flex items-center w-full text-left py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white/10',
-                      menuPrimaryTextClass
-                    )}
-                  >
-                    <span className="text-lg font-semibold leading-none tracking-tight transition-all duration-300 group-hover:text-accent">
-                      {item.label}
-                    </span>
-                    <ArrowRight className="ml-auto w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </Link>
-                ))}
-              </nav>
-
-              <div className="pt-6 border-t border-white/10" />
-            </div>
-
-            <div className="space-y-6">
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>{t(lang, 'kontakt')}</p>
-                <div className={cn('mt-3 space-y-1 text-sm font-medium', menuPrimaryTextClass)}>
-                  <p>Grzybowska 5A</p>
-                  <p>00-132 Warszawa</p>
-                </div>
-              </div>
-              <div>
-                <p className={cn('text-xs uppercase tracking-[0.6em]', menuMutedClass)}>{t(lang, 'szybkieLinki')}</p>
-                <div className={cn('mt-3 flex flex-wrap gap-3 text-sm font-medium', menuMutedClass)}>
-                  <a href="/#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuStudio')}</a>
-                  <a href="/#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuProjekty')}</a>
-                  <a href="/#kim-jestesmy" onClick={(e) => { e.preventDefault(); scrollToSection('kim-jestesmy'); setIsMenuOpen(false); }} className="transition-colors duration-200 hover:text-accent">{t(lang, 'menuONas')}</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* HERO & GALLERY SECTION */}
-        <section id="video-gallery" data-theme="light">
-          <VideoGalleryTransition lang={lang} />
-        </section>
-
-        {/* FEATURE HIGHLIGHT */}
-        <section id="why-staniax" data-theme="light">
-          <Suspense fallback={<div className="h-[400px] w-full flex items-center justify-center bg-gray-50"><div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div></div>}>
-            <WhyStaniaxContent lang={lang} />
-          </Suspense>
-        </section>
-
-        {/* Sekcja Liczb/Metryk - Trust Indicators z Stagger Reveal */}
-        <section ref={metricsRef} id="metrics" data-theme="light" className="relative py-20 lg:py-32 bg-white overflow-hidden">
-          {/* Background Decorations */}
-          <div className="bg-decoration bg-decoration-blue float-animation" style={{ width: '300px', height: '300px', top: '10%', left: '5%' }} />
-          <div className="bg-decoration bg-decoration-orange float-animation" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', animationDelay: '2s' }} />
-
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            {/* Grid 1x3 metryk z Stagger Animation */}
-            {/* Grid 1x3 metryk z Stagger Animation */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Metryka 1 */}
-              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                  25+
-                </div>
-                <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                  {t(lang, 'latDoswiadczenia')}
-                </p>
-              </div>
-
-              {/* Metryka 2 */}
-              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                  2500+
-                </div>
-                <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                  {t(lang, 'zrealizowanychProjektow')}
-                </p>
-              </div>
-
-              {/* Metryka 3 */}
-              <div className={`text-center group ${metricsVisible ? 'metric-stagger' : 'opacity-0'}`}>
-                <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
-                  24h
-                </div>
-                <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
-                  {t(lang, 'footerResponseTime')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-
-        {/* GALLERY SECTION (Video -> Grid Transition) */}
-
-
-
-        {/* SEO Long-form Article Section (Bento Grid Style) */}
-        <section className="relative py-20 lg:py-32 bg-gray-50 overflow-hidden">
-          {/* Subtle Grid Pattern Background */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)', backgroundSize: '40px 40px' }} aria-hidden="true" />
-          
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            
-            {/* Header Area */}
-            <div className="mb-16 lg:mb-24">
-              <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase mb-6">
-                <span className="w-12 h-px bg-blue-600"></span>
-                {t(lang, 'bazaWiedzyTitle')}
-              </div>
-              <h2 className="text-4xl lg:text-6xl font-black uppercase text-gray-900 tracking-tight leading-[0.95] max-w-4xl">
-                {t(lang, 'bazaWiedzyHeading')}<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">{t(lang, 'bazaWiedzyHeadingSub')}</span>
-              </h2>
-            </div>
-
-            {/* Bento Grid Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 text-sm sm:text-base leading-relaxed">
-              
-              {/* Lead Paragraph - Spans full width */}
-              <div className="col-span-1 md:col-span-12 bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-100 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50/50 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <p className="relative z-10 text-xl lg:text-2xl text-gray-800 font-medium leading-relaxed max-w-5xl">
-                  {t(lang, 'bazaWiedzyLead')}
-                </p>
-              </div>
-
-              {/* Technologies - Spans 7 cols */}
-              <div className="col-span-1 md:col-span-7 bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:border-blue-100 transition-colors">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
-                  <Flask weight="duotone" className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">{t(lang, 'bazaWiedzyTechTitle')}</h3>
-                <p className="text-gray-600">
-                  {renderTextWithBold('bazaWiedzyTechDesc', {
-                    pl: 'metalizacja próżniowa',
-                    en: 'vacuum metallization',
-                    de: 'Vakuummetallisierung'
-                  })}
-                </p>
-              </div>
-
-              {/* Why Us - Spans 5 cols - Dark Theme */}
-              <div className="col-span-1 md:col-span-5 bg-gray-900 rounded-3xl p-8 lg:p-10 shadow-lg relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10 flex flex-col h-full justify-between">
-                  <div>
-                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{t(lang, 'bazaWiedzyWhyTitle')}</h3>
-                    <p className="text-gray-300 mb-6">
-                      {renderTextWithBold('bazaWiedzyWhyDesc', {
-                        pl: 'metalizacja próżniowa dariusz staniak',
-                        en: 'vacuum metallization company Dariusz Staniak',
-                        de: 'Vakuummetallisierungsfirma Dariusz Staniak'
-                      }, true)}
-                    </p>
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Metryka 1 */}
+                <div className="text-center group">
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    <NumberTicker value={25} suffix="+" />
                   </div>
-                  <Link to="/gallery" className="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors mt-auto">
-                    {t(lang, 'bazaWiedzyWhyLink')} <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
-                  </Link>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    {t(lang, "latDoswiadczenia")}
+                  </p>
                 </div>
-              </div>
 
-              {/* Location - Spans 5 cols */}
-              <div className="col-span-1 md:col-span-5 bg-blue-600 text-white rounded-3xl p-8 lg:p-10 shadow-lg relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16"></div>
-                <div className="relative z-10 flex flex-col h-full justify-between">
-                  <div>
-                    <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{t(lang, 'bazaWiedzyLocTitle')}</h3>
-                    <p className="text-blue-100 mb-6">
-                      {renderTextWithBold('bazaWiedzyLocDesc', {
-                        pl: 'metalizacja próżniowa józefów',
-                        en: 'vacuum metallization Józefów',
-                        de: 'Vakuummetallisierung Józefów'
-                      }, true)}
-                    </p>
+                {/* Metryka 2 */}
+                <div className="text-center group">
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    <NumberTicker value={2500} suffix="+" />
                   </div>
-                  <Link to="/news" className="inline-flex items-center text-white/90 font-semibold hover:text-white transition-colors mt-auto">
-                    {t(lang, 'bazaWiedzyLocLink')} <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
-                  </Link>
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    {t(lang, "zrealizowanychProjektow")}
+                  </p>
                 </div>
-              </div>
 
-              {/* Applications - Spans 7 cols */}
-              <div className="col-span-1 md:col-span-7 bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:border-blue-100 transition-colors">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
-                  <Gear weight="duotone" className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">{t(lang, 'bazaWiedzyAppTitle')}</h3>
-                <p className="text-gray-600">
-                  {renderTextWithBold('bazaWiedzyAppDesc', {
-                    pl: 'metalizacja natryskowa',
-                    en: 'spray metallization',
-                    de: 'Spritzmetallisierung'
-                  })}
-                </p>
-              </div>
-
-              {/* Summary - Spans full width */}
-              <div className="col-span-1 md:col-span-12 text-center pt-8 pb-4">
-                <p className="text-lg text-gray-500 font-medium max-w-4xl mx-auto">
-                  {renderTextWithBold('bazaWiedzySummary', {
-                    pl: 'metalizacja',
-                    en: 'metallization',
-                    de: 'Metallisierung'
-                  })}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* KIM JESTEŚMY SECTION */}
-        <section id="kim-jestesmy" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden">
-          {/* Subtle Pattern */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)', backgroundSize: '40px 40px' }} aria-hidden="true" />
-          
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* Left: Content */}
-              <div className="space-y-8">
-                <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
-                  <span className="w-12 h-px bg-blue-600"></span>
-                  {t(lang, 'oNas')}
-                </div>
-                <h2 className="text-4xl lg:text-6xl font-black uppercase text-gray-900 tracking-tight leading-[0.95]">
-                  {t(lang, 'kimJestesmy').split('\n').map((line, i) => <span key={i}>{line}<br /></span>)}
-                </h2>
-                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-                  {(() => {
-                    const text = t(lang, 'kimJestesmyText1')
-                    const nameMap: Record<string, string> = { pl: 'Dariusza Staniak', en: 'Dariusz Staniak', de: 'Dariusz Staniak' }
-                    const name = nameMap[lang] || 'Dariusza Staniak'
-                    const parts = text.split(name)
-                    if (parts.length === 2) {
-                      return <>{parts[0]}<strong className="font-bold text-gray-900">{name}</strong>{parts[1]}</>
-                    }
-                    return text
-                  })()}
-                </p>
-                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
-                  {t(lang, 'kimJestesmyText2')}
-                </p>
-                
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200">
-                  <div>
-                    <div className="text-3xl lg:text-4xl font-black text-blue-700">25+</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">{t(lang, 'csMetricExp')}</div>
+                {/* Metryka 3 */}
+                <div className="text-center group">
+                  <div className="relative text-7xl lg:text-8xl font-black text-blue-700 mb-4 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 number-glow">
+                    <NumberTicker value={24} suffix="h" />
                   </div>
-                  <div>
-                    <div className="text-3xl lg:text-4xl font-black text-blue-700">2500+</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">{t(lang, 'csMetricProjects')}</div>
-                  </div>
-                  <div>
-                    <div className="text-3xl lg:text-4xl font-black text-blue-700">24h</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">{t(lang, 'czasReakcjiShort')}</div>
-                  </div>
-                </div>
-
-                {/* Features */}
-                <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                  {[
-                    { icon: <Users className="w-5 h-5" />, text: t(lang, 'wykwalifikowanyZespol') },
-                    { icon: <Gear className="w-5 h-5" />, text: t(lang, 'nowoczesnyPark') },
-                    { icon: <Shield className="w-5 h-5" />, text: t(lang, 'gwarancjaJakosci') },
-                    { icon: <Clock className="w-5 h-5" />, text: t(lang, 'terminowoscDostaw') }
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-gray-700">
-                      <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
-                        {item.icon}
-                      </div>
-                      <span className="text-sm font-medium">{item.text}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <MagneticButton 
-                  onClick={() => scrollToSection('contact')}
-                  className="mt-4 px-8 py-3 bg-blue-600 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors"
-                >
-                  {t(lang, 'skontaktujSieZNami')}
-                </MagneticButton>
-              </div>
-
-              {/* Right: Image */}
-              <div className="relative">
-                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                  <img
-                    src={whatsapp180620}
-                    alt="Zespół STANIAX - metalizacja próżniowa"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-                {/* Floating Badge */}
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 max-w-[200px]">
-                  <div className="text-4xl font-black text-blue-700 mb-1">24h</div>
-                  <div className="text-sm text-gray-600 font-medium">{t(lang, 'czasReakcji')}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* BRIDGE SECTION — Transition from "Kim Jesteśmy" to "NASZA OFERTA" */}
-        <section data-theme="light" className="relative bg-white overflow-hidden">
-          {/* Top gradient fade from previous section */}
-          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-blue-50/30 to-transparent" />
-          
-          <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-28">
-            <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
-            >
-              {/* Decorative line */}
-              <div className="flex items-center gap-6 mb-10">
-                <motion.div 
-                  initial={{ width: 0 }} 
-                  whileInView={{ width: '80px' }} 
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="h-px bg-blue-600" 
-                />
-                <span className="text-xs font-mono uppercase tracking-[0.5em] text-blue-600 font-semibold">{t(lang, 'sprawdzCoOferujemy')}</span>
-              </div>
-
-              {/* Big statement */}
-              <div className="max-w-5xl">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-gray-900 tracking-tight leading-[0.95] mb-8">
-                  {t(lang, 'technologiaKtoraZmienia')}<br />
-                  <span className="text-blue-600">{t(lang, 'ktoraZmienia')}</span><br />
-                  {t(lang, 'powierzchnie')}
-                </h2>
-                <p className="text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed">
-                  {t(lang, 'bridgeDesc')}
-                </p>
-              </div>
-
-              {/* Animated scroll indicator */}
-              <motion.button 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-                onClick={() => scrollToSection('about')}
-                className="mt-12 flex items-center gap-3 text-gray-400 hover:text-blue-600 transition-colors cursor-pointer"
-              >
-                <motion.div
-                  animate={{ y: [0, 8, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <ArrowDown className="w-5 h-5" />
-                </motion.div>
-                <span className="text-xs uppercase tracking-[0.3em] font-medium">{t(lang, 'przewinDalej')}</span>
-              </motion.button>
-            </motion.div>
-
-            {/* Video tile */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
-            >
-              <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
-                <LazyVideo
-                  src={bridgeSectionVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                    {t(lang, 'bridgeVideoLabel') || 'Metalizacja w akcji'}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-            </div>
-          </div>
-
-          {/* Bottom gradient fade into next section */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50/50 to-transparent" />
-        </section>
-
-
-        <section id="about" data-theme="light" className="relative py-20 lg:py-32 bg-gradient-to-tl from-white via-gray-50/50 to-white overflow-hidden">
-          {/* Subtle Metallic Texture Overlay */}
-          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8), linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8)', backgroundSize: '60px 60px', backgroundPosition: '0 0, 30px 30px' }} aria-hidden="true" />
-
-          {/* Background Decorations */}
-          {/* Removed images as per request */}
-
-          <div className="container mx-auto px-6 lg:px-12 relative z-10">
-            {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
-            <div className="text-right mb-20 max-w-7xl section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">{t(lang, 'ofertaLabel')}</p>
-              <div className="bg-white py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
-                <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
-                  {t(lang, 'naszaOferta')}
-                </h2>
-
-                <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
-                  {[
-                    { label: t(lang, 'ofertaItem1'), section: "vacuum-metallization", isRoute: false },
-                    { label: t(lang, 'ofertaItem2'), section: "plastic-painting", isRoute: false },
-                    { label: t(lang, 'ofertaItem3'), section: "glass-painting", isRoute: false },
-                    { label: t(lang, 'ofertaItem4'), section: "reflectors", isRoute: false },
-                    { label: t(lang, 'ofertaItem5'), section: "spray-painting", isRoute: false },
-                    { label: t(lang, 'ofertaItem6'), section: "/gallery", isRoute: true }
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-baseline gap-6 group cursor-pointer"
-                      onClick={() => item.isRoute ? navigate(item.section) : scrollToSection(item.section)}
-                    >
-                      <span className="text-xl font-mono text-blue-500 font-bold">0{index + 1}.</span>
-                      <h3 className="text-2xl md:text-4xl font-bold text-gray-800 transition-colors uppercase relative overflow-hidden">
-                        <span className="relative z-10 liquid-metal-text">{item.label}</span>
-                        <span className="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-blue-600 to-blue-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                      </h3>
-                      <ArrowRight className="w-6 h-6 text-blue-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                    </div>
-                  ))}
-                </div>
-
-                {/* DETAILED SERVICES SECTION */}
-                <div className="mt-32 space-y-32">
-                  {servicesData.map((service, index) => (
-                    <div
-                      key={service.id}
-                      id={service.id}
-                      className={cn(
-                        "grid gap-12 items-stretch",
-                        index % 2 === 0 ? "lg:grid-cols-[1fr_1.2fr]" : "lg:grid-cols-[1.2fr_1fr]"
-                      )}
-                    >
-                      <div className={cn(
-                        "flex flex-col justify-center space-y-6",
-                        index % 2 !== 0 && "lg:order-2"
-                      )}>
-                        <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
-                          <span className="w-12 h-px bg-blue-600"></span>
-                          {(() => {
-                            const svcKeyMap: Record<string, { title: string; desc: string; tagline: string }> = {
-                              'vacuum-metallization': { title: 'svcVacuumTitle', desc: 'svcVacuumDesc', tagline: 'svcVacuumTagline' },
-                              'plastic-painting': { title: 'svcPlasticTitle', desc: 'svcPlasticDesc', tagline: 'svcPlasticTagline' },
-                              'glass-painting': { title: 'svcGlassTitle', desc: 'svcGlassDesc', tagline: 'svcGlassTagline' },
-                              'reflectors': { title: 'svcReflectorsTitle', desc: 'svcReflectorsDesc', tagline: 'svcReflectorsTagline' },
-                              'spray-painting': { title: 'svcSprayTitle', desc: 'svcSprayDesc', tagline: 'svcSprayTagline' }
-                            }
-                            const keys = svcKeyMap[service.id]
-                            return keys ? t(lang, keys.tagline as any) : service.tagline
-                          })()}
-                        </div>
-                        <h3 className="text-4xl lg:text-5xl font-black uppercase text-gray-900 leading-tight">
-                          {(() => {
-                            const svcKeyMap: Record<string, string> = {
-                              'vacuum-metallization': 'svcVacuumTitle',
-                              'plastic-painting': 'svcPlasticTitle',
-                              'glass-painting': 'svcGlassTitle',
-                              'reflectors': 'svcReflectorsTitle',
-                              'spray-painting': 'svcSprayTitle'
-                            }
-                            const key = svcKeyMap[service.id]
-                            return key ? t(lang, key as any) : service.title
-                          })()}
-                        </h3>
-                        <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-                          {(() => {
-                            const svcKeyMap: Record<string, string> = {
-                              'vacuum-metallization': 'svcVacuumDesc',
-                              'plastic-painting': 'svcPlasticDesc',
-                              'glass-painting': 'svcGlassDesc',
-                              'reflectors': 'svcReflectorsDesc',
-                              'spray-painting': 'svcSprayDesc'
-                            }
-                            const key = svcKeyMap[service.id]
-                            return key ? t(lang, key as any) : service.description
-                          })()}
-                        </p>
-                        <MagneticButton 
-                          onClick={() => {
-                            setSelectedService(service)
-                            setIsServiceModalOpen(true)
-                          }}
-                          className="mt-8 px-8 py-3 bg-gray-900 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors"
-                        >
-                          {t(lang, 'szczegoly')}
-                        </MagneticButton>
-                      </div>
-                      <div className={cn(
-                        "w-full",
-                        index % 2 !== 0 && "lg:order-1"
-                      )}>
-                        {service.images && service.images.length === 4 ? (
-                          <div className="grid grid-cols-2 gap-3 aspect-[4/3]">
-                            {service.images.map((img, imgIdx) => (
-                              <div key={imgIdx} className="relative rounded-2xl overflow-hidden shadow-xl group/img">
-                                {typeof img === 'string' && img.includes('.mp4') ? (
-                                  <LazyVideo
-                                    src={img}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
-                                  />
-                                ) : (
-                                  <img
-                                    src={img}
-                                    alt={`${service.alt} ${imgIdx + 1}`}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
-                                  />
-                                )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
-                              </div>
-                            ))}
-                          </div>
-                        ) : service.images && service.images.length === 2 ? (
-                          <div className="grid grid-rows-2 gap-3 aspect-[4/3]">
-                            {service.images.map((img, imgIdx) => (
-                              <div key={imgIdx} className="relative rounded-2xl overflow-hidden shadow-xl group/img bg-gray-100">
-                                <img
-                                  src={img}
-                                  alt={`${service.alt} ${imgIdx + 1}`}
-                                  className="w-full h-full object-contain transition-transform duration-700 group-hover/img:scale-110"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
-                              </div>
-                            ))}
-                          </div>
-                        ) : service.images && service.images.length === 1 ? (
-                          <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
-                            {typeof service.images[0] === 'string' && service.images[0].includes('.mp4') ? (
-                              <LazyVideo
-                                src={service.images[0]}
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                              />
-                            ) : (
-                              <img
-                                src={service.images[0]}
-                                alt={service.alt}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                              />
-                            )}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                          </div>
-                        ) : (
-                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
-                          <img
-                            src={service.image}
-                            alt={service.alt}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
-                            <div className="text-white/20">
-                              {service.icon}
-                            </div>
-                          </div>
-                        </div>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Cytat misji - moved here */}
-                <div className="mt-12 w-full ml-auto">
-                  <p className="text-lg text-gray-600 italic border-l-4 border-r-4 border-blue-700 px-8 leading-relaxed font-normal text-center">
-                    {t(lang, 'cytatMisji')}
+                  <p className="text-xs uppercase tracking-[0.3em] text-gray-600 font-semibold">
+                    {t(lang, "footerResponseTime")}
                   </p>
                 </div>
               </div>
             </div>
+          </section>
 
-            {/* CTA after About section */}
-            <div className="mt-16 text-center">
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-105"
-              >
-                <span className="text-base font-bold uppercase tracking-wider">
-                  {t(lang, 'bezplatnaKonsultacja')}
-                </span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </button>
-              <p className="mt-4 text-sm text-gray-600">{t(lang, 'skontaktujSieIOmow')}</p>
-            </div>
-          </div>
-        </section>
+          {/* SEO Long-form Article Section (Bento Grid Style) */}
+          <section className="relative py-20 lg:py-32 bg-gray-50 overflow-hidden">
+            <div
+              className="absolute inset-0 opacity-[0.03]"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)",
+                backgroundSize: "40px 40px",
+              }}
+              aria-hidden="true"
+            />
 
-        {/* CASE STUDIES CAROUSEL - Vibor.it Style */}
-        <section ref={projectsSectionRef} id="projects" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-white to-gray-50 overflow-hidden">
-          <div className="container mx-auto px-6 lg:px-12">
-            {/* Header */}
-            <div className="text-left mb-20 max-w-7xl section-reveal">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">{t(lang, 'studiaPrzypadkow')}</p>
-              <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-blue-400">
-                {t(lang, 'naszeRealizacje1')}<br />{t(lang, 'naszeRealizacje2')}
-              </h2>
-              <p className="text-lg text-gray-600 font-normal max-w-2xl leading-relaxed">
-                {t(lang, 'realizacjeDesc')}
-              </p>
-            </div>
-
-            {/* Carousel Container */}
-            <div className="relative max-w-7xl mx-auto">
-              {/* Carousel Slides */}
-              <div className="relative overflow-hidden">
-                {caseStudiesData.map((caseStudy, index) => (
-                  <div
-                    key={caseStudy.id}
-                    className={cn(
-                      'transition-all duration-700 ease-in-out',
-                      activeSlide === index ? 'opacity-100 relative' : 'opacity-0 absolute inset-0 pointer-events-none'
-                    )}
-                  >
-                    <div className="grid lg:grid-cols-2 gap-12">
-                      {/* Left: Before/After Image Comparison */}
-                      <TiltCard className="relative group">
-                        <div
-                          className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-gray-200 shadow-2xl cursor-ew-resize"
-                          onClick={(e) => {
-                            const rect = e.currentTarget.getBoundingClientRect()
-                            const newX = ((e.clientX - rect.left) / rect.width) * 100
-                            setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
-                          }}
-                          onMouseMove={(e) => {
-                            if (e.buttons === 1) { // Left mouse button is pressed
-                              const rect = e.currentTarget.getBoundingClientRect()
-                              const newX = ((e.clientX - rect.left) / rect.width) * 100
-                              setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
-                            }
-                          }}
-                          onTouchMove={(e) => {
-                            const rect = e.currentTarget.getBoundingClientRect()
-                            const touch = e.touches[0]
-                            const newX = ((touch.clientX - rect.left) / rect.width) * 100
-                            setBeforeAfterSlider(Math.max(0, Math.min(100, newX)))
-                          }}
-                        >
-                          {/* Before Image */}
-                          <img
-                            src={caseStudy.imageBefore}
-                            alt={`${caseStudy.title} - Przed`}
-                            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                          />
-
-                          {/* After Image/Video with Slider */}
-                          <div
-                            className="absolute inset-0 overflow-hidden pointer-events-none"
-                            style={{ clipPath: `inset(0 0 0 ${beforeAfterSlider}%)` }}
-                          >
-                            {caseStudy.videoAfter ? (
-                              <LazyVideo
-                                src={caseStudy.videoAfter}
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="absolute inset-0 w-full h-full object-cover"
-                              />
-                            ) : (
-                              <img
-                                src={caseStudy.imageAfter}
-                                alt={`${caseStudy.title} - Po`}
-                                className="absolute inset-0 w-full h-full object-cover"
-                              />
-                            )}
-                          </div>
-
-                          {/* Slider Handle */}
-                          <div
-                            className="absolute top-0 bottom-0 w-1 bg-white pointer-events-none"
-                            style={{ left: `${beforeAfterSlider}%` }}
-                          >
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center">
-                              <div className="flex gap-1">
-                                <div className="w-0.5 h-4 bg-gray-700"></div>
-                                <div className="w-0.5 h-4 bg-gray-700"></div>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Before/After Labels */}
-                          <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            {t(lang, 'przed')}
-                          </div>
-                          <div className="absolute top-4 right-4 bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider pointer-events-none">
-                            {t(lang, 'po')}
-                          </div>
-                        </div>
-
-                      </TiltCard>
-
-                      {/* Right: Content */}
-                      <div className="space-y-8">
-                        <div>
-                          <h3 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase mb-3 tracking-tight">
-                            {(() => {
-                              const csKeyMap: Record<string, string> = {
-                                'automotive-parts': 'csAutomotiveTitle',
-                                'cosmetics-packaging': 'csCosmeticsTitle',
-                                'industrial-elements': 'csIndustrialTitle'
-                              }
-                              const key = csKeyMap[caseStudy.id]
-                              return key ? t(lang, key as any) : caseStudy.title
-                            })()}
-                          </h3>
-                          <p className="text-lg text-gray-600 font-normal leading-relaxed">
-                            {(() => {
-                              const csKeyMap: Record<string, string> = {
-                                'automotive-parts': 'csAutomotiveSubtitle',
-                                'cosmetics-packaging': 'csCosmeticsSubtitle',
-                                'industrial-elements': 'csIndustrialSubtitle'
-                              }
-                              const key = csKeyMap[caseStudy.id]
-                              return key ? t(lang, key as any) : caseStudy.subtitle
-                            })()}
-                          </p>
-                        </div>
-
-                        {/* Metrics */}
-                        <div className="grid grid-cols-3 gap-6">
-                          {
-                            caseStudy.metrics.map((metric, idx) => {
-                              const metricLabelMap: Record<string, string> = {
-                                'Kontrola jakości': 'csMetricQuality',
-                                'Detali/msc': 'csMetricParts',
-                                'Sztuk/Rok': 'csMetricYear',
-                                'Powtarzalność': 'csMetricRepeat',
-                                'Lat doświadczenia': 'csMetricExp',
-                                'Projektów': 'csMetricProjects',
-                                'Jakość': 'csMetricQualityLabel'
-                              }
-                              const labelKey = metricLabelMap[metric.label]
-                              return (
-                              <div key={idx} className="text-center">
-                                <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2 font-mono">
-                                  {metric.value}
-                                </div>
-                                <p className="text-xs uppercase tracking-wider text-gray-600 font-semibold">
-                                  {labelKey ? t(lang, labelKey as any) : metric.label}
-                                </p>
-                              </div>
-                              )
-                            })
-                          }
-                        </div>
-
-                        {/* Performance Badge */}
-                        <div className="inline-flex items-center gap-3 bg-blue-700 text-white px-6 py-3 rounded-full font-bold uppercase tracking-wider text-sm">
-                          <Trophy className="w-5 h-5" />
-                          {(() => {
-                            const csBadgeMap: Record<string, string> = {
-                              'automotive-parts': 'csAutomotiveBadge',
-                              'cosmetics-packaging': 'csCosmeticsBadge',
-                              'industrial-elements': 'csIndustrialBadge'
-                            }
-                            const key = csBadgeMap[caseStudy.id]
-                            return key ? t(lang, key as any) : caseStudy.badge
-                          })()}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+              {/* Header Area */}
+              <div className="mb-16 lg:mb-24">
+                <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase mb-6">
+                  <span className="w-12 h-px bg-blue-600"></span>
+                  {t(lang, "bazaWiedzyTitle")}
+                </div>
+                <h2 className="text-4xl lg:text-6xl font-black uppercase text-gray-900 tracking-tight leading-[0.95] max-w-4xl">
+                  {t(lang, "bazaWiedzyHeading")}
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
+                    {t(lang, "bazaWiedzyHeadingSub")}
+                  </span>
+                </h2>
               </div>
 
-              {/* Carousel Controls */}
-              <div className="flex items-center justify-center gap-8 mt-12">
-                <button
-                  onClick={() => {
-                    setActiveSlide((prev) => (prev - 1 + caseStudiesData.length) % caseStudiesData.length)
-                    setIsAutoPlaying(false)
-                  }}
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
-                  aria-label="Poprzedni projekt"
-                >
-                  ←
-                </button>
+              {/* Bento Grid Layout */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 text-sm sm:text-base leading-relaxed">
+                {/* Lead Paragraph - Spans full width */}
+                <div className="col-span-1 md:col-span-12 bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-100 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50/50 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  <p className="relative z-10 text-xl lg:text-2xl text-gray-800 font-medium leading-relaxed max-w-5xl">
+                    {t(lang, "bazaWiedzyLead")}
+                  </p>
+                </div>
 
-                {/* Dots with numbers */}
-                <div className="flex gap-3 items-center">
-                  <span className="text-sm font-semibold text-gray-600 mr-2">
-                    {activeSlide + 1} / {caseStudiesData.length}
-                  </span>
-                  {caseStudiesData.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setActiveSlide(index)
-                        setIsAutoPlaying(false)
-                      }}
-                      className={cn(
-                        'w-3 h-3 rounded-full transition-all duration-300',
-                        activeSlide === index
-                          ? 'bg-blue-700 w-8'
-                          : 'bg-gray-300 hover:bg-gray-400'
-                      )}
-                      aria-label={`Przejdź do projektu ${index + 1}`}
-                    />
+                {/* Technologies - Spans 7 cols */}
+                <div className="col-span-1 md:col-span-7 bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:border-blue-100 transition-colors flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
+                      <Flask
+                        weight="duotone"
+                        className="w-6 h-6 text-blue-600"
+                      />
+                    </div>
+                    <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">
+                      {t(lang, "bazaWiedzyTechTitle")}
+                    </h3>
+                    <p className="text-gray-600 mb-6">
+                      {renderTextWithBold("bazaWiedzyTechDesc", {
+                        pl: "metalizacja próżniowa",
+                        en: "vacuum metallization",
+                        de: "Vakuummetallisierung",
+                      })}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
+                    <Link
+                      to={SERVICE_SLUGS["vacuum-metallization"][lang]}
+                      className="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                    >
+                      {lang === "en"
+                        ? "Vacuum Metallization PVD"
+                        : lang === "de"
+                          ? "PVD-Vakuummetallisierung"
+                          : "Specyfikacja metalizacji próżniowej PVD"}
+                      <ArrowRight className="ml-1.5 w-4 h-4" weight="bold" />
+                    </Link>
+                    <span className="text-gray-300">•</span>
+                    <Link
+                      to={SERVICE_SLUGS["plastic-metallization"][lang]}
+                      className="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                    >
+                      {lang === "en"
+                        ? "Plastic Metallization (ABS, PC, PP)"
+                        : lang === "de"
+                          ? "Kunststoffmetallisierung (ABS, PC, PP)"
+                          : "Metalizacja tworzyw sztucznych ABS/PP"}
+                      <ArrowRight className="ml-1.5 w-4 h-4" weight="bold" />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Why Us - Spans 5 cols - Dark Theme */}
+                <div className="col-span-1 md:col-span-5 bg-gray-900 rounded-3xl p-8 lg:p-10 shadow-lg relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div>
+                      <h3 className="text-2xl font-black text-white mb-4 tracking-tight">
+                        {t(lang, "bazaWiedzyWhyTitle")}
+                      </h3>
+                      <p className="text-gray-300 mb-6">
+                        {renderTextWithBold(
+                          "bazaWiedzyWhyDesc",
+                          {
+                            pl: "metalizacja próżniowa dariusz staniak",
+                            en: "vacuum metallization company Dariusz Staniak",
+                            de: "Vakuummetallisierungsfirma Dariusz Staniak",
+                          },
+                          true,
+                        )}
+                      </p>
+                    </div>
+                    <Link
+                      to={
+                        lang === "en"
+                          ? "/en/gallery"
+                          : lang === "de"
+                            ? "/de/gallery"
+                            : "/gallery"
+                      }
+                      className="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors mt-auto"
+                    >
+                      {t(lang, "bazaWiedzyWhyLink")}{" "}
+                      <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Location - Spans 5 cols */}
+                <div className="col-span-1 md:col-span-5 bg-blue-600 text-white rounded-3xl p-8 lg:p-10 shadow-lg relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                  <div className="relative z-10 flex flex-col h-full justify-between">
+                    <div>
+                      <h3 className="text-2xl font-black text-white mb-4 tracking-tight">
+                        {t(lang, "bazaWiedzyLocTitle")}
+                      </h3>
+                      <p className="text-blue-100 mb-6">
+                        {renderTextWithBold(
+                          "bazaWiedzyLocDesc",
+                          {
+                            pl: "metalizacja próżniowa józefów",
+                            en: "vacuum metallization Józefów",
+                            de: "Vakuummetallisierung Józefów",
+                          },
+                          true,
+                        )}
+                      </p>
+                    </div>
+                    <Link
+                      to={
+                        lang === "en"
+                          ? "/en/news"
+                          : lang === "de"
+                            ? "/de/news"
+                            : "/news"
+                      }
+                      className="inline-flex items-center text-white/90 font-semibold hover:text-white transition-colors mt-auto"
+                    >
+                      {t(lang, "bazaWiedzyLocLink")}{" "}
+                      <ArrowRight className="ml-2 w-4 h-4" weight="bold" />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Applications - Spans 7 cols */}
+                <div className="col-span-1 md:col-span-7 bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-gray-100 hover:border-blue-100 transition-colors flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
+                      <Gear
+                        weight="duotone"
+                        className="w-6 h-6 text-blue-600"
+                      />
+                    </div>
+                    <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">
+                      {t(lang, "bazaWiedzyAppTitle")}
+                    </h3>
+                    <p className="text-gray-600 mb-6">
+                      {renderTextWithBold("bazaWiedzyAppDesc", {
+                        pl: "metalizacja natryskowa",
+                        en: "spray metallization",
+                        de: "Spritzmetallisierung",
+                      })}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
+                    <Link
+                      to={SERVICE_SLUGS["reflectors"][lang]}
+                      className="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                    >
+                      {lang === "en"
+                        ? "Headlight Reflector Regeneration"
+                        : lang === "de"
+                          ? "Scheinwerferreflektoren-Regenerierung"
+                          : "Regeneracja odbłyśników reflektorów"}
+                      <ArrowRight className="ml-1.5 w-4 h-4" weight="bold" />
+                    </Link>
+                    <span className="text-gray-300">•</span>
+                    <Link
+                      to={SERVICE_SLUGS["glass-painting"][lang]}
+                      className="inline-flex items-center text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                    >
+                      {lang === "en"
+                        ? "Glass & Bottle Painting"
+                        : lang === "de"
+                          ? "Glas- & Flaschenlackierung"
+                          : "Lakierowanie szkła i flakonów"}
+                      <ArrowRight className="ml-1.5 w-4 h-4" weight="bold" />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Direct Links to 3 Expert Articles (Eliminating Orphan Pages & Connecting Topic Clusters) */}
+                <div className="col-span-1 md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                  {[
+                    {
+                      href:
+                        lang === "en"
+                          ? "/en/news/reflector-regeneration-and-headlight-polishing"
+                          : lang === "de"
+                            ? "/de/news/scheinwerfer-reflektoren-regeneration-und-polieren"
+                            : "/news/regeneracja-odblysnikow-reflektorow-samochodowych",
+                      tag:
+                        lang === "en"
+                          ? "Automotive Guide"
+                          : lang === "de"
+                            ? "Automotive-Ratgeber"
+                            : "Poradnik Ekspercki",
+                      title:
+                        lang === "en"
+                          ? "Why Headlights Lose Brightness & How PVD Restores Reflectors"
+                          : lang === "de"
+                            ? "Warum Scheinwerfer erblinden & wie PVD-Metallisierung hilft"
+                            : "Dlaczego reflektory tracą jasność? Objawy i proces regeneracji PVD",
+                    },
+                    {
+                      href:
+                        lang === "en"
+                          ? "/en/news/vacuum-metallization-revolutionizes-beauty-industry"
+                          : lang === "de"
+                            ? "/de/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche"
+                            : "/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty",
+                      tag:
+                        lang === "en"
+                          ? "Beauty & Packaging"
+                          : lang === "de"
+                            ? "Kosmetik & Packaging"
+                            : "Branża Beauty & Packaging",
+                      title:
+                        lang === "en"
+                          ? "How Vacuum Metallization Transforms Luxury Cosmetic Packaging"
+                          : lang === "de"
+                            ? "Wie Vakuummetallisierung Luxus-Kosmetikverpackungen prägt"
+                            : "Jak metalizacja próżniowa rewolucjonizuje opakowania branży beauty",
+                    },
+                    {
+                      href:
+                        lang === "en"
+                          ? "/en/news/how-does-metallization-affect-material-performance"
+                          : lang === "de"
+                            ? "/de/news/wie-beeinflusst-metallisierung-die-materialleistung"
+                            : "/news/partnerstwo-z-wiodacym-producentem-lotniczym",
+                      tag:
+                        lang === "en"
+                          ? "Aerospace & Industry"
+                          : lang === "de"
+                            ? "Luftfahrt & Industrie"
+                            : "Lotnictwo i Przemysł",
+                      title:
+                        lang === "en"
+                          ? "Technical PVD Coatings for Aerospace & High-Reliability Components"
+                          : lang === "de"
+                            ? "Technische PVD-Beschichtungen für Luftfahrt & Hochleistungsbauteile"
+                            : "Powłoki techniczne PVD dla przemysłu lotniczego i precyzyjnego",
+                    },
+                  ].map((art) => (
+                    <Link
+                      key={art.href}
+                      to={art.href}
+                      className="group bg-white rounded-2xl p-6 border border-gray-200 hover:border-blue-400 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                    >
+                      <div>
+                        <span className="inline-block text-xs font-mono uppercase tracking-widest text-blue-600 font-bold mb-2">
+                          {art.tag}
+                        </span>
+                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors leading-snug mb-4">
+                          {art.title}
+                        </h3>
+                      </div>
+                      <span className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-blue-600">
+                        {lang === "en"
+                          ? "Read article"
+                          : lang === "de"
+                            ? "Artikel lesen"
+                            : "Czytaj artykuł"}
+                        <ArrowUpRight className="ml-1.5 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </span>
+                    </Link>
                   ))}
                 </div>
 
-                <button
-                  onClick={() => {
-                    setActiveSlide((prev) => (prev + 1) % caseStudiesData.length)
-                    setIsAutoPlaying(false)
-                  }}
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
-                  aria-label="Następny projekt"
-                >
-                  →
-                </button>
+                {/* Summary - Spans full width */}
+                <div className="col-span-1 md:col-span-12 text-center pt-6 pb-4">
+                  <p className="text-lg text-gray-500 font-medium max-w-4xl mx-auto">
+                    {renderTextWithBold("bazaWiedzySummary", {
+                      pl: "metalizacja",
+                      en: "metallization",
+                      de: "Metallisierung",
+                    })}
+                  </p>
+                </div>
               </div>
             </div>
+          </section>
 
-            {/* CTA - Traditional Grid Below Carousel */}
-            <div className="text-center mt-20">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">{t(lang, 'zobaczWiecej')}</p>
-              <MagneticButton
-                onClick={() => navigate('/gallery')}
-                className="px-8 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] rounded-full flex items-center justify-center mx-auto"
-              >
-                {t(lang, 'wszystkieProjekty')}
-                <ArrowRight className="w-5 h-5 ml-2 inline-block" />
-              </MagneticButton>
-            </div>
-          </div >
-        </section >
+          {/* KIM JESTEŚMY SECTION */}
+          <section
+            id="kim-jestesmy"
+            data-theme="light"
+            className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 overflow-hidden"
+          >
+            {/* Subtle Pattern */}
+            <div
+              className="absolute inset-0 opacity-[0.03]"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 1px 1px, #3b82f6 1px, transparent 0)",
+                backgroundSize: "40px 40px",
+              }}
+              aria-hidden="true"
+            />
 
-
-
-        {/* FAQ SECTION */}
-        <section id="faq" data-theme="light" className="py-20 lg:py-32 bg-gradient-to-br from-white via-blue-50/30 to-white">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">{t(lang, 'faqLabel')}</p>
-
-              <div className="mb-12 text-center">
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  {t(lang, 'faqTitle')}
-                </h2>
-                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  {t(lang, 'faqSubtitle')}
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {faqData.map((faq, index) => {
-                  const isExpanded = expandedFAQs.has(faq.id)
-                  const faqKey = `faq${index + 1}` as const
-                  const translatedQuestion = t(lang, `${faqKey}q` as any)
-                  const translatedAnswer = t(lang, `${faqKey}a` as any)
-
-                  return (
-                    <motion.div
-                      key={faq.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.1, duration: 0.5 }}
-                      className="group"
-                    >
-                      <button
-                        onClick={() => {
-                          setExpandedFAQs((prev) => {
-                            const next = new Set(prev)
-                            if (next.has(faq.id)) {
-                              next.delete(faq.id)
-                            } else {
-                              next.add(faq.id)
-                            }
-                            return next
-                          })
-                        }}
-                        className={cn(
-                          'w-full text-left p-6 rounded-2xl transition-all duration-300',
-                          'border-2 bg-white shadow-md hover:shadow-xl',
-                          'focus-visible:ring-4 focus-visible:ring-blue-400/50',
-                          isExpanded
-                            ? 'border-blue-400 bg-blue-50/50'
-                            : 'border-gray-200 hover:border-blue-300'
-                        )}
-                        aria-expanded={isExpanded}
-                        aria-controls={`faq-answer-${faq.id}`}
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className={cn(
-                            'flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300',
-                            isExpanded
-                              ? 'bg-blue-600 text-white scale-110 shadow-lg'
-                              : 'bg-blue-100 text-blue-600 group-hover:bg-blue-200'
-                          )}>
-                            <Question className="w-5 h-5" weight="bold" />
-                          </div>
-
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors">
-                              {translatedQuestion}
-                            </h3>
-                            {!isExpanded && (
-                              <p className="text-sm text-gray-500 line-clamp-1">
-                                {t(lang, 'kliknijAbyRozwinac')}
-                              </p>
-                            )}
-                          </div>
-
-                          <div className={cn(
-                            'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300',
-                            isExpanded ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200'
-                          )}>
-                            {isExpanded ? (
-                              <CaretUp className="w-5 h-5" weight="bold" />
-                            ) : (
-                              <CaretDown className="w-5 h-5" weight="bold" />
-                            )}
-                          </div>
-                        </div>
-
-                        {isExpanded && (
-                          <motion.div
-                            id={`faq-answer-${faq.id}`}
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="mt-4 pl-14"
-                          >
-                            <p className="text-gray-700 leading-relaxed">
-                              {translatedAnswer}
-                            </p>
-                          </motion.div>
-                        )}
-                      </button>
-                    </motion.div>
-                  )
-                })}
-              </div>
-
-              {/* CTA to Contact */}
-              <div className="text-center mt-16">
-                <p className="text-gray-600 mb-6 text-lg font-medium">
-                  {t(lang, 'nieZnalazlesOdpowiedzi')}
-                </p>
-                <MagneticButton
-                  onClick={() => {
-                    const contactSection = document.getElementById('contact')
-                    contactSection?.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-105 rounded-full flex items-center justify-center mx-auto"
-                >
-                  {t(lang, 'skontaktujSieZNami')}
-                  <ArrowRight className="w-5 h-5 ml-2 inline-block" />
-                </MagneticButton>
-              </div>
-            </div>
-          </div>
-        </section >
-
-        <section id="contact" data-theme="light" className="py-20 lg:py-32 bg-gray-50">
-          <div className="container mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto">
-              <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">{t(lang, 'wycenaProjektu')}</p>
-
-              <div className="mb-12 text-center">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase leading-tight tracking-tighter mb-6 text-blue-400">
-                  {t(lang, 'wypelnijFormularz')}
-                </h2>
-              </div>
-
-              {/* Single-step Form */}
-              <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                {/* Left: Content */}
                 <div className="space-y-8">
-                  {/* Project type selection */}
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900">{t(lang, 'wybierzTypProjektu')}</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                      {([
-                        { key: 'prototypy' as const, value: 'Prototypy' },
-                        { key: 'produkcja' as const, value: 'Produkcja' },
-                        { key: 'naprawa' as const, value: 'Naprawa' },
-                        { key: 'konsultacja' as const, value: 'Konsultacja' }
-                      ]).map(({ key, value }) => (
-                        <button
-                          key={value}
-                          onClick={() => {
-                            setSmartFormData((prev) => ({ ...prev, projectType: value }))
-                          }}
-                          className={cn(
-                            'p-4 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px] text-sm',
-                            smartFormData.projectType === value
-                              ? 'border-blue-700 bg-blue-50 text-blue-900'
-                              : 'border-gray-200 hover:border-blue-300'
-                          )}
-                          aria-label={t(lang, key)}
-                        >
-                          {t(lang, key)}
-                        </button>
+                  <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
+                    <span className="w-12 h-px bg-blue-600"></span>
+                    {t(lang, "oNas")}
+                  </div>
+                  <h2 className="text-4xl lg:text-6xl font-black uppercase text-gray-900 tracking-tight leading-[0.95]">
+                    {t(lang, "kimJestesmy")
+                      .split("\n")
+                      .map((line, i) => (
+                        <span key={i}>
+                          {line}
+                          <br />
+                        </span>
                       ))}
-                    </div>
-                  </div>
-
-                  {/* Contact details */}
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-gray-900">{t(lang, 'twojeDaneKontaktowe')}</h3>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <Input
-                        placeholder={t(lang, 'imie')}
-                        value={smartFormData.firstName}
-                        onChange={(e) => setSmartFormData({ ...smartFormData, firstName: e.target.value })}
-                        className="border-2 min-h-[44px]"
-                        aria-label={t(lang, 'imie')}
-                        required
-                      />
-                      <Input
-                        placeholder={t(lang, 'nazwisko')}
-                        value={smartFormData.lastName}
-                        onChange={(e) => setSmartFormData({ ...smartFormData, lastName: e.target.value })}
-                        className="border-2 min-h-[44px]"
-                        aria-label={t(lang, 'nazwisko')}
-                      />
-                    </div>
-                    <Input
-                      type="email"
-                      placeholder={t(lang, 'email')}
-                      value={smartFormData.email}
-                      onChange={(e) => setSmartFormData({ ...smartFormData, email: e.target.value })}
-                      className="border-2 min-h-[44px]"
-                      aria-label={t(lang, 'email')}
-                      required
-                    />
-                    <Input
-                      placeholder={t(lang, 'telefon')}
-                      value={smartFormData.phone}
-                      onChange={(e) => setSmartFormData({ ...smartFormData, phone: e.target.value })}
-                      className="border-2 min-h-[44px]"
-                      aria-label={t(lang, 'telefon')}
-                    />
-                    <Textarea
-                      placeholder={t(lang, 'opisProjekt')}
-                      value={smartFormData.message}
-                      onChange={(e) => setSmartFormData({ ...smartFormData, message: e.target.value })}
-                      className="border-2 min-h-32"
-                      aria-label={t(lang, 'opisProjekt')}
-                      required
-                    />
-                  </div>
-                </div>
-
-                {/* Submit Button */}
-                <div className="flex justify-end mt-8">
-                  <Button
-                    onClick={async () => {
-                      setIsSubmitting(true)
-                      try {
-                        const res = await fetch('/api/send-email', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify({
-                            projectType: smartFormData.projectType,
-                            firstName: smartFormData.firstName,
-                            lastName: smartFormData.lastName,
-                            email: smartFormData.email,
-                            phone: smartFormData.phone,
-                            message: smartFormData.message
-                          })
-                        })
-                        if (!res.ok) throw new Error('Send failed')
-                        triggerConfetti()
-                        toast.success(t(lang, 'toastSuccess'))
-                        setSmartFormData({
-                          projectType: '',
-                          technology: '',
-                          firstName: '',
-                          lastName: '',
-                          email: '',
-                          phone: '',
-                          message: '',
-                          file: null
-                        })
-                      } catch {
-                        toast.error('Nie udało się wysłać wiadomości. Spróbuj ponownie.')
-                      } finally {
-                        setIsSubmitting(false)
+                  </h2>
+                  <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
+                    {(() => {
+                      const text = t(lang, "kimJestesmyText1");
+                      const nameMap: Record<string, string> = {
+                        pl: "Dariusza Staniaka",
+                        en: "Dariusz Staniak",
+                        de: "Dariusz Staniak",
+                      };
+                      const name = nameMap[lang] || "Dariusza Staniaka";
+                      const parts = text.split(name);
+                      if (parts.length === 2) {
+                        return (
+                          <>
+                            {parts[0]}
+                            <strong className="font-bold text-gray-900">
+                              {name}
+                            </strong>
+                            {parts[1]}
+                          </>
+                        );
                       }
-                    }}
-                    className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button px-8 py-3"
-                    disabled={!smartFormData.firstName || !smartFormData.email || !smartFormData.message || !smartFormData.projectType || isSubmitting}
-                  >
-                    {isSubmitting ? 'Wysyłanie...' : t(lang, 'wyslijZapytanie')}
-                  </Button>
-                </div>
-              </div>
+                      return text;
+                    })()}
+                  </p>
+                  <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
+                    {t(lang, "kimJestesmyText2")}
+                  </p>
 
-            </div>
-          </div>
-        </section>
-
-        {/* KONTAKT SECTION — Dane kontaktowe, adresy, mapy */}
-        <section id="dane-kontaktowe" data-theme="light" className="py-20 lg:py-32 bg-white">
-          <div className="container mx-auto px-6 lg:px-12">
-            {/* Map and Contact Details Section */}
-            <div className="max-w-7xl mx-auto">
-              <div className="mb-12 text-center">
-                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">{t(lang, 'kontaktHeader')}</p>
-                <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
-                  {t(lang, 'skontaktujSie')}<br />{t(lang, 'zNami')}
-                </h2>
-                <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
-                  {t(lang, 'kontaktDesc')}
-                </p>
-              </div>
-
-              <div className="grid lg:grid-cols-2 gap-12 items-start">
-                {/* Maps Container */}
-                <div className="space-y-12">
-                  {/* Map 1: Siedziba */}
-                  <div className="space-y-4">
-                    <p className="text-xl font-bold uppercase tracking-wider text-gray-700">{t(lang, 'siedziba')}</p>
-                    <motion.div
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6 }}
-                      className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
-                    >
-                      <iframe
-                        src="https://maps.google.com/maps?q=ul.+Grzybowska+5A,+00-132+Warszawa&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Lokalizacja siedziby STANIAX"
-                        aria-label="Mapa Google pokazująca lokalizację siedziby STANIAX"
-                      />
-                    </motion.div>
-                  </div>
-
-                  {/* Map 2: Zakład Usługowy */}
-                  <div className="space-y-4">
-                    <p className="text-xl font-bold uppercase tracking-wider text-gray-700">{t(lang, 'zakladUslugowy')}</p>
-                    <motion.div
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
-                    >
-                      <iframe
-                        src="https://maps.google.com/maps?q=Metalizacja+Próżniowa+Staniax+Sp.z+o.o.,+Kardynała+Stefana+Wyszyńskiego+116a,+05-420+Józefów&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Lokalizacja zakładu usługowego STANIAX"
-                        aria-label="Mapa Google pokazująca lokalizację zakładu usługowego STANIAX"
-                      />
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Contact Details */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="space-y-6"
-                >
-                  {/* Address 1: Siedziba */}
-                  <div className="group">
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <MapPin className="w-6 h-6 text-white" weight="bold" />
+                  {/* Stats */}
+                  <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200">
+                    <div>
+                      <div className="text-3xl lg:text-4xl font-black text-blue-700">
+                        25+
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">SIEDZIBA</p>
-                        <p className="text-lg font-bold text-gray-900 leading-relaxed">
-                          ul. Grzybowska 5A<br />
-                          00-132 Warszawa
-                        </p>
-                        <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
-                          {t(lang, 'mapaNawigacja')}
-                        </a>
+                      <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">
+                        {t(lang, "csMetricExp")}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-3xl lg:text-4xl font-black text-blue-700">
+                        2500+
+                      </div>
+                      <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">
+                        {t(lang, "csMetricProjects")}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-3xl lg:text-4xl font-black text-blue-700">
+                        24h
+                      </div>
+                      <div className="text-xs uppercase tracking-wider text-gray-500 mt-1">
+                        {t(lang, "czasReakcjiShort")}
                       </div>
                     </div>
                   </div>
 
-                  {/* Address 2: Zakład Usługowy */}
-                  <div className="group">
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Factory className="w-6 h-6 text-white" weight="bold" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'zakladUslugowy')}</p>
-                        <p className="text-lg font-bold text-gray-900 leading-relaxed">
-                          ul. Wyszyńskiego 116A<br />
-                          05-420 Józefów
-                        </p>
-                        <a href="https://share.google/N7ybGPMOEDI3ZE31X" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block">
-                          {t(lang, 'mapaNawigacja')}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Phone & Hours */}
-                  <div className="group">
-                    <a
-                      href="tel:+48882488844"
-                      className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Phone className="w-6 h-6 text-white" weight="bold" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'telefonLabel')}</p>
-                        <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
-                          +48 882 488 844
-                        </p>
-                        <div className="text-sm text-gray-600 mt-2 space-y-1">
-                          <p><span className="font-semibold">{t(lang, 'ponPt')}</span> 7:00 - 17:00</p>
-                          <p><span className="font-semibold">{t(lang, 'sobNd')}</span> {t(lang, 'zamkniete')}</p>
+                  {/* Features */}
+                  <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                    {[
+                      {
+                        icon: <Users className="w-5 h-5" />,
+                        text: t(lang, "wykwalifikowanyZespol"),
+                      },
+                      {
+                        icon: <Gear className="w-5 h-5" />,
+                        text: t(lang, "nowoczesnyPark"),
+                      },
+                      {
+                        icon: <Shield className="w-5 h-5" />,
+                        text: t(lang, "gwarancjaJakosci"),
+                      },
+                      {
+                        icon: <Clock className="w-5 h-5" />,
+                        text: t(lang, "terminowoscDostaw"),
+                      },
+                    ].map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-3 text-gray-700"
+                      >
+                        <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
+                          {item.icon}
                         </div>
+                        <span className="text-sm font-medium">{item.text}</span>
                       </div>
-                    </a>
+                    ))}
                   </div>
 
-                  {/* Email */}
-                  <div className="group">
-                    <div
-                      className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
+                  <MagneticButton
+                    onClick={() => scrollToSection("contact")}
+                    className="mt-4 px-8 py-3 bg-blue-600 text-white rounded-full font-bold uppercase tracking-wider hover:bg-blue-700 transition-colors"
+                  >
+                    {t(lang, "skontaktujSieZNami")}
+                  </MagneticButton>
+                </div>
+
+                {/* Right: Image */}
+                <div className="relative">
+                  <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                    <img
+                      src={whatsapp180620}
+                      alt="Zespół STANIAX - metalizacja próżniowa"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  </div>
+                  {/* Floating Badge */}
+                  <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 max-w-[200px]">
+                    <div className="text-4xl font-black text-blue-700 mb-1">
+                      24h
+                    </div>
+                    <div className="text-sm text-gray-600 font-medium">
+                      {t(lang, "czasReakcji")}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* BRIDGE SECTION - Transition from "Kim Jesteśmy" to "NASZA OFERTA" */}
+          <section
+            data-theme="light"
+            className="relative bg-white overflow-hidden"
+          >
+            {/* Top gradient fade from previous section */}
+            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-blue-50/30 to-transparent" />
+
+            <div className="container mx-auto px-6 lg:px-12 py-20 lg:py-28">
+              <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative"
+                >
+                  {/* Decorative line */}
+                  <div className="flex items-center gap-6 mb-10">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "80px" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.3 }}
+                      className="h-px bg-blue-600"
+                    />
+                    <span className="text-xs font-mono uppercase tracking-[0.5em] text-blue-600 font-semibold">
+                      {t(lang, "sprawdzCoOferujemy")}
+                    </span>
+                  </div>
+
+                  {/* Big statement */}
+                  <div className="max-w-5xl">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-gray-900 tracking-tight leading-[0.95] mb-8">
+                      {t(lang, "technologiaKtoraZmienia")}
+                      <br />
+                      <span className="text-blue-600">
+                        {t(lang, "ktoraZmienia")}
+                      </span>
+                      <br />
+                      {t(lang, "powierzchnie")}
+                    </h2>
+                    <p className="text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed">
+                      {t(lang, "bridgeDesc")}
+                    </p>
+                  </div>
+
+                  {/* Animated scroll indicator */}
+                  <motion.button
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                    onClick={() => scrollToSection("about")}
+                    className="mt-12 flex items-center gap-3 text-gray-400 hover:text-blue-600 transition-colors cursor-pointer"
+                  >
+                    <motion.div
+                      animate={{ y: [0, 8, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
                     >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <EnvelopeSimple className="w-6 h-6 text-white" weight="bold" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">{t(lang, 'emailLabel')}</p>
-                        <a href="mailto:metalizacja@staniax.pl" className="block text-lg font-bold text-gray-900 break-all hover:text-blue-700 transition-colors">
-                          metalizacja@staniax.pl
-                        </a>
-                        <a href="mailto:office@staniax.pl" className="block text-lg font-bold text-gray-900 break-all hover:text-blue-700 transition-colors mt-1">
-                          office@staniax.pl
-                        </a>
-                        <p className="text-sm text-gray-600 mt-1">
-                          {t(lang, 'odpowiadamyW24h')}
-                        </p>
+                      <ArrowDown className="w-5 h-5" />
+                    </motion.div>
+                    <span className="text-xs uppercase tracking-[0.3em] font-medium">
+                      {t(lang, "przewinDalej")}
+                    </span>
+                  </motion.button>
+                </motion.div>
+
+                {/* Video tile */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{
+                    duration: 0.9,
+                    delay: 0.2,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="relative"
+                >
+                  <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
+                    <LazyVideo
+                      src={bridgeSectionVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white">
+                        <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                        {t(lang, "bridgeVideoLabel") || "Metalizacja w akcji"}
                       </div>
                     </div>
                   </div>
                 </motion.div>
               </div>
             </div>
-          </div>
-        </section>
 
+            {/* Bottom gradient fade into next section */}
+            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-gray-50/50 to-transparent" />
+          </section>
 
+          <section
+            id="about"
+            data-theme="light"
+            className="relative py-20 lg:py-32 bg-gradient-to-tl from-white via-gray-50/50 to-white overflow-hidden"
+          >
+            {/* Subtle Metallic Texture Overlay */}
+            <div
+              className="absolute inset-0 opacity-[0.02]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8), linear-gradient(45deg, #94a3b8 25%, transparent 25%, transparent 75%, #94a3b8 75%, #94a3b8)",
+                backgroundSize: "60px 60px",
+                backgroundPosition: "0 0, 30px 30px",
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Background Decorations */}
+            {/* Removed images as per request */}
+
+            <div className="container mx-auto px-6 lg:px-12 relative z-10">
+              {/* Nagłówek sekcji - wyrównany do prawej jak Vibor.it */}
+              <div className="text-right mb-20 max-w-7xl section-reveal">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">
+                  {t(lang, "ofertaLabel")}
+                </p>
+                <div className="bg-white py-16 px-12 lg:px-24 -mx-6 lg:-mx-12 rounded-t-2xl pb-32">
+                  <h2 className="text-5xl lg:text-7xl font-black uppercase mb-12 tracking-tighter leading-none text-blue-900">
+                    {t(lang, "naszaOferta")}
+                  </h2>
+
+                  <div className="flex flex-col gap-6 text-left max-w-4xl ml-auto">
+                    {SERVICE_ORDER.map((id, index) => {
+                      const svcLocale = SERVICES[id].locales[lang];
+                      return (
+                        <Link
+                          key={id}
+                          to={SERVICE_SLUGS[id][lang]}
+                          className="flex items-baseline gap-6 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-xl py-1"
+                        >
+                          <span className="text-xl font-mono text-blue-500 font-bold">
+                            0{index + 1}.
+                          </span>
+                          <h3 className="text-2xl md:text-4xl font-bold text-gray-800 transition-colors uppercase relative overflow-hidden">
+                            <span className="relative z-10 liquid-metal-text">
+                              {svcLocale.navLabel}
+                            </span>
+                            <span className="absolute left-0 top-0 w-full h-full bg-gradient-to-r from-blue-600 to-blue-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                          </h3>
+                          <ArrowRight className="w-6 h-6 text-blue-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                        </Link>
+                      );
+                    })}
+                  </div>
+
+                  {/* DETAILED SERVICES SECTION */}
+                  <div className="mt-32 space-y-32">
+                    {servicesData.map((service, index) => {
+                      const serviceId = service.id as ServiceId;
+                      const svcContent = SERVICES[serviceId]?.locales[lang];
+                      const serviceHref =
+                        SERVICE_SLUGS[serviceId]?.[lang] || "/#contact";
+                      const displayTitle =
+                        svcContent?.navLabel || service.title;
+                      const displayTagline =
+                        svcContent?.heroBadge || service.tagline;
+                      const displayDesc =
+                        svcContent?.shortSummary || service.description;
+                      const ctaLabel =
+                        lang === "en"
+                          ? `Explore service: ${displayTitle}`
+                          : lang === "de"
+                            ? `Leistung entdecken: ${displayTitle}`
+                            : `Poznaj usługę: ${displayTitle}`;
+
+                      return (
+                        <div
+                          key={service.id}
+                          id={service.id}
+                          className={cn(
+                            "grid gap-12 items-stretch text-left",
+                            index % 2 === 0
+                              ? "lg:grid-cols-[1fr_1.2fr]"
+                              : "lg:grid-cols-[1.2fr_1fr]",
+                          )}
+                        >
+                          <div
+                            className={cn(
+                              "flex flex-col justify-center space-y-6",
+                              index % 2 !== 0 && "lg:order-2",
+                            )}
+                          >
+                            <div className="flex items-center gap-4 text-blue-600 font-mono text-sm tracking-widest uppercase">
+                              <span className="w-12 h-px bg-blue-600"></span>
+                              {displayTagline}
+                            </div>
+                            <h3 className="text-4xl lg:text-5xl font-black uppercase text-gray-900 leading-tight">
+                              <Link
+                                to={serviceHref}
+                                className="hover:text-blue-700 transition-colors"
+                              >
+                                {displayTitle}
+                              </Link>
+                            </h3>
+                            <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
+                              {displayDesc}
+                            </p>
+                            <div className="mt-4 flex flex-wrap items-center gap-4">
+                              <Link
+                                to={serviceHref}
+                                className="inline-flex items-center gap-2 px-7 py-3.5 bg-blue-700 text-white rounded-full font-bold text-sm uppercase tracking-wider hover:bg-blue-800 transition-colors shadow-lg"
+                              >
+                                {ctaLabel}
+                                <ArrowRight className="w-4 h-4" weight="bold" />
+                              </Link>
+                              <MagneticButton
+                                onClick={() => {
+                                  setSelectedService(service);
+                                  setIsServiceModalOpen(true);
+                                }}
+                                className="px-6 py-3 bg-gray-100 text-gray-900 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-gray-200 transition-colors"
+                              >
+                                {t(lang, "szczegoly")}
+                              </MagneticButton>
+                            </div>
+                          </div>
+                          <div
+                            className={cn(
+                              "w-full",
+                              index % 2 !== 0 && "lg:order-1",
+                            )}
+                          >
+                            {service.images && service.images.length === 4 ? (
+                              <div className="grid grid-cols-2 gap-3 aspect-[4/3]">
+                                {service.images.map((img, imgIdx) => (
+                                  <div
+                                    key={imgIdx}
+                                    className="relative rounded-2xl overflow-hidden shadow-xl group/img"
+                                  >
+                                    {typeof img === "string" &&
+                                    img.includes(".mp4") ? (
+                                      <LazyVideo
+                                        src={img}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                                      />
+                                    ) : (
+                                      <img
+                                        src={img}
+                                        alt={`${service.alt} ${imgIdx + 1}`}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                                      />
+                                    )}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                                  </div>
+                                ))}
+                              </div>
+                            ) : service.images &&
+                              service.images.length === 2 ? (
+                              <div className="grid grid-rows-2 gap-3 aspect-[4/3]">
+                                {service.images.map((img, imgIdx) => (
+                                  <div
+                                    key={imgIdx}
+                                    className="relative rounded-2xl overflow-hidden shadow-xl group/img bg-gray-100"
+                                  >
+                                    <img
+                                      src={img}
+                                      alt={`${service.alt} ${imgIdx + 1}`}
+                                      className="w-full h-full object-contain transition-transform duration-700 group-hover/img:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300" />
+                                  </div>
+                                ))}
+                              </div>
+                            ) : service.images &&
+                              service.images.length === 1 ? (
+                              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
+                                {typeof service.images[0] === "string" &&
+                                service.images[0].includes(".mp4") ? (
+                                  <LazyVideo
+                                    src={service.images[0]}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                  />
+                                ) : (
+                                  <img
+                                    src={service.images[0]}
+                                    alt={service.alt}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                  />
+                                )}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                              </div>
+                            ) : (
+                              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl group">
+                                <img
+                                  src={service.image}
+                                  alt={service.alt}
+                                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                                  <div className="text-white/20">
+                                    {service.icon}
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Cytat misji - moved here */}
+                  <div className="mt-12 w-full ml-auto">
+                    <p className="text-lg text-gray-600 italic border-l-4 border-r-4 border-blue-700 px-8 leading-relaxed font-normal text-center">
+                      {t(lang, "cytatMisji")}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA after About section */}
+              <div className="mt-16 text-center">
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-300 hover:scale-105"
+                >
+                  <span className="text-base font-bold uppercase tracking-wider">
+                    {t(lang, "bezplatnaKonsultacja")}
+                  </span>
+                  <svg
+                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </button>
+                <p className="mt-4 text-sm text-gray-600">
+                  {t(lang, "skontaktujSieIOmow")}
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* CASE STUDIES CAROUSEL - Vibor.it Style */}
+          <section
+            ref={projectsSectionRef}
+            id="projects"
+            data-theme="light"
+            className="py-20 lg:py-32 bg-gradient-to-br from-white to-gray-50 overflow-hidden"
+          >
+            <div className="container mx-auto px-6 lg:px-12">
+              {/* Header */}
+              <div className="text-left mb-20 max-w-7xl section-reveal">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">
+                  {t(lang, "studiaPrzypadkow")}
+                </p>
+                <h2 className="text-7xl lg:text-8xl xl:text-9xl font-black uppercase mb-8 tracking-tighter leading-none text-blue-400">
+                  {t(lang, "naszeRealizacje1")}
+                  <br />
+                  {t(lang, "naszeRealizacje2")}
+                </h2>
+                <p className="text-lg text-gray-600 font-normal max-w-2xl leading-relaxed">
+                  {t(lang, "realizacjeDesc")}
+                </p>
+              </div>
+
+              {/* Carousel Container */}
+              <div className="relative max-w-7xl mx-auto">
+                {/* Carousel Slides */}
+                <div className="relative overflow-hidden">
+                  {caseStudiesData.map((caseStudy, index) => (
+                    <div
+                      key={caseStudy.id}
+                      className={cn(
+                        "transition-all duration-700 ease-in-out",
+                        activeSlide === index
+                          ? "opacity-100 relative"
+                          : "opacity-0 absolute inset-0 pointer-events-none",
+                      )}
+                    >
+                      <div className="grid lg:grid-cols-2 gap-12">
+                        {/* Left: Before/After Image Comparison */}
+                        <TiltCard className="relative group">
+                          <BeforeAfterSlider
+                            beforeImage={caseStudy.imageBefore}
+                            afterImage={caseStudy.imageAfter}
+                            afterVideo={caseStudy.videoAfter}
+                            beforeAlt={`${caseStudy.title} - ${t(lang, "przed")}`}
+                            afterAlt={`${caseStudy.title} - ${t(lang, "po")}`}
+                            beforeLabel={t(lang, "przed")}
+                            afterLabel={t(lang, "po")}
+                            ariaLabel={`${caseStudy.title}: ${t(lang, "przed")} / ${t(lang, "po")}`}
+                            className="aspect-[4/3] border-2 border-gray-200 shadow-2xl"
+                          />
+                        </TiltCard>
+
+                        {/* Right: Content */}
+                        <div className="space-y-8">
+                          <div>
+                            <h3 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase mb-3 tracking-tight">
+                              {(() => {
+                                const csKeyMap: Record<string, string> = {
+                                  "automotive-parts": "csAutomotiveTitle",
+                                  "cosmetics-packaging": "csCosmeticsTitle",
+                                  "industrial-elements": "csIndustrialTitle",
+                                };
+                                const key = csKeyMap[caseStudy.id];
+                                return key
+                                  ? t(lang, key as any)
+                                  : caseStudy.title;
+                              })()}
+                            </h3>
+                            <p className="text-lg text-gray-600 font-normal leading-relaxed">
+                              {(() => {
+                                const csKeyMap: Record<string, string> = {
+                                  "automotive-parts": "csAutomotiveSubtitle",
+                                  "cosmetics-packaging": "csCosmeticsSubtitle",
+                                  "industrial-elements": "csIndustrialSubtitle",
+                                };
+                                const key = csKeyMap[caseStudy.id];
+                                return key
+                                  ? t(lang, key as any)
+                                  : caseStudy.subtitle;
+                              })()}
+                            </p>
+                          </div>
+
+                          {/* Metrics */}
+                          <div className="grid grid-cols-3 gap-6">
+                            {caseStudy.metrics.map((metric, idx) => {
+                              const metricLabelMap: Record<string, string> = {
+                                "Kontrola jakości": "csMetricQuality",
+                                "Detali/msc": "csMetricParts",
+                                "Sztuk/Rok": "csMetricYear",
+                                Powtarzalność: "csMetricRepeat",
+                                "Lat doświadczenia": "csMetricExp",
+                                Projektów: "csMetricProjects",
+                                Jakość: "csMetricQualityLabel",
+                              };
+                              const labelKey = metricLabelMap[metric.label];
+                              return (
+                                <div key={idx} className="text-center">
+                                  <div className="text-3xl lg:text-4xl font-black text-blue-700 mb-2 font-mono">
+                                    {metric.value}
+                                  </div>
+                                  <p className="text-xs uppercase tracking-wider text-gray-600 font-semibold">
+                                    {labelKey
+                                      ? t(lang, labelKey as any)
+                                      : metric.label}
+                                  </p>
+                                </div>
+                              );
+                            })}
+                          </div>
+
+                          {/* Performance Badge */}
+                          <div className="inline-flex items-center gap-3 bg-blue-700 text-white px-6 py-3 rounded-full font-bold uppercase tracking-wider text-sm">
+                            <Trophy className="w-5 h-5" />
+                            {(() => {
+                              const csBadgeMap: Record<string, string> = {
+                                "automotive-parts": "csAutomotiveBadge",
+                                "cosmetics-packaging": "csCosmeticsBadge",
+                                "industrial-elements": "csIndustrialBadge",
+                              };
+                              const key = csBadgeMap[caseStudy.id];
+                              return key
+                                ? t(lang, key as any)
+                                : caseStudy.badge;
+                            })()}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Carousel Controls */}
+                <div className="flex items-center justify-center gap-8 mt-12">
+                  <button
+                    onClick={() => {
+                      setActiveSlide(
+                        (prev) =>
+                          (prev - 1 + caseStudiesData.length) %
+                          caseStudiesData.length,
+                      );
+                      setIsAutoPlaying(false);
+                    }}
+                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
+                    aria-label="Poprzedni projekt"
+                  >
+                    ←
+                  </button>
+
+                  {/* Dots with numbers */}
+                  <div className="flex gap-3 items-center">
+                    <span className="text-sm font-semibold text-gray-600 mr-2">
+                      {activeSlide + 1} / {caseStudiesData.length}
+                    </span>
+                    {caseStudiesData.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setActiveSlide(index);
+                          setIsAutoPlaying(false);
+                        }}
+                        className={cn(
+                          "w-3 h-3 rounded-full transition-all duration-300",
+                          activeSlide === index
+                            ? "bg-blue-700 w-8"
+                            : "bg-gray-300 hover:bg-gray-400",
+                        )}
+                        aria-label={`Przejdź do projektu ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      setActiveSlide(
+                        (prev) => (prev + 1) % caseStudiesData.length,
+                      );
+                      setIsAutoPlaying(false);
+                    }}
+                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gray-200 hover:bg-blue-700 text-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center font-bold text-2xl shadow-lg hover:shadow-xl hover:scale-110"
+                    aria-label="Następny projekt"
+                  >
+                    →
+                  </button>
+                </div>
+              </div>
+
+              {/* CTA - Traditional Grid Below Carousel */}
+              <div className="text-center mt-20">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-6 font-semibold">
+                  {t(lang, "zobaczWiecej")}
+                </p>
+                <Link
+                  to={
+                    lang === "en"
+                      ? "/en/gallery"
+                      : lang === "de"
+                        ? "/de/gallery"
+                        : "/gallery"
+                  }
+                  className="inline-flex items-center justify-center px-8 py-3.5 bg-blue-700 hover:bg-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] rounded-full"
+                >
+                  {t(lang, "wszystkieProjekty")}
+                  <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ SECTION */}
+          <section
+            id="faq"
+            data-theme="light"
+            className="py-20 lg:py-32 bg-gradient-to-br from-white via-blue-50/30 to-white"
+          >
+            <div className="container mx-auto px-6 lg:px-12">
+              <div className="max-w-4xl mx-auto">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">
+                  {t(lang, "faqLabel")}
+                </p>
+
+                <div className="mb-12 text-center">
+                  <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
+                    {t(lang, "faqTitle")}
+                  </h2>
+                  <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
+                    {t(lang, "faqSubtitle")}
+                  </p>
+                </div>
+
+                <div className="space-y-4">
+                  {faqData.map((faq, index) => {
+                    const isExpanded = expandedFAQs.has(faq.id);
+                    const faqKey = `faq${index + 1}` as const;
+                    const translatedQuestion = t(lang, `${faqKey}q` as any);
+                    const translatedAnswer = t(lang, `${faqKey}a` as any);
+
+                    return (
+                      <motion.div
+                        key={faq.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1, duration: 0.5 }}
+                        className="group"
+                      >
+                        <div
+                          className={cn(
+                            "w-full rounded-2xl transition-all duration-300 border-2 bg-white shadow-md hover:shadow-xl",
+                            isExpanded
+                              ? "border-blue-400 bg-blue-50/50"
+                              : "border-gray-200 hover:border-blue-300",
+                          )}
+                        >
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setExpandedFAQs((prev) => {
+                                const next = new Set(prev);
+                                if (next.has(faq.id)) {
+                                  next.delete(faq.id);
+                                } else {
+                                  next.add(faq.id);
+                                }
+                                return next;
+                              });
+                            }}
+                            className="w-full text-left p-6 focus-visible:ring-4 focus-visible:ring-blue-400/50 rounded-2xl"
+                            aria-expanded={isExpanded}
+                            aria-controls={`faq-answer-${faq.id}`}
+                          >
+                            <div className="flex items-start gap-4">
+                              <div
+                                className={cn(
+                                  "flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300",
+                                  isExpanded
+                                    ? "bg-blue-600 text-white scale-110 shadow-lg"
+                                    : "bg-blue-100 text-blue-600 group-hover:bg-blue-200",
+                                )}
+                              >
+                                <Question className="w-5 h-5" weight="bold" />
+                              </div>
+
+                              <div className="flex-1 min-w-0">
+                                <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-700 transition-colors">
+                                  {translatedQuestion}
+                                </h3>
+                                {!isExpanded && (
+                                  <span className="block text-sm text-gray-500 line-clamp-1">
+                                    {t(lang, "kliknijAbyRozwinac")}
+                                  </span>
+                                )}
+                              </div>
+
+                              <div
+                                className={cn(
+                                  "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300",
+                                  isExpanded
+                                    ? "bg-blue-600 text-white"
+                                    : "bg-gray-100 text-gray-600 group-hover:bg-gray-200",
+                                )}
+                              >
+                                {isExpanded ? (
+                                  <CaretUp className="w-5 h-5" weight="bold" />
+                                ) : (
+                                  <CaretDown
+                                    className="w-5 h-5"
+                                    weight="bold"
+                                  />
+                                )}
+                              </div>
+                            </div>
+                          </button>
+
+                          {/* Always kept in DOM for SEO crawlers via CSS grid transition */}
+                          <div
+                            id={`faq-answer-${faq.id}`}
+                            className={cn(
+                              "grid transition-all duration-300 ease-out",
+                              isExpanded
+                                ? "grid-rows-[1fr] opacity-100"
+                                : "grid-rows-[0fr] opacity-0",
+                            )}
+                          >
+                            <div className="overflow-hidden">
+                              <p className="px-6 pb-6 pl-20 text-gray-700 leading-relaxed">
+                                {translatedAnswer}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+                {/* CTA to Contact */}
+                <div className="text-center mt-16">
+                  <p className="text-gray-600 mb-6 text-lg font-medium">
+                    {t(lang, "nieZnalazlesOdpowiedzi")}
+                  </p>
+                  <MagneticButton
+                    onClick={() => {
+                      const contactSection = document.getElementById("contact");
+                      contactSection?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-2xl hover:scale-105 rounded-full flex items-center justify-center mx-auto"
+                  >
+                    {t(lang, "skontaktujSieZNami")}
+                    <ArrowRight className="w-5 h-5 ml-2 inline-block" />
+                  </MagneticButton>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="contact"
+            data-theme="light"
+            className="py-20 lg:py-32 bg-gray-50"
+          >
+            <div className="container mx-auto px-6 lg:px-12">
+              <div className="max-w-4xl mx-auto">
+                <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-8 font-semibold text-center">
+                  {t(lang, "wycenaProjektu")}
+                </p>
+
+                <div className="mb-12 text-center">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase leading-tight tracking-tighter mb-6 text-blue-400">
+                    {t(lang, "wypelnijFormularz")}
+                  </h2>
+                </div>
+
+                {/* Single-step Form */}
+                <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
+                  <div className="space-y-8">
+                    {/* Project type selection */}
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {t(lang, "wybierzTypProjektu")}
+                      </h3>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        {[
+                          { key: "prototypy" as const, value: "Prototypy" },
+                          { key: "produkcja" as const, value: "Produkcja" },
+                          { key: "naprawa" as const, value: "Naprawa" },
+                          { key: "konsultacja" as const, value: "Konsultacja" },
+                        ].map(({ key, value }) => (
+                          <button
+                            key={value}
+                            onClick={() => {
+                              setSmartFormData((prev) => ({
+                                ...prev,
+                                projectType: value,
+                              }));
+                            }}
+                            className={cn(
+                              "p-4 border-2 rounded-xl font-bold uppercase tracking-wider transition-all hover:scale-105 min-h-[44px] text-sm",
+                              smartFormData.projectType === value
+                                ? "border-blue-700 bg-blue-50 text-blue-900"
+                                : "border-gray-200 hover:border-blue-300",
+                            )}
+                            aria-label={t(lang, key)}
+                          >
+                            {t(lang, key)}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Contact details */}
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-gray-900">
+                        {t(lang, "twojeDaneKontaktowe")}
+                      </h3>
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        <Input
+                          placeholder={t(lang, "imie")}
+                          value={smartFormData.firstName}
+                          onChange={(e) =>
+                            setSmartFormData({
+                              ...smartFormData,
+                              firstName: e.target.value,
+                            })
+                          }
+                          className="border-2 min-h-[44px]"
+                          aria-label={t(lang, "imie")}
+                          required
+                        />
+                        <Input
+                          placeholder={t(lang, "nazwisko")}
+                          value={smartFormData.lastName}
+                          onChange={(e) =>
+                            setSmartFormData({
+                              ...smartFormData,
+                              lastName: e.target.value,
+                            })
+                          }
+                          className="border-2 min-h-[44px]"
+                          aria-label={t(lang, "nazwisko")}
+                        />
+                      </div>
+                      <Input
+                        type="email"
+                        placeholder={t(lang, "email")}
+                        value={smartFormData.email}
+                        onChange={(e) =>
+                          setSmartFormData({
+                            ...smartFormData,
+                            email: e.target.value,
+                          })
+                        }
+                        className="border-2 min-h-[44px]"
+                        aria-label={t(lang, "email")}
+                        required
+                      />
+                      <Input
+                        placeholder={t(lang, "telefon")}
+                        value={smartFormData.phone}
+                        onChange={(e) =>
+                          setSmartFormData({
+                            ...smartFormData,
+                            phone: e.target.value,
+                          })
+                        }
+                        className="border-2 min-h-[44px]"
+                        aria-label={t(lang, "telefon")}
+                      />
+                      <Textarea
+                        placeholder={t(lang, "opisProjekt")}
+                        value={smartFormData.message}
+                        onChange={(e) =>
+                          setSmartFormData({
+                            ...smartFormData,
+                            message: e.target.value,
+                          })
+                        }
+                        className="border-2 min-h-32"
+                        aria-label={t(lang, "opisProjekt")}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="flex justify-end mt-8">
+                    <Button
+                      onClick={async () => {
+                        setIsSubmitting(true);
+                        try {
+                          const res = await fetch("/api/send-email", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                              projectType: smartFormData.projectType,
+                              firstName: smartFormData.firstName,
+                              lastName: smartFormData.lastName,
+                              email: smartFormData.email,
+                              phone: smartFormData.phone,
+                              message: smartFormData.message,
+                            }),
+                          });
+                          if (!res.ok) throw new Error("Send failed");
+                          if (
+                            typeof window !== "undefined" &&
+                            typeof (window as any).trackEvent === "function"
+                          ) {
+                            ;(window as any).trackEvent("generate_lead", {
+                              currency: lang === "pl" ? "PLN" : "EUR",
+                              value: lang === "pl" ? 300 : 75,
+                              lead_source: "home_smart_form",
+                              project_type: smartFormData.projectType,
+                              language: lang,
+                            });
+                          }
+                          triggerConfetti();
+                          toast.success(t(lang, "toastSuccess"));
+                          setSmartFormData({
+                            projectType: "",
+                            technology: "",
+                            firstName: "",
+                            lastName: "",
+                            email: "",
+                            phone: "",
+                            message: "",
+                            file: null,
+                          });
+                        } catch {
+                          toast.error(
+                            "Nie udało się wysłać wiadomości. Spróbuj ponownie.",
+                          );
+                        } finally {
+                          setIsSubmitting(false);
+                        }
+                      }}
+                      className="bg-blue-700 hover:bg-blue-800 font-bold magnetic-button px-8 py-3"
+                      disabled={
+                        !smartFormData.firstName ||
+                        !smartFormData.email ||
+                        !smartFormData.message ||
+                        !smartFormData.projectType ||
+                        isSubmitting
+                      }
+                    >
+                      {isSubmitting
+                        ? "Wysyłanie..."
+                        : t(lang, "wyslijZapytanie")}
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* KONTAKT SECTION - Dane kontaktowe, adresy, mapy */}
+          <section
+            id="dane-kontaktowe"
+            data-theme="light"
+            className="py-20 lg:py-32 bg-white"
+          >
+            <div className="container mx-auto px-6 lg:px-12">
+              {/* Map and Contact Details Section */}
+              <div className="max-w-7xl mx-auto">
+                <div className="mb-12 text-center">
+                  <p className="text-xs uppercase tracking-[0.5em] text-gray-500 mb-4 font-semibold">
+                    {t(lang, "kontaktHeader")}
+                  </p>
+                  <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.85] tracking-tighter mb-6 text-blue-400">
+                    {t(lang, "skontaktujSie")}
+                    <br />
+                    {t(lang, "zNami")}
+                  </h2>
+                  <p className="text-lg text-gray-600 font-normal max-w-xl mx-auto leading-relaxed">
+                    {t(lang, "kontaktDesc")}
+                  </p>
+                </div>
+
+                <div className="grid lg:grid-cols-2 gap-12 items-start">
+                  {/* Maps Container */}
+                  <div className="space-y-12">
+                    {/* Map 1: Siedziba */}
+                    <div className="space-y-4">
+                      <p className="text-xl font-bold uppercase tracking-wider text-gray-700">
+                        {t(lang, "siedziba")}
+                      </p>
+                      <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+                      >
+                        <iframe
+                          src="https://maps.google.com/maps?q=ul.+Grzybowska+5A,+00-132+Warszawa&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                          width="100%"
+                          height="100%"
+                          style={{ border: 0 }}
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                          title="Lokalizacja siedziby STANIAX"
+                          aria-label="Mapa Google pokazująca lokalizację siedziby STANIAX"
+                        />
+                      </motion.div>
+                    </div>
+
+                    {/* Map 2: Zakład Usługowy */}
+                    <div className="space-y-4">
+                      <p className="text-xl font-bold uppercase tracking-wider text-gray-700">
+                        {t(lang, "zakladUslugowy")}
+                      </p>
+                      <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-gray-200"
+                      >
+                        <iframe
+                          src="https://maps.google.com/maps?q=Metalizacja+Próżniowa+Staniax+Sp.z+o.o.,+Kardynała+Stefana+Wyszyńskiego+116a,+05-420+Józefów&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                          width="100%"
+                          height="100%"
+                          style={{ border: 0 }}
+                          allowFullScreen
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                          title="Lokalizacja zakładu usługowego STANIAX"
+                          aria-label="Mapa Google pokazująca lokalizację zakładu usługowego STANIAX"
+                        />
+                      </motion.div>
+                    </div>
+                  </div>
+
+                  {/* Contact Details */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="space-y-6"
+                  >
+                    {/* Address 1: Siedziba */}
+                    <div className="group">
+                      <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <MapPin
+                            className="w-6 h-6 text-white"
+                            weight="bold"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+                            SIEDZIBA
+                          </p>
+                          <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                            ul. Grzybowska 5A
+                            <br />
+                            00-132 Warszawa
+                          </p>
+                          <a
+                            href="https://maps.google.com/?q=Grzybowska+5A+Warszawa"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block"
+                          >
+                            {t(lang, "mapaNawigacja")}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Address 2: Zakład Usługowy */}
+                    <div className="group">
+                      <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Factory
+                            className="w-6 h-6 text-white"
+                            weight="bold"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+                            {t(lang, "zakladUslugowy")}
+                          </p>
+                          <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                            ul. Wyszyńskiego 116A
+                            <br />
+                            05-420 Józefów
+                          </p>
+                          <a
+                            href="https://share.google/N7ybGPMOEDI3ZE31X"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-2 inline-block"
+                          >
+                            {t(lang, "mapaNawigacja")}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Phone & Hours */}
+                    <div className="group">
+                      <a
+                        href="tel:+48882488844"
+                        className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]"
+                      >
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Phone className="w-6 h-6 text-white" weight="bold" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+                            {t(lang, "telefonLabel")}
+                          </p>
+                          <p className="text-xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
+                            +48 882 488 844
+                          </p>
+                          <div className="text-sm text-gray-600 mt-2 space-y-1">
+                            <p>
+                              <span className="font-semibold">
+                                {t(lang, "ponPt")}
+                              </span>{" "}
+                              7:00 - 17:00
+                            </p>
+                            <p>
+                              <span className="font-semibold">
+                                {t(lang, "sobNd")}
+                              </span>{" "}
+                              {t(lang, "zamkniete")}
+                            </p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+
+                    {/* Email */}
+                    <div className="group">
+                      <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border-2 border-gray-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl group-hover:scale-[1.02]">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <EnvelopeSimple
+                            className="w-6 h-6 text-white"
+                            weight="bold"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-2">
+                            {t(lang, "emailLabel")}
+                          </p>
+                          <a
+                            href="mailto:metalizacja@staniax.pl"
+                            className="block text-lg font-bold text-gray-900 break-all hover:text-blue-700 transition-colors"
+                          >
+                            metalizacja@staniax.pl
+                          </a>
+                          <a
+                            href="mailto:office@staniax.pl"
+                            className="block text-lg font-bold text-gray-900 break-all hover:text-blue-700 transition-colors mt-1"
+                          >
+                            office@staniax.pl
+                          </a>
+                          <p className="text-sm text-gray-600 mt-1">
+                            {t(lang, "odpowiadamyW24h")}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </section>
+          {/* B2B ENGINEERING MATRIX & COMPARISONS HUB */}
+          {(() => {
+            const hub = getHomeEngineeringHub(lang);
+            return (
+              <section
+                id="engineering-hub"
+                data-theme="light"
+                className="py-16 lg:py-20 bg-slate-50 border-t border-slate-200"
+              >
+                <div className="container mx-auto px-6 lg:px-12 max-w-7xl space-y-8">
+                  <div className="space-y-2 max-w-3xl">
+                    <p className="text-xs font-mono font-bold uppercase tracking-[0.35em] text-blue-700">
+                      {hub.eyebrow}
+                    </p>
+                    <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-950">
+                      {hub.heading}
+                    </h2>
+                    <p className="text-slate-600 text-base leading-relaxed">
+                      {hub.subheading}
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {hub.groups.map((group) => (
+                      <div
+                        key={group.title}
+                        className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4"
+                      >
+                        <h3 className="text-base font-extrabold uppercase tracking-wider text-slate-900 border-b border-slate-100 pb-3">
+                          {group.title}
+                        </h3>
+                        <ul className="space-y-2.5">
+                          {group.items.map((item) => (
+                            <li key={item.path}>
+                              <Link
+                                to={item.path}
+                                className="group flex items-start justify-between gap-3 rounded-xl border border-slate-100 bg-slate-50/70 px-3.5 py-2.5 transition-colors hover:border-blue-500 hover:bg-blue-50/40"
+                              >
+                                <div className="min-w-0">
+                                  <span className="block text-sm font-bold text-slate-900 group-hover:text-blue-700">
+                                    {item.title}
+                                  </span>
+                                  <span className="block text-[11px] font-mono text-slate-500 truncate">
+                                    {item.meta}
+                                  </span>
+                                </div>
+                                <ArrowRight
+                                  className="h-4 w-4 text-slate-400 group-hover:text-blue-600 shrink-0 mt-1"
+                                  weight="bold"
+                                />
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            );
+          })()}
+        </main>
 
         {/* BIG TYPE FOOTER */}
         <section id="footer" data-theme="dark">
-          <Suspense fallback={<div className="h-[200px] w-full bg-slate-950 flex items-center justify-center"><div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div></div>}>
+          <Suspense
+            fallback={
+              <div className="h-[200px] w-full bg-slate-950 flex items-center justify-center">
+                <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            }
+          >
             <BigFooter lang={lang} />
           </Suspense>
         </section>
 
         <CookieBanner lang={lang} />
 
-
         {/* Mobile Floating CTA Button */}
         <button
-          onClick={() => scrollToSection('contact')}
+          onClick={() => scrollToSection("contact")}
           className={cn(
-            'fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+            "fixed bottom-6 right-6 z-[80] sm:hidden transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400",
             showFloatingCTA
-              ? 'translate-y-0 opacity-100 pointer-events-auto'
-              : 'translate-y-20 opacity-0 pointer-events-none'
+              ? "translate-y-0 opacity-100 pointer-events-auto"
+              : "translate-y-20 opacity-0 pointer-events-none",
           )}
           aria-label="Wyceń projekt"
         >
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-4 rounded-full shadow-2xl border-2 border-blue-400/30">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 4v16m8-8H4"
+              />
             </svg>
           </div>
         </button>
 
         {/* Scroll to Top Button */}
         <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className={cn(
-            'fixed bottom-24 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+            "fixed bottom-24 right-6 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-full shadow-2xl border-2 border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400",
             showScrollTop
-              ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
-              : 'translate-y-20 opacity-0 pointer-events-none scale-75'
+              ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
+              : "translate-y-20 opacity-0 pointer-events-none scale-75",
           )}
           aria-label="Powrót do góry strony"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 10l7-7m0 0l7 7m-7-7v18"
+            />
           </svg>
         </button>
 
@@ -2751,15 +3308,25 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
         <button
           onClick={scrollToNextSection}
           className={cn(
-            'fixed bottom-24 right-20 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-blue-600 hover:to-blue-700 text-white rounded-full shadow-2xl border-2 border-gray-400/30 hover:border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400',
+            "fixed bottom-24 right-20 z-[80] hidden sm:flex items-center justify-center w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-blue-600 hover:to-blue-700 text-white rounded-full shadow-2xl border-2 border-gray-400/30 hover:border-blue-400/30 transition-all duration-500 focus-visible:ring-4 focus-visible:ring-blue-400",
             showScrollTop
-              ? 'translate-y-0 opacity-100 pointer-events-auto scale-100'
-              : 'translate-y-20 opacity-0 pointer-events-none scale-75'
+              ? "translate-y-0 opacity-100 pointer-events-auto scale-100"
+              : "translate-y-20 opacity-0 pointer-events-none scale-75",
           )}
           aria-label="Przewiń do następnej sekcji"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
           </svg>
         </button>
 
@@ -2781,165 +3348,199 @@ function HomePage({ lang = 'pl' }: HomePageProps) {
         }
       `}</style>
 
-      {/* Service Details Modal */}
-      <AnimatePresence>
-        {isServiceModalOpen && selectedService && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-            onClick={() => setIsServiceModalOpen(false)}
-          >
+        {/* Service Details Modal */}
+        <AnimatePresence>
+          {isServiceModalOpen && selectedService && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-3xl shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+              onClick={() => setIsServiceModalOpen(false)}
             >
-              {/* Header with Image */}
-              <div className="relative h-48 sm:h-64 overflow-hidden">
-                <img
-                  src={selectedService.image}
-                  alt={selectedService.alt}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                  <div className="flex items-center gap-3 text-blue-400 font-mono text-sm tracking-widest uppercase mb-2">
-                    <span className="w-8 h-px bg-blue-400"></span>
-                    {selectedService.tagline}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-3xl shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Header with Image */}
+                <div className="relative h-48 sm:h-64 overflow-hidden">
+                  <img
+                    src={selectedService.image}
+                    alt={selectedService.alt}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                    <div className="flex items-center gap-3 text-blue-400 font-mono text-sm tracking-widest uppercase mb-2">
+                      <span className="w-8 h-px bg-blue-400"></span>
+                      {selectedService.tagline}
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl font-black uppercase text-white tracking-tight">
+                      {(() => {
+                        const svcKeyMap: Record<string, string> = {
+                          "vacuum-metallization": "svcVacuumTitle",
+                          "plastic-painting": "svcPlasticTitle",
+                          "glass-painting": "svcGlassTitle",
+                          reflectors: "svcReflectorsTitle",
+                          "spray-painting": "svcSprayTitle",
+                        };
+                        const key = svcKeyMap[selectedService.id];
+                        return key
+                          ? t(lang, key as any)
+                          : selectedService.title;
+                      })()}
+                    </h2>
                   </div>
-                  <h2 className="text-3xl sm:text-4xl font-black uppercase text-white tracking-tight">
-                    {(() => {
-                      const svcKeyMap: Record<string, string> = {
-                        'vacuum-metallization': 'svcVacuumTitle',
-                        'plastic-painting': 'svcPlasticTitle',
-                        'glass-painting': 'svcGlassTitle',
-                        'reflectors': 'svcReflectorsTitle',
-                        'spray-painting': 'svcSprayTitle'
-                      }
-                      const key = svcKeyMap[selectedService.id]
-                      return key ? t(lang, key as any) : selectedService.title
-                    })()}
-                  </h2>
-                </div>
-                {/* Close Button */}
-                <button
-                  onClick={() => setIsServiceModalOpen(false)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-16rem)]">
-                <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                  {(() => {
-                    const svcKeyMap: Record<string, string> = {
-                      'vacuum-metallization': 'svcVacuumDesc',
-                      'plastic-painting': 'svcPlasticDesc',
-                      'glass-painting': 'svcGlassDesc',
-                      'reflectors': 'svcReflectorsDesc',
-                      'spray-painting': 'svcSprayDesc'
-                    }
-                    const key = svcKeyMap[selectedService.id]
-                    return key ? t(lang, key as any) : selectedService.description
-                  })()}
-                </p>
-
-                {selectedService.details && (
-                  <div className="grid sm:grid-cols-3 gap-6">
-                    {/* Features */}
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-5">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
-                          <Gear className="w-5 h-5 text-white" />
-                        </div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">{t(lang, 'modalCechy')}</h3>
-                      </div>
-                      <ul className="space-y-2">
-                        {selectedService.details.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Applications */}
-                    <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-2xl p-5">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center">
-                          <Target className="w-5 h-5 text-white" />
-                        </div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">{t(lang, 'modalZastosowania')}</h3>
-                      </div>
-                      <ul className="space-y-2">
-                        {selectedService.details.applications.map((app, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 flex-shrink-0" />
-                            {app}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Advantages */}
-                    <div className="bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-2xl p-5">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-amber-600 flex items-center justify-center">
-                          <Trophy className="w-5 h-5 text-white" />
-                        </div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">{t(lang, 'modalZalety')}</h3>
-                      </div>
-                      <ul className="space-y-2">
-                        {selectedService.details.advantages.map((adv, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 flex-shrink-0" />
-                            {adv}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                )}
-
-                {/* CTA */}
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={() => {
-                      setIsServiceModalOpen(false)
-                      scrollToSection('contact')
-                    }}
-                    className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2"
-                  >
-                    {t(lang, 'modalZapytaj')}
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  {/* Close Button */}
                   <button
                     onClick={() => setIsServiceModalOpen(false)}
-                    className="flex-1 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold uppercase tracking-wider rounded-full transition-colors"
+                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
                   >
-                    {t(lang, 'modalZamknij')}
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
                   </button>
                 </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
-      </main >
-    </SmoothScroll >
-  )
+                {/* Content */}
+                <div className="p-6 sm:p-8 overflow-y-auto max-h-[calc(90vh-16rem)]">
+                  <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                    {(() => {
+                      const svcKeyMap: Record<string, string> = {
+                        "vacuum-metallization": "svcVacuumDesc",
+                        "plastic-painting": "svcPlasticDesc",
+                        "glass-painting": "svcGlassDesc",
+                        reflectors: "svcReflectorsDesc",
+                        "spray-painting": "svcSprayDesc",
+                      };
+                      const key = svcKeyMap[selectedService.id];
+                      return key
+                        ? t(lang, key as any)
+                        : selectedService.description;
+                    })()}
+                  </p>
+
+                  {selectedService.details && (
+                    <div className="grid sm:grid-cols-3 gap-6">
+                      {/* Features */}
+                      <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-5">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
+                            <Gear className="w-5 h-5 text-white" />
+                          </div>
+                          <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">
+                            {t(lang, "modalCechy")}
+                          </h3>
+                        </div>
+                        <ul className="space-y-2">
+                          {selectedService.details.features.map(
+                            (feature, idx) => (
+                              <li
+                                key={idx}
+                                className="flex items-start gap-2 text-sm text-gray-700"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
+                                {feature}
+                              </li>
+                            ),
+                          )}
+                        </ul>
+                      </div>
+
+                      {/* Applications */}
+                      <div className="bg-gradient-to-br from-emerald-50 to-emerald-100/50 rounded-2xl p-5">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center">
+                            <Target className="w-5 h-5 text-white" />
+                          </div>
+                          <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">
+                            {t(lang, "modalZastosowania")}
+                          </h3>
+                        </div>
+                        <ul className="space-y-2">
+                          {selectedService.details.applications.map(
+                            (app, idx) => (
+                              <li
+                                key={idx}
+                                className="flex items-start gap-2 text-sm text-gray-700"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 flex-shrink-0" />
+                                {app}
+                              </li>
+                            ),
+                          )}
+                        </ul>
+                      </div>
+
+                      {/* Advantages */}
+                      <div className="bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-2xl p-5">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-10 h-10 rounded-xl bg-amber-600 flex items-center justify-center">
+                            <Trophy className="w-5 h-5 text-white" />
+                          </div>
+                          <h3 className="font-bold text-gray-900 uppercase tracking-wide text-sm">
+                            {t(lang, "modalZalety")}
+                          </h3>
+                        </div>
+                        <ul className="space-y-2">
+                          {selectedService.details.advantages.map(
+                            (adv, idx) => (
+                              <li
+                                key={idx}
+                                className="flex items-start gap-2 text-sm text-gray-700"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-amber-600 mt-1.5 flex-shrink-0" />
+                                {adv}
+                              </li>
+                            ),
+                          )}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* CTA */}
+                  <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                    <button
+                      onClick={() => {
+                        setIsServiceModalOpen(false);
+                        scrollToSection("contact");
+                      }}
+                      className="flex-1 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold uppercase tracking-wider rounded-full transition-colors flex items-center justify-center gap-2"
+                    >
+                      {t(lang, "modalZapytaj")}
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => setIsServiceModalOpen(false)}
+                      className="flex-1 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold uppercase tracking-wider rounded-full transition-colors"
+                    >
+                      {t(lang, "modalZamknij")}
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </SmoothScroll>
+  );
 }
 
-export default HomePage
+export default HomePage;
 // Force reload wto, 4 lis 2025, 23:36:53 CET

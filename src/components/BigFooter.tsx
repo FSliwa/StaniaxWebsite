@@ -1,205 +1,265 @@
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { motion } from 'framer-motion'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { t, type Lang } from '@/lib/translations'
+import { SERVICE_ORDER, SERVICES } from '@/data/services'
 
 export function BigFooter({ lang = 'pl' as Lang }: { lang?: Lang }) {
-    const currentYear = new Date().getFullYear()
-    const navigate = useNavigate()
+  const currentYear = new Date().getFullYear()
+  const homePath = lang === 'pl' ? '/' : `/${lang}`
+  const galleryPath = lang === 'pl' ? '/gallery' : `/${lang}/gallery`
+  const newsPath = lang === 'pl' ? '/news' : `/${lang}/news`
+  const privacyPath =
+    lang === 'pl'
+      ? '/polityka-prywatnosci'
+      : lang === 'de'
+        ? '/de/datenschutz'
+        : '/en/privacy-policy'
+  const cookiesPath =
+    lang === 'pl'
+      ? '/polityka-cookies'
+      : lang === 'de'
+        ? '/de/cookie-richtlinie'
+        : '/en/cookie-policy'
 
-    const scrollToSection = (sectionId: string) => {
-        const homePath = lang === 'pl' ? '/' : `/${lang}`
-        if (window.location.pathname !== homePath && window.location.pathname !== `${homePath}/`) {
-            window.location.href = `${homePath}#${sectionId}`
-        } else {
-            const section = document.getElementById(sectionId)
-            if (section) {
-                const lenis = (window as any).lenis
-                if (lenis) {
-                    lenis.scrollTo(section, {
-                        offset: -80,
-                        duration: 1.5,
-                        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-                    })
-                } else {
-                    section.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                }
-            }
-        }
+  const scrollToQuoteOrContact = () => {
+    const el = document.getElementById('wycena') || document.getElementById('contact')
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      window.location.href = `${homePath}#contact`
     }
+  }
 
-    const navigateToPage = (path: string) => {
-        navigate(path)
-    }
+  return (
+    <footer className="bg-black text-white pt-24 pb-12 overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12">
+        {/* Top Section: Company Info & Stats */}
+        <div className="mb-16 border-b border-white/10 pb-12">
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
+            <div className="max-w-2xl">
+              <p className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+                {t(lang, 'footerHeading')}
+              </p>
+              <p className="text-2xl md:text-3xl text-gray-400 mb-6">
+                {t(lang, 'footerSubheading')}
+              </p>
+              <p className="text-lg font-medium text-blue-400 mb-8">
+                {t(lang, 'footerSpecialist')}
+              </p>
 
-    const homePath = lang === 'pl' ? '/' : `/${lang}`
-
-    return (
-        <footer className="bg-black text-white pt-24 pb-12 overflow-hidden">
-            <div className="container mx-auto px-6 lg:px-12">
-
-                {/* Top Section: Company Info & Stats */}
-                <div className="mb-16 border-b border-white/10 pb-12">
-                    <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
-                        <div className="max-w-2xl">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">{t(lang, 'footerHeading')}</h2>
-                            <p className="text-3xl text-gray-400 mb-6">{t(lang, 'footerSubheading')}</p>
-                            <p className="text-lg font-medium text-blue-400 mb-8">{t(lang, 'footerSpecialist')}</p>
-
-                            <div className="flex flex-wrap gap-4 mb-8">
-                                <MagneticButton 
-                                    onClick={() => {
-                                        if (window.location.pathname !== homePath && window.location.pathname !== `${homePath}/`) {
-                                            window.location.href = `${homePath}#contact`
-                                        } else {
-                                            const contactSection = document.getElementById('contact')
-                                            if (contactSection) {
-                                                const lenis = (window as any).lenis
-                                                if (lenis) {
-                                                    lenis.scrollTo(contactSection, {
-                                                        offset: -80,
-                                                        duration: 1.5,
-                                                        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-                                                    })
-                                                } else {
-                                                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                                                }
-                                            }
-                                        }
-                                    }}
-                                    className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-gray-200 transition-colors cursor-pointer"
-                                >
-                                    {t(lang, 'footerFreeConsultation')}
-                                </MagneticButton>
-                                <MagneticButton 
-                                    onClick={() => {
-                                        if (window.location.pathname !== homePath && window.location.pathname !== `${homePath}/`) {
-                                            window.location.href = `${homePath}#contact`
-                                        } else {
-                                            const contactSection = document.getElementById('contact')
-                                            if (contactSection) {
-                                                const lenis = (window as any).lenis
-                                                if (lenis) {
-                                                    lenis.scrollTo(contactSection, {
-                                                        offset: -80,
-                                                        duration: 1.5,
-                                                        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-                                                    })
-                                                } else {
-                                                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                                                }
-                                            }
-                                        }
-                                    }}
-                                    className="border border-white text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-white/10 transition-colors cursor-pointer"
-                                >
-                                    {t(lang, 'footerGetQuote')} <ArrowUpRight weight="bold" />
-                                </MagneticButton>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-8 lg:gap-12 text-center sm:text-left">
-                            <div>
-                                <span className="block text-4xl font-black text-white mb-1">25+</span>
-                                <span className="text-xs uppercase tracking-widest text-gray-300">{t(lang, 'footerYearsExp')}</span>
-                            </div>
-                            <div>
-                                <span className="block text-4xl font-black text-white mb-1">2500+</span>
-                                <span className="text-xs uppercase tracking-widest text-gray-300">{t(lang, 'footerProjectsDone')}</span>
-                            </div>
-                            <div>
-                                <span className="block text-4xl font-black text-white mb-1">24H</span>
-                                <span className="text-xs uppercase tracking-widest text-gray-300">{t(lang, 'footerResponseTime')}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Middle Section: Services & Contact */}
-                <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
-                    <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 text-sm lg:text-base tracking-wider text-gray-400 font-mono">
-
-                        {/* Column 1: Services */}
-                        <div className="space-y-8">
-                            <div>
-                                <h3 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerServicesTitle')}</h3>
-                                <ul className="space-y-3">
-                                    <li><a href={`${homePath}#kim-jestesmy`} onClick={(e) => { e.preventDefault(); scrollToSection('kim-jestesmy'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerKimJestesmy')}</a></li>
-                                    <li><a href={`${homePath}#vacuum-metallization`} onClick={(e) => { e.preventDefault(); scrollToSection('vacuum-metallization'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc1')}</a></li>
-                                    <li><a href={`${homePath}#plastic-painting`} onClick={(e) => { e.preventDefault(); scrollToSection('plastic-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc2')}</a></li>
-                                    <li><a href={`${homePath}#glass-painting`} onClick={(e) => { e.preventDefault(); scrollToSection('glass-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc3')}</a></li>
-                                    <li><a href={`${homePath}#reflectors`} onClick={(e) => { e.preventDefault(); scrollToSection('reflectors'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc4')}</a></li>
-                                    <li><a href={`${homePath}#spray-painting`} onClick={(e) => { e.preventDefault(); scrollToSection('spray-painting'); }} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc5')}</a></li>
-                                    <li><Link to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'footerSvc6')}</Link></li>
-                                    <li><Link to={lang === 'pl' ? '/news' : `/${lang}/news`} className="hover:text-white transition-colors cursor-pointer">{t(lang, 'aktualnosci')}</Link></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Column 2: Addresses */}
-                        <div className="space-y-8">
-                            <div>
-                                <h3 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerAddressTitle')}</h3>
-                                <div className="space-y-6">
-                                    <div>
-                                        <p className="text-white font-semibold mb-1">{t(lang, 'footerHQ')}</p>
-                                        <p>POLSKA, WARSZAWA 00-132,</p>
-                                        <p>UL. GRZYBOWSKA 5 A <a href="https://maps.google.com/?q=Grzybowska+5A+Warszawa" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
-                                    </div>
-                                    <div>
-                                        <p className="text-white font-semibold mb-1">{t(lang, 'footerFactory')}</p>
-                                        <p>JÓZEFÓW 05-420,</p>
-                                        <p>UL. WYSZYŃSKIEGO 116 A <a href="https://share.google/N7ybGPMOEDI3ZE31X" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 ml-1 text-xs">(MAPA-NAWIGACJA)</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Column 3: Contact & Hours */}
-                        <div className="space-y-8">
-                            <div>
-                                <h3 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerContactTitle')}</h3>
-                                <motion.div
-                                    animate={{ scale: [1, 1.05, 1], textShadow: ["0 0 0px rgba(59,130,246,0)", "0 0 10px rgba(59,130,246,0.5)", "0 0 0px rgba(59,130,246,0)"] }}
-                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                    className="inline-block origin-left"
-                                >
-                                    <p className="mb-2">TEL: <a href="tel:+48882488844" className="text-white hover:text-blue-400 transition-colors font-semibold">+48 882 488 844</a></p>
-                                </motion.div>
-                                <p>EMAIL: <a href="mailto:metalizacja@staniax.pl" className="text-white hover:text-blue-400 transition-colors font-semibold">metalizacja@staniax.pl</a></p>
-                                <p className="mt-1">EMAIL: <a href="mailto:office@staniax.pl" className="text-white hover:text-blue-400 transition-colors font-semibold">office@staniax.pl</a></p>
-                            </div>
-
-                            <div>
-                                <h3 className="text-white font-bold mb-4 text-lg">{t(lang, 'footerHoursTitle')}</h3>
-                                <p className="mb-1">{t(lang, 'footerHoursWeekday')}</p>
-                                <p>{t(lang, 'footerHoursWeekend')}</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                {/* Big Type */}
-                <div className="relative border-t border-white/10 pt-12">
-                    <motion.div
-                        initial={{ y: "100%" }}
-                        whileInView={{ y: 0 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-[15vw] leading-[0.8] font-black tracking-tighter text-center md:text-left mix-blend-difference select-none pointer-events-none"
-                    >
-                        STANIAX
-                    </motion.div>
-
-
-                    <div className="flex flex-col md:flex-row justify-between items-center mt-8 text-xs font-mono text-gray-500 uppercase tracking-widest border-t border-white/5 pt-8">
-                        <p>&copy; {currentYear} STANIAX Sp.&nbsp;z&nbsp;o.o. All rights reserved.</p>
-                        <p>Wdrożenie strony i <a href="https://ai-seo-company.pl" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline">Optymalizacja SEO</a> wykonane przez <a href="https://ai-seo-company.pl" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline">AI SEO COMPANY</a></p>
-                    </div>
-                </div>
-
+              <div className="flex flex-wrap gap-4 mb-8">
+                <MagneticButton
+                  onClick={scrollToQuoteOrContact}
+                  className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-gray-200 transition-colors cursor-pointer"
+                >
+                  {t(lang, 'footerFreeConsultation')}
+                </MagneticButton>
+                <MagneticButton
+                  onClick={scrollToQuoteOrContact}
+                  className="border border-white text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-white/10 transition-colors cursor-pointer"
+                >
+                  {t(lang, 'footerGetQuote')} <ArrowUpRight weight="bold" />
+                </MagneticButton>
+              </div>
             </div>
-        </footer>
-    )
+
+            <div className="flex flex-col sm:flex-row gap-8 lg:gap-12 text-center sm:text-left">
+              <div>
+                <span className="block text-4xl font-black text-white mb-1">25+</span>
+                <span className="text-xs uppercase tracking-widest text-gray-300">
+                  {t(lang, 'footerYearsExp')}
+                </span>
+              </div>
+              <div>
+                <span className="block text-4xl font-black text-white mb-1">2500+</span>
+                <span className="text-xs uppercase tracking-widest text-gray-300">
+                  {t(lang, 'footerProjectsDone')}
+                </span>
+              </div>
+              <div>
+                <span className="block text-4xl font-black text-white mb-1">24H</span>
+                <span className="text-xs uppercase tracking-widest text-gray-300">
+                  {t(lang, 'footerResponseTime')}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Middle Section: 6 Dedicated Service Links & NAP Contact */}
+        <div className="flex flex-col md:flex-row justify-between items-start mb-24 gap-12">
+          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 text-sm lg:text-base tracking-wider text-gray-300 font-mono">
+            {/* Column 1: 6 Dedicated Services + Gallery + News */}
+            <div className="space-y-8">
+              <div>
+                <p className="text-white font-bold mb-4 text-lg uppercase">
+                  {t(lang, 'footerServicesTitle')}
+                </p>
+                <ul className="space-y-3">
+                  {SERVICE_ORDER.map((id) => {
+                    const svc = SERVICES[id]
+                    const content = svc.locales[lang]
+                    return (
+                      <li key={id}>
+                        <Link
+                          to={svc.slugs[lang]}
+                          className="hover:text-white transition-colors cursor-pointer"
+                        >
+                          {content.navLabel}
+                        </Link>
+                      </li>
+                    )
+                  })}
+                  <li>
+                    <Link
+                      to={galleryPath}
+                      className="hover:text-white transition-colors cursor-pointer"
+                    >
+                      {lang === 'pl'
+                        ? 'Galeria realizacji'
+                        : lang === 'de'
+                          ? 'Referenzgalerie'
+                          : 'Project gallery'}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={newsPath}
+                      className="hover:text-white transition-colors cursor-pointer"
+                    >
+                      {t(lang, 'aktualnosci')}
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Column 2: Addresses */}
+            <div className="space-y-8">
+              <div>
+                <p className="text-white font-bold mb-4 text-lg uppercase">
+                  {t(lang, 'footerAddressTitle')}
+                </p>
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-white font-semibold mb-1">{t(lang, 'footerFactory')}</p>
+                    <p>POLSKA, JÓZEFÓW 05-420,</p>
+                    <p>
+                      UL. WYSZYŃSKIEGO 116A{' '}
+                      <a
+                        href="https://share.google/N7ybGPMOEDI3ZE31X"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 ml-1 text-xs"
+                      >
+                        (MAPA-NAWIGACJA JÓZEFÓW)
+                      </a>
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold mb-1">{t(lang, 'footerHQ')}</p>
+                    <p>POLSKA, WARSZAWA 00-132,</p>
+                    <p>
+                      UL. GRZYBOWSKA 5A{' '}
+                      <a
+                        href="https://maps.google.com/?q=Grzybowska+5A+Warszawa"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 ml-1 text-xs"
+                      >
+                        (MAPA-SIEDZIBA WARSZAWA)
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 3: Contact & Hours */}
+            <div className="space-y-8">
+              <div>
+                <p className="text-white font-bold mb-4 text-lg uppercase">
+                  {t(lang, 'footerContactTitle')}
+                </p>
+                <p className="mb-2">
+                  TEL:{' '}
+                  <a
+                    href="tel:+48882488844"
+                    className="text-white hover:text-blue-400 transition-colors font-semibold"
+                  >
+                    +48 882 488 844
+                  </a>
+                </p>
+                <p>
+                  EMAIL:{' '}
+                  <a
+                    href="mailto:metalizacja@staniax.pl"
+                    className="text-white hover:text-blue-400 transition-colors font-semibold"
+                  >
+                    metalizacja@staniax.pl
+                  </a>
+                </p>
+                <p className="mt-1">
+                  EMAIL:{' '}
+                  <a
+                    href="mailto:office@staniax.pl"
+                    className="text-white hover:text-blue-400 transition-colors font-semibold"
+                  >
+                    office@staniax.pl
+                  </a>
+                </p>
+              </div>
+
+              <div>
+                <p className="text-white font-bold mb-4 text-lg uppercase">
+                  {t(lang, 'footerHoursTitle')}
+                </p>
+                <p className="mb-1">{t(lang, 'footerHoursWeekday')}</p>
+                <p>{t(lang, 'footerHoursWeekend')}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Big Type */}
+        <div className="relative border-t border-white/10 pt-12">
+          <motion.div
+            initial={{ y: '100%' }}
+            whileInView={{ y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[15vw] leading-[0.8] font-black tracking-tighter text-center md:text-left mix-blend-difference select-none pointer-events-none"
+          >
+            STANIAX
+          </motion.div>
+
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-8 text-xs font-mono text-gray-400 uppercase tracking-widest border-t border-white/5 pt-8">
+            <div className="space-y-1.5 text-center md:text-left">
+              <p>&copy; {currentYear} STANIAX Sp.&nbsp;z&nbsp;o.o. All rights reserved.</p>
+              <p className="text-[11px] text-gray-500 normal-case tracking-normal">
+                STANIAX Sp. z o.o. · ul. Grzybowska 5A, 00-132 Warszawa · KRS: 0001182026 (Sąd Rejonowy dla m.st. Warszawy, XIII Wydział Gospodarczy KRS) · NIP: 5253052509 · REGON: 542156053 · Kapitał zakładowy: 150&nbsp;000,00&nbsp;zł
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-6">
+              <Link to={privacyPath} className="hover:text-white transition-colors">
+                {lang === 'pl'
+                  ? 'Polityka prywatności'
+                  : lang === 'de'
+                    ? 'Datenschutzerklärung'
+                    : 'Privacy Policy'}
+              </Link>
+              <Link to={cookiesPath} className="hover:text-white transition-colors">
+                {lang === 'pl'
+                  ? 'Polityka cookies'
+                  : lang === 'de'
+                    ? 'Cookie-Richtlinie'
+                    : 'Cookie Policy'}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
 }

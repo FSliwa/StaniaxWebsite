@@ -1,0 +1,895 @@
+================================================================================
+STANIAX.PL — BAZA FRAZ KLUCZOWYCH SEOBILITY & ARCHITEKTURA DOCELOWA (PL/EN/DE)
+Data audytu i ekstrakcji Seobility: 2026-11-15
+Konto Seobility: Filip Sliwa (Premium) | 32 zapytania bazowe: 18 PL + 8 DE + 6 EN
+Łącznie wyekstrahowanych rekordów (bazowe + podpowiedzi Seobility): 496
+Legenda: Vol = wyszukania/mies., Comp = konkurencja 0.00-1.00, CPC = EUR, Intent: I/N/C/T
+Uwaga z panelu Seobility: Brak utworzonego projektu staniax.pl w panelu -> dane
+Rankings / Project Website Audit były wyłączone; komplet metryk pochodzi z Keyword Research.
+================================================================================
+
+1. PODSUMOWANIE 32 FRAZ BAZOWYCH Z SEOBILITY (POZYCJE STANIAX + PRZYPISANIE URL)
+--------------------------------------------------------------------------------
+[Google.pl ] lakierowanie tworzyw sztucznych    | Vol:      110 | Comp:  0.14 | CPC:  €0.00 | I:85              | SERP STANIAX: -
+             -> PL: /lakierowanie-tworzyw-sztucznych | EN: /en/plastic-parts-painting | DE: /de/kunststofflackierung
+             -> Rola: Core Service + Substrates Matrix (ABS/PC/PP/PA)
+[Google.pl ] lakierowanie plastiku              | Vol:      210 | Comp:  0.54 | CPC:  €1.56 | I:43 / T:33       | SERP STANIAX: -
+             -> PL: /lakierowanie-tworzyw-sztucznych | EN: /en/plastic-parts-painting | DE: /de/kunststofflackierung
+             -> Rola: Core Service + Substrates Matrix (ABS/PP)
+[Google.pl ] malowanie plastiku                 | Vol:      880 | Comp:  0.86 | CPC:  €0.31 | I:51 / T:35       | SERP STANIAX: -
+             -> PL: /lakierowanie-tworzyw-sztucznych | EN: /en/plastic-parts-painting | DE: /de/kunststofflackierung
+             -> Rola: Core Service (B2B differentiation from DIY) + PP/ABS Substrate Pages
+[Google.pl ] lakierowanie szkła                 | Vol:       50 | Comp:  0.10 | CPC:  €0.00 | I:69              | SERP STANIAX: -
+             -> PL: /lakierowanie-szkla-i-ceramiki | EN: /en/glass-and-ceramic-painting | DE: /de/glas-und-keramiklackierung
+             -> Rola: Core Service + /rozwiazania/lakierowanie-i-metalizacja-szkla
+[Google.pl ] malowanie szkła                    | Vol:      260 | Comp:  0.40 | CPC:  €0.00 | I:92              | SERP STANIAX: -
+             -> PL: /lakierowanie-szkla-i-ceramiki | EN: /en/glass-and-ceramic-painting | DE: /de/glas-und-keramiklackierung
+             -> Rola: Core Service (B2B glass) + Glass Matrix Page
+[Google.pl ] lakierowanie butelek               | Vol:  <10 (0) | Comp:  0.00 | CPC:  €0.00 | T:52              | SERP STANIAX: -
+             -> PL: /rozwiazania/lakierowanie-i-metalizacja-szkla | EN: /en/solutions/glass-bottle-coating-pvd | DE: /de/loesungen/glasflakon-lackierung-pvd
+             -> Rola: Substrate Matrix (Beauty/Spirits Bottles) + Beauty Article
+[Google.pl ] lakierowanie ceramiki              | Vol:  <10 (0) | Comp:  0.00 | CPC:  €0.00 | T:76              | SERP STANIAX: -
+             -> PL: /lakierowanie-szkla-i-ceramiki | EN: /en/glass-and-ceramic-painting | DE: /de/glas-und-keramiklackierung
+             -> Rola: Excluded as main automotive term (SERP mismatch: auto ceramic wax) -> industrial glass/ceramics only
+[Google.pl ] lakierowanie natryskowe            | Vol:       70 | Comp:  0.14 | CPC:  €0.00 | T:60              | SERP STANIAX: -
+             -> PL: /lakierowanie-natryskowe | EN: /en/spray-painting | DE: /de/spritzlackierung
+             -> Rola: Core Service + Spray Painting B2B
+[Google.pl ] lakierowanie przemysłowe           | Vol:      140 | Comp:  0.77 | CPC:  €3.01 | I:60 / C:37       | SERP STANIAX: -
+             -> PL: /lakierowanie-natryskowe | EN: /en/spray-painting | DE: /de/spritzlackierung
+             -> Rola: Primary B2B high-CPC target (€3.01) for Industrial Spray Painting + Home
+[Google.pl ] lakiernia przemysłowa              | Vol:       90 | Comp:  0.19 | CPC:  €2.39 | C:57              | SERP STANIAX: -
+             -> PL: /lakierowanie-natryskowe | EN: /en/spray-painting | DE: /de/spritzlackierung
+             -> Rola: Commercial B2B contractor target (€2.39 CPC) for Spray Service + Home
+[Google.pl ] metalizacja próżniowa              | Vol:      390 | Comp:  0.25 | CPC:  €1.53 | I:93              | SERP STANIAX: #3 (www.staniax.pl/)
+             -> PL: /metalizacja-prozniowa | EN: /en/vacuum-metallisation | DE: /de/vakuummetallisierung
+             -> Rola: Flagship PVD Service + Home + VS Galwanizacja/Chromowanie
+[Google.pl ] metalizacja tworzyw sztucznych     | Vol:       90 | Comp:  0.27 | CPC:  €1.37 | I:99              | SERP STANIAX: #9 (news/beauty)
+             -> PL: /metalizacja-tworzyw-sztucznych | EN: /en/plastic-chrome-plating | DE: /de/kunststoff-verchromen
+             -> Rola: Plastic Metallization Service + ABS/PC/PA Substrate Matrix + Aviation/Beauty Articles
+[Google.pl ] metalizacja plastiku               | Vol:      110 | Comp:  0.19 | CPC:  €1.84 | I:95              | SERP STANIAX: #4 (news/beauty)
+             -> PL: /metalizacja-tworzyw-sztucznych | EN: /en/plastic-chrome-plating | DE: /de/kunststoff-verchromen
+             -> Rola: Plastic Metallization Service + ABS Substrate Matrix Page
+[Google.pl ] chromowanie plastiku               | Vol:      390 | Comp:  0.46 | CPC:  €2.46 | T:74              | SERP STANIAX: -
+             -> PL: /porownanie/metalizacja-prozniowa-vs-galwanizacja | EN: /en/compare/vacuum-metallization-vs-electroplating | DE: /de/vergleich/vakuummetallisierung-vs-galvanik
+             -> Rola: Primary Commercial BOFU target (€2.46 CPC): Plastic Chrome Service + VS Galwanizacja + VS Chromowanie natryskowe
+[Google.pl ] regeneracja reflektorów            | Vol:     4400 | Comp:  1.00 | CPC:  €0.59 | T:59              | SERP STANIAX: -
+             -> PL: /regeneracja-reflektorow/warszawa-jozefow | EN: /en/headlight-restoration/warsaw-jozefow | DE: /de/scheinwerfer-aufbereitung/warschau-jozefow
+             -> Rola: Local Service Hub + Main Service /regeneracja-reflektorow + /cennik-regeneracji-reflektorow
+[Google.pl ] regeneracja odbłyśników            | Vol:     1900 | Comp:  0.52 | CPC:  €0.86 | I:67              | SERP STANIAX: -
+             -> PL: /regeneracja-reflektorow | EN: /en/headlight-reflector-restoration | DE: /de/scheinwerfer-reflektor-aufbereitung
+             -> Rola: Core Workshop PVD Service + VS Nowy zamiennik + Pricing Page
+[Google.pl ] regeneracja lamp samochodowych     | Vol:     4400 | Comp:  0.98 | CPC:  €0.47 | I:53 / T:30       | SERP STANIAX: -
+             -> PL: /regeneracja-reflektorow | EN: /en/headlight-reflector-restoration | DE: /de/scheinwerfer-reflektor-aufbereitung
+             -> Rola: Core Service + Local Warsaw/Józefów + Reflectors Article
+[Google.pl ] polerowanie reflektorów            | Vol:     2400 | Comp:  0.99 | CPC:  €0.70 | T:87              | SERP STANIAX: -
+             -> PL: /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd | EN: /en/compare/lens-polishing-vs-internal-pvd-restoration | DE: /de/vergleich/streuscheibe-polieren-vs-pvd-innensanierung
+             -> Rola: VS Comparison BOFU (separate SERP from reflector PVD!) + Reflectors Article + Pricing
+[Google.de ] Metallisierung                     | Vol:      140 | Comp:  0.13 | CPC:  €1.27 | I:100             | SERP STANIAX: -
+             -> PL: /metalizacja-prozniowa | EN: /en/vacuum-metallisation | DE: /de/vakuummetallisierung
+             -> Rola: DE Service + Polycarbonat/ABS Matrix
+[Google.de ] Vakuummetallisierung               | Vol:       20 | Comp:  0.13 | CPC:  €1.37 | I:88              | SERP STANIAX: -
+             -> PL: /metalizacja-prozniowa | EN: /en/vacuum-metallisation | DE: /de/vakuummetallisierung
+             -> Rola: Primary DE B2B anchor + VS Galvanik / Spritzchrom
+[Google.de ] Kunststoff verchromen              | Vol:      390 | Comp:  0.46 | CPC:  €1.75 | I:91              | SERP STANIAX: -
+             -> PL: /metalizacja-tworzyw-sztucznych | EN: /en/plastic-chrome-plating | DE: /de/kunststoff-verchromen
+             -> Rola: DE High-volume B2B chrome-effect plastic service + ABS matrix
+[Google.de ] Kunststofflackierung               | Vol:       40 | Comp:  0.42 | CPC:  €0.55 | I:96              | SERP STANIAX: -
+             -> PL: /lakierowanie-tworzyw-sztucznych | EN: /en/plastic-parts-painting | DE: /de/kunststofflackierung
+             -> Rola: DE Plastic coating service + PP/PA matrix
+[Google.de ] Glaslackierung                     | Vol:       40 | Comp:  0.14 | CPC:  €0.26 | I:94              | SERP STANIAX: -
+             -> PL: /lakierowanie-szkla-i-ceramiki | EN: /en/glass-and-ceramic-painting | DE: /de/glas-und-keramiklackierung
+             -> Rola: DE Glass bottle & flacon coating service + Glasflakon matrix
+[Google.de ] Spritzlackierung                   | Vol:       40 | Comp:  0.03 | CPC:  €0.00 | I:98              | SERP STANIAX: -
+             -> PL: /lakierowanie-natryskowe | EN: /en/spray-painting | DE: /de/spritzlackierung
+             -> Rola: DE Industrial spray painting service
+[Google.de ] Scheinwerfer Aufbereitung          | Vol:     6600 | Comp:  1.00 | CPC:  €0.25 | I:38 / C:23 / T:39 | SERP STANIAX: -
+             -> PL: /regeneracja-reflektorow | EN: /en/headlight-reflector-restoration | DE: /de/scheinwerfer-aufbereitung/warschau-jozefow
+             -> Rola: DE Comparison (Polieren vs PVD) + Local / Preise pages
+[Google.de ] Reflektor neu bedampfen            | Vol:       20 | Comp:  0.42 | CPC:  €0.37 | T:70              | SERP STANIAX: -
+             -> PL: /regeneracja-reflektorow | EN: /en/headlight-reflector-restoration | DE: /de/scheinwerfer-reflektor-aufbereitung
+             -> Rola: Exact PVD reflector re-aluminizing B2C/B2B Germany/DACH mail-in target
+[Google.com] vacuum metallization               | Vol:      110 | Comp:  0.22 | CPC:  €2.06 | I:83              | SERP STANIAX: -
+             -> PL: /metalizacja-prozniowa | EN: /en/vacuum-metallisation | DE: /de/vakuummetallisierung
+             -> Rola: EN Flagship PVD + Home + Vacuum Metalizing variant (€7.00 CPC)
+[Google.com] plastic chrome plating             | Vol:     1300 | Comp:  0.21 | CPC:  €3.63 | I:33 / C:51       | SERP STANIAX: -
+             -> PL: /metalizacja-tworzyw-sztucznych | EN: /en/plastic-chrome-plating | DE: /de/kunststoff-verchromen
+             -> Rola: Primary EN B2B commercial target (Vol 1300, €3.63 CPC) + VS Electroplating
+[Google.com] chrome plating plastic             | Vol:     1300 | Comp:  0.21 | CPC:  €3.63 | I:47 / T:30       | SERP STANIAX: -
+             -> PL: /porownanie/metalizacja-prozniowa-vs-galwanizacja | EN: /en/compare/vacuum-metallization-vs-electroplating | DE: /de/vergleich/vakuummetallisierung-vs-galvanik
+             -> Rola: EN VS Electroplating vs Vacuum Metallization BOFU + ABS Matrix
+[Google.com] plastic spray painting             | Vol:     9900 | Comp:  0.99 | CPC:  €0.12 | I:98              | SERP STANIAX: -
+             -> PL: /lakierowanie-tworzyw-sztucznych | EN: /en/plastic-parts-painting | DE: /de/kunststofflackierung
+             -> Rola: Industrial plastic spray coating B2B differentiation + PP/PC/ABS matrix
+[Google.com] glass bottle coating               | Vol:       10 | Comp:  0.96 | CPC:  €2.18 | I:87              | SERP STANIAX: -
+             -> PL: /rozwiazania/lakierowanie-i-metalizacja-szkla | EN: /en/solutions/glass-bottle-coating-pvd | DE: /de/loesungen/glasflakon-lackierung-pvd
+             -> Rola: B2B Glass packaging / spirits / beauty bottles (€2.18 CPC)
+[Google.com] headlight reflector restoration    | Vol:       40 | Comp:  0.08 | CPC:  €0.00 | T:69              | SERP STANIAX: -
+             -> PL: /regeneracja-reflektorow | EN: /en/headlight-reflector-restoration | DE: /de/scheinwerfer-reflektor-aufbereitung
+             -> Rola: Primary EN reflector PVD re-silvering target + Pricing & VS Aftermarket
+
+2. NOWE KLUSTERY PROGRAMATYCZNE (AIRSLATE FIX 1, 3, 4 + SUBSTRATE MATRIX + FAZA 4 GEO)
+--------------------------------------------------------------------------------
+
+### VS Comparison Pages (BOFU)
+  - /porownanie/metalizacja-prozniowa-vs-galwanizacja
+    Docelowe frazy: chromowanie plastiku (390, €2.46), electroplating vs vacuum metallizing, abs verchromen
+  - /porownanie/metalizacja-prozniowa-vs-chromowanie-natryskowe
+    Docelowe frazy: chromowanie plastiku cena (30), chromowanie natryskowe, plastic chrome plating (1300, €3.63)
+  - /porownanie/regeneracja-odblysnikow-vs-nowy-zamiennik
+    Docelowe frazy: regeneracja odbłyśników (1900), wypalony odbłyśnik (70), reflektor neu bedampfen (20)
+  - /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+    Docelowe frazy: polerowanie reflektorów (2400), regeneracja reflektorów (4400), scheinwerfer polieren (9900)
+
+### Dedykowany Cennik + Hub Lokalny Warszawa/Józefów
+  - /cennik-regeneracji-reflektorow
+    Docelowe frazy: regeneracja reflektorów cena (210), regeneracja odbłyśników cena (90), polerowanie reflektorów cena (880), headlight resilvering cost
+  - /regeneracja-reflektorow/warszawa-jozefow
+    Docelowe frazy: regeneracja reflektorów (4400) + intencja lokalna Warszawa / Józefów / Otwock + wysyłka PL/UE
+
+### Modułowa Matryca Substratów (src/data/substrates.ts)
+  - /rozwiazania/powlekanie-tworzywa-abs
+    Docelowe frazy: abs verchromen (40), metalizacja plastiku (110), lakierowanie tworzyw sztucznych (110)
+  - /rozwiazania/metalizacja-poliweglanu-pc
+    Docelowe frazy: metalizacja tworzyw sztucznych (90), headlight plastic reflector resilvering, Ultem PEI / PC
+  - /rozwiazania/lakierowanie-polipropylenu-pp
+    Docelowe frazy: podkład do malowania plastiku (110), lakierowanie plastikowych zderzaków (30), haftgrund für kunststoff lackierung (30)
+  - /rozwiazania/powlekanie-poliamidu-pa
+    Docelowe frazy: lakierowanie przemysłowe (140, €3.01), kunststofflackierung (40), detale PA6/PA66 GF30
+  - /rozwiazania/lakierowanie-i-metalizacja-szkla
+    Docelowe frazy: lakierowanie szkła (50), lakierowanie butelek (<10), glaslackierung (40), glass bottle coating (10, €2.18)
+
+3. PEŁNA LISTA PODPOWIEDZI SEOBILITY (POGRUPOWANA WG RYNKU I FRAZY BAZOWEJ)
+--------------------------------------------------------------------------------
+
+[Google.pl | Group 1: Lakierowanie tworzyw | Seed: lakierowanie tworzyw sztucznych]
+  * lakierowanie tworzyw sztucznych | Vol: 110 | Comp: 0.14 | CPC: €0.00 | Intent: I:85 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.pl | Group 1: Lakierowanie tworzyw | Seed: lakierowanie plastiku]
+  * lakierowanie plastiku | Vol: 210 | Comp: 0.54 | CPC: €1.56 | Intent: I:43 / T:33 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.pl | Group 1: Lakierowanie tworzyw | Seed: malowanie plastiku]
+  * malowanie plastiku | Vol: 880 | Comp: 0.86 | CPC: €0.31 | Intent: I:51 / T:35 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.pl | Group 2: Lakierowanie szkła i ceramiki | Seed: lakierowanie szkła]
+  * lakierowanie szkła | Vol: 50 | Comp: 0.10 | CPC: €0.00 | Intent: I:69 -> /lakierowanie-szkla-i-ceramiki
+
+[Google.pl | Group 2: Lakierowanie szkła i ceramiki | Seed: malowanie szkła]
+  * malowanie szkła | Vol: 260 | Comp: 0.40 | CPC: €0.00 | Intent: I:92 -> /lakierowanie-szkla-i-ceramiki
+
+[Google.pl | Group 2: Lakierowanie szkła i ceramiki | Seed: lakierowanie butelek]
+  * lakierowanie butelek | Vol: <10 (0) | Comp: 0.00 | CPC: €0.00 | Intent: T:52 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+
+[Google.pl | Group 2: Lakierowanie szkła i ceramiki | Seed: lakierowanie ceramiki]
+  * lakierowanie ceramiki | Vol: <10 (0) | Comp: 0.00 | CPC: €0.00 | Intent: T:76 -> /lakierowanie-szkla-i-ceramiki
+
+[Google.pl | Group 3: Lakierowanie natryskowe | Seed: lakierowanie natryskowe]
+  * lakierowanie natryskowe | Vol: 70 | Comp: 0.14 | CPC: €0.00 | Intent: T:60 -> /lakierowanie-natryskowe
+
+[Google.pl | Group 3: Lakierowanie natryskowe | Seed: lakierowanie przemysłowe]
+  * lakierowanie przemysłowe | Vol: 140 | Comp: 0.77 | CPC: €3.01 | Intent: I:60 / C:37 -> /lakierowanie-natryskowe
+
+[Google.pl | Group 3: Lakierowanie natryskowe | Seed: lakiernia przemysłowa]
+  * lakiernia przemysłowa | Vol: 90 | Comp: 0.19 | CPC: €2.39 | Intent: C:57 -> /lakierowanie-natryskowe
+
+[Google.pl | Group 4: Metalizacje PL | Seed: metalizacja próżniowa]
+  * metalizacja próżniowa | Vol: 390 | Comp: 0.25 | CPC: €1.53 | Intent: I:93 -> /metalizacja-prozniowa
+
+[Google.pl | Group 4: Metalizacje PL | Seed: metalizacja tworzyw sztucznych]
+  * metalizacja tworzyw sztucznych | Vol: 90 | Comp: 0.27 | CPC: €1.37 | Intent: I:99 -> /metalizacja-tworzyw-sztucznych
+
+[Google.pl | Group 4: Metalizacje PL | Seed: metalizacja plastiku]
+  * metalizacja plastiku | Vol: 110 | Comp: 0.19 | CPC: €1.84 | Intent: I:95 -> /metalizacja-tworzyw-sztucznych
+
+[Google.pl | Group 4: Metalizacje PL | Seed: chromowanie plastiku]
+  * chromowanie plastiku | Vol: 390 | Comp: 0.46 | CPC: €2.46 | Intent: T:74 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+
+[Google.pl | Group 5: Reflektory PL | Seed: regeneracja reflektorów]
+  * regeneracja reflektorów | Vol: 4400 | Comp: 1.00 | CPC: €0.59 | Intent: T:59 -> /regeneracja-reflektorow/warszawa-jozefow
+
+[Google.pl | Group 5: Reflektory PL | Seed: regeneracja odbłyśników]
+  * regeneracja odbłyśników | Vol: 1900 | Comp: 0.52 | CPC: €0.86 | Intent: I:67 -> /regeneracja-reflektorow
+
+[Google.pl | Group 5: Reflektory PL | Seed: regeneracja lamp samochodowych]
+  * regeneracja lamp samochodowych | Vol: 4400 | Comp: 0.98 | CPC: €0.47 | Intent: I:53 / T:30 -> /regeneracja-reflektorow
+
+[Google.pl | Group 5: Reflektory PL | Seed: polerowanie reflektorów]
+  * polerowanie reflektorów | Vol: 2400 | Comp: 0.99 | CPC: €0.70 | Intent: T:87 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+
+[Google.de | DE Industry & PVD | Seed: Metallisierung]
+  * Metallisierung | Vol: 140 | Comp: 0.13 | CPC: €1.27 | Intent: I:100 -> /metalizacja-prozniowa
+
+[Google.de | DE Industry & PVD | Seed: Vakuummetallisierung]
+  * Vakuummetallisierung | Vol: 20 | Comp: 0.13 | CPC: €1.37 | Intent: I:88 -> /metalizacja-prozniowa
+
+[Google.de | DE Plastic Chrome | Seed: Kunststoff verchromen]
+  * Kunststoff verchromen | Vol: 390 | Comp: 0.46 | CPC: €1.75 | Intent: I:91 -> /metalizacja-tworzyw-sztucznych
+
+[Google.de | DE Coatings | Seed: Kunststofflackierung]
+  * Kunststofflackierung | Vol: 40 | Comp: 0.42 | CPC: €0.55 | Intent: I:96 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.de | DE Coatings | Seed: Glaslackierung]
+  * Glaslackierung | Vol: 40 | Comp: 0.14 | CPC: €0.26 | Intent: I:94 -> /lakierowanie-szkla-i-ceramiki
+
+[Google.de | DE Coatings | Seed: Spritzlackierung]
+  * Spritzlackierung | Vol: 40 | Comp: 0.03 | CPC: €0.00 | Intent: I:98 -> /lakierowanie-natryskowe
+
+[Google.de | DE Headlights | Seed: Scheinwerfer Aufbereitung]
+  * Scheinwerfer Aufbereitung | Vol: 6600 | Comp: 1.00 | CPC: €0.25 | Intent: I:38 / C:23 / T:39 -> /regeneracja-reflektorow
+
+[Google.de | DE Headlights | Seed: Reflektor neu bedampfen]
+  * Reflektor neu bedampfen | Vol: 20 | Comp: 0.42 | CPC: €0.37 | Intent: T:70 -> /regeneracja-reflektorow
+
+[Google.com | EN Industry & PVD | Seed: vacuum metallization]
+  * vacuum metallization | Vol: 110 | Comp: 0.22 | CPC: €2.06 | Intent: I:83 -> /metalizacja-prozniowa
+
+[Google.com | EN Plastic Chrome | Seed: plastic chrome plating]
+  * plastic chrome plating | Vol: 1300 | Comp: 0.21 | CPC: €3.63 | Intent: I:33 / C:51 -> /metalizacja-tworzyw-sztucznych
+
+[Google.com | EN Plastic Chrome | Seed: chrome plating plastic]
+  * chrome plating plastic | Vol: 1300 | Comp: 0.21 | CPC: €3.63 | Intent: I:47 / T:30 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+
+[Google.com | EN Coatings | Seed: plastic spray painting]
+  * plastic spray painting | Vol: 9900 | Comp: 0.99 | CPC: €0.12 | Intent: I:98 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.com | EN Coatings | Seed: glass bottle coating]
+  * glass bottle coating | Vol: 10 | Comp: 0.96 | CPC: €2.18 | Intent: I:87 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+
+[Google.com | EN Headlights | Seed: headlight reflector restoration]
+  * headlight reflector restoration | Vol: 40 | Comp: 0.08 | CPC: €0.00 | Intent: T:69 -> /regeneracja-reflektorow
+
+[Google.pl | Group 1: Lakierowanie tworzyw | Seed: lakierowanie tworzyw sztucznych]
+  * lakierowanie tworzyw | Vol: 30 | Comp: 0.43 | CPC: €0.00 | Intent: I:91 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie plastiku na połysk | Vol: 10 | Comp: 0.82 | CPC: €0.00 | Intent: T:98 -> /lakierowanie-tworzyw-sztucznych
+  * lakierowanie plastiku cena | Vol: 10 | Comp: 0.00 | CPC: €0.00 | Intent: C:96 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.pl | Group 1: Lakierowanie tworzyw | Seed: lakierowanie plastiku]
+  * lakierowanie plastików | Vol: 170 | Comp: 0.43 | CPC: €0.27 | Intent: I:74 -> /lakierowanie-tworzyw-sztucznych
+  * lakierowanie elementów plastikowych | Vol: 70 | Comp: 0.70 | CPC: €0.00 | Intent: I:39 / T:42 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie elementów plastikowych | Vol: 30 | Comp: 0.43 | CPC: €0.00 | Intent: I:54 / T:33 -> /lakierowanie-tworzyw-sztucznych
+  * lakierowanie plastikowych zderzaków | Vol: 30 | Comp: 0.81 | CPC: €0.00 | Intent: T:97 -> /lakierowanie-tworzyw-sztucznych
+  * lakierowanie plastików samochodowych | Vol: 20 | Comp: 0.96 | CPC: €0.90 | Intent: I:79 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie plastiku w samochodzie | Vol: 10 | Comp: 0.63 | CPC: €0.00 | Intent: I:43 / T:50 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie elementów plastikowych w samochodzie cena | Vol: 10 | Comp: 0.00 | CPC: €0.00 | Intent: C:81 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie elementów plastikowych w samochodzie | Vol: 10 | Comp: 0.60 | CPC: €0.00 | Intent: T:73 -> /lakierowanie-tworzyw-sztucznych
+  * lakierowanie plastików w samochodzie | Vol: 10 | Comp: 1.00 | CPC: €0.00 | Intent: I:83 -> /lakierowanie-tworzyw-sztucznych
+  * lakierowanie plastiku sprayem | Vol: 10 | Comp: 0.69 | CPC: €0.00 | Intent: T:100 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie plastiku na połysk | Vol: 10 | Comp: 0.82 | CPC: €0.00 | Intent: T:98 -> /lakierowanie-tworzyw-sztucznych
+  * https://lakierniabit.pl/lakiernictwo-przemyslowe-oferta/lakierowanie-plastikow/ | Vol: 53.11 | Comp: 0% | CPC: 1 | Intent: 2 -> /lakierowanie-tworzyw-sztucznych
+  * https://e-lakiernia.pl/lakierowanie-elementow-plastikowych-w-samochodzie-jak-zrobic-to-dobrze | Vol: 23.87 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://lionsgarage.pl/lakierowanie-tworzywa-warszawa/ | Vol: 16.75 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow/warszawa-jozefow
+  * https://saprosystem.pl/lakierowanie-elementow-z-tworzyw-sztucznych-na-mokro/ | Vol: 11.85 | Comp: 9% | CPC: 5 | Intent: 5 -> /lakierowanie-tworzyw-sztucznych
+  * https://lakiernik.net/lakierowanie-plastikow-w-samochodzie | Vol: 9.35 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://jaktozrobilemwgarazu.pl/lakierowanie-elementow-plastikowych/ | Vol: 5.65 | Comp: 0% | CPC: 1 | Intent: 4 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.leroymerlin.pl/porady/wykonczenie-wnetrz/montaz/czym-pomalowac-plastik-skuteczne-malowanie-tworzyw-sztucznych.html | Vol: 4.21 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://lakiernik.info.pl/printview.php?t=3547&start=0&sid=bed93dbc434ad7296e75a2b036b7fd79 | Vol: 3.27 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.steel-design.com.pl/technologie-i-rozwiazania/lakierowanie-plastikow/ | Vol: 2.61 | Comp: 0% | CPC: 0 | Intent: 0 -> /lakierowanie-tworzyw-sztucznych
+  * https://novol.com/spectral/wp-content/uploads/sites/2/2024/05/lakierowanie-tworzyw-sztucznych.pdf | Vol: 2.14 | Comp: 15% | CPC: 0 | Intent: 0 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.pl | Group 1: Lakierowanie tworzyw | Seed: malowanie plastiku]
+  * farba do malowania plastiku | Vol: 260 | Comp: 1.00 | CPC: €0.16 | Intent: T:95 -> /lakierowanie-tworzyw-sztucznych
+  * spray do malowania plastiku | Vol: 170 | Comp: 1.00 | CPC: €0.12 | Intent: T:99 -> /lakierowanie-tworzyw-sztucznych
+  * podkład do malowania plastiku | Vol: 110 | Comp: 1.00 | CPC: €0.04 | Intent: T:99 -> /rozwiazania/lakierowanie-polipropylenu-pp
+  * malowanie plastiku sprayem | Vol: 90 | Comp: 0.81 | CPC: €0.00 | Intent: T:99 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie plastików w samochodzie | Vol: 50 | Comp: 0.32 | CPC: €0.00 | Intent: I:63 -> /lakierowanie-tworzyw-sztucznych
+  * farba do malowania plastiku na zewnątrz | Vol: 40 | Comp: 1.00 | CPC: €0.08 | Intent: T:100 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie plastiku krok po kroku | Vol: 40 | Comp: 0.35 | CPC: €0.00 | Intent: I:43 / T:54 -> /lakierowanie-tworzyw-sztucznych
+  * farba do malowania plastików w samochodzie | Vol: 30 | Comp: 1.00 | CPC: €0.00 | Intent: T:99 -> /lakierowanie-tworzyw-sztucznych
+  * lakier do malowania plastiku | Vol: 30 | Comp: 1.00 | CPC: €0.00 | Intent: T:97 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie plastików samochodowych | Vol: 30 | Comp: 0.92 | CPC: €0.00 | Intent: I:56 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie proszkowe plastiku | Vol: 30 | Comp: 0.03 | CPC: €0.00 | Intent: T:57 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie elementów plastikowych | Vol: 30 | Comp: 0.43 | CPC: €0.00 | Intent: I:55 / T:33 -> /lakierowanie-tworzyw-sztucznych
+  * farba do malowania plastików | Vol: 30 | Comp: 1.00 | CPC: €0.00 | Intent: T:93 -> /lakierowanie-tworzyw-sztucznych
+  * lakierowanie plastików samochodowych | Vol: 20 | Comp: 0.96 | CPC: €0.90 | Intent: I:79 -> /lakierowanie-tworzyw-sztucznych
+  * lakierowanie plastiku krok po kroku | Vol: 20 | Comp: 0.59 | CPC: €0.00 | Intent: T:81 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie sprayem plastiku | Vol: 20 | Comp: 0.83 | CPC: €0.00 | Intent: T:97 -> /lakierowanie-tworzyw-sztucznych
+  * spray do malowania plastików w samochodzie | Vol: 20 | Comp: 1.00 | CPC: €0.00 | Intent: T:100 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie plastików w motocyklu | Vol: 10 | Comp: 0.29 | CPC: €0.00 | Intent: T:81 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie plastików w quadzie | Vol: 10 | Comp: 0.00 | CPC: €0.00 | Intent: I:38 / T:40 -> /lakierowanie-tworzyw-sztucznych
+  * przygotowanie plastiku do malowania | Vol: 10 | Comp: 0.09 | CPC: €0.00 | Intent: T:99 -> /lakierowanie-tworzyw-sztucznych
+  * farba do malowania rynien plastikowych | Vol: 10 | Comp: 0.91 | CPC: €0.00 | Intent: T:97 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie elementów plastikowych w samochodzie | Vol: 10 | Comp: 0.60 | CPC: €0.00 | Intent: T:73 -> /lakierowanie-tworzyw-sztucznych
+  * farby do malowania na plastiku | Vol: 10 | Comp: 1.00 | CPC: €0.00 | Intent: T:58 -> /lakierowanie-tworzyw-sztucznych
+  * malowanie plastikow w aucie | Vol: 10 | Comp: 0.86 | CPC: €0.00 | Intent: I:78 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.pl | Group 2: Lakierowanie szkła i ceramiki | Seed: lakierowanie szkła]
+  * lakierowanie szkła cena | Vol: 10 | Comp: 0.00 | CPC: €0.00 | Intent: C:95 -> /lakierowanie-szkla-i-ceramiki
+  * lakierowanie szkla | Vol: 10 | Comp: 0.00 | CPC: €0.00 | Intent: I:54 -> /lakierowanie-szkla-i-ceramiki
+
+[Google.pl | Group 2: Lakierowanie szkła i ceramiki | Seed: malowanie szkła]
+  * farba do malowania na szkle | Vol: 1000 | Comp: 1.00 | CPC: €0.16 | Intent: I:29/T:55 -> /lakierowanie-szkla-i-ceramiki
+  * malowanie szkla | Vol: 260 | Comp: 0.40 | CPC: €0 | Intent: I:83 -> /lakierowanie-szkla-i-ceramiki
+  * szklo do malowania | Vol: 170 | Comp: 1.00 | CPC: €0 | Intent: I:21/C:25/T:37 -> /lakierowanie-szkla-i-ceramiki
+  * farby na szkle | Vol: 140 | Comp: 1.00 | CPC: €0.23 | Intent: I:92 -> /lakierowanie-szkla-i-ceramiki
+  * pisak do malowania na szkle | Vol: 140 | Comp: 1.00 | CPC: €0.12 | Intent: T:75 -> /lakierowanie-szkla-i-ceramiki
+  * farby do malowania na szkle action | Vol: 140 | Comp: 1.00 | CPC: €0.23 | Intent: T:78 -> /lakierowanie-szkla-i-ceramiki
+  * farba do malowania po szkle | Vol: 110 | Comp: 1.00 | CPC: €0.08 | Intent: T:74 -> /lakierowanie-szkla-i-ceramiki
+  * zestawy do malowania na szkle | Vol: 110 | Comp: 1.00 | CPC: €0.20 | Intent: C:70 -> /lakierowanie-szkla-i-ceramiki
+  * farba do malowania szkla | Vol: 90 | Comp: 1.00 | CPC: €0.12 | Intent: T:68 -> /lakierowanie-szkla-i-ceramiki
+  * witraże malowane na szkle | Vol: 90 | Comp: 1.00 | CPC: €0 | Intent: I:67 -> /lakierowanie-szkla-i-ceramiki
+  * witraże malowanie na szkle | Vol: 90 | Comp: 1.00 | CPC: €0 | Intent: I:49/N:32 -> /lakierowanie-szkla-i-ceramiki
+  * marker do malowania na szkle | Vol: 70 | Comp: 1.00 | CPC: €0.16 | Intent: T:97 -> /lakierowanie-szkla-i-ceramiki
+  * mazaki do malowania na szkle | Vol: 70 | Comp: 1.00 | CPC: €0.20 | Intent: I:26/T:50 -> /lakierowanie-szkla-i-ceramiki
+  * farba do malowania szkła | Vol: 70 | Comp: 1.00 | CPC: €0.39 | Intent: T:56 -> /lakierowanie-szkla-i-ceramiki
+  * szkło do malowania dla dzieci | Vol: 50 | Comp: 1.00 | CPC: €0 | Intent: I:42/C:33 -> /lakierowanie-szkla-i-ceramiki
+  * pisak do malowania po szkle | Vol: 40 | Comp: 1.00 | CPC: €0.20 | Intent: T:79 -> /lakierowanie-szkla-i-ceramiki
+  * konturówka do malowania na szkle | Vol: 40 | Comp: 1.00 | CPC: €0.12 | Intent: T:90 -> /lakierowanie-szkla-i-ceramiki
+  * pisaki do malowania po szkle | Vol: 40 | Comp: 1.00 | CPC: €0.20 | Intent: T:50 -> /lakierowanie-szkla-i-ceramiki
+  * malowanie na szkle farbami akrylowymi | Vol: 30 | Comp: 0.13 | CPC: €0 | Intent: I:53 -> /lakierowanie-szkla-i-ceramiki
+  * farby witrażowe do malowania na szkle | Vol: 30 | Comp: 0.83 | CPC: €0 | Intent: T:55 -> /lakierowanie-szkla-i-ceramiki
+  * farby do malowania na szkle profesjonalne | Vol: 30 | Comp: 1.00 | CPC: €0.16 | Intent: T:73 -> /lakierowanie-szkla-i-ceramiki
+  * do malowania na szkle | Vol: 30 | Comp: 1.00 | CPC: €0 | Intent: I:48/T:39 -> /lakierowanie-szkla-i-ceramiki
+  * malowanie na szkle zestaw | Vol: 30 | Comp: 1.00 | CPC: €0.12 | Intent: T:97 -> /lakierowanie-szkla-i-ceramiki
+  * zestaw do malowania na szkle dla dzieci | Vol: 30 | Comp: 1.00 | CPC: €0 | Intent: T:93 -> /lakierowanie-szkla-i-ceramiki
+
+[Google.pl | Group 2: Lakierowanie szkła i ceramiki | Seed: lakierowanie butelek]
+  * https://www.glasmark.pl/sztuka-zdobienia-butelek-na-kosmetyki-kreatywne-pomysly-i-inspiracje/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.youtube.com/watch?v=hFn2B9IQIxs | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.klinikadiy.pl/wazony-z-butelek/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.fh-sort.pl/dekorowanie-butelek/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://czachorowski1963.blogspot.com/2019/12/malowanie-butelek-z-przesaniem.html | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * http://www.prostejakdrut.com/2013/08/decoupage-na-butelkach-tutorial.html | Vol: 0 | Comp: 9% | CPC: 0 | Intent: 0 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://saprosystem.pl/lakierowanie-elementow-z-tworzyw-sztucznych-na-mokro/ | Vol: 0 | Comp: 9% | CPC: 5 | Intent: 5 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://3sa-studio.pl/malowanie-szklanych-butelek-jaki-efekt/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://pl.pcmgrupo.com/tagi/dekoracyjny | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.youtube.com/watch?v=IS9_tsW2GLY | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+
+[Google.pl | Group 2: Lakierowanie szkła i ceramiki | Seed: lakierowanie ceramiki]
+  * https://allegro.pl/listing?string=lakier%20do%20ceramiki | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://lakiernik.com.pl/lakiernictwo/naprawy-lakiernicze-pojazdow-pokrytych-powloka-ceramiczna-lub-inna/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://forum.gazeta.pl/forum/w,878,76434650,76434650,ceramika_a_lakierowanie_.html | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://www.motokamil.pl/kiedy-warto-zastosowac-powloke-ceramiczna-na-lakier/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://dbamoauto.pl/69-powloki-ceramiczne-i-kwarcowe | Vol: 0 | Comp: 22% | CPC: 0 | Intent: 0 -> /lakierowanie-szkla-i-ceramiki
+  * https://kosmetykaaut.pl/topic/12459-ceramika-za-i-przeciw/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 11 -> /lakierowanie-szkla-i-ceramiki
+  * https://zadbanabryka.pl/auto-detailing/woski-i-powloki/powloki-ceramiczne-kwarcowe/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://rankomat.pl/samochod/powloka-ceramiczna | Vol: 0 | Comp: 14% | CPC: 0 | Intent: 0 -> /lakierowanie-szkla-i-ceramiki
+  * https://centrumszkoleniowe.edu.pl/ceramika-na-lakier-jak-zabezpieczyc-samochod/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://k2.com.pl/blog/przygotowanie-lakieru-pod-powloke/ | Vol: 0 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+
+[Google.pl | Group 3: Lakierowanie natryskowe | Seed: lakierowanie natryskowe]
+  * lakierowanie hydrodynamiczne | Vol: 70 | Comp: 0.37 | CPC: €0.00 | Intent: I:48 / T:31 -> /lakierowanie-natryskowe
+  * lakierowanie pistoletem natryskowym | Vol: 10 | Comp: 0.00 | CPC: €0.00 | Intent: T:100 -> /lakierowanie-natryskowe
+
+[Google.pl | Group 3: Lakierowanie natryskowe | Seed: lakierowanie przemysłowe]
+  * lakiernie przemysłowe | Vol: 140 | Comp: 0.77 | CPC: €3.01 | Intent: C:81 -> /lakierowanie-natryskowe
+
+[Google.pl | Group 3: Lakierowanie natryskowe | Seed: lakiernia przemysłowa]
+  * malarnia przemysłowa | Vol: 40 | Comp: 0.58 | CPC: €3.68 | Intent: C:53 -> /lakierowanie-natryskowe
+
+[Google.pl | Group 4: Metalizacje PL | Seed: metalizacja próżniowa]
+  * metalizacja próżniowa karol jarząbek | Vol: 70 | Comp: 0.07 | CPC: €1.60 | Intent: T:74 -> /metalizacja-prozniowa
+  * metalizacja próżniowa dariusz staniak | Vol: 70 | Comp: 0.06 | CPC: €0.00 | Intent: I:26 / C:30 / T:43 -> /metalizacja-prozniowa
+  * metalizacja próżniowa tworzyw sztucznych | Vol: 40 | Comp: 0.00 | CPC: €0.00 | Intent: I:98 -> /metalizacja-prozniowa
+  * metalizacja próżniowa maszyna | Vol: 30 | Comp: 0.10 | CPC: €0.00 | Intent: T:75 -> /metalizacja-prozniowa
+  * metalizacja prozniowa | Vol: 30 | Comp: 0.54 | CPC: €1.72 | Intent: I:96 -> /metalizacja-prozniowa
+  * maszyna do metalizacji próżniowej | Vol: 20 | Comp: 0.11 | CPC: €0.00 | Intent: T:86 -> /metalizacja-prozniowa
+  * zakład metalizacji próżniowej | Vol: 10 | Comp: 0.14 | CPC: €0.00 | Intent: N:54 -> /metalizacja-prozniowa
+  * metalizowanie próżniowe | Vol: 10 | Comp: 0.19 | CPC: €1.60 | Intent: I:70 -> /metalizacja-prozniowa
+  * metalizacja prózniowa | Vol: 10 | Comp: 0.40 | CPC: €1.56 | Intent: I:96 -> /metalizacja-prozniowa
+  * maszyna do metalizacji próżniowej cena | Vol: 10 | Comp: 0.36 | CPC: €0.00 | Intent: C:97 -> /metalizacja-prozniowa
+  * grzybowski lech metalizacja próżniowa tworzyw sztucznych | Vol: 10 | Comp: 0.00 | CPC: €0.00 | Intent: I:70 -> /metalizacja-prozniowa
+
+[Google.pl | Group 4: Metalizacje PL | Seed: metalizacja tworzyw sztucznych]
+  * metalizacja próżniowa tworzyw sztucznych | Vol: 40 | Comp: 0.00 | CPC: €0.00 | Intent: I:98 -> /metalizacja-tworzyw-sztucznych
+  * metalizowanie tworzyw sztucznych | Vol: 10 | Comp: 0.43 | CPC: €2.07 | Intent: I:99 -> /metalizacja-tworzyw-sztucznych
+  * grzybowski lech metalizacja próżniowa tworzyw sztucznych | Vol: 10 | Comp: 0.00 | CPC: €0.00 | Intent: I:70 -> /metalizacja-tworzyw-sztucznych
+
+[Google.pl | Group 4: Metalizacje PL | Seed: chromowanie plastiku]
+  * chromowanie plastiku cena | Vol: 30 | Comp: 0.05 | CPC: €0.00 | Intent: C:85 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+
+[Google.pl | Group 5: Reflektory PL | Seed: regeneracja reflektorów]
+  * regeneracja lampy samochodowej | Vol: 4400 | Comp: 0.98 | CPC: €0.47 | Intent: T:78 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja lamp samochodowych | Vol: 4400 | Comp: 0.98 | CPC: €0.47 | Intent: I:53/T:30 -> /regeneracja-reflektorow/warszawa-jozefow
+  * naprawa lamp samochodowych | Vol: 1900 | Comp: 0.54 | CPC: €0.59 | Intent: T:67 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja lamp | Vol: 1600 | Comp: 0.87 | CPC: €0.47 | Intent: I:54/T:27 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja odbłyśnika | Vol: 1000 | Comp: 0.99 | CPC: €0.31 | Intent: T:95 -> /regeneracja-reflektorow/warszawa-jozefow
+  * naprawa reflektorów | Vol: 880 | Comp: 0.41 | CPC: €1.21 | Intent: T:75 -> /regeneracja-reflektorow/warszawa-jozefow
+  * renowacja lamp samochodowych | Vol: 880 | Comp: 0.99 | CPC: €0.59 | Intent: I:52/C:28 -> /regeneracja-reflektorow/warszawa-jozefow
+  * czyszczenie lamp samochodowych | Vol: 720 | Comp: 1.00 | CPC: €0.47 | Intent: T:71 -> /regeneracja-reflektorow/warszawa-jozefow
+  * czyszczenie reflektorow | Vol: 590 | Comp: 1.00 | CPC: €0.43 | Intent: T:78 -> /regeneracja-reflektorow/warszawa-jozefow
+  * naprawa lamp | Vol: 480 | Comp: 0.39 | CPC: €0.47 | Intent: T:49 -> /regeneracja-reflektorow/warszawa-jozefow
+  * klejenie lamp samochodowych | Vol: 390 | Comp: 0.94 | CPC: €0.27 | Intent: T:81 -> /regeneracja-reflektorow/warszawa-jozefow
+  * naprawa reflektorów samochodowych | Vol: 390 | Comp: 0.41 | CPC: €1.64 | Intent: T:70 -> /regeneracja-reflektorow/warszawa-jozefow
+  * plyn do regeneracji lamp | Vol: 390 | Comp: 1.00 | CPC: €0.31 | Intent: T:88 -> /regeneracja-reflektorow/warszawa-jozefow
+  * daro cars regeneracja renowacja naprawa reflektorów | Vol: 320 | Comp: 0.07 | CPC: €0.90 | Intent: I:44/C:56 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja odbłyśnika lampy | Vol: 320 | Comp: 1.00 | CPC: €0.27 | Intent: T:98 -> /regeneracja-reflektorow/warszawa-jozefow
+  * vroomer regeneracja reflektorów | Vol: 320 | Comp: 0.04 | CPC: €0.86 | Intent: T:66 -> /regeneracja-reflektorow/warszawa-jozefow
+  * czyste lampy ck regeneracja reflektorów | Vol: 260 | Comp: 0.05 | CPC: €0 | Intent: I:42/C:24/T:29 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja reflektorów naprawa lamp samochodowych polerowanie reflektorów robert staroń | Vol: 260 | Comp: 0.10 | CPC: €1.13 | Intent: C:86 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * dr reflektor przeróbki i regeneracja reflektorów | Vol: 260 | Comp: 0.07 | CPC: €0.94 | Intent: T:55 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja reflektorów samochodowych | Vol: 260 | Comp: 0.98 | CPC: €0.90 | Intent: T:66 -> /regeneracja-reflektorow/warszawa-jozefow
+  * czajniczek do regeneracji lamp | Vol: 260 | Comp: 1.00 | CPC: €0.20 | Intent: I:46/C:23/T:27 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja odbłyśników lamp | Vol: 210 | Comp: 0.71 | CPC: €0.82 | Intent: T:72 -> /regeneracja-reflektorow/warszawa-jozefow
+  * czyszczenie reflektorów samochodowych | Vol: 210 | Comp: 1.00 | CPC: €0.43 | Intent: T:93 -> /regeneracja-reflektorow/warszawa-jozefow
+  * kompleksowa regeneracja reflektorów | Vol: 210 | Comp: 0.47 | CPC: €0.98 | Intent: C:67 -> /regeneracja-reflektorow/warszawa-jozefow
+
+[Google.pl | Group 5: Reflektory PL | Seed: regeneracja odbłyśników]
+  * regeneracja odbłyśnika | Vol: 1000 | Comp: 0.99 | CPC: €0.31 | Intent: T:95 -> /regeneracja-reflektorow
+  * regeneracja odbłyśnikow | Vol: 880 | Comp: 0.97 | CPC: €0.27 | Intent: I:48/T:46 -> /regeneracja-reflektorow
+  * metalizacja odbłyśników w domu | Vol: 320 | Comp: 0.35 | CPC: €0.43 | Intent: T:84 -> /regeneracja-reflektorow
+  * regeneracja odbłyśnika lampy | Vol: 320 | Comp: 1.00 | CPC: €0.27 | Intent: T:98 -> /regeneracja-reflektorow
+  * metalizacja odbłyśników | Vol: 260 | Comp: 0.29 | CPC: €0.94 | Intent: I:67 -> /regeneracja-reflektorow
+  * regeneracja odbłyśników samemu | Vol: 210 | Comp: 0.97 | CPC: €0.39 | Intent: T:97 -> /regeneracja-reflektorow
+  * regeneracja odbłyśników lamp | Vol: 210 | Comp: 0.71 | CPC: €0.82 | Intent: T:71 -> /regeneracja-reflektorow
+  * regeneracja odblysnikow | Vol: 110 | Comp: 0.88 | CPC: €0.35 | Intent: T:73 -> /regeneracja-reflektorow
+  * regeneracja odbłyśników cena | Vol: 90 | Comp: 0.49 | CPC: €0.27 | Intent: C:94 -> /cennik-regeneracji-reflektorow
+  * wypalony odbłyśnik | Vol: 70 | Comp: 0.11 | CPC: €0 | Intent: I:71 -> /regeneracja-reflektorow
+  * odbłyśniki do lamp | Vol: 70 | Comp: 0.56 | CPC: €0 | Intent: T:82 -> /regeneracja-reflektorow
+  * regeneracja odbłyśników lamp samochodowych | Vol: 70 | Comp: 0.99 | CPC: €0.43 | Intent: C:63 -> /regeneracja-reflektorow
+  * naprawa odbłyśników lamp | Vol: 50 | Comp: 0.90 | CPC: €0.43 | Intent: T:65 -> /regeneracja-reflektorow
+  * naprawa odblysnikow lamp | Vol: 50 | Comp: 0.90 | CPC: €0.43 | Intent: T:76 -> /regeneracja-reflektorow
+  * wymiana odbłyśnika | Vol: 40 | Comp: 0.32 | CPC: €0.16 | Intent: T:95 -> /regeneracja-reflektorow
+  * wymiana odblysnikow | Vol: 40 | Comp: 0.51 | CPC: €0.31 | Intent: T:83 -> /regeneracja-reflektorow
+  * odbłyśnik audi a4 b6 | Vol: 40 | Comp: 0.99 | CPC: €0.04 | Intent: T:95 -> /regeneracja-reflektorow
+  * odbłyśnik passat b6 | Vol: 40 | Comp: 0.96 | CPC: €0 | Intent: T:97 -> /regeneracja-reflektorow
+  * napylanie odbłyśników | Vol: 40 | Comp: 0.71 | CPC: €0.39 | Intent: T:93 -> /regeneracja-reflektorow
+  * odbłyśnik audi a4 b5 | Vol: 30 | Comp: 0.41 | CPC: €0 | Intent: T:94 -> /regeneracja-reflektorow
+  * odbłyśnik bmw e39 | Vol: 30 | Comp: 0.97 | CPC: €0 | Intent: T:97 -> /regeneracja-reflektorow
+  * odbłyśnik regeneracja | Vol: 30 | Comp: 0.94 | CPC: €0.23 | Intent: T:88 -> /regeneracja-reflektorow
+  * regeneracja odbłyśników reflektorów | Vol: 30 | Comp: 1.00 | CPC: €0.55 | Intent: T:83 -> /regeneracja-reflektorow
+  * odbłyśniki audi a4 b5 | Vol: 30 | Comp: 0.41 | CPC: €0 | Intent: T:65 -> /regeneracja-reflektorow
+
+[Google.pl | Group 5: Reflektory PL | Seed: regeneracja lamp samochodowych]
+  * regeneracja lampy samochodowej | Vol: 4400 | Comp: 0.98 | CPC: €0.47 | Intent: T:78 -> /regeneracja-reflektorow
+  * naprawa lamp samochodowych | Vol: 1900 | Comp: 0.54 | CPC: €0.59 | Intent: T:67 -> /regeneracja-reflektorow
+  * regeneracja odbłyśników | Vol: 1900 | Comp: 0.52 | CPC: €0.86 | Intent: I:67 -> /regeneracja-reflektorow
+  * regeneracja lamp | Vol: 1600 | Comp: 0.87 | CPC: €0.47 | Intent: I:54/T:27 -> /regeneracja-reflektorow
+  * naprawa reflektorów | Vol: 880 | Comp: 0.41 | CPC: €1.21 | Intent: T:75 -> /regeneracja-reflektorow
+  * renowacja lamp samochodowych | Vol: 880 | Comp: 0.99 | CPC: €0.59 | Intent: I:52/C:28 -> /regeneracja-reflektorow
+  * czyszczenie lamp samochodowych | Vol: 720 | Comp: 1.00 | CPC: €0.47 | Intent: T:71 -> /regeneracja-reflektorow
+  * czyszczenie reflektorow | Vol: 590 | Comp: 1.00 | CPC: €0.43 | Intent: T:78 -> /regeneracja-reflektorow
+  * naprawa lamp | Vol: 480 | Comp: 0.39 | CPC: €0.47 | Intent: T:49 -> /regeneracja-reflektorow
+  * naprawa reflektorów samochodowych | Vol: 390 | Comp: 0.41 | CPC: €1.64 | Intent: T:70 -> /regeneracja-reflektorow
+  * klejenie lamp samochodowych | Vol: 390 | Comp: 0.94 | CPC: €0.27 | Intent: T:81 -> /regeneracja-reflektorow
+  * czyszczenie lamp samochodowych wd 40 | Vol: 390 | Comp: 0.76 | CPC: €0.27 | Intent: T:83 -> /regeneracja-reflektorow
+  * regeneracja reflektorów samochodowych | Vol: 260 | Comp: 0.98 | CPC: €0.90 | Intent: T:66 -> /regeneracja-reflektorow
+  * regeneracja reflektorów naprawa lamp samochodowych polerowanie reflektorów robert staroń | Vol: 260 | Comp: 0.10 | CPC: €1.13 | Intent: C:86 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerowanie lamp regeneracja reflektorów i odbłyśników | Vol: 210 | Comp: 0.07 | CPC: €1.06 | Intent: C:69 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * czyszczenie reflektorów samochodowych | Vol: 210 | Comp: 1.00 | CPC: €0.43 | Intent: T:93 -> /regeneracja-reflektorow
+  * regeneracja lamp samochodowych piotr mieszczakowski | Vol: 170 | Comp: 0.03 | CPC: €0 | Intent: C:73 -> /regeneracja-reflektorow
+  * regeneracja reflektorów lamp samochodowych | Vol: 170 | Comp: 0.07 | CPC: €0.43 | Intent: T:66 -> /regeneracja-reflektorow
+  * wymiana kloszy lamp samochodowych | Vol: 170 | Comp: 0.46 | CPC: €0.23 | Intent: T:97 -> /regeneracja-reflektorow
+  * odnawianie lamp samochodowych | Vol: 170 | Comp: 1.00 | CPC: €0.23 | Intent: T:65 -> /regeneracja-reflektorow
+  * regeneracja lamp ksenonowych | Vol: 90 | Comp: 0.52 | CPC: €0.39 | Intent: T:72 -> /regeneracja-reflektorow
+  * regeneracja lamp ledowych samochodowych | Vol: 90 | Comp: 0.49 | CPC: €0.31 | Intent: I:31/C:41/T:27 -> /regeneracja-reflektorow
+  * regeneracja lamp samochodowych cena | Vol: 90 | Comp: 0.35 | CPC: €0.47 | Intent: C:96 -> /cennik-regeneracji-reflektorow
+  * naprawa kloszy lamp | Vol: 90 | Comp: 0.23 | CPC: €0.43 | Intent: T:66 -> /regeneracja-reflektorow
+
+[Google.pl | Group 5: Reflektory PL | Seed: polerowanie reflektorów]
+  * polerowanie lamp | Vol: 5400 | Comp: 0.99 | CPC: €0.63 | Intent: I:29/T:47 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * regeneracja reflektorów | Vol: 4400 | Comp: 1.00 | CPC: €0.59 | Intent: T:59 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * regeneracja lamp samochodowych | Vol: 4400 | Comp: 0.98 | CPC: €0.47 | Intent: I:53/T:30 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerowanie lamp samochodowych | Vol: 1900 | Comp: 1.00 | CPC: €0.27 | Intent: T:89 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerowanie reflektorow | Vol: 1300 | Comp: 1.00 | CPC: €0.35 | Intent: T:83 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * renowacja lamp samochodowych | Vol: 880 | Comp: 0.99 | CPC: €0.59 | Intent: I:52/C:28 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerowanie reflektorów cena | Vol: 880 | Comp: 0.75 | CPC: €0.86 | Intent: C:72 -> /cennik-regeneracji-reflektorow
+  * czyszczenie reflektorow | Vol: 590 | Comp: 1.00 | CPC: €0.43 | Intent: T:78 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerka do lamp | Vol: 590 | Comp: 1.00 | CPC: €0.16 | Intent: T:66 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerowanie lamp cena | Vol: 480 | Comp: 0.31 | CPC: €0.27 | Intent: C:53/T:42 -> /cennik-regeneracji-reflektorow
+  * polerka do lamp samochodowych | Vol: 320 | Comp: 1.00 | CPC: €0.12 | Intent: T:91 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * regeneracja reflektorów samochodowych | Vol: 260 | Comp: 0.98 | CPC: €0.90 | Intent: T:66 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * regeneracja reflektorów naprawa lamp samochodowych polerowanie reflektorów robert staroń | Vol: 260 | Comp: 0.10 | CPC: €1.13 | Intent: C:86 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerka lamp samochodowych | Vol: 260 | Comp: 1.00 | CPC: €0.31 | Intent: T:84 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerka lamp | Vol: 260 | Comp: 1.00 | CPC: €0.39 | Intent: T:57 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * do polerowania lamp | Vol: 260 | Comp: 1.00 | CPC: €0.27 | Intent: T:84 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * regeneracja reflektorów cena | Vol: 210 | Comp: 0.44 | CPC: €0.78 | Intent: C:82 -> /cennik-regeneracji-reflektorow
+  * czyszczenie reflektorów samochodowych | Vol: 210 | Comp: 1.00 | CPC: €0.43 | Intent: T:93 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * regeneracja odbłyśników lamp | Vol: 210 | Comp: 0.71 | CPC: €0.82 | Intent: T:72 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerowanie reflektorów samochodowych | Vol: 210 | Comp: 1.00 | CPC: €0.27 | Intent: T:97 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * renowacja lamp | Vol: 210 | Comp: 1.00 | CPC: €0.47 | Intent: I:24/C:31/T:44 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerowanie reflektorow samochodowych | Vol: 210 | Comp: 1.00 | CPC: €0.27 | Intent: T:93 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * polerowanie lamp regeneracja reflektorów i odbłyśników | Vol: 210 | Comp: 0.07 | CPC: €1.06 | Intent: C:69 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * wm autocare regeneracja naprawa reflektorów retrofit polerowanie | Vol: 170 | Comp: 0.00 | CPC: €0 | Intent: C:69 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+
+[Google.de | DE Industry & PVD | Seed: Metallisierung]
+  * metallisierung kunststoff | Vol: 50 | Comp: 0.24 | CPC: €2.36 | Intent: C:87 -> /metalizacja-prozniowa
+  * kunststoff metallisierung | Vol: 50 | Comp: 0.23 | CPC: €0.79 | Intent: C:82 -> /metalizacja-prozniowa
+  * metallisierung von kunststoffen | Vol: 20 | Comp: 0.26 | CPC: €1.81 | Intent: I:46/C:45 -> /metalizacja-prozniowa
+  * vakuum metallisierung | Vol: 20 | Comp: 0.15 | CPC: €0.59 | Intent: I:41/C:57 -> /metalizacja-prozniowa
+  * metallisierung von kunststoffen durch galvanisieren | Vol: 10 | Comp: 0 | CPC: €0 | Intent: I:34/C:66 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * metallisierung von folien | Vol: 10 | Comp: 0 | CPC: €0 | Intent: I:40/C:59 -> /metalizacja-prozniowa
+  * glas metallisieren | Vol: 10 | Comp: 0.32 | CPC: €0 | Intent: I:44/C:60 -> /metalizacja-prozniowa
+  * csv metallisierung | Vol: 10 | Comp: 0 | CPC: €0 | Intent: I:76 -> /metalizacja-prozniowa
+  * chemische metallisierung | Vol: 10 | Comp: 0.33 | CPC: €0.67 | Intent: I:76 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://www.demgy.com/de/page/technologies/surface-finishing-and-functionalization/metallization-coating | Vol: 43.74 | Comp: 22% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.creavac.de/de/beschichtungen/dekorative-metallisierung/ | Vol: 19.66 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.ise.fraunhofer.de/de/geschaeftsfelder/photovoltaik-produktionstechnologie-und-transfer/nass-und-trockenchemische-verfahren/galvanische-metallisierungsverfahren.html | Vol: 13.79 | Comp: 46% | CPC: 2 | Intent: 2 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://www.plasma.com/plasmatechnik-lexikon/metallisierung/ | Vol: 9.76 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.oerlikon.com/balzers/de/de/medien/magazin/beyond-surfaces-nr1-intelligente-beschichtungsloesungen/innovative-metallisierung-von-kunststoffteilen/ | Vol: 7.70 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://de.wikipedia.org/wiki/Kunststoffmetallisierung | Vol: 4.65 | Comp: 14% | CPC: 13 | Intent: 57 -> /metalizacja-prozniowa
+  * https://www.polifibra-group.de/news/2019-07-25-metallisierung-von-kunststofffolien.html | Vol: 3.47 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.teprosa.de/kunststoff-metallisierung/ | Vol: 2.69 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.3erp.com/de/blog/metallization/ | Vol: 2.15 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.roeser-decoration.com/dekoration/metallisierung/ | Vol: 1.76 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+
+[Google.de | DE Industry & PVD | Seed: Vakuummetallisierung]
+  * vakuum metallisierung | Vol: 20 | Comp: 0.15 | CPC: €0.59 | Intent: I:41/C:57 -> /metalizacja-prozniowa
+  * https://www.mader-group.com/de/focus-on/metallisierungs-technologien/ | Vol: 6.25 | Comp: 16% | CPC: 0 | Intent: 0 -> /metalizacja-prozniowa
+  * https://bit-industrielackierung.de/lackierung-von-kunststoffen/vakuummetallisierung/ | Vol: 2.81 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://daxincnc.com/de/resources/what-is-vacuum-metal-deposition/ | Vol: 1.97 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.hv-stoll.de/vakuummetallisierung | Vol: 1.39 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://allinpackaging.de/vakuummetallisierung | Vol: 1.10 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://vesimentor.ee/de/dienstleistungen-produktionen/chromatieren | Vol: 0.66 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://metalizer.pl/de/angebot/die-vakuummetallisierung/ | Vol: 0.50 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.industrystock.de/de/unternehmen/Oberfl%C3%A4chentechnik/Metallbeschichtung/Vakuummetallisierung | Vol: 0.38 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.gwp-ag.de/349 | Vol: 0.31 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.cegan.eu/vakuummetallisierung/ | Vol: 0.25 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+
+[Google.de | DE Plastic Chrome | Seed: Kunststoff verchromen]
+  * verchromen von kunststoff | Vol: 590 | Comp: 0.72 | CPC: €0.36 | Intent: I:100 -> /metalizacja-tworzyw-sztucznych
+  * verchromen kunststoff | Vol: 590 | Comp: 0.72 | CPC: €0.36 | Intent: I:94 -> /metalizacja-tworzyw-sztucznych
+  * plastik verchromen | Vol: 110 | Comp: 0.21 | CPC: €1.69 | Intent: I:95 -> /metalizacja-tworzyw-sztucznych
+  * kunststoff verchromen selber machen | Vol: 70 | Comp: 0.91 | CPC: €0.24 | Intent: T:74 -> /metalizacja-tworzyw-sztucznych
+  * kunststoff verchromen set | Vol: 70 | Comp: 1.00 | CPC: €0.36 | Intent: C:64 -> /metalizacja-tworzyw-sztucznych
+  * kunststoff verchromen kosten | Vol: 70 | Comp: 0.22 | CPC: €1.72 | Intent: C:87 -> /metalizacja-tworzyw-sztucznych
+  * kunststoff verchromen lassen | Vol: 50 | Comp: 0.63 | CPC: €0.53 | Intent: T:99 -> /metalizacja-tworzyw-sztucznych
+  * kunststoffteile verchromen | Vol: 40 | Comp: 0.86 | CPC: €0.35 | Intent: I:49/T:43 -> /metalizacja-tworzyw-sztucznych
+  * abs verchromen | Vol: 40 | Comp: 0.24 | CPC: €0.47 | Intent: I:32/T:53 -> /rozwiazania/powlekanie-tworzywa-abs
+  * verchromte kunststoffteile | Vol: 40 | Comp: 0.86 | CPC: €0.35 | Intent: I:90 -> /metalizacja-tworzyw-sztucznych
+  * verchromen kunststoffteile | Vol: 40 | Comp: 0.86 | CPC: €0.35 | Intent: I:90 -> /metalizacja-tworzyw-sztucznych
+  * plastik verchromen kosten | Vol: 20 | Comp: 0.22 | CPC: €0.09 | Intent: C:82 -> /metalizacja-tworzyw-sztucznych
+  * plastik verchromen lassen | Vol: 20 | Comp: 0.39 | CPC: €0.37 | Intent: T:100 -> /metalizacja-tworzyw-sztucznych
+  * kunststoffteile verchromen lassen | Vol: 10 | Comp: 0.66 | CPC: €0.43 | Intent: T:99 -> /metalizacja-tworzyw-sztucznych
+  * https://wt-direct.de/pages/kunststoff-verchromen | Vol: 121.84 | Comp: 0% | CPC: 0 | Intent: 0 -> /metalizacja-tworzyw-sztucznych
+  * https://www.mg-surface.com/kunststoff-verchromen-fur-automotive-industrie-design | Vol: 54.76 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-tworzyw-sztucznych
+  * https://www.kunststofftechnik-becker.de/leistungsspektrum/komplettservice/verchromen | Vol: 38.42 | Comp: 26% | CPC: 0 | Intent: 0 -> /metalizacja-tworzyw-sztucznych
+  * https://www.flippermarkt.de/forum/threads/wer-kann-kunststoff-verchromen.251848/ | Vol: 27.18 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-tworzyw-sztucznych
+  * https://filament2print.com/de/blog/wie-verchromt-man-kunststoffe | Vol: 21.45 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-tworzyw-sztucznych
+  * https://www.fomoco.eu/technische-informationen-f20/chrombedampfen-von-plastikteilen-t4151.html | Vol: 12.96 | Comp: 0% | CPC: 0 | Intent: 0 -> /metalizacja-tworzyw-sztucznych
+  * https://www.rt-freunde.de/viewtopic.php?t=28902 | Vol: 9.67 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-tworzyw-sztucznych
+  * https://waisch.ch/kunststoff/bearbeitungsverfahren-und-verarbeitungsverfahren/veredeln/verchromen | Vol: 7.50 | Comp: 0% | CPC: 0 | Intent: 0 -> /metalizacja-tworzyw-sztucznych
+  * https://www.wlw.de/de/showroom/kunststoff-verchromen-lassen | Vol: 6.00 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-tworzyw-sztucznych
+  * https://www.kleinanzeigen.de/s-kunststoff-verchromen/k0 | Vol: 4.91 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-tworzyw-sztucznych
+
+[Google.de | DE Coatings | Seed: Kunststofflackierung]
+  * haftgrund für kunststoff lackierung | Vol: 30 | Comp: 1.00 | CPC: €0.12 | Intent: C:37/T:46 -> /rozwiazania/lakierowanie-polipropylenu-pp
+  * kunststoff lackierung | Vol: 10 | Comp: 0.16 | CPC: €0 | Intent: I:89 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.kunststofflackierung-rubel.de/ | Vol: 12.50 | Comp: 34% | CPC: 22 | Intent: 52 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.lackundfarbe24.de/de/kunststofflack-und-grundierung/kunststofflack-fuer-sonstige-kunststoffe-kein-pvc/endlack-auf-entsprechender-grundierung | Vol: 5.62 | Comp: 0% | CPC: 0 | Intent: 0 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.rathmayr.de/leistungen/lackierung-von-kunststoffen | Vol: 3.94 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://gerhardi.com/kompetenzen/oberflaechenveredelung-kunststofflackierung/ | Vol: 2.79 | Comp: 0% | CPC: 0 | Intent: 0 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.besserlackieren.de/marktgeschehen/unternehmensmeldungen/trends-und-perspektiven-in-der-kunststofflackierung/ | Vol: 2.20 | Comp: 12% | CPC: 0 | Intent: 0 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.standox.com/content/dam/EMEA/Standox/HQ/Public/Documents/German/Standotheken/THK_001_Kunststoff.pdf | Vol: 1.33 | Comp: 9% | CPC: 5 | Intent: 6 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.lackiererblatt.de/technik/die-kunststoff-lackierung-optimieren/ | Vol: 0.99 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.studysmarter.de/studium/fahrzeuglackierer-in/kunststofflackierung/ | Vol: 0.77 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://link.springer.com/article/10.1007/s35144-018-0337-x | Vol: 0.62 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.lackversand.de/autolacke/kunststofflackierung/ | Vol: 0.50 | Comp: 0% | CPC: 0 | Intent: 0 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.de | DE Coatings | Seed: Glaslackierung]
+  * glas lackierung | Vol: 40 | Comp: 1.00 | CPC: €0.38 | Intent: I:85 -> /lakierowanie-szkla-i-ceramiki
+  * https://www.glaslackierung-rubel.de/ | Vol: 12.50 | Comp: 34% | CPC: 24 | Intent: 57 -> /lakierowanie-szkla-i-ceramiki
+  * https://regler-glasdruck.de/glaslackierung/ | Vol: 5.62 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://www.lackundfarbe24.de/de/glaslacke-glaslackierung | Vol: 3.94 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://www.hesse-lignal.com/glasveredelung/ | Vol: 2.79 | Comp: 14% | CPC: 0 | Intent: 0 -> /lakierowanie-szkla-i-ceramiki
+  * https://www.terporten.eu/glaser-glas-spiegel-esg-glaeser-duschen-glaserei-kuechenrueckwand/lohnlackierung-glaslackierung-glaslackieren-lackierenvonglas.html | Vol: 2.20 | Comp: 0% | CPC: 0 | Intent: 0 -> /lakierowanie-szkla-i-ceramiki
+  * https://www.adler-lacke.com/de/service-ratgeber/tipps-tricks/glas-lackieren-leicht-gemacht~t2192282 | Vol: 1.33 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://rolfundweber.de/service/serviceleistungen/glaslackierung/ | Vol: 0.99 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://www.glaserei-dikel.de/portfolio/glaslackierung-2/ | Vol: 0.77 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+  * https://www.pf-lack.de/oberflaechentechnik/materialbeschichtung/glaslackierung | Vol: 0.62 | Comp: 29% | CPC: 0 | Intent: 0 -> /lakierowanie-szkla-i-ceramiki
+  * https://www.wlw.de/de/suche/lackierung-von-glas | Vol: 0.50 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-szkla-i-ceramiki
+
+[Google.de | DE Coatings | Seed: Spritzlackierung]
+  * spritzlackieren | Vol: 50 | Comp: 0.50 | CPC: €0.41 | Intent: I:96 -> /lakierowanie-natryskowe
+  * https://www.votteler.com/de/technologien/spritzlackierung/ | Vol: 12.50 | Comp: 0% | CPC: 0 | Intent: 0 -> /lakierowanie-natryskowe
+  * https://de.wikipedia.org/wiki/Spritzlackieren | Vol: 5.62 | Comp: 23% | CPC: 1 | Intent: 1 -> /lakierowanie-natryskowe
+  * https://rest.arbeitsagentur.de/infosysbub/berufepool-rest/ct/v1/archivpdfs/4615.pdf | Vol: 3.94 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-natryskowe
+  * https://www.thomas-jaitner.de/wiki/spritzlackierung | Vol: 2.79 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-natryskowe
+  * https://www.farbdesign-maler.de/lackierarbeiten/anwendung-von-spritzlackierverfahren-fuer-ein-gleichmaessiges-finish | Vol: 2.20 | Comp: 17% | CPC: 0 | Intent: 0 -> /lakierowanie-natryskowe
+  * https://maler-ernst-deutsch.de/gl-spritzlackierung-maler-hannover-hameln.htm | Vol: 1.33 | Comp: 17% | CPC: 0 | Intent: 0 -> /lakierowanie-natryskowe
+  * https://www.jobs-in-duesseldorf.de/stellenanzeigen/spritzlackierung-duesseldorf | Vol: 0.99 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-natryskowe
+  * https://www.dwds.de/wb/Spritzlackierung | Vol: 0.77 | Comp: 17% | CPC: 0 | Intent: 0 -> /lakierowanie-natryskowe
+  * https://www.jobvector.de/gehalt/spritzlackierung/ | Vol: 0.62 | Comp: 11% | CPC: 0 | Intent: 0 -> /lakierowanie-natryskowe
+  * https://www.expertennetzwerk-besserlackieren.de/simulation-spritzlackierung-und-trocknung/ | Vol: 0.50 | Comp: 7% | CPC: 1 | Intent: 1 -> /lakierowanie-natryskowe
+
+[Google.de | DE Headlights | Seed: Scheinwerfer Aufbereitung]
+  * scheinwerfer polieren | Vol: 9900 | Comp: 1.00 | CPC: €0.10 | Intent: I:31/T:59 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * scheinwerfer aufbereiter | Vol: 6600 | Comp: 1.00 | CPC: €0.12 | Intent: I:29/C:44/T:26 -> /regeneracja-reflektorow
+  * aufbereitung scheinwerfer | Vol: 6600 | Comp: 1.00 | CPC: €0.11 | Intent: I:40/T:43 -> /regeneracja-reflektorow
+  * scheinwerfer aufbereitungs | Vol: 4400 | Comp: 1.00 | CPC: €0.18 | Intent: T:57 -> /regeneracja-reflektorow
+  * scheinwerfer auto polieren | Vol: 1900 | Comp: 1.00 | CPC: €0.20 | Intent: T:97 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * auto scheinwerfer polieren | Vol: 1600 | Comp: 1.00 | CPC: €0.10 | Intent: T:98 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * scheinwerfer aufbereitungsset sonax | Vol: 1300 | Comp: 1.00 | CPC: €0.22 | Intent: C:55/T:44 -> /regeneracja-reflektorow
+  * sonax scheinwerfer aufbereitungsset | Vol: 1300 | Comp: 1.00 | CPC: €0.09 | Intent: C:61/T:36 -> /regeneracja-reflektorow
+  * presto scheinwerfer aufbereitungsset | Vol: 880 | Comp: 1.00 | CPC: €0.18 | Intent: C:59/T:38 -> /regeneracja-reflektorow
+  * scheinwerfer polieren atu kosten | Vol: 720 | Comp: 0.50 | CPC: €0.20 | Intent: C:78 -> /cennik-regeneracji-reflektorow
+  * scheinwerfer polieren zahnpasta | Vol: 720 | Comp: 0.69 | CPC: €0 | Intent: T:74 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * scheinwerfer aufbereitung in meiner nähe | Vol: 480 | Comp: 0.43 | CPC: €0.70 | Intent: I:41/C:39 -> /regeneracja-reflektorow/warszawa-jozefow
+  * scheinwerfer aufbereitungsset | Vol: 480 | Comp: 1.00 | CPC: €0.09 | Intent: C:55/T:41 -> /regeneracja-reflektorow
+  * scheinwerfer polieren kosten | Vol: 480 | Comp: 0.55 | CPC: €0.23 | Intent: I:45/C:55 -> /cennik-regeneracji-reflektorow
+  * https://www.adac.de/rund-ums-fahrzeug/ausstattung-technik-zubehoer/licht-und-beleuchtung/scheinwerfer-polieren/ | Vol: 2061.84 | Comp: 32% | CPC: 25 | Intent: 79 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * https://www.amazon.de/ATG-Scheinwerfer-Fresh-Scheinwerfer-Polierset-Aufbereitungs-Set-Bohrmaschinenaufsatz/dp/B01MZH5LVR | Vol: 926.64 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://ap-optik.de/produkt/scheinwerfer-aufbereitung/ | Vol: 650.10 | Comp: 0% | CPC: 0 | Intent: 0 -> /regeneracja-reflektorow
+  * https://www.pmcolours.de/advisor/scheinwerfer-aufbereiten-klare-und-glaenzende-linsen-in-unter-60-minuten | Vol: 460.02 | Comp: 0% | CPC: 2 | Intent: 2 -> /regeneracja-reflektorow
+  * https://www.allianzdirect.de/kfz-versicherung/scheinwerfer-polieren-ratgeber/ | Vol: 363.00 | Comp: 15% | CPC: 11 | Intent: 23 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * https://www.sonax.de/pflegeprodukte/scheinwerfer-aufbereitungsset-28-teile-04059410 | Vol: 219.31 | Comp: 37% | CPC: 10 | Intent: 15 -> /regeneracja-reflektorow
+  * https://www.kroschke.de/magazin/post/auto-tipps/scheinwerfer-polieren | Vol: 163.63 | Comp: 0% | CPC: 2 | Intent: 8 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * https://www.idealo.de/preisvergleich/ProductCategory/26719F8854523.html | Vol: 126.96 | Comp: 0% | CPC: 0 | Intent: 0 -> /regeneracja-reflektorow
+  * https://www.amazon.de/scheinwerfer-aufbereitung-Fahrzeugtypen-Scheinwerfer-Restaurierung-erforderlich/dp/B0GWPFXCFR | Vol: 101.50 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://auto-optikhh.com/blog/wie-sie-ihre-scheinwerfer-richtig-aufbereiten--ein-diy-guide | Vol: 83.09 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+
+[Google.de | DE Headlights | Seed: Reflektor neu bedampfen]
+  * scheinwerfer reflektor neu beschichten | Vol: 90 | Comp: 0.91 | CPC: €0.61 | Intent: T:100 -> /regeneracja-reflektorow
+  * reflektor neu beschichten | Vol: 20 | Comp: 0.98 | CPC: €0.91 | Intent: T:97 -> /regeneracja-reflektorow
+  * scheinwerfer reflektor bedampfen | Vol: 10 | Comp: 0.77 | CPC: €0.42 | Intent: T:99 -> /regeneracja-reflektorow
+  * scheinwerfer neu bedampfen | Vol: 10 | Comp: 1.00 | CPC: €0 | Intent: T:93 -> /regeneracja-reflektorow
+  * reflektor bedampfen lassen | Vol: 10 | Comp: 0.22 | CPC: €0 | Intent: T:96 -> /regeneracja-reflektorow
+  * scheinwerfer reflektor neu bedampfen | Vol: 10 | Comp: 0.79 | CPC: €0 | Intent: T:100 -> /regeneracja-reflektorow
+  * xenon reflektor neu beschichten | Vol: 10 | Comp: 0.34 | CPC: €0.73 | Intent: T:96 -> /regeneracja-reflektorow
+  * https://www.refoptik.de/ | Vol: 6.25 | Comp: 35% | CPC: 20 | Intent: 41 -> /regeneracja-reflektorow
+  * https://reflektorklinik.de/alu-bedampfen/ | Vol: 2.81 | Comp: 30% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://www.golf1.info/forum/index.php?thread/50957-scheinwerfer-reflektor-neu-bedampfen-verchromen/ | Vol: 1.97 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://classic-portal.com/reflektorklinik/ | Vol: 1.39 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://sternzeit-107.de/de/forum/forum-107/20154-reflektor-scheinwerfer | Vol: 1.10 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://www.ebay.de/itm/136334929086 | Vol: 0.66 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://www.stardustcolors.de/retroreflektierender-lack/1542-lack-scheinwerferreflektor.html | Vol: 0.50 | Comp: 16% | CPC: 0 | Intent: 0 -> /regeneracja-reflektorow
+  * https://www.bulliforum.com/viewtopic.php?t=59977 | Vol: 0.38 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://die-urgewalt.de/forum/index.php?thread/49541-scheinwerfer-reflektoren-neu-beschichten/ | Vol: 0.31 | Comp: 14% | CPC: 0 | Intent: 0 -> /regeneracja-reflektorow
+  * https://ostdeutsche-fahrzeuge.de/viewtopic.php?t=82 | Vol: 0.25 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+
+[Google.com | EN Industry & PVD | Seed: vacuum metallization]
+  * vacuum metalizing | Vol: 320 | Comp: 0.31 | CPC: €7.00 | Intent: I:85 -> /metalizacja-prozniowa
+  * metal vac | Vol: 210 | Comp: 0.88 | CPC: €0.44 | Intent: T:89 -> /metalizacja-prozniowa
+  * vacuum orna metal | Vol: 210 | Comp: 0.13 | CPC: €2.95 | Intent: T:88 -> /metalizacja-prozniowa
+  * vacuum orna metal co | Vol: 210 | Comp: 0.13 | CPC: €2.95 | Intent: T:84 -> /metalizacja-prozniowa
+  * vacuum metallising | Vol: 170 | Comp: 0.19 | CPC: €2.22 | Intent: I:88 -> /metalizacja-prozniowa
+  * vacuum metallization of plastics | Vol: 70 | Comp: 0.20 | CPC: €2.26 | Intent: I:89 -> /metalizacja-prozniowa
+  * metal chip vacuum | Vol: 70 | Comp: 1.00 | CPC: €4.96 | Intent: T:95 -> /metalizacja-prozniowa
+  * vacuum metalizing near me | Vol: 50 | Comp: 0.30 | CPC: €2.09 | Intent: C:74 -> /metalizacja-prozniowa
+  * vacuum metalizing plastic | Vol: 40 | Comp: 0.47 | CPC: €1.72 | Intent: I:64 -> /metalizacja-prozniowa
+  * vacuum metalizing services | Vol: 30 | Comp: 0.25 | CPC: €1.93 | Intent: C:100 -> /metalizacja-prozniowa
+  * vacuum metalizing process | Vol: 20 | Comp: 0.16 | CPC: €1.53 | Intent: I:76 -> /metalizacja-prozniowa
+  * vacuum metallization process | Vol: 20 | Comp: 0.16 | CPC: €1.53 | Intent: I:77 -> /metalizacja-prozniowa
+  * plastic metalizing services | Vol: 10 | Comp: 0 | CPC: €0 | Intent: C:99 -> /metalizacja-prozniowa
+  * vacuum metalizing company | Vol: 10 | Comp: 0.52 | CPC: €0 | Intent: C:72 -> /metalizacja-prozniowa
+  * http://www.vacuummetallizing.ca/ | Vol: 99.97 | Comp: 0% | CPC: 10 | Intent: 12 -> /metalizacja-prozniowa
+  * https://www.vacmet.com/ | Vol: 99.97 | Comp: 12% | CPC: 18 | Intent: 19 -> /metalizacja-prozniowa
+  * https://www.vacuumorna-metal.com/ | Vol: 99.97 | Comp: 12% | CPC: 5 | Intent: 6 -> /metalizacja-prozniowa
+  * https://www.vacuum-metalizing.com/what-is-vacuum-metalizing/ | Vol: 99.97 | Comp: 0% | CPC: 5 | Intent: 16 -> /metalizacja-prozniowa
+  * https://www.reddit.com/r/DIY/comments/jtypy/vacuum_metalization_at_home_want_to_chromegold/ | Vol: 44.93 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://dixline.com/vacuum-metalizing/ | Vol: 31.52 | Comp: 21% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://vergason.com/services/vacuum-metalizing/ | Vol: 22.30 | Comp: 18% | CPC: 0 | Intent: 0 -> /metalizacja-prozniowa
+  * https://www.oberk.com/decorating/vacuum-metalizing | Vol: 17.60 | Comp: 20% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+  * https://www.sharrettsplating.com/blog/electroplating-vs-vacuum-metallizing/ | Vol: 10.63 | Comp: 10% | CPC: 4 | Intent: 4 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://www.quora.com/What-is-vacuum-metalizing-and-how-does-it-work | Vol: 7.93 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-prozniowa
+
+[Google.com | EN Plastic Chrome | Seed: plastic chrome plating]
+  * chroming plastic | Vol: 1300 | Comp: 0.21 | CPC: €3.63 | Intent: I:75 -> /metalizacja-tworzyw-sztucznych
+  * chrome dip plastic | Vol: 1300 | Comp: 0.21 | CPC: €3.63 | Intent: I:70 -> /metalizacja-tworzyw-sztucznych
+  * chrome painting plastic | Vol: 1300 | Comp: 1.00 | CPC: €0.21 | Intent: T:28 -> /metalizacja-tworzyw-sztucznych
+  * chrome coating plastic | Vol: 1000 | Comp: 0.09 | CPC: €0.59 | Intent: I:76 -> /metalizacja-tworzyw-sztucznych
+  * electroplating plastic | Vol: 260 | Comp: 0.54 | CPC: €5.05 | Intent: I:63 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * plastic chrome plating near me | Vol: 210 | Comp: 0.08 | CPC: €1.09 | Intent: C:76 -> /metalizacja-tworzyw-sztucznych
+  * plastic chroming near me | Vol: 210 | Comp: 0.08 | CPC: €1.09 | Intent: C:56/T:39 -> /metalizacja-tworzyw-sztucznych
+  * plastic chrome removal | Vol: 140 | Comp: 0 | CPC: €0 | Intent: I:43/T:38 -> /metalizacja-tworzyw-sztucznych
+  * abs chrome | Vol: 90 | Comp: 0.01 | CPC: €0 | Intent: I:71 -> /rozwiazania/powlekanie-tworzywa-abs
+  * chroming plastic parts | Vol: 70 | Comp: 0.14 | CPC: €0.48 | Intent: C:30/T:50 -> /metalizacja-tworzyw-sztucznych
+  * plastic chroming service | Vol: 50 | Comp: 0.09 | CPC: €1.61 | Intent: C:87 -> /metalizacja-tworzyw-sztucznych
+  * plastic chrome plating service | Vol: 50 | Comp: 0.09 | CPC: €1.61 | Intent: C:92 -> /metalizacja-tworzyw-sztucznych
+  * chrome plating plastic parts | Vol: 50 | Comp: 0.50 | CPC: €1.00 | Intent: C:30/T:50 -> /metalizacja-tworzyw-sztucznych
+  * abs chrome plating | Vol: 50 | Comp: 0.08 | CPC: €2.22 | Intent: T:61 -> /rozwiazania/powlekanie-tworzywa-abs
+  * http://chromeplatingusa.com/ | Vol: 406.12 | Comp: 0% | CPC: 2 | Intent: 6 -> /metalizacja-tworzyw-sztucznych
+  * http://denvermetalfinishing.com/ | Vol: 406.12 | Comp: 0% | CPC: 1 | Intent: 2 -> /metalizacja-tworzyw-sztucznych
+  * http://www.pmfplating.com/ | Vol: 406.12 | Comp: 0% | CPC: 0 | Intent: 0 -> /metalizacja-tworzyw-sztucznych
+  * https://www.amazon.com/chrome-plating-kit-plastic/s?k=chrome+plating+kit+for+plastic | Vol: 406.12 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-tworzyw-sztucznych
+  * https://www.corvetteforum.com/forums/c3-tech-performance/4096947-where-to-send-plastic-parts-for-chrome-plating.html | Vol: 182.52 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-tworzyw-sztucznych
+  * https://pchrome.com/5-ways-can-turn-plastic-chrome/ | Vol: 128.05 | Comp: 0% | CPC: 3 | Intent: 4 -> /metalizacja-tworzyw-sztucznych
+  * https://www.vacuum-metalizing.com/plastic-chrome-plating/ | Vol: 90.61 | Comp: 0% | CPC: 7 | Intent: 9 -> /metalizacja-tworzyw-sztucznych
+  * https://www.reddit.com/r/Reprap/comments/175sfhh/chrome_plating_a_3d_plastic_print/ | Vol: 71.50 | Comp: 0% | CPC: 1 | Intent: 1 -> /metalizacja-tworzyw-sztucznych
+  * https://providencemetallizing.com/feeds/blog/plastic-chrome-plating | Vol: 43.20 | Comp: 0% | CPC: 0 | Intent: 0 -> /metalizacja-tworzyw-sztucznych
+  * https://caswellplating.com/electroplating-anodizing/chrome-plating-kits.html | Vol: 32.23 | Comp: 36% | CPC: 1 | Intent: 2 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+
+[Google.com | EN Plastic Chrome | Seed: chrome plating plastic]
+  * plastic chrome plating kit | Vol: 90 | Comp: 0.30 | CPC: €0.17 | Intent: T:98 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * plastic chrome kit | Vol: 90 | Comp: 0.30 | CPC: €0.17 | Intent: T:97 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * electroplating plastic kit | Vol: 30 | Comp: 0.14 | CPC: €0 | Intent: T:99 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://www.amazon.com/chrome-plating-kit-plastic/s?k=chrome+plating+kit+for+plastic | Vol: 406.12 | Comp: 0% | CPC: 1 | Intent: 1 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://pchrome.com/5-ways-can-turn-plastic-chrome/ | Vol: 182.52 | Comp: 0% | CPC: 3 | Intent: 4 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://www.corvetteforum.com/forums/c3-tech-performance/4096947-where-to-send-plastic-parts-for-chrome-plating.html | Vol: 128.05 | Comp: 0% | CPC: 1 | Intent: 1 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://www.vacuum-metalizing.com/plastic-chrome-plating/ | Vol: 90.61 | Comp: 0% | CPC: 7 | Intent: 9 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://www.reddit.com/r/Reprap/comments/175sfhh/chrome_plating_a_3d_plastic_print/ | Vol: 71.50 | Comp: 0% | CPC: 1 | Intent: 1 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://caswellplating.com/electroplating-anodizing/chrome-plating-kits.html | Vol: 43.20 | Comp: 36% | CPC: 1 | Intent: 2 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://www.ecfinc.com/how-plating-on-plastic-compares/ | Vol: 32.23 | Comp: 0% | CPC: 1 | Intent: 1 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://providencemetallizing.com/feeds/blog/plastic-chrome-plating | Vol: 25.01 | Comp: 0% | CPC: 0 | Intent: 0 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://www.bronco6g.com/forum/threads/plastic-chrome-plating.116052/ | Vol: 19.99 | Comp: 0% | CPC: 1 | Intent: 1 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * https://en.wikipedia.org/wiki/Chrome_plating | Vol: 16.37 | Comp: 42% | CPC: 259 | Intent: 1515 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+
+[Google.com | EN Coatings | Seed: plastic spray painting]
+  * aerosol paint for plastic | Vol: 9900 | Comp: 0.99 | CPC: €0.12 | Intent: I:53/T:31 -> /lakierowanie-tworzyw-sztucznych
+  * painting plastic with spray paint | Vol: 9900 | Comp: 0.99 | CPC: €0.12 | Intent: I:65 -> /lakierowanie-tworzyw-sztucznych
+  * paint and primer for plastic | Vol: 5400 | Comp: 0.97 | CPC: €0.25 | Intent: I:94 -> /rozwiazania/lakierowanie-polipropylenu-pp
+  * painting plastic with rustoleum | Vol: 2900 | Comp: 0.99 | CPC: €0.18 | Intent: I:82 -> /lakierowanie-tworzyw-sztucznych
+  * good spray paint for plastic | Vol: 1900 | Comp: 0.98 | CPC: €0.13 | Intent: C:96 -> /lakierowanie-tworzyw-sztucznych
+  * best spray paint to paint plastic | Vol: 1900 | Comp: 0.98 | CPC: €0.13 | Intent: C:97 -> /lakierowanie-tworzyw-sztucznych
+  * best aerosol paint for plastic | Vol: 1900 | Comp: 0.98 | CPC: €0.13 | Intent: C:98 -> /lakierowanie-tworzyw-sztucznych
+  * best spray paint for plastic | Vol: 1900 | Comp: 1.00 | CPC: €0.44 | Intent: C:97 -> /lakierowanie-tworzyw-sztucznych
+  * spray painting clear coat | Vol: 1300 | Comp: 0.98 | CPC: €0.18 | Intent: T:86 -> /lakierowanie-tworzyw-sztucznych
+  * paint for plastic outdoor | Vol: 880 | Comp: 1.00 | CPC: €0.19 | Intent: T:84 -> /lakierowanie-tworzyw-sztucznych
+  * paint on plastic surface | Vol: 880 | Comp: 1.00 | CPC: €0.18 | Intent: I:78 -> /lakierowanie-tworzyw-sztucznych
+  * plastic spraying | Vol: 720 | Comp: 0.93 | CPC: €0.20 | Intent: I:85 -> /lakierowanie-tworzyw-sztucznych
+  * clear coat for plastic | Vol: 590 | Comp: 0.96 | CPC: €0.21 | Intent: I:54/T:41 -> /lakierowanie-tworzyw-sztucznych
+  * best plastic paint primer | Vol: 480 | Comp: 1.00 | CPC: €0.26 | Intent: C:96 -> /rozwiazania/lakierowanie-polipropylenu-pp
+  * http://www.appliedplastic.com/ | Vol: 3092.76 | Comp: 26% | CPC: 10 | Intent: 14 -> /lakierowanie-tworzyw-sztucznych
+  * https://a2zautopaint.com/ | Vol: 3092.76 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.totalfinishingsolutions.com/ | Vol: 3092.76 | Comp: 0% | CPC: 2 | Intent: 2 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.krylon.com/en/how-to/how-to-spray-paint/plastic | Vol: 3092.76 | Comp: 30% | CPC: 8 | Intent: 13 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.reddit.com/r/DIY/comments/1kcl22/spray_painting_plastic_what_am_i_doing_wrong/ | Vol: 1389.96 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.homedepot.com/b/Paint-Spray-Paint/Plastic/N-5yc1vZapz5Z1z0ngau | Vol: 975.15 | Comp: 0% | CPC: 5 | Intent: 7 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.youtube.com/watch?v=Dtu76k-86S4 | Vol: 690.03 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.amazon.com/plastic-spray-paint/s?k=plastic+spray+paint | Vol: 544.50 | Comp: 0% | CPC: 1 | Intent: 1 -> /lakierowanie-tworzyw-sztucznych
+  * https://www.lowes.com/pl/spray-paint-accessories/spray-paint/plastic/4294720379-4294388944 | Vol: 328.96 | Comp: 0% | CPC: 0 | Intent: 0 -> /lakierowanie-tworzyw-sztucznych
+  * https://abeautifulmess.com/how-to-paint-plastic-and-make-it-last/ | Vol: 245.44 | Comp: 30% | CPC: 8 | Intent: 12 -> /lakierowanie-tworzyw-sztucznych
+
+[Google.com | EN Coatings | Seed: glass bottle coating]
+  * plastic coated glass bottle | Vol: 20 | Comp: 0.42 | CPC: €0 | Intent: I:85 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * safety coated bottles | Vol: 10 | Comp: 0 | CPC: €0 | Intent: I:69 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * pvc coated glass bottles | Vol: 10 | Comp: 1.00 | CPC: €0 | Intent: I:71 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * powder coating glass bottles | Vol: 10 | Comp: 0 | CPC: €0 | Intent: I:59/C:36 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * poly coated glass bottle | Vol: 10 | Comp: 1.00 | CPC: €0 | Intent: I:88 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * coated glass bottles | Vol: 10 | Comp: 0.96 | CPC: €2.18 | Intent: I:85 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * bottle glass coating | Vol: 10 | Comp: 0 | CPC: €0 | Intent: I:87 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * safety coated glass bottles | Vol: 10 | Comp: 0.83 | CPC: €2.74 | Intent: C:70 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://bottlecoatings.com/ | Vol: 3.12 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.saverglass.com/en/our-products/decoration-of-glass/coating | Vol: 1.40 | Comp: 21% | CPC: 0 | Intent: 0 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.oberk.com/packaging-crash-course/cold-end-glass-bottle-coatings | Vol: 0.98 | Comp: 0% | CPC: 0 | Intent: 0 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://industrial.sherwin-williams.com/na/us/en/packaging/products-by-industry/glass-coatings.html | Vol: 0.70 | Comp: 43% | CPC: 0 | Intent: 0 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.arkema.com/global/en/products/product-families/glass-coating/ | Vol: 0.55 | Comp: 49% | CPC: 10 | Intent: 750 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://pepperdecor.com/coating/ | Vol: 0.33 | Comp: 26% | CPC: 4 | Intent: 24 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.facebook.com/groups/mandalasforbeginners/posts/1393349915093159/ | Vol: 0.25 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.reddit.com/r/SCREENPRINTING/comments/1dbw9df/clear_coating_for_wine_bottles/ | Vol: 0.19 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.linkedin.com/pulse/what-glass-bottle-coating-hailin-wang | Vol: 0.15 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * https://www.weilburger.com/en/products/coatings/glass-products/senoglass-beverage-line | Vol: 0.13 | Comp: 0% | CPC: 1 | Intent: 1 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+
+[Google.com | EN Headlights | Seed: headlight reflector restoration]
+  * headlamp reflector restoration | Vol: 40 | Comp: 0.08 | CPC: €0 | Intent: T:63 -> /regeneracja-reflektorow
+  * reflector resilvering | Vol: 10 | Comp: 0 | CPC: €0 | Intent: I:30/T:54 -> /regeneracja-reflektorow
+  * rechroming headlight reflectors | Vol: 10 | Comp: 0 | CPC: €0 | Intent: T:89 -> /regeneracja-reflektorow
+  * headlight reflector restoration kit | Vol: 10 | Comp: 0 | CPC: €0 | Intent: T:93 -> /regeneracja-reflektorow
+  * headlamp reflector resilvering | Vol: 10 | Comp: 0 | CPC: €0 | Intent: T:80 -> /regeneracja-reflektorow
+  * diy headlight reflector resilvering | Vol: 10 | Comp: 0 | CPC: €0 | Intent: T:83 -> /regeneracja-reflektorow
+  * headlight resilvering cost | Vol: 10 | Comp: 0 | CPC: €0 | Intent: C:90 -> /cennik-regeneracji-reflektorow
+  * headlight reflector resilvering | Vol: 10 | Comp: 0.33 | CPC: €0 | Intent: T:78 -> /regeneracja-reflektorow
+  * headlight reflector cleaning | Vol: 10 | Comp: 0 | CPC: €0 | Intent: T:79 -> /regeneracja-reflektorow
+  * headlight plastic reflector resilvering | Vol: 10 | Comp: 0 | CPC: €0 | Intent: T:92 -> /regeneracja-reflektorow
+  * headlight chrome reflector restoration | Vol: 10 | Comp: 0.36 | CPC: €0 | Intent: T:80 -> /regeneracja-reflektorow
+  * headlamp resilvering | Vol: 10 | Comp: 0.29 | CPC: €0 | Intent: T:58 -> /regeneracja-reflektorow
+  * car headlight reflector restoration | Vol: 10 | Comp: 0.29 | CPC: €0 | Intent: T:63 -> /regeneracja-reflektorow
+  * https://www.youtube.com/watch?v=fxNn_qV3-tU | Vol: 12.50 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://www.youtube.com/watch?v=T1f4_IT7WeI&vl=en | Vol: 5.62 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://www.facebook.com/groups/117598048272577/posts/8159103814121920/ | Vol: 3.94 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://www.youtube.com/watch?v=9XAzRIsHYqM | Vol: 2.79 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://www.youtube.com/watch?v=Ne1LmScKORA | Vol: 2.20 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://www.ashfordchroming.com/headlamp-reflector-re-silvering-restoration | Vol: 1.33 | Comp: 36% | CPC: 3 | Intent: 3 -> /regeneracja-reflektorow
+  * https://www.youtube.com/watch?v=KE2TIaf_NUk | Vol: 0.99 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://chromerestorationspecialist-co-uk.stackstaging.com/headlamp-re-silvering/ | Vol: 0.77 | Comp: 0% | CPC: 1 | Intent: 1 -> /regeneracja-reflektorow
+  * https://www.consumerreports.org/cars/headlight-restoration-kits/do-car-headlight-restoration-kits-really-work-a5764894774/ | Vol: 0.62 | Comp: 30% | CPC: 32 | Intent: 52 -> /regeneracja-reflektorow
+  * https://www.chemicalguys.com/collections/headlight-restoration | Vol: 0.50 | Comp: 46% | CPC: 3 | Intent: 1154 -> /regeneracja-reflektorow
+
+
+================================================================================
+BATCH 2 — POGŁĘBIONY CHECK SEOBILITY LIVE + DANE GOOGLE SEARCH CONSOLE (17.11.2026)
+Projekt Seobility: Staniax (https://www.staniax.pl/, Project ID: 1038465)
+Usługa GSC: sc-domain:staniax.pl (222 kliknięcia / 8 820 wyświetleń / śr. poz. 8.5)
+================================================================================
+
+[A. GOOGLE.PL — NOWE BADANIE SEOBILITY LIVE (WOLUMEN, KONKURENCJA, CPC, INTENCJA -> DOCELOWY URL)]
+  * polerowanie lamp | Vol: 5400 | Comp: 0.99 | CPC: 0.63 | Intent: T:47/I:29 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * regeneracja lamp samochodowych | Vol: 4400 | Comp: 0.98 | CPC: 0.47 | Intent: I:53/T:30 -> /regeneracja-reflektorow
+  * regeneracja lampy samochodowej | Vol: 4400 | Comp: 0.98 | CPC: 0.47 | Intent: T:78 -> /regeneracja-reflektorow
+  * regeneracja reflektorów | Vol: 4400 | Comp: 1.00 | CPC: 0.59 | Intent: T:59 -> /regeneracja-reflektorow
+  * polerowanie reflektorów | Vol: 2400 | Comp: 0.99 | CPC: 0.70 | Intent: T:87 -> /porownanie/polerowanie-kloszy-vs-regeneracja-wnetrza-pvd
+  * regeneracja odbłyśników | Vol: 1900 | Comp: 0.52 | CPC: 0.86 | Intent: I:67 -> /regeneracja-reflektorow
+  * naprawa lamp samochodowych | Vol: 1900 | Comp: 0.54 | CPC: 0.59 | Intent: T:67 -> /regeneracja-reflektorow
+  * regeneracja lamp | Vol: 1600 | Comp: 0.87 | CPC: 0.47 | Intent: I:54/T:27 -> /regeneracja-reflektorow
+  * hydrografika | Vol: 1600 | Comp: 0.93 | CPC: 0.04 | Intent: I:98 -> /porownanie/metalizacja-prozniowa-vs-hydrografika
+  * regeneracja odbłyśnika | Vol: 1000 | Comp: 0.99 | CPC: 0.31 | Intent: T:95 -> /regeneracja-reflektorow
+  * naprawa reflektorów | Vol: 880 | Comp: 0.41 | CPC: 1.21 | Intent: T:75 -> /regeneracja-reflektorow
+  * chromowanie natryskowe | Vol: 880 | Comp: 0.70 | CPC: 0.23 | Intent: T:93 -> /porownanie/metalizacja-prozniowa-vs-chromowanie-natryskowe
+  * renowacja lamp samochodowych | Vol: 880 | Comp: 0.99 | CPC: 0.59 | Intent: I:52/C:28 -> /regeneracja-reflektorow
+  * powłoka pvd | Vol: 590 | Comp: 0.14 | CPC: 7.20 | Intent: T:59 -> /metalizacja-prozniowa
+  * metalizacja próżniowa | Vol: 390 | Comp: 0.25 | CPC: 3.64 | Intent: I:93 (Poz. 5 w Seobility) -> /metalizacja-prozniowa
+  * chromowanie plastiku | Vol: 390 | Comp: 0.46 | CPC: 2.46 | Intent: T:74 -> /metalizacja-tworzyw-sztucznych
+  * naprawa reflektorów samochodowych | Vol: 390 | Comp: 0.41 | CPC: 1.64 | Intent: T:70 -> /regeneracja-reflektorow
+  * regeneracja odbłyśnika lampy | Vol: 320 | Comp: 1.00 | CPC: 0.27 | Intent: T:98 -> /regeneracja-reflektorow
+  * regeneracja reflektorów warszawa | Vol: 260 | Comp: 0.69 | CPC: 0.47 | Intent: I:46/C:35 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja reflektorów samochodowych | Vol: 260 | Comp: 0.98 | CPC: 0.90 | Intent: T:66 -> /regeneracja-reflektorow
+  * regeneracja reflektorów cena | Vol: 210 | Comp: 0.44 | CPC: 0.78 | Intent: C:82 -> /cennik-regeneracji-reflektorow
+  * regeneracja odbłyśników lamp | Vol: 210 | Comp: 0.71 | CPC: 0.82 | Intent: T:72 -> /regeneracja-reflektorow
+  * kompleksowa regeneracja reflektorów | Vol: 210 | Comp: 0.47 | CPC: 0.98 | Intent: C:67 -> /regeneracja-reflektorow
+  * lakierowanie plastiku | Vol: 210 | Comp: 0.54 | CPC: 1.56 | Intent: I:43/T:32 -> /lakierowanie-tworzyw-sztucznych
+  * pvd powłoka | Vol: 210 | Comp: 0.20 | CPC: 1.45 | Intent: T:65 -> /metalizacja-prozniowa
+  * regeneracja lamp xenon | Vol: 170 | Comp: 0.26 | CPC: 1.84 | Intent: T:88 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * regeneracja lamp warszawa | Vol: 170 | Comp: 0.36 | CPC: 0.39 | Intent: C:49/I:36 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja lamp cena | Vol: 170 | Comp: 0.26 | CPC: 0.82 | Intent: C:96 -> /cennik-regeneracji-reflektorow
+  * powłoka pvd co to | Vol: 170 | Comp: 0.01 | CPC: 0.00 | Intent: I:100 -> /metalizacja-prozniowa
+  * powłoki pvd | Vol: 140 | Comp: 0.28 | CPC: 1.49 | Intent: T:53/I:32 -> /metalizacja-prozniowa
+  * lakierowanie przemysłowe | Vol: 140 | Comp: 0.77 | CPC: 3.01 | Intent: I:61/C:37 -> /lakierowanie-natryskowe
+  * lakiernie przemysłowe | Vol: 140 | Comp: 0.77 | CPC: 3.01 | Intent: C:81 -> /lakierowanie-natryskowe
+  * regeneracja lamp led | Vol: 140 | Comp: 0.40 | CPC: 0.23 | Intent: T:79 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * galwanizacja plastiku | Vol: 140 | Comp: 0.12 | CPC: 0.63 | Intent: I:80 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * regeneracja soczewek reflektorów | Vol: 110 | Comp: 1.00 | CPC: 0.23 | Intent: T:87 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * lakierowanie tworzyw sztucznych | Vol: 110 | Comp: 0.14 | CPC: 0.00 | Intent: I:85 -> /lakierowanie-tworzyw-sztucznych
+  * metalizacja tworzyw sztucznych | Vol: 90 | Comp: 0.27 | CPC: 1.37 | Intent: I:99 -> /metalizacja-tworzyw-sztucznych
+  * regeneracja odbłyśników cena | Vol: 90 | Comp: 0.49 | CPC: 0.27 | Intent: C:94 -> /cennik-regeneracji-reflektorow
+  * regeneracja lamp samochodowych cena | Vol: 90 | Comp: 0.35 | CPC: 0.47 | Intent: C:96 -> /cennik-regeneracji-reflektorow
+  * regeneracja soczewek reflektorów cena | Vol: 90 | Comp: 0.48 | CPC: 0.31 | Intent: C:88 -> /cennik-regeneracji-reflektorow
+  * regeneracja lamp ksenonowych | Vol: 90 | Comp: 0.52 | CPC: 0.39 | Intent: T:72 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * regeneracja xenonów | Vol: 90 | Comp: 0.44 | CPC: 0.23 | Intent: I:75 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * regeneracja lamp ledowych samochodowych | Vol: 90 | Comp: 0.49 | CPC: 0.31 | Intent: C:41/I:31 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * wypalony odbłyśnik | Vol: 70 | Comp: 0.11 | CPC: 0.00 | Intent: I:71 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * lakierowanie natryskowe | Vol: 70 | Comp: 0.14 | CPC: 0.00 | Intent: T:60 -> /lakierowanie-natryskowe
+  * napylanie aluminium | Vol: 70 | Comp: 0.10 | CPC: 2.19 | Intent: T:98 -> /metalizacja-prozniowa
+  * chromowanie natryskowe cena | Vol: 70 | Comp: 0.37 | CPC: 0.23 | Intent: C:98 -> /porownanie/metalizacja-prozniowa-vs-chromowanie-natryskowe
+  * metalizacja próżniowa dariusz staniak | Vol: 70 | Comp: 0.06 | CPC: 0.00 | Intent: T:43/C:30 -> /
+  * regeneracja reflektorów led | Vol: 50 | Comp: 0.35 | CPC: 0.23 | Intent: T:79 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * ile kosztuje regeneracja reflektorów | Vol: 50 | Comp: 0.27 | CPC: 0.20 | Intent: C:53/I:47 -> /cennik-regeneracji-reflektorow
+  * lakierowanie szkła | Vol: 50 | Comp: 0.10 | CPC: 0.00 | Intent: I:69 -> /lakierowanie-szkla-i-ceramiki
+  * malowanie proszkowe chrom | Vol: 50 | Comp: 0.70 | CPC: 0.00 | Intent: T:74 -> /porownanie/metalizacja-prozniowa-vs-malowanie-proszkowe
+  * powłoki pvd usługi | Vol: 50 | Comp: 0.16 | CPC: 0.00 | Intent: C:58/I:37 -> /metalizacja-prozniowa
+  * lakierowanie abs | Vol: 50 | Comp: 0.00 | CPC: 0.00 | Intent: T:88 -> /rozwiazania/powlekanie-tworzywa-abs
+  * chromowanie tworzyw sztucznych | Vol: 40 | Comp: 0.29 | CPC: 0.00 | Intent: I:62 -> /metalizacja-tworzyw-sztucznych
+  * metalizacja próżniowa tworzyw sztucznych | Vol: 40 | Comp: 0.00 | CPC: 0.00 | Intent: I:98 -> /metalizacja-tworzyw-sztucznych
+  * galwanizacja tworzyw sztucznych | Vol: 40 | Comp: 0.00 | CPC: 0.00 | Intent: I:95 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * regeneracja reflektorów otwock | Vol: 40 | Comp: 0.26 | CPC: 0.59 | Intent: I:50/C:42 -> /regeneracja-reflektorow/warszawa-jozefow
+  * regeneracja soczewki reflektora | Vol: 40 | Comp: 0.95 | CPC: 0.00 | Intent: T:97 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * galwanizacja tworzyw | Vol: 30 | Comp: 0.00 | CPC: 0.00 | Intent: I:95 -> /porownanie/metalizacja-prozniowa-vs-galwanizacja
+  * metalizacja opakowań kosmetycznych | Vol: 30 | Comp: 0.00 | CPC: 0.00 | Intent: I:68 -> /rozwiazania/metalizacja-opakowan-kosmetycznych
+  * chromowanie plastiku cena | Vol: 30 | Comp: 0.05 | CPC: 0.00 | Intent: C:85 -> /metalizacja-tworzyw-sztucznych
+  * regeneracja soczewek | Vol: 20 | Comp: 0.74 | CPC: 0.51 | Intent: I:48/T:40 -> /rozwiazania/regeneracja-soczewek-bi-xenon-i-lamp-led
+  * metalizacja próżniowa warszawa | Vol: 20 | Comp: 0.20 | CPC: 0.00 | Intent: T:42/I:29 -> /regeneracja-reflektorow/warszawa-jozefow
+  * hydrografika chrom | Vol: 20 | Comp: 0.49 | CPC: 0.00 | Intent: N:55/I:37 -> /porownanie/metalizacja-prozniowa-vs-hydrografika
+  * metalizacja abs | Vol: 20 | Comp: 0.00 | CPC: 0.00 | Intent: T:80 -> /rozwiazania/powlekanie-tworzywa-abs
+  * regeneracja reflektorów piaseczno | Vol: 20 | Comp: 0.54 | CPC: 0.00 | Intent: I:49/C:36 -> /regeneracja-reflektorow/warszawa-jozefow
+  * powłoki pvd cena | Vol: 20 | Comp: 0.13 | CPC: 0.00 | Intent: C:83 -> /metalizacja-prozniowa
+  * napylanie próżniowe | Vol: 10 | Comp: 0.17 | CPC: 0.00 | Intent: T:83 -> /metalizacja-prozniowa
+  * metalizacja opakowań | Vol: 10 | Comp: 0.00 | CPC: 0.00 | Intent: I:52/C:35 -> /rozwiazania/metalizacja-opakowan-kosmetycznych
+  * metalizacja szkła | Vol: 10 | Comp: 0.07 | CPC: 0.00 | Intent: I:96 -> /rozwiazania/lakierowanie-i-metalizacja-szkla
+  * wydruki 3d metalizacja | Vol: B2B | Comp: 0.00 | CPC: 0.00 | Intent: T:56 -> /rozwiazania/metalizacja-wydrukow-3d-sls-sla
+  * powłoki esd | Vol: B2B | Comp: 0.00 | CPC: 0.00 | Intent: I:60 -> /rozwiazania/powloki-ekranujace-emi-rfi-esd
+
+[B. GOOGLE.DE — RYNEK NIEMIECKI / DACH (DOCELOWE ŚCIEŻKI /de/*)]
+  * scheinwerfer aufbereiten | Vol: 4400 | Comp: 1.00 | CPC: €0.29 | Intent: T:75 -> /de/scheinwerfer-reflektor-aufbereitung
+  * scheinwerfer bedampfen | Vol: 1900 | Comp: 1.00 | CPC: €0.25 | Intent: T:53/I:41 -> /de/loesungen/bi-xenon-linsen-und-led-scheinwerfer-bedampfen
+  * kunststoff lackieren | Vol: 1600 | Comp: 1.00 | CPC: €0.53 | Intent: I:51/T:41 -> /de/kunststofflackierung
+  * kunststoff verchromen | Vol: 390 | Comp: 0.46 | CPC: €1.75 | Intent: I:91 -> /de/kunststoff-verchromen
+  * kunststoffbeschichtung | Vol: 320 | Comp: 0.99 | CPC: €1.93 | Intent: I:97 -> /de/loesungen/abs-kunststoff-beschichtung
+  * reflektor neu verspiegeln | Vol: 70 | Comp: 0.28 | CPC: €0.29 | Intent: T:97 -> /de/scheinwerfer-reflektor-aufbereitung
+  * kunststoff metallisieren | Vol: 40 | Comp: 0.91 | CPC: €1.78 | Intent: I:94 -> /de/vakuummetallisierung
+  * glaslackierung | Vol: 40 | Comp: 0.14 | CPC: €0.26 | Intent: I:94 -> /de/loesungen/glasflakon-lackierung-pvd
+  * scheinwerfer reflektor reparieren | Vol: 30 | Comp: 0.51 | CPC: €0.34 | Intent: T:97 -> /de/scheinwerfer-reflektor-aufbereitung
+  * reflektor neu bedampfen | Vol: 20 | Comp: 0.42 | CPC: €0.37 | Intent: T:70 -> /de/scheinwerfer-reflektor-aufbereitung
+  * scheinwerfer reflektor neu verspiegeln | Vol: 20 | Comp: 0.39 | CPC: €0.22 | Intent: T:100 -> /de/loesungen/bi-xenon-linsen-und-led-scheinwerfer-bedampfen
+  * vakuummetallisierung | Vol: 20 | Comp: 0.13 | CPC: €1.37 | Intent: I:88 -> /de/vakuummetallisierung
+  * pvd beschichtung kunststoff | Vol: 20 | Comp: 0.47 | CPC: €1.11 | Intent: I:78 -> /de/vakuummetallisierung
+  * scheinwerfer neu bedampfen | Vol: 10 | Comp: 1.00 | CPC: €0.00 | Intent: T:93 -> /de/scheinwerfer-reflektor-aufbereitung
+  * industrielackierung kunststoff | Vol: 10 | Comp: 1.00 | CPC: €0.00 | Intent: C:78 -> /de/kunststofflackierung
+
+[C. GOOGLE.COM — RYNEK ANGLOJĘZYCZNY / EU B2B (DOCELOWE ŚCIEŻKI /en/*)]
+  * plastic chrome plating | Vol: 1300 | Comp: 0.21 | CPC: $3.63 | Intent: C:51/I:33 -> /en/plastic-chrome-plating
+  * chrome plating on plastic | Vol: 1000 | Comp: 0.09 | CPC: $0.59 | Intent: I:40/T:37 -> /en/plastic-chrome-plating
+  * vacuum metallizing | Vol: 170 | Comp: 0.19 | CPC: $2.22 | Intent: I:88 -> /en/vacuum-metallisation
+  * vacuum metallization | Vol: 110 | Comp: 0.22 | CPC: $2.06 | Intent: I:83 -> /en/vacuum-metallisation
+  * vacuum metallizing plastic | Vol: 70 | Comp: 0.20 | CPC: $2.26 | Intent: I:67 -> /en/plastic-chrome-plating
+  * headlight reflector restoration | Vol: 40 | Comp: 0.08 | CPC: $0.00 | Intent: T:69 -> /en/headlight-reflector-restoration
+  * pvd coating plastic | Vol: 20 | Comp: 0.11 | CPC: $4.18 | Intent: I:44/T:43 -> /en/solutions/abs-plastic-coating-pvd
+  * pvd coating on plastic | Vol: 20 | Comp: 0.11 | CPC: $4.18 | Intent: I:81 -> /en/solutions/abs-plastic-coating-pvd
+  * headlight reflector resilvering | Vol: 10 | Comp: 0.33 | CPC: $0.00 | Intent: T:78 -> /en/headlight-reflector-restoration
+  * perfume bottle coating | Vol: 10 | Comp: 0.00 | CPC: $0.00 | Intent: I:52/T:30 -> /en/solutions/cosmetic-packaging-vacuum-metallization
+
+[D. ZAPYTANIA Z GOOGLE SEARCH CONSOLE (STRIKING DISTANCE POZ. 4–15 — OSTATNIE 3 MIES.)]
+  * metalizacja próżniowa | Kliknięcia: 18 | Wyśw.: 1218 | CTR: 1.5% | Poz.: 9.5 -> /metalizacja-prozniowa
+  * metalizacja | Kliknięcia: 0 | Wyśw.: 331 | CTR: 0.0% | Poz.: 10.2 -> /metalizacja-prozniowa
+  * metalizacja plastiku | Kliknięcia: 1 | Wyśw.: 310 | CTR: 0.3% | Poz.: 10.1 -> /metalizacja-tworzyw-sztucznych
+  * metalizowanie próżniowe | Kliknięcia: 1 | Wyśw.: 278 | CTR: 0.4% | Poz.: 10.9 -> /metalizacja-prozniowa
+  * metalizacja próżniowa tworzyw sztucznych | Kliknięcia: 0 | Wyśw.: 250 | CTR: 0.0% | Poz.: 11.7 -> /metalizacja-tworzyw-sztucznych
+  * metalizacja tworzyw sztucznych | Kliknięcia: 0 | Wyśw.: 195 | CTR: 0.0% | Poz.: 13.4 -> /metalizacja-tworzyw-sztucznych
+  * staniax | Kliknięcia: 55 | Wyśw.: 183 | CTR: 30.1% | Poz.: 1.6 -> /
+  * metalizacja próżniowa dariusz staniak | Kliknięcia: 4 | Wyśw.: 127 | CTR: 3.1% | Poz.: 4.4 -> /
+  * metalizacja natryskowa | Kliknięcia: 1 | Wyśw.: 120 | CTR: 0.8% | Poz.: 6.7 -> /porownanie/metalizacja-prozniowa-vs-chromowanie-natryskowe
+  * metalizacja aluminium | Kliknięcia: 0 | Wyśw.: 103 | CTR: 0.0% | Poz.: 7.6 -> /metalizacja-prozniowa
+  * metalizacja metodą próżniową | Kliknięcia: 0 | Wyśw.: 93 | CTR: 0.0% | Poz.: 13.0 -> /metalizacja-prozniowa
+  * metalizacja opakowań kosmetycznych | Kliknięcia: 0 | Wyśw.: 91 | CTR: 0.0% | Poz.: 8.7 -> /rozwiazania/metalizacja-opakowan-kosmetycznych
+  * metalizowanie plastiku | Kliknięcia: 2 | Wyśw.: 71 | CTR: 2.8% | Poz.: 11.9 -> /metalizacja-tworzyw-sztucznych
+  * regeneracja odbłyśników | Kliknięcia: 1 | Wyśw.: 70 | CTR: 1.4% | Poz.: 12.4 -> /regeneracja-reflektorow
+  * metalizacja odbłyśników | Kliknięcia: 2 | Wyśw.: 60 | CTR: 3.3% | Poz.: 6.3 -> /regeneracja-reflektorow
+  * metalizacja próżniowa józefów | Kliknięcia: 4 | Wyśw.: 49 | CTR: 8.2% | Poz.: 1.6 -> /regeneracja-reflektorow/warszawa-jozefow
+  * chromowanie plastiku warszawa | Kliknięcia: 3 | Wyśw.: 30 | CTR: 10.0% | Poz.: 8.6 -> /metalizacja-tworzyw-sztucznych
+  * metalizacja próżniowa warszawa | Kliknięcia: 1 | Wyśw.: 25 | CTR: 4.0% | Poz.: 2.8 -> /regeneracja-reflektorow/warszawa-jozefow

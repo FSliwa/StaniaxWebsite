@@ -1,483 +1,165 @@
-import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { Button, buttonVariants } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ArrowLeft, ArrowRight, Clock, List, X } from '@phosphor-icons/react'
-import { cn } from '@/lib/utils'
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, Clock } from "@phosphor-icons/react";
+import { cn } from "@/lib/utils";
+import { SiteHeader } from '@/components/SiteHeader'
 import { BigFooter } from '@/components/BigFooter'
-import { t, type Lang } from '@/lib/translations'
-import vacuumMetalizationChamber from '@/assets/vacuum_metalization_chamber.jpg'
-import newsAviationImage from '@/assets/news_aviation.jpg'
-import colorfulPackagingImage from '@/assets/colorful_packaging.png'
-import newReflectorsImage from '@/assets/odblysniki-nowe-1.jpeg'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { type Lang } from '@/lib/translations'
+import { applySeoHead } from "@/lib/seo";
+import { SERVICE_SLUGS, resolveLanguageAlternates } from "@/data/services";
+import {
+  NEWS_ITEMS_BY_LANG,
+  NEWS_PAGE_CONTENT,
+  type NewsImageKey,
+} from "@/data/news";
+import { NEWS_IMAGES } from '@/lib/newsImages'
 
-export const newsItemsPl = [
-  {
-    title: 'Nowoczesna metalizacja próżniowa i regeneracja odbłyśników w Józefowie',
-    date: '25 maja 2026',
-    category: 'Inwestycje',
-    excerpt: 'W warszawskim centrum STANIAX uruchomiona została nowoczesna linia technologiczna. Naszą specjalnością jest precyzyjna metalizacja próżniowa oraz metalizacja natryskowa elementów z tworzyw i metali. W ofercie firmy, którą prowadzi Dariusz Staniak (metalizacja próżniowa Dariusz Staniak), znajduje się m.in. profesjonalna metalizacja odbłyśnika oraz metalizacja odbłyśników samochodowych. Wdrażamy także zaawansowane usługi takie jak metalizacja plastiku i ogólne metalizowanie próżniowe. Nowy punkt usługowy – metalizacja próżniowa Józefów – gwarantuje najwyższą jakość powłok lustrzanych i znacznie krótszy czas realizacji zamówień.',
-    image: vacuumMetalizationChamber,
-    path: '#'
-  },
-  {
-    title: 'Regeneracja odbłyśników i reflektorów samochodowych – poradnik kierowcy',
-    date: '10 czerwca 2026',
-    category: 'Artykuł',
-    excerpt: 'Regeneracja odbłyśników metodą PVD i polerowanie reflektorów. Ceny od 150 zł, trwałość do 5 lat. Sprawdź, kiedy regenerować, a kiedy wymienić.',
-    image: newReflectorsImage,
-    path: '/news/regeneracja-odblysnikow-reflektorow-samochodowych'
-  },
-  {
-    title: 'Jak metalizacja wpływa na wydajność materiałów? Odkryj jej tajniki!',
-    date: '20 sierpnia 2025',
-    category: 'Artykuł',
-    excerpt: 'Odkryj, jak zaawansowana metalizacja próżniowa i powłoki ochronne PVD zwiększają wydajność materiałów w branży lotniczej. Poznaj szczegóły strategicznego partnerstwa!',
-    image: newsAviationImage,
-    path: '/news/partnerstwo-z-wiodacym-producentem-lotniczym'
-  },
-  {
-    title: 'Metalizacja próżniowa rewolucjonizuje branżę beauty',
-    date: '20 sierpnia 2025',
-    category: 'Artykuł',
-    excerpt: 'Branża kosmetyczna przechodzi prawdziwą rewolucję opakowaniową. Poznaj zalety metalizacji próżniowej i lakierowania tworzyw w segmencie beauty.',
-    image: colorfulPackagingImage,
-    path: '/news/metalizacja-prozniowa-rewolucjonizuje-branze-beauty'
-  },
-  {
-    title: 'Szkolenia dla Zespołu Inżynieryjnego',
-    date: '18 maja 2025',
-    category: 'Rozwój',
-    excerpt: 'Nasz zespół ukończył zaawansowane szkolenia z zakresu nowych technologii powłokowych i kontroli jakości, zwiększając kompetencje techniczne firmy.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
-  }
-]
+const mapNewsItems = (lang: "pl" | "en" | "de") =>
+  NEWS_ITEMS_BY_LANG[lang].map((item) => ({
+    ...item,
+    image:
+      item.imageKey === "externalUnsplash"
+        ? item.externalImageUrl!
+        : NEWS_IMAGES[item.imageKey],
+  }));
 
-export const newsItemsEn = [
-  {
-    title: 'Modern Vacuum Metallization and Reflector Regeneration in Józefów',
-    date: 'May 25, 2026',
-    category: 'Investments',
-    excerpt: 'A modern technological line has been launched at the Warsaw center of STANIAX. Our specialty is precise vacuum metallization and spray coating of plastic and metal parts. The company\'s offer, run by Dariusz Staniak (vacuum metallization Dariusz Staniak), includes professional reflector metallization and automotive reflector metallization. We also implement advanced services such as plastic metallization and general vacuum metallization. The new service point — vacuum metallization Józefów — guarantees the highest quality of mirror coatings and significantly shorter order execution times.',
-    image: vacuumMetalizationChamber,
-    path: '#'
-  },
-  {
-    title: 'Regeneration of Reflectors and Car Headlights – Driver\'s Guide',
-    date: 'June 10, 2026',
-    category: 'Article',
-    excerpt: 'Reflector regeneration using the PVD method and headlight polishing. Prices from 150 PLN, durability up to 5 years. Check when to restore and when to replace.',
-    image: newReflectorsImage,
-    path: '/en/news/reflector-regeneration-and-headlight-polishing'
-  },
-  {
-    title: 'How Metallization Affects Material Performance? Discover Its Secrets!',
-    date: 'August 20, 2025',
-    category: 'Article',
-    excerpt: 'Discover how advanced vacuum metallization and PVD protective coatings increase material performance in the aerospace industry. Find out the details of our strategic partnership!',
-    image: newsAviationImage,
-    path: '/news/how-does-metallization-affect-material-performance'
-  },
-  {
-    title: 'Vacuum Metallization Revolutionizes the Beauty Industry',
-    date: 'August 20, 2025',
-    category: 'Article',
-    excerpt: 'The cosmetics packaging market is undergoing a real revolution. Discover the benefits of vacuum metallization and plastic painting in the beauty segment.',
-    image: colorfulPackagingImage,
-    path: '/news/vacuum-metallization-revolutionizes-beauty-industry'
-  },
-  {
-    title: 'Expansion of the Quality Control Department',
-    date: 'March 15, 2025',
-    category: 'Quality',
-    excerpt: 'Investment in state-of-the-art measuring equipment and expansion of the research engineering team to ensure 100% repeatability of parameters.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
-  },
-  {
-    title: 'Training for the Engineering Team',
-    date: 'May 18, 2025',
-    category: 'Development',
-    excerpt: 'Our team completed advanced training in new coating technologies and quality control, increasing the company\'s technical competencies.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
-  }
-]
+export const newsItemsPl = mapNewsItems("pl");
+export const newsItemsEn = mapNewsItems("en");
+export const newsItemsDe = mapNewsItems("de");
 
-export const newsItemsDe = [
-  {
-    title: 'Moderne Vakuummetallisierung und Reflektorregeneration in Józefów',
-    date: '25. Mai 2026',
-    category: 'Investitionen',
-    excerpt: 'Im Warschauer Zentrum von STANIAX wurde eine moderne technologische Linie in Betrieb genommen. Unsere Spezialität ist die präzise Vakuummetallisierung und Spritzlackierung von Kunststoff- und Metallteilen. Das Angebot des von Dariusz Staniak geleiteten Unternehmens (Vakuummetallisierung Dariusz Staniak) umfasst unter anderem die professionelle Reflektormetallisierung und die Metallisierung von Autoscheinwerfern. Wir führen auch fortschrittliche Dienstleistungen wie die Kunststoffmetallisierung und die allgemeine Vakuummetallisierung durch. Der neue Servicestützpunkt – Vakuummetallisierung Józefów – garantiert höchste Qualität der Spiegelbeschichtungen und deutlich kürzere Lieferzeiten.',
-    image: vacuumMetalizationChamber,
-    path: '#'
-  },
-  {
-    title: 'Regeneration von Scheinwerfern und Reflektoren – Ratgeber für Fahrer',
-    date: '10. Juni 2026',
-    category: 'Artikel',
-    excerpt: 'Regeneration von Reflektoren mittels PVD-Methode und Polieren von Scheinwerfern. Preise ab 150 PLN, Haltbarkeit bis zu 5 Jahre. Wann regenerieren und wann ersetzen.',
-    image: newReflectorsImage,
-    path: '/de/news/scheinwerfer-reflektoren-regeneration-und-polieren'
-  },
-  {
-    title: 'Wie beeinflusst Metallisierung die Materialleistung? Entdecken Sie ihre Geheimnisse!',
-    date: 'August 20, 2025',
-    category: 'Artikel',
-    excerpt: 'Erfahren Sie, wie fortschrittliche Vakuummetallisierung, Kunststofflackierung und PVD-Prozesse die Festigkeit und Ästhetik von Materialien in der Luftfahrt beeinflussen.',
-    image: newsAviationImage,
-    path: '/news/wie-beeinflusst-metallisierung-die-materialleistung'
-  },
-  {
-    title: 'Vakuummetallisierung revolutioniert die Kosmetikbranche',
-    date: 'August 20, 2025',
-    category: 'Artikel',
-    excerpt: 'Erfahren Sie, wie Vakuummetallisierung und präzise Kunststofflackierung die Kosmetikverpackungen im Beauty-Segment revolutionieren.',
-    image: colorfulPackagingImage,
-    path: '/news/vakuummetallisierung-revolutioniert-die-kosmetikbranche'
-  },
-  {
-    title: 'Erweiterung der Qualitätskontrollabteilung',
-    date: '15. März 2025',
-    category: 'Qualität',
-    excerpt: 'Investition in modernste Messgeräte und Erweiterung des Forschungs- und Ingenieurteams zur Gewährleistung einer 100-prozentigen Wiederholbarkeit der Parameter.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
-  },
-  {
-    title: 'Schulung für das Ingenieurteam',
-    date: '18. Mai 2025',
-    category: 'Entwicklung',
-    excerpt: 'Unser Team hat eine fortgeschrittene Schulung in neuen Beschichtungstechnologien und Qualitätskontrolle absolviert, um die technischen Kompetenzen des Unternehmens zu stärken.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop&crop=center',
-    path: '#'
-  }
-]
+const content = NEWS_PAGE_CONTENT;
 
-const content = {
-  pl: {
-    newsTitle: 'Aktualności',
-    newsCenter: 'Centrum wiadomości STANIAX',
-    newsDesc: 'Najświeższe wiadomości o naszych inwestycjach, partnerstwach, wyróżnieniach i innowacjach, które wyznaczają kierunek metalizacji próżniowej w Polsce.',
-    featuredNews: 'Wyróżniona informacja',
-    readMore: 'Czytaj więcej',
-    fullArticle: 'Pełna treść',
-    otherNews: 'Archiwalne wiadomości',
-    moreUpdates: 'Więcej aktualizacji STANIAX',
-    backToTop: 'Powrót na górę',
-    newsletterTitle: 'Newsletter STANIAX',
-    newsletterHeading: 'Zostań pierwszą osobą, która dowie się o naszych projektach',
-    newsletterDesc: 'Dołącz do grona naszych partnerów i otrzymuj informacje o premierach technologicznych, webinarach i raportach z realizacji.',
-    contactTeam: 'Skontaktuj się z zespołem',
-    visitUs: 'Odwiedź naszą siedzibę',
-    backToHome: 'Wróć do strony głównej',
-    latestNews: 'Najnowsze informacje',
-  },
-  en: {
-    newsTitle: 'News',
-    newsCenter: 'STANIAX News Center',
-    newsDesc: 'The latest news about our investments, partnerships, awards, and innovations that set the direction for vacuum metallization.',
-    featuredNews: 'Featured News',
-    readMore: 'Read more',
-    fullArticle: 'Full article',
-    otherNews: 'Archived updates',
-    moreUpdates: 'More STANIAX updates',
-    backToTop: 'Back to top',
-    newsletterTitle: 'STANIAX Newsletter',
-    newsletterHeading: 'Be the first to know about our projects',
-    newsletterDesc: 'Join our partners and receive information about technological launches, webinars, and case studies.',
-    contactTeam: 'Contact the team',
-    visitUs: 'Visit our headquarters',
-    backToHome: 'Back to home page',
-    latestNews: 'Latest updates',
-  },
-  de: {
-    newsTitle: 'Aktuelles',
-    newsCenter: 'STANIAX News-Center',
-    newsDesc: 'Die neuesten Nachrichten über unsere Investitionen, Partnerschaften, Auszeichnungen und Innovationen, die die Richtung der Vakuummetallisierung vorgeben.',
-    featuredNews: 'Hervorgehobene News',
-    readMore: 'Mehr lesen',
-    fullArticle: 'Vollständiger Artikel',
-    otherNews: 'Archivierte Updates',
-    moreUpdates: 'Weitere STANIAX Updates',
-    backToTop: 'Nach oben',
-    newsletterTitle: 'STANIAX Newsletter',
-    newsletterHeading: 'Erfahren Sie als Erster von unseren Projekten',
-    newsletterDesc: 'Schließen Sie sich unseren Partnern an und erhalten Sie Informationen über technologische Produkteinführungen, Webinare und Fallstudien.',
-    contactTeam: 'Kontaktieren Sie das Team',
-    visitUs: 'Besuchen Sie unseren Hauptsitz',
-    backToHome: 'Zurück zur Startseite',
-    latestNews: 'Neueste Updates',
-  }
-}
+function NewsPage({ lang = "pl" as Lang }: { lang?: Lang }) {
+  const navigate = useNavigate();
 
-function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
-  const navigate = useNavigate()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const activeLang: Lang = lang === "pl" ? "pl" : lang === "de" ? "de" : "en";
+  const text = content[activeLang];
+  const newsItems =
+    activeLang === "pl"
+      ? newsItemsPl
+      : activeLang === "de"
+        ? newsItemsDe
+        : newsItemsEn;
 
-  const activeLang = lang === 'pl' ? 'pl' : lang === 'de' ? 'de' : 'en'
-  const text = content[activeLang]
-  const newsItems = lang === 'pl' ? newsItemsPl : lang === 'de' ? newsItemsDe : newsItemsEn
+  const featuredArticle = newsItems[0];
+  const secondaryArticles = newsItems.slice(1, 4);
+  const moreArticles = newsItems.slice(4);
 
-  const featuredArticle = newsItems[0]
-  const secondaryArticles = newsItems.slice(1, 4)
-  const moreArticles = newsItems.slice(4)
-
-    const pageTitle = lang === 'pl' 
-      ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX' 
-      : lang === 'de'
-      ? 'Aktuelles zur Vakuumbeschichtung | STANIAX'
-      : 'Knowledge Base & News - Vacuum Metallization | STANIAX'
-    const pageDesc = lang === 'pl'
-      ? 'Aktualności, poradniki i artykuły eksperckie na temat metalizacji próżniowej oraz lakierowania. Baza wiedzy o uszlachetnianiu powierzchni.'
-      : lang === 'de'
-      ? 'Aktuelles, Leitfäden und Expertenartikel über Vakuummetallisierung und Lackierung. Wissensdatenbank zur Oberflächenveredelung.'
-      : 'News, guides, and expert articles about vacuum metallization and lacquering. Knowledge base on surface refinement.'
+    const canonicalPath = activeLang === 'pl' ? '/news' : `/${activeLang}/news`
+  const pageTitle = text.pageTitle
+  const pageDesc = text.pageDesc
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
+    applySeoHead({
+      title: pageTitle,
+      description: pageDesc,
+      path: canonicalPath,
+      lang: activeLang,
+      alternates: resolveLanguageAlternates(canonicalPath),
+      breadcrumbs: [
+        {
+          name:
+            activeLang === "pl"
+              ? "Strona główna"
+              : activeLang === "de"
+                ? "Startseite"
+                : "Home",
+          path: activeLang === "pl" ? "/" : `/${activeLang}`,
+        },
+        {
+          name: text.newsTitle,
+          path: canonicalPath,
+        },
+      ],
+    });
+  }, [activeLang, canonicalPath, pageDesc, pageTitle, text.newsTitle]);
 
-    // Dynamic SEO Metadata updates
-    const originalTitle = document.title
-    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content')
-    const ogTitle = document.querySelector('meta[property="og:title"]')
-    const originalOgTitle = ogTitle?.getAttribute('content')
-    const ogDesc = document.querySelector('meta[property="og:description"]')
-    const originalOgDesc = ogDesc?.getAttribute('content')
-
-    document.title = pageTitle
-
-    const metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) {
-      metaDesc.setAttribute('content', pageDesc)
-    }
-
-    if (ogTitle) {
-      ogTitle.setAttribute('content', pageTitle)
-    }
-
-    if (ogDesc) {
-      ogDesc.setAttribute('content', pageDesc)
-    }
-
-    // Canonical link update
-    let canonical = document.querySelector('link[rel="canonical"]')
-    let createdCanonical = false
-    if (!canonical) {
-      canonical = document.createElement('link')
-      canonical.setAttribute('rel', 'canonical')
-      document.head.appendChild(canonical)
-      createdCanonical = true
-    }
-    const originalCanonical = canonical.getAttribute('href')
-    const canonicalUrl = `https://www.staniax.pl${lang === 'pl' ? '' : '/' + lang}/news`
-    canonical.setAttribute('href', canonicalUrl)
-
-    return () => {
-      document.title = originalTitle
-      if (metaDesc && originalDescription) {
-        metaDesc.setAttribute('content', originalDescription)
-      }
-      if (ogTitle && originalOgTitle) {
-        ogTitle.setAttribute('content', originalOgTitle)
-      }
-      if (ogDesc && originalOgDesc) {
-        ogDesc.setAttribute('content', originalOgDesc)
-      }
-      if (canonical) {
-        if (originalCanonical) {
-          canonical.setAttribute('href', originalCanonical)
-        } else if (createdCanonical) {
-          document.head.removeChild(canonical)
-        }
-      }
-    }
-  }, [lang])
-
-  const homePath = lang === 'pl' ? '/' : `/${lang}`
+  const homePath = activeLang === "pl" ? "/" : `/${activeLang}`;
 
   const getArticlePath = (basePath: string) => {
-    if (basePath === '#') return '#'
-    if (lang === 'pl') return basePath
-    return `/${lang}${basePath}`
-  }
+    if (!basePath || basePath === "#") return canonicalPath;
+    if (activeLang === "pl") return basePath;
+    if (basePath.startsWith(`/${activeLang}/`)) return basePath;
+    return `/${activeLang}${basePath}`;
+  };
 
-  // Slugi musza pokrywac sie z trasami w App.tsx.
-  const libraryPath = lang === 'pl' ? '/news/biblioteka' : lang === 'de' ? '/de/news/bibliothek' : '/en/news/library'
+  const libraryPath =
+    activeLang === "pl"
+      ? "/news/biblioteka"
+      : activeLang === "de"
+        ? "/de/news/bibliothek"
+        : "/en/news/library";
 
-  const languageLinks = [
-    { flag: "🇵🇱", lang: "pl" as const, path: "/news", label: "Polski" },
-    { flag: "🇬🇧", lang: "en" as const, path: "/en/news", label: "English" },
-    { flag: "🇩🇪", lang: "de" as const, path: "/de/news", label: "Deutsch" },
-  ]
-  
   const scrollToContact = () => {
-    navigate(homePath)
-    setTimeout(() => {
-      const contactSection = document.getElementById('contact')
-      if (contactSection) {
-        const lenis = (window as any).lenis
-        if (lenis) {
-          lenis.scrollTo(contactSection, {
-            offset: -80,
-            duration: 1.5,
-            easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-          })
-        } else {
-          contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      }
-    }, 100)
-  }
+    navigate(`${homePath}#contact`);
+  };
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur">
-        <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
-          <Link to={homePath} className="group flex items-center gap-3 text-left" aria-label={text.backToHome}>
-            <div className="leading-tight">
-              <span className="block text-xs uppercase tracking-[0.5em] text-muted-foreground group-hover:text-foreground transition-colors duration-200">
-                STANIAX
-              </span>
-              <span className="block text-lg font-black">
-                {text.newsTitle}
-              </span>
-            </div>
-          </Link>
-          <div className="flex items-center gap-3 sm:gap-6">
-            <nav className="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-medium">
-              <Link to={lang === 'pl' ? '/#kim-jestesmy' : `/${lang}#kim-jestesmy`} className="text-muted-foreground hover:text-accent transition-colors">
-                {t(lang, 'oStaniax')}
-              </Link>
-              <Link to={lang === 'pl' ? '/#about' : `/${lang}#about`} className="text-muted-foreground hover:text-accent transition-colors">
-                {t(lang, 'oferta')}
-              </Link>
-              <Link to={lang === 'pl' ? '/#projects' : `/${lang}#projects`} className="text-muted-foreground hover:text-accent transition-colors">
-                {t(lang, 'realizacje')}
-              </Link>
-              <Link to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`} className="text-muted-foreground hover:text-accent transition-colors">
-                {t(lang, 'galeria')}
-              </Link>
-              <Link to={lang === 'pl' ? '/#contact' : `/${lang}#contact`} className="text-muted-foreground hover:text-accent transition-colors">
-                {t(lang, 'kontakt')}
-              </Link>
-            </nav>
-            <div className="flex items-center gap-2">
-              {languageLinks.map((l) => (
-                <Link
-                  key={l.lang}
-                  to={l.path}
-                  aria-label={l.label}
-                  className={cn(
-                    'text-lg sm:text-xl rounded-full transition-all duration-300 hover:scale-125 cursor-pointer select-none inline-block relative',
-                    lang === l.lang ? 'opacity-100 scale-110' : 'opacity-50 hover:opacity-90'
-                  )}
-                >
-                  {l.flag}
-                </Link>
-              ))}
-            </div>
-            <Button
-              className="font-semibold text-xs sm:text-sm px-3 sm:px-4"
-              onClick={scrollToContact}
-            >
-              {t(lang, 'kontakt')}
-              <ArrowRight className="ml-1 sm:ml-2 h-4 w-4" />
-            </Button>
-            {/* Mobile hamburger */}
-            <button
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-muted transition-colors"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <List className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
+      <SiteHeader lang={activeLang} />
 
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-6 py-6 space-y-4">
-            <nav className="flex flex-col gap-4 text-sm font-medium">
-              <Link to={lang === 'pl' ? '/#kim-jestesmy' : `/${lang}#kim-jestesmy`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                {t(lang, 'oStaniax')}
-              </Link>
-              <Link to={lang === 'pl' ? '/#about' : `/${lang}#about`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                {t(lang, 'oferta')}
-              </Link>
-              <Link to={lang === 'pl' ? '/#projects' : `/${lang}#projects`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                {t(lang, 'realizacje')}
-              </Link>
-              <Link to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                {t(lang, 'galeria')}
-              </Link>
-              <Link to={lang === 'pl' ? '/#contact' : `/${lang}#contact`} className="text-muted-foreground hover:text-accent transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                {t(lang, 'kontakt')}
-              </Link>
-            </nav>
-            <div className="flex flex-col gap-3 pt-2 border-t border-border/40">
-              <Link
-                to={homePath}
-                className={cn(buttonVariants({ variant: 'outline' }), 'font-semibold w-full justify-center')}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                {text.backToHome}
-              </Link>
-              <Button
-                className="font-semibold w-full"
-                onClick={() => { setMobileMenuOpen(false); scrollToContact(); }}
-              >
-                {t(lang, 'kontakt')}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        )}
-      </header>
-
-      <main className="pt-28">
+      <main className="pt-20">
+        <Breadcrumbs
+          items={[
+            {
+              name: activeLang === 'pl' ? 'Strona główna' : activeLang === 'de' ? 'Startseite' : 'Home',
+              path: homePath,
+            },
+            { name: text.newsTitle },
+          ]}
+        />
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-background/95 to-background" aria-hidden />
-          <div className="container mx-auto px-6 lg:px-12 py-16 lg:py-24">
+          <div
+            className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-background/95 to-background"
+            aria-hidden
+          />
+          <div className="container mx-auto px-6 lg:px-12 py-12 lg:py-20">
             <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-start">
               <div className="space-y-6">
                 <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-accent">
                   {text.latestNews}
                 </span>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
-                  {lang === 'pl' ? 'Baza Wiedzy i Aktualności - Metalizacja Próżniowa' : 
-                   lang === 'de' ? 'Aktuelles zur Vakuumbeschichtung' : 
-                   'Knowledge Base & News - Vacuum Metallization'}
+                  {activeLang === "pl"
+                    ? "Baza Wiedzy i Poradniki Techniczne - Metalizacja Próżniowa i Lakierowanie"
+                    : activeLang === "de"
+                      ? "Wissensdatenbank & Technische Ratgeber - Vakuummetallisierung & Lackierung"
+                      : "Knowledge Base & Technical Guides - Vacuum Metallization & Coating"}
                 </h1>
                 <p className="text-lg text-muted-foreground font-medium max-w-xl">
-                  <strong>{pageTitle.split('|')[0].trim()}</strong> - {text.newsDesc}
+                  {text.newsDesc}
                 </p>
-                {/* Wejscie do pelnej biblioteki artykulow - osobna podstrona.
-                    Wczesniej przycisk tylko przewijal do sekcji ponizej. */}
                 <Link
                   to={libraryPath}
-                  className={cn(buttonVariants({ size: 'lg' }), 'font-semibold w-fit')}
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "font-semibold w-fit",
+                  )}
                 >
-                  {lang === 'pl' ? 'Przeglądaj bibliotekę artykułów' :
-                   lang === 'de' ? 'Artikelbibliothek durchsuchen' :
-                   'Browse the article library'}
+                  {activeLang === "pl"
+                    ? "Przeglądaj pełne archiwum artykułów"
+                    : activeLang === "de"
+                      ? "Vollständiges Artikelarchiv durchsuchen"
+                      : "Browse full article archive"}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </div>
               <Card className="border border-border/60 bg-card/80 backdrop-blur-xl">
                 <CardHeader className="space-y-3">
-                  <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">{text.featuredNews}</p>
+                  <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
+                    {text.featuredNews}
+                  </p>
                   <CardTitle className="text-2xl font-black leading-tight">
-                    {featuredArticle.path && featuredArticle.path !== '#' ? (
-                      <Link to={getArticlePath(featuredArticle.path)} className="hover:text-accent transition-colors">
-                        {featuredArticle.title}
-                      </Link>
-                    ) : (
-                      featuredArticle.title
-                    )}
+                    <Link
+                      to={getArticlePath(featuredArticle.path)}
+                      className="hover:text-accent transition-colors"
+                    >
+                      {featuredArticle.title}
+                    </Link>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -488,20 +170,13 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                   <div className="text-sm text-muted-foreground/90">
                     {featuredArticle.excerpt}
                   </div>
-                  {featuredArticle.path && featuredArticle.path !== '#' ? (
-                    <Link 
-                      to={getArticlePath(featuredArticle.path)} 
-                      className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
-                    >
-                      {text.readMore}
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  ) : (
-                    <Button variant="link" className="px-0 text-accent font-semibold">
-                      {text.readMore}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  )}
+                                    <Link
+                    to={getArticlePath(featuredArticle.path)}
+                    className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
+                  >
+                    {featuredArticle.ctaLabel}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </CardContent>
               </Card>
             </div>
@@ -512,55 +187,60 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="grid gap-12 lg:grid-cols-[1.3fr_0.9fr]">
               <Card className="overflow-hidden border-0 shadow-2xl h-full flex flex-col">
-                <div className="relative aspect-[16/10] lg:aspect-auto lg:h-full lg:flex-1 min-h-[480px] lg:min-h-0 flex flex-col justify-end p-8">
+                <div className="relative aspect-[16/10] lg:aspect-auto lg:h-full lg:flex-1 min-h-[440px] lg:min-h-0 flex flex-col justify-end p-8">
                   <img
                     src={featuredArticle.image}
                     alt={featuredArticle.title}
+                    width={1200}
+                    height={750}
                     className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent" aria-hidden />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent"
+                    aria-hidden
+                  />
                   <div className="relative z-10 space-y-4 text-white">
                     <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em]">
                       {featuredArticle.category}
                     </div>
                     <h2 className="text-3xl md:text-4xl font-black leading-tight max-w-2xl">
-                      {featuredArticle.path && featuredArticle.path !== '#' ? (
-                        <Link to={getArticlePath(featuredArticle.path)} className="hover:text-accent/80 transition-colors">
-                          {featuredArticle.title}
-                        </Link>
-                      ) : (
-                        featuredArticle.title
-                      )}
+                      <Link
+                        to={getArticlePath(featuredArticle.path)}
+                        className="hover:text-accent/80 transition-colors"
+                      >
+                        {featuredArticle.title}
+                      </Link>
                     </h2>
                     <p className="text-sm text-white/80 max-w-2xl">
                       {featuredArticle.excerpt}
                     </p>
-                    {featuredArticle.path && featuredArticle.path !== '#' ? (
-                      <Link 
-                        to={getArticlePath(featuredArticle.path)} 
-                        className={cn(buttonVariants(), "bg-white text-slate-950 hover:bg-white/90 w-fit font-semibold")}
-                      >
-                        {text.fullArticle}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    ) : (
-                      <Button className="bg-white text-slate-950 hover:bg-white/90 w-fit">
-                        {text.fullArticle}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    )}
+                    <Link
+                      to={getArticlePath(featuredArticle.path)}
+                      className={cn(
+                        buttonVariants(),
+                        "bg-white text-slate-950 hover:bg-white/90 w-fit font-semibold",
+                      )}
+                    >
+                      {text.fullArticle}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                   </div>
                 </div>
               </Card>
 
               <div className="space-y-6">
                 {secondaryArticles.map((article) => (
-                  <Card key={article.title} className="group border border-border/60 bg-card/80 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-accent/40">
+                  <Card
+                    key={article.title}
+                    className="group border border-border/60 bg-card/80 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
+                  >
                     <CardContent className="flex gap-6 p-6">
-                      <div className="relative h-24 w-24 overflow-hidden rounded-xl">
+                                            <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl">
                         <img
                           src={article.image}
                           alt={article.title}
+                          width={96}
+                          height={96}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                           loading="lazy"
                         />
@@ -575,29 +255,16 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                           </span>
                         </div>
                         <h3 className="text-lg font-semibold leading-tight text-foreground group-hover:text-accent">
-                          {article.path && article.path !== '#' ? (
-                            <Link to={getArticlePath(article.path)}>{article.title}</Link>
-                          ) : (
-                            article.title
-                          )}
+                          <Link to={getArticlePath(article.path)}>{article.title}</Link>
                         </h3>
-                        <p className="text-sm text-muted-foreground line-clamp-2">
-                          {article.excerpt}
-                        </p>
-                        {article.path && article.path !== '#' ? (
-                          <Link 
-                            to={getArticlePath(article.path)} 
-                            className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
-                          >
-                            {text.readMore}
-                            <ArrowRight className="h-4 w-4" />
-                          </Link>
-                        ) : (
-                          <Button variant="link" className="px-0 h-auto text-accent font-semibold">
-                            {text.readMore}
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                          </Button>
-                        )}
+                        <p className="text-sm text-muted-foreground line-clamp-2">{article.excerpt}</p>
+                        <Link
+                          to={getArticlePath(article.path)}
+                          className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
+                        >
+                          {article.ctaLabel}
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
                       </div>
                     </CardContent>
                   </Card>
@@ -614,7 +281,11 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                 <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">{text.otherNews}</p>
                 <h2 className="text-3xl lg:text-4xl font-black">{text.moreUpdates}</h2>
               </div>
-              <Button variant="outline" className="font-semibold" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <Button
+                variant="outline"
+                className="font-semibold"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
                 {text.backToTop}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -626,6 +297,8 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                     <img
                       src={article.image}
                       alt={article.title}
+                      width={800}
+                      height={600}
                       className="h-full w-full object-cover"
                       loading="lazy"
                     />
@@ -642,36 +315,48 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                       </span>
                     </div>
                     <CardTitle className="text-xl font-bold leading-tight">
-                      {article.path && article.path !== '#' ? (
-                        <Link to={getArticlePath(article.path)} className="hover:text-accent transition-colors">
-                          {article.title}
-                        </Link>
-                      ) : (
-                        article.title
-                      )}
+                      <Link to={getArticlePath(article.path)} className="hover:text-accent transition-colors">
+                        {article.title}
+                      </Link>
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {article.excerpt}
-                    </p>
-                    {article.path && article.path !== '#' ? (
-                      <Link 
-                        to={getArticlePath(article.path)} 
-                        className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
-                      >
-                        {text.readMore}
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    ) : (
-                      <Button variant="link" className="px-0 h-auto text-accent font-semibold">
-                        {text.readMore}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    )}
+                    <p className="text-muted-foreground text-sm leading-relaxed">{article.excerpt}</p>
+                    <Link
+                      to={getArticlePath(article.path)}
+                      className="inline-flex items-center gap-2 text-sm text-accent hover:underline font-semibold"
+                    >
+                      {article.ctaLabel}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-16">
+          <div className="container mx-auto px-6 lg:px-12">
+            <div className="rounded-3xl border border-border/60 bg-card p-8 lg:p-12 space-y-6">
+              <div className="space-y-3 max-w-4xl">
+                <h2 className="text-2xl lg:text-3xl font-black text-foreground">{text.editorialGuide.title}</h2>
+                <p className="text-muted-foreground leading-relaxed">{text.editorialGuide.intro}</p>
+              </div>
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-foreground">{text.editorialGuide.standardsTitle}</h3>
+                <div className="grid gap-5 md:grid-cols-3">
+                  {text.editorialGuide.standards.map((std) => (
+                    <div key={std.label} className="rounded-2xl border border-border/50 bg-background/60 p-5 space-y-2">
+                      <h4 className="font-bold text-sm text-foreground">{std.label}</h4>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{std.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed border-t border-border/40 pt-4">
+                {text.editorialGuide.closing}
+              </p>
             </div>
           </div>
         </section>
@@ -680,8 +365,12 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
           <div className="container mx-auto px-6 lg:px-12">
             <div className="rounded-[40px] border border-border/50 bg-muted/30 p-10 lg:p-14 flex flex-col xl:flex-row gap-10 items-start xl:items-center justify-between">
               <div className="space-y-5 max-w-2xl">
-                <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">{text.newsletterTitle}</p>
-                <h2 className="text-3xl lg:text-4xl font-black">{text.newsletterHeading}</h2>
+                <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
+                  {text.newsletterTitle}
+                </p>
+                <h2 className="text-3xl lg:text-4xl font-black">
+                  {text.newsletterHeading}
+                </h2>
                 <p className="text-muted-foreground font-medium">
                   {text.newsletterDesc}
                 </p>
@@ -695,53 +384,116 @@ function NewsPage({ lang = 'pl' as Lang }: { lang?: Lang }) {
                   {text.contactTeam}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="font-semibold"
-                  onClick={() => {
-                    window.open('https://maps.google.com/?q=Grzybowska+5A,+00-132+Warszawa', '_blank', 'noopener,noreferrer')
-                  }}
+                <a
+                  href="https://maps.google.com/?q=Metalizacja+Pr%C3%B3%C5%BCniowa+Staniax+Sp.z+o.o.,+Kardyna%C5%82a+Stefana+Wyszy%C5%84skiego+116a,+05-420+J%C3%B3zef%C3%B3w"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                    "font-semibold",
+                  )}
                 >
                   {text.visitUs}
-                </Button>
+                </a>
               </div>
             </div>
           </div>
         </section>
-        {/* SEO Bottom Section for Text/Paragraphs rules */}
+
+        {/* Contextual Hub Links to all 6 Service Pages */}
         <section className="bg-background py-12 border-t border-border/40">
           <div className="container mx-auto px-6 lg:px-12 text-sm text-muted-foreground space-y-4 max-w-4xl">
-            <h3 className="text-lg font-semibold text-foreground">
-              {lang === 'pl' ? 'Oficjalne Centrum Wiedzy - STANIAX' : 
-               lang === 'de' ? 'Offizielles STANIAX News-Center' : 
-               'Official STANIAX Knowledge Base'}
-            </h3>
+            <h2 className="text-lg font-semibold text-foreground">
+              {activeLang === "pl"
+                ? "Powiązane usługi technologiczne STANIAX w Józefowie"
+                : activeLang === "de"
+                  ? "Verbundene technologische Dienstleistungen von STANIAX in Józefów"
+                  : "Related STANIAX Technological Services in Józefów"}
+            </h2>
             <p>
-              {lang === 'pl' ? 'Witaj w naszej oficjalnej stronie: Baza Wiedzy i Aktualności - Metalizacja Próżniowa | STANIAX. Znajdziesz tutaj najnowsze informacje, aktualności z życia firmy oraz eksperckie artykuły z dziedziny zaawansowanej obróbki powierzchniowej. Piszemy o takich technologiach jak metalizacja próżniowa, lakierowanie tworzyw, metali i szkła, a także innowacyjne powłoki PVD. Zapoznaj się z naszą pełną ' : 
-               lang === 'de' ? 'Willkommen im Bereich Aktuelles zur Vakuumbeschichtung | STANIAX. Hier finden Sie die neuesten Informationen, Unternehmensnachrichten und Expertenartikel aus dem Bereich der modernen Oberflächenbehandlung. Wir schreiben über Technologien wie Vakuumbeschichtung, Lackierung von Kunststoffen, Metallen und Glas sowie innovative PVD-Beschichtungen. Erfahren Sie mehr über unser ' :
-               'Welcome to the Knowledge Base & News - Vacuum Metallization | STANIAX. Here you will find the latest information, company news, and expert articles in the field of advanced surface treatment. We write about technologies such as vacuum metalizing & PVD deposition, lacquering of plastics, metals, and glass, as well as innovative PVD coatings. Explore our complete '}
-               <Link to={lang === 'pl' ? '/' : `/${lang}`} className="text-accent hover:underline font-medium">{lang === 'pl' ? 'Ofertą (Strona Główna)' : lang === 'de' ? 'Angebot (Startseite)' : 'Offer (Home Page)'}</Link>
-               {lang === 'pl' ? '. Nasze wpisy mają na celu edukować naszych klientów i partnerów biznesowych w zakresie optymalizacji procesów produkcyjnych i wykorzystania nowoczesnych metod uszlachetniania produktów w różnych branżach przemysłowych.' : 
-                lang === 'de' ? '. Unsere Beiträge zielen darauf ab, unsere Kunden und Geschäftspartner über die Optimierung von Produktionsprozessen und den Einsatz moderner Methoden zur Produktveredelung in verschiedenen Industriezweigen aufzuklären.' :
-                '. Our posts aim to educate our clients and business partners on optimizing production processes and using modern product refinement methods in various industrial sectors.'}
-            </p>
-            <p>
-              {lang === 'pl' ? 'Dzięki naszym artykułom poznasz tajniki regeneracji odbłyśników, innowacje w opakowaniach dla branży beauty oraz sposoby na zwiększenie trwałości komponentów technicznych. Zobacz także nasze zrealizowane projekty przechodząc do sekcji ' : 
-               lang === 'de' ? 'Durch unsere Artikel erfahren Sie die Geheimnisse der Reflektor-Regeneration, Innovationen bei Verpackungen für die Beauty-Branche und Wege zur Erhöhung der Haltbarkeit von technischen Komponenten. Sehen Sie sich auch unsere abgeschlossenen Projekte an, indem Sie zum Bereich ' :
-               'Through our articles, you will learn the secrets of reflector regeneration, innovations in packaging for the beauty industry, and ways to increase the durability of technical components. View our completed projects by visiting the '}
-               <Link to={lang === 'pl' ? '/gallery' : `/${lang}/gallery`} className="text-accent hover:underline font-medium">{lang === 'pl' ? 'Galerii Realizacji' : lang === 'de' ? 'Galerie' : 'Gallery'}</Link>
-               {lang === 'pl' ? '. Zachęcamy do regularnego odwiedzania naszej strony, aby być na bieżąco z trendami, nowościami rynkowymi oraz osiągnięciami firmy STANIAX - Twojego zaufanego partnera w dziedzinie powłok lustrzanych i dekoracyjnych.' : 
-                lang === 'de' ? '. Wir laden Sie ein, unsere Website regelmäßig zu besuchen, um über Trends, Markteuigkeiten und die Erfolge von STANIAX - Ihrem zuverlässigen Partner im Bereich Spiegel- und Dekorativbeschichtungen - auf dem Laufenden zu bleiben.' :
-                '. We invite you to visit our website regularly to stay up-to-date with trends, market news, and the achievements of STANIAX - your trusted partner in mirror and decorative coatings.'}
+              {activeLang === "pl"
+                ? "Artykuły w bazie wiedzy STANIAX omawiają procesy realizowane codziennie w naszym zakładzie przy ul. Wyszyńskiego 116A w Józefowie. Sprawdź specyfikację poszczególnych usług: "
+                : activeLang === "de"
+                  ? "Die Fachartikel in der STANIAX-Wissensdatenbank erläutern Prozesse, die täglich in unserem Werk in Józefów durchgeführt werden. Entdecken Sie unsere Leistungen: "
+                  : "The articles in the STANIAX knowledge base cover processes performed daily at our plant in Józefów. Explore the technical specifications of our services: "}
+              <Link
+                to={SERVICE_SLUGS.reflectors[activeLang]}
+                className="text-accent hover:underline font-medium"
+              >
+                {activeLang === "pl"
+                  ? "regeneracja odbłyśników i reflektorów samochodowych"
+                  : activeLang === "de"
+                    ? "Scheinwerfer-Reflektor-Aufbereitung"
+                    : "headlight reflector restoration"}
+              </Link>
+              {", "}
+              <Link
+                to={SERVICE_SLUGS["vacuum-metallization"][activeLang]}
+                className="text-accent hover:underline font-medium"
+              >
+                {activeLang === "pl"
+                  ? "usługowa metalizacja próżniowa PVD"
+                  : activeLang === "de"
+                    ? "PVD-Vakuummetallisierung im Lohnauftrag"
+                    : "contract PVD vacuum metallisation"}
+              </Link>
+              {", "}
+              <Link
+                to={SERVICE_SLUGS["plastic-metallization"][activeLang]}
+                className="text-accent hover:underline font-medium"
+              >
+                {activeLang === "pl"
+                  ? "metalizacja i chromowanie tworzyw sztucznych"
+                  : activeLang === "de"
+                    ? "Kunststoffverchromung und -metallisierung"
+                    : "plastic chrome plating and metallisation"}
+              </Link>
+              {", "}
+              <Link
+                to={SERVICE_SLUGS["plastic-painting"][activeLang]}
+                className="text-accent hover:underline font-medium"
+              >
+                {activeLang === "pl"
+                  ? "lakierowanie przemysłowe tworzyw sztucznych"
+                  : activeLang === "de"
+                    ? "industrielle Kunststofflackierung"
+                    : "industrial plastic parts painting"}
+              </Link>
+              {", "}
+              <Link
+                to={SERVICE_SLUGS["glass-painting"][activeLang]}
+                className="text-accent hover:underline font-medium"
+              >
+                {activeLang === "pl"
+                  ? "lakierowanie szkła opakowaniowego i ceramiki"
+                  : activeLang === "de"
+                    ? "Lackierung von Verpackungsglas und Keramik"
+                    : "packaging glass and ceramic painting"}
+              </Link>{" "}
+              {activeLang === "pl"
+                ? "oraz "
+                : activeLang === "de"
+                  ? "sowie "
+                  : "and "}
+              <Link
+                to={SERVICE_SLUGS["spray-painting"][activeLang]}
+                className="text-accent hover:underline font-medium"
+              >
+                {activeLang === "pl"
+                  ? "lakierowanie natryskowe HVLP w pełnej palecie RAL"
+                  : activeLang === "de"
+                    ? "HVLP-Spritzlackierung in der gesamten RAL-Palette"
+                    : "HVLP spray painting across the full RAL palette"}
+              </Link>
+              .
             </p>
           </div>
         </section>
       </main>
 
-      <BigFooter lang={lang} />
+      <BigFooter lang={activeLang} />
     </div>
-  )
+  );
 }
 
-export default NewsPage
+export default NewsPage;
